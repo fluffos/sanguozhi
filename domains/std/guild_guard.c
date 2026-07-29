@@ -7,6 +7,6 @@ inherit GUILD_GUARD;
 void setup( string guild )
 {
     set_gender( 2 ); // female - overrides default
-    set_in_room_desc( "Ò»Î»Åû¿ø´÷¼×µÄÎÀ±øÊØ×¡ÁË±±·½µÄ³ö¿Ú¡£" );
+    set_in_room_desc( "ä¸€ä½æŠ«ç›”æˆ´ç”²çš„å«å…µå®ˆä½äº†åŒ—æ–¹çš„å‡ºå£ã€‚" );
     add_block( "north" );
 }

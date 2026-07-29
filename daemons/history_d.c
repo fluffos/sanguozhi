@@ -10,7 +10,7 @@ inherit M_ACCESS;
 private mapping hisdata;
 private mapping oldhisdata;
 private mapping wizdata;
-private static int logout;
+private nosave int logout;
 
 void do_upgrade();
 
@@ -62,14 +62,14 @@ string get_new_msg(int last)
 	time = keys(wizdata);
 	time = filter_array(time, (: $1>logout :));
 	time = sort_array(time, 1);
-	msg  = HIC+"¡ò"+HIY+mud_name()+"Î×Ê¦Í¨¸æ"+HIC+"¡ò"+NOR+"\n\n";
+	msg  = HIC+"â—"+HIY+mud_name()+"å·«å¸ˆé€šå‘Š"+HIC+"â—"+NOR+"\n\n";
 	foreach(tt in time)
 		msg = msg + CHINESE_D->chinese_time(tt) + "\n" + wizdata[tt] + "\n\n";
 
         time = keys(hisdata);
         time = filter_array(time, (: $1>logout :));
 	time = sort_array(time, 1);
-        msg  = msg + HIC+"¡ò"+HIY+mud_name()+"´óÊÂ¼Ç"+HIC+"¡ò"+NOR+"\n\n";
+        msg  = msg + HIC+"â—"+HIY+mud_name()+"å¤§äº‹è®°"+HIC+"â—"+NOR+"\n\n";
         foreach(tt in time)
 		msg = msg + mud_name() + hisdata[tt][0] + "\n" + hisdata[tt][1] + "\n\n";
 
@@ -83,11 +83,11 @@ void add_hisdata(string msg)
 
 	time = time();
 	day  = DAY_D->query_date();
-	mud_time = chinese_number(day[3])+"Äê"+
-		chinese_number(day[2])+"ÔÂ";
-	if( day[1] > 7 ) mud_time = mud_time + "ÏÂÑ®";
-	else if( day[1] < 4 ) mud_time = mud_time + "ÉÏÑ®";
-	else mud_time = mud_time + "ÖĞÑ®";
+	mud_time = chinese_number(day[3])+"å¹´"+
+		chinese_number(day[2])+"æœˆ";
+	if( day[1] > 7 ) mud_time = mud_time + "ä¸‹æ—¬";
+	else if( day[1] < 4 ) mud_time = mud_time + "ä¸Šæ—¬";
+	else mud_time = mud_time + "ä¸­æ—¬";
 
 	if( member_array(time, keys(hisdata)) != -1 ){
 		SGSYS("Key "+time+" is used already");
@@ -108,8 +108,8 @@ void add_wizdata(string msg)
 		return;
         }
 	if( objectp(this_body()) )
-		wizdata[time] = HIW+this_body()->short()+NOR+"·¢²¼ÏûÏ¢£º"+msg;
-	else wizdata[time] = HIW+"ÏµÍ³"+NOR+"·¢²¼ÏûÏ¢£º"+msg;
+		wizdata[time] = HIW+this_body()->short()+NOR+"å‘å¸ƒæ¶ˆæ¯ï¼š"+msg;
+	else wizdata[time] = HIW+"ç³»ç»Ÿ"+NOR+"å‘å¸ƒæ¶ˆæ¯ï¼š"+msg;
 
 	save_data();
 

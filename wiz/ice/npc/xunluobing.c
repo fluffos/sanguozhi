@@ -20,18 +20,18 @@ void setup()
                         
         age += 18;
         rongmao += 12;
-        set_id("xunluobing","Ñ²ÂßÊ¿±ø");
+        set_id("xunluobing","å·¡é€»å£«å…µ");
         add_id("bing", "soldier");
         set_gender(1);
-        set_proper_name("Ñ²ÂßÊ¿±ø");
-        set_in_room_desc("Ñ²ÂßÊ¿±ø(xunluobing)");
+        set_proper_name("å·¡é€»å£«å…µ");
+        set_in_room_desc("å·¡é€»å£«å…µ(xunluobing)");
         set_age(age);
         set_cur_hp(200);
         set_cur_max_hp(200);
         set_sg_max_hp(200);
         init_sg_gifts(rongmao,p_tmp+15,45-rongmao-p_tmp);
         set_sg_rongmao(rongmao);
-        set_long("Ò»¸öÑ²ÂßµÄÊ¿±ø£¬Õı¾¯¾õµØ²ì¿´×ÅËÄ·½¡£\n");
+        set_long("ä¸€ä¸ªå·¡é€»çš„å£«å…µï¼Œæ­£è­¦è§‰åœ°å¯Ÿçœ‹ç€å››æ–¹ã€‚\n");
         set_movement_time(15);
         set_wander_area("ca_area");
                        
@@ -62,19 +62,19 @@ void special_answer(object who, string matter)
         switch(matter)
         {
                 case "name":
-                        this_object()->targetted_action("$NµÉÁË$T"+
-                        "Ò»ÑÛ£¬¡°Ã»¼ûÎÒÕâ¶ùÕıÃ¦×ÅÄØ¡£ÉÁ¿ª£¡¡±\n", who);
+                        this_object()->targetted_action("$Nçªäº†$T"+
+                        "ä¸€çœ¼ï¼Œâ€œæ²¡è§æˆ‘è¿™å„¿æ­£å¿™ç€å‘¢ã€‚é—ªå¼€ï¼â€\n", who);
                         return;
                 case "here":  
-                        this_object()->targetted_action("$N×ĞÏ¸µØ´òÁ¿ÁË$T"
+                        this_object()->targetted_action("$Nä»”ç»†åœ°æ‰“é‡äº†$T"
 +
-                        "Ò»·¬£º¡°Á¬Õâ¶ùÊÇÊ²Ã´µØ·½¶¼²»ÖªµÀ£¿ÎÒ¸æËßÄã£º"+
-                        "ÕâÀïÊÇ"+environment(this_body())->get_brief()+
-                        "¡£¡±\n", who);
+                        "ä¸€ç•ªï¼šâ€œè¿è¿™å„¿æ˜¯ä»€ä¹ˆåœ°æ–¹éƒ½ä¸çŸ¥é“ï¼Ÿæˆ‘å‘Šè¯‰ä½ ï¼š"+
+                        "è¿™é‡Œæ˜¯"+environment(this_body())->get_brief()+
+                        "ã€‚â€\n", who);
                         return;
                 case "rumors":
-                        this_object()->targetted_action("$N²»ÄÍ·³µØËµ£º"+
-                        "¡°$TÃ»ÊÂ¸É¹â´òÌıÕâĞ©ÏĞÊÂ£¿Ò»±ßÈ¥£¡¡±\n", who);
+                        this_object()->targetted_action("$Nä¸è€çƒ¦åœ°è¯´ï¼š"+
+                        "â€œ$Tæ²¡äº‹å¹²å…‰æ‰“å¬è¿™äº›é—²äº‹ï¼Ÿä¸€è¾¹å»ï¼â€\n", who);
                         return;
         }
 }

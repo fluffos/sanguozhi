@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is °ÍÉ½Ò¹Óê
+// driver is å·´å±±å¤œé›¨
 // created date is Mon May 30 21:04:13 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,7 +7,7 @@ inherit OUTDOOR_ROOM;
 void setup() {
 set_area("chaisang");
 set_light(50);
-set_brief("%^YELLOW%^"+"¾üÓª"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"å†›è¥"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "west":"/a/chaisang/cs_xiaochang.c",
@@ -16,5 +16,5 @@ set_exits( ([
 
 "south":"/a/chaisang/cs_beijiedong.c",
  ]));
-set_objects(([M_BOARD : ({ 1,"ÕâÀïµÄ°ñÎÄ¾­³£·¢²¼¹ú¼Ò´óÊÂ£¬ÇÆÇÆÈ¥¡£\n\nÄ¾ÅÆÉÏ¹Ò×Å "+"%^MAGENTA%^"+"²ñÉ£ÁôÑÔ°ñ"+"%^RESET%^", "city.chaisang" }) ]) );
+set_objects(([M_BOARD : ({ 1,"è¿™é‡Œçš„æ¦œæ–‡ç»å¸¸å‘å¸ƒå›½å®¶å¤§äº‹ï¼Œç§ç§å»ã€‚\n\næœ¨ç‰Œä¸ŠæŒ‚ç€ "+"%^MAGENTA%^"+"æŸ´æ¡‘ç•™è¨€æ¦œ"+"%^RESET%^", "city.chaisang" }) ]) );
 }

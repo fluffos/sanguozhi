@@ -23,7 +23,7 @@
 ** ({ ({ first rules }), ({ syns for first rules }), ({ second rules }),
 **    ... etc ... })
 */
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ }) });
 }
@@ -86,28 +86,28 @@ mixed try_to_acquire(object ob) {
     if (environment(ob) == this_body()) return 1;
     //write("(Taking " + ob->short());
     if (!environment(ob)) {
-        write("ºÃÏóÊÇ×Ô¼ºÑÛ»¨ÁË...\n");
+        write("å¥½è±¡æ˜¯è‡ªå·±çœ¼èŠ±äº†...\n");
         return 0;
     }
-    write("(ÄãÏÈ");
+    write("(ä½ å…ˆ");
     if (environment(ob) != environment(this_body()))
-        write("´Ó" + environment(ob)->short()+"ÄÃ³ö"
+        write("ä»" + environment(ob)->short()+"æ‹¿å‡º"
               +ob->short()+")\n");
-    else write("Ê°Æğ"+ob->short()+")\n");
+    else write("æ‹¾èµ·"+ob->short()+")\n");
     this_body()->do_game_command("get " + refer_to_object(ob));
     return environment(ob) == this_body();
 }     
 
 mixed check_ghost() {
     if (this_body()->query_ghost())
-        return "¿ÉÊÇÄãÖ»ÊÇÒ»¸ö¹í»ê£¡\n";//"But you're a ghost!\n";
+        return "å¯æ˜¯ä½ åªæ˜¯ä¸€ä¸ªé¬¼é­‚ï¼\n";//"But you're a ghost!\n";
     return 1;
 }
 
 mixed check_vision() {
     if (environment(this_body())->query_light())
         return 1;
-    return "ÄãÊ²Ã´¶¼¿´²»Çå³ş¡£¡£¡£\n";//"You can't see a thing!\n";
+    return "ä½ ä»€ä¹ˆéƒ½çœ‹ä¸æ¸…æ¥šã€‚ã€‚ã€‚\n";//"You can't see a thing!\n";
 }
 
 mixed check_condition() {
@@ -147,7 +147,7 @@ mixed default_checks() {
     return 1;
 }
 
-void handle_obs(array info, function callback, mixed extra...) {
+void handle_obs(mixed *info, function callback, mixed extra...) {
     foreach (mixed ob in info) {
         if (stringp(ob))
             write(ob);

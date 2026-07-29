@@ -8,9 +8,9 @@
 
 inherit CMD;
 
-#define DIVIDER     "%^H_CYAN%^©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤%^RESET%^"
-#define USER_DESC   "%%^H_WHITE%%^©¤£½%%^H_YELLOW%%^Íæ¼ÒÁÐ±í%%^H_WHITE%%^£½©¤%%^RESET%%^  "
-#define WHO_FORMAT  "%%^H_MAGENTA%%^¡ù %%^H_GREEN%%^%s%%^H_MAGENTA%%^ ¡ù%%^RESET%%^  %%^H_WHITE%%^£¨µ±µØÊ±¼ä£º%s£©\n%s%%^H_WHITE%%^Ä¿Ç°×ÜÈËÊý£º%dÈË%%^RESET%%^\n%s\n"
+#define DIVIDER     "%^H_CYAN%^â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€%^RESET%^"
+#define USER_DESC   "%%^H_WHITE%%^â”€ï¼%%^H_YELLOW%%^çŽ©å®¶åˆ—è¡¨%%^H_WHITE%%^ï¼â”€%%^RESET%%^  "
+#define WHO_FORMAT  "%%^H_MAGENTA%%^â€» %%^H_GREEN%%^%s%%^H_MAGENTA%%^ â€»%%^RESET%%^  %%^H_WHITE%%^ï¼ˆå½“åœ°æ—¶é—´ï¼š%sï¼‰\n%s%%^H_WHITE%%^ç›®å‰æ€»äººæ•°ï¼š%däºº%%^RESET%%^\n%s\n"
 
 string get_who_string(string arg)
 {
@@ -30,15 +30,15 @@ string get_who_string(string arg)
     }
     if ( stringp(site) ) {
 	if( member_array(site, IMUD_D->query_up_muds()) == -1 )
-	    return "Óë¡°"+site+"¡±Á¬½ÓÊ§°Ü£¡\n";
+	    return "ä¸Žâ€œ"+site+"â€è¿žæŽ¥å¤±è´¥ï¼\n";
         else 
 	    IMUD_D->do_who(site, arg);
-        return "Ïò¡°"+site+"¡±·¢ËÍÑ¶Ï¢£¬ÇëÉÔºò¡£";
+        return "å‘â€œ"+site+"â€å‘é€è®¯æ¯ï¼Œè¯·ç¨å€™ã€‚";
     }
 
     switch ( arg ) {
 	    case "-i":
-            	extra = "%^H_WHITE%^©¤£½%^H_YELLOW%^IDÁÐ±í%^H_WHITE%^£½©¤%^RESET%^  ";
+            	extra = "%^H_WHITE%^â”€ï¼%^H_YELLOW%^IDåˆ—è¡¨%^H_WHITE%^ï¼â”€%^RESET%^  ";
             	retval += sprintf(WHO_FORMAT, mud_name(),CHINESE_D->chinese_time(time()), extra, sizeof(users()),DIVIDER);
             	return retval+ sprintf("%-#79s\n", implode(users()->query_body()->query_who_name()-({0}), "\n"));
             case "-p":
@@ -46,15 +46,15 @@ string get_who_string(string arg)
                 u = filter_array(users(), (: !wizardp($1) :));
 		break;
             case "-w":
-		extra = "Î×Ê¦ÁÐ±í";
+		extra = "å·«å¸ˆåˆ—è¡¨";
                 u = filter_array(users(), (: wizardp :));
 		break;
             case "-a":
-		extra = "ËùÓÐÔÚÏßÈËÎï";
+		extra = "æ‰€æœ‰åœ¨çº¿äººç‰©";
                 if ( wizardp(this_user()) ) u = users();
                 break;
             case "-m":
-		extra = "·¢´ôÕßÁÐ±í";
+		extra = "å‘å‘†è€…åˆ—è¡¨";
 		u = filter_array(u, (: query_idle($1)>60 :) );
                 break;
             case "-n": 
@@ -62,13 +62,13 @@ string get_who_string(string arg)
                 ids = sort_array(ids, (: (( CHAR_D->get_char($1,"nation")+"0" > 
                       CHAR_D->get_char($2,"nation")+"0" ) ? 1 : -1) :));
                 u=({});
-		extra = "°´¹ú¼ÒÅÅÐò";
+		extra = "æŒ‰å›½å®¶æŽ’åº";
                 foreach(string id in ids) {
                     u+=({find_user(id)});
                 }
                 break;
             case "-ip": 
-		extra = "°´IPµØÖ·ÅÅÐò";
+		extra = "æŒ‰IPåœ°å€æŽ’åº";
                 ids = u->query_body()->query_primary_id();
 		ids-= ({0});
                 ids = sort_array(ids, (:  query_ip_name(find_user($1)) > 
@@ -79,7 +79,7 @@ string get_who_string(string arg)
                 }
                 break;
             case "-r": 
-		extra = "°´ÉùÍûÅÅÐò";
+		extra = "æŒ‰å£°æœ›æŽ’åº";
                 ids= u->query_body()->query_primary_id();
                 ids= sort_array(ids, (: (( CHAR_D->get_char($1,"reputation") > 
                      CHAR_D->get_char($2,"reputation") ) ? 1 : -1):));
@@ -89,7 +89,7 @@ string get_who_string(string arg)
                 }
 		break;
             case "-l": 
-		extra = "°´¹ÙÖ°ÅÅÐò";
+		extra = "æŒ‰å®˜èŒæŽ’åº";
                 ids = u->query_body()->query_primary_id();
                 ids = sort_array(ids, (: (( CHAR_D->get_char($1,"level") > 
                 CHAR_D->get_char($2,"level") ) ? 1 : -1) :));
@@ -101,9 +101,9 @@ string get_who_string(string arg)
             default :
                 arg = replace_string(arg[1..], "_", " ");
                 if( member_array(arg,COUNTRY_D->list_countries() )==-1 )
-		    return "ÓÃ·¨´íÎó£¬ÓÃ help who ²é¿´°ïÖú¡£\n";
+		    return "ç”¨æ³•é”™è¯¯ï¼Œç”¨ help who æŸ¥çœ‹å¸®åŠ©ã€‚\n";
 		else {
-		    extra = COUNTRY_D->get_country(arg, "name")+"ÁÐ±í";
+		    extra = COUNTRY_D->get_country(arg, "name")+"åˆ—è¡¨";
                     ids = u->query_body()->query_primary_id();
                     ids = filter_array(ids, (: CHAR_D->get_char($1, "nation")==$(arg) :));
                     u=({});
@@ -113,9 +113,9 @@ string get_who_string(string arg)
                 }
     }
 
-    retval += sprintf(WHO_FORMAT, mud_name(), CHINESE_D->chinese_time(time()), "%^H_WHITE%^©¤£½%^H_YELLOW%^"+extra+"%^H_WHITE%^£½©¤%^RESET%^", sizeof(u), DIVIDER);
+    retval += sprintf(WHO_FORMAT, mud_name(), CHINESE_D->chinese_time(time()), "%^H_WHITE%^â”€ï¼%^H_YELLOW%^"+extra+"%^H_WHITE%^ï¼â”€%^RESET%^", sizeof(u), DIVIDER);
     i = sizeof(u);
-    if ( !i ) retval += sprintf("%|70s\n","¶Ô²»Æð£¬Ã»ÓÐÃûµ¥¡£");
+    if ( !i ) retval += sprintf("%|70s\n","å¯¹ä¸èµ·ï¼Œæ²¡æœ‰åå•ã€‚");
 
     while ( i-- ) {
         if ( !objectp(u[i]) ) continue;
@@ -124,8 +124,8 @@ string get_who_string(string arg)
         bits = u[i]->query_body()->get_flags(PLAYER_FLAGS);
         if(!name) name = u[i]->query_userid();
         if( !(u[i]->query_body()->is_visible()) ) name = "("+name+")";
-        if( u[i]->query_body()->test_flag(F_IN_EDIT) ) name += HIM + " -±à¼­ÖÐ-" + NOR;
-        if( u[i]->query_body()->test_flag(F_INACTIVE) ) name += HIM + " -ÀëÏßÖÐ-" + NOR;
+        if( u[i]->query_body()->test_flag(F_IN_EDIT) ) name += HIM + " -ç¼–è¾‘ä¸­-" + NOR;
+        if( u[i]->query_body()->test_flag(F_INACTIVE) ) name += HIM + " -ç¦»çº¿ä¸­-" + NOR;
         retval += sprintf("%s%s\n", CHENGHU_D->query_char_jun_who(u[i]->query_body()->query_primary_id()) ,name);
     }
 

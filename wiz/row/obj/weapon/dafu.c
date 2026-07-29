@@ -5,14 +5,14 @@ inherit M_WEAPON;
 inherit M_VALUE;
 void setup()
 {
-set_unit("±ú");
-set_id("da fu", "´ó¸«");
+set_unit("æŸ„");
+set_id("da fu", "å¤§æ–§");
 add_id("da fu");
 add_id("fu");
 add_id("axe");
-set_in_room_desc("´ó¸«(da fu)");
-set_long("ÆÄÎª³ÁÖØµÄÂíÕ½±øÆ÷£¬¶àÎª±ÛÁ¦Ç¿¾¢Ö®Îä½«ËùÓÃ£¬¸«Í·
-¿íÀ«¶øÓÖ·æÀû¡£\n");
+set_in_room_desc("å¤§æ–§(da fu)");
+set_long("é¢‡ä¸ºæ²‰é‡çš„é©¬æˆ˜å…µå™¨ï¼Œå¤šä¸ºè‡‚åŠ›å¼ºåŠ²ä¹‹æ­¦å°†æ‰€ç”¨ï¼Œæ–§å¤´
+å®½é˜”è€Œåˆé”‹åˆ©ã€‚\n");
 set_size(MEDIUM);
 set_value(500);
 set_currency_type("silver");
@@ -20,6 +20,6 @@ set_attack_ablity(110);
 set_attack_power(95);
 set_defence_ablity(110);
 set_combat_messages("combat-ji");
-set_wield_message("$N·ÜÆğË«±Û£¬½«$o¾Ù¹ıÍ·¶¥¡£\n");
-set_unwield_message("$NË«±Û»ÓÎè£¬ÒÑ½«$o¼ÜÆğ¡£\n");
+set_wield_message("$Nå¥‹èµ·åŒè‡‚ï¼Œå°†$oä¸¾è¿‡å¤´é¡¶ã€‚\n");
+set_unwield_message("$NåŒè‡‚æŒ¥èˆï¼Œå·²å°†$oæ¶èµ·ã€‚\n");
 }

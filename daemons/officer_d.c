@@ -3,9 +3,9 @@
 #define SAVE_FILE "/data/daemons/officer_d"
 inherit M_ACCESS;
 private mapping offs=([]);
-static int *lst;
-static mapping area_offs=([]);
-static mapping nation_offs=([]);
+nosave protected int *lst;
+nosave protected mapping area_offs=([]);
+nosave protected mapping nation_offs=([]);
 
 void save_data()
 {
@@ -52,7 +52,7 @@ int query_salary(int p_title)
 int* fill_nation_officer_title(int p_nationlevel,int p_type,int p_officerlevel) {
 	mapping rs;
 	int *ret=({});
-	//write("½øÁËfill_nation_officer_title()º¯Êı p_nationlevel="+p_nationlevel+" p_type="+p_type+" p_officerlevel="+p_officerlevel+"\n");
+	//write("è¿›äº†fill_nation_officer_title()å‡½æ•° p_nationlevel="+p_nationlevel+" p_type="+p_type+" p_officerlevel="+p_officerlevel+"\n");
 	foreach(int rk in lst) {
 		rs=offs[rk]["assign"];
 		if(!mapp(rs)) continue;
@@ -116,7 +116,7 @@ int* query_nation_officer_title_all(int p_nationlevel)
 int* fill_area_officer_title(int p_arealevel,int p_type,int p_officerlevel) {
 	mapping rs;
 	int *ret=({});
-	//write("½øÁËfill_area_officer_title()º¯Êı p_arealevel="+p_arealevel+" p_type="+p_type+" p_officerlevel="+p_officerlevel+"\n");
+	//write("è¿›äº†fill_area_officer_title()å‡½æ•° p_arealevel="+p_arealevel+" p_type="+p_type+" p_officerlevel="+p_officerlevel+"\n");
 	foreach(int rk in lst) {
 		//write("rk = " + rk + "\n");
 		rs=offs[rk]["assign"];
@@ -124,7 +124,7 @@ int* fill_area_officer_title(int p_arealevel,int p_type,int p_officerlevel) {
 		if(rs["pos"]!="area") continue;
 		if(rs["area_level"]!=p_arealevel) continue;
 		if(rs["typ"]!=p_type) continue;
-		if(rs["off_lev"]!=p_officerlevel) continue;   //»¹²»ÖªµÀÕâ¸öµÈ¼¶ÊÇÔõÃ´¶¨µÄ¡£¸ÃµØÇøÒ»°ÑÊÖ¾ÍÊÇ0
+		if(rs["off_lev"]!=p_officerlevel) continue;   //è¿˜ä¸çŸ¥é“è¿™ä¸ªç­‰çº§æ˜¯æ€ä¹ˆå®šçš„ã€‚è¯¥åœ°åŒºä¸€æŠŠæ‰‹å°±æ˜¯0
 		ret-=({rk});
 		ret+=({rk});
 	}
@@ -135,9 +135,9 @@ int* fill_area_officer_title(int p_arealevel,int p_type,int p_officerlevel) {
 	return ret;
 }
 
-//p_arealevelÊÇµØÇøareaµÄµÈ¼¶
-//p_typeÊÇÀàĞÍ(ÎÄ¹ÙÎä¹ÙÊ×Áì)£¬È¡ÖµÓĞ0£¬1£¬2
-//p_officerlevelÊÇ¹ÙÖ°µÄµÈ¼¶
+//p_arealevelæ˜¯åœ°åŒºareaçš„ç­‰çº§
+//p_typeæ˜¯ç±»å‹(æ–‡å®˜æ­¦å®˜é¦–é¢†)ï¼Œå–å€¼æœ‰0ï¼Œ1ï¼Œ2
+//p_officerlevelæ˜¯å®˜èŒçš„ç­‰çº§
 int* query_area_officer_title(int p_arealevel,int p_type,int p_officerlevel)
 {
 	string idx;
@@ -172,7 +172,7 @@ int* query_area_officer_title_all(int p_arealevel)
 string query_rank_name(int p_rank)
 {
 	if(member_array(p_rank,lst)==-1)
-		return "©¥©¥";
+		return "â”â”";
 	return offs[p_rank]["name"];
 }
 int init_offs() {
@@ -201,10 +201,10 @@ string list_off(int *rks) {
 	string ret;
 	sum=sizeof(rks);
 	if(!sum) 
-		return "Ã»ÓĞ²éµ½ÏàÓ¦¹ÙÖ°¡£\n";
+		return "æ²¡æœ‰æŸ¥åˆ°ç›¸åº”å®˜èŒã€‚\n";
 	//write("sum = " + sum + "\n");
 	ret=
-"£É£Ä ¹ÙÏÎÃû³Æ µÈ¼¶|£É£Ä ¹ÙÏÎÃû³Æ µÈ¼¶|£É£Ä ¹ÙÏÎÃû³Æ µÈ¼¶|£É£Ä ¹ÙÏÎÃû³Æ µÈ¼¶ \n";
+"ï¼©ï¼¤ å®˜è¡”åç§° ç­‰çº§|ï¼©ï¼¤ å®˜è¡”åç§° ç­‰çº§|ï¼©ï¼¤ å®˜è¡”åç§° ç­‰çº§|ï¼©ï¼¤ å®˜è¡”åç§° ç­‰çº§ \n";
 	ts=1;
 	for(i=0;i<sum;++i,ts++) {
 		//write("rks[i] = " + rks[i] + "\n");
@@ -221,9 +221,9 @@ string list_off(int *rks) {
 }
 string typ_str(int s) {
 	switch(s) {
-		case 1: return "ÎÄ¹Ù";
-		case 2: return "Îä¹Ù";
-		default: return "Ê×Áì";
+		case 1: return "æ–‡å®˜";
+		case 2: return "æ­¦å®˜";
+		default: return "é¦–é¢†";
 	}
 }
 int reputation_req(int level) {
@@ -297,15 +297,15 @@ int contribution_req(int level) {
 }
 string req_str(string wt) {
 	switch(wt) {
-		case "reputation": return "ÉùÍû";
-		case "literate": return "ÎÄÑ§";
-		case "loyalty": return "ÖÒ³Ï";
-		case "nationcontribution": return "¹ú¼Ò¹±Ï×";
-		case "localcontribution": return "µØÇø¹±Ï×";
-		case "sk_wuli": return "ÎäÑ§ĞŞÑø";
-		case "sk_meili": return "ÖÎ¹úĞŞÑø";
-		case "sk_zhimou": return "±ø·¨ĞŞÑø";
-		default: return "Î´Öª";
+		case "reputation": return "å£°æœ›";
+		case "literate": return "æ–‡å­¦";
+		case "loyalty": return "å¿ è¯š";
+		case "nationcontribution": return "å›½å®¶è´¡çŒ®";
+		case "localcontribution": return "åœ°åŒºè´¡çŒ®";
+		case "sk_wuli": return "æ­¦å­¦ä¿®å…»";
+		case "sk_meili": return "æ²»å›½ä¿®å…»";
+		case "sk_zhimou": return "å…µæ³•ä¿®å…»";
+		default: return "æœªçŸ¥";
 	}
 }
 mixed query_requirement(int r) {
@@ -349,40 +349,40 @@ string show_off(int r) {
 	string ret;
 	mapping res;
 	mapping req;
-	if(!mapp(offs[r])) return "Ã»ÓĞÕâ¸ö¹ÙÏÎ¡£\n";
-	ret="»ù±¾ĞÅÏ¢£º\n";
-	ret+=COLOR_D->right_string("%^H_GREEN%^ID£º",12)+"  "+COLOR_D->left_string(""+r+"%^RESET%^",30)+"\n";
-	ret+=COLOR_D->right_string("%^H_RED%^Ãû³Æ£º",12)+"  "+COLOR_D->left_string(offs[r]["name"]+"%^RESET%^",30)+"\n";
-	ret+=COLOR_D->right_string("%^H_RED%^µÈ¼¶£º",12)+"  "+COLOR_D->left_string(""+offs[r]["level"]+"%^RESET%^",30)+"\n";
-	ret+=COLOR_D->right_string("%^H_RED%^ÙºÂ»£º",12)+"  "+COLOR_D->left_string(""+query_salary(r)+"%^RESET%^",30)+"\n";
+	if(!mapp(offs[r])) return "æ²¡æœ‰è¿™ä¸ªå®˜è¡”ã€‚\n";
+	ret="åŸºæœ¬ä¿¡æ¯ï¼š\n";
+	ret+=COLOR_D->right_string("%^H_GREEN%^IDï¼š",12)+"  "+COLOR_D->left_string(""+r+"%^RESET%^",30)+"\n";
+	ret+=COLOR_D->right_string("%^H_RED%^åç§°ï¼š",12)+"  "+COLOR_D->left_string(offs[r]["name"]+"%^RESET%^",30)+"\n";
+	ret+=COLOR_D->right_string("%^H_RED%^ç­‰çº§ï¼š",12)+"  "+COLOR_D->left_string(""+offs[r]["level"]+"%^RESET%^",30)+"\n";
+	ret+=COLOR_D->right_string("%^H_RED%^ä¿¸ç¦„ï¼š",12)+"  "+COLOR_D->left_string(""+query_salary(r)+"%^RESET%^",30)+"\n";
 
 	res=offs[r]["assign"];
 	if(mapp(res)) {
 
 		if(res["pos"]=="area"){
-			ret+=COLOR_D->right_string("%^YELLOW%^Àà±ğ£º",12)+"  "+COLOR_D->left_string("µØÇø%^RESET%^",30)+"\n";
-			ret+=COLOR_D->right_string("%^YELLOW%^µØÇø¼¶±ğ£º",12)+"  "+COLOR_D->left_string(""+res["area_level"]+"%^RESET%^",30)+"\n";
-			ret+=COLOR_D->right_string("%^YELLOW%^ÀàĞÍ£º",12)+"  "+COLOR_D->left_string(""+typ_str(res["typ"])+"%^RESET%^",30)+"\n";
-			ret+=COLOR_D->right_string("%^YELLOW%^¹ÜÀí¼¶£º",12)+"  "+COLOR_D->left_string(""+res["off_lev"]+"%^RESET%^",30)+"\n";
-			ret+=COLOR_D->right_string("%^YELLOW%^ÅäÖÃÊı£º",12)+"  "+COLOR_D->left_string(""+offs[r]["num"]+"%^RESET%^",30)+"\n";
+			ret+=COLOR_D->right_string("%^YELLOW%^ç±»åˆ«ï¼š",12)+"  "+COLOR_D->left_string("åœ°åŒº%^RESET%^",30)+"\n";
+			ret+=COLOR_D->right_string("%^YELLOW%^åœ°åŒºçº§åˆ«ï¼š",12)+"  "+COLOR_D->left_string(""+res["area_level"]+"%^RESET%^",30)+"\n";
+			ret+=COLOR_D->right_string("%^YELLOW%^ç±»å‹ï¼š",12)+"  "+COLOR_D->left_string(""+typ_str(res["typ"])+"%^RESET%^",30)+"\n";
+			ret+=COLOR_D->right_string("%^YELLOW%^ç®¡ç†çº§ï¼š",12)+"  "+COLOR_D->left_string(""+res["off_lev"]+"%^RESET%^",30)+"\n";
+			ret+=COLOR_D->right_string("%^YELLOW%^é…ç½®æ•°ï¼š",12)+"  "+COLOR_D->left_string(""+offs[r]["num"]+"%^RESET%^",30)+"\n";
 		}
 		else {
-			ret+=COLOR_D->right_string("%^YELLOW%^Àà±ğ£º",12)+"  "+COLOR_D->left_string("¹ú¼Ò%^RESET%^",30)+"\n";
-			ret+=COLOR_D->right_string("%^YELLOW%^¹ú¼Ò¼¶±ğ£º",12)+"  "+COLOR_D->left_string(""+res["nation_level"]+"%^RESET%^",30)+"\n";
-			ret+=COLOR_D->right_string("%^YELLOW%^ÀàĞÍ£º",12)+"  "+COLOR_D->left_string(""+typ_str(res["typ"])+"%^RESET%^",30)+"\n";
-			ret+=COLOR_D->right_string("%^YELLOW%^¹ÜÀí¼¶£º",12)+"  "+COLOR_D->left_string(""+res["off_lev"]+"%^RESET%^",30)+"\n";
-			ret+=COLOR_D->right_string("%^YELLOW%^ÅäÖÃÊı£º",12)+"  "+COLOR_D->left_string(""+offs[r]["num"]+"%^RESET%^",30)+"\n";
+			ret+=COLOR_D->right_string("%^YELLOW%^ç±»åˆ«ï¼š",12)+"  "+COLOR_D->left_string("å›½å®¶%^RESET%^",30)+"\n";
+			ret+=COLOR_D->right_string("%^YELLOW%^å›½å®¶çº§åˆ«ï¼š",12)+"  "+COLOR_D->left_string(""+res["nation_level"]+"%^RESET%^",30)+"\n";
+			ret+=COLOR_D->right_string("%^YELLOW%^ç±»å‹ï¼š",12)+"  "+COLOR_D->left_string(""+typ_str(res["typ"])+"%^RESET%^",30)+"\n";
+			ret+=COLOR_D->right_string("%^YELLOW%^ç®¡ç†çº§ï¼š",12)+"  "+COLOR_D->left_string(""+res["off_lev"]+"%^RESET%^",30)+"\n";
+			ret+=COLOR_D->right_string("%^YELLOW%^é…ç½®æ•°ï¼š",12)+"  "+COLOR_D->left_string(""+offs[r]["num"]+"%^RESET%^",30)+"\n";
 		}
 	}
-	ret+="ÒªÇó£º\n";
+	ret+="è¦æ±‚ï¼š\n";
 	req=query_requirement(r);
 	foreach(string wt, int val in req) {
-		ret+=COLOR_D->right_string("%^H_BLUE%^"+req_str(wt)+"£º",12)+"  "+COLOR_D->left_string(""+val+"%^RESET%^",30)+"\n";
+		ret+=COLOR_D->right_string("%^H_BLUE%^"+req_str(wt)+"ï¼š",12)+"  "+COLOR_D->left_string(""+val+"%^RESET%^",30)+"\n";
 	}
 	return ret;
 }
 
-//what´ú±íarea»¹ÊÇnation, par´ú±íareaµÄµÈ¼¶
+//whatä»£è¡¨areaè¿˜æ˜¯nation, parä»£è¡¨areaçš„ç­‰çº§
 string stat_me(string what, mixed par) {
 	int *rks=({});
 	int i;
@@ -391,13 +391,13 @@ string stat_me(string what, mixed par) {
 
 	switch(what) {
 		case "list":
-			ret+="%^H_GREEN%^¹Ø¿ÚµØÇø¹ÙÔ±£º%^RESET%^\n"; ret+=stat_me("area",1)+"\n";
-			ret+="%^H_GREEN%^´å×¯µØÇø¹ÙÔ±£º%^RESET%^\n"; ret+=stat_me("area",2)+"\n";
-			ret+="%^H_GREEN%^³ÇÕòµØÇø¹ÙÔ±£º%^RESET%^\n"; ret+=stat_me("area",3)+"\n";
-			ret+="%^H_GREEN%^³ÇÊĞµØÇø¹ÙÔ±£º%^RESET%^\n"; ret+=stat_me("area",4)+"\n";
-			ret+="%^H_GREEN%^´ó³ÇµØÇø¹ÙÔ±£º%^RESET%^\n"; ret+=stat_me("area",5)+"\n";
-			ret+="%^H_GREEN%^Ò»°ã¹ú¼Ò¹ÙÔ±£º%^RESET%^\n"; ret+=stat_me("nation",0)+"\n";
-			ret+="%^H_GREEN%^µÛ¹ú¹ú¼Ò¹ÙÔ±£º%^RESET%^\n"; ret+=stat_me("nation",1);
+			ret+="%^H_GREEN%^å…³å£åœ°åŒºå®˜å‘˜ï¼š%^RESET%^\n"; ret+=stat_me("area",1)+"\n";
+			ret+="%^H_GREEN%^æ‘åº„åœ°åŒºå®˜å‘˜ï¼š%^RESET%^\n"; ret+=stat_me("area",2)+"\n";
+			ret+="%^H_GREEN%^åŸé•‡åœ°åŒºå®˜å‘˜ï¼š%^RESET%^\n"; ret+=stat_me("area",3)+"\n";
+			ret+="%^H_GREEN%^åŸå¸‚åœ°åŒºå®˜å‘˜ï¼š%^RESET%^\n"; ret+=stat_me("area",4)+"\n";
+			ret+="%^H_GREEN%^å¤§åŸåœ°åŒºå®˜å‘˜ï¼š%^RESET%^\n"; ret+=stat_me("area",5)+"\n";
+			ret+="%^H_GREEN%^ä¸€èˆ¬å›½å®¶å®˜å‘˜ï¼š%^RESET%^\n"; ret+=stat_me("nation",0)+"\n";
+			ret+="%^H_GREEN%^å¸å›½å›½å®¶å®˜å‘˜ï¼š%^RESET%^\n"; ret+=stat_me("nation",1);
 			
 			return ret;
 		case "nation":
@@ -429,7 +429,7 @@ string stat_me(string what, mixed par) {
 		default :
 			i=to_int(what);
 			if(i>0) return show_off(i);
-			return "·Ç·¨²ÎÊı£¬Çë²éÔÄhelp¡£\n";
+			return "éæ³•å‚æ•°ï¼Œè¯·æŸ¥é˜…helpã€‚\n";
 	}
 }
 void clear_officer() {

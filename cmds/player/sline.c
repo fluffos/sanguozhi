@@ -26,7 +26,7 @@ private void main( string arg )
             this_body()->remove_status_line();
             break;
         default:
-            out( "ÓÃ \"sline on\", \"sline off\", or just \"sline\" À´×ª»»¡£\n");
+            out( "ç”¨ \"sline on\", \"sline off\", or just \"sline\" æ¥è½¬æ¢ã€‚\n");
     }
 }
 

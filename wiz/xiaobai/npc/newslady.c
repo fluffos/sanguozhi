@@ -15,9 +15,9 @@ inherit M_ANSI;
 #define CALLOUT_LIMIT   300
 
 private *name_list=({ });
-private int is_on;  // ÊÇ·ñ×Ô¶¯·¢²¼ÏûÏ¢
-private string p_city = "";  // ÓÃ»§ËùÑ¡¶¨µÄ³ÇÊĞ id
-private string p_user = "";  // ÓÃ»§
+private int is_on;  // æ˜¯å¦è‡ªåŠ¨å‘å¸ƒæ¶ˆæ¯
+private string p_city = "";  // ç”¨æˆ·æ‰€é€‰å®šçš„åŸå¸‚ id
+private string p_user = "";  // ç”¨æˆ·
 private int p_nCntCallout = 0;
 
 // functions for unser interactive
@@ -42,7 +42,7 @@ void setcity( string par_str )
     
     p_city = par_str;
     
-    this_object()->simple_action( "µ±Ç°µØÇøÎª " + p_city + "¡£\n" );
+    this_object()->simple_action( "å½“å‰åœ°åŒºä¸º " + p_city + "ã€‚\n" );
     o=find_user(p_user);
     
     if(objectp(o))
@@ -78,7 +78,7 @@ void answer_warcity( object who )
 		        
 		        if ( p_city == "" )
 		        {
-                    this_object()->simple_action( "$NËµµ½\nÒÔÏÂµØÇø´¦ÓÚÕ½ÕùÖĞ£º\n" );
+                    this_object()->simple_action( "$Nè¯´åˆ°\nä»¥ä¸‹åœ°åŒºå¤„äºæˆ˜äº‰ä¸­ï¼š\n" );
 		            p_city = p_tasks[list[i]]["area"];
 		        }
 		        		        
@@ -90,17 +90,17 @@ void answer_warcity( object who )
 	
 	if ( p_cnt > 0 )
 	{
-        this_object()->targetted_action("$N¶Ô$TµÀ£º$m¶ÔÄÄ¸öµØÇø¸ĞĞËÈ¤¡£\n",who);
+        this_object()->targetted_action("$Nå¯¹$Té“ï¼š$må¯¹å“ªä¸ªåœ°åŒºæ„Ÿå…´è¶£ã€‚\n",who);
         p_user = p_id;
         o=find_user(p_id);
         if(!objectp(o)) {no_answer(); return;}
-        tell_user(p_id,"ÇëÊäÈëµØÇøµÄID\n");
-        o->modal_push((: setcity :),"µØÇø£º");
+        tell_user(p_id,"è¯·è¾“å…¥åœ°åŒºçš„ID\n");
+        o->modal_push((: setcity :),"åœ°åŒºï¼š");
         call_out("no_answer",60);
     }
     else
     {
-        this_object()->simple_action( "$NËµµ½£ºÄ¿Ç°Ã»ÓĞ´¦ÓÚÕ½Õù×´Ì¬µÄ³ÇÊĞ¡£\n" );
+        this_object()->simple_action( "$Nè¯´åˆ°ï¼šç›®å‰æ²¡æœ‰å¤„äºæˆ˜äº‰çŠ¶æ€çš„åŸå¸‚ã€‚\n" );
     }
     
 }
@@ -109,7 +109,7 @@ void no_answer()
 {
         object o;
         remove_call_out("no_answer");
-        this_object()->simpl_action("$N²»ÄÍ·³µØµÀ£ººß£¡ÔõÃ´²»ÀíÈË¼ÒÁË¡£\n");
+        this_object()->simpl_action("$Nä¸è€çƒ¦åœ°é“ï¼šå“¼ï¼æ€ä¹ˆä¸ç†äººå®¶äº†ã€‚\n");
         o=find_user(p_user);
         if(objectp(o))
                 o->modal_pop();
@@ -124,7 +124,7 @@ void answer_begin()
 {
     if ( p_city == "" )
     {
-	    this_object()->simple_action( "$NËµµ½¡°ÇëÏÈÑ¡ÔñÒ»¸ö³ÇÊĞ¡£¡±" );
+	    this_object()->simple_action( "$Nè¯´åˆ°â€œè¯·å…ˆé€‰æ‹©ä¸€ä¸ªåŸå¸‚ã€‚â€" );
 	    return;
     }
     else
@@ -132,9 +132,9 @@ void answer_begin()
         if ( !is_on )
         {
             is_on = 1;
-        	this_object()->simple_action( "$NËµµ½¡°¿ªÊ¼¹ã²¥¡±" );
+        	this_object()->simple_action( "$Nè¯´åˆ°â€œå¼€å§‹å¹¿æ’­â€" );
         	
-        	write( "µ±Ç°³ÇÊĞ£º" + p_city + "\n" );
+        	write( "å½“å‰åŸå¸‚ï¼š" + p_city + "\n" );
 
             p_nCntCallout = 0;
     //        show_warinfo();
@@ -148,7 +148,7 @@ void answer_begin()
 void answer_end()
 {
     is_on = 0;
-	this_object()->simple_action( "$NËµµ½¡°Í£Ö¹¹ã²¥¡±" );
+	this_object()->simple_action( "$Nè¯´åˆ°â€œåœæ­¢å¹¿æ’­â€" );
     remove_call_out("show_warmap");  
 }
 
@@ -179,14 +179,14 @@ void show_warinfo()
     
     if ( t_id <= 0 )
     {
-        write( "Õ½Õù½áÊøÁË¡£\n" );
+        write( "æˆ˜äº‰ç»“æŸäº†ã€‚\n" );
         
         answer_end();
         
         return;
     }
         
-    write( "\n" + p_city + "µÄÕ½ÕùĞÅÏ¢£º" + " ( task id " + t_id + " )\n\n" );
+    write( "\n" + p_city + "çš„æˆ˜äº‰ä¿¡æ¯ï¼š" + " ( task id " + t_id + " )\n\n" );
 	def_party=TASK_D->get_task(t_id,"def_party");
     
     // friend troop    
@@ -195,9 +195,9 @@ void show_warinfo()
     te=TASK_D->get_task(t_id,"def_army");
 
     disp=
-"¹¥·½²¿¶Ó¡¡¡¡¡¡¡¡¡¡´úºÅ     Ö÷½«¡¡¡¡ ´ó½«Êı¡¡±øÊı¡¡ ±øÖÖ    Î»ÖÃ¡¡×´Ì¬\n";
+"æ”»æ–¹éƒ¨é˜Ÿã€€ã€€ã€€ã€€ã€€ä»£å·     ä¸»å°†ã€€ã€€ å¤§å°†æ•°ã€€å…µæ•°ã€€ å…µç§    ä½ç½®ã€€çŠ¶æ€\n";
     disp+=
-"¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş\n";
+"ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“\n";
     if(sizeof(tf))
     {
         // loop for each troop in the att_army
@@ -220,9 +220,9 @@ void show_warinfo()
         }
     }
     disp+=
-"ÊØ·½²¿¶Ó¡¡¡¡¡¡¡¡¡¡´úºÅ     Ö÷½«¡¡¡¡ ´ó½«Êı¡¡±øÊı¡¡ ±øÖÖ    Î»ÖÃ¡¡×´Ì¬\n";
+"å®ˆæ–¹éƒ¨é˜Ÿã€€ã€€ã€€ã€€ã€€ä»£å·     ä¸»å°†ã€€ã€€ å¤§å°†æ•°ã€€å…µæ•°ã€€ å…µç§    ä½ç½®ã€€çŠ¶æ€\n";
     disp+=
-"¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş\n";
+"ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“\n";
     if(sizeof(te))
     {
     	foreach(int t in te)
@@ -278,17 +278,17 @@ string get_action(int t)
    foreach(string c in chars)
    {
       if(CHAR_D->get_char(c,"status")==STATUS_ONLINE)
-            return "ÈË¿Ø";
+            return "äººæ§";
    }
    cmd=TROOP_D->get_troops(t,"command");
-   if(!cmd) return "´ıÃü";
-   if(!cmd["action"]) return "´ıÃü";
+   if(!cmd) return "å¾…å‘½";
+   if(!cmd["action"]) return "å¾…å‘½";
    switch(cmd["action"])
    {
-      case "match": return "ĞĞ¾ü";
-      case "guard": return "·ÀÊØ";
-      case "pursue": return "×·»÷";
-      default : return "´ıÃü";
+      case "match": return "è¡Œå†›";
+      case "guard": return "é˜²å®ˆ";
+      case "pursue": return "è¿½å‡»";
+      default : return "å¾…å‘½";
    }
 
 }
@@ -296,7 +296,7 @@ string get_action(int t)
 string get_pos(int t)
 {
    int* pos;
-   string ps="£Á£Â£Ã£Ä£Å£Æ£Ç£È£É£Ê£Ë£Ì£Í£Î£Ï£Ğ£Ñ£Ò£Ó£Ô£Õ£Ö£×£Ø£Ù£Ú";
+   string ps="ï¼¡ï¼¢ï¼£ï¼¤ï¼¥ï¼¦ï¼§ï¼¨ï¼©ï¼ªï¼«ï¼¬ï¼­ï¼®ï¼¯ï¼°ï¼±ï¼²ï¼³ï¼´ï¼µï¼¶ï¼·ï¼¸ï¼¹ï¼º";
    string ret="";
    pos=TROOP_D->get_troops(t,"position");
    ret=ps[pos[0]*2..pos[0]*2+1];
@@ -314,7 +314,7 @@ void show_warmap()
     string bar;  // 
     mixed troops;
     string s_tmp;
-    string p_bar="¡¡¡¡£Á£Â£Ã£Ä£Å£Æ£Ç£È£É£Ê£Ë£Ì£Í£Î£Ï£Ğ£Ñ£Ò£Ó£Ô£Õ£Ö£×£Ø£Ù£Ú";
+    string p_bar="ã€€ã€€ï¼¡ï¼¢ï¼£ï¼¤ï¼¥ï¼¦ï¼§ï¼¨ï¼©ï¼ªï¼«ï¼¬ï¼­ï¼®ï¼¯ï¼°ï¼±ï¼²ï¼³ï¼´ï¼µï¼¶ï¼·ï¼¸ï¼¹ï¼º";
     
     mixed map_data;
 
@@ -344,7 +344,7 @@ void show_warmap()
     
     if ( t_id <= 0 )
     {
-        write( "Õ½Õù½áÊøÁË¡£\n" );
+        write( "æˆ˜äº‰ç»“æŸäº†ã€‚\n" );
         
         answer_end();
         
@@ -364,24 +364,24 @@ void show_warmap()
 
     for(i=0;i<width;++i)
     {
-        bar+="©¥";
+        bar+="â”";
     }
     
     if( !AREA_D->get_area(p_city,"name") ) 
-        disp+="µØÇøµØĞÎÍ¼¡£\n";
+        disp+="åœ°åŒºåœ°å½¢å›¾ã€‚\n";
     else 
-    	disp+=AREA_D->get_area(p_city,"name")+"µØÇøµØĞÎÍ¼¡£\n";
+    	disp+=AREA_D->get_area(p_city,"name")+"åœ°åŒºåœ°å½¢å›¾ã€‚\n";
     	
     p_bar=p_bar[0..3+2*width]+"\n";
     disp+=p_bar;
-    disp+="  ©³"+bar+"©·\n";
+    disp+="  â”"+bar+"â”“\n";
         	
     for(i=0;i<height;++i)
     {
         strInfo = "";
           
         l_n=sprintf("%2d",i+1);
-        disp+=l_n+"©§";
+        disp+=l_n+"â”ƒ";
 
         for(j=0;j<width;++j)
         {     
@@ -418,14 +418,14 @@ void show_warmap()
         }
 
         l_n=sprintf("%2d",i+1);
-        disp += "%^RESET%^©§" + l_n + strInfo + "\n";
+        disp += "%^RESET%^â”ƒ" + l_n + strInfo + "\n";
     }
 
-    disp+="  ©»"+bar+"©¿\n"+p_bar;
+    disp+="  â”—"+bar+"â”›\n"+p_bar;
     disp+=
-    "Æ½µØ£º£®  Ë®£º¡«  É½µØ£º¡Ä   ²İµØ£º£ª  
-    Ê÷ÁÖ£º¡á  ÌìÏÕ£º¡ù ÓªÕÊ£º¡ò  ×Ô¼º£º£Í
-    ¹¥·½£º£Á  ÊØ·½£º£Ä ³ÇÇ½£º©¦©¸©¼©°©´©¤ 
+    "å¹³åœ°ï¼šï¼  æ°´ï¼šï½  å±±åœ°ï¼šâˆ§   è‰åœ°ï¼šï¼Š  
+    æ ‘æ—ï¼šâ™‚  å¤©é™©ï¼šâ€» è¥å¸ï¼šâ—  è‡ªå·±ï¼šï¼­
+    æ”»æ–¹ï¼šï¼¡  å®ˆæ–¹ï¼šï¼¤ åŸå¢™ï¼šâ”‚â””â”˜â”Œâ”â”€ 
     \n";
 
     disp += "\n\n";
@@ -436,25 +436,25 @@ void show_warmap()
 
 void setup()
 {
-    set_name("news lady", "Å®²¥ÒôÔ±");
+    set_name("news lady", "å¥³æ’­éŸ³å‘˜");
     set_gender(2);
-    set_proper_name("Å®²¥ÒôÔ±");
-    set_in_room_desc("Å®²¥ÒôÔ±(news lady)");
+    set_proper_name("å¥³æ’­éŸ³å‘˜");
+    set_in_room_desc("å¥³æ’­éŸ³å‘˜(news lady)");
     add_id("lady");
     set_age(20);
     set_sg_rongmao(100);
     set_long("     
-      Ò»¸ö¶şÊ®×óÓÒµÄÅ®Ê¿£¬¾«Ã÷¸ÉÁ·£¬
-Á³ÉÏ¶Ñ×ÅÖ°ÒµµÄĞ¦Èİ£¬±íÇéÇ×ÇĞµÃÓĞĞ©ÉúÓ²¡£
+      ä¸€ä¸ªäºŒåå·¦å³çš„å¥³å£«ï¼Œç²¾æ˜å¹²ç»ƒï¼Œ
+è„¸ä¸Šå †ç€èŒä¸šçš„ç¬‘å®¹ï¼Œè¡¨æƒ…äº²åˆ‡å¾—æœ‰äº›ç”Ÿç¡¬ã€‚
 ");
 	add_question("version", "version");
 	add_question("begin", "begin");
 	add_question("end", "end");
 	add_question("city", "city");
 //        add_question("luoyang","luoyang");
-    add_pattern( "ËµµÀ£º%s", function(string left, string right){
+    add_pattern( "è¯´é“ï¼š%s", function(string left, string right){
                  
-                 respond("say ¹§Ï²£¬¹§Ï²£¡");
+                 respond("say æ­å–œï¼Œæ­å–œï¼");
 });
 }
 
@@ -463,7 +463,7 @@ void special_answer(object who, string matt)
 	switch(matt)
 	{
    		case "version" :
-        	this_object()->simple_action( "$NËµµ½¡°°æ±¾ºÅ£º" + VERSION_NUM + "¡£¡±" );
+        	this_object()->simple_action( "$Nè¯´åˆ°â€œç‰ˆæœ¬å·ï¼š" + VERSION_NUM + "ã€‚â€" );
 			return;
  		case "begin" :
 			answer_begin();

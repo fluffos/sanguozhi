@@ -6,17 +6,17 @@ string robber_name(string p_inp)
 {
         switch (p_inp)
         {
-                case "aut bandit": return "Ç¿µÁ";
-                case "aut brigand": return "ÍÁ·Ë";
-                case "aut yellow": return "»Æ½íÓàµ³";
-                default: return "É½Ôô";
+                case "aut bandit": return "å¼ºç›—";
+                case "aut brigand": return "åœŸåŒª";
+                case "aut yellow": return "é»„å·¾ä½™å…š";
+                default: return "å±±è´¼";
         }
 }
 int robber_attack_prepare(int w_id)
 {
         int p_sum;  // number of troops
         int i;
-	array att_party=({});
+	mixed * att_party=({});
 		string p_baseroom;
         string att_area,def_area,rob_id,rob_nam;
 		int *att_army;
@@ -36,7 +36,7 @@ int robber_attack_prepare(int w_id)
                 CHAR_D->add_char(l_id);
                 if(i==0)
                 {
-                        CHAR_D->set_char(l_id,"name",rob_nam+"Í·×Ó");
+                        CHAR_D->set_char(l_id,"name",rob_nam+"å¤´å­");
                         TASK_D->set_task(w_id,"att_leader",l_id);
 		}
                 else

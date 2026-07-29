@@ -5,7 +5,7 @@
 
 inherit CMD;
 
-private static mapping locks = ([]);
+private mapping locks = ([]);
 
 private nomask void unlock(string fname)
 {
@@ -27,7 +27,7 @@ nomask private void main(string* argv)
         if ( !fname )
         {
             //out("You have no cwf. Please specify a file.\n");
-            out("你没有当前文件，请指定一个文件名。\n");
+            out("浣犳病鏈夊綋鍓嶆枃浠讹紝璇锋寚瀹氫竴涓枃浠跺悕銆俓n");
             return;
         }
     }
@@ -37,7 +37,7 @@ nomask private void main(string* argv)
     if(objectp(locks[fname]))
       {
         printf(//"Sorry, that file is already being edited by %s.\n",
-               "对不起，这个文件%s正在编辑。\n",
+               "瀵逛笉璧凤紝杩欎釜鏂囦欢%s姝ｅ湪缂栬緫銆俓n",
                locks[fname]->query_userid());
         return;
       }

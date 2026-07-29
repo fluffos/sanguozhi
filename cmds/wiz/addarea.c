@@ -15,13 +15,13 @@ nomask private void main(string str)
     string extra = 0;
     if (!str)
     {
-        write("用法：addarea <area_id>\n");
+        write("鐢ㄦ硶锛歛ddarea <area_id>\n");
         return;
     }
     sscanf(p_id, "%s %s", p_id, extra);
     if ( extra )
     {
-        write("地区名之间不得有空格．\n");
+        write("鍦板尯鍚嶄箣闂翠笉寰楁湁绌烘牸锛嶾n");
 		return;
 	}
 	extra=AREA_D->add_area(p_id);

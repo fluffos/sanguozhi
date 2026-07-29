@@ -13,7 +13,7 @@ void num_decrease()
   if(num_uses > 0)  num_uses --;
   else 
     {
-      write(short()+"已经用完了。\n");
+      write(short()+"宸茬粡鐢ㄥ畬浜嗐�俓n");
       destruct();
     }
 }

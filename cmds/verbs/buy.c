@@ -5,7 +5,7 @@ void do_buy_str(string str)
 {
     mixed ss,ret;
     ss=PARASE_D->sep_id_num(str);
-        if(!ss) {write("你想买什么？\n"); return 0;}
+        if(!ss) {write("浣犳兂涔颁粈涔堬紵\n"); return 0;}
         ret=environment(this_body())->buy(ss[0],ss[1]);
         if(!ret)
         {
@@ -23,13 +23,13 @@ void do_buy_str(string str)
                                 return;
                         }
                 }
-                write("这儿不象是能买东西的地方呀。\n");
+                write("杩欏効涓嶈薄鏄兘涔颁笢瑗跨殑鍦版柟鍛�銆俓n");
         }
         else {
 	    this_body()->start_busy(2);
         }
 }
-array query_verb_info() 
+mixed * query_verb_info() 
 {
     return ({ ({ "STR" }) });
 }

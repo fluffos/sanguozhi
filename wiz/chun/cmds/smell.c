@@ -16,7 +16,7 @@ void do_smell_obj(object ob)
 {
     if ( !ob->smell() )
     {
-        printf("ÕâÎÅÆðÀ´ºÃÏóÊÇ%s.\n", ob->a_short());
+        printf("è¿™é—»èµ·æ¥å¥½è±¡æ˜¯%s.\n", ob->a_short());
     }
 }
 
@@ -25,11 +25,11 @@ void do_smell ()
   if (!environment (this_body ()) || !environment (this_body ())->smell
 ())
     {
-      printf ("ÄãÊ²Ã´Ò²Ã»ÎÅµ½¡£\n");
+      printf ("ä½ ä»€ä¹ˆä¹Ÿæ²¡é—»åˆ°ã€‚\n");
     }
 }
 
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ "OBJ" }), ({ "sniff" }) });
 }

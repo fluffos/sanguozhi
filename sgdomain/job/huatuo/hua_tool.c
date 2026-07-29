@@ -4,13 +4,13 @@
 inherit M_WEAPON;
 inherit M_VALUE;
 
-string *color = ({"°×É«", "À¼É«", "ÇàÉ«", "ºìÉ«", "ºÚÉ«", "ÎŞÉ«", "²ÊÉ«", });
-string *taste = ({"ÎŞÎ¶", "¿àÎ¶", "ÌğÎ¶", "ËáÎ¶", "À±Î¶", "É¬Î¶", "³ôÎ¶", });
+string *color = ({"ç™½è‰²", "å…°è‰²", "é’è‰²", "çº¢è‰²", "é»‘è‰²", "æ— è‰²", "å½©è‰²", });
+string *taste = ({"æ— å‘³", "è‹¦å‘³", "ç”œå‘³", "é…¸å‘³", "è¾£å‘³", "æ¶©å‘³", "è‡­å‘³", });
 
 void setup() {
-        set_id("chu tou", "Ğ¡Ò©³ú", "chu");
-        set_unit("°Ñ");
-        set_in_room_desc("Ò»°Ñ»ªÍÓ²ÉÒ©ÓÃµÄĞ¡Ò©³ú(chu tou)");
+        set_id("chu tou", "å°è¯é”„", "chu");
+        set_unit("æŠŠ");
+        set_in_room_desc("ä¸€æŠŠåé™€é‡‡è¯ç”¨çš„å°è¯é”„(chu tou)");
         set_attack_ability(20);
         set_attack_power(10);
         set_defence_ability(1);
@@ -39,28 +39,28 @@ int do_use_it()
 	if( !place || !arrayp(place) )place = ({ });
 	if( area != who->query_job("hua tuo", "area") 
 		&& member_array(area, AREA_D->get_area(who->query_job("hua tuo", "area"),"neighbor")) == -1 )
-		write("ÕâÀïÃ»ÓĞÊ²Ã´Ò©²İÖµµÃ×¢ÒâµÄ¡£\n");
+		write("è¿™é‡Œæ²¡æœ‰ä»€ä¹ˆè¯è‰å€¼å¾—æ³¨æ„çš„ã€‚\n");
 	else if( member_array(file_name(env)+".c", place) != -1 )
-		write("ÕâÀïÔç±»ÄãÍÚÁË¸öµ×³¯ÌìÁË¡£\n");
+		write("è¿™é‡Œæ—©è¢«ä½ æŒ–äº†ä¸ªåº•æœå¤©äº†ã€‚\n");
         else if( hp < 15 )
-		write("»¹ÊÇĞİÏ¢Ò»»áÔÙ¸É°É¡£\n");
+		write("è¿˜æ˜¯ä¼‘æ¯ä¸€ä¼šå†å¹²å§ã€‚\n");
 	else if( env->is_indoors() )
-		write("·¿×ÓÀïÃæÔõÃ´»áÉúÒ©²İ¡£\n");
+		write("æˆ¿å­é‡Œé¢æ€ä¹ˆä¼šç”Ÿè¯è‰ã€‚\n");
 	else {
                 who->set_cur_hp(hp-10);
-		who->simple_action("$NÄÃ×ÅÒ©³úÔÚµØÉÏ×ĞÏ¸µÄËÑË÷×Å¡£\n");
-		who->start_busy(3, "ÄãÕıÃ¦×ÅÍÚÒ©ÄØ£¡\n");
+		who->simple_action("$Næ‹¿ç€è¯é”„åœ¨åœ°ä¸Šä»”ç»†çš„æœç´¢ç€ã€‚\n");
+		who->start_busy(3, "ä½ æ­£å¿™ç€æŒ–è¯å‘¢ï¼\n");
 		if( random(3) == 1 ) {
 			place = place + ({ file_name(env)+".c" });
 			grass = new(GRASS);
 			grass->move(who);
 			who->set_job("hua tuo", "place", place);
-			who->simple_action("$NĞ¡ĞÄÒíÒíµÄÍÚ³öÒ»Öê²İÒ©¡£\n");
+			who->simple_action("$Nå°å¿ƒç¿¼ç¿¼çš„æŒ–å‡ºä¸€æ ªè‰è¯ã€‚\n");
 			if( random(sizeof(place)) > 3 ){
 				grass->set(who->query_id()[0], "ok");
-				grass->set_long("Ò»Öê"+color[i]+taste[j]+"µÄÒ©²İ¡£");
-				write("°¡£¬ÖÕÓÚÍÚµ½ÁË¡£\n");
-				write("ÄãÒ»Ê±ĞË·Ü£¬Å¾£¬Ò©³ú¶ÏÁË¡£\n");
+				grass->set_long("ä¸€æ ª"+color[i]+taste[j]+"çš„è¯è‰ã€‚");
+				write("å•Šï¼Œç»ˆäºæŒ–åˆ°äº†ã€‚\n");
+				write("ä½ ä¸€æ—¶å…´å¥‹ï¼Œå•ªï¼Œè¯é”„æ–­äº†ã€‚\n");
 				destruct( this_object() );
 				return 2;
 			} else {
@@ -68,10 +68,10 @@ int do_use_it()
 				while(k==i)k = random(sizeof(color));
 				m = random(sizeof(taste));
 				while(m==j)m = random(sizeof(taste));
-				grass->set_long("Ò»Öê"+color[k]+taste[m]+"µÄÒ©²İ¡£");
+				grass->set_long("ä¸€æ ª"+color[k]+taste[m]+"çš„è¯è‰ã€‚");
 			}
 		} else {
-			who->simple_action("¿ÉÊÇ$NÊ²Ã´Ò²Ã»·¢ÏÖ¡£\n");
+			who->simple_action("å¯æ˜¯$Nä»€ä¹ˆä¹Ÿæ²¡å‘ç°ã€‚\n");
 		}
 	};
 

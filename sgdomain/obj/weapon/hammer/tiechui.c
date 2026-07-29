@@ -5,9 +5,9 @@ inherit M_WEAPON;
 inherit M_VALUE;
 void setup()
 {
-set_unit("°Ñ");
-set_id("hammer", "Ìú´¸");
-set_in_room_desc("Ìú´¸");
+set_unit("æŠŠ");
+set_id("hammer", "é“é”¤");
+set_in_room_desc("é“é”¤");
 set_size(MEDIUM);
 set_value(2);
 set_currency_type("gold");

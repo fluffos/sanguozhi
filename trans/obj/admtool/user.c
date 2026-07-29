@@ -26,19 +26,19 @@ secure);
 #define SECS_PER_DAY        (24 * 60 * 60)
 private nomask void write_user_menu()
 {
-     write("¹ÜÀí¹¤¾ß£ºÓÃ»§¹ÜÀí\n"
+     write("ç®¡ç†å·¥å…·ï¼šç”¨æˆ·ç®¡ç†\n"
            "\n"
-           "   n [ĞÕÃû]            - É¾³ıÓÃ»§\n"
-           "   w [ĞÕÃû]            - ÌáÉıÓÃ»§ÎªÎ×Ê¦\n"
-           "   d [ĞÕÃû]            - °ÑÎ×Ê¦½µ»ØÍæ¼ÒÉí·İ\n"
+           "   n [å§“å]            - åˆ é™¤ç”¨æˆ·\n"
+           "   w [å§“å]            - æå‡ç”¨æˆ·ä¸ºå·«å¸ˆ\n"
+           "   d [å§“å]            - æŠŠå·«å¸ˆé™å›ç©å®¶èº«ä»½\n"
 #ifdef USE_WIZ_POSITION
-           "   p [ĞÕÃû] [¼¶±ğ]     - Éè¶¨Î×Ê¦µÄ¼¶±ğ\n"
+           "   p [å§“å] [çº§åˆ«]     - è®¾å®šå·«å¸ˆçš„çº§åˆ«\n"
 #endif
-           "   P [ÌìÊı]            - É¾³ı N ÌìÃ»ÓĞÉÏÏßµÄÍæ¼Ò\n" 
+           "   P [å¤©æ•°]            - åˆ é™¤ N å¤©æ²¡æœ‰ä¸Šçº¿çš„ç©å®¶\n" 
            "\n"
-          "    m        - Ö÷Ñ¡µ¥\n"
-          "    q        - ÍË³ö\n"
-          "    ?        - °ïÖú\n"
+          "    m        - ä¸»é€‰å•\n"
+          "    q        - é€€å‡º\n"
+          "    ?        - å¸®åŠ©\n"
           "\n"  
           );     
 }
@@ -48,7 +48,7 @@ private nomask void nuke_user(string userid, int skip_save)
     mixed err;
     if ( o = find_user(userid) )
     {
-    o->receive_private_msg("¶Ô²»Æğ£¬Äã±»É¾³ıÁË¡£\n");
+    o->receive_private_msg("å¯¹ä¸èµ·ï¼Œä½ è¢«åˆ é™¤äº†ã€‚\n");
     o->quit();
     }
     MAILBOX_D->get_mailbox(userid)->nuke_mailbox(1);
@@ -75,7 +75,7 @@ private nomask void confirm_nuking(string name, string str)
     str = lower_case(str);
     if ( str != "y" && str != "yes" )
     {
-    write("·ÅÆúÉ¾³ı¡£\n");//"Nuke aborted!\n");
+    write("æ”¾å¼ƒåˆ é™¤ã€‚\n");//"Nuke aborted!\n");
     return;
     }
     nuke_user(name, 0);
@@ -90,7 +90,7 @@ private nomask void confirm_nuking(string name, string str)
     str = lower_case(str);
     if ( str != "y" && str != "yes" )
     {
-    	write("·ÅÆúÉ¾³ı¡£\n");//"Nuke aborted!\n");
+    	write("æ”¾å¼ƒåˆ é™¤ã€‚\n");//"Nuke aborted!\n");
     	return;
 	}
 	all_players = ({});
@@ -113,7 +113,7 @@ private nomask void confirm_nuking(string name, string str)
 				}
 #if 0
 				else {
-					printf("É¾³ıÎÄ¼ş%s\n",ppls[j]);
+					printf("åˆ é™¤æ–‡ä»¶%s\n",ppls[j]);
 					rm (ppls[j]);
 				}
 #endif
@@ -127,7 +127,7 @@ private nomask void receive_name_for_nuking(string name)
 {
     name = lower_case(name);
     printf(//"Are you sure you want to nuke '%s' ? "
-           "ÄãÈ·¶¨ÒªÉ¾³ıÓÃ»§ %s Âğ£¿", name);
+           "ä½ ç¡®å®šè¦åˆ é™¤ç”¨æˆ· %s å—ï¼Ÿ", name);
     modal_simple((: confirm_nuking, name :));
 }
 private nomask void receive_name_for_wiz(string name)
@@ -135,18 +135,18 @@ private nomask void receive_name_for_wiz(string name)
     object ob;
     string err;
     if (!stringp(name) || name == "") {
-        printf("Äã×¼±¸ÌáÉıË­£¿\n:");
+        printf("ä½ å‡†å¤‡æå‡è°ï¼Ÿ\n:");
         return;
     }
     name = lower_case(name);
     if ( SECURE_D->query_is_wizard(name) )
     {
         printf(//"** '%s' is already a wizard.\n"
-               "** %s ÒÑ¾­ÊÇÎ×Ê¦ÁË¡£\n" , name);
+               "** %s å·²ç»æ˜¯å·«å¸ˆäº†ã€‚\n" , name);
         if (!is_directory (WIZ_DIR + name))
     {
             printf (//"However, /wiz/%s doesn't exist.  Creating...\n"
-                    "µ«ÊÇ£¬"+WIZ_DIR+"/%s »¹Î´½¨Á¢£¬½¨Á¢ÖĞ...\n", name);
+                    "ä½†æ˜¯ï¼Œ"+WIZ_DIR+"/%s è¿˜æœªå»ºç«‹ï¼Œå»ºç«‹ä¸­...\n", name);
             mkdir (WIZ_DIR + "/" + name);
             SECURE_D->set_protection (WIZ_DIR + "/"+ name, 1, name + ":");
     }
@@ -161,13 +161,13 @@ private nomask void receive_name_for_wiz(string name)
     mkdir(WIZ_DIR "/" + name);
     SECURE_D->set_protection(WIZ_DIR "/" + name, 1, name + ":");
     printf(//"'%s' is now a wizard.\n"
-           "%s ÏÖÔÚÕıÊÇ³ÉÎªÎ×Ê¦ÁË¡£\n", name);
+           "%s ç°åœ¨æ­£æ˜¯æˆä¸ºå·«å¸ˆäº†ã€‚\n", name);
  //### switch to an action?
     ob = find_user(name);
     if ( ob )
     {
         tell(ob, //"You are now a wizard.  Changing bodies...\n"
-                        "ÄãÏÖÔÚ½úÉıÎªÎ×Ê¦£¬ÍÑÌ¥»»¹ÇÖĞ...\n");
+                        "ä½ ç°åœ¨æ™‹å‡ä¸ºå·«å¸ˆï¼Œè„±èƒæ¢éª¨ä¸­...\n");
     ob->force_me("su");
     }
 }
@@ -179,14 +179,14 @@ private nomask void receive_name_for_dewiz(string name)
     if ( adminp(name) )
     {
         printf(//"** '%s' is an admin and cannot be dewizzed.\n",
-               "** %s ÊÇ´óÉñ£¬²»ÄÜ±»½µÖ°¡£\n", 
+               "** %s æ˜¯å¤§ç¥ï¼Œä¸èƒ½è¢«é™èŒã€‚\n", 
                name);
     return;
     }
     if ( !SECURE_D->query_is_wizard(name) )
     {
         printf(//"** '%s' is not a wizard.\n"
-               "** %s ÏÖÔÚ²¢²»ÊÇÎ×Ê¦¡£\n", name);
+               "** %s ç°åœ¨å¹¶ä¸æ˜¯å·«å¸ˆã€‚\n", name);
     return;
     }
     err = SECURE_D->delete_wizard(name);
@@ -197,13 +197,13 @@ private nomask void receive_name_for_dewiz(string name)
     }
     SECURE_D->set_protection(WIZ_DIR "/" + name, 1, -1);
     printf(//"'%s' is no longer a wizard.\n"
-           "%s ÏÖÔÚ²»ÔÙÊÇÎ×Ê¦ÁË¡£\n", name);
+           "%s ç°åœ¨ä¸å†æ˜¯å·«å¸ˆäº†ã€‚\n", name);
 //### switch to an action?
     ob = find_user(name);
     if ( ob )
     {
         tell(ob, //"You have lost your wizard status.\n"
-                        "Äã±»½µ»ØÎªÆÕÍ¨Íæ¼ÒÉí·İ¡£\n");
+                        "ä½ è¢«é™å›ä¸ºæ™®é€šç©å®¶èº«ä»½ã€‚\n");
     ob->force_me("su");
     }
 }
@@ -212,7 +212,7 @@ private nomask void receive_position_for_wiz(string name, string position)
 {
     USER_D->set_variable(lower_case(name), "wiz_position", position);
     printf(//"%s's position has been set to: %s\n",
-           "%s µÄÖ°Î»±»¸Ä×÷£º%s¡£\n",
+           "%s çš„èŒä½è¢«æ”¹ä½œï¼š%sã€‚\n",
        lower_case(name), position);
 }
 #endif
@@ -221,7 +221,7 @@ private nomask void confirm_purge(mixed * times, string str)
     str = lower_case(str);
     if ( str != "y" && str != "yes" )
     {
-    write("É¾³ı·ÅÆú£¡\n");//"Purge aborted!\n");
+    write("åˆ é™¤æ”¾å¼ƒï¼\n");//"Purge aborted!\n");
     return;
     }
     foreach ( mixed * info in times )
@@ -235,7 +235,7 @@ private nomask void receive_days_for_purge(string days)
                        (: $1[0] <= $(limit) :));
     printf(//"You will nuke %d users that have not logged on after %s.\n"
        //"Are you sure? ",
-       "Äã½«ÒªÉ¾³ı %d Î»×Ô´Ó %s ¾ÍÃ»ÓĞÉÏÏßµÄÍæ¼Ò¡£\nÄãÈ·¶¨Âğ£¿",
+       "ä½ å°†è¦åˆ é™¤ %d ä½è‡ªä» %s å°±æ²¡æœ‰ä¸Šçº¿çš„ç©å®¶ã€‚\nä½ ç¡®å®šå—ï¼Ÿ",
        sizeof(times), ctime(limit));
     modal_simple((: confirm_purge, times :));
 }
@@ -247,19 +247,19 @@ private nomask void receive_user_input(string str)
     {
     case "n":
         do_one_arg(//"Who should be nuked? ",
-                   "×¼±¸É¾³ıË­£¿",
+                   "å‡†å¤‡åˆ é™¤è°ï¼Ÿ",
                (: receive_name_for_nuking :),
                arg);
     break;
     case "w":
         do_one_arg(//"Who should be wizzed? ",
-                   "×¼±¸ÌáÉıË­£¿",     
+                   "å‡†å¤‡æå‡è°ï¼Ÿ",     
                (: receive_name_for_wiz :),
                arg);
     break;
     case "d":
         do_one_arg(//"Who should be de-wizzed? ",
-                   "×¼±¸°ÑË­½µÖ°£¿",     
+                   "å‡†å¤‡æŠŠè°é™èŒï¼Ÿ",     
                (: receive_name_for_dewiz :),
                arg);
     break;
@@ -267,14 +267,14 @@ private nomask void receive_user_input(string str)
     case "p":
         do_two_args(//"Set position for who? ",
                     //"Set %s's to what? ",
-                    "ÒªÉè¶¨Ë­µÄÖ°Î»£¿",
-                    "°Ñ %s Éè³ÉÊ²Ã´Ö°Î»£¿",
+                    "è¦è®¾å®šè°çš„èŒä½ï¼Ÿ",
+                    "æŠŠ %s è®¾æˆä»€ä¹ˆèŒä½ï¼Ÿ",
                 (: receive_position_for_wiz :),
                 arg);
     break;
 #endif
     case "P":
-    do_one_arg("¶àÉÙÌì£¿",
+    do_one_arg("å¤šå°‘å¤©ï¼Ÿ",
                (: receive_days_for_purge :),
                arg);
     break;
@@ -286,12 +286,12 @@ private nomask void receive_user_input(string str)
     break;
     }
 }
-static nomask void begin_user_menu()
+protected nomask void begin_user_menu()
 {
     if ( !check_privilege(1) )
     {
         //write("Sorry... admin only.\n");
-        write("¶Ô²»Æğ£¬Ö»¶Ô´óÉñ¿ª·Å¡£\n");
+        write("å¯¹ä¸èµ·ï¼Œåªå¯¹å¤§ç¥å¼€æ”¾ã€‚\n");
     return;
     }
     modal_func((: receive_user_input :), PROMPT_USER);

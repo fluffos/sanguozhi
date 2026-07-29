@@ -1,14 +1,14 @@
-// shouyu.c ººÏ×µÛÊÖÚÍ
+// shouyu.c æ±‰çŒ®å¸æ‰‹è°•
 inherit OBJ;
 inherit M_GETTABLE;
 void setup()
 {   
-    set_id("shouyu", "%^GREEN%^ººÏ×µÛÊÖÓù%^RESET%^");
+    set_id("shouyu", "%^GREEN%^æ±‰çŒ®å¸æ‰‹å¾¡%^RESET%^");
     add_id("ysf pass");
     set_size(VERY_SMALL);
-   set_long("ÕâÊÇÒ»ÕÅººÏ×µÛÇ××Ô°ä·¢µÄÊÖÓù£¬ÓĞÁËËü\n¾Í¿ÉÒÔÈ¥Ò»Ğ©»Ê¹¬ÄÚÆ½³£²»ÄÜÈ¥µÄµØ·½¡£\n");
+   set_long("è¿™æ˜¯ä¸€å¼ æ±‰çŒ®å¸äº²è‡ªé¢å‘çš„æ‰‹å¾¡ï¼Œæœ‰äº†å®ƒ\nå°±å¯ä»¥å»ä¸€äº›çš‡å®«å†…å¹³å¸¸ä¸èƒ½å»çš„åœ°æ–¹ã€‚\n");
     set_gettable(1);
     set_can_drop(0);
-   set_unit("ÕÅ");
+   set_unit("å¼ ");
     set_can_give(0);
 }

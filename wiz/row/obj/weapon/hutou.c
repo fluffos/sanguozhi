@@ -5,14 +5,14 @@ inherit M_WEAPON;
 inherit M_VALUE;
 void setup()
 {
-set_unit("¸Ë");
-set_id("hutougoulian qiang", HIY+"»¢Í·¹³Á­Ç¹"+NOR);
+set_unit("æ†");
+set_id("hutougoulian qiang", HIY+"è™å¤´é’©é•°æª"+NOR);
 add_id("hutougoulian qiang");
 add_id("qiang");
 add_id("hutougoulian");
-set_in_room_desc(HIY+"»¢Í·¹³Á­Ç¹"+NOR+"(hutougoulian qiang)");
-set_long("ÉÏµÈµÄÂíÕ½³¤±øÈĞ£¬Ç¹¸ËÓÉ»ìÌúÖı³É£¬Ç¹¼âÒ»³ßÓĞ
-Óà£¬Î²²¿³Ê»¢Í·×´£¬Á½²àÓĞ·æÀûµ¹¹³¡£\n");
+set_in_room_desc(HIY+"è™å¤´é’©é•°æª"+NOR+"(hutougoulian qiang)");
+set_long("ä¸Šç­‰çš„é©¬æˆ˜é•¿å…µåˆƒï¼Œæªæ†ç”±æ··é“é“¸æˆï¼Œæªå°–ä¸€å°ºæœ‰
+ä½™ï¼Œå°¾éƒ¨å‘ˆè™å¤´çŠ¶ï¼Œä¸¤ä¾§æœ‰é”‹åˆ©å€’é’©ã€‚\n");
 set_size(MEDIUM);
 set_value(5000);
 set_currency_type("gold");
@@ -20,6 +20,6 @@ set_attack_ablity(150);
 set_attack_power(120);
 set_defence_ablity(150);
 set_combat_messages("combat-ji");
-set_wield_message("$NË«ÊÖÒ»°Ú£¬½«$oÇæÔÚÕÆÖĞ£¬¡ºà§à§à§¡»Ğé´ÌÊıÏÂ¡£\n");
-set_unwield_message("$N½«ÕÆÖĞ$oÎè¸öÔ²È¦£¬²å»ØàÎÍ·¡£\n");
+set_wield_message("$NåŒæ‰‹ä¸€æ‘†ï¼Œå°†$oæ“åœ¨æŒä¸­ï¼Œã€å”°å”°å”°ã€è™šåˆºæ•°ä¸‹ã€‚\n");
+set_unwield_message("$Nå°†æŒä¸­$oèˆä¸ªåœ†åœˆï¼Œæ’å›è¾”å¤´ã€‚\n");
 }

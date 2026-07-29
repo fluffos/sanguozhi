@@ -12,13 +12,13 @@ void start(string arg)
   {
      if(!wizardp(this_body()))
      {
-        write("Ö»ÓÐÎ×Ê¦²Å¿É¼ì²éËûÈËµÄ¹¤×÷Çé¿ö¡£\n");
+        write("åªæœ‰å·«å¸ˆæ‰å¯æ£€æŸ¥ä»–äººçš„å·¥ä½œæƒ…å†µã€‚\n");
         return;
      }
      o_id=find_body(arg);
      if(!objectp(o_id))
      {
-        write("²éÎÞ´ËÈË¡£\n");
+        write("æŸ¥æ— æ­¤äººã€‚\n");
         return;
      }
   }
@@ -26,8 +26,8 @@ void start(string arg)
   robot_test=o_id->query_robot_test(); // how many times tested
   robot_times=o_id->query_robot_times(); // how many times as robot  if((arg=="")||(!arg))
   
-  write("ÖÇÄÜ²âÊÔ£º¡¡²âÊÔ×Ü´ÎÊý¡¡¡¡Ê§°Ü´ÎÊý¡¡¡¡ÉÏ´Î²âÊÔ½á¹û\n");
-  write("¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ\n");
-write(sprintf("            %-14s%-12s%-10s\n",chinese_number(robot_test)+"´Î",
-chinese_number(robot_times)+"´Î",(is_robot == 1 ? "Èõ¡¡ÖÇ" : "Õý  ³£")));
+  write("æ™ºèƒ½æµ‹è¯•ï¼šã€€æµ‹è¯•æ€»æ¬¡æ•°ã€€ã€€å¤±è´¥æ¬¡æ•°ã€€ã€€ä¸Šæ¬¡æµ‹è¯•ç»“æžœ\n");
+  write("ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“\n");
+write(sprintf("            %-14s%-12s%-10s\n",chinese_number(robot_test)+"æ¬¡",
+chinese_number(robot_times)+"æ¬¡",(is_robot == 1 ? "å¼±ã€€æ™º" : "æ­£  å¸¸")));
 }

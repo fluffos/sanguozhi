@@ -4,15 +4,15 @@
 inherit OBJ;
 void setup() {
     
-    set_id("sticks", "Ò»Ð©Ê÷Ö¦");
-    set_long("Ò»Ð©ºÜÓÐµ¯ÐÔµÄ»±Ê÷Ö¦£¬¿´À´¿ÉÒÔµ±ÎäÆ÷¡£ÊÔÊÔÕÛÒ»¸ùÏÂÀ´¡£(zhe sticks)\n");
-    set_in_room_desc("Ò»Ð©»±Ê÷Ö¦(sticks)");
+    set_id("sticks", "ä¸€äº›æ ‘æž");
+    set_long("ä¸€äº›å¾ˆæœ‰å¼¹æ€§çš„æ§æ ‘æžï¼Œçœ‹æ¥å¯ä»¥å½“æ­¦å™¨ã€‚è¯•è¯•æŠ˜ä¸€æ ¹ä¸‹æ¥ã€‚(zhe sticks)\n");
+    set_in_room_desc("ä¸€äº›æ§æ ‘æž(sticks)");
     set_size(VERY_SMALL);
 }
 int zhe(string n)
 {
   	object o_stick;
-	this_body()->simple_action("$NÕÛÏÂÒ»¸ù»±Ê÷Ö¦£¬»ÓÎèÁËÁ½ÏÂ£¬²åÈëÑü¼ä¡£\n");
+	this_body()->simple_action("$NæŠ˜ä¸‹ä¸€æ ¹æ§æ ‘æžï¼ŒæŒ¥èˆžäº†ä¸¤ä¸‹ï¼Œæ’å…¥è…°é—´ã€‚\n");
         o_stick=new(__DIR__+"stick.c");
 	o_stick->get();
 	o_stick->move(this_body());

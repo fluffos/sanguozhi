@@ -1,7 +1,7 @@
 // Updated by stefan on 10 Jan 1997
 /* Do not remove the headers from this file! see /USAGE for more info. */
 
-private static object victim;
+private nosave object victim;
 
 int start_shadowing(object ob) {
     if (!shadow(ob)) return 0;
@@ -14,8 +14,8 @@ int stop_shadowing() {
     victim = 0;
 }
 
-string array query_shadows() {
-    string array shadows;
+string * query_shadows() {
+    string * shadows;
     if (!victim) return ({});
     if (!(shadows = victim->query_shadows())) shadows = ({});
     return shadows + ({ file_name(this_object()) });

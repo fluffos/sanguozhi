@@ -14,10 +14,10 @@ void create()
 
 private void main(string str) {
     if (!str || str == "") {
-         out("ÓÃ·¨£ºI <whatever you did>\n");
+         out("ç”¨æ³•ï¼šI <whatever you did>\n");
          return;
     }
    if( DID_D->someone_did(str))
-    out("±¨¸æÍê±Ï¡£ (Thank you!)\n");
+    out("æŠ¥å‘Šå®Œæ¯•ã€‚ (Thank you!)\n");
 }
 

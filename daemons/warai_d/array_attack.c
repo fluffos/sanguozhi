@@ -33,27 +33,27 @@ mixed can_array_attack(int p_id,string direction)
 
 	tmp=TROOP_D->get_array_kills(p_id);
         if(tmp==0) // no bowman
-            return "ÄãÃ»ÓÐ¹­±ø¡£\n";
+            return "ä½ æ²¡æœ‰å¼“å…µã€‚\n";
         if(tmp==-1) // two tired
-            return "¹­±øÌ«ÀÛÁË¡£\n";
+            return "å¼“å…µå¤ªç´¯äº†ã€‚\n";
         if((!direction)||(direction==""))
-            return "ÉäÄÄ? \n";
+            return "å°„å“ª? \n";
         dis=get_neighbor_distance(p_id,direction);
 // edc change bowman attack distance from {1,2} to 2 only.
 /*        if(dis>2)
 */
 	if (dis != 2)
 ////	
-                return "Éä²»µ½ÄÇ¶ù¡£";
+                return "å°„ä¸åˆ°é‚£å„¿ã€‚";
         p_side=TROOP_D->get_troops(p_id,"side");
         p_otherside=get_neighbor_side(p_id, direction);
         if(!p_otherside)
-                return "´ËÏòÃ»ÓÐµÐ¾ü£®\n";
+                return "æ­¤å‘æ²¡æœ‰æ•Œå†›ï¼Ž\n";
         if(p_side==p_otherside)
-                return "ÔõÃ´ÄÜÉäÓÑ¾ü£¿\n";
+                return "æ€Žä¹ˆèƒ½å°„å‹å†›ï¼Ÿ\n";
         if (TROOP_D->get_troops(p_id, "conds"))
         { if (TROOP_D->get_troops(p_id, "conds")["confuse"])
-        return "»ìÂÒÖÐ£¬ÎÞ·¨¹¥»÷¡£\n";
+        return "æ··ä¹±ä¸­ï¼Œæ— æ³•æ”»å‡»ã€‚\n";
         }
 	return 1;
 }
@@ -61,7 +61,7 @@ mixed do_array_attack(int p_id,string dir)
 {
     string gernal_inf;
     int t_id;
-    string p_strDefLeader;  // ·ÀÊØ·½Ö÷Ë§ id
+    string p_strDefLeader;  // é˜²å®ˆæ–¹ä¸»å¸… id
     int is_PureNpc = 0;
 
     gernal_inf=get_array_attack_infomation(p_id,dir);
@@ -70,7 +70,7 @@ mixed do_array_attack(int p_id,string dir)
     array_attack_kill(p_id, dir);
     TROOP_D->array_attack_consume(p_id);
 // edc 08/04/2001
-    // add ×Ô¶¯·´Éä»÷ for npc or offline char defending
+    // add è‡ªåŠ¨åå°„å‡» for npc or offline char defending
     p_strDefLeader = TASK_D->get_task(TROOP_D->get_troops(p_id, "task_id"), "def_leader");
     is_PureNpc = ( CHAR_D->get_char_status( p_strDefLeader ) != STATUS_ONLINE );
     
@@ -100,11 +100,11 @@ void array_attack_kill(int p_id, string dir)
     p_kill=kill_troops(t,p_kill);
     mess=get_array_attack_infomation(p_id,dir);
     info_troop(p_id,mess);
-        info_troop(p_id,"%^H_GREEN%^¼ßÃðµÐ¾ü"+
-    CHINESE_D->chinese_number(p_kill)+"ÈË£®%^RESET%^\n");
+        info_troop(p_id,"%^H_GREEN%^æ­¼ç­æ•Œå†›"+
+    CHINESE_D->chinese_number(p_kill)+"äººï¼Ž%^RESET%^\n");
     mess=get_array_attack_infomation_b(p_id,dir);
     info_troop(t[0],mess);
-    info_troop(t[0],"%^H_RED%^ÎÒ·½ËðÊ§"+
-      CHINESE_D->chinese_number(p_kill)+"ÈË£®%^RESET%^\n");
+    info_troop(t[0],"%^H_RED%^æˆ‘æ–¹æŸå¤±"+
+      CHINESE_D->chinese_number(p_kill)+"äººï¼Ž%^RESET%^\n");
     clear_empty_troop(t);
 }

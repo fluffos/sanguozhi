@@ -11,14 +11,14 @@ void commonaward(object usr,int num) {
     isrobot=usr->query_robot();
     if(isrobot)
     {   
-		tell_user(p_id,"%^H_RED%^°×Ã¦ÁËÒ»³¡£¬Ê²Ã´Ò²Ã»ÀÌµ½¡£%^RESET%^\n");
+		tell_user(p_id,"%^H_RED%^ç™½å¿™äº†ä¸€åœºï¼Œä»€ä¹ˆä¹Ÿæ²¡æžåˆ°ã€‚%^RESET%^\n");
 		usr->responda("poor "+p_id);
 		return;
     }
 	n=num+random(num/2);
 	CHAR_D->add_honor_point(p_id,n);
-	tell_user(p_id,"%^H_GREEN%^¸ÉµÃ²»´í£¬µÃµ½ÁË"+chinese_number(n)+
-	   "µã½±µã¡£%^RESET%^\n");
+	tell_user(p_id,"%^H_GREEN%^å¹²å¾—ä¸é”™ï¼Œå¾—åˆ°äº†"+chinese_number(n)+
+	   "ç‚¹å¥–ç‚¹ã€‚%^RESET%^\n");
 	usr->responda("jump");
 
 }
@@ -45,33 +45,33 @@ void ask_buildbase(object me, object target)
 		me->finish_job("buildbase");
 		bs=SGBASE(p_area,f_id);
         me->targetted_action(
-			"$N¶Ô$TÐ¦×ÅËµµÀ£º±¾µØÇø½¨Éè²»×ã£¬$sÈÏÎªÓ¦µ±ÔÚ"+
-			BASE_D->get_base(f_id,"name")+"ÖÐÔÙ½¨ÉèÒ»¸ö"+
-			BASE_D->get_base(f_id,"roomname")+"£¬²»Öª$RÒâÏÂÈçºÎ£¿\n",target);
+			"$Nå¯¹$Tç¬‘ç€è¯´é“ï¼šæœ¬åœ°åŒºå»ºè®¾ä¸è¶³ï¼Œ$sè®¤ä¸ºåº”å½“åœ¨"+
+			BASE_D->get_base(f_id,"name")+"ä¸­å†å»ºè®¾ä¸€ä¸ª"+
+			BASE_D->get_base(f_id,"roomname")+"ï¼Œä¸çŸ¥$Ræ„ä¸‹å¦‚ä½•ï¼Ÿ\n",target);
 		if(!bs) {
 			target->responda("sorry "+p_id);
 			DELAY_D->delay_targetted_action(target,me,
-				"$NµÀ£º±¾µØ"+BASE_D->get_base(f_id,"name")+
-				"ÒÑ¾­²»´æÔÚÁË¡£\n",1);
+				"$Né“ï¼šæœ¬åœ°"+BASE_D->get_base(f_id,"name")+
+				"å·²ç»ä¸å­˜åœ¨äº†ã€‚\n",1);
 			return;
 		}
 		if(bs->get_leader()!=t_id) {
 			target->responda("sorry "+p_id);
 			DELAY_D->delay_targetted_action(target,me,
-				"$NµÀ£º$sÒÑ¾­²»ÊÇ"+BASE_D->get_base(f_id,"name")+
-				"µÄ×Ü¼àÁË¡£\n",1);
+				"$Né“ï¼š$så·²ç»ä¸æ˜¯"+BASE_D->get_base(f_id,"name")+
+				"çš„æ€»ç›‘äº†ã€‚\n",1);
 			return;
 		}
 		ret=bs->can_hame_more_room();
 		if(stringp(ret)) {
 			target->responda("sorry "+p_id);
 			DELAY_D->delay_targetted_action(target,me,
-				"$NµÀ£º"+ret+"\n",1);
+				"$Né“ï¼š"+ret+"\n",1);
 			return;
 		}
 		bs->add_new_room();
 		target->responda("great "+p_id);
-		target->targetted_action("$NµÀ£ººÃÖ÷Òâ£¬$sÁ¢¼´È¥°ì¡£\n",me);
+		target->targetted_action("$Né“ï¼šå¥½ä¸»æ„ï¼Œ$sç«‹å³åŽ»åŠžã€‚\n",me);
 		ROBOT->robot_test(find_user(p_id),(:award:));
 		if(!CHAR_D->get_char(t_id,"task")) {
 			CHAR_D->remove_npc_char(t_id);

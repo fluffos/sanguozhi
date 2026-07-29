@@ -28,12 +28,12 @@ private void main(string orig_input)
 
     if ( !targ_user )
     {
-        printf("Ã»ÓÐÕâ¸öÓÃ»§: %s\n", orig_input[0..space-1]);
+        printf("æ²¡æœ‰è¿™ä¸ªç”¨æˆ·: %s\n", orig_input[0..space-1]);
         return;
     }
 
-    //tell(targ_user, this_body()->query_name()+"Ç¿ÆÈÄã×ö: "+what+"\n");
-    write("ÄãÇ¿ÆÈ"+targ_user->query_body()->query_name()+"×ö: "+what+"\n");
+    //tell(targ_user, this_body()->query_name()+"å¼ºè¿«ä½ åš: "+what+"\n");
+    write("ä½ å¼ºè¿«"+targ_user->query_body()->query_name()+"åš: "+what+"\n");
 
     s = sprintf("%s forces %s to (%s) [%s]\n",
                 this_user()->query_userid(), targ_user->query_userid(),

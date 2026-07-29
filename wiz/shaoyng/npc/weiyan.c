@@ -4,11 +4,11 @@ inherit MONSTER;
 void setup()
 {
     object wep;
-    set_name("wei yan", "Œ∫—”");
+    set_name("wei yan", "È≠èÂª∂");
     add_id("wei"); 
     set_gender(1);
-    set_proper_name("Œ∫—”");
-    set_in_room_desc("Œ∫—”(wei yan)");
+    set_proper_name("È≠èÂª∂");
+    set_in_room_desc("È≠èÂª∂(wei yan)");
     set_age(31);
     set_sg_rank(R_DJJ);
     set_shengwang(100000);

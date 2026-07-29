@@ -37,14 +37,14 @@ void area_adjust(string a_id)
 		       		{   
 					qbnum=my_gold*QBSALARY;
 	        	   		CHANNEL_D->deliver_tell("rumor","system",
-        	    			sprintf("%s²»¸øÇ×±ø·¢¹»ÉÎÒø£¬Ç×±ø·×·×ÌÓÅÜ¡£",
+        	    			sprintf("%sä¸ç»™äº²å…µå‘å¤Ÿæ™Œé“¶ï¼Œäº²å…µçº·çº·é€ƒè·‘ã€‚",
 	        	    			CHAR_D->get_char(p_id,"name")));
        				}
 				food_need=qbnum;
 				if(my_food<food_need) {
 					qbnum=my_food;
 	        	   		CHANNEL_D->deliver_tell("rumor","system",
-        	    			sprintf("%s²»¸øÇ×±ø³Ô±¥Á¸Ê³£¬Ç×±ø·×·×ÌÓÅÜ¡£",
+        	    			sprintf("%sä¸ç»™äº²å…µåƒé¥±ç²®é£Ÿï¼Œäº²å…µçº·çº·é€ƒè·‘ã€‚",
 	        	    			CHAR_D->get_char(p_id,"name")));
 					my_food=0;
 
@@ -66,7 +66,7 @@ void area_adjust(string a_id)
 						case 0: 
 						  c["h_nf"]=1;
 		        	   		  CHANNEL_D->deliver_tell("rumor","system",
-        			    			sprintf("%s²»¸ø×øÆï×ã¹»½ðÁ¸£¬%s¶öÊÝÁË¡£",
+        			    			sprintf("%sä¸ç»™åéª‘è¶³å¤Ÿé‡‘ç²®ï¼Œ%sé¥¿ç˜¦äº†ã€‚",
 		        	    			CHAR_D->get_char(p_id,"name"),
 							OBJ_D->get_obj(h_type,"name")
 							));
@@ -78,7 +78,7 @@ void area_adjust(string a_id)
 						case 5: 
 						  c["h_nf"]++;
 		        	   		  CHANNEL_D->deliver_tell("rumor","system",
-        			    			sprintf("%s²»¸ø×øÆï×ã¹»½ðÁ¸£¬%s¶öÊÝÁË¡£",
+        			    			sprintf("%sä¸ç»™åéª‘è¶³å¤Ÿé‡‘ç²®ï¼Œ%sé¥¿ç˜¦äº†ã€‚",
 		        	    			CHAR_D->get_char(p_id,"name"),
 							OBJ_D->get_obj(h_type,"name")
 							));
@@ -89,7 +89,7 @@ void area_adjust(string a_id)
 						case 8: 
 						  c["h_nf"]++;
 		        	   		  CHANNEL_D->deliver_tell("rumor","system",
-        			    			sprintf("%s²»¸ø×øÆï×ã¹»½ðÁ¸£¬%s¿ì¶öËÀÁË¡£",
+        			    			sprintf("%sä¸ç»™åéª‘è¶³å¤Ÿé‡‘ç²®ï¼Œ%så¿«é¥¿æ­»äº†ã€‚",
 		        	    			CHAR_D->get_char(p_id,"name"),
 							OBJ_D->get_obj(h_type,"name")
 							));
@@ -99,7 +99,7 @@ void area_adjust(string a_id)
 						case 11: 
 						  c["h_nf"]++;
 		        	   		  CHANNEL_D->deliver_tell("rumor","system",
-        			    			sprintf("%s²»¸ø×øÆï×ã¹»½ðÁ¸£¬%sÑÙÑÙÒ»Ï¢ÁË¡£",
+        			    			sprintf("%sä¸ç»™åéª‘è¶³å¤Ÿé‡‘ç²®ï¼Œ%så¥„å¥„ä¸€æ¯äº†ã€‚",
 		        	    			CHAR_D->get_char(p_id,"name"),
 							OBJ_D->get_obj(h_type,"name")
 							));
@@ -109,7 +109,7 @@ void area_adjust(string a_id)
 						  map_delete(wear,"horse");
 						  CHAR_D->set_char(p_id,"wear",wear);
 		        	   		  CHANNEL_D->deliver_tell("rumor","system",
-        			    			sprintf("%s²»¸ø×øÆï×ã¹»½ðÁ¸£¬%s¶íËÀÁË¡£",
+        			    			sprintf("%sä¸ç»™åéª‘è¶³å¤Ÿé‡‘ç²®ï¼Œ%sä¿„æ­»äº†ã€‚",
 		        	    			CHAR_D->get_char(p_id,"name"),
 							OBJ_D->get_obj(h_type,"name")
 							));

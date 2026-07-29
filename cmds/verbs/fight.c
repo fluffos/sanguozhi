@@ -17,12 +17,12 @@ mixed do_fight_str(string str)
 		write(ret); return;
 	}
 	if(ret==1) {
-		write("������Ǳ���ĵط���\n");
+		write("这儿不是比武的地方。\n");
 		return;
 	}
 	if(!objectp(o)) return;
 	if(o==this_body()) {
-		write("�Լ����Լ���Ц����\n");
+		write("自己打自己？笑话。\n");
 		return;
 	}
 	if (objectp(o->query_link())){
@@ -32,15 +32,15 @@ mixed do_fight_str(string str)
 	    if(FIGHT_D->get_fight_peer(b_id)!=a_id) {
 	      FIGHT_D->set_fight_peer(a_id,b_id);
 	      tell(o,this_body()->query_chinese_id()+
-		  "�������䡣�����ͬ�⣬�������룺\n%^RED%^     fight "+a_id+"%^RESET%^\n");
-	      write( "��Ϊ"+o->query_chinese_id()+"��������ң�Ҫ���䣬����ȶԷ�ͬ����С�\n");
+		  "想和你比武。如果你同意，就请输入：\n%^RED%^     fight "+a_id+"%^RESET%^\n");
+	      write( "因为"+o->query_chinese_id()+"是在线玩家，要比武，必需等对方同意才行。\n");
 		return;
 			                             }
 		}
 	ret=FIGHT_D->can_fight(this_body(),o);
 }
 
-array query_verb_info()
+mixed * query_verb_info()
 {
      return ({ ({"STR" }) });
 }

@@ -3,8 +3,8 @@
 */
 #include <security.h>
 inherit M_ACCESS;
-static private mixed grid_desc_id;
-static private string a_id;
+nosave private mixed grid_desc_id;
+nosave private string a_id;
 #define GRID_HEIGHT     sizeof(grid_desc_id)
 #define GRID_WIDTH      sizeof(grid_desc_id[0])
 #define GRID_ROOM(x,y)  (file_name() + "/" + (x) + "/" + (y))
@@ -56,7 +56,7 @@ void setup()
 }
 string room_brief(int x,int y)
 {
-        return AREA_D->get_area(a_id,"name")+"地区战场 "+
+        return AREA_D->get_area(a_id,"name")+"鍦板尯鎴樺満 "+
                 MAP_D->get_color(grid_desc_id[y][x])+
                 MAP_D->get_brief(grid_desc_id[y][x])+"%^RESET%^";
 }
@@ -100,7 +100,7 @@ object virtual_create(string arg)
     return room;
 }
 // Disappear if no longer needed
-static void clean_up() {
+protected void clean_up() {
    destruct(this_object());
 }
     

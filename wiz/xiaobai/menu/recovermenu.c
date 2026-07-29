@@ -5,7 +5,7 @@
 
 #define _DEBUG_ID   "xiaobai"
 
-#define MAIN_TITLE       "\n»Ö¸´jianxu¹úµÄÄ³Ð©Êý¾Ý£º"
+#define MAIN_TITLE       "\næ¢å¤jianxuå›½çš„æŸäº›æ•°æ®ï¼š"
 
 inherit MENUS;
 inherit M_ACCESS;
@@ -38,14 +38,14 @@ void create()
 
     p_mnMain = new_menu( MAIN_TITLE );
 
-    p_quit_item = new_menu_item( "ÍË³ö", (: quit :), "q" );
+    p_quit_item = new_menu_item( "é€€å‡º", (: quit :), "q" );
     p_seperator = new_seperator("-------------------------------------------------------------------------");
     add_menu_item( p_mnMain, p_seperator);
-    add_menu_item( p_mnMain, new_menu_item("»Ö¸´½ÇÉ«(char)", (: confirm, "c" :) ,"c"));
-    add_menu_item( p_mnMain, new_menu_item("×ÔÑ¡Ì«ÊØ(taishou)", (: confirm, "t" :) ,"t"));
+    add_menu_item( p_mnMain, new_menu_item("æ¢å¤è§’è‰²(char)", (: confirm, "c" :) ,"c"));
+    add_menu_item( p_mnMain, new_menu_item("è‡ªé€‰å¤ªå®ˆ(taishou)", (: confirm, "t" :) ,"t"));
     add_menu_item( p_mnMain, p_quit_item);
    
-    set_menu_prompt ( p_mnMain, "ÊäÈëÖ¸Áî[cq]: ");
+    set_menu_prompt ( p_mnMain, "è¾“å…¥æŒ‡ä»¤[cq]: ");
 #ifdef _DEBUG_ID
     TELL_BUG( _DEBUG_ID, "exiting create()" );
 #endif  // _DEBUG_ID
@@ -57,23 +57,23 @@ private void confirm( string par_strPara )
     switch ( par_strPara )
     {
     case "c":
-        write( "½«ËùÓÐÔÚÒ°½ÇÉ«ÌáÎªµ±µØµÄÏÐÖ°¡£\n" );
+        write( "å°†æ‰€æœ‰åœ¨é‡Žè§’è‰²æä¸ºå½“åœ°çš„é—²èŒã€‚\n" );
         break;
     case "t":
-        write( "¸øËùÓÐÃ»ÓÐÌ«ÊØµÄ³ÇÊÐ×Ô¶¯Ñ¡Ì«ÊØ¡£\n" );
+        write( "ç»™æ‰€æœ‰æ²¡æœ‰å¤ªå®ˆçš„åŸŽå¸‚è‡ªåŠ¨é€‰å¤ªå®ˆã€‚\n" );
         break;            
     default:
         break;
         
     }  // end switch
 
-    get_input_then_call( (: action, par_strPara :), "È·¶¨Âð£¿( yES / nO ): " );
+    get_input_then_call( (: action, par_strPara :), "ç¡®å®šå—ï¼Ÿ( yES / nO ): " );
 }
 private void action( string par_strPara, string par_strFlag )
 {
     if ( par_strFlag != "y" )
     {
-        write( "È¡Ïû²Ù×÷\n" );
+        write( "å–æ¶ˆæ“ä½œ\n" );
         return;
     }
     
@@ -95,15 +95,15 @@ private void action( string par_strPara, string par_strFlag )
 
 private void action_char()
 {
-    string array citylist = AREA_D->list_areas();
+    string * citylist = AREA_D->list_areas();
     int nCityNum = sizeof( citylist );
     int i = 0;
-    string array strCharArr;
+    string * strCharArr;
     string strChar;
     string strCity;
     string strNation;
            
-    write( "Ö´ÐÐÃüÁî\n" );
+    write( "æ‰§è¡Œå‘½ä»¤\n" );
 #ifdef _DEBUG_ID
     TELL_BUG( _DEBUG_ID, sprintf( "got %d cities", nCityNum ) );
 #endif  // _DEBUG_ID
@@ -128,10 +128,10 @@ private void action_char()
 //        strCharArr = filter_array( strCharArr, (:(chars[$1][$(para_name)]==$(para_value)) :));
 
 #ifdef _DEBUG_ID
-    TELL_BUG( _DEBUG_ID, sprintf( "%s ÓÐ %d ¸öÔÚÒ°Íæ¼Ò", strCity, sizeof(strCharArr) ) );
+    TELL_BUG( _DEBUG_ID, sprintf( "%s æœ‰ %d ä¸ªåœ¨é‡ŽçŽ©å®¶", strCity, sizeof(strCharArr) ) );
 #endif  // _DEBUG_ID
 
-        // ËùÓÐÔÚÒ°µÄ char µ±ÉÏÏÐÖ°
+        // æ‰€æœ‰åœ¨é‡Žçš„ char å½“ä¸Šé—²èŒ
         foreach ( strChar in strCharArr )
         {
             write( strChar + "," );
@@ -149,13 +149,13 @@ private void action_char()
 
 private void action_taishou()
 {
-    string array citylist = AREA_D->list_areas();
+    string * citylist = AREA_D->list_areas();
     int nCityNum = sizeof( citylist );
     int i = 0;
     string strCity;
     string strNation;
            
-    write( "Ö´ÐÐÃüÁî\n" );
+    write( "æ‰§è¡Œå‘½ä»¤\n" );
 #ifdef _DEBUG_ID
     TELL_BUG( _DEBUG_ID, sprintf( "got %d cities", nCityNum ) );
 #endif  // _DEBUG_ID

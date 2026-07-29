@@ -1,16 +1,16 @@
 //**********************************************
-// write by fire 10/12/97 xiaoer.c µêĞ¡¶ş
+// write by fire 10/12/97 xiaoer.c åº—å°äºŒ
 #include <mudlib.h>
 inherit LIVING;
 void setup() 
 {
-    set_name("xiaoer", "µêĞ¡¶ş");
+    set_name("xiaoer", "åº—å°äºŒ");
     add_id("xiao","er");
     set_gender(1);
-    set_proper_name("ÀÁÑóÑóµÄµêĞ¡¶ş");
-    set_in_room_desc("ÕıÔÚ´òî§Ë¯µÄµêĞ¡¶ş");
-    set_long("µêĞ¡¶şÌ§Í·ÍûÁËÄãÒ»ÑÛ£¬\n"+"¿Í¹ÙĞèÒªµãÊ²Ã´Âğ£¿\n\n");
-    set_sg_zi("Ğ¡ºÚ");
+    set_proper_name("æ‡’æ´‹æ´‹çš„åº—å°äºŒ");
+    set_in_room_desc("æ­£åœ¨æ‰“çŒç¡çš„åº—å°äºŒ");
+    set_long("åº—å°äºŒæŠ¬å¤´æœ›äº†ä½ ä¸€çœ¼ï¼Œ\n"+"å®¢å®˜éœ€è¦ç‚¹ä»€ä¹ˆå—ï¼Ÿ\n\n");
+    set_sg_zi("å°é»‘");
 	add_question("rumors","rumors" );
 	add_question("food","food");
 }
@@ -19,10 +19,10 @@ void special_answer(object who, string matt)
 	switch(matt)
 	{
 		case "rumors" :
-			this_object()->targetted_action("$N¶Ô$TÇÄÉùËµ£º¡°²»Â÷ÄúËµ£¬¶«Î÷ÂíÉÏÒªÕÇ¼ÛÑ½£¡¡±\n",who);
+			this_object()->targetted_action("$Nå¯¹$Tæ‚„å£°è¯´ï¼šâ€œä¸ç’æ‚¨è¯´ï¼Œä¸œè¥¿é©¬ä¸Šè¦æ¶¨ä»·å‘€ï¼â€\n",who);
 			return;
 		case "food" :
-			this_object()->simple_action("Ğ¡¶şµÉÁËÒ»ÑÛ£º¡°ÒªÕÒ³ÔµÄ£¬»¨Ç®ÂòÑ½¡£¡±\n");
+			this_object()->simple_action("å°äºŒçªäº†ä¸€çœ¼ï¼šâ€œè¦æ‰¾åƒçš„ï¼ŒèŠ±é’±ä¹°å‘€ã€‚â€\n");
 			return;
 	}
 }

@@ -1,6 +1,6 @@
 #/std/race/human.c
 primary_id "hzjj"
-chinese_id "»ªÖĞ½¨»ú"
+chinese_id "åä¸­å»ºæœº"
 persist_flags ([0:0,])
 can_drop 1
 can_sell 1
@@ -13,14 +13,14 @@ main_prep "in"
 contained_light_added 1
 gender 1
 messages ([])
-def_messages (["home":"$n»Ø¼ÒÈ¥ÁË¡£","menter":"$nÍ»È»³öÏÖÔÚÒ»ÕóÑÌÎíÖĞ¡£","enter":"$n×ßÁË¹ıÀ´¡£","invis":"$n´ÓÄãµÄÊÓÒ°ÖĞÍ»È»ÏûÊ§ÁË¡£","vis":"$nÍ»È»³öÏÖÔÚÄãÃæÇ°£¬ÓÖËÆºõÔÚÕâÀïºÜ¾ÃÁË¡£","mleave":"$nµÄÉíÓ°ÔÚÒ»ÕóÑÌÎíÖĞ½¥½¥ÒşÈ¥¡£","destruct":"$nÅÛĞäÒ»»Ó£¬$o±»»¯³ÉÒ»¹ÉºÚÑÌ£¬´µÉ¢¿ªÈ¥¡£","clone":"$nÉìÊÖÁè¿ÕÒ»Ö¸£¬±ä³öÁË$o¡£","leave":"$n³¯$oÀë¿ªÁË¡£",])
-busy_msg "ÄãÏÖÔÚÕıÃ¦×Å£¡"
+def_messages (["home":"$nå›å®¶å»äº†ã€‚","menter":"$nçªç„¶å‡ºç°åœ¨ä¸€é˜µçƒŸé›¾ä¸­ã€‚","enter":"$nèµ°äº†è¿‡æ¥ã€‚","invis":"$nä»ä½ çš„è§†é‡ä¸­çªç„¶æ¶ˆå¤±äº†ã€‚","vis":"$nçªç„¶å‡ºç°åœ¨ä½ é¢å‰ï¼Œåˆä¼¼ä¹åœ¨è¿™é‡Œå¾ˆä¹…äº†ã€‚","mleave":"$nçš„èº«å½±åœ¨ä¸€é˜µçƒŸé›¾ä¸­æ¸æ¸éšå»ã€‚","destruct":"$nè¢è¢–ä¸€æŒ¥ï¼Œ$oè¢«åŒ–æˆä¸€è‚¡é»‘çƒŸï¼Œå¹æ•£å¼€å»ã€‚","clone":"$nä¼¸æ‰‹å‡Œç©ºä¸€æŒ‡ï¼Œå˜å‡ºäº†$oã€‚","leave":"$næœ$oç¦»å¼€äº†ã€‚",])
+busy_msg "ä½ ç°åœ¨æ­£å¿™ç€ï¼"
 busy 1308442629
 answer_list ({({"settle","settle",}),({"position","position",}),({"localmeeting","localmeeting",}),({"job","job",}),({"zgxy","zgxy",}),({"wxxy","wxxy",}),({"bfxy","bfxy",}),({"guoshi","guoshi",}),})
 ask_list ([])
 asklist ([])
 answer ([])
-sg_zi "Ô¥Áú"
+sg_zi "è±«é¾™"
 sg_wuli 30
 sg_zhimou 20
 sg_meili 10
@@ -48,11 +48,11 @@ ilog_time 1308465749
 money (["coin":50,"silver":45,"gold":0,"bank":240000,])
 sg_home ([])
 name "hzjj"
-invis_name "Ä³Ä³"
-chinese_name "»ªÖĞ½¨»ú"
+invis_name "æŸæŸ"
+chinese_name "åä¸­å»ºæœº"
 response_queue ({})
 channel_list ({"gossip","newbie","weather","rumor","imud_imud_sgz",})
 saved_items "([\"#inventory#\":({\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/money/m_silver\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/money/m_coin\\\",])\",}),\"#base_name#\":\"/std/race/human\",])"
 ag_day 26
 ag_month 4
-jobs (["choppork":(["finish_time":1308323375,"count":30,"beg_time":0,"lasttimes":({}),]),"findbody":(["assignarea":"huayin","beg_time":0,"lasttimes":({}),"finish_time":1308329590,"memo":"ÕÒ»¹ºÃ(haihao)","status":"over","count":30,]),"searchwise":(["topics":({1,2,3,6,7,8,9,}),"assignarea":"huayin","select":9,"beg_time":0,"lasttimes":({1308443301,1308443645,1308443837,1308444098,1308444498,1308444620,1308444760,1308445216,1308445390,1308466111,1308466343,1308466477,1308466597,1308466669,1308466783,1308467077,1308467590,1308467766,1308468030,1308468156,1308468310,1308468424,1308468432,1308468518,1308468616,1308468765,1308468989,1308469127,1308469253,1308469391,}),"finish_time":1308469391,"memo":"°İ·Ã%^H_CYAN%^²ÜË¬%^RESET%^(cao shuang)","status":"over","count":60,"score":50,]),"bugao":(["assignarea":"huayin","beg_time":0,"lasttimes":({}),"finish_time":1308336213,"memo":"ÎåÕÉÔ­µÄ%^YELLOW%^Â¹íÎ%^RESET%^","status":"over","count":30,]),"askobj":(["obj_id":"test","assignarea":"huayin","beg_time":0,"lasttimes":({}),"finish_time":1308326571,"memo":"ÕÒÂ¤Î÷µÄ%^H_CYAN%^²Ìçß%^RESET%^´ß0","status":"over","count":30,]),])
+jobs (["choppork":(["finish_time":1308323375,"count":30,"beg_time":0,"lasttimes":({}),]),"findbody":(["assignarea":"huayin","beg_time":0,"lasttimes":({}),"finish_time":1308329590,"memo":"æ‰¾è¿˜å¥½(haihao)","status":"over","count":30,]),"searchwise":(["topics":({1,2,3,6,7,8,9,}),"assignarea":"huayin","select":9,"beg_time":0,"lasttimes":({1308443301,1308443645,1308443837,1308444098,1308444498,1308444620,1308444760,1308445216,1308445390,1308466111,1308466343,1308466477,1308466597,1308466669,1308466783,1308467077,1308467590,1308467766,1308468030,1308468156,1308468310,1308468424,1308468432,1308468518,1308468616,1308468765,1308468989,1308469127,1308469253,1308469391,}),"finish_time":1308469391,"memo":"æ‹œè®¿%^H_CYAN%^æ›¹çˆ½%^RESET%^(cao shuang)","status":"over","count":60,"score":50,]),"bugao":(["assignarea":"huayin","beg_time":0,"lasttimes":({}),"finish_time":1308336213,"memo":"äº”ä¸ˆåŸçš„%^YELLOW%^é¹¿ç ¦%^RESET%^","status":"over","count":30,]),"askobj":(["obj_id":"test","assignarea":"huayin","beg_time":0,"lasttimes":({}),"finish_time":1308326571,"memo":"æ‰¾é™‡è¥¿çš„%^H_CYAN%^è”¡é‚•%^RESET%^å‚¬0","status":"over","count":30,]),])

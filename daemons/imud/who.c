@@ -10,7 +10,7 @@
 #define CMD_WHO_OBJ "/cmds/player/who.c"
 
 private mapping	mudlist_user_num = ([ ]); 	//added by suicide in 2000.01.12
-private mixed* userlist = ({});				//who-reply°üÖÐ´øµÄ²ÎÊý£¬ÔÚÏßÃûµ¥({"username",idle time,"extra info"})
+private mixed* userlist = ({});				//who-replyåŒ…ä¸­å¸¦çš„å‚æ•°ï¼Œåœ¨çº¿åå•({"username",idle time,"extra info"})
 
 mapping query_mudlist();
 void send_to_mud(string type, string mudname, mixed * message);
@@ -27,13 +27,13 @@ nomask void do_who(string mudname, string arg)
 	send_to_mud("who-req", canon_mudname(mudname), ({}));
 }
 
-static nomask void rcv_who_req(string orig_mud, string orig_user,
+protected nomask void rcv_who_req(string orig_mud, string orig_user,
                                string targ_user, mixed * message)
 {
     string ret;
 	mixed* wholist = ({});
 
-	//tell_user("huaer",sprintf("½øÁË/imud/who.cÖÐ\n"));
+	//tell_user("huaer",sprintf("è¿›äº†/imud/who.cä¸­\n"));
 	//tell_user("huaer",sprintf("orig_mud = %s\n",orig_mud));
 	//tell_user("huaer",sprintf("orig_user = %s\n",orig_user));
 	//tell_user("huaer",sprintf("targ_user = %s\n",targ_user));
@@ -58,11 +58,11 @@ static nomask void rcv_who_req(string orig_mud, string orig_user,
 		//tell_user("huaer",sprintf("wholist[i] = %O\n",wholist[i]));
 		send_to_user("who-reply", orig_mud, orig_user, ({ wholist[i] }));
 	}
-	//send_to_user("who-reply", orig_mud, orig_user, ({ ({"Î÷¹Ï",0,"hello"}), }));
+	//send_to_user("who-reply", orig_mud, orig_user, ({ ({"è¥¿ç“œ",0,"hello"}), }));
 	//send_to_user("who-reply", orig_mud, orig_user, wholist);
 }
 
-static nomask void rcv_who_reply(string orig_mud, string orig_user,
+protected nomask void rcv_who_reply(string orig_mud, string orig_user,
                                  string targ_user, mixed * message)
 {
     object p;
@@ -72,7 +72,7 @@ static nomask void rcv_who_reply(string orig_mud, string orig_user,
     p = find_user(targ_user);
     /*if (stringp(message[0])) {
     	if (p) tell(p, message[0]);
-    	if (sscanf(message[0], "%sÄ¿Ç°×ÜÈËÊý£º%dÈË%s", t1, num, t2) == 3)
+    	if (sscanf(message[0], "%sç›®å‰æ€»äººæ•°ï¼š%däºº%s", t1, num, t2) == 3)
     	    LOG_D->log(LOG_I3, sprintf("%d\t%s\t%d\n", time(), orig_mud, num));
     	mudlist_user_num[orig_mud] = num;  	
     }
@@ -88,7 +88,7 @@ static nomask void rcv_who_reply(string orig_mud, string orig_user,
     	tell(p, message[0]+"\n");
     }*/
 	tell(p, "\n");
-	foreach(array oneuser in message)
+	foreach(mixed *oneuser in message)
 	{
 		tell(p, sprintf("%s",oneuser[0]));
 	}
@@ -100,7 +100,7 @@ nomask void count_users() {
     mudlist = query_mudlist();
     if (mapp(mudlist)) {
     	string mud;
-    	array muds = keys(mudlist);
+    	mixed * muds = keys(mudlist);
     	foreach (mud in muds) {
     		mudlist_user_num[mud] = 0; 
                 if (stringp(mud) && (mudlist[mud][0] == -1)) 
@@ -123,7 +123,7 @@ private nomask void get_who_list()
 	string name;
 	int num;
 	//mixed* out = ({});
-	array one = allocate(3);
+	mixed * one = allocate(3);
 	
 	alluser = users();
 	num = sizeof(alluser);
@@ -133,13 +133,13 @@ private nomask void get_who_list()
 	{
 		tell_user("huaer",sprintf("objectp = %d\n",objectp(alluser[i])));
         if ( !objectp(alluser[i]) ) {
-			tell_user("huaer","objectpÕâÀï·µ»Ø\n");
+			tell_user("huaer","objectpè¿™é‡Œè¿”å›ž\n");
 			continue;
 		}
 		tell_user("huaer",sprintf("alluser = %O\n",alluser[i]));
 		tell_user("huaer",sprintf("query_body = %O\n",alluser[i]->query_body()));
         if ( !alluser[i]->query_body() ) {
-			tell_user("huaer","query_bodyÕâÀï·µ»Ø\n");
+			tell_user("huaer","query_bodyè¿™é‡Œè¿”å›ž\n");
 			continue;
 		}
         name = alluser[i]->query_body()->in_room_desc();

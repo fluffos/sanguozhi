@@ -1,4 +1,4 @@
-// µ¥Ìô
+// å•æŒ‘
 #include <mudlib.h>
 #include <daemons.h>
 #include <ansi.h>
@@ -25,24 +25,24 @@ void main(object ob, string who)
 	target= find_body(who);
 	who_id = who;
 	if( !p_id){
-                write("Ö»ÓĞÉíÔÚ¾üÖĞ²ÅÄÜµ¥Ìô¡£\n");
+                write("åªæœ‰èº«åœ¨å†›ä¸­æ‰èƒ½å•æŒ‘ã€‚\n");
                 return;
         }	
 	// In the furture, We have to consider theplayer's ablility
 	// add the exp of this jimou, reduce mp, etc.
 	
 	if ( !e_id || TROOP_D->get_troop_area(e_id)!=where)
-		{ write("¶Ô·½²»ÔÚ´ËÕ½³¡ÉÏ¡£\n");
+		{ write("å¯¹æ–¹ä¸åœ¨æ­¤æˆ˜åœºä¸Šã€‚\n");
 			return;
 		}
 	
 	if (!objectp(target))
-		{ write("¶Ô·½ÔİÊ±²»ÄÜµ¥Ìô¡£\n");
+		{ write("å¯¹æ–¹æš‚æ—¶ä¸èƒ½å•æŒ‘ã€‚\n");
 			return;
 		}
 		
 	if (TROOP_D->get_troop_side(e_id) ==TROOP_D->get_troop_side(p_id))
-                {write ("²»¿ÉÏò¼º·½²¿¶ÓÊ©ÓÃµ¥Ìô¡£\n");
+                {write ("ä¸å¯å‘å·±æ–¹éƒ¨é˜Ÿæ–½ç”¨å•æŒ‘ã€‚\n");
                         return;
                 }
 	x =TROOP_D->get_troop_position(p_id)[0];
@@ -52,18 +52,18 @@ void main(object ob, string who)
                 y2 = TROOP_D->get_troop_position(e_id)[1];
 
                 if( (x-x2)*(x-x2)+(y-y2)*(y-y2) > 36 ){
-			write("ÄãÀëµĞÈËÌ«Ô¶£¬ÎŞ·¨µ¥Ìô¡£\n");
+			write("ä½ ç¦»æ•Œäººå¤ªè¿œï¼Œæ— æ³•å•æŒ‘ã€‚\n");
 			return;}
                 tell(deep_inventory(TROOP_D->find_troop(e_id)),
-	p_name+"Ò£Ö¸µĞÕó£¬Å­ÉùºÈµÀ£º¿ÉÓĞÔô½«¸ÒÓëÎÒÒ»Õ½£¿£¡\n",
+	p_name+"é¥æŒ‡æ•Œé˜µï¼Œæ€’å£°å–é“ï¼šå¯æœ‰è´¼å°†æ•¢ä¸æˆ‘ä¸€æˆ˜ï¼Ÿï¼\n",
                         MSG_INDENT);
                 // In future, we have to consider effects of the
                 // ablility of general, zhenxing, dixing, etc.
                 // Now the damage depends only on the No of bowman
-	ob->simple_action("$NÒ£Ö¸µĞÕó£¬Å­ÉùºÈµÀ£º¿ÉÓĞÔô½«¸ÒÓÚÎÒÒ»Õ½£¿£¡\n");
-	ob->start_busy(5, "ÄãÕıÃ¦ÓÚµ¥ÌôÄØ¡£");
-	set_this_player(find_user(who));
-	find_user(who)->modal_push((:input_way:),"ÇëÊäÈëÄãµÄÑ¡Ôñ(yes/no)£º");
+	ob->simple_action("$Né¥æŒ‡æ•Œé˜µï¼Œæ€’å£°å–é“ï¼šå¯æœ‰è´¼å°†æ•¢äºæˆ‘ä¸€æˆ˜ï¼Ÿï¼\n");
+	ob->start_busy(5, "ä½ æ­£å¿™äºå•æŒ‘å‘¢ã€‚");
+	// set_this_player(find_user(who)); // set_this_player() unavailable in this driver build (no NO_ADD_ACTION) -- no-op'd, this_player() is whatever it naturally is here
+	find_user(who)->modal_push((:input_way:),"è¯·è¾“å…¥ä½ çš„é€‰æ‹©(yes/no)ï¼š");
 	return;
 }
 
@@ -75,9 +75,9 @@ void input_way(string arg)
 	if (arg == "no")
 	  {
 	tell(deep_inventory(TROOP_D->find_troop(p_id)),
-	"µĞ½«¾Ü¾øÓëÄãµ¥Ìô¡£\n",MSG_INDENT);
+	"æ•Œå°†æ‹’ç»ä¸ä½ å•æŒ‘ã€‚\n",MSG_INDENT);
 	tell(deep_inventory(TROOP_D->find_troop(e_id)),
-        "Äã¾Ü¾øÓëµĞ½«µ¥Ìô¡£\n",MSG_INDENT);		
+        "ä½ æ‹’ç»ä¸æ•Œå°†å•æŒ‘ã€‚\n",MSG_INDENT);		
 	}
 	else return;
 	}

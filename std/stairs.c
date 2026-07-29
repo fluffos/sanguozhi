@@ -5,10 +5,10 @@ inherit OBJ;
 inherit M_CLIMBABLE;
 
 mixed direct_get_obj( object ob ) {
-        return "#ÅÀÅÀÊÔÊÔ(climb)¡£\n";
+        return "#çˆ¬çˆ¬è¯•è¯•(climb)ã€‚\n";
 }
 
-varargs static void setup_messages(string id, mixed up_dest, mixed down_dest,
+varargs protected void setup_messages(string id, mixed up_dest, mixed down_dest,
                                    string chinese_name) {
         add_id(id);
         if (chinese_name) {
@@ -18,21 +18,21 @@ varargs static void setup_messages(string id, mixed up_dest, mixed down_dest,
         else chinese_name = id;
         if (up_dest) {
             if (down_dest) {
-                set_long( chinese_name + "Í¨ÏòÉÏÏÂ·½¡£\n");
-                set_in_room_desc("ÕâÀïÓĞ" + chinese_name + "£¬Í¨ÏòÉÏÏÂ·½¡£\n");
+                set_long( chinese_name + "é€šå‘ä¸Šä¸‹æ–¹ã€‚\n");
+                set_in_room_desc("è¿™é‡Œæœ‰" + chinese_name + "ï¼Œé€šå‘ä¸Šä¸‹æ–¹ã€‚\n");
             } else {
-                set_long( chinese_name + "Í¨ÏòÉÏ·½¡£\n");
-                set_in_room_desc("ÕâÀïÓĞ" + chinese_name + "£¬Í¨ÏòÉÏ·½¡£\n");
+                set_long( chinese_name + "é€šå‘ä¸Šæ–¹ã€‚\n");
+                set_in_room_desc("è¿™é‡Œæœ‰" + chinese_name + "ï¼Œé€šå‘ä¸Šæ–¹ã€‚\n");
             }
         } else {
-            set_long( chinese_name + "Í¨ÏòÏÂ·½¡£\n");
-            set_in_room_desc("ÕâÀïÓĞ" + chinese_name + "£¬Í¨ÏòÏÂ·½¡£\n");
+            set_long( chinese_name + "é€šå‘ä¸‹æ–¹ã€‚\n");
+            set_in_room_desc("è¿™é‡Œæœ‰" + chinese_name + "ï¼Œé€šå‘ä¸‹æ–¹ã€‚\n");
         }
 }
 
 // Separated from create() so that objects can overload this separately
 void more_create(mixed up_dest, mixed down_dest, int attached) {
-    setup_messages("stairs", up_dest, down_dest, "Â¥Ìİ");
+    setup_messages("stairs", up_dest, down_dest, "æ¥¼æ¢¯");
 }
 
 void create( mixed up_dest, mixed down_dest, int attached )

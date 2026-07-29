@@ -26,8 +26,8 @@ private void do_burning(object player)
     player->do_damage(new(class combat_result,
                           kind : "fire",
                           damage : 5,
-                          message : "$T·¢³öÍ´¿àµÄ¼â½Ğ£¡\n"));  
-    this_body()->simple_action("$N±»ÈÛÑÒ×ÆÉËÁË£¡");
+                          message : "$Tå‘å‡ºç—›è‹¦çš„å°–å«ï¼\n"));  
+    this_body()->simple_action("$Nè¢«ç†”å²©ç¼ä¼¤äº†ï¼");
 
     // Now we call_out again...
     call_out((: do_burning($(player)) :), 5);
@@ -41,7 +41,7 @@ private void when_person_enters(object o)
     if ( !o->is_living() )
     {
         receive_inside_msg(o->short() +
-                  "³ÁÔÚÈÛÑÒÀïÏûÊ§ÁË...\n");
+                  "æ²‰åœ¨ç†”å²©é‡Œæ¶ˆå¤±äº†...\n");
         destruct(o);
     }
 
@@ -52,16 +52,16 @@ private void when_person_enters(object o)
 
 void setup() 
 {
-    set_brief("ÈÛÑÒÉ½¶´");
+    set_brief("ç†”å²©å±±æ´");
     set_area("none");
-    set_long("ÕâÀïµØÃæÈ«ÊÇ¹öÌÌµÄÈÈÈÛÑÒ½¬(lava)£¡");
+    set_long("è¿™é‡Œåœ°é¢å…¨æ˜¯æ»šçƒ«çš„çƒ­ç†”å²©æµ†(lava)ï¼");
     set_exits( ([ "southeast" : "wizroom" ]) );
     add_item("lava", "floor",
-             (["adjs" : ({ "È¼ÉÕµÄ", "ÈÈµÄ" }),
-              "look" : "¿´ÉÏÈ¥ÈÈÆø×ÆÈË¡£",
-              "touch" : "±ğ±¿ÁË£¡»áÌÌÉËµÄ£¡",
-              "get" : "Äã·èÁËÂğ£¿", ]));
-    add_item("exit", "exits", "Î¨Ò»µÄ³ö¿ÚÔÚÎ÷ÄÏ·½¡£");
+             (["adjs" : ({ "ç‡ƒçƒ§çš„", "çƒ­çš„" }),
+              "look" : "çœ‹ä¸Šå»çƒ­æ°”ç¼äººã€‚",
+              "touch" : "åˆ«ç¬¨äº†ï¼ä¼šçƒ«ä¼¤çš„ï¼",
+              "get" : "ä½ ç–¯äº†å—ï¼Ÿ", ]));
+    add_item("exit", "exits", "å”¯ä¸€çš„å‡ºå£åœ¨è¥¿å—æ–¹ã€‚");
 
     // Set it up so our functions get called when something enters.
     add_hook("object_arrived", (: when_person_enters :));

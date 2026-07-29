@@ -10,7 +10,7 @@ string getins() {
 string getst() {
    string *fs,fn;
    string st,*sts;	
-   array date;	
+   mixed * date;	
    int idx=0;
    fs=get_dir(SEN_PATH+"*.txt");
    //fn=fs[random(sizeof(fs))];
@@ -20,7 +20,7 @@ string getst() {
    fn = fs[idx];
    fn=SEN_PATH+fn;
    st=read_file(fn,random(10)+1,1);
-   sts=explode(st,"£¬");
+   sts=explode(st,"ï¼Œ");
    if(!sizeof(sts)) return "";
    st=sts[random(sizeof(sts))];
    if(strlen(st)<8) return "";
@@ -72,9 +72,9 @@ string q(string p_id)
 
 
 
-   question="ÏÂÃæÕâ¾ä»°ÖÐ£¬µÚ¼¸¸ö×Ö(±êµã·ûºÅÒ²Ëã×Ö)¿´ÆðÀ´×î¶àÓà¡£\n"+st+"\n";
+   question="ä¸‹é¢è¿™å¥è¯ä¸­ï¼Œç¬¬å‡ ä¸ªå­—(æ ‡ç‚¹ç¬¦å·ä¹Ÿç®—å­—)çœ‹èµ·æ¥æœ€å¤šä½™ã€‚\n"+st+"\n";
    for(i=0;i<4;++i)
-     question+="µÚ"+chinese_number(rs[i]+1)+"¸ö×Ö\n";
+     question+="ç¬¬"+chinese_number(rs[i]+1)+"ä¸ªå­—\n";
    tell_user(p_id,question);
    return ""+(r+1);
 }

@@ -21,6 +21,6 @@ nomask void set_wiz_position(string new_position)
 {
     if ( !check_previous_privilege(1) )
     //error("Illegal attempt to set a position.\n");
-      error("企图非法设定职位\n");
+      error("浼佸浘闈炴硶璁惧畾鑱屼綅\n");
     wiz_position = new_position;
 }

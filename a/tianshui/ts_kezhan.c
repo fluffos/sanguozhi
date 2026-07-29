@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is »¨¶ù¶ä¶ä
+// driver is èŠ±å„¿æœµæœµ
 // created date is Sun May  8 21:43:49 2011
 #include <mudlib.h>
 #include <ansi.h>
@@ -7,10 +7,10 @@ inherit INDOOR_ROOM;
 void setup() {
 set_area("tianshui");
 set_light(50);
-set_brief("%^YELLOW%^"+"¿ÍÕ»"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"å®¢æ ˆ"+"%^RESET%^");
 set_long("
-    ÕâÊÇÌìË®³ÇÒ»¼ÒÆÕÍ¨µÄ¿ÍÕ»£¬ÓÉÓÚ¿¿½ü³ÇÖĞĞÄ£¬ÉúÒâ·Ç³£ĞËÂ¡¡£ÍâµØÓÎ¿Í
-¶àÑ¡ÔñÕâÀïÂä½Å£¬µêĞ¡¶şÀïÀïÍâÍâÃ¦µÃÍÅÍÅ×ª£¬½Ó´ı×ÅÄÏÇ»±±µ÷µÄ¿ÍÈË¡£\n\n");
+    è¿™æ˜¯å¤©æ°´åŸä¸€å®¶æ™®é€šçš„å®¢æ ˆï¼Œç”±äºé è¿‘åŸä¸­å¿ƒï¼Œç”Ÿæ„éå¸¸å…´éš†ã€‚å¤–åœ°æ¸¸å®¢
+å¤šé€‰æ‹©è¿™é‡Œè½è„šï¼Œåº—å°äºŒé‡Œé‡Œå¤–å¤–å¿™å¾—å›¢å›¢è½¬ï¼Œæ¥å¾…ç€å—è…”åŒ—è°ƒçš„å®¢äººã€‚\n\n");
 set_exits( ([
 "west":"/a/tianshui/ts_nandajie1.c",
  ]));

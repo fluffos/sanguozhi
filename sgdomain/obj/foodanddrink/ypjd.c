@@ -1,19 +1,19 @@
-// by fire on Dce 11, 1997 yangpi_jiudai.c ÑòÆ¤¾Æ´ü
+// by fire on Dce 11, 1997 yangpi_jiudai.c ç¾Šçš®é…’è¢‹
 #include <sanguo.h>
 inherit M_VALUE;
 inherit OBJ;
 inherit M_GETTABLE;
 inherit M_DRINKABLE;
 void setup()
-{   set_id("skin", "ÑòÆ¤¾Æ´ü", "jiudai");
-    set_long("Ò»¸ö¿ÉÒÔ×°¾ÆºÍË®µÄÑòÆ¤¾Æ´ü¡£");
+{   set_id("skin", "ç¾Šçš®é…’è¢‹", "jiudai");
+    set_long("ä¸€ä¸ªå¯ä»¥è£…é…’å’Œæ°´çš„ç¾Šçš®é…’è¢‹ã€‚");
     set_gettable(1);
     set_max_drinks(15);
 	set_num_drinks(5);
     set_value(50);
     set_currency_type("coin");
-    set_con("ÉÕ¾Æ");
-    set_drink_action((: this_body()->simple_action("$NÄÃÆğÑòÆ¤¾Æ´üºÈÁË¼¸¿Ú"+query_con()+"¡£\n") :));
-    set_last_drink_action( (: this_body()->simple_action("$NÒ¡ÁËÒ¡ÑòÆ¤¾Æ´ü£¬Ò»Ñï²±°ÑÀïÃæµÄ"+query_con()+"ºÈµÃÒ»¸É¶ş¾¡¡£\n") :));
-    set_finish_drink_action( (: write("ÑòÆ¤¾Æ´üÒÑ¾­¿ÕÁË¡£\n") :));
+    set_con("çƒ§é…’");
+    set_drink_action((: this_body()->simple_action("$Næ‹¿èµ·ç¾Šçš®é…’è¢‹å–äº†å‡ å£"+query_con()+"ã€‚\n") :));
+    set_last_drink_action( (: this_body()->simple_action("$Næ‘‡äº†æ‘‡ç¾Šçš®é…’è¢‹ï¼Œä¸€æ‰¬è„–æŠŠé‡Œé¢çš„"+query_con()+"å–å¾—ä¸€å¹²äºŒå°½ã€‚\n") :));
+    set_finish_drink_action( (: write("ç¾Šçš®é…’è¢‹å·²ç»ç©ºäº†ã€‚\n") :));
 }

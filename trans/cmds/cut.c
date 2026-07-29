@@ -7,12 +7,12 @@ inherit CMD;
 inherit M_REGEX;
 
 
-private void cut_it(string what, string array fields, string delim)
+private void cut_it(string what, string * fields, string delim)
 {
 
-    string array lines;
-    string array delimited;
-    int array rfields = ({ });
+    string * lines;
+    string * delimited;
+    int * rfields = ({ });
     string tmp;
     mixed *regassoc;
     string output = "";
@@ -54,14 +54,14 @@ private void main(mixed *argv, mapping flags, string stdin)
 
     string delim = "[ \r\t\n]+";
     string tmp;
-    string array fields;
-    string array filenames;
+    string * fields;
+    string * filenames;
     string  contents;
     string file;
  
     if(!(tmp = flags["f"]))  {
         printf(//"Must specify fields with the -f option.\n");         
-               "ÓÃ -f Ñ¡ÏîÒ»¶¨ÒªÖ¸³ö fields¡£\n");
+               "ç”¨ -f é€‰é¡¹ä¸€å®šè¦æŒ‡å‡º fieldsã€‚\n");
         return;
     }
      

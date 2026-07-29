@@ -5,14 +5,14 @@
 // a cetain char, country, or area
 #include <mudlib.h>
 #include <daemons.h>
-#define HEADER "¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş\n"
+#define HEADER "ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“\n"
 inherit CMD;
 inherit M_GLOB;
 inherit VERB_OB;
 inherit M_OUT;
 inherit CHINESE_DA;
 inherit CLASS_SG_SKILL;
-string bar="¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş\n";
+string bar="ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“\n";
 
 void infoac(string a_id)
 {
@@ -22,12 +22,12 @@ void infoac(string a_id)
                 a_id=this_body()->query_room()->get_area();
         }
         if(!AREA_D->area_exist(a_id)) {
-                write("Ã»ÓĞÕâ¸öµØÇø£¬ÓÃ info a list ²éµØÇøÇåµ¥¡£\n");
+                write("æ²¡æœ‰è¿™ä¸ªåœ°åŒºï¼Œç”¨ info a list æŸ¥åœ°åŒºæ¸…å•ã€‚\n");
                 return;
         }
         chars=CHAR_D->check_char_area("is_tmp",0,a_id);
     if(sizeof(chars)) {
-                write("    ½ÇÉ«´úºÅ  ½ÇÉ«ĞÕÃû  µØ·½¹ÙÖ°  ¹ú¼Ò¹ÙÖ°\n");
+                write("    è§’è‰²ä»£å·  è§’è‰²å§“å  åœ°æ–¹å®˜èŒ  å›½å®¶å®˜èŒ\n");
                 foreach(string ch in chars) {
                         dis+=sprintf("%12s  %8s  %8s  %8s\n",
                                 ch,CHAR_D->get_char(ch,"name"),
@@ -37,7 +37,7 @@ void infoac(string a_id)
                 more (dis);
                 return;
         }
-        write("¸ÃµØÇøÃ»ÓĞ½ÇÉ«¡£\n");
+        write("è¯¥åœ°åŒºæ²¡æœ‰è§’è‰²ã€‚\n");
 }
 void infocc(string a_id)
 {
@@ -48,13 +48,13 @@ void infocc(string a_id)
 	a_id=this_body()->query_room()->get_area();
 	}
 	if(!AREA_D->area_exist(a_id)) {
-	write("Ã»ÓĞÕâ¸öµØÇø£¬ÓÃ info a list ²éµØÇøÇåµ¥¡£\n");
+	write("æ²¡æœ‰è¿™ä¸ªåœ°åŒºï¼Œç”¨ info a list æŸ¥åœ°åŒºæ¸…å•ã€‚\n");
 	return;
 	}
 	chars=CHAR_D->check_char_area("is_tmp",0,a_id);
-	write("%^MAGENTA%^¡ş¡ş¡ş¡ş%^H_GREEN%^µØÇø½ÇÉ«¼¼ÄÜÁĞ±í%^RESET%^%^MAGENTA%^¡ş¡ş¡ş¡ş¡ş¡ş%^RESET%^\n");
+	write("%^MAGENTA%^ã€“ã€“ã€“ã€“%^H_GREEN%^åœ°åŒºè§’è‰²æŠ€èƒ½åˆ—è¡¨%^RESET%^%^MAGENTA%^ã€“ã€“ã€“ã€“ã€“ã€“%^RESET%^\n");
 	if(sizeof(chars)) {
-	write("    ½ÇÉ«´úºÅ  ½ÇÉ«ĞÕÃû  ÎäÑ§ĞŞÑø  ±ø·¨ĞŞÑø  ÖÎ¹úĞŞÑø\n");
+	write("    è§’è‰²ä»£å·  è§’è‰²å§“å  æ­¦å­¦ä¿®å…»  å…µæ³•ä¿®å…»  æ²»å›½ä¿®å…»\n");
 	foreach(string ch in chars)
 	{
 	who=find_body(ch);
@@ -67,7 +67,7 @@ void infocc(string a_id)
 	more (dis);
 	return;
 	}
-	write("¸ÃµØÇøÃ»ÓĞ½ÇÉ«¡£\n");
+	write("è¯¥åœ°åŒºæ²¡æœ‰è§’è‰²ã€‚\n");
 }
 
 void infoa(string a_id,string para)
@@ -80,12 +80,12 @@ void infoa(string a_id,string para)
        mixed keys,dis;
        keys=sort_array(AREA_D->list_areas(),1);
        dis=map_array(keys, (: AREA_D->get_area(($1),"name")+"("+($1)+")" :));
-       outf("Èı¹úÖ¾µØÇøÁĞ±í£º\n");
+       outf("ä¸‰å›½å¿—åœ°åŒºåˆ—è¡¨ï¼š\n");
        if(end_of_pipeline())
           out(HEADER + sprintf("%-#79s\n", implode(dis, "\n")));
        else
           outf("%s\n", implode(dis, "\n"));
-       outf("%sµØÇø×ÜÊı£º%d¸ö¡£\n",HEADER,sizeof(dis));
+       outf("%såœ°åŒºæ€»æ•°ï¼š%dä¸ªã€‚\n",HEADER,sizeof(dis));
        return;       
    }
 	if(a_id=="")
@@ -105,7 +105,7 @@ void infoa(string a_id,string para)
 	tmp=AREA_D->check_area("area",arg);
 	if(sizeof(tmp)==0)
 	{
-	write("´ËµØ²»ÊôÓÚÈı¹úµØÇø¡£\n");
+	write("æ­¤åœ°ä¸å±äºä¸‰å›½åœ°åŒºã€‚\n");
 	return;
 	};
 	arg=tmp[0];
@@ -135,12 +135,12 @@ void infon(string n_id)
        keys=sort_array(COUNTRY_D->list_countries(),1);
        dis=map_array(keys, (: COUNTRY_D->get_country(($1),"name")+"("+($1)
 +")" :));
-       outf("Èı¹úÖ¾¹ú¼ÒÁĞ±í£º\n");
+       outf("ä¸‰å›½å¿—å›½å®¶åˆ—è¡¨ï¼š\n");
        if(end_of_pipeline())
           out(HEADER + sprintf("%-#79s\n", implode(dis, "\n")));
        else
           outf("%s\n", implode(dis, "\n"));
-       outf("%s¹ú¼Ò×ÜÊı£º%d¸ö¡£\n",HEADER,sizeof(dis));
+       outf("%så›½å®¶æ€»æ•°ï¼š%dä¸ªã€‚\n",HEADER,sizeof(dis));
       return;
    }
    if(n_id==CHAR_D->get_char(p_id,"nation"))
@@ -163,12 +163,12 @@ void infoc(string c_id)
        mixed keys,dis;
        keys=sort_array(CHAR_D->check_char("is_tmp",0),1);
        dis=map_array(keys, (: CHAR_D->get_char(($1),"name")+"("+($1)+")" :));
-       outf("Èı¹úÖ¾½ÇÉ«ÁĞ±í£º\n");
+       outf("ä¸‰å›½å¿—è§’è‰²åˆ—è¡¨ï¼š\n");
        if(end_of_pipeline())
           out(HEADER + sprintf("%-#79s\n", implode(dis, "\n")));
        else
           outf("%s\n", implode(dis, "\n"));
-       outf("%s½ÇÉ«×ÜÊı£º%d¸ö¡£\n",HEADER,sizeof(dis));
+       outf("%sè§’è‰²æ€»æ•°ï¼š%dä¸ªã€‚\n",HEADER,sizeof(dis));
        return;       
    }
    if(c_id==p_id) priorit=0;
@@ -180,10 +180,10 @@ void infoc(string c_id)
       priorit=1;
    }
    if(wizardp(this_body())) priorit=0;
-   //write("ÔËĞĞµ½ÁËstat_me()º¯ÊıÇ°ÃæÁË\n"); DEBUG
+   //write("è¿è¡Œåˆ°äº†stat_me()å‡½æ•°å‰é¢äº†\n"); DEBUG
    //write("c_id = " + c_id + "  priorit = " + priorit + "\n");
    mess=CHAR_D->stat_me(c_id,priorit); 
-   //write("ÔËĞĞµ½ÁËstat_me()º¯ÊıºóÃæÁË\n"); 
+   //write("è¿è¡Œåˆ°äº†stat_me()å‡½æ•°åé¢äº†\n"); 
    more(mess);
 }
 void infob(string par){
@@ -195,10 +195,10 @@ void infop(string str){
         string out, *zhou, *city;
 
         num = 0;
-        out = mud_name()+"Öİ¿¤ÁĞ±í£º\n"+bar;
-        zhou = ({"ÓÄÖİ","¼½Öİ","ÇàÖİ","ÙğÖİ","Ô¥Öİ","ĞìÖİ","²¢Öİ",
-                "Ë¾Á¥","ÓºÖİ","Á¹Öİ","ÁºÖİ","ÒæÖİ","±±¾£Öİ","ÄÏ¾£Öİ",
-                "Û«Öİ","ÑïÖİ","½»Öİ", });
+        out = mud_name()+"å·éƒ¡åˆ—è¡¨ï¼š\n"+bar;
+        zhou = ({"å¹½å·","å†€å·","é’å·","å…–å·","è±«å·","å¾å·","å¹¶å·",
+                "å¸éš¶","é›å·","å‡‰å·","æ¢å·","ç›Šå·","åŒ—è†å·","å—è†å·",
+                "éƒ¢å·","æ‰¬å·","äº¤å·", });
         
         if( str&&stringp(str)&&member_array(str,zhou)!=-1 ) zhou = ({ str });
         foreach(string ss in zhou){
@@ -206,16 +206,16 @@ void infop(string str){
                 city = AREA_D->check_area("zhou", ss);
                 out = out +sprintf("(%-2d)",nn)+ss+"("+
 			AREA_D->get_area(AREA_D->get_zhou_head(ss),"name")
-			+")¹²¼ÆÓĞ"+chinese_number(sizeof(city))
-	+"¿¤£º\n";
+			+")å…±è®¡æœ‰"+chinese_number(sizeof(city))
+	+"éƒ¡ï¼š\n";
                 num+=sizeof(city);
                 foreach(string ss2 in city)
                                 out = out + sprintf("%-8s",AREA_D->get_area(ss2,"name"));
                 out = out + "\n";
         }
         out = out +bar;
-        out = out +"¹²¼ÆÓĞ"+chinese_number(sizeof(zhou))+"Öİ"+chinese_number(num)
-	+"¿¤¡£\n";
+        out = out +"å…±è®¡æœ‰"+chinese_number(sizeof(zhou))+"å·"+chinese_number(num)
+	+"éƒ¡ã€‚\n";
         more(out);
 }
 
@@ -287,7 +287,7 @@ private void main(string arg)
     string p_type, p_name;
     if(!arg)
        arg="";
-	//write("½øÁËinfo.c main()º¯Êı. arg = " + arg + "\n");
+	//write("è¿›äº†info.c main()å‡½æ•°. arg = " + arg + "\n");
     switch (arg)
     {
 		case "me":
@@ -305,7 +305,7 @@ private void main(string arg)
             arg = env->get_area();
             tmp=AREA_D->check_area("area",arg);
             if(sizeof(tmp)==0){
-                write("´ËµØ²»ÊôÓÚÈı¹úµØÇø¡£\n");
+                write("æ­¤åœ°ä¸å±äºä¸‰å›½åœ°åŒºã€‚\n");
                 return;
             };
             arg=tmp[0];
@@ -376,7 +376,7 @@ private void main(string arg)
 		infos(p_name);
 		return;
 	default:
-        write("ÓÃ·¨²»¶Ô£¬ÓÃ help info ¿´°ïÖú¡£\n");
+        write("ç”¨æ³•ä¸å¯¹ï¼Œç”¨ help info çœ‹å¸®åŠ©ã€‚\n");
         return;
 
     }

@@ -32,12 +32,12 @@ private void main(mixed* argv, mapping flags)
 
   if(!strlen(output))
     //out("No matches found.\n");
-    out("没有对应的匹配。\n");
+    out("娌℃湁瀵瑰簲鐨勫尮閰嶃�俓n");
   else
     {
       if(flags["q"])
         //out("Done.\n");
-        out("完成。\n");
+        out("瀹屾垚銆俓n");
       else
           out(output);
     }

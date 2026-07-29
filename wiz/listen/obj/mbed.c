@@ -6,13 +6,13 @@ inherit FURNITURE;
 inherit M_VALUE;
 void setup()
 {
-  set_id("mbed", "%^RED%^˫�˴�%^RESET%^");
-  set_unit("��");
+  set_id("mbed", "%^RED%^双人床%^RESET%^");
+  set_unit("张");
   set_value(3000000);
-  set_in_room_desc("һ�����ʵ�%^RED%^˫�˴�%^RESET%^(mbed)");
+  set_in_room_desc("一张舒适的%^RED%^双人床%^RESET%^(mbed)");
   set_get_on_msg("");
-  set_get_off_msg("$N��������ش�%^RED%^˫�˴�%^RESET%^��վ������ȴ��Ȼ�ڻ�ζ�ղŵ�����\n");
-  set_long("����һ��%^H_RED%^��ȼѩ%^RESET%^��%^H_GREEN%^������Ȼ%^RESET%^�Ľ��ϲ����\n");
+  set_get_off_msg("$N恋恋不舍地从%^RED%^双人床%^RESET%^上站起来，却依然在回味刚才的美梦\n");
+  set_long("这是一张%^H_RED%^貉燃雪%^RESET%^和%^H_GREEN%^我心依然%^RESET%^的结婚喜床。\n");
   set_preposition("on");
   set_relations("on","under");
   set_max_capacity(VERY_LARGE*2, "on");
@@ -32,11 +32,11 @@ int mount_it_already()
   string stat;
   if(environment(this_body()) == this_object())
     {
-      write("���Ѿ����ڴ�����\n");
+      write("你已经躺在床上了\n");
       return 1;
     }
   this_body()->move(this_object());
-  this_body()->simple_action("$N�������������%^RED%^˫�˴�%^RESET%^�ϣ����ĵ�ϣ�����������г��֡�\n");
+  this_body()->simple_action("$N懒洋洋地躺在了%^RED%^双人床%^RESET%^上，满心地希望情人在梦中出现。\n");
   foreach (object ob2 in all_inventory(this_body())) 
   {
 		

@@ -10,20 +10,20 @@ void eat_dan()
 	this_body()->set_shouming(rm);
 	if(this_body()->query_gender()==1) {
 		this_body()->simple_action(
-"$NàñàğÍÌÏÂÁËÒ»Ã¶%^H_YELLOW%^³¤Éú²»ÀÏµ¤%^RESET%^£¬Ë«Ä¿Î¢±Õ£¬³¤³¤µØĞêÁËÒ»¿ÚÆø£¬Ö»¾õµÃ»ëÉíÊæ³©¡£\n");
+"$Nå›«å›µåä¸‹äº†ä¸€æš%^H_YELLOW%^é•¿ç”Ÿä¸è€ä¸¹%^RESET%^ï¼ŒåŒç›®å¾®é—­ï¼Œé•¿é•¿åœ°å˜˜äº†ä¸€å£æ°”ï¼Œåªè§‰å¾—æµ‘èº«èˆ’ç•…ã€‚\n");
 	}
 	else {
 		this_body()->simple_action(
-"$N·şÏÂÒ»Ã¶%^H_YELLOW%^³¤Éú²»ÀÏµ¤%^RESET%^£¬Õı¿ªĞÄ²»ÒÑ£¬ºöÈ»Ïëµ½ÈİÑÕ½«ÀÏ£¬²»ÓÉµÃ¡¸°¦¡¹µØÇáÌ¾ÁËÒ»Éù¡£\n");
+"$Næœä¸‹ä¸€æš%^H_YELLOW%^é•¿ç”Ÿä¸è€ä¸¹%^RESET%^ï¼Œæ­£å¼€å¿ƒä¸å·²ï¼Œå¿½ç„¶æƒ³åˆ°å®¹é¢œå°†è€ï¼Œä¸ç”±å¾—ã€Œå”‰ã€åœ°è½»å¹äº†ä¸€å£°ã€‚\n");
 	}
 }
 void setup()
-{   set_id("changsheng dan", "%^H_YELLOW%^³¤Éú²»ÀÏµ¤%^RESET%^");
-    set_long("Ò»Á£½ğ»ÆÉ«µÄ%^H_YELLOW%^³¤Éú²»ÀÏµ¤%^RESET%^£¬ÌıËµ³ÔÁË¿ÉÒÔÑÓÄêÒæÊÙ¡£");
+{   set_id("changsheng dan", "%^H_YELLOW%^é•¿ç”Ÿä¸è€ä¸¹%^RESET%^");
+    set_long("ä¸€ç²’é‡‘é»„è‰²çš„%^H_YELLOW%^é•¿ç”Ÿä¸è€ä¸¹%^RESET%^ï¼Œå¬è¯´åƒäº†å¯ä»¥å»¶å¹´ç›Šå¯¿ã€‚");
     set_size(VERY_SMALL);
     set_gettable(1);
     set_num_eats(1);
-    set_unit("Á£");
+    set_unit("ç²’");
     set_eat_action((: eat_dan :));
     set_last_eat_action( (: eat_dan :));
 }

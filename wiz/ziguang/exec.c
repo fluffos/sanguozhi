@@ -3,4 +3,4 @@
 inherit M_ACCESS;
 create() { set_privilege(1); }
 
-mixed exec_foo(){ return CHAR_D->set_char_loyalty(ziguang,charsziguang¹ùãá,98);}
+mixed exec_foo(){ return CHAR_D->set_char_loyalty(ziguang,charsziguangéƒ­æ±œ,98);}

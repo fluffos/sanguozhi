@@ -3,9 +3,9 @@
 #define SAVE_FILE "/data/daemons/officer_d"
 inherit M_ACCESS;
 private mapping offs=([]);
-static int *lst;
-static mapping area_offs=([]);
-static mapping nation_offs=([]);
+nosave protected int *lst;
+nosave protected mapping area_offs=([]);
+nosave protected mapping nation_offs=([]);
 
 void save_data()
 {
@@ -154,7 +154,7 @@ int* query_area_officer_title_all(int p_arealevel)
 string query_rank_name(int p_rank)
 {
 	if(member_array(p_rank,lst)==-1)
-		return "©¥©¥";
+		return "â”â”";
 	return offs[p_rank]["name"];
 }
 int init_offs() {
@@ -172,9 +172,9 @@ string list_off(int *rks) {
 	string ret;
 	sum=sizeof(rks);
 	if(!sum) 
-		return "Ã»ÓĞ²éµ½ÏàÓ¦¹ÙÖ°¡£\n";
+		return "æ²¡æœ‰æŸ¥åˆ°ç›¸åº”å®˜èŒã€‚\n";
 	ret=
-"£É£Ä ¹ÙÏÎÃû³Æ µÈ¼¶ £É£Ä ¹ÙÏÎÃû³Æ µÈ¼¶ £É£Ä ¹ÙÏÎÃû³Æ µÈ¼¶ £É£Ä ¹ÙÏÎÃû³Æ µÈ¼¶ \n";
+"ï¼©ï¼¤ å®˜è¡”åç§° ç­‰çº§ ï¼©ï¼¤ å®˜è¡”åç§° ç­‰çº§ ï¼©ï¼¤ å®˜è¡”åç§° ç­‰çº§ ï¼©ï¼¤ å®˜è¡”åç§° ç­‰çº§ \n";
 	ts=1;
 	for(i=0;i<sum;++i,ts++) {
 		ret+=sprintf("%4d %-8s (%2d) ",rks[i],
@@ -188,32 +188,32 @@ string list_off(int *rks) {
 }
 string typ_str(int s) {
 	switch(s) {
-		case 1: return "ÎÄ¹Ù";
-		case 2: return "Îä¹Ù";
-		default: return "Ê×Áì";
+		case 1: return "æ–‡å®˜";
+		case 2: return "æ­¦å®˜";
+		default: return "é¦–é¢†";
 	}
 }
 string show_off(int r) {
 	string ret;
 	mapping res;
-	if(!mapp(offs[r])) return "Ã»ÓĞÕâ¸ö¹ÙÏÎ¡£\n";
-	ret=sprintf("ID: %d Ãû³Æ£º%s µÈ¼¶£º%d ÙºÂ»£º%d\n",
+	if(!mapp(offs[r])) return "æ²¡æœ‰è¿™ä¸ªå®˜è¡”ã€‚\n";
+	ret=sprintf("ID: %d åç§°ï¼š%s ç­‰çº§ï¼š%d ä¿¸ç¦„ï¼š%d\n",
 		r,offs[r]["name"],offs[r]["level"],
 		query_salary(r));
 	res=offs[r]["assign"];
 	if(mapp(res)) {
 		if(res["pos"]=="area") {
-			ret+=sprintf("Àà±ğ£ºµØÇø µØÇøµÈ¼¶£º%d Àà±ğ£º%s ¹ÜÀí¼¶£º%d  ÅäÖÃÊı£º%d\n",
+			ret+=sprintf("ç±»åˆ«ï¼šåœ°åŒº åœ°åŒºç­‰çº§ï¼š%d ç±»åˆ«ï¼š%s ç®¡ç†çº§ï¼š%d  é…ç½®æ•°ï¼š%d\n",
 				res["area_level"],typ_str(res["typ"]),
 				res["off_lev"],offs[r]["num"]);
 		}
 		else {
-			ret+=sprintf("Àà±ğ£º¹ú¼Ò ¹ú¼ÒµÈ¼¶£º%d Àà±ğ£º%s ¹ÜÀí¼¶£º%d  ÅäÖÃÊı£º%d\n",
+			ret+=sprintf("ç±»åˆ«ï¼šå›½å®¶ å›½å®¶ç­‰çº§ï¼š%d ç±»åˆ«ï¼š%s ç®¡ç†çº§ï¼š%d  é…ç½®æ•°ï¼š%d\n",
 				res["nation_level"],typ_str(res["typ"]),
 				res["off_lev"],offs[r]["num"]);
 		}
 	}
-	ret+="ÒªÇó£º\n";
+	ret+="è¦æ±‚ï¼š\n";
 	return ret;
 }
 string stat_me(string what, mixed par) {
@@ -248,7 +248,7 @@ string stat_me(string what, mixed par) {
 		default :
 			i=to_int(what);
 			if(i>0) return show_off(i);
-			return "·Ç·¨²ÎÊı£¬Çë²éÔÄhelp¡£\n";
+			return "éæ³•å‚æ•°ï¼Œè¯·æŸ¥é˜…helpã€‚\n";
 	}
 }
 void clear_officer() {

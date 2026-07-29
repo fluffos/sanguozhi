@@ -1,6 +1,6 @@
 // localcontributaion.c
 // by fire on Dec 1998
-// Modified by suicide for inc ÇÚ·Ü¶È when inc localcontribution
+// Modified by suicide for inc å‹¤å¥‹åº¦ when inc localcontribution
 // in 2000.08.08
 mixed get_char(string id,string what);
 string set_char(string id,string what,mixed val);
@@ -96,7 +96,7 @@ int add_honor_point(string p_id,int n) {
 	int old_n=CHAR_D->get_char(p_id,"hon");
 	CHAR_D->set_char(p_id,"hon",old_n+n);
 	increase_localcontribution(p_id,n/5,"");
-	tell_user(p_id,"ÄãµÄµØÇø¹±Ï×Ìá¸ßÁË¡£\n");
+	tell_user(p_id,"ä½ çš„åœ°åŒºè´¡çŒ®æé«˜äº†ã€‚\n");
 	return CHAR_D->get_char(p_id,"hon");
 }
 
@@ -106,59 +106,59 @@ string tran_honor_point(string p_id,string what, int n) {
 	string swhat,nat;
 	nat=CHAR_D->get_char(p_id,"nation");
 	hon=get_char(p_id,"hon");
-	if((what=="")||!what) return "ÄãÄ¿Ç°ÓµÓĞ"+hon+"µãÈı¹ú½±µã¡£\n"+
-		"½±Àø°ì·¨£ºcmd honour <Ê²Ã´> <µãÊı>\n"+
-		"ÀıÈç£ºcmd honour reputation 20  Ïàµ±ÓÚ½±Àø20½±µãµÄÉùÍû¡£\n"+
-		"ÓĞĞ§µÄ½±ÀøÓĞ£º reputation(ÉùÍû 1:1)  gold(½ğ£¬´Ó¹ú¿âÀï¿Û 10:1)\n"+
-		"               loyalty(ÖÒ³Ï¶È 10:1 ) zgxy(ÖÎ¹úĞŞÑø 2:1)\n"+
-		"               bfxy(±ø·¨ĞŞÑø 2:1 )   wxxy(ÎäÑ§ĞŞÑø 2:1)\n";
+	if((what=="")||!what) return "ä½ ç›®å‰æ‹¥æœ‰"+hon+"ç‚¹ä¸‰å›½å¥–ç‚¹ã€‚\n"+
+		"å¥–åŠ±åŠæ³•ï¼šcmd honour <ä»€ä¹ˆ> <ç‚¹æ•°>\n"+
+		"ä¾‹å¦‚ï¼šcmd honour reputation 20  ç›¸å½“äºå¥–åŠ±20å¥–ç‚¹çš„å£°æœ›ã€‚\n"+
+		"æœ‰æ•ˆçš„å¥–åŠ±æœ‰ï¼š reputation(å£°æœ› 1:1)  gold(é‡‘ï¼Œä»å›½åº“é‡Œæ‰£ 10:1)\n"+
+		"               loyalty(å¿ è¯šåº¦ 10:1 ) zgxy(æ²»å›½ä¿®å…» 2:1)\n"+
+		"               bfxy(å…µæ³•ä¿®å…» 2:1 )   wxxy(æ­¦å­¦ä¿®å…» 2:1)\n";
 
-	if(n<=0) return "½±Àø¶àÉÙ£¿\n";
-	if(hon<n) return "ÄãµÄÈı¹ú½±µã²»¹»¡£\n";
-	if(n>200) return "Ò»´Î½±ÕâÃ´¶à£¬Äã»áºıÍ¿µÄ¡£\n";
+	if(n<=0) return "å¥–åŠ±å¤šå°‘ï¼Ÿ\n";
+	if(hon<n) return "ä½ çš„ä¸‰å›½å¥–ç‚¹ä¸å¤Ÿã€‚\n";
+	if(n>200) return "ä¸€æ¬¡å¥–è¿™ä¹ˆå¤šï¼Œä½ ä¼šç³Šæ¶‚çš„ã€‚\n";
 	switch(what) {
 	case "reputation":
-		swhat="µãÉùÍû";
+		swhat="ç‚¹å£°æœ›";
 		val=n;
 		tmp=CHAR_D->get_char(p_id,"reputation");
 		CHAR_D->set_char(p_id,"reputation",tmp+val);
 		break;
 	case "gold":
-		swhat="Á½»Æ½ğ";
-		if(n<10) return "×îÉÙĞèÒª10Á½»Æ½ğ¡£\n";
+		swhat="ä¸¤é»„é‡‘";
+		if(n<10) return "æœ€å°‘éœ€è¦10ä¸¤é»„é‡‘ã€‚\n";
 		if(MONEY_D->get_all_money(find_body(p_id))>50000000)
-			return "ÄãµÄÇ®¹»¶àÁË£¬²»ÓÃÔÙ½±Àø»Æ½ğÁË¡£\n";
+			return "ä½ çš„é’±å¤Ÿå¤šäº†ï¼Œä¸ç”¨å†å¥–åŠ±é»„é‡‘äº†ã€‚\n";
 		val=n/10;
 		tmp=COUNTRY_D->get_country(nat,"gold");
-		if(val>tmp) return "ÄãÃÇ¹ú¼ÒÃ»ÄÇÃ´¶àÇ®½±¸øÄã¡£\n";
+		if(val>tmp) return "ä½ ä»¬å›½å®¶æ²¡é‚£ä¹ˆå¤šé’±å¥–ç»™ä½ ã€‚\n";
 		COUNTRY_D->set_country(nat,"gold",tmp-val);
 		MONEY_D->add_poket_money(find_body(p_id),val*10000);
 		break;
 	case "loyalty":
-		swhat="µãÖÒ³Ï¶È";
+		swhat="ç‚¹å¿ è¯šåº¦";
 		val=n/10;
 		CHAR_D->set_char(p_id,"loyalty",
 			CHAR_D->get_char(p_id,"loyalty")+val);
 		break;
 	case "wxxy": // wuli
 		val=n/2;
-		swhat="µãÎäÑ§ĞŞÑø";
+		swhat="ç‚¹æ­¦å­¦ä¿®å…»";
 		find_body(p_id)->award_exp(val,"sk_wuli");
 		break;
 	case "zgxy": // meili
 		val=n/2;
-		swhat="µãÖÎ¹úĞŞÑø";
+		swhat="ç‚¹æ²»å›½ä¿®å…»";
 		find_body(p_id)->award_exp(val,"sk_meili");
 		break;
 	case "bfxy": // zhimou
 		val=n/2;
-		swhat="µã±ø·¨ĞŞÑø";
+		swhat="ç‚¹å…µæ³•ä¿®å…»";
 		find_body(p_id)->award_exp(val,"sk_zhimou");
 		break;
 	default :
-		return "Ã»ÓĞ"+what+"ÕâÖÖ½±Àø¡£\n";
+		return "æ²¡æœ‰"+what+"è¿™ç§å¥–åŠ±ã€‚\n";
 	}
 	CHAR_D->set_char(p_id,"hon",CHAR_D->get_char(p_id,"hon")-n);
-	return "ÄãµÃµ½ÁË"+val+swhat+"¡£\n";
+	return "ä½ å¾—åˆ°äº†"+val+swhat+"ã€‚\n";
 
 }

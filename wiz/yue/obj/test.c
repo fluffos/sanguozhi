@@ -1,17 +1,17 @@
-//by jiezhao on Dec 25 1997 mubang.c Ä¾°ô
+//by jiezhao on Dec 25 1997 mubang.c æœ¨æ£’
 #include <sanguo.h>
 #include "/include/weapon.h"
 inherit SWORD;
 inherit M_VALUE;
 void setup()
 {
-set_adj("Ä¾");
-set_unit("¸ù");
-set_id("mu bang", "°ô");
+set_adj("æœ¨");
+set_unit("æ ¹");
+set_id("mu bang", "æ£’");
 add_id("bang");
 add_id("mubang");
-set_long("Ò»¸ù³ÁµéµéµÄÄ¾°ô£¬ÒÑ¾­·¢»ÆÁË¡£");
-set_in_room_desc("Ä¾°ô(mu bang)");
+set_long("ä¸€æ ¹æ²‰ç”¸ç”¸çš„æœ¨æ£’ï¼Œå·²ç»å‘é»„äº†ã€‚");
+set_in_room_desc("æœ¨æ£’(mu bang)");
 set_weapon_class(5);
 set_size(MEDIUM);
 set_value(5);

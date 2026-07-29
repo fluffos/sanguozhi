@@ -6,47 +6,47 @@ string stat_me(string a_id,int priority)
    mixed c,p_tmp;
    int *list_title;
    string *list_char,s_tmp,a_nation;
-   array a_tmp;
+   mixed * a_tmp;
    int i,j,v_left;
    mapping troop;
 
    if(!AREA_D->area_exist(a_id))
-       return "Ã»ÓĞÕâ¸öµØÇø¡£\n";
+       return "æ²¡æœ‰è¿™ä¸ªåœ°åŒºã€‚\n";
    c=AREA_D->get_area(a_id,"");
-   p_ret+=sprintf("µØÇø´úºÅ£º%-14sÃû³Æ£º%s\n",a_id, c["name"]);
-   p_ret+="¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş\n";
-   p_ret+=sprintf("µÈ¼¶£º%d ÌìÆø£º%4s  ÈË¿Ú£º%d\n",
+   p_ret+=sprintf("åœ°åŒºä»£å·ï¼š%-14såç§°ï¼š%s\n",a_id, c["name"]);
+   p_ret+="ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“\n";
+   p_ret+=sprintf("ç­‰çº§ï¼š%d å¤©æ°”ï¼š%4s  äººå£ï¼š%d\n",
       c["level"], DAY_D->get_weather_short(c["weather"]),
       c["population"]);
    if(priority<1)
-     p_ret+=sprintf("°²¶¨£º%3d ¹¤Òµ£º%3d Å©Òµ£º%3d ÉÌÒµ£º%3d ÖØµã£º%s\n",
+     p_ret+=sprintf("å®‰å®šï¼š%3d å·¥ä¸šï¼š%3d å†œä¸šï¼š%3d å•†ä¸šï¼š%3d é‡ç‚¹ï¼š%s\n",
         c["safe"],c["industry"],c["agriculture"],c["business"],
                 AREA_D->get_area(a_id,"importancestr"));
    if(priority<2)
-      p_ret+=sprintf("Îï×Ê£º%d Á¸²İ£º%d ½ğ£º%d\n",
+      p_ret+=sprintf("ç‰©èµ„ï¼š%d ç²®è‰ï¼š%d é‡‘ï¼š%d\n",
            c["stuff"],c["food"],c["gold"]);
-   p_ret+=sprintf("¹ú¾ı£º%s Ì«ÊØ£º%s ¹úË°£º%d µØË°£º%d\n",
+   p_ret+=sprintf("å›½å›ï¼š%s å¤ªå®ˆï¼š%s å›½ç¨ï¼š%d åœ°ç¨ï¼š%d\n",
        CHAR_D->get_char(c["nation"],"name"),
        CHAR_D->get_char(AREA_D->get_area(a_id,"leader"),"name"),
        c["taxnation"],c["taxlocal"]);
    if(priority<2)
    {
-     p_ret+=sprintf("Ô¤¼Æ½ğÔÂÊÕÈë£º%d Á¸ÄêÊÕÈë£º%d ÎïÔÂÊÕÈë£º%d\n",
+     p_ret+=sprintf("é¢„è®¡é‡‘æœˆæ”¶å…¥ï¼š%d ç²®å¹´æ”¶å…¥ï¼š%d ç‰©æœˆæ”¶å…¥ï¼š%d\n",
        AREA_D->get_area(a_id,"goldin"),AREA_D->get_area(a_id,"foodin"),
        AREA_D->get_area(a_id,"stuffin"));
      p_ret+=sprintf(
-        "½ğÔÂÖ§³ö£¨Ê¿±ø£º%d ¹ÙÔ±£º%d £©Á¸ÔÂÖ§³ö£º%d ÎïÔÂÖ§³ö£º%d\n",
+        "é‡‘æœˆæ”¯å‡ºï¼ˆå£«å…µï¼š%d å®˜å‘˜ï¼š%d ï¼‰ç²®æœˆæ”¯å‡ºï¼š%d ç‰©æœˆæ”¯å‡ºï¼š%d\n",
          AREA_D->get_area(a_id,"goldout"),
          AREA_D->get_area(a_id,"salary"),
          AREA_D->get_area(a_id,"foodout"),
          AREA_D->get_area(a_id,"stuffout"));
      p_ret+=sprintf(
-       "Ê¿±ø£º%d ÑµÁ·£º%d Ê¿Æø£º%d ÂíÆ¥£º%d ¹­¼ı£º%d ·ËÈË£º%d\n",
+       "å£«å…µï¼š%d è®­ç»ƒï¼š%d å£«æ°”ï¼š%d é©¬åŒ¹ï¼š%d å¼“ç®­ï¼š%d åŒªäººï¼š%d\n",
        AREA_D->get_area(a_id,"soldier"),c["train"],c["morale"],c["horse"],
        c["bow"],c["bandit"]);
        if(sizeof(c["st"])) {
            foreach(string st_it in keys(c["st"])) {
-           p_ret+=sprintf("%s£º%d  ",(EV_MERCHANT)->query_goods(st_it,"name"),
+           p_ret+=sprintf("%sï¼š%d  ",(EV_MERCHANT)->query_goods(st_it,"name"),
 		c["st"][st_it]);
            }
 	   p_ret+="\n";
@@ -66,11 +66,11 @@ string stat_me(string a_id,int priority)
 		p_ret+="\n";
 	}
     }
-    p_ret+="¹ÙÔ±£º\n";
+    p_ret+="å®˜å‘˜ï¼š\n";
     list_title=OFFICER_D->query_area_officer_title_all(c["level"]);
     list_char=CHAR_D->check_char("area",a_id);
     for(i=0;i<sizeof(list_title);++i)
-    {  p_ret+=OFFICER_D->query_rank_name(list_title[i])+"£º";
+    {  p_ret+=OFFICER_D->query_rank_name(list_title[i])+"ï¼š";
        a_tmp=filter_array(list_char,
             (:CHAR_D->get_char($1,"ranklocal")==$(list_title[i]):));
        for(j=0;j<sizeof(a_tmp);++j)
@@ -80,10 +80,10 @@ string stat_me(string a_id,int priority)
        v_left=OFFICER_D->query_max_officer_number(list_title[i]);
        v_left-=sizeof(a_tmp);
        for(j=0;j<v_left;++j)
-           p_ret+="©¥©¥ ";
+           p_ret+="â”â” ";
        p_ret+="\n";
     }
-    p_ret+="ÏĞÖ°ºÍ¹ú¼Ò¹ÙÔ±£º";
+    p_ret+="é—²èŒå’Œå›½å®¶å®˜å‘˜ï¼š";
     a_nation=AREA_D->get_area(a_id,"nation");
     for(j=0;j<sizeof(list_char);++j)
     {   p_tmp=CHAR_D->get_char(list_char[j],"nation");
@@ -96,14 +96,14 @@ string stat_me(string a_id,int priority)
 	}
     }
     p_ret+="\n";
-    p_ret+="ÏàÁÚµØÇø£º";
+    p_ret+="ç›¸é‚»åœ°åŒºï¼š";
     if(sizeof(c["neighbor"]))
     { foreach(string a in c["neighbor"])
       {   p_ret+=(AREA_D->get_area(a,"name")+" ");
       }
     }
     p_ret+="\n";
-    p_ret+="±¾µØÒş¾ÓÏÍÈË£º";
+    p_ret+="æœ¬åœ°éšå±…è´¤äººï¼š";
     for(j=0;j<sizeof(list_char);++j)
     {   p_tmp=CHAR_D->get_char(list_char[j],"nation");
         if((!p_tmp)||(p_tmp==""))

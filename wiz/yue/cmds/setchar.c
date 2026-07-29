@@ -17,13 +17,13 @@ nomask private void main(string str)
 	string extra;
     if (!str)
     {
-        write("用法：setchar <char_id> <para_name> <para_value>\n");
+        write("鐢ㄦ硶锛歴etchar <char_id> <para_name> <para_value>\n");
         return;
     }
     sscanf(p_id, "%s %s %s", p_id,para_name,para_value);
 	if(!para_value)
     {
-        write("用法：setchar <char_id> <para_name> <para_value>\n");
+        write("鐢ㄦ硶锛歴etchar <char_id> <para_name> <para_value>\n");
         return;
     }
 	if (restore_variable(para_value)!=0)

@@ -21,7 +21,7 @@ void surrender() {
 	if(!objectp(t)) // strange
 		return;
 	this_object()->targetted_action(
-		"$N��ɫһ�䣬����սȦ����$T����$R���ո�ǿ��$s���Ƕ��֣�����������\n",t);
+		"$N脸色一变，跳出战圈，对$T道：$R武艺高强，$s不是对手，佩服，佩服。\n",t);
 	stop_fight(0);
 }
 

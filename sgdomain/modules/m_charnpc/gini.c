@@ -12,7 +12,7 @@ private string my_task;
 private int i_will_go=0;
 
 string query_name() {
-	return my_master_name+"µÄ"+GINI_D->get_msg(my_type,"name");
+	return my_master_name+"çš„"+GINI_D->get_msg(my_type,"name");
 }
 
 string query_chinese_id(){
@@ -82,7 +82,7 @@ string query_title(string p_id,string c_id)
 	my_master_name=find_body(my_master)->query_chinese_id();
 	my_type=CHAR_D->get_char(my_id,"g_type");
 
-	return my_master_name+"µÄ"+GINI_D->get_msg(my_type,"title");
+	return my_master_name+"çš„"+GINI_D->get_msg(my_type,"title");
 }
 
 string long()
@@ -150,7 +150,7 @@ void my_birth() {
         lamp->set_long(GINI_D->get_msg(my_type,"lamp_long"));
 	lamp->set_unit(GINI_D->get_msg(my_type,"lamp_unit"));
 	lamp->move(o);
-	o->tagetted_action("$T½»¸ø$NÒ»"+lamp->query_unit()+
+	o->tagetted_action("$Täº¤ç»™$Nä¸€"+lamp->query_unit()+
            "$o\n",this_object(),lamp);
 }
 void my_ask() {
@@ -168,7 +168,7 @@ void my_help() {
 void my_faq(string faq){
 	mapping temp;
 	string dis="";
-	array hints;
+	mixed * hints;
 	int i;
 	temp = SGHELP_D->get_topic(faq);
 	if (!temp)
@@ -181,20 +181,20 @@ void my_faq(string faq){
 	   }	
 	   if (dis=="")	
 	      {	
-	      tell_user(my_master,"ÄãµÄ"+GINI_D->get_msg(my_type,"name")+"¸æËßÄã£ºÖ÷ÈË£¬ÄãÎÊÎÒµÄ¶«Î÷ÎÒÒ²²»Ì«¶®Å¶£¬²»¹ıÎÒ¿ÉÒÔ°ïÄãÎÊÎ×Ê¦£®\n"+
-	      "¹À¼ÆÄãÏÂ´ÎÉÏÏßµÄÊ±ºò¾Í¿ÉÒÔÖªµÀÁË£®\n");
-	      LOG_D->log(LOG_HELP_MISS,my_master_name+"("+my_master+")"+"²éÕÒ["+faq+"]µÄ×ÊÁÏÊ§°Ü!\n");
+	      tell_user(my_master,"ä½ çš„"+GINI_D->get_msg(my_type,"name")+"å‘Šè¯‰ä½ ï¼šä¸»äººï¼Œä½ é—®æˆ‘çš„ä¸œè¥¿æˆ‘ä¹Ÿä¸å¤ªæ‡‚å“¦ï¼Œä¸è¿‡æˆ‘å¯ä»¥å¸®ä½ é—®å·«å¸ˆï¼\n"+
+	      "ä¼°è®¡ä½ ä¸‹æ¬¡ä¸Šçº¿çš„æ—¶å€™å°±å¯ä»¥çŸ¥é“äº†ï¼\n");
+	      LOG_D->log(LOG_HELP_MISS,my_master_name+"("+my_master+")"+"æŸ¥æ‰¾["+faq+"]çš„èµ„æ–™å¤±è´¥!\n");
 	      return;}
 	   else
 	       {
-	       	tell_user(my_master,"ÄãµÄ"+GINI_D->get_msg(my_type,"name")+"¸æËßÄã£º\n"+dis+"\n");
+	       	tell_user(my_master,"ä½ çš„"+GINI_D->get_msg(my_type,"name")+"å‘Šè¯‰ä½ ï¼š\n"+dis+"\n");
 	       	return;
 	       }
 	     }
-	dis="ÄãµÄ"+GINI_D->get_msg(my_type,"name")+"¸æËßÄã£º\n";
-	dis+="Ö÷ÈË£¬ÎÒÕÒµ½ÁËÒ»Ğ©¹ØÓÚÕâ·½ÃæµÄ×ÊÁÏ£¬Äã¿ÉÒÔÍ¨¹ı%^CYAN%^help "+faq+"%^RESET%^²éÔÄÅ¶!\n";
-	dis+=sprintf("Ö÷Ìâ: %%^CYAN%%^%s%%^RESET%%^ : ±êÌâ : %%^CYAN%%^%O%%^RESET%%^\n",faq,temp["t"]);
-        dis+=sprintf("ËùÊô°ïÖúÀà£º%%^CYAN%%^%O%%^RESET%%^ \n",temp["parent"][0]);
+	dis="ä½ çš„"+GINI_D->get_msg(my_type,"name")+"å‘Šè¯‰ä½ ï¼š\n";
+	dis+="ä¸»äººï¼Œæˆ‘æ‰¾åˆ°äº†ä¸€äº›å…³äºè¿™æ–¹é¢çš„èµ„æ–™ï¼Œä½ å¯ä»¥é€šè¿‡%^CYAN%^help "+faq+"%^RESET%^æŸ¥é˜…å“¦!\n";
+	dis+=sprintf("ä¸»é¢˜: %%^CYAN%%^%s%%^RESET%%^ : æ ‡é¢˜ : %%^CYAN%%^%O%%^RESET%%^\n",faq,temp["t"]);
+        dis+=sprintf("æ‰€å±å¸®åŠ©ç±»ï¼š%%^CYAN%%^%O%%^RESET%%^ \n",temp["parent"][0]);
         tell_user(my_master,dis);
 		        }
 

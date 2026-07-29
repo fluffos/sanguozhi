@@ -1,4 +1,4 @@
-//  ²Ö¿â by benben
+//  ä»“åº“ by benben
 // lx_chk.c 
 #include <mudlib.h>
 #include "/wiz/fire/fire.h"
@@ -7,8 +7,8 @@ inherit ROOM;
 void setup(){
     set_area("longxi");
     set_light(50);
-    set_brief(""+YEL+"--²Ö¿â--"+NOR+"");
-    set_long("    ÃèÊö¡£\n");
+    set_brief(""+YEL+"--ä»“åº“--"+NOR+"");
+    set_long("    æè¿°ã€‚\n");
     set_exits( ([
         "east" :  __DIR__+"lx_dnst1.c",
     ]) );

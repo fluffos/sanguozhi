@@ -12,14 +12,14 @@
 
 private string		default_mailer;
 
-private static string *	valid_mailers = ({
+private string *	valid_mailers = ({
     "/secure/obj/mailers/standard", "/secure/obj/mailers/Mh"
 });
 
 /*
 ** Current mail handler object (clone of default_mailer)
 */
-private static object	mailer;
+private nosave object	mailer;
 
 
 nomask object query_mailer()

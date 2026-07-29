@@ -1,4 +1,4 @@
-//  ÄÏ³ÇÏï by benben
+//  å—åŸå·· by benben
 // xy_nchx3.c 
 #include <mudlib.h>
 #include "/wiz/fire/fire.h"
@@ -7,8 +7,8 @@ inherit OUTDOOR_ROOM;
 void setup(){
     set_area("xy_area");
     set_light(50);
-    set_brief(""+YEL+"ÄÏ³ÇÏï"+NOR+"");
-    set_long("    ÃèÊö¡£\n");
+    set_brief(""+YEL+"å—åŸå··"+NOR+"");
+    set_long("    æè¿°ã€‚\n");
     set_exits( ([
         "east" :  __DIR__+"xy_nchx1.c",
         "west" :  __DIR__+"xy_cy.c",

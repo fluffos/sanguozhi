@@ -46,7 +46,7 @@ private void main( string arg)
     if (rt == MOVE_OK)
     { 
         if (prev==env)
-        { out("你猛地抽了一下筋。\n");
+        { out("浣犵寷鍦版娊浜嗕竴涓嬬瓔銆俓n");
             return;
         }
         msgs = this_body()->get_player_message("mleave");
@@ -58,11 +58,11 @@ private void main( string arg)
     else           // failure messages
         switch(rt)
     {
-    case MOVE_NO_DEST: out("错误：没有目的地。\n"); break;
+    case MOVE_NO_DEST: out("閿欒锛氭病鏈夌洰鐨勫湴銆俓n"); break;
     case MOVE_NOT_RELEASED: out(
-          "错误：你被困在这里了。\n"); break;
+          "閿欒锛氫綘琚洶鍦ㄨ繖閲屼簡銆俓n"); break;
     case MOVE_NOT_ALLOWED: out(
-          "错误：你要去的地方不接纳你。\n"); 
+          "閿欒锛氫綘瑕佸幓鐨勫湴鏂逛笉鎺ョ撼浣犮�俓n"); 
     }
 }
 

@@ -6,9 +6,9 @@ inherit M_GETTABLE;
 inherit M_WRITING_SURFACE;
 
 void setup() {
-    set_id("paper", "Ö½", "scrap");
-    set_unit("ÕÅ");
-    set_long("Ò»ÕÅÆ½ÕûµÄ°×Ö½¡£\n");
+    set_id("paper", "çº¸", "scrap");
+    set_unit("å¼ ");
+    set_long("ä¸€å¼ å¹³æ•´çš„ç™½çº¸ã€‚\n");
     set_gettable(1);
     set_space(100);
 }

@@ -15,11 +15,11 @@ private void main(string arg)
 
 	player = this_body();
 	if( !arg ){
-		write("��Ҫʹ��ʲô��ı��\n");
+		write("你要使用什么计谋？\n");
 		return;
 	};		
 	if( player->query_cur_hp()*2 <= player->query_cur_max_hp() ){
-		write("�������̫�����ˣ�����ʹ���κμ�ı��\n");
+		write("你的身体太虚弱了，不能使用任何计谋。\n");
 		return;
 	};
 
@@ -32,7 +32,7 @@ private void main(string arg)
 	jimou = jimou + ".c";
 
 	if( !sizeof(files) || member_array(jimou, files) == -1 ){
-		write("û�˻����ּ�ı��\n");
+		write("没人会这种计谋。\n");
 		return;
 	};
 

@@ -31,11 +31,11 @@ string main(string arg)
 <html><body background="http://sgz.yesite.com/images/desk5.gif" text="#FFFFFF" link=yellow vlink=yellow alink=yellow>
 HTML;
 	if( !arg || !stringp(arg) || arg == "" )arg = "main";
-	if( !topics[arg] )html = html +	"\nÃ»ÓĞ´Ë°ïÖúÖ÷Ìâ¡£\n";
-	else if( !topics[arg]["p"] )html = html + "\n´Ë°ïÖúÖ÷ÌâÄÚÈİ»¹Ã»ÓĞÍê³É¡£\n";
+	if( !topics[arg] )html = html +	"\næ²¡æœ‰æ­¤å¸®åŠ©ä¸»é¢˜ã€‚\n";
+	else if( !topics[arg]["p"] )html = html + "\næ­¤å¸®åŠ©ä¸»é¢˜å†…å®¹è¿˜æ²¡æœ‰å®Œæˆã€‚\n";
 	else {
 		file = ROOT + topics[arg]["p"];
-		if( file_size(file) <= 0 )html = html + "\n´Ë°ïÖúÖ÷ÌâÄÚÈİ»¹Ã»ÓĞÍê³É¡£\n";
+		if( file_size(file) <= 0 )html = html + "\næ­¤å¸®åŠ©ä¸»é¢˜å†…å®¹è¿˜æ²¡æœ‰å®Œæˆã€‚\n";
 		else {
 			html = html + "<head><h2>" + topics[arg]["t"] + "</h2></head>";
 			html = html + read_file(file);
@@ -47,7 +47,7 @@ HTML;
 				list = filter_array(keys(topics), (: member_array($(arg),topics[$1]["parent"])!=-1 :));
 				if( sizeof(list) ){
 					html = html + "<hr>";
-					html = html + "<h3>±¾Ö÷ÌâÊÇÒ»¸ö°ïÖúÀà£¬ÆäÖĞ°üÀ¨ÒÔÏÂÖ÷Ìâ£º</h3>";
+					html = html + "<h3>æœ¬ä¸»é¢˜æ˜¯ä¸€ä¸ªå¸®åŠ©ç±»ï¼Œå…¶ä¸­åŒ…æ‹¬ä»¥ä¸‹ä¸»é¢˜ï¼š</h3>";
 					for( i = 0; i < sizeof(list); i++)
 html = html + "<a href=\"/cgi/sg_help.cgi?=" + list[i] + "\">" + topics[list[i]]["t"] + "</a>\n<br>";
 				};
@@ -58,14 +58,14 @@ html = html + "<a href=\"/cgi/sg_help.cgi?=" + list[i] + "\">" + topics[list[i]]
 			list = list - ({"topics", "classes", "new"});
 			if( sizeof(list) ){
 				html = html + "<hr>";
-				html = html + "<h3>±¾Ö÷ÌâËùÊôÀà£º</h3>";
+				html = html + "<h3>æœ¬ä¸»é¢˜æ‰€å±ç±»ï¼š</h3>";
 				for( i = 0; i < sizeof(list); i++)
 html = html + "<a href=\"/cgi/sg_help.cgi?=" + list[i] + "\">" + topics[list[i]]["t"]+ "</a>\n<br>";
 			};
 
 			if(sizeof(topics[arg]["related"])){
 				html = html + "<hr>";
-				html = html + "<h3>Ïà¹Ø°ïÖú£º</h3>";
+				html = html + "<h3>ç›¸å…³å¸®åŠ©ï¼š</h3>";
 				list = sort_array(topics[arg]["related"], 1);
 for( i = 0; i < sizeof(list); i++)html = html + "<a href=\"/cgi/sg_help.cgi?=" + list[i] + "\">" + topics[list[i]]["t"]+ "</a>\n<br>";
 			};

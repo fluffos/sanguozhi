@@ -6,8 +6,8 @@ inherit M_GETTABLE;
 inherit M_VALUE;
 
 void setup() {
-    	set_unit("Öê");
-    	set_id("yao cao","Ò©²İ");
+    	set_unit("æ ª");
+    	set_id("yao cao","è¯è‰");
 	add_id("yaocao");
 	set_gettable(1);
 	set_value(1000+random(500));

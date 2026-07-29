@@ -24,24 +24,24 @@ void setup()
         cloth->move(this_object());
         cloth->do_wear();
 
-        set_name("bao dating", HIY+"Á÷ÀËµÄÏÉÈË"+NOR+"°ü´òÌı");
+        set_name("bao dating", HIY+"æµæµªçš„ä»™äºº"+NOR+"åŒ…æ‰“å¬");
 	add_id("bao");
         set_gender(1);
         set_age(50);
-        set_proper_name(HIY+"Á÷ÀËµÄÏÉÈË"+NOR+"°ü´òÌı(bao dating)");
-        set_in_room_desc(HIY+"Á÷ÀËµÄÏÉÈË"+NOR+"°ü´òÌı(bao dating)");
+        set_proper_name(HIY+"æµæµªçš„ä»™äºº"+NOR+"åŒ…æ‰“å¬(bao dating)");
+        set_in_room_desc(HIY+"æµæµªçš„ä»™äºº"+NOR+"åŒ…æ‰“å¬(bao dating)");
 
         add_question("something", "something");
-        add_ask_str("something","$NÏò$TÉîÉîÒ»¾Ï¹ªµÀ£ºĞ¡¿ÉÓû¹ºÒ»Îï¼ş£¬µ«¿à²»ÖªºÎ´¦¿ÉµÃ£¬ÅÎÏÈÉúÖ¸½Ì¡£\n");
+        add_ask_str("something","$Nå‘$Tæ·±æ·±ä¸€é èº¬é“ï¼šå°å¯æ¬²è´­ä¸€ç‰©ä»¶ï¼Œä½†è‹¦ä¸çŸ¥ä½•å¤„å¯å¾—ï¼Œç›¼å…ˆç”ŸæŒ‡æ•™ã€‚\n");
 	add_question("skills", "skills");
-        add_ask_str("skills","$NÏò$T¹ªÉíÎÊµÀ£º²»ÖªÏÈÉúÓĞºÏ±¾Áì£¿\n");
+        add_ask_str("skills","$Nå‘$Tèº¬èº«é—®é“ï¼šä¸çŸ¥å…ˆç”Ÿæœ‰åˆæœ¬é¢†ï¼Ÿ\n");
 
 	call_out("my_heart",1);
 }
 mixed special_answer(object ob, string str)
 {
 	if( who&&stringp(who)&&who!="" ) 
-		return this_object()->targetted_action("$N¶Ô$TµÀ£ºÇëÉÔµÈ£¡\n",ob);
+		return this_object()->targetted_action("$Nå¯¹$Té“ï¼šè¯·ç¨ç­‰ï¼\n",ob);
 	else if( str=="skills" )
 		return answer_skills( ob );
 	else if( str=="something" ){
@@ -52,8 +52,8 @@ mixed special_answer(object ob, string str)
 void do_something(object ob)
 {
 	this_object()->reponda("nod");
-	this_object()->targetted_action("$NÂıÀíË¹ÌõµØ¶Ô$TËµ£ºÄãÒªÕÒÊ²Ã´¶«Î÷Ñ½£¿\n", ob);
-        ob->modal_push((: get_name :),"ÒªÕÒÊ²Ã´°¡£¿");
+	this_object()->targetted_action("$Næ…¢ç†æ–¯æ¡åœ°å¯¹$Tè¯´ï¼šä½ è¦æ‰¾ä»€ä¹ˆä¸œè¥¿å‘€ï¼Ÿ\n", ob);
+        ob->modal_push((: get_name :),"è¦æ‰¾ä»€ä¹ˆå•Šï¼Ÿ");
         call_out("no_answer", 60);
 }
 void no_answer()
@@ -81,13 +81,13 @@ void get_name(string what)
 	if( what[0]<0||what[0]>125 ) name = get_english_name(what);
 	else name = what;
 	if( !OBJ_D->obj_exist(name) ){
-		this_object()->targetted_action("$NÒÉ»óµÄ¶Ô$TµÀ£ºÄãÈ·¶¨ÓĞÕâÖÖÎïÆ·£¿\n", this_body());
+		this_object()->targetted_action("$Nç–‘æƒ‘çš„å¯¹$Té“ï¼šä½ ç¡®å®šæœ‰è¿™ç§ç‰©å“ï¼Ÿ\n", this_body());
 		who = "";
 		remove_call_out("no_answer");
 	} else {
-		write("°ü´òÌıÌıÁË¡¸ºÙºÙ¡¹Ò»Ğ¦£ºÕâÎÒµ±È»ÖªµÀ£¬Ö»ÊÇÕâ¸ö¡£¡£¡£Õâ¸ö¡£¡£¡£\n");
-		write("°ü´òÌıÍûÁËÄãÒ»ÑÛ£¬Ã»ÓĞËµÏÂÈ¥¡£\n");
-		this_body()->modal_push((: get_respond :),"ÇëÊäÈë¶Ô²ß£º1¡¢¸øÇ®£¬0¡¢·ÅÆú¡£" );
+		write("åŒ…æ‰“å¬å¬äº†ã€Œå˜¿å˜¿ã€ä¸€ç¬‘ï¼šè¿™æˆ‘å½“ç„¶çŸ¥é“ï¼Œåªæ˜¯è¿™ä¸ªã€‚ã€‚ã€‚è¿™ä¸ªã€‚ã€‚ã€‚\n");
+		write("åŒ…æ‰“å¬æœ›äº†ä½ ä¸€çœ¼ï¼Œæ²¡æœ‰è¯´ä¸‹å»ã€‚\n");
+		this_body()->modal_push((: get_respond :),"è¯·è¾“å…¥å¯¹ç­–ï¼š1ã€ç»™é’±ï¼Œ0ã€æ”¾å¼ƒã€‚" );
 	}	
 }
 void get_respond(string what)
@@ -101,18 +101,18 @@ void get_respond(string what)
 	i = 10 + random(40);
 	remove_call_out("no_answer");
 	if( what == "0" ){
-		this_body()->targetted_action("$NÓÌÔ¥ÁËÒ»ÏÂ£¬¶Ô$TËµ£ºÊµÔÚ²»ºÃÒâË¼£¬Ğ¡¿É×î½üÊÖÍ·±È½Ï½ô¡£\n", this_object());
-		this_object()->targetted_action("$N¡¸ºß¡¹ÁËÒ»Éù£¬Ò»Á³²»ÂúµÄÑù×Ó£ºÄÇÄã×Ô¼ºÂıÂıÕÒ°É£¬±ğ·³ÎÒ¡£\n", this_body());
+		this_body()->targetted_action("$NçŠ¹è±«äº†ä¸€ä¸‹ï¼Œå¯¹$Tè¯´ï¼šå®åœ¨ä¸å¥½æ„æ€ï¼Œå°å¯æœ€è¿‘æ‰‹å¤´æ¯”è¾ƒç´§ã€‚\n", this_object());
+		this_object()->targetted_action("$Nã€Œå“¼ã€äº†ä¸€å£°ï¼Œä¸€è„¸ä¸æ»¡çš„æ ·å­ï¼šé‚£ä½ è‡ªå·±æ…¢æ…¢æ‰¾å§ï¼Œåˆ«çƒ¦æˆ‘ã€‚\n", this_body());
 	} else if( this_body()->query_all_con_money()<(i*100) ) {
 		this_object()->responda("heng");
-		this_object()->targetted_action("$N¶Ô¶ñºİºİµÄµÀ£ºÇî¹âµ°£¬Ò»±ßÈ¥¡£\n", this_body());
+		this_object()->targetted_action("$Nå¯¹æ¶ç‹ ç‹ çš„é“ï¼šç©·å…‰è›‹ï¼Œä¸€è¾¹å»ã€‚\n", this_body());
 	} else {
-		this_body()->targetted_action("$NÂúÁ³¶ÑĞ¦£¬Á¬Ã¦°ÑÒ»¸öÔçÒÑ×¼±¸ºÃµÄºì°ü·Å½ø°ü´òÌıµÄ»³Àï¡£\n", this_object());
+		this_body()->targetted_action("$Næ»¡è„¸å †ç¬‘ï¼Œè¿å¿™æŠŠä¸€ä¸ªæ—©å·²å‡†å¤‡å¥½çš„çº¢åŒ…æ”¾è¿›åŒ…æ‰“å¬çš„æ€€é‡Œã€‚\n", this_object());
 		this_body()->set_all_con_money(this_body()->query_all_con_money()-i*100);
-		this_body()->targetted_action("$N¸øÁË$T"+chinese_number(i)+"Á½Òø×Ó¡£\n", this_object());
+		this_body()->targetted_action("$Nç»™äº†$T"+chinese_number(i)+"ä¸¤é“¶å­ã€‚\n", this_object());
 		ret = OBJ_D->get_obj_maker(name);
 		if( !arrayp(ret)||!sizeof(ret) )
-			this_object()->targetted_action("$N¶Ô$TÌ¾µÀ£º´ËÎïÖ»Ó¦ÌìÉÏÓĞ£¬ÈË¼äÄÇµÃ¼¸»áÎÅ£¡\n", this_body());
+			this_object()->targetted_action("$Nå¯¹$Tå¹é“ï¼šæ­¤ç‰©åªåº”å¤©ä¸Šæœ‰ï¼Œäººé—´é‚£å¾—å‡ ä¼šé—»ï¼\n", this_body());
 		else {
 			maker = ret[random(sizeof(ret))];
 			area = CHAR_D->get_char(maker, "room");
@@ -124,7 +124,7 @@ void get_respond(string what)
 				write("area is "+area+"\n");
 			}
 */	
-			write("°ü´òÌıÁ½ÑÛÂíÉÏ·Å¹âÁË£ººÃ£¡¾Í¸æËßÄã°É£¬"+OBJ_D->get_obj(name,"name")+"ÔÚ"+AREA_D->get_area(area,"zhou")+"Ò»´ø¿ÉÒÔÂòµ½¡£\n");
+			write("åŒ…æ‰“å¬ä¸¤çœ¼é©¬ä¸Šæ”¾å…‰äº†ï¼šå¥½ï¼å°±å‘Šè¯‰ä½ å§ï¼Œ"+OBJ_D->get_obj(name,"name")+"åœ¨"+AREA_D->get_area(area,"zhou")+"ä¸€å¸¦å¯ä»¥ä¹°åˆ°ã€‚\n");
 		}
 	}
 }
@@ -133,9 +133,9 @@ void answer_skills(object ob)
 	string msg  = "";
 	string *sks = ({"qibing", "scout", "shidu", "jiedu", "fakeorder","sugong" });
 	
-	foreach(string s in sks) msg+=SG_SKILL_D->query_name(s)+"("+s+")£¬\n";
-	this_object()->targetted_action("$N¶Ô$T´óĞ¦ÁË¼¸ÉùµÀ£ºÀÏĞà²»²Å£¬µ«¶Ô\n"+msg+"Öî¼ÆÆÄÓĞĞ©ĞÄµÃ£¡\n",ob);
-	ob->modal_push((: check_skills, sks:), "Äã¶ÔÄÇÒ»ÖÖ¼ÆÄ±¸ĞĞËÈ¤ÄØ£¿");
+	foreach(string s in sks) msg+=SG_SKILL_D->query_name(s)+"("+s+")ï¼Œ\n";
+	this_object()->targetted_action("$Nå¯¹$Tå¤§ç¬‘äº†å‡ å£°é“ï¼šè€æœ½ä¸æ‰ï¼Œä½†å¯¹\n"+msg+"è¯¸è®¡é¢‡æœ‰äº›å¿ƒå¾—ï¼\n",ob);
+	ob->modal_push((: check_skills, sks:), "ä½ å¯¹é‚£ä¸€ç§è®¡è°‹æ„Ÿå…´è¶£å‘¢ï¼Ÿ");
 }
 void check_skills(string *sks, string ans)
 {
@@ -143,16 +143,16 @@ void check_skills(string *sks, string ans)
 
 	this_body()->modal_pop();
 	if( !ans||ans==""||!stringp(ans)||member_array(ans,SG_SKILL_D->query_skills())==-1 )
-		write("Ã»ÓĞÕâÖÖ¼ÆÄ±£¡\n");
+		write("æ²¡æœ‰è¿™ç§è®¡è°‹ï¼\n");
 	else if( member_array(ans, sks)==-1 )
-		write(this_object()->short()+"²»»áÕâÖÖ¼ÆÄ±£¡\n");
+		write(this_object()->short()+"ä¸ä¼šè¿™ç§è®¡è°‹ï¼\n");
 	else if( !(level=this_body()->query_sk_level(ans)) )
-		write("Äã²¢²»»áÕâÖÖ¼ÆÄ±£¡\n");
+		write("ä½ å¹¶ä¸ä¼šè¿™ç§è®¡è°‹ï¼\n");
 	else if( level>=100 )
-		write("ÒÑ¾­Ã»ÓĞÈË¿ÉÒÔ½ÌÄãÁË£¡\n");
+		write("å·²ç»æ²¡æœ‰äººå¯ä»¥æ•™ä½ äº†ï¼\n");
 	else {
 		this_body()->modal_push((: do_learn, ans, level:),
-			"\n»¨·Ñ"+chinese_number((level+1)*2+1)+"Á½½ğÑ§Ï°Âğ£¿\n¾ö¶¨ÁËµÄ»°ÇëÊäÈëyes¡£");
+			"\nèŠ±è´¹"+chinese_number((level+1)*2+1)+"ä¸¤é‡‘å­¦ä¹ å—ï¼Ÿ\nå†³å®šäº†çš„è¯è¯·è¾“å…¥yesã€‚");
 	}
 }
 void do_learn(string sk, int lvl, string ans)
@@ -162,22 +162,22 @@ void do_learn(string sk, int lvl, string ans)
 	object who;
 	
 	this_body()->modal_pop();
-	this_body()->start_busy(5, "ÄãÕıÃ¦×ÅÑ§Ï°ÄØ£¡\n");
+	this_body()->start_busy(5, "ä½ æ­£å¿™ç€å­¦ä¹ å‘¢ï¼\n");
 	who=this_body();
 	money=((lvl+1)*2+1)*10000;
 
 	if( !ans||!stringp(ans)||ans!="yes" )
-		write("²»ÏëÑ§£¬ËãÁË£¡\n");
+		write("ä¸æƒ³å­¦ï¼Œç®—äº†ï¼\n");
 	else if( (this_body()->query_all_con_money())<money )
-		write("ÄãÄÇÓĞÄÄÃ´¶àÇ®£¡\n");
+		write("ä½ é‚£æœ‰å“ªä¹ˆå¤šé’±ï¼\n");
 	else if( (tmp=LEARNCHECK_D->check_can_learn_skills(sk, lvl+10))==TOO_TIRED )
-		this_object()->targetted_action("$N¶Ô$TĞ¦µÀ£º¡°ÄãÌ«ÀÛÁË£¡\n",who);
+		this_object()->targetted_action("$Nå¯¹$Tç¬‘é“ï¼šâ€œä½ å¤ªç´¯äº†ï¼\n",who);
 	else if( tmp==LESS_LITERATE )
-		this_object()->targetted_action("$N¶Ô$TµÀ£ºÄãµÄÎÄÑ§ĞŞÑø²»¹»£¬ÓĞĞ©µÀÀíÌı²»Ã÷°×µÄ¡£\n",who);
+		this_object()->targetted_action("$Nå¯¹$Té“ï¼šä½ çš„æ–‡å­¦ä¿®å…»ä¸å¤Ÿï¼Œæœ‰äº›é“ç†å¬ä¸æ˜ç™½çš„ã€‚\n",who);
 	else if( tmp==LESS_EXP )
-		this_object()->targetted_action("$N¶Ô$TĞ¦µ½£º¡°¾­Ñé²»¹»£¬Ö»ÅÂÉñÏÉÒ²½Ì²»»áÄãÑ½¡£¡±\n",who);
+		this_object()->targetted_action("$Nå¯¹$Tç¬‘åˆ°ï¼šâ€œç»éªŒä¸å¤Ÿï¼Œåªæ€•ç¥ä»™ä¹Ÿæ•™ä¸ä¼šä½ å‘€ã€‚â€\n",who);
 	else if( tmp==15 )
-		this_object()->targetted_action("$N¶Ô$TĞ¦µ½£ºÄãÑ§ÁËÌ«¶àÖÖ¼ÆÄ±ÁË£¡\n", who);
+		this_object()->targetted_action("$Nå¯¹$Tç¬‘åˆ°ï¼šä½ å­¦äº†å¤ªå¤šç§è®¡è°‹äº†ï¼\n", who);
 	else {
 		who->set_all_con_money(who->query_all_con_money()-money);
 		who->responda("ok");

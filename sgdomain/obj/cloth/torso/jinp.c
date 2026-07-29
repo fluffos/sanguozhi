@@ -8,15 +8,15 @@ inherit M_VALUE;
 void setup()
 {
     ::mudlib_setup();
-    set_unit("¼ş");
-    set_id("jinpao", "½õÅÛ");
+    set_unit("ä»¶");
+    set_id("jinpao", "é”¦è¢");
     add_id("pao");
-    set_in_room_desc("½õÅÛ(jinpao)");
-    set_long("Ò»¼ş½õÅÛ£¬¿´ÆğÀ´ÊÇÓÃ¼«ºÃµÄ½õ¶Ğ×öµÄ£¬ÉÏÃæĞå×ÅÁú·ïÍ¼°¸£¬Ñü¼äÊÇ¸ùÓñ´ø£¬²»ÖªÊÇÊ²Ã´À´Àú¡£");
+    set_in_room_desc("é”¦è¢(jinpao)");
+    set_long("ä¸€ä»¶é”¦è¢ï¼Œçœ‹èµ·æ¥æ˜¯ç”¨æå¥½çš„é”¦ç¼åšçš„ï¼Œä¸Šé¢ç»£ç€é¾™å‡¤å›¾æ¡ˆï¼Œè…°é—´æ˜¯æ ¹ç‰å¸¦ï¼Œä¸çŸ¥æ˜¯ä»€ä¹ˆæ¥å†ã€‚");
     set_gettable(1);
     set_slot(TORSO);
-    set_wearmsg("$N´©ÉÏÒ»¼ş¾«ÃÀµÄ$o£¬ÏµÉÏÒ»¸úÓñ´ø¡£\n");
-    set_removemsg("$NĞ¡ĞÄµØ½â¿ªÓñ´ø£¬ÍÑÏÂ$o¡£\n");
+    set_wearmsg("$Nç©¿ä¸Šä¸€ä»¶ç²¾ç¾çš„$oï¼Œç³»ä¸Šä¸€è·Ÿç‰å¸¦ã€‚\n");
+    set_removemsg("$Nå°å¿ƒåœ°è§£å¼€ç‰å¸¦ï¼Œè„±ä¸‹$oã€‚\n");
     set_attack_ability(-1);
     set_defence_power(1);
     set_defence_ability(-1);

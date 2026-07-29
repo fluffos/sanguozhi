@@ -1,8 +1,8 @@
 // m_greeter.c
 // every object inherited by this is a greeter
-static private string *defgreet=({ "bow","hi","handshake",
+nosave private string *defgreet=({ "bow","hi","handshake",
 	"jump","greet"});
-static private string *defleave=({"wave","seeu","kick"});
+nosave private string *defleave=({"wave","seeu","kick"});
 int is_greeter() {
 	return 1;
 }

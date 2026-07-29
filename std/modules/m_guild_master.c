@@ -21,62 +21,62 @@ private string which_guild;
 void guildmsg_new_conflict(object who, string why)
 {
     targetted_action(//"$N $vlook sternly at $t and $vsay, \"As a member of $o, I cannot allow you to use our facilities anymore.  When you leave them, I'm sure that you'll be more than welcome back.\"\n",
-                     "$NÑÏËàµØ¿´×Å$t£¬ËµµÀ£º¡°×÷Îª$oµÄÒ»Ô±£¬ÎÒ²»ÄÜÔÊĞíÄãÔÙÊ¹ÓÃÎÒÃÇµÄ×°±¸£¬Èç¹ûÄãÀë¿ªÁËËûÃÇ£¬»á»¶Ó­Äã»ØÀ´µÄ¡£¡±\n", 
+                     "$Nä¸¥è‚ƒåœ°çœ‹ç€$tï¼Œè¯´é“ï¼šâ€œä½œä¸º$oçš„ä¸€å‘˜ï¼Œæˆ‘ä¸èƒ½å…è®¸ä½ å†ä½¿ç”¨æˆ‘ä»¬çš„è£…å¤‡ï¼Œå¦‚æœä½ ç¦»å¼€äº†ä»–ä»¬ï¼Œä¼šæ¬¢è¿ä½ å›æ¥çš„ã€‚â€\n", 
                      who, why);
 }
 void guildmsg_welcome_back(object who)
 {
     targetted_action(//"$N $vwelcome $t back to the $o.\n",
-                     "$N»¶Ó­$t»ØÀ´¼ÓÈë$o¡£\n",
+                     "$Næ¬¢è¿$tå›æ¥åŠ å…¥$oã€‚\n",
                      who, GUILD_D->query_guild_title(which_guild));
 }
 void guildmsg_not_member(object who)
 {
     targetted_action(//"$N $vpoint out to $t, \"You aren't a member of the $o.\"\n",
-                     "$NÖ¸×Å$t£º¡°Äã²»ÊÇ$oµÄ³ÉÔ±¡£¡±\n",   
+                     "$NæŒ‡ç€$tï¼šâ€œä½ ä¸æ˜¯$oçš„æˆå‘˜ã€‚â€\n",   
                      who, GUILD_D->query_guild_title(which_guild));
 }
 void guildmsg_already_member(object who)
 {
     targetted_action(//"$N $vpeer quizzically at $t and $vsay, \"You already belong to our guild.\"\n",
-                     "$NÆæ¹ÖµØ¿´×Å$t£¬ËµµÀ£º¡°Äã±¾À´¾ÍÊÇÎÒÃÇ°ïÅÉµÄ¡£¡±\n",
+                     "$Nå¥‡æ€ªåœ°çœ‹ç€$tï¼Œè¯´é“ï¼šâ€œä½ æœ¬æ¥å°±æ˜¯æˆ‘ä»¬å¸®æ´¾çš„ã€‚â€\n",
                      who);
 }
 void guildmsg_refuse_entry(object who, string why)
 {
     targetted_action(//"$N $vstare unpleasantly at $t and $vgrowl, \"Not while you belong to $o.\"\n",
-                     "$N³Á×ÅÁ³£¬¶Ô$tËµµÀ£º¡°Ö»ÒªÄãÊÇ$oµÄ³ÉÔ±¾Í²»ĞĞ¡£¡±\n",
+                     "$Næ²‰ç€è„¸ï¼Œå¯¹$tè¯´é“ï¼šâ€œåªè¦ä½ æ˜¯$oçš„æˆå‘˜å°±ä¸è¡Œã€‚â€\n",
                      who, why);
 }
 void guildmsg_welcome(object who)
 {
     targetted_action(//"$N $vwelcome $t to the $o.\n",
-                     "$N»¶Ó­$t¼ÓÈë$o¡£\n",
+                     "$Næ¬¢è¿$tåŠ å…¥$oã€‚\n",
                      who, GUILD_D->query_guild_title(which_guild));
 }
 void guildmsg_leave_nicely(object who)
 {
     targetted_action(//"$N $vbid $t farewell.\n",
-                     "$N·Ô¸À$tÀë¿ª°ïÅÉ¡£\n",   
+                     "$Nå©å’$tç¦»å¼€å¸®æ´¾ã€‚\n",   
                       who);
 }
 void guildmsg_leave_badly(object who)
 {
     targetted_action(//"$N $vsay, \"So be it, $tp. Leave this place.\"\n",
-                     "$NËµµÀ£º¡°¾ÍÕâÑù£¬Äã±»¿ª³ı³ö°ï£¬¹ö°É£¡¡±\n",   
+                     "$Nè¯´é“ï¼šâ€œå°±è¿™æ ·ï¼Œä½ è¢«å¼€é™¤å‡ºå¸®ï¼Œæ»šå§ï¼â€\n",   
                      who);
 }
 void guildmsg_leave_as_enemy(object who)
 {
     targetted_action("$N $vsnarl, \"So be it, $tp. You have chosen your doom.\"\n",
-                     "$NÅ­ÂîµÀ£º¡°»ìµ°£¬Äã´Ó´Ë¾ÍÊÇ±¾ÃÅµÄµĞÈË£¬È¥ËÀ°É£¡¡±\n",   
+                     "$Næ€’éª‚é“ï¼šâ€œæ··è›‹ï¼Œä½ ä»æ­¤å°±æ˜¯æœ¬é—¨çš„æ•Œäººï¼Œå»æ­»å§ï¼â€\n",   
                      who);
 }
 
 /* --------------------------------------------------- */
 
 
-static nomask void set_which_guild(string new_guild)
+protected nomask void set_which_guild(string new_guild)
 {
     which_guild = new_guild;
 }
@@ -104,7 +104,7 @@ void check_a_member()
         this_body()->simple_action(//"The Guildmaster snarls at $N, "
                                    //"\"As a member of $O, I cannot allow "
                                    //"you membership.\"\n",
-                                   "°ïÖ÷¶Ô$NºğµÀ£º¡°×÷Îª$OµÄÒ»Ô±£¬ÎÒ²»×¼ÄãÈë°ï¡£¡±\n",
+                                   "å¸®ä¸»å¯¹$Nå¼é“ï¼šâ€œä½œä¸º$Oçš„ä¸€å‘˜ï¼Œæˆ‘ä¸å‡†ä½ å…¥å¸®ã€‚â€\n",
                                    p);
     }
 }

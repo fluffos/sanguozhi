@@ -6,16 +6,16 @@ inherit M_INPUT;
 
 void setup()
 {
-        set_id("soil", "Ò»Æ¬ÍÁµØ");
+        set_id("soil", "ä¸€ç‰‡åœŸåœ°");
         add_id("tu di");
-        set_in_room_desc("Ò»Æ¬·ÊÎÖµÄÍÁµØ(soil)");
+        set_in_room_desc("ä¸€ç‰‡è‚¥æ²ƒçš„åœŸåœ°(soil)");
 }
 string query_stat(int i)
 {
-	if( i<6 ) return "ÖÖ×Ó¿ªÊ¼ÃÈÑ¿ÁË¡£\n";
-	else if( i<12 ) return "±ÌÂÌµÄ×¯¼ÚÃçÓä¿ìµÄÉú³¤×Å¡£\n";
-	else if( i<18 ) return "×¯¼Ú¿ªÊ¼³éËëÁË£¬Ò»Æ¬ÐÀÐÀÏòÈÙµÄ¾°Ïó¡£\n";
-	else return "½ð»ÆµÄ×¯¼ÚÕýÔÚ·çÖÐÒ¡¶¯£¬·áÊÕµÄ¼¾½Úµ½ÁË¡£\n";
+	if( i<6 ) return "ç§å­å¼€å§‹èŒèŠ½äº†ã€‚\n";
+	else if( i<12 ) return "ç¢§ç»¿çš„åº„ç¨¼è‹—æ„‰å¿«çš„ç”Ÿé•¿ç€ã€‚\n";
+	else if( i<18 ) return "åº„ç¨¼å¼€å§‹æŠ½ç©—äº†ï¼Œä¸€ç‰‡æ¬£æ¬£å‘è£çš„æ™¯è±¡ã€‚\n";
+	else return "é‡‘é»„çš„åº„ç¨¼æ­£åœ¨é£Žä¸­æ‘‡åŠ¨ï¼Œä¸°æ”¶çš„å­£èŠ‚åˆ°äº†ã€‚\n";
 }
 string long()
 {
@@ -25,9 +25,9 @@ string long()
 	ob = this_body();
 	job = ob->query_job("do_farm", "");
 	if( !job||!mapp(job)||job["beg_time"]<=0 )
-		return "Ò»Æ¬ÂÌÓÍÓÍµÄ×¯¼Ú£¬½¡¿µµÄÉú³¤×Å¡£\n";
+		return "ä¸€ç‰‡ç»¿æ²¹æ²¹çš„åº„ç¨¼ï¼Œå¥åº·çš„ç”Ÿé•¿ç€ã€‚\n";
 	else if( !job["job"]||job["job"]=="" )
-		return query_stat(job["time"])+"Çé¿öÒ»ÇÐÁ¼ºÃ£¬ÄúµÄ×¯¼ÚÒ»¶¨»áÓÐ¸öºÃÊÕ³É¡£\n";
-	else return query_stat(job["time"])+"È»¶ø"+load_object(FARMER)->get_quest(job["job"]);
+		return query_stat(job["time"])+"æƒ…å†µä¸€åˆ‡è‰¯å¥½ï¼Œæ‚¨çš„åº„ç¨¼ä¸€å®šä¼šæœ‰ä¸ªå¥½æ”¶æˆã€‚\n";
+	else return query_stat(job["time"])+"ç„¶è€Œ"+load_object(FARMER)->get_quest(job["job"]);
 
 }

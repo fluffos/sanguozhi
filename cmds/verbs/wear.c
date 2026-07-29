@@ -23,13 +23,13 @@ void do_wear_str(string str)
 			return;
 		}
 		if( !ret )
-			ret = "ÄãÃ»·¨´©"+o->short()+"¡£\n";
+			ret = "ä½ æ²¡æ³•ç©¿"+o->short()+"ã€‚\n";
 		write(ret);
 	}
 	return;
 }
 
-array query_verb_info() {
+mixed * query_verb_info() {
     return ({ ({ "STR" }) });
 }
 

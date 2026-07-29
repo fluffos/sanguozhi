@@ -6,13 +6,13 @@ string subject_name(string matt)
 	switch(matt)
 	{
 		case "bfxy":
-			return "ÓÃ±øÖ®µÀ";
+			return "ç”¨å…µä¹‹é“";
 		case "zgxy":
-			return "ÖÎ¹úÖ®µÀ";
+			return "æ²»å›½ä¹‹é“";
 		case "wxxy":
-			return "ÎäÑ§Ö®µÀ";
+			return "æ­¦å­¦ä¹‹é“";
 		default:
-			return "ÅÔ±ß×óµÀ";
+			return "æ—è¾¹å·¦é“";
 	}
 }
 string subject_title(string matt)
@@ -41,27 +41,27 @@ void learn_skill(object student,string skill)
 	switch(res)
 	{
 		case TOO_TIRED:
-                        student->simple_action("$NÌıÁË°ëÌì£¬î§Ë¯µÃÁ¬ÑÛ¾¦¶¼Õö²»¿ªÁË¡£\n");
+                        student->simple_action("$Nå¬äº†åŠå¤©ï¼ŒçŒç¡å¾—è¿çœ¼ç›éƒ½çä¸å¼€äº†ã€‚\n");
 			return;
 		case CAN_LEARN:
 	                p_st=SG_SKILL_D->query_get(skill);
 	                student->simple_action(p_st);
 			return;
                 case LESS_EXP:
-                        student->simple_action("$NÌıÁË°ëÌì£¬È´ºÃÏóÔÚÌıÌìÊéÒ»°ã£¬Ê²Ã´Ò²Ã»ÓĞÌı¶®¡£\n");
+                        student->simple_action("$Nå¬äº†åŠå¤©ï¼Œå´å¥½è±¡åœ¨å¬å¤©ä¹¦ä¸€èˆ¬ï¼Œä»€ä¹ˆä¹Ÿæ²¡æœ‰å¬æ‡‚ã€‚\n");
 			return;
 		case LESS_GIFT_MEILI:
 		case LESS_GIFT_ZHIMOU:
 		case LESS_GIFT_WULI:
 		case LESS_GIFT:
-                        student->simple_action("$NÌıÁË°ëÌì£¬ºÃÏóÌı¶®ÁËÈ´ÓÖ¼Ç²»×¡£¬Ò²ĞíÊÇÌì¸³²»×ã¡£\n");
+                        student->simple_action("$Nå¬äº†åŠå¤©ï¼Œå¥½è±¡å¬æ‡‚äº†å´åˆè®°ä¸ä½ï¼Œä¹Ÿè®¸æ˜¯å¤©èµ‹ä¸è¶³ã€‚\n");
 			return;
 		case LESS_LITERATE:
-                        student->simple_action("$NÌıÁË°ëÌì£¬ºÃÏóÌı¶®ÁËÈ´ÓÖ¼Ç²»×¡£¬Ò²ĞíÊÇÎÄÑ§ĞŞÑø²»¹»¡£\n");
+                        student->simple_action("$Nå¬äº†åŠå¤©ï¼Œå¥½è±¡å¬æ‡‚äº†å´åˆè®°ä¸ä½ï¼Œä¹Ÿè®¸æ˜¯æ–‡å­¦ä¿®å…»ä¸å¤Ÿã€‚\n");
 			return;
 	        default :
 tell_user("fire",sprintf("the return is %O\n",res));
-        	        write("²»ÖªÎªÊ²Ã´ÄãÑ§²»»á£¬ÎÊÎÊÎ×Ê¦°É¡£\n");
+        	        write("ä¸çŸ¥ä¸ºä»€ä¹ˆä½ å­¦ä¸ä¼šï¼Œé—®é—®å·«å¸ˆå§ã€‚\n");
 			return;
 	}
 }
@@ -79,25 +79,25 @@ void ask_skills(object student,object master,string matt)
 	if(!p_nation)
 	{
 		master->targetted_action
-("$N¶Ô$TÒ¡Í·µÀ£º$m$RËÆºõ²¢·ÇÊÀË×ÖĞºÃÓÂ¶·ºİÖ®±²£¬Õâ"+sub+
-"ÎÒ¿´¾Í²»±ØÑ§ÁË°É¡£\n",student);
+("$Nå¯¹$Tæ‘‡å¤´é“ï¼š$m$Rä¼¼ä¹å¹¶éä¸–ä¿—ä¸­å¥½å‹‡æ–—ç‹ ä¹‹è¾ˆï¼Œè¿™"+sub+
+"æˆ‘çœ‹å°±ä¸å¿…å­¦äº†å§ã€‚\n",student);
 		return;
 	}
 	if(p_nation!=CHAR_D->get_char(m_id,"nation"))
 	{
 		master->targetted_action
-("$N¶Ô$TÒ¡Í·µÀ£º$m$RÄË"+COUNTRY_D->get_country(p_nation,"name")+
-"¸ß¹Ù£¬Òò´ËÕâ"+sub+"»¹ÊÇ²»±ãÏà´«¡£¡£¡£\n",student);
+("$Nå¯¹$Tæ‘‡å¤´é“ï¼š$m$Rä¹ƒ"+COUNTRY_D->get_country(p_nation,"name")+
+"é«˜å®˜ï¼Œå› æ­¤è¿™"+sub+"è¿˜æ˜¯ä¸ä¾¿ç›¸ä¼ ã€‚ã€‚ã€‚\n",student);
 		return;
 	}
 	if((CHAR_D->get_skill(s_id,tit))>=(CHAR_D->get_skill(m_id,tit)))
 	{
 		master->targetted_action
-("$N¶Ô$TĞ¦µÀ£º$m$cºÎ±Ø¹ıÇ«£¬ÄãµÄ"+sub+"ÒÑ²»ÊäÓÚ$CÎÒÁË¡£\n",student);
+("$Nå¯¹$Tç¬‘é“ï¼š$m$cä½•å¿…è¿‡è°¦ï¼Œä½ çš„"+sub+"å·²ä¸è¾“äº$Cæˆ‘äº†ã€‚\n",student);
 		return;
 	}
 	master->targetted_action
-("$N¶Ô$TĞ¦µÀ£º$m$cÈô²»ÏÓÆú$CÎÒ²ÅÑ§ÊèÇ³£¬±ãÒ»Í¬Ì½ÌÖÌ½ÌÖÕâ"+sub+"°É¡£\n",student);
-        master->targetted_action("$NÏò$TÏê½âÁËÒ»·¬"+sub+"¡£\n",student);
+("$Nå¯¹$Tç¬‘é“ï¼š$m$cè‹¥ä¸å«Œå¼ƒ$Cæˆ‘æ‰å­¦ç–æµ…ï¼Œä¾¿ä¸€åŒæ¢è®¨æ¢è®¨è¿™"+sub+"å§ã€‚\n",student);
+        master->targetted_action("$Nå‘$Tè¯¦è§£äº†ä¸€ç•ª"+sub+"ã€‚\n",student);
 	call_out("learn_skill",random(3)+1,student,tit);
 }

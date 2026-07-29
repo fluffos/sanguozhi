@@ -15,12 +15,12 @@ void do_follow()
          if( this_body()->query("leader") ) 
          {
              this_body()->delete("leader"); 
-             this_body()->simple_action("$NÏÖÔÚ·ÅÆú¸úËæÄ¿±ê¡£\n");
+             this_body()->simple_action("$Nç°åœ¨æ”¾å¼ƒè·Ÿéšç›®æ ‡ã€‚\n");
              return;
          } 
          else 
          {
-             write("ÄãÏÖÔÚ²¢Ã»ÓĞ¸úËæÈÎºÎÈË¡£\n");
+             write("ä½ ç°åœ¨å¹¶æ²¡æœ‰è·Ÿéšä»»ä½•äººã€‚\n");
              return;
          }
 }
@@ -29,13 +29,13 @@ void do_follow_liv(object ob)
   
       if( ob == this_body() )
       {       
-            write("¸úËæ×Ô¼º£¿\n");
+            write("è·Ÿéšè‡ªå·±ï¼Ÿ\n");
             return;
       }
       this_body()->set("leader",ob);
-      this_body()->targetted_action("$N¾ö¶¨¿ªÊ¼¸úËæ$TÒ»ÆğĞĞ¶¯¡£\n",ob);
+      this_body()->targetted_action("$Nå†³å®šå¼€å§‹è·Ÿéš$Tä¸€èµ·è¡ŒåŠ¨ã€‚\n",ob);
       return; 
 }
-array query_verb_info() {
+mixed * query_verb_info() {
     return ({ ({ "LIV","" }) });
 }

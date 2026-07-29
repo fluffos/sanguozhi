@@ -4,12 +4,12 @@ inherit M_WANDER;
 
 void setup() {
 
-    set_name("Long", "³¤½ÖÑøµÄĞ¡Áú");
+    set_name("Long", "é•¿è¡—å…»çš„å°é¾™");
     set_id("dragon", "Long");
     set_gender(1);
-    set_proper_name("³¤½ÖÑøµÄĞ¡Áú");
-    set_in_room_desc("³¤½ÖÑøµÄĞ¡Áú(Long)");
-    set_long("´ÕÕâÃ´½ü¿´Áú¿ÉÊÇºÜÎ£ÏÕµÄÊÂ¡£");
+    set_proper_name("é•¿è¡—å…»çš„å°é¾™");
+    set_in_room_desc("é•¿è¡—å…»çš„å°é¾™(Long)");
+    set_long("å‡‘è¿™ä¹ˆè¿‘çœ‹é¾™å¯æ˜¯å¾ˆå±é™©çš„äº‹ã€‚");
 
     set_max_hp(300);
   set_movement_time(5);

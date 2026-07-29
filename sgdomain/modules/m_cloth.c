@@ -3,13 +3,13 @@
 inherit OBJ;
 void hook_state(string, string, int);
 //### Huh?  This appears to be unused.
-private static string   wearmsg="$N´©ÉÏÒ»¼ş$o¡£\n";
-private static string   removemsg="$NÍÑÏÂ$o¡£\n";
-private static int      is_on;
-private static string   slot;
+private nosave string   wearmsg="$Nç©¿ä¸Šä¸€ä»¶$oã€‚\n";
+private nosave string   removemsg="$Nè„±ä¸‹$oã€‚\n";
+private nosave int      is_on;
+private nosave string   slot;
 
-private static int m_att_abi=0;
-private static int m_def_pow=0;
+private nosave int m_att_abi=0;
+private nosave int m_def_pow=0;
 void set_def_pow(int p_tmp){
 	m_def_pow=p_tmp;
 }
@@ -56,21 +56,21 @@ string query_slot(){
 }
 void set_is_on( int g){
   is_on = g;
-  hook_state("extra_short", "´©´÷×Å", is_on);
-  hook_state("prevent_drop", "ÄãÒªÏÈ°ÑËüÍÑÏÂÀ´¡£\n", is_on);
+  hook_state("extra_short", "ç©¿æˆ´ç€", is_on);
+  hook_state("prevent_drop", "ä½ è¦å…ˆæŠŠå®ƒè„±ä¸‹æ¥ã€‚\n", is_on);
 }
 void do_wear()
 {
     object who;
     if(!slot)
-    {   write("Õâ¶«Î÷ºÃÏó²»Öª¸Ã´©ÄÄ¡£\n");
+    {   write("è¿™ä¸œè¥¿å¥½è±¡ä¸çŸ¥è¯¥ç©¿å“ªã€‚\n");
         return;
     }
     who=owner(this_object());
     foreach (object ob2 in all_inventory(who)) 
     { 	if ((slot==ob2->ob_state()))
 		{
-			write("ÄãÒÑ¾­´©´÷ÁËÍ¬Àà×°±¸ÁË¡£\n");
+			write("ä½ å·²ç»ç©¿æˆ´äº†åŒç±»è£…å¤‡äº†ã€‚\n");
 			return;
 		}
     }	
@@ -90,7 +90,7 @@ mixed  direct_wear_obj() {
     if (who != this_body())
         return 0;                                       
     if( is_on )                                         
-        return "ÄãÕı´©×ÅÄØ£¡\n";
+        return "ä½ æ­£ç©¿ç€å‘¢ï¼\n";
     return 1;
 }
 mixed direct_remove_obj() {
@@ -98,6 +98,6 @@ mixed direct_remove_obj() {
     if (who != this_body())
         return 0;                                 
     if (environment() != this_body() || !is_on)
-        return "Äã¸ù±¾¾ÍÃ»ÓĞ´©Ëü£¡\n"; 
+        return "ä½ æ ¹æœ¬å°±æ²¡æœ‰ç©¿å®ƒï¼\n"; 
     return 1;
 }

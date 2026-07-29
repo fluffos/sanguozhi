@@ -19,17 +19,17 @@ string get_top(string prop)
 {
 string *ids;
 mapping title =([
-"reputation" :"ÅÅÃû  ID          ĞÕÃû        ËùÊô¹ú    ÄêÁä  ĞÔ±ğ  ÉùÍû      \n",
-"literate"   :"ÅÅÃû  ID          ĞÕÃû        ËùÊô¹ú    ÄêÁä  ĞÔ±ğ  ÎÄÑ§ĞŞÑø  \n",
-"sgrate"     :"ÅÅÃû  ID          ĞÕÃû        ËùÊô¹ú    ÄêÁä  ĞÔ±ğ  Èı¹úµÈ¼¶µã\n",
-"beauty"     :"ÅÅÃû  ID          ĞÕÃû        ËùÊô¹ú    ÄêÁä  ĞÔ±ğ  ÈİÃ²\n",
-"handsome"   :"ÅÅÃû  ID          ĞÕÃû        ËùÊô¹ú    ÄêÁä  ĞÔ±ğ  ÈİÃ²\n",
-"sk_wuli"    :"ÅÅÃû  ID          ĞÕÃû        ËùÊô¹ú    ÄêÁä  ĞÔ±ğ  ÎäÁ¦\n",
-"sk_meili"   :"ÅÅÃû  ID          ĞÕÃû        ËùÊô¹ú    ÄêÁä  ĞÔ±ğ  ÷ÈÁ¦\n",
-"sk_zhimou"  :"ÅÅÃû  ID          ĞÕÃû        ËùÊô¹ú    ÄêÁä  ĞÔ±ğ  ÖÇÁ¦\n",
-"age"        :"ÅÅÃû  ID          ĞÕÃû        ËùÊô¹ú    ÄêÁä  ĞÔ±ğ  ÄêÁä\n",
-"newbie"     :"ÅÅÃû  ID          ĞÕÃû        ËùÊô¹ú    ÄêÁä  ĞÔ±ğ  Èı¹úµÈ¼¶µã\n",
-"nationcontribution":"ÅÅÃû  ID          ĞÕÃû        ËùÊô¹ú    ÄêÁä  ĞÔ±ğ  ¹ú¼Ò¹±Ï×\n"
+"reputation" :"æ’å  ID          å§“å        æ‰€å±å›½    å¹´é¾„  æ€§åˆ«  å£°æœ›      \n",
+"literate"   :"æ’å  ID          å§“å        æ‰€å±å›½    å¹´é¾„  æ€§åˆ«  æ–‡å­¦ä¿®å…»  \n",
+"sgrate"     :"æ’å  ID          å§“å        æ‰€å±å›½    å¹´é¾„  æ€§åˆ«  ä¸‰å›½ç­‰çº§ç‚¹\n",
+"beauty"     :"æ’å  ID          å§“å        æ‰€å±å›½    å¹´é¾„  æ€§åˆ«  å®¹è²Œ\n",
+"handsome"   :"æ’å  ID          å§“å        æ‰€å±å›½    å¹´é¾„  æ€§åˆ«  å®¹è²Œ\n",
+"sk_wuli"    :"æ’å  ID          å§“å        æ‰€å±å›½    å¹´é¾„  æ€§åˆ«  æ­¦åŠ›\n",
+"sk_meili"   :"æ’å  ID          å§“å        æ‰€å±å›½    å¹´é¾„  æ€§åˆ«  é­…åŠ›\n",
+"sk_zhimou"  :"æ’å  ID          å§“å        æ‰€å±å›½    å¹´é¾„  æ€§åˆ«  æ™ºåŠ›\n",
+"age"        :"æ’å  ID          å§“å        æ‰€å±å›½    å¹´é¾„  æ€§åˆ«  å¹´é¾„\n",
+"newbie"     :"æ’å  ID          å§“å        æ‰€å±å›½    å¹´é¾„  æ€§åˆ«  ä¸‰å›½ç­‰çº§ç‚¹\n",
+"nationcontribution":"æ’å  ID          å§“å        æ‰€å±å›½    å¹´é¾„  æ€§åˆ«  å›½å®¶è´¡çŒ®\n"
 ]);
  string msg="";
  mixed c;
@@ -54,7 +54,7 @@ ids = filter_array(ids, (: (CHAR_D->get_char($1,"age")<18) :));
              i+1,ids[i],c["name"],
              COUNTRY_D->get_country(c["nation"],"name"),
              c["age"],
-             (c["gender"]==1? "ÄĞĞÔ" :"Å®ĞÔ" ),
+             (c["gender"]==1? "ç”·æ€§" :"å¥³æ€§" ),
              cal_sgrate(ids[i]));
         }
       return msg;      
@@ -75,7 +75,7 @@ ids = filter_array(ids, (: (CHAR_D->get_char($1,"age")<18) :));
              i+1,ids[i],c["name"],
              COUNTRY_D->get_country(c["nation"],"name"),
              c["age"],
-             (c["gender"]==1? "ÄĞĞÔ" :"Å®ĞÔ" ),
+             (c["gender"]==1? "ç”·æ€§" :"å¥³æ€§" ),
              CHAR_D->get_char(ids[i],prop));
         }
       return msg;      
@@ -98,7 +98,7 @@ ids = filter_array(ids, (: (CHAR_D->get_char($1,"age")<18) :));
              i+1,ids[i],c["name"],
              COUNTRY_D->get_country(c["nation"],"name"),
              c["age"],
-             (c["gender"]==1? "ÄĞĞÔ" :"Å®ĞÔ" ),
+             (c["gender"]==1? "ç”·æ€§" :"å¥³æ€§" ),
              c["gift"]["rongmao"]);
         }
       return msg;      
@@ -119,47 +119,47 @@ ids = filter_array(ids, (: (CHAR_D->get_char($1,"age")<18) :));
              i+1,ids[i],c["name"],
              COUNTRY_D->get_country(c["nation"],"name"),
              c["age"],
-             (c["gender"]==1? "ÄĞĞÔ" :"Å®ĞÔ" ),
+             (c["gender"]==1? "ç”·æ€§" :"å¥³æ€§" ),
              c["skills"][prop]);
         }
       return msg;      
      }       
    default :
-      return "¸ÃÀàĞÍµÄÅÅĞĞ°ñÉĞÎ´¿ª·Å\n";
+      return "è¯¥ç±»å‹çš„æ’è¡Œæ¦œå°šæœªå¼€æ”¾\n";
  }
 }
   
 string log_news(string type)
 {
- array p_date;
+ mixed * p_date;
  int MAX=50;
  mapping rank=([
- "reputation" : "ÃûÈË",
- "literate"   : "²Å×Ó",
- "sgrate"     : "¶°Áº",
- "beauty"     : "ö¦Å®",
- "handsome"   : "Ë§¸ç",
- "sk_wuli"    : "ÓÂÕß",
- "sk_meili"   : "÷ÈÁ¦",
- "sk_zhimou"  : "Ä±Ê¿",
- "age"        : "ÔªÀÏ",
-"newbie"     : "ĞÂÈË",
- "nationcontribution" : "¹¦³¼"
+ "reputation" : "åäºº",
+ "literate"   : "æ‰å­",
+ "sgrate"     : "æ ‹æ¢",
+ "beauty"     : "é“å¥³",
+ "handsome"   : "å¸…å“¥",
+ "sk_wuli"    : "å‹‡è€…",
+ "sk_meili"   : "é­…åŠ›",
+ "sk_zhimou"  : "è°‹å£«",
+ "age"        : "å…ƒè€",
+"newbie"     : "æ–°äºº",
+ "nationcontribution" : "åŠŸè‡£"
  ]);
  if (member_array(type,keys(rank))==-1)
-      return "¸ÃÀàĞÍµÄÅÅĞĞ°ñÉĞÎ´¿ª·Å\n";
+      return "è¯¥ç±»å‹çš„æ’è¡Œæ¦œå°šæœªå¼€æ”¾\n";
  p_date = DAY_D->query_date();
 NEWS_D->system_post("ranks",
-            "Èı¹úÖ¾"+chinese_number(p_date[3])+"Äê"
-            +chinese_number(MAX)+"´ó"+rank[type], 
-get_top(type),"Èı¹úÅÅÃû");
- tell(users(),"%^YELLOW%^¡¾Èı¹úÅÅĞĞ°ñ¡¿"+rank[type]+
- "ÅÅĞĞ°ñ¸üĞÂÁË£¬´ó¼ÒÓĞ¿Õµ½ÂåÑô³ÇÖĞĞÄ¿´¿´×Ô¼ºÊÇ·ñ°ñÉÏÓĞÃûÅ¶!\n%^RESET%^");
- return  rank[type]+"ÅÅĞĞ°ñ´´½¨³É¹¦!\n";
+            "ä¸‰å›½å¿—"+chinese_number(p_date[3])+"å¹´"
+            +chinese_number(MAX)+"å¤§"+rank[type], 
+get_top(type),"ä¸‰å›½æ’å");
+ tell(users(),"%^YELLOW%^ã€ä¸‰å›½æ’è¡Œæ¦œã€‘"+rank[type]+
+ "æ’è¡Œæ¦œæ›´æ–°äº†ï¼Œå¤§å®¶æœ‰ç©ºåˆ°æ´›é˜³åŸä¸­å¿ƒçœ‹çœ‹è‡ªå·±æ˜¯å¦æ¦œä¸Šæœ‰åå“¦!\n%^RESET%^");
+ return  rank[type]+"æ’è¡Œæ¦œåˆ›å»ºæˆåŠŸ!\n";
 }
 void log_all(int i)
 {
-array type= ({"reputation",
+mixed * type= ({"reputation",
             "literate",
             "beauty",
             "handsome",
@@ -176,7 +176,7 @@ array type= ({"reputation",
 if (i<sizeof(type)) 
  call_out((:log_all:),10,i);
 else
-     SGSYS("ËùÓĞÅÅĞĞ°ñ´´½¨³É¹¦!\n");
+     SGSYS("æ‰€æœ‰æ’è¡Œæ¦œåˆ›å»ºæˆåŠŸ!\n");
 }
 void start()
 {log_all(0);}

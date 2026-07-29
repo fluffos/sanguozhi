@@ -1,4 +1,4 @@
-// A simple condition stim_pack.c ĞË·Ü¼Á
+// A simple condition stim_pack.c å…´å¥‹å‰‚
 // Flee@sgz August 21, 1999
 #include <ansi.h>
 
@@ -15,7 +15,7 @@ void execute_con(int tid, int damage)
 	
 	TROOP_D->recover_energy( tid );
 	
-	tell(all_inventory(tt), "Ö»¼ûÊ¿±øÃÇ¸ö¸öÁ³É«"+HIC+"±äÇà"+NOR+"£¬ÑÛ¾¦"+HIR+"·¢ºì"+NOR+"£¬¼«¶ÈµÄÆ£ÀÍ·Â·ğÒ»É¨¶ø¹âÁË£¡\n"+HIW+"Ê¿±øµÄĞĞ¶¯Á¦»Ö¸´ÁË£¡£¡£¡"+NOR+"\n");
+	tell(all_inventory(tt), "åªè§å£«å…µä»¬ä¸ªä¸ªè„¸è‰²"+HIC+"å˜é’"+NOR+"ï¼Œçœ¼ç›"+HIR+"å‘çº¢"+NOR+"ï¼Œæåº¦çš„ç–²åŠ³ä»¿ä½›ä¸€æ‰«è€Œå…‰äº†ï¼\n"+HIW+"å£«å…µçš„è¡ŒåŠ¨åŠ›æ¢å¤äº†ï¼ï¼ï¼"+NOR+"\n");
 
 	return;
 }

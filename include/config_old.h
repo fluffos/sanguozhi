@@ -15,7 +15,7 @@
 #define START           		"/a/huayin/vhall"
 #define WIZARD_START            "/sgdomain/area/emp/dadi"
 
-#define LOGIN_PROMPT            "ÇëÊäÈëÄúµÄÓ¢ÎÄÃû×Ö£¨ĞÂÍæ¼ÒÇëÓÃ new À´µÇ¼Ç£©£º"
+#define LOGIN_PROMPT            "è¯·è¾“å…¥æ‚¨çš„è‹±æ–‡åå­—ï¼ˆæ–°ç©å®¶è¯·ç”¨ new æ¥ç™»è®°ï¼‰ï¼š"
 
 /* ! will give you problems since it's used as input escape. */
 #define HISTORY_CHAR            '%'
@@ -104,7 +104,7 @@
 #define USER_PATH(x)            sprintf("/data/players/%c/%s",x[0],x)
 #define PSHELL_PATH(x)          sprintf("/data/pshells/%c/%s",x[0],x)
 
-/* The administrator(s)' email address(es).  ADMINµÄÓÊÏä
+/* The administrator(s)' email address(es).  ADMINçš„é‚®ç®±
  * NOTE: This is required to be changed in order to have a working
  * I3 system. */
 #define ADMIN_EMAIL				"funny001@163.com"

@@ -1,4 +1,4 @@
-// ½ÖÍ¤ÒéÊÂÌü
+// è¡—äº­è®®äº‹å…
 // jt_ysht.c
 #include <mudlib.h>
 #include <sanguo.h>
@@ -7,7 +7,7 @@ inherit INDOOR_ROOM;
 void setup(){
     set_area("jieting");
     set_light(50);
-    set_brief(""+YEL+"ÒéÊÂÌü"+NOR+"");
+    set_brief(""+YEL+"è®®äº‹å…"+NOR+"");
     set_long("   
 \n\n");
     set_exits( ([

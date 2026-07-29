@@ -51,7 +51,7 @@ string add_base_area(string p_id, string p_area)
     	if( !AREA_D->area_exist(p_area) ) return "no such area exits\n";
 	if( member_array(p_area,keys(bases[p_id]["area"]))!=-1 ) return "base already exits\n";
     	bases[p_id]["area"][p_area] = 1;
-	CHANNEL_D->deliver_tell("rumor","system",AREA_D->get_area(p_area,"name")+"·¢ÏÖÁËĞÂµÄ"+bases[p_id]["name"]+"¡£");
+	CHANNEL_D->deliver_tell("rumor","system",AREA_D->get_area(p_area,"name")+"å‘ç°äº†æ–°çš„"+bases[p_id]["name"]+"ã€‚");
 	save_data();
     	return "OK, added\n";
 }
@@ -61,7 +61,7 @@ string sub_base_area(string p_id,string p_area)
 	if( member_array(p_area,keys(bases[p_id]["area"]))==-1 ) return "no such area\n";
     	map_delete(bases[p_id]["area"], p_area);
     	if( !sizeof(bases[p_id]["area"]) ) map_delete(bases[p_id],"area");
-	CHANNEL_D->deliver_tell("rumor","system","ÒòÎª¾­Óª²»ÉÆ£¬"+AREA_D->get_area(p_area,"name")+"µÄ"+bases[p_id]["name"]+"·ÏÆúÁË¡£");
+	CHANNEL_D->deliver_tell("rumor","system","å› ä¸ºç»è¥ä¸å–„ï¼Œ"+AREA_D->get_area(p_area,"name")+"çš„"+bases[p_id]["name"]+"åºŸå¼ƒäº†ã€‚");
 	save_data();
     	return "OK, deleted\n";
 }
@@ -104,33 +104,33 @@ string stat_me_base(string p_id)
 {
    	string p_ret="";
    	mixed c;
-   	array ks;
+   	mixed * ks;
    	int i;
 
    	if( (!p_id)||(p_id=="") ) p_id="list";
    	if(p_id=="list") {
-      		p_ret= "Éú²ú»ùµØÇåµ¥£º\n";
-      		p_ret+="©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤\n";
+      		p_ret= "ç”Ÿäº§åŸºåœ°æ¸…å•ï¼š\n";
+      		p_ret+="â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\n";
       		c=keys(bases);
       		ks=({});
       		for(i=0;i<sizeof(c);++i) ks+=({bases[c[i]]["name"]+"("+c[i]+")"});
       		p_ret+=sprintf("%-#79s\n", implode(ks, "\n"));
    	} else {
        		if( !mapp(bases[p_id]) ){
-          		p_ret="Ã»ÓĞÕâÖÖÉú²ú»ùµØ¡£\n";
+          		p_ret="æ²¡æœ‰è¿™ç§ç”Ÿäº§åŸºåœ°ã€‚\n";
        		} else {
-          		p_ret="»ùµØID£º"+p_id+"   »ùµØÃû³Æ£º"+bases[p_id]["name"]+"\n";
-			p_ret+="½¨ÔìÌõ¼ş£º³ÇÊĞ°²¶¨¶È£º"+bases[p_id]["level1"]["safe"]+"    »Æ½ğ£º"+bases[p_id]["level1"]["gold"]+"    Á¸Ê³£º"+bases[p_id]["level1"]["food"]+"\n";
-			p_ret+="¿ÉÉú²úÎï×Ê£º"+bases[p_id]["c_name"]+"\n";
-			p_ret+="Ã¿ÔÂÏûºÄ£º»Æ½ğ£º"+bases[p_id]["level1"]["gold"]+"    Á¸Ê³£º"+bases[p_id]["level1"]["food"]+"\n";
+          		p_ret="åŸºåœ°IDï¼š"+p_id+"   åŸºåœ°åç§°ï¼š"+bases[p_id]["name"]+"\n";
+			p_ret+="å»ºé€ æ¡ä»¶ï¼šåŸå¸‚å®‰å®šåº¦ï¼š"+bases[p_id]["level1"]["safe"]+"    é»„é‡‘ï¼š"+bases[p_id]["level1"]["gold"]+"    ç²®é£Ÿï¼š"+bases[p_id]["level1"]["food"]+"\n";
+			p_ret+="å¯ç”Ÿäº§ç‰©èµ„ï¼š"+bases[p_id]["c_name"]+"\n";
+			p_ret+="æ¯æœˆæ¶ˆè€—ï¼šé»„é‡‘ï¼š"+bases[p_id]["level1"]["gold"]+"    ç²®é£Ÿï¼š"+bases[p_id]["level1"]["food"]+"\n";
 
-			p_ret+="Éı¶ş¼¶Ìõ¼ş£º£º³ÇÊĞ°²¶¨¶È£º"+bases[p_id]["level2"]["safe"]+"    »Æ½ğ£º"+bases[p_id]["level2"]["gold"]+"    Á¸Ê³£º"+bases[p_id]["level2"]["food"]+"\n";
-			p_ret+="¿ÉÉú²úÎï×Ê£º"+bases[p_id]["c_name"]+"\n";
-			p_ret+="Ã¿ÔÂÏûºÄ£º»Æ½ğ£º"+bases[p_id]["level2"]["gold"]+"    Á¸Ê³£º"+bases[p_id]["level2"]["food"]+"\n";
+			p_ret+="å‡äºŒçº§æ¡ä»¶ï¼šï¼šåŸå¸‚å®‰å®šåº¦ï¼š"+bases[p_id]["level2"]["safe"]+"    é»„é‡‘ï¼š"+bases[p_id]["level2"]["gold"]+"    ç²®é£Ÿï¼š"+bases[p_id]["level2"]["food"]+"\n";
+			p_ret+="å¯ç”Ÿäº§ç‰©èµ„ï¼š"+bases[p_id]["c_name"]+"\n";
+			p_ret+="æ¯æœˆæ¶ˆè€—ï¼šé»„é‡‘ï¼š"+bases[p_id]["level2"]["gold"]+"    ç²®é£Ÿï¼š"+bases[p_id]["level2"]["food"]+"\n";
 
-			p_ret+="ÉıÈı¼¶Ìõ¼ş£º£º³ÇÊĞ°²¶¨¶È£º"+bases[p_id]["level3"]["safe"]+"    »Æ½ğ£º"+bases[p_id]["level3"]["gold"]+"    Á¸Ê³£º"+bases[p_id]["level3"]["food"]+"\n";
-			p_ret+="¿ÉÉú²úÎï×Ê£º"+bases[p_id]["c_name"]+"\n";
-			p_ret+="Ã¿ÔÂÏûºÄ£º»Æ½ğ£º"+bases[p_id]["level3"]["gold"]+"    Á¸Ê³£º"+bases[p_id]["level3"]["food"]+"\n";
+			p_ret+="å‡ä¸‰çº§æ¡ä»¶ï¼šï¼šåŸå¸‚å®‰å®šåº¦ï¼š"+bases[p_id]["level3"]["safe"]+"    é»„é‡‘ï¼š"+bases[p_id]["level3"]["gold"]+"    ç²®é£Ÿï¼š"+bases[p_id]["level3"]["food"]+"\n";
+			p_ret+="å¯ç”Ÿäº§ç‰©èµ„ï¼š"+bases[p_id]["c_name"]+"\n";
+			p_ret+="æ¯æœˆæ¶ˆè€—ï¼šé»„é‡‘ï¼š"+bases[p_id]["level3"]["gold"]+"    ç²®é£Ÿï¼š"+bases[p_id]["level3"]["food"]+"\n";
        		}
    	}
    	

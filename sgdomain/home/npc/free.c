@@ -17,7 +17,7 @@ string get_type() {
 	return "free";
 }
 string get_type_name() {
-	return "%^H_RED%^ÏÐÈË%^RESET%^";
+	return "%^H_RED%^é—²äºº%^RESET%^";
 }
 void extra_init() {
 }
@@ -51,14 +51,14 @@ void setup(string m_id,string u_id)
 	set_gender(c["gender"]);
     	set_proper_name(c["sname"]+c["gname"]);
 
-    	set_in_room_desc(master_name+"¼ÒµÄ"+get_type_name()+"£¬"+
+    	set_in_room_desc(master_name+"å®¶çš„"+get_type_name()+"ï¼Œ"+
 		c["sname"]+c["gname"]+"("+per_id+")");
 //	add_id(get_type());
 	add_id("pu ren");
 	set_age(c["age"]);
 	set_sg_rongmao(c["rongmao"]);
 
-	add_ask_str("order","$N¶Ô$TÕÐÁËÕÐÊÖ£¬¹ýÀ´£¬¹ýÀ´£¬ÓÐÄãµÄÊÂ¸ÉÁË¡£\n");
+	add_ask_str("order","$Nå¯¹$Tæ‹›äº†æ‹›æ‰‹ï¼Œè¿‡æ¥ï¼Œè¿‡æ¥ï¼Œæœ‰ä½ çš„äº‹å¹²äº†ã€‚\n");
 	add_question("order","order" );
 
 	is_busy=0;
@@ -73,13 +73,13 @@ void special_answer(object who, string matt)
                 case "order" :
 			if(p_id==master||p_id==CHAR_D->get_char(master,"mar")) {
 			        this_object()->targetted_action(
-				"$NÃ¦ÉÏÇ°¾Ï¹ªµÀ£º$RÓÐºÎ·Ô¸À£¿\n",who);
+				"$Nå¿™ä¸Šå‰éž èº¬é“ï¼š$Ræœ‰ä½•å©å’ï¼Ÿ\n",who);
 				is_busy=1;
 				new(__DIR__+"free_menu")->start_menu(who,this_object());
 				return;
 			}
 		        this_object()->targetted_action(
-				"$NµÉÁË$TÒ»ÑÛ¡£\n",who);
+				"$Nçžªäº†$Tä¸€çœ¼ã€‚\n",who);
 				return;
         }
 }

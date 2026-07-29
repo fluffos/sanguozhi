@@ -3,8 +3,8 @@
 // this is used to control the heart of all chars
 // used to replace the old call_out heart in each char obj
 #define MAX_FRESH 500
-static object *obj_char,*obj_maker,*obj_guy,*obj_boy,*obj_guard;
-static int my_t;
+nosave protected object *obj_char,*obj_maker,*obj_guy,*obj_boy,*obj_guard;
+nosave protected int my_t;
 
 void act(object *obs){
 	int size;

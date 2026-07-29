@@ -3,13 +3,13 @@
 // A minor chinese-english or english-chinese converter.
 // by Annihilator@Eastern.Stories 09-27-93
 // adapted for ES2-lib 01-18-95
-static string *c_digit = ({ "Áã","Ê®","°Ù","Ç§","Íò","ÒÚ","Õ×" });
-static string *c_num = ({"Áã","Ò»","¶ş","Èı","ËÄ","Îå","Áù","Æß","°Ë","¾Å"
-,"Ê®"});
-static string *sym_tien = ({ "¼×","ÒÒ","±û","¶¡","Îì","¼º","¸ı","ĞÁ","ÈÉ",
-"¹ï" });
-static string *sym_dee = ({ "×Ó","³ó","Òú","Ã®","³½","ËÈ","Îç","Î´","Éê","
-ÓÏ","Ğç","º¥" });
+nosave protected string *c_digit = ({ "é›¶","å","ç™¾","åƒ","ä¸‡","äº¿","å…†" });
+nosave protected string *c_num = ({"é›¶","ä¸€","äºŒ","ä¸‰","å››","äº”","å…­","ä¸ƒ","å…«","ä¹"
+,"å"});
+nosave protected string *sym_tien = ({ "ç”²","ä¹™","ä¸™","ä¸","æˆŠ","å·±","åºš","è¾›","å£¬",
+"ç™¸" });
+nosave protected string *sym_dee = ({ "å­","ä¸‘","å¯…","å¯","è¾°","å·³","åˆ","æœª","ç”³","
+é…‰","æˆŒ","äº¥" });
 mapping dict = ([]);
 void add_translate( string key, string chinz );
 void remove_translate( string key );
@@ -19,7 +19,7 @@ void remove_translate( string key );
 //}                  // deleted by fire
 string chinese_number(int i)
 {
-    if( i<0 ) return "¸º" + chinese_number(-i);
+    if( i<0 ) return "è´Ÿ" + chinese_number(-i);
     if( i<11 ) return c_num[i];
     if( i<20 ) return c_num[10] + c_num[i-10];
     if( i<100 ) {
@@ -79,23 +79,23 @@ string chinese_value (int value)
 {
         int gold, silver, coin;
         if( !value )
-                return sprintf("Ò»ÎÄ²»Öµ\n");
+                return sprintf("ä¸€æ–‡ä¸å€¼\n");
         else
         {
           gold = value/10000;
           silver = (value%10000)/100;
           coin = value%10000%100;
           if (coin)
-              return sprintf("%s%s%sÎÄÇ®\n",
-                gold?chinese_number(gold)+"Á½½ğ":"",
-                silver?chinese_number(silver)+"Á½Òø":"",
+              return sprintf("%s%s%sæ–‡é’±\n",
+                gold?chinese_number(gold)+"ä¸¤é‡‘":"",
+                silver?chinese_number(silver)+"ä¸¤é“¶":"",
                 chinese_number(coin));
           else if (silver)
-              return sprintf("%s%sÁ½Òø×Ó\n",
-                gold?chinese_number(gold)+"Á½½ğ":"",
+              return sprintf("%s%sä¸¤é“¶å­\n",
+                gold?chinese_number(gold)+"ä¸¤é‡‘":"",
                 chinese_number(silver));
           else
-              return sprintf("%sÁ½½ğ×Ó\n",
+              return sprintf("%sä¸¤é‡‘å­\n",
                 chinese_number(gold));
         }
 }

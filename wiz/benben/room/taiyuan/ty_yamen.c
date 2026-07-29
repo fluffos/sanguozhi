@@ -1,4 +1,4 @@
-// ÑÃÃÅ  by Benben
+// è¡™é—¨  by Benben
 // ty_yamen.c 
 #include <mudlib.h>
 #include "/wiz/fire/fire.h"
@@ -7,8 +7,8 @@ inherit ROOM;
 void setup(){
     set_area("ty_area");
     set_light(50);
-    set_brief(""+YEL+"ÑÃÃÅ"+NOR+"");
-    set_long("    ÃèÊö¡£\n");
+    set_brief(""+YEL+"è¡™é—¨"+NOR+"");
+    set_long("    æè¿°ã€‚\n");
     set_exits( ([
         "south" :  __DIR__+"ty_wst2.c",
     ]) );

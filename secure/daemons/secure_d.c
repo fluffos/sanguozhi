@@ -17,11 +17,11 @@ inherit M_ACCESS;
 //#define ERR_NOWIZ       "referring to non-existing wizard"
 //#define ERR_BADARG  "illegal or unusable parameter"
 //#define ERR_HAZARD  "hazardous setting of privileges"
-#define ERR_PRIV        "È¨Á¦²»×ã"
-#define ERR_NODOMAIN    "¶ÁÈ¡²»´æÔÚµÄÓò"
-#define ERR_NOWIZ       "Ã»ÓĞÕâ¸öÎ×Ê¦"
-#define ERR_BADARG      "·Ç·¨²ÎÊı"
-#define ERR_HAZARD      "Î£ÏÕµÄÌØÈ¨Éè¶¨"
+#define ERR_PRIV        "æƒåŠ›ä¸è¶³"
+#define ERR_NODOMAIN    "è¯»å–ä¸å­˜åœ¨çš„åŸŸ"
+#define ERR_NOWIZ       "æ²¡æœ‰è¿™ä¸ªå·«å¸ˆ"
+#define ERR_BADARG      "éæ³•å‚æ•°"
+#define ERR_HAZARD      "å±é™©çš„ç‰¹æƒè®¾å®š"
 
 
 private mapping privileges; // mapping containing all privileges
@@ -47,14 +47,14 @@ int valid_name( string s )
     == map(s, (: '*' :));
 }
 
-// ±£´æ¶ÔÏó£¬´æµ½/data/secure/accessÎÄ¼şÖĞ
+// ä¿å­˜å¯¹è±¡ï¼Œå­˜åˆ°/data/secure/accessæ–‡ä»¶ä¸­
 private void save_data()
 {
   unguarded(1, (: save_object, ACCESS_SAVE :));
   unguarded(1, (: save_object, ACCESS_SAVE_BAK :));
 }
 
-// Êä³öÈÕÖ¾,´æµ½/data/secure/LOGÎÄ¼şÖĞ
+// è¾“å‡ºæ—¥å¿—,å­˜åˆ°/data/secure/LOGæ–‡ä»¶ä¸­
 private void syslog(string text)
 {
   unguarded(1, (: write_file, ACCESS_LOG,
@@ -166,11 +166,11 @@ nomask string set_protection(string file,int write,mixed prot)
     return ERR_BADARG;
   if (prot != -1 && !valid_privilege(prot))
     //return "invalid privilege identifier";
-    return "Ã»ÓĞÕâÖÖÌØÈ¨¡£";
+    return "æ²¡æœ‰è¿™ç§ç‰¹æƒã€‚";
 
   if (!desc)
     //return "trying to change root directory's privilege";
-    return "ÆóÍ¼¸Ä±ä¸ùÄ¿Â¼µÄÌØÈ¨¡£";
+    return "ä¼å›¾æ”¹å˜æ ¹ç›®å½•çš„ç‰¹æƒã€‚";
 
   priv = desc[0];
   i = desc[2];
@@ -186,7 +186,7 @@ nomask string set_protection(string file,int write,mixed prot)
     j = i;
   if (priv[i]==prot)
     //return "directory already has this effective protection level";
-    return "Ä¿Â¼ÒÑ¾­ÓĞÁËÓĞĞ§µÄ±£»¤¼¶±ğ¡£";
+    return "ç›®å½•å·²ç»æœ‰äº†æœ‰æ•ˆçš„ä¿æŠ¤çº§åˆ«ã€‚";
 
   if (write && !check_privilege(priv[sizeof(desc[1])==i ? j : i]))
     return ERR_PRIV;
@@ -218,7 +218,7 @@ nomask string set_protection(string file,int write,mixed prot)
   {
     if (desc[2]!=sizeof(desc[1]))
       //return "directory not linked to a privilege level";
-      return "Ä¿Â¼Ã»ÓĞ±»Éè¶¨ÎªÈÎºÎÌØÈ¨¼¶±ğ¡£";
+      return "ç›®å½•æ²¡æœ‰è¢«è®¾å®šä¸ºä»»ä½•ç‰¹æƒçº§åˆ«ã€‚";
     node = write ? write_access : read_access;
     path = desc[1];
     for (i=0; i<sizeof(path)-1; i++)
@@ -242,18 +242,18 @@ nomask varargs string create_domain(string domain)
     for (;;);
   if (!valid_domain_name(domain))
     //return "invalid domain name";
-    return "·Ç·¨ÓòÃû¡£";
+    return "éæ³•åŸŸåã€‚";
 
   domain = lower_case(domain);
   if (domains[domain])
     //return "domain already exists";
-    return "Õâ¸öÓòÔç¾Í´æÔÚÁË¡£";
+    return "è¿™ä¸ªåŸŸæ—©å°±å­˜åœ¨äº†ã€‚";
 
   domains[domain] = ([ ]);
   privileges[domain] = ([ "":({}),":":({}) ]);
   save_data();
   //syslog("Created domain " + domain);
-  syslog("½¨Á¢ĞÂµÄÓò£º" + domain);
+  syslog("å»ºç«‹æ–°çš„åŸŸï¼š" + domain);
   return 0;
 }
 
@@ -277,7 +277,7 @@ nomask string delete_domain(string domain)
   map_delete(domains,domain);
   save_data();
   //syslog("Deleted domain " + domain);
-  syslog("É¾³ıÓò£º" + domain);
+  syslog("åˆ é™¤åŸŸï¼š" + domain);
   return 0;
 }
 
@@ -285,23 +285,23 @@ nomask string add_domain_member(string domain,string member,int lord)
 {
   if (!domains[domain])
   {
-    write("¶ÁÈ¡²»´æÔÚµÄÓò\n");
+    write("è¯»å–ä¸å­˜åœ¨çš„åŸŸ\n");
     return ERR_NODOMAIN;
   }
   if (!wizards[member])
   {
-    write("Ã»ÓĞÕâ¸öÎ×Ê¦\n");
+    write("æ²¡æœ‰è¿™ä¸ªå·«å¸ˆ\n");
     return ERR_NOWIZ;
   }
   if (!check_privilege(domain))
   {
-    write("È¨Á¦²»×ã\n");
+    write("æƒåŠ›ä¸è¶³\n");
     return ERR_PRIV;
   }
   if (eval_cost()<1000)
     for (;;); // This is getting boring...
   domains[domain][member] = (lord ? 2 : 1);
-  write("ÏÖÔÚlordµÄÖµ:" + lord + "\n");
+  write("ç°åœ¨lordçš„å€¼:" + lord + "\n");
   if (domainlists[member])
     domainlists[member] += ([ domain : 1 ]);
   else
@@ -309,10 +309,10 @@ nomask string add_domain_member(string domain,string member,int lord)
   save_data();
   if (lord)
     //syslog("Made " + member + " lord of " + domain);
-    syslog(member + " ³ÉÎª" + domain + "ÓòµÄ¸ºÔğÈË");
+    syslog(member + " æˆä¸º" + domain + "åŸŸçš„è´Ÿè´£äºº");
   else
     //syslog("Made " + member + " member of " + domain);
-    syslog(member + " ³ÉÎª" + domain + "ÓòµÄ³ÉÔ±");
+    syslog(member + " æˆä¸º" + domain + "åŸŸçš„æˆå‘˜");
   return 0;
 }
 
@@ -330,19 +330,19 @@ nomask string remove_domain_member(string domain,string member)
   map_delete(domainlists[member],domain);
   save_data();
   //syslog("Removed " + member +" from domain " + domain);
-  syslog(member + "´Ó" + domain + "Óò³ıÃû");
+  syslog(member + "ä»" + domain + "åŸŸé™¤å");
   return 0;
 }
 
 nomask string create_wizard(string wizard)
 {
-  write("½¨Î×Ê¦º¯Êı¿ªÊ¼\n");
+  write("å»ºå·«å¸ˆå‡½æ•°å¼€å§‹\n");
   if (!valid_name(wizard))
     //return "invalid character name";
-    return ("·Ç·¨½ÇÉ«Ãû³Æ");
+    return ("éæ³•è§’è‰²åç§°");
   if (wizards[wizard])
     //return "this character is already recorded as a wizard";
-    return "Õâ¸ö½ÇÉ«ÒÑ¾­ÊÇÎ×Ê¦ÁË¡£";
+    return "è¿™ä¸ªè§’è‰²å·²ç»æ˜¯å·«å¸ˆäº†ã€‚";
 
   if (!check_privilege(1))
     return ERR_PRIV;
@@ -350,9 +350,9 @@ nomask string create_wizard(string wizard)
     for (;;);
   wizards[wizard] = 1;
   privileges[wizard] = ([ "":({}),":":({}) ]);
-  save_data();			//±¾µØº¯Êı
+  save_data();			//æœ¬åœ°å‡½æ•°
   //syslog("Created wizard " + wizard);
-  syslog("½¨Á¢Î×Ê¦ " + wizard);
+  syslog("å»ºç«‹å·«å¸ˆ " + wizard);
 
   return 0;
 }
@@ -378,7 +378,7 @@ nomask string delete_wizard(string wizard)
   }
   save_data();
   //syslog("Deleted wizard " + wizard);
-  syslog("É¾³ıÎ×Ê¦" + wizard);
+  syslog("åˆ é™¤å·«å¸ˆ" + wizard);
   return 0;
 }
 
@@ -403,7 +403,7 @@ nomask string define_privilege(string priv)
   {
     if (priv[0]!='@' || member_array(':',priv)>=0)
       //return "invalid privilege identifier";
-      return "Ã»ÓĞÕâÖÖÌØÈ¨¡£";
+      return "æ²¡æœ‰è¿™ç§ç‰¹æƒã€‚";
 
     if (!check_privilege(1))
       return ERR_PRIV;
@@ -420,7 +420,7 @@ nomask string define_privilege(string priv)
   priv = priv[strlen(owner)..];
   if (privileges[owner][priv])
     //return "attempt to redefine privilege";
-    return "ÆóÍ¼ÖØĞÂ¶¨ÒåÌØÈ¨";
+    return "ä¼å›¾é‡æ–°å®šä¹‰ç‰¹æƒ";
 
   privileges[owner][priv] = ({ });
   save_data();
@@ -433,7 +433,7 @@ nomask string undefine_privilege(string priv)
   owner = get_priv_owner(priv);
   if (!owner)
     //return "invalid privilege identifier";
-    return "Ã»ÓĞÕâÖÖÌØÈ¨¡£";
+    return "æ²¡æœ‰è¿™ç§ç‰¹æƒã€‚";
   if (strlen(owner)+1 >= strlen(priv))
   {
     if (!check_privilege(1))
@@ -454,7 +454,7 @@ nomask string undefine_privilege(string priv)
     list = privileges[owner];
     if (!list[priv[strlen(owner)..]])
       //return "invalid privilege identifier";
-      return "Ã»ÓĞÕâÖÖÌØÈ¨¡£";
+      return "æ²¡æœ‰è¿™ç§ç‰¹æƒã€‚";
     map_delete(list,priv[strlen(owner)..]);
   }
   save_data();
@@ -509,11 +509,11 @@ nomask string extend_access(string priv,string add)
   owner = get_priv_owner(priv);
   if (!owner || !privileges[owner] || !privileges[owner][priv[strlen(owner)..]])
     //return "invalid privilege identifier";
-    return "Ã»ÓĞÕâÖÖÌØÈ¨¡£";
+    return "æ²¡æœ‰è¿™ç§ç‰¹æƒã€‚";
 
   if (!stringp(add) || !valid_privilege(add))
     //return "invalid privilege identifier";
-    return "Ã»ÓĞÕâÖÖÌØÈ¨¡£";
+    return "æ²¡æœ‰è¿™ç§ç‰¹æƒã€‚";
 
   if (owner == priv)
   {
@@ -540,7 +540,7 @@ nomask string restrict_access(string priv,string remove)
   owner = get_priv_owner(priv);
   if (!owner || !privileges[owner] || !privileges[owner][priv[strlen(owner)..]])
     //return "invalid privilege identifier";
-    return "Ã»ÓĞÕâÖÖÌØÈ¨¡£";
+    return "æ²¡æœ‰è¿™ç§ç‰¹æƒã€‚";
   if (owner == priv)
   {
     if (!check_privilege(1))
@@ -556,7 +556,7 @@ nomask string restrict_access(string priv,string remove)
   priv = priv[strlen(owner)..];
   if (member_array(remove,privileges[owner][priv])<0)
     //return "invalid privilege identifier";
-    return "Ã»ÓĞÕâÖÖÌØÈ¨¡£";
+    return "æ²¡æœ‰è¿™ç§ç‰¹æƒã€‚";
   privileges[owner][priv] -= ({ remove });
   save_data();
   return 0;
@@ -641,7 +641,7 @@ nomask int higher_privilege(mixed a,mixed b)
   }
   if (!valid_privilege(a) || !valid_privilege(b))
     //error("Invalid privilege"+a+","+b+"\n");
-      error("·Ç·¨ÌØÈ¨: "+a+", "+b+"\n");
+      error("éæ³•ç‰¹æƒ: "+a+", "+b+"\n");
 
   m = member_array(':',a);
   if (m<0)

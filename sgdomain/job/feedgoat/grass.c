@@ -8,8 +8,8 @@ private int grass_grow;
 
 void setup()
 {
-	set_id("grass", "Çà²İ");
-	set_in_room_desc("Ò»´óÆ¬ÂÌÓÍÓÍµÄÇà²İµØ(grass)");	
+	set_id("grass", "é’è‰");
+	set_in_room_desc("ä¸€å¤§ç‰‡ç»¿æ²¹æ²¹çš„é’è‰åœ°(grass)");	
 	grass_grow = 20;
 	call_out("grow", 10 );
 	return;
@@ -17,17 +17,17 @@ void setup()
 string long()
 {
 	if( grass_grow == 0 )
-		return "Ò»´óÆ¬ÂÌÓÍÓÍµÄÇà²İµØ¡£µ«ÊÇÏÖÔÚËùÓĞµÄ²İ¶¼±»¸î¹âÁË¡£";
+		return "ä¸€å¤§ç‰‡ç»¿æ²¹æ²¹çš„é’è‰åœ°ã€‚ä½†æ˜¯ç°åœ¨æ‰€æœ‰çš„è‰éƒ½è¢«å‰²å…‰äº†ã€‚";
 	else if( grass_grow < 7 )
-		return "Ò»´óÆ¬ÂÌÓÍÓÍµÄÇà²İµØ¡£¼¸´ØĞ¡²İÕıËæ·çÒ¡¶¯¡£";
+		return "ä¸€å¤§ç‰‡ç»¿æ²¹æ²¹çš„é’è‰åœ°ã€‚å‡ ç°‡å°è‰æ­£éšé£æ‘‡åŠ¨ã€‚";
 	else if( grass_grow < 14 )
-		return "Ò»´óÆ¬ÂÌÓÍÓÍµÄÇà²İµØ¡£ÏñÊÇÒ»·½ÂÌÉ«µÄÌº×ÓÆÌÔÚµØÉÏ¡£";
-	else return "Ò»´óÆ¬ÂÌÓÍÓÍµÄÇà²İµØ¡£×ãÓĞ°ëÈË¶à¸ß¡£";
+		return "ä¸€å¤§ç‰‡ç»¿æ²¹æ²¹çš„é’è‰åœ°ã€‚åƒæ˜¯ä¸€æ–¹ç»¿è‰²çš„æ¯¯å­é“ºåœ¨åœ°ä¸Šã€‚";
+	else return "ä¸€å¤§ç‰‡ç»¿æ²¹æ²¹çš„é’è‰åœ°ã€‚è¶³æœ‰åŠäººå¤šé«˜ã€‚";
 }
 void grow()
 {
 	grass_grow = grass_grow + 2 + random(3);
-	tell_environment( this_object(), "Çà²İ¾²ÇÄÇÄµÄÉú³¤×Å¡£\n");
+	tell_environment( this_object(), "é’è‰é™æ‚„æ‚„çš„ç”Ÿé•¿ç€ã€‚\n");
 	call_out("grow", 15 );
 	if( grass_grow > 20 )grass_grow = 20;
 	return;
@@ -57,13 +57,13 @@ void do_cutting()
 				cao = new( CAO );
 				cao->move( player );
 				set_grass( 2 );
-				player->simple_action("$NË¢Ë¢µÄ¸îÏÂ¼¸´óÀ¦²İÀ´¡£\n");
+				player->simple_action("$Nåˆ·åˆ·çš„å‰²ä¸‹å‡ å¤§æ†è‰æ¥ã€‚\n");
 				return;
 			} 
-			printf("ÄãÉíÉÏÒÑ¾­ÓĞÒ»À¦²İÁË¡£\n");
+			printf("ä½ èº«ä¸Šå·²ç»æœ‰ä¸€æ†è‰äº†ã€‚\n");
 			return;	
 		};
 	};
-	printf("ÄãÒªÄÃÊ²Ã´À´¸î²İÄØ£¿\n");
+	printf("ä½ è¦æ‹¿ä»€ä¹ˆæ¥å‰²è‰å‘¢ï¼Ÿ\n");
 	return;
 }			

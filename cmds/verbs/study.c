@@ -18,11 +18,11 @@ void do_study_str(string str)
 		return;
 	}
 	if(!ret)
-		ret="ÄãÃ»·¨Ñ§Ï°"+o->short()+"¡£\n";
+		ret="ä½ æ²¡æ³•å­¦ä¹ "+o->short()+"ã€‚\n";
 	write(ret);
 	return;
 }
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ "STR" }) });
 }

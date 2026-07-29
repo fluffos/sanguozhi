@@ -13,27 +13,27 @@ mixed do_attack_str(string str)
 	o=ENV_LIV(str);
 	if(!objectp(o)) return;
 	if(o==this_body()) {
-		write("×Ô¼º´ò×Ô¼º£¿Ð¦»°¡£\n");
+		write("è‡ªå·±æ‰“è‡ªå·±ï¼Ÿç¬‘è¯ã€‚\n");
 		return;
 	}
 	where = explode(file_name(this_body()->query_room()),"/");
 	if ((AREA_D->get_area(where[1],"meeting")==where[2])||
 	    (AREA_D->get_area(where[1],"flying")==where[2]))
 	   {
-	   write("Õâ¶ùÊÇ¾ü»úÖØµØ£¬ÔÚÕâ¶ù´ò¶·²»ÊÇÕÒËÀÂð£¿Ïë×øÀÎ°¢£¿\n");
+	   write("è¿™å„¿æ˜¯å†›æœºé‡åœ°ï¼Œåœ¨è¿™å„¿æ‰“æ–—ä¸æ˜¯æ‰¾æ­»å—ï¼Ÿæƒ³åç‰¢é˜¿ï¼Ÿ\n");
 	   return;
 	}
 	env = o->query_room();
 	if((o->query_job("patrol","beg_time"))&&
         (o->query_job("patrol","status")!="done")&&
         (o->query_job("patrol","area")==env->get_area())){
-                write("¶Ô·½ÕýÔÚ´ø±øÖ´ÐÐÑ²ÂßÈÎÎñ£¬Ë«È­ÄÑµÐËÄÊÖ£¬»¹ÊÇ¶ãÔ¶µã°É!\n");
+                write("å¯¹æ–¹æ­£åœ¨å¸¦å…µæ‰§è¡Œå·¡é€»ä»»åŠ¡ï¼ŒåŒæ‹³éš¾æ•Œå››æ‰‹ï¼Œè¿˜æ˜¯èº²è¿œç‚¹å§!\n");
                 return;
         }
 	ret=FIGHT_D->can_fight(this_body(),o);
 }
 
-array query_verb_info()
+mixed * query_verb_info()
 {
      return ({ ({"STR" }) });
 }

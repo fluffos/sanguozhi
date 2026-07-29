@@ -1,4 +1,4 @@
-ÓÃ·¨£º  %^H_CYAN%^info s list%^RESET%^           Îï×ÊÁÐ±í¡£
-        %^H_CYAN%^info s %^RESET%^%^H_YELLOW%^<stuff_id>%^RESET%^     ²éÔÄÄ³Ò»Îï×ÊµÄÏêÏ¸ÐÅÏ¢¡£
+ç”¨æ³•ï¼š  %^H_CYAN%^info s list%^RESET%^           ç‰©èµ„åˆ—è¡¨ã€‚
+        %^H_CYAN%^info s %^RESET%^%^H_YELLOW%^<stuff_id>%^RESET%^     æŸ¥é˜…æŸä¸€ç‰©èµ„çš„è¯¦ç»†ä¿¡æ¯ã€‚
 
-Àý×Ó£º  %^H_CYAN%^info s food%^RESET%^           ²éÔÄÁ¸Ê³µÄÏêÏ¸ÐÅÏ¢¡£
+ä¾‹å­ï¼š  %^H_CYAN%^info s food%^RESET%^           æŸ¥é˜…ç²®é£Ÿçš„è¯¦ç»†ä¿¡æ¯ã€‚

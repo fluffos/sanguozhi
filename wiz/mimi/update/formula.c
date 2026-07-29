@@ -19,7 +19,7 @@ int get_pure_att_abi(object o){
 		if(wep==o) // no weapon
 {
 //modify by suicide in 20011230 
-                        wep_level=o->query_skill("unarmed"); //°üº¬»ù±¾È­½Å+¸ß¼¶È­½Å¼¼ÄÜ
+                        wep_level=o->query_skill("unarmed"); //åŒ…å«åŸºæœ¬æ‹³è„š+é«˜çº§æ‹³è„šæŠ€èƒ½
 //			wep_level=o->query_sk_level("unarmed");
                         
 		}
@@ -30,7 +30,7 @@ int get_pure_att_abi(object o){
 				wep_level=0;
 			else 
 				//wep_level=o->query_sk_level(wep_type);
-                                wep_level=o->query_skill(wep_type); //°üº¬»ù±¾¼¼ÄÜlvl+¸ß¼¶¼¼ÄÜ
+                                wep_level=o->query_skill(wep_type); //åŒ…å«åŸºæœ¬æŠ€èƒ½lvl+é«˜çº§æŠ€èƒ½
 		}
 		env=environment(o);
 		if(env->is_horse()) {
@@ -212,7 +212,7 @@ int prb_hit(object a,object d){
 
 // the hurt point of one succ hit
 // Ht(A|B)=random(N1)+N2*(A->att_pow-B->def_pow);
-// N1=50,N2=2; (ÔÝ¶¨)
+// N1=50,N2=2; (æš‚å®š)
 // at least hit one point
 int hurt_point(object a,object d) {
 	int a_pow,d_pow;

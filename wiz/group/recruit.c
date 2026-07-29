@@ -10,49 +10,49 @@ void start(string arg)
 	mapping troop;
 
         if( (!arg)||(arg=="") ){
-                write("ÓÃ·¨£ºcmd recruit¡¡Ê¿±øÊı\n");
-                write("Àı×Ó£ºcmd recruit 100   Õ÷Ò»°ÙÊ¿±ø\n");
-                write("Àı×Ó£ºcmd recruit -200 footman ²Ã¶ş°ÙĞÂ±ø\n");
-                write("ÓÃ cmd help recruit ²é¿´ÏêÏ¸°ïÖú¡£\n");
-        	write("ÏêÏ¸±øÖÖÃû³ÆÇëhelp trooptype.\n");        
+                write("ç”¨æ³•ï¼šcmd recruitã€€å£«å…µæ•°\n");
+                write("ä¾‹å­ï¼šcmd recruit 100   å¾ä¸€ç™¾å£«å…µ\n");
+                write("ä¾‹å­ï¼šcmd recruit -200 footman è£äºŒç™¾æ–°å…µ\n");
+                write("ç”¨ cmd help recruit æŸ¥çœ‹è¯¦ç»†å¸®åŠ©ã€‚\n");
+        	write("è¯¦ç»†å…µç§åç§°è¯·help trooptype.\n");        
 	return;
         }
 	if( sscanf(arg, "%d %s", p_soldier, type) != 2 )p_soldier=to_int(arg);
         if( p_soldier<50 && p_soldier>-50){
-                write("Õ÷±ø»ò²Ã±øÊı²»ÄÜĞ¡ÓÚ50¡£\n");
-                write("ÓÃ cmd help recruit ²é¿´ÏêÏ¸°ïÖú¡£\n");
+                write("å¾å…µæˆ–è£å…µæ•°ä¸èƒ½å°äº50ã€‚\n");
+                write("ç”¨ cmd help recruit æŸ¥çœ‹è¯¦ç»†å¸®åŠ©ã€‚\n");
                 return;
         }
         if( (stringp(type)&&p_soldier>0)||(!stringp(type)&&p_soldier<0) ){
-                write("ÓÃ·¨£ºcmd recruit¡¡Ê¿±øÊı\n");
-                write("Àı×Ó£ºcmd recruit 100   Õ÷Ò»°ÙÊ¿±ø\n");
-		write("Àı×Ó£ºcmd recruit -200 footman ²Ã¶ş°ÙĞÂ±ø\n");
+                write("ç”¨æ³•ï¼šcmd recruitã€€å£«å…µæ•°\n");
+                write("ä¾‹å­ï¼šcmd recruit 100   å¾ä¸€ç™¾å£«å…µ\n");
+		write("ä¾‹å­ï¼šcmd recruit -200 footman è£äºŒç™¾æ–°å…µ\n");
 		return;
 	}
         my_id = this_body()->query_id()[0];
         if( !CHAR_D->get_char(my_id,"nation") ){
-                write("µÈÄã»ìÁË¸öÒ»¹Ù°ëÖ°ÒÔºó£¬ÔÙ¿¼ÂÇÕ÷±ø²Ã±øµÄÎÊÌâ°É¡£\n");
+                write("ç­‰ä½ æ··äº†ä¸ªä¸€å®˜åŠèŒä»¥åï¼Œå†è€ƒè™‘å¾å…µè£å…µçš„é—®é¢˜å§ã€‚\n");
                 return;
         }
         my_task = TASK_D->get_char_task(my_id);
         if( my_task[1] != TT_LOCALMEETING ){
-                write("Õâ¸öÎÊÌâ»¹ÊÇÔÚµØÇø»áÒéÉÏÌ¸°É¡£\n");
+                write("è¿™ä¸ªé—®é¢˜è¿˜æ˜¯åœ¨åœ°åŒºä¼šè®®ä¸Šè°ˆå§ã€‚\n");
                 return;
         }
         task_id = my_task[0];
         if( TASK_D->get_task(task_id,"suggestion") ){
-                write("ÏÖÔÚÕıÔÚÌÖÂÛÆäËûµÄÒéÌâ£¬ÄãµÄÒâ¼ûµÈ»á¶ùÔÙËµ°É¡£\n");
+                write("ç°åœ¨æ­£åœ¨è®¨è®ºå…¶ä»–çš„è®®é¢˜ï¼Œä½ çš„æ„è§ç­‰ä¼šå„¿å†è¯´å§ã€‚\n");
                 return;
         }
         if( ((TASK_D->get_task(task_id,"timaim")-
                 TASK_D->get_task(task_id,"timer"))<3)&&
                 (TASK_D->get_task(task_id,"stage")!=0)){
-                write("Ê±¼ä²»¶àÁË£¬»ØÍ·ÔÙÌá°É¡£\n");
+                write("æ—¶é—´ä¸å¤šäº†ï¼Œå›å¤´å†æå§ã€‚\n");
                 return;
         }
         if( (PJOB+"recruit/recruit")->get_recruit_left(my_id)>0 ){
             	int p_left = (PJOB+"recruit/recruit")->get_recruit_left(my_id);
-            	printf("ÄãµÄÕ÷±øÈÎÎñ»¹²î%sÃûÊ¿±øÃ»ÓĞÍê³É¡£\n", chinese_number(p_left));
+            	printf("ä½ çš„å¾å…µä»»åŠ¡è¿˜å·®%såå£«å…µæ²¡æœ‰å®Œæˆã€‚\n", chinese_number(p_left));
             	return;
         }
 
@@ -60,33 +60,33 @@ void start(string arg)
 		troop = AREA_D->get_area(CHAR_D->get_char(my_id,"area"),"troop");
 		if( !mapp(troop) ) troop = ([ ]);
 		if( member_array(type, keys(troop)) == -1 ){
-			write("Ã»ÓĞ"+type+"ÕâÖÖ¾ü¶Ó¡£\n");
+			write("æ²¡æœ‰"+type+"è¿™ç§å†›é˜Ÿã€‚\n");
 			return;
 		}
 		if( troop[type] + p_soldier < 0 ){
-			write(""+type+"²¿¶ÓÃ»ÓĞÕâÃ»¶àÈË¡£\n");
+			write(""+type+"éƒ¨é˜Ÿæ²¡æœ‰è¿™æ²¡å¤šäººã€‚\n");
 			return;
 		};
 	}
 	p_population=AREA_D->get_area(CHAR_D->get_char(my_id,"area"),"population");
         if(p_soldier>=(p_population*4/100)){
-                printf("µ±Ç°×î´óÕ÷±øÊıÊÇ%d¡£\n",p_population*4/100);
+                printf("å½“å‰æœ€å¤§å¾å…µæ•°æ˜¯%dã€‚\n",p_population*4/100);
                 return ;
         }
 	if(p_soldier>0){
 		if(AREA_D->get_area(CHAR_D->get_char(my_id,"area"),"safe")<10){
-			write("°ÙĞÕÒÑ¾­¼«¶È²»Âú£¬ÔÙÕ÷±ø£¬ÏëÒıÆğ±©¶¯°¡£¿£¡\n");
+			write("ç™¾å§“å·²ç»æåº¦ä¸æ»¡ï¼Œå†å¾å…µï¼Œæƒ³å¼•èµ·æš´åŠ¨å•Šï¼Ÿï¼\n");
 			return;
 		}
 	}
         if(p_soldier>0){
-                p_talk=sprintf("$NµÀ£º±¾µØ±øÊ¿ØÑ·¦£¬ÄÑ±£°ÙĞÕ°²¾ÓÀÖÒµ¡£$sÒÔÎª¼±Ğè
-			Õ÷±ø%d£¬ÒÔ±£Ö¤±¾µØÇøµÄ³¤ÖÎ¾Ã°²¡£»¹ÍûÖîÎ»´óÈË¡¢½«¾üÉîË¼¡£\n",p_soldier);
+                p_talk=sprintf("$Né“ï¼šæœ¬åœ°å…µå£«åŒ®ä¹ï¼Œéš¾ä¿ç™¾å§“å®‰å±…ä¹ä¸šã€‚$sä»¥ä¸ºæ€¥éœ€
+			å¾å…µ%dï¼Œä»¥ä¿è¯æœ¬åœ°åŒºçš„é•¿æ²»ä¹…å®‰ã€‚è¿˜æœ›è¯¸ä½å¤§äººã€å°†å†›æ·±æ€ã€‚\n",p_soldier);
 		(EV_LOCALMEETING)->get_suggestion(task_id,my_id,"recruit",p_soldier);
 	}
         else {
-		p_talk=sprintf("$NµÀ£º±¾µØ%s±øÊ¿ÒÑ×ã£¬$sÒÔÎªÒË²Ã±ø%d£¬ÁîÆä¹éÌïÉú²ú£¬
-			¸üÀûÓÚ±¾µØÇøµÄ·±ÈÙ²ıÊ¢¡£»¹ÍûÖîÎ»´óÈË¡¢½«¾üÉîË¼¡£\n",WARAI_D->query_type(type, "name"),(-1*p_soldier));
+		p_talk=sprintf("$Né“ï¼šæœ¬åœ°%så…µå£«å·²è¶³ï¼Œ$sä»¥ä¸ºå®œè£å…µ%dï¼Œä»¤å…¶å½’ç”°ç”Ÿäº§ï¼Œ
+			æ›´åˆ©äºæœ¬åœ°åŒºçš„ç¹è£æ˜Œç››ã€‚è¿˜æœ›è¯¸ä½å¤§äººã€å°†å†›æ·±æ€ã€‚\n",WARAI_D->query_type(type, "name"),(-1*p_soldier));
 		(EV_LOCALMEETING)->get_suggestion(task_id,my_id,"recruit",
 			(["no":p_soldier, "type":type]));
 	}

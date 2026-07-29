@@ -10,15 +10,15 @@ inherit M_DAMAGE_SINK;
 void setup()
 {
 ::mudlib_setup();
-set_unit("¼ş");
-set_id("buyi", "²¼ÒÂ");
+set_unit("ä»¶");
+set_id("buyi", "å¸ƒè¡£");
 add_id("buyi","linen","cloth");
-set_in_room_desc("²¼ÒÂ(cloth)");
-set_long("Ò»¼şÆÆ²¼ÒÂ£¬ÉÏÃæ´òÂúÁË²¹¶¡¡£");
+set_in_room_desc("å¸ƒè¡£(cloth)");
+set_long("ä¸€ä»¶ç ´å¸ƒè¡£ï¼Œä¸Šé¢æ‰“æ»¡äº†è¡¥ä¸ã€‚");
 set_gettable(1);
 set_slot(TORSO);
-set_wearmsg("$N´©ÉÏÒ»¼ş$o¡£\n");
-set_removemsg("$NÍÑÏÂÒ»¼ş$o¡£\n");
+set_wearmsg("$Nç©¿ä¸Šä¸€ä»¶$oã€‚\n");
+set_removemsg("$Nè„±ä¸‹ä¸€ä»¶$oã€‚\n");
     set_currency_type("silver");
     set_value(3);
 }

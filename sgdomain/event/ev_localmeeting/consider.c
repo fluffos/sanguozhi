@@ -14,7 +14,7 @@ int war_consider(string p_id,string p_area,string p_target)
 	int s,i;
 	object o_id=CHAR_D->find_char(p_id);
 	
-	o_id->simple_action("$NµÀ£º²âÊÔ½×¶Î£¬Ã»ÓĞËğÊ§£¬Ó¦¸Ã¶à´òÕÌ¡£\n");
+	o_id->simple_action("$Né“ï¼šæµ‹è¯•é˜¶æ®µï¼Œæ²¡æœ‰æŸå¤±ï¼Œåº”è¯¥å¤šæ‰“ä»—ã€‚\n");
 	return 0; // this is in test time
 	if(!objectp(o_id)) return -1; // strange
 	t_nation=AREA_D->get_area(p_target,"nation");
@@ -27,20 +27,20 @@ int war_consider(string p_id,string p_area,string p_target)
 		{
 			if(skills[i]["sk_wuli"]>90) {
 				o_id->simple_action(
-					"$NµÀ£ºÌıËµ"+a_name+"µÄ"+CHAR_D->get_char(t_chars[i],"name")
-					+"ÓĞÍò·ò²»µ²Ö®ÓÂ£¬²İÂÊ³ö±ø£¬Ö»ÅÂ²»Í×¡£\n");
+					"$Né“ï¼šå¬è¯´"+a_name+"çš„"+CHAR_D->get_char(t_chars[i],"name")
+					+"æœ‰ä¸‡å¤«ä¸æŒ¡ä¹‹å‹‡ï¼Œè‰ç‡å‡ºå…µï¼Œåªæ€•ä¸å¦¥ã€‚\n");
 				return 1;
 			}
 			if(skills[i]["sk_zhimou"]>90) {
 				o_id->simple_action(
-					"$NµÀ£ºÌıËµ"+a_name+"µÄ"+CHAR_D->get_char(t_chars[i],"name")
-					+"¾«ÓÚÓÃ±øÖ®µÀ£¬²İÂÊ³ö±ø£¬Ö»ÅÂ²»Í×¡£\n");
+					"$Né“ï¼šå¬è¯´"+a_name+"çš„"+CHAR_D->get_char(t_chars[i],"name")
+					+"ç²¾äºç”¨å…µä¹‹é“ï¼Œè‰ç‡å‡ºå…µï¼Œåªæ€•ä¸å¦¥ã€‚\n");
 				return 1;
 			}
 			if(skills[i]["sk_meili"]>90) {
 				o_id->simple_action(
-					"$NµÀ£ºÌıËµ"+a_name+"µÄ"+CHAR_D->get_char(t_chars[i],"name")
-					+"¾«ÓÚÖÎ¹úÖ®µÀ£¬²İÂÊ³ö±ø£¬Ö»ÅÂ²»Í×¡£\n");
+					"$Né“ï¼šå¬è¯´"+a_name+"çš„"+CHAR_D->get_char(t_chars[i],"name")
+					+"ç²¾äºæ²»å›½ä¹‹é“ï¼Œè‰ç‡å‡ºå…µï¼Œåªæ€•ä¸å¦¥ã€‚\n");
 				return 1;
 			}
 
@@ -51,7 +51,7 @@ int war_consider(string p_id,string p_area,string p_target)
 	m_soldier=AREA_D->get_area(p_area,"soldier");
 	if((t_soldier*2)>m_soldier) {
 		o_id->simple_action(
-			"$NµÀ£ºÌıËµ"+a_name+"ÓĞÖØ±ø°ÑÊØ£¬²İÂÊ³ö±ø£¬Ö»ÅÂ²»Í×¡£\n");
+			"$Né“ï¼šå¬è¯´"+a_name+"æœ‰é‡å…µæŠŠå®ˆï¼Œè‰ç‡å‡ºå…µï¼Œåªæ€•ä¸å¦¥ã€‚\n");
 		return 1;
 	}
 	return 0;
@@ -99,12 +99,12 @@ int importance_consider(string p_id,string p_area,int p_inp)
 	{
 		switch(my_inp)
 		{
-                case AI_BALANCE: p_dis="$N×ÔÑÔ×ÔÓïµÀ£ºËÆºõ±¾µØÓ¦µ±¾ùºâ·¢Õ¹¡­¡­\n";break;
-                case AI_AGRICULTURE:p_dis="$N×ÔÑÔ×ÔÓïµÀ£ºËÆºõ±¾µØÁ¸²İ²»×ã¡­¡­\n";break;
-                case AI_INDUSTRY:p_dis="$N×ÔÑÔ×ÔÓïµÀ£ºËÆºõ±¾µØÎï×Ê²»×ã¡­¡­\n";break;
-                case AI_BUSINESS:p_dis="$N×ÔÑÔ×ÔÓïµÀ£ºËÆºõ±¾µØ¾ü×Ê²»×ã¡­¡­\n";break;
-                case AI_SAFE: p_dis="$N×ÔÑÔ×ÔÓïµÀ£ºËÆºõ±¾µØ²»¹»°²¶¨¡­¡­\n";break;
-                case AI_MILITARY: p_dis="$N×ÔÑÔ×ÔÓïµÀ£ºËÆºõµØÇø±øÊ¿»¹²»×ã£®\n";break;
+                case AI_BALANCE: p_dis="$Nè‡ªè¨€è‡ªè¯­é“ï¼šä¼¼ä¹æœ¬åœ°åº”å½“å‡è¡¡å‘å±•â€¦â€¦\n";break;
+                case AI_AGRICULTURE:p_dis="$Nè‡ªè¨€è‡ªè¯­é“ï¼šä¼¼ä¹æœ¬åœ°ç²®è‰ä¸è¶³â€¦â€¦\n";break;
+                case AI_INDUSTRY:p_dis="$Nè‡ªè¨€è‡ªè¯­é“ï¼šä¼¼ä¹æœ¬åœ°ç‰©èµ„ä¸è¶³â€¦â€¦\n";break;
+                case AI_BUSINESS:p_dis="$Nè‡ªè¨€è‡ªè¯­é“ï¼šä¼¼ä¹æœ¬åœ°å†›èµ„ä¸è¶³â€¦â€¦\n";break;
+                case AI_SAFE: p_dis="$Nè‡ªè¨€è‡ªè¯­é“ï¼šä¼¼ä¹æœ¬åœ°ä¸å¤Ÿå®‰å®šâ€¦â€¦\n";break;
+                case AI_MILITARY: p_dis="$Nè‡ªè¨€è‡ªè¯­é“ï¼šä¼¼ä¹åœ°åŒºå…µå£«è¿˜ä¸è¶³ï¼\n";break;
 		}
 		o_id->simple_action(p_dis);
 	}
@@ -117,7 +117,7 @@ int recruit_consider(string p_id,string p_area,mixed new_soldier,int old_soldier
 	int p_stuffin,p_stuffout;
 	int p_gold,p_food,p_stuff,p_month;
         object o_id;
-        array p_date;
+        mixed * p_date;
 	int p_safe;
 	int sol;
 	p_safe=AREA_D->get_area(p_area,"safe");
@@ -139,25 +139,25 @@ int recruit_consider(string p_id,string p_area,mixed new_soldier,int old_soldier
 		if((p_goldin-p_goldout)*12+p_gold<new_soldier/10*12)
                 {
                         if(objectp(o_id))
-                                o_id->simple_action("$N×ÔÑÔ×ÔÓïµÀ£ºËÆºõ½ğ²»×ãÑ½¡­¡­\n");
+                                o_id->simple_action("$Nè‡ªè¨€è‡ªè¯­é“ï¼šä¼¼ä¹é‡‘ä¸è¶³å‘€â€¦â€¦\n");
                         return 1;
                 }
 		if((p_stuffin-p_stuffout)*12+p_stuff<new_soldier/100*12)
                 {
                         if(objectp(o_id))
-                                o_id->simple_action("$N×ÔÑÔ×ÔÓïµÀ£ºËÆºõÎï×Ê²»×ãÑ½¡­¡­\n");
+                                o_id->simple_action("$Nè‡ªè¨€è‡ªè¯­é“ï¼šä¼¼ä¹ç‰©èµ„ä¸è¶³å‘€â€¦â€¦\n");
                         return 1;
                 }
                 if(p_foodin-p_foodout*12+p_food<new_soldier*12)
                 {
                         if(objectp(o_id))
-                                o_id->simple_action("$N×ÔÑÔ×ÔÓïµÀ£ºËÆºõÁ¸Ê³²»×ãÑ½¡­¡­\n");
+                                o_id->simple_action("$Nè‡ªè¨€è‡ªè¯­é“ï¼šä¼¼ä¹ç²®é£Ÿä¸è¶³å‘€â€¦â€¦\n");
                         return 1;
                 }
 		if(p_safe<20)
 		{
                         if(objectp(o_id))
-                                o_id->simple_action("$N×ÔÑÔ×ÔÓïµÀ£º°ÙĞÕÒÑ²»Âú³¯Õş£¬´ËÊ±ÔÙÕ÷±ø¡­¡­\n");
+                                o_id->simple_action("$Nè‡ªè¨€è‡ªè¯­é“ï¼šç™¾å§“å·²ä¸æ»¡æœæ”¿ï¼Œæ­¤æ—¶å†å¾å…µâ€¦â€¦\n");
                         return 1;
 		}
                 return 0;
@@ -165,19 +165,19 @@ int recruit_consider(string p_id,string p_area,mixed new_soldier,int old_soldier
 	if(p_goldin-p_goldout*1.1<0)
 	{
                 if(objectp(o_id))
-                        o_id->simple_action("$N×ÔÑÔ×ÔÓïµÀ£º½ğÈ·Êµ²»×ãÑ½¡£\n");
+                        o_id->simple_action("$Nè‡ªè¨€è‡ªè¯­é“ï¼šé‡‘ç¡®å®ä¸è¶³å‘€ã€‚\n");
 		return 0;
 	}
 	if(p_foodin-p_foodout*12*1.1<0)
 	{
                 if(objectp(o_id))
-                        o_id->simple_action("$N×ÔÑÔ×ÔÓïµÀ£ºÁ¸Ê³È·Êµ²»×ãÑ½¡£\n");
+                        o_id->simple_action("$Nè‡ªè¨€è‡ªè¯­é“ï¼šç²®é£Ÿç¡®å®ä¸è¶³å‘€ã€‚\n");
 		return 0;
 	}
 	if(p_stuffin-p_stuffout*1.1<0)
 	{
                 if(objectp(o_id))
-                        o_id->simple_action("$N×ÔÑÔ×ÔÓïµÀ£ºÎï×ÊÈ·Êµ²»×ãÑ½¡£\n");
+                        o_id->simple_action("$Nè‡ªè¨€è‡ªè¯­é“ï¼šç‰©èµ„ç¡®å®ä¸è¶³å‘€ã€‚\n");
 		return 0;
 	}
 	if(p_month<=9)
@@ -187,11 +187,11 @@ int recruit_consider(string p_id,string p_area,mixed new_soldier,int old_soldier
 	if(p_food-p_foodout*(p_month+3)<0)
 	{
                 if(objectp(o_id))
-                        o_id->simple_action("$N×ÔÑÔ×ÔÓïµÀ£ºÁ¸Ê³È·Êµ²»×ãÑ½¡£\n");
+                        o_id->simple_action("$Nè‡ªè¨€è‡ªè¯­é“ï¼šç²®é£Ÿç¡®å®ä¸è¶³å‘€ã€‚\n");
 		return 0;
 	}
         if(objectp(o_id))
-                o_id->simple_action("$N×ÔÑÔ×ÔÓïµÀ£ºËÆºõ½ğÁ¸Îï³ä×ãÑ½¡£\n");
+                o_id->simple_action("$Nè‡ªè¨€è‡ªè¯­é“ï¼šä¼¼ä¹é‡‘ç²®ç‰©å……è¶³å‘€ã€‚\n");
         return 1;
 }
 int localbuy_consider(string p_id,string p_area,string p_what)
@@ -201,7 +201,7 @@ int localbuy_consider(string p_id,string p_area,string p_what)
 	p_gold=AREA_D->get_area(p_area,"gold");
 	if(p_gold<20)
 		if(objectp(o_id))
-		{	o_id->simple_action("$N×ÔÑÔ×ÔÓïµÀ£º½ğËÆºõ²»×ãÑ½¡£\n");
+		{	o_id->simple_action("$Nè‡ªè¨€è‡ªè¯­é“ï¼šé‡‘ä¼¼ä¹ä¸è¶³å‘€ã€‚\n");
 			return 1;
 		}
 	return 0;
@@ -225,19 +225,19 @@ int local_tax_consider(string p_id,string p_area,int new_tax,int old_tax)
 		   (p_foodin/(p_foodout+1.0)/12>1.3)&&(p_foodin/12-p_foodout>1000))
 		{
 			if(objectp(o_id))
-                                o_id->simple_action("$N×ÔÑÔ×ÔÓïµÀ£ºËÆºõ²»ĞèÌá¸ßË°ÂÊ¡£\n");
+                                o_id->simple_action("$Nè‡ªè¨€è‡ªè¯­é“ï¼šä¼¼ä¹ä¸éœ€æé«˜ç¨ç‡ã€‚\n");
 			return 1;
 		}
 		if(new_tax-old_tax>20)
 		{
 			if(objectp(o_id))
-                                o_id->simple_action("$N×ÔÑÔ×ÔÓïµÀ£ºË°ÂÊ²»Ó¦²¨¶¯¹ı´óÑ½¡£\n");
+                                o_id->simple_action("$Nè‡ªè¨€è‡ªè¯­é“ï¼šç¨ç‡ä¸åº”æ³¢åŠ¨è¿‡å¤§å‘€ã€‚\n");
 			return 1;
 		}
 		if(p_safe<10+(new_tax-old_tax)*2)
                 {
                         if(objectp(o_id))
-                                o_id->simple_action("$N×ÔÑÔ×ÔÓïµÀ£ºÌá¸ßË°ÂÊµÄ»°£¬°ÙĞÕÃÇ»á²»ÂúµÄ¡£\n");
+                                o_id->simple_action("$Nè‡ªè¨€è‡ªè¯­é“ï¼šæé«˜ç¨ç‡çš„è¯ï¼Œç™¾å§“ä»¬ä¼šä¸æ»¡çš„ã€‚\n");
                         return 1;
                 }
 		return 0;
@@ -246,13 +246,13 @@ int local_tax_consider(string p_id,string p_area,int new_tax,int old_tax)
            (p_foodin/(p_foodout+1.0)/12<1.5))
 	{
 		if(objectp(o_id))
-                        o_id->simple_action("$N×ÔÑÔ×ÔÓïµÀ£ºËÆºõ½ğÁ¸²»×ãÑ½¡£\n");
+                        o_id->simple_action("$Nè‡ªè¨€è‡ªè¯­é“ï¼šä¼¼ä¹é‡‘ç²®ä¸è¶³å‘€ã€‚\n");
 		return 1;
 	}
 	if(old_tax-new_tax>20)
 	{
 		if(objectp(o_id))
-                        o_id->simple_action("$N×ÔÑÔ×ÔÓïµÀ£ºË°ÂÊ²»Ó¦²¨¶¯¹ı´ó¡£\n");
+                        o_id->simple_action("$Nè‡ªè¨€è‡ªè¯­é“ï¼šç¨ç‡ä¸åº”æ³¢åŠ¨è¿‡å¤§ã€‚\n");
 		return 1;
 	}
 	return 0;

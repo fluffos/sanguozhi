@@ -20,7 +20,7 @@ void main()
 			printf("%s   ",onechar);
 			rdm_area = area_list_all[random(sizeof(area_list_all))];
 			CHAR_D->set_char(onechar,"area",rdm_area);
-			printf("µØÇøÉèÖÃÎª%s\n",rdm_area);
+			printf("åœ°åŒºè®¾ç½®ä¸º%s\n",rdm_area);
 		}
 		/*if(mapp(AREA_D->get_area(temp,"troop")))
 		{

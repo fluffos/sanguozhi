@@ -6,8 +6,8 @@
 inherit CMD;
 inherit M_GLOB;
 
-#define HEADER  "--------------------------------<  Çé¸Ğ´Ê»ã  >-------------------------------\n"
-#define TRAILER "------------------------<  ÕÒµ½ %4d/%4d  (%3d%%)  >------------------------\n"
+#define HEADER  "--------------------------------<  æƒ…æ„Ÿè¯æ±‡  >-------------------------------\n"
+#define TRAILER "------------------------<  æ‰¾åˆ° %4d/%4d  (%3d%%)  >------------------------\n"
 #define TOO_DAMN_LONG 15
 
 private void main(string arg)
@@ -28,7 +28,7 @@ private void main(string arg)
     list = regexp(list, arg);
     if ( !list )
     {
-        printf("Ã»ÓĞÓë '%s' ¶ÔÓ¦µÄÇé¸Ğ´Ê»ã¡£\n", arg);
+        printf("æ²¡æœ‰ä¸ '%s' å¯¹åº”çš„æƒ…æ„Ÿè¯æ±‡ã€‚\n", arg);
         return;
     }
     too_damn_long = filter(list, (: sizeof($1) >= TOO_DAMN_LONG :));
@@ -41,7 +41,7 @@ private void main(string arg)
     if ( sizeof(too_damn_long) )
     {
       if(end_of_pipeline())
-        out("\nÌØ³¤µÄ´Ê»ã£º\n");
+        out("\nç‰¹é•¿çš„è¯æ±‡ï¼š\n");
         out(implode(too_damn_long, "\n") + "\n");
     }
     outf(TRAILER, sizeof(list), count, sizeof(list) * 100 / count);

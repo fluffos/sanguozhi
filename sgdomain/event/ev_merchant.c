@@ -19,7 +19,7 @@ void market_over()
    remove_call_out("market_choir");
    if(stringp(p_area))
    {
-      p_mess=p_area+"ºØ –Ω· ¯£¨∏˜µÿ…Ã»Àª∂œ≤∂¯πÈ°£";
+      p_mess=p_area+"ÈõÜÂ∏ÇÁªìÊùüÔºåÂêÑÂú∞ÂïÜ‰∫∫Ê¨¢ÂñúËÄåÂΩí„ÄÇ";
       CHANNEL_D->deliver_tell("rumor","system",p_mess);
    }
 	AREA_D->set_area(m_area,"run_market",0);
@@ -43,7 +43,7 @@ void market_choir()
    p_area=AREA_D->get_area(m_area,"name");
    if(stringp(p_area))
    {
-      p_mess=p_area+"ºØ –“ª∆¨∑±√¶æ∞œÛ£¨∏˜µÿ…Ã»À’˘œ‡Ω–¬Ù°£";
+      p_mess=p_area+"ÈõÜÂ∏Ç‰∏ÄÁâáÁπÅÂøôÊôØË±°ÔºåÂêÑÂú∞ÂïÜ‰∫∫‰∫âÁõ∏Âè´Âçñ„ÄÇ";
       CHANNEL_D->deliver_tell("rumor","system",p_mess);
    }
     remove_call_out("market_choir");
@@ -55,13 +55,13 @@ int has_market() {
 }
 mixed can_have_market(string p_area) {
 	if(p_area==m_area)
-		return "±æµÿ’˝‘⁄æŸ––ºØ –°£\n";
+		return "Êú¨Âú∞Ê≠£Âú®‰∏æË°åÈõÜÂ∏Ç„ÄÇ\n";
 	if(has_market())
-		return AREA_D->get_area(m_area,"name")+"’˝‘⁄æŸ––ºØ –°£\n";
+		return AREA_D->get_area(m_area,"name")+"Ê≠£Âú®‰∏æË°åÈõÜÂ∏Ç„ÄÇ\n";
 	if(AREA_D->get_area(p_area,"gold")<1000)
-		return "±æµÿª∆Ω≤ª◊„£¨Œﬁ∑®æŸ∞ÏºØ –°£\n";
+		return "Êú¨Âú∞ÈªÑÈáë‰∏çË∂≥ÔºåÊó†Ê≥ï‰∏æÂäûÈõÜÂ∏Ç„ÄÇ\n";
 	if(AREA_D->get_area(p_area,"safe")<100)
-		return "±æµÿ∞≤∂®≤ªπª£¨Œﬁ∑®æŸ∞ÏºØ –°£\n";
+		return "Êú¨Âú∞ÂÆâÂÆö‰∏çÂ§üÔºåÊó†Ê≥ï‰∏æÂäûÈõÜÂ∏Ç„ÄÇ\n";
 	return 1;
 
 }
@@ -108,7 +108,7 @@ mixed market(string p_area)
 	AREA_D->set_area(p_area,"market_start_time",start_time);
 	AREA_D->set_area(p_area,"bn",0); // market time no bn
 
-    p_mess=AREA_D->get_area(p_area,"name")+"æŸ∞ÏºØ –£¨∏˜µÿ…Ã»À∑‰”µ∂¯»•°£";
+    p_mess=AREA_D->get_area(p_area,"name")+"‰∏æÂäûÈõÜÂ∏ÇÔºåÂêÑÂú∞ÂïÜ‰∫∫ËúÇÊã•ËÄåÂéª„ÄÇ";
     remove_call_out("market_choir");
     call_out("market_choir",random(300)+60);
     CHANNEL_D->deliver_tell("rumor","system",p_mess);
@@ -212,28 +212,28 @@ return ([
              "zhong jia":([
                  "quantity" :100,
                  "price"    :1000,
-                 "name"     :"÷ÿº◊",
+                 "name"     :"ÈáçÁî≤",
                      ])
                     ]),
          "xiong nu":([
              "horse":([
                  "quantity" :100,
                  "price"    :1000,
-                 "name"     :"¬Ì",
+                 "name"     :"È©¨",
                      ])
                     ]),
          "gao li":([  
              "hard bow":([
                  "quantity" :100,
                  "price"    :1000,
-                 "name"     :"«øÂÛ",
+                 "name"     :"Âº∫Âº©",
                      ])
                     ]),
          "jiao zhi":([
              "teng jia":([
                  "quantity" :100,
                  "price"    :1000,
-                 "name"     :"ÃŸº◊",
+                 "name"     :"Ëó§Áî≤",
                      ])
                     ]),
        ]);

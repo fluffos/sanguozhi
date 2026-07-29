@@ -4,11 +4,11 @@ inherit M_WEAPON;
 inherit M_CHOPPER;
 inherit M_INPUT;
 void setup() {
-    set_adj("Ğâ¼£°ß°ßµÄ");
-    set_id("chopper", ""+YEL+"¿³²ñµ¶"+NOR+"","kanchai dao");
-    set_unit("°Ñ");
-    set_in_room_desc("Ò»°ÑÑ°³£Å©¼ÒÓÃÀ´¿³²ñµÄ"+YEL+"¿³²ñµ¶"+NOR+"(kanchai dao)¡£\n");
-    set_long("Ò»°ÑĞâ¼£°ß°ßµÄ¿³²ñµ¶¡£\n");
+    set_adj("é”ˆè¿¹æ–‘æ–‘çš„");
+    set_id("chopper", ""+YEL+"ç æŸ´åˆ€"+NOR+"","kanchai dao");
+    set_unit("æŠŠ");
+    set_in_room_desc("ä¸€æŠŠå¯»å¸¸å†œå®¶ç”¨æ¥ç æŸ´çš„"+YEL+"ç æŸ´åˆ€"+NOR+"(kanchai dao)ã€‚\n");
+    set_long("ä¸€æŠŠé”ˆè¿¹æ–‘æ–‘çš„ç æŸ´åˆ€ã€‚\n");
     set_attack_ability(2);
     set_attack_power(10);
     set_defence_ability(10);

@@ -18,8 +18,8 @@ inherit __DIR__+"troop_d/number";
 private mapping troops=([]);
 private int p_maxid=1;
 
-static int save_mark;
-static int round;
+nosave protected int save_mark;
+nosave protected int round;
 
 #define SAVE_FILE "/data/daemons/troops"
 #define TROOP_TYPE(x) "/sgdomain/troops/"+x+".c"
@@ -33,7 +33,7 @@ void recover_troop(int p_id);
 void add_morale(mixed p_id, int va);
 string get_troop_side(int p_id);
 
-// ÒÔ²¿¶ÓµÄµÚÒ»¸ö½«ÁìµÄÖÐÎÄÃûÖÐµÄµÚÒ»¸öºº×Ö×÷Îª²¿¶ÓµÄ·ûºÅ
+// ä»¥éƒ¨é˜Ÿçš„ç¬¬ä¸€ä¸ªå°†é¢†çš„ä¸­æ–‡åä¸­çš„ç¬¬ä¸€ä¸ªæ±‰å­—ä½œä¸ºéƒ¨é˜Ÿçš„ç¬¦å·
 string get_troop_symbol( int par_nTrpId );
 
 void save_data()
@@ -62,9 +62,9 @@ void troop_heart()
 		object ob;
 		int is_auto=1;
 		int ret=0;
-		//tell_user("huaer",sprintf("ÔÚtroop_heart()ÖÐtroopsµÄ¼üÖµp_id = %d\n",p_id));
+		//tell_user("huaer",sprintf("åœ¨troop_heart()ä¸­troopsçš„é”®å€¼p_id = %d\n",p_id));
 		ret=illegal_troop(p_id);
-		//tell_user("huaer",sprintf("illegal_troop()µÄ·µ»ØÖµÊÇ %d\n",ret));
+		//tell_user("huaer",sprintf("illegal_troop()çš„è¿”å›žå€¼æ˜¯ %d\n",ret));
 		if(ret)
 		{	
 			TROOP_D->remove_troop(p_id);
@@ -143,8 +143,8 @@ string get_troop_name(int p_id)
 	p_nationname=COUNTRY_D->get_country(p_nation,"name");
 	if(!p_nationname)
 		p_nationname=p_nation;
-	p_ret=p_nationname+"µÚ"+
-CHINESE_D->chinese_number(troops[p_id]["ser"])+"¾üÍÅ";
+	p_ret=p_nationname+"ç¬¬"+
+CHINESE_D->chinese_number(troops[p_id]["ser"])+"å†›å›¢";
 	return p_ret;
 }
 int get_troop_canbeseen(int t_id)
@@ -199,13 +199,13 @@ int get_soldier_total_number(int p_id)
 }
 
 string get_troop_side(int p_id) {
-  if (!mapp(troops[p_id])) return "£Õ";
+  if (!mapp(troops[p_id])) return "ï¼µ";
   if ( troops[p_id]["side"] == "a" )
-    return "£Á";
+    return "ï¼¡";
   else if ( troops[p_id]["side"] == "d" )
-    return "£Ä";
+    return "ï¼¤";
   else
-    return "£Õ";
+    return "ï¼µ";
 }
 
 mixed get_troop_area(int p_id)
@@ -222,7 +222,7 @@ mixed get_troop_area(int p_id)
 
 mixed get_troops(int p_id,string p_name)
 {
-	//tell_user("huaer",sprintf("troop_dÖÐ p_id = %d\n",p_id));
+	//tell_user("huaer",sprintf("troop_dä¸­ p_id = %d\n",p_id));
         if(!troops[p_id])
         {
         	//tell_user("huaer",sprintf("troops p_id not found\n"));
@@ -294,7 +294,7 @@ int put_troop(int p_id,string r_id)
     string p_area;
     mixed position;
 
-	//printf("ÔÚtroop_d.c/put_troop()º¯ÊýÖÐ£¬²ÎÊýp_id=%d, r_id=%s\n",p_id,r_id);
+	//printf("åœ¨troop_d.c/put_troop()å‡½æ•°ä¸­ï¼Œå‚æ•°p_id=%d, r_id=%s\n",p_id,r_id);
 	if(r_id[0..10]!="/a/warroom/") {
 		string *rs,r_tmp;
 		rs=explode(r_id,"/");
@@ -304,7 +304,7 @@ int put_troop(int p_id,string r_id)
 	}
 	//printf("r_id = %s\n",r_id);
 	o_id=find_troop(p_id);
-	//printf("find_troop()Ö®ºóµÄ½á¹û,%O\n",o_id);
+	//printf("find_troop()ä¹‹åŽçš„ç»“æžœ,%O\n",o_id);
 	if(!o_id)
 		return 0;
     troops[p_id]["room"]=r_id;
@@ -361,7 +361,7 @@ void remove_troop(int p_id)
 				  AREA_D->get_area(p_area,"meeting"));
 			o_char=CHAR_D->find_char(char);
 			if(objectp(o_char))
-			  o_char->simple_action("$N´ÓÕ½³¡ÉÏ³·ÁËÏÂÀ´¡£\n");
+			  o_char->simple_action("$Nä»Žæˆ˜åœºä¸Šæ’¤äº†ä¸‹æ¥ã€‚\n");
 		 }
      }
   }
@@ -375,7 +375,7 @@ void remove_troop(int p_id)
 			if(o->is_living())
 			{
 				o->move(VOID_ROOM); // should be wiz
-				o->simple_action("$N±»Ò»½Åõßµ½ÁËÐéÎÞ¡£\n");
+				o->simple_action("$Nè¢«ä¸€è„šè¸¹åˆ°äº†è™šæ— ã€‚\n");
 			}
 			else
 				o->remove();
@@ -596,7 +596,7 @@ int illegal_troop(int t_id)
 	if(member_array(t_id,t)==-1)	return 2;
 	o=find_troop(t_id);
 	if(!objectp(o)) return 3;
-	//tell_user("huaer",sprintf("find_troop()·µ»Ø¶ÔÏóÊÇ%O\n",o));
+	//tell_user("huaer",sprintf("find_troop()è¿”å›žå¯¹è±¡æ˜¯%O\n",o));
 	env=environment(o);
 	if(!objectp(env)) return 4;
 	return 0;
@@ -715,7 +715,7 @@ int troop_exist(int t_id) {
 	return mapp(troops[t_id]);
 }
 
-// ÒÔ²¿¶ÓµÄµÚÒ»¸ö½«ÁìµÄÖÐÎÄÃûÖÐµÄµÚÒ»¸öºº×Ö×÷Îª²¿¶ÓµÄ·ûºÅ
+// ä»¥éƒ¨é˜Ÿçš„ç¬¬ä¸€ä¸ªå°†é¢†çš„ä¸­æ–‡åä¸­çš„ç¬¬ä¸€ä¸ªæ±‰å­—ä½œä¸ºéƒ¨é˜Ÿçš„ç¬¦å·
 string get_troop_symbol( int par_nTrpId )
 {
     string tr_strLeaderId = TROOP_D->get_troops( par_nTrpId, "chars" )[0];

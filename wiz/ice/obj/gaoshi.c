@@ -3,9 +3,9 @@
 inherit FURNITURE;
 void setup()
 {
-  set_id("gaoshi", HIY+"��ʾ"+NOR);
-  set_in_room_desc("һ���̵�"+HIY+"��ʾ"+NOR+"��(gaoshi)");
-  set_long("�䵱��Ʒ��%^H_CYAN%^ sell %^H_YELLOW%^<obj_id>%^RESET%^��
-�����Ʒ�� %^H_CYAN%^buy %^H_YELLOW%^<obj_id>%^RESET%^��\n\n
-С�겻���ܵ䵱������·����Ʒ��\n");
+  set_id("gaoshi", HIY+"告示"+NOR);
+  set_in_room_desc("一则当铺的"+HIY+"告示"+NOR+"。(gaoshi)");
+  set_long("典当物品用%^H_CYAN%^ sell %^H_YELLOW%^<obj_id>%^RESET%^；
+赎回物品用 %^H_CYAN%^buy %^H_YELLOW%^<obj_id>%^RESET%^；\n\n
+小店不接受典当不明来路的物品。\n");
 }

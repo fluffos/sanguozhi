@@ -13,7 +13,7 @@ mixed do_check_can_nationtax(string who)
 
         ply = find_body(who);
 	if( ply->query_sk_level("sk_meili")<=50 )
-		return "ÄãÖÎ¹úĞŞÑøÌ«µÍ£¬ÔõÄÜ¶Ô¹ú¼ÒË°ÎñÖ¸ÊÖ»®½Å£¡\n";
+		return "ä½ æ²»å›½ä¿®å…»å¤ªä½ï¼Œæ€èƒ½å¯¹å›½å®¶ç¨åŠ¡æŒ‡æ‰‹åˆ’è„šï¼\n";
 	else return 1;
 }
 mixed do_check_nationtax_para(string *para, string who)
@@ -29,16 +29,16 @@ mixed do_check_nationtax_para(string *para, string who)
 	} else if( sizeof(para)==2 ){
 		city = para[0];
 		tax = to_int(para[1]);
-	} else return "Òª°ÑÄÄÒ»³ÇÊĞµÄ¹úË°µ÷²éµ½¶àÉÙ£¿\n";
+	} else return "è¦æŠŠå“ªä¸€åŸå¸‚çš„å›½ç¨è°ƒæŸ¥åˆ°å¤šå°‘ï¼Ÿ\n";
 	
-	if( tax>20 ) return "¹ú¼ÒË°ÂÊ²»ÄÜ³¬¹ı20¡£\n";
-	if( tax<0  ) return "ÔõÃ´»áÓĞ¸ºË°ÂÊ¡£\n";
-	if( AREA_D->get_area(city,"nation")!=n_id ) return "±ğÈËµÄµØÅÌ£¬Äã²ÙÊ²Ã´ĞÄ¡£\n";
+	if( tax>20 ) return "å›½å®¶ç¨ç‡ä¸èƒ½è¶…è¿‡20ã€‚\n";
+	if( tax<0  ) return "æ€ä¹ˆä¼šæœ‰è´Ÿç¨ç‡ã€‚\n";
+	if( AREA_D->get_area(city,"nation")!=n_id ) return "åˆ«äººçš„åœ°ç›˜ï¼Œä½ æ“ä»€ä¹ˆå¿ƒã€‚\n";
 	if( !CHAR_D->get_char(who,"ranknation")&&(CHAR_D->get_char(who,"area") != city) )
-                return "±ğÈËµÄµØÅÌ£¬Äã²ÙÊ²Ã´ĞÄ¡£\n";
+                return "åˆ«äººçš„åœ°ç›˜ï¼Œä½ æ“ä»€ä¹ˆå¿ƒã€‚\n";
         if (CHAR_D->get_char(n_id,"type")==TYPE_NPC)
         if (AREA_D->get_area(city,"leader")!=who)  //Added by suicide for only local
-                return "ÄãÓÖ²»ÊÇµ±µØÌ«ÊØ£¬²ÙÊ²Ã´ĞÄ¡£\n";//taishou can suggest tax
+                return "ä½ åˆä¸æ˜¯å½“åœ°å¤ªå®ˆï¼Œæ“ä»€ä¹ˆå¿ƒã€‚\n";//taishou can suggest tax
 
 	sug_nationtax(who,n_id,city,tax);
 }
@@ -48,19 +48,19 @@ mixed sug_nationtax(string who,string n_id, string city,int tax)
 
 	o_tax=AREA_D->get_area(city,"taxnation");	
         if(o_tax==tax) {
-		write("Ä¿Ç°Ë°ÂÊÕıÊÇ"+chinese_number(tax)+"¡£\n");
+		write("ç›®å‰ç¨ç‡æ­£æ˜¯"+chinese_number(tax)+"ã€‚\n");
 		return;
 	};
         add_suggest(n_id,"nationtax",({city,o_tax,tax}), who, ({city}));
 
         if(tax>o_tax) {
-		set_suggest(n_id, "str", "½«"+AREA_D->get_area(city,"name")+
-			"µÄ¹ú¼ÒË°ÂÊÓÉ"+chinese_number(o_tax)+"Ôö¼Óµ½"+chinese_number(tax));
-          	set_suggest(n_id,"reason","Ä¿Ç°¹ú¿â¿ÕĞé");
+		set_suggest(n_id, "str", "å°†"+AREA_D->get_area(city,"name")+
+			"çš„å›½å®¶ç¨ç‡ç”±"+chinese_number(o_tax)+"å¢åŠ åˆ°"+chinese_number(tax));
+          	set_suggest(n_id,"reason","ç›®å‰å›½åº“ç©ºè™š");
         } else {
-          	set_suggest(n_id, "str", "½«"+AREA_D->get_area(city,"name")+
-			"µÄ¹ú¼ÒË°ÂÊÓÉ"+chinese_number(o_tax)+"½µµÍµ½"+chinese_number(tax));
-          	set_suggest(n_id, "reason", "Ä¿Ç°¹ú¿â³äÓ¯");
+          	set_suggest(n_id, "str", "å°†"+AREA_D->get_area(city,"name")+
+			"çš„å›½å®¶ç¨ç‡ç”±"+chinese_number(o_tax)+"é™ä½åˆ°"+chinese_number(tax));
+          	set_suggest(n_id, "reason", "ç›®å‰å›½åº“å……ç›ˆ");
         }
 
 	announce_suggest(n_id);

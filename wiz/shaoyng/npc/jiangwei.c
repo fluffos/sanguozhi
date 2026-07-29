@@ -5,11 +5,11 @@ void setup()
 {
     object wep;
     object horse;
-    set_name("jiang wei", "½ªÎ¬");
+    set_name("jiang wei", "å§œç»´");
     add_id("jiang"); 
     set_gender(1);
-    set_proper_name("½ª²®Ô¼");
-    set_in_room_desc("½ªÎ¬(jiang wei)");
+    set_proper_name("å§œä¼¯çº¦");
+    set_in_room_desc("å§œç»´(jiang wei)");
     set_age(28);
     set_sg_rank(R_DJJ);
     set_shengwang(100000);

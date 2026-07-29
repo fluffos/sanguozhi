@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is °ÍÉ½Ò¹Óê
+// driver is å·´å±±å¤œé›¨
 // created date is Thu Jun  2 20:51:06 2011
 //#include <mudlib.h>
 //#include <ansi.h>

@@ -34,7 +34,7 @@ object virtual_create(string c_id)
    	return o_char;
 }
 // Disappear if no longer needed
-static void clean_up() {
+protected void clean_up() {
 	return 0; // don't want it is destroyed
 }
 

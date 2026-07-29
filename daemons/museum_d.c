@@ -12,7 +12,7 @@
 #define C_OPEN 2
 
 #define SAVE_FILE "/data/daemons/museum"
-#define HEADBAR "   £Á   £Â   £Ã   £Ä   £Å   £Æ   £Ç   £È   £É   £Ê   £Ë  £Ì   £Í   £Î   £Ï"
+#define HEADBAR "   ï¼¡   ï¼¢   ï¼£   ï¼¤   ï¼¥   ï¼¦   ï¼§   ï¼¨   ï¼©   ï¼ª   ï¼«  ï¼¬   ï¼­   ï¼®   ï¼¯"
 inherit M_ACCESS;
 
 private mapping rooms;
@@ -40,7 +40,7 @@ private mixed trans_to_active_npc(string id) {
 		CHAR_D->set_char(m_id,"birth_time",time());
         CHANNEL_D->deliver_tell("rumor","system",
  CHAR_D->get_char(m_id,"name")+
-"ĞÛĞÄÔÙÆğ£¬¾öĞÄÒÔ£Î£Ğ£ÃÉí·İÖØ·µ¹Ù³¡Ğ§Ãü¡£");
+"é›„å¿ƒå†èµ·ï¼Œå†³å¿ƒä»¥ï¼®ï¼°ï¼£èº«ä»½é‡è¿”å®˜åœºæ•ˆå‘½ã€‚");
         return 1;
 }
 
@@ -80,7 +80,7 @@ mixed get_char(string p_id,string para_name)
 mixed trans_to_museum(string id) {
         mixed old_data;
         mixed new_data;
-        array exp_array=({"lc","nc","ps","ranklocal","hon","lo",
+        mixed * exp_array=({"lc","nc","ps","ranklocal","hon","lo",
                 "myarmy","status","h","type","ranknation","nation"});
         if(!CHAR_D->char_exist(id))
                 return "don't have char of "+id+".\n";
@@ -102,8 +102,8 @@ mixed trans_to_museum(string id) {
         save_data();
         CHANNEL_D->deliver_tell("rumor","system",
  CHAR_D->get_char(id,"name")+
-"Ñá¾ë¹Ù³¡Õù¶·£¬¾ö¶¨¹éÒşÉ½ÁÖ£¬µ«ÒòÀÍ¿à¹¦¸ß£¬ÆäÊÂ¼£½«ÔØÈë"+mud_name()+
-"µä²Ø¹İ¡£");
+"åŒå€¦å®˜åœºäº‰æ–—ï¼Œå†³å®šå½’éšå±±æ—ï¼Œä½†å› åŠ³è‹¦åŠŸé«˜ï¼Œå…¶äº‹è¿¹å°†è½½å…¥"+mud_name()+
+"å…¸è—é¦†ã€‚");
         CHAR_D->remove_char(id);
         return 1;
 }
@@ -125,7 +125,7 @@ mixed trans_back(string id) {
         CHAR_D->new_player_back_char(id,new_data);
         CHANNEL_D->deliver_tell("rumor","system",
  CHAR_D->get_char(id,"name")+
-"²»¸ÊĞÄÓÚ"+mud_name()+"µä²Ø¹İÖĞµÄ¼ÅÄ¯Éú»î£¬¾ö¶¨ÖØ·µ½­ºş¡£");
+"ä¸ç”˜å¿ƒäº"+mud_name()+"å…¸è—é¦†ä¸­çš„å¯‚å¯ç”Ÿæ´»ï¼Œå†³å®šé‡è¿”æ±Ÿæ¹–ã€‚");
         return 1;
 
 
@@ -241,7 +241,7 @@ string show_room_wall3a(int x,int y,int f,int m_x,int m_y) {
         if(!stringp(ext)||(sizeof(ext)>4))
                 ext="    ";
 
-        if((x==m_x)&&(y==m_y)) ext=" %^H_RED%^¡ñ%^RESET%^ ";
+        if((x==m_x)&&(y==m_y)) ext=" %^H_RED%^â—%^RESET%^ ";
         if(c==C_BLOCK) return "|"+ext;
         return " "+ext;
 
@@ -296,7 +296,7 @@ string show_map(int f) {
         int i,j;
         object o=this_body();
 
-        head=mud_name()+"µä²Ø¹İµÚ"+chinese_number(f+1)+"²ãÆ½ÃæÍ¼\n";
+        head=mud_name()+"å…¸è—é¦†ç¬¬"+chinese_number(f+1)+"å±‚å¹³é¢å›¾\n";
 
         if(objectp(o)&&(o->query_room()->is_in_museum())) {
                 int *ids;

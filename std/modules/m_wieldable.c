@@ -4,11 +4,11 @@
 ** wieldable.c /std/modules/m_wieldable.c
 */
 inherit M_DAMAGE_SOURCE;
-private string wield_message="$N°Î³öÒ»°Ñ$o¡£\n";
-private string unwield_message="$N½«$o²å»ØÑü¼ä¡£\n";
+private string wield_message="$Næ‹”å‡ºä¸€æŠŠ$oã€‚\n";
+private string unwield_message="$Nå°†$oæ’å›è…°é—´ã€‚\n";
 void hook_state(string, mixed, int);
 void mark_wielded_by(object);
-static function move_hook = (: unwield_me :);
+nosave protected function move_hook = (: unwield_me :);
 int valid_wield()
 {
     // return 1 if they can wield this.
@@ -34,7 +34,7 @@ string query_unwield_message()
 }
 void mark_wielded_by(object which)
 {
-    hook_state("extra_short", "×°±¸", which && which != this_object());
+    hook_state("extra_short", "è£…å¤‡", which && which != this_object());
     hook_state("move", move_hook, which && which != this_object());
     m_damage_source::mark_wielded_by(which);
 }

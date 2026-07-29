@@ -27,7 +27,7 @@ inherit M_REGEX;
     ({1, 15}), ({2,5}), ({5, 12}), ({ 9, 17 }) })
 
 
-static private string * headers = ({
+nosave private string * headers = ({
     "Up",                                  // 0
     "Address",                             // 1
     "",         /* port */                 // 2
@@ -71,7 +71,7 @@ private void main(mixed *arg, mapping flags)
         matches = insensitive_regexp(muds, "^" + translate(arg[0]));
         if ( !sizeof(matches) )
         {
-            outf("ÔÚ %d ¸ö MUD ÖĞÃ»ÓĞÒ»¸ö¶ÔÓ¦µÄ¡£\n", sizeof(mudlist));
+            outf("åœ¨ %d ä¸ª MUD ä¸­æ²¡æœ‰ä¸€ä¸ªå¯¹åº”çš„ã€‚\n", sizeof(mudlist));
             return;
         }
     }
@@ -104,7 +104,7 @@ private void main(mixed *arg, mapping flags)
 
     output = "";
     if ( wizardp(this_user()) )
-        output += "ÓÃ mudinfo <mudname> À´»ñÈ¡¸ü¶àµÄĞÅÏ¢¡£\n";
+        output += "ç”¨ mudinfo <mudname> æ¥è·å–æ›´å¤šçš„ä¿¡æ¯ã€‚\n";
     output += sprintf(format + repeat_string("-", 76) + "\n",
                       map_array(info, (: $(headers)[$1[0]] :))...);
 
@@ -139,7 +139,7 @@ private void main(mixed *arg, mapping flags)
 
     }
 
-    output = sprintf("ÔÚ %d ¸ö MUD ÖĞÓĞ %d ¸ö¶ÔÓ¦µÄ£¬ÆäÖĞ %d ¸öÕıÔÚ¿ª·Å¡£\n",
+    output = sprintf("åœ¨ %d ä¸ª MUD ä¸­æœ‰ %d ä¸ªå¯¹åº”çš„ï¼Œå…¶ä¸­ %d ä¸ªæ­£åœ¨å¼€æ”¾ã€‚\n",
                      sizeof(mudlist),matched, upcount) + output;
 
     out(output);

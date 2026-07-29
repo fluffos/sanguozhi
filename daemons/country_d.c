@@ -20,14 +20,14 @@ private mapping countries;
 #define SAVE_FILE "/data/daemons/countries"
 #define LOG_FILE "/data/log/countries.log"
 
-static private int m_modified;
+nosave private int m_modified;
 
 // xiaobai: 26 Oct. 2001
 //! action of nation "par_strSlave" surrending to nation "par_strMaster"
 void do_surrender( string par_strSlave, string par_strMaster );
 
 // xiaobai: 27 Oct. 2001
-//! Ò»¸ö¹ú¼Ò×Ô¼ºÏûÍö(¹úÍõÊÜµ½µÄ³Í·£½ÏµÍ)
+//! ä¸€ä¸ªå›½å®¶è‡ªå·±æ¶ˆäº¡(å›½çŽ‹å—åˆ°çš„æƒ©ç½šè¾ƒä½Ž)
 void do_dieout( string par_strNation );
 
 void save_data()
@@ -71,7 +71,7 @@ void trans_country(string old,string newid) {
 	NEWS_D->remove_nation_post(old);
 	map_delete(countries,old);
 
-	message=sprintf("¡¾´óÊÂ¼Ç¡¿%sÓÚ%s½«ÍõÎ»ìøÈÃ¸ø%s¡£\n",
+	message=sprintf("ã€å¤§äº‹è®°ã€‘%säºŽ%så°†çŽ‹ä½ç¦…è®©ç»™%sã€‚\n",
 		CHAR_D->get_char(old,"name"),
 		DAY_D->query_chinese_day(),CHAR_D->get_char(newid,"name"));
 	HIS(message);
@@ -126,8 +126,8 @@ void add_country(string p_id,string p_area)
 	string p_othercountry;
 	string message;
 	int area_level;
-	int array leader_title;
-	array p_date;
+	int * leader_title;
+	mixed * p_date;
 	int p_day,p_month,p_year;
 	string s_year,s_month,s_day;
 	string orig_country;
@@ -154,20 +154,20 @@ void add_country(string p_id,string p_area)
 		countries[p_id]["wartime"] = countries[orig_country]["wartime"];
 	}
 //end of initial war time infomation
-	countries[p_id]["init_time"] = time(); //Éè¶¨¶ÀÁ¢Ê±¼ä£¬use in surrender		
-	countries[p_id]["captial"] = p_area; //2001.4.13  Éè¶¨¹ú¼ÒÊ×¶¼¡£
+	countries[p_id]["init_time"] = time(); //è®¾å®šç‹¬ç«‹æ—¶é—´ï¼Œuse in surrender		
+	countries[p_id]["captial"] = p_area; //2001.4.13  è®¾å®šå›½å®¶é¦–éƒ½ã€‚
 	list=CHAR_D->check_char("area",p_area);
 	foreach(string c_id in list)
 	{
 	 //Added by suicide for do sth to those chat who fealty to king
 	 if (CHAR_D->get_char(c_id,"fealty")==p_id)
 	    {
-	     CHAR_D->set_char(c_id,"loyalty",1); //ÓëÔ­¹ú¼ÒµÄ¹ØÏµ¶È
+	     CHAR_D->set_char(c_id,"loyalty",1); //ä¸ŽåŽŸå›½å®¶çš„å…³ç³»åº¦
 	     CHAR_D->set_char(c_id,"nation",p_id);
 	     CHAR_D->set_char(c_id,"loyalty",60+random(40));
 	     //CHAR_D->set_char(c_id,"reputation",CHAR_D->get_char(c_id,"reputation")*12/10);
 	     
-	     continue;      //Ð§ÖÒµÄ¹ÙÔ±¹ÙÖ°²»×öµ÷¶¯±£³ÖÔ­Î». 
+	     continue;      //æ•ˆå¿ çš„å®˜å‘˜å®˜èŒä¸åšè°ƒåŠ¨ä¿æŒåŽŸä½. 
 	    }
 	//End end;
 		if(c_id!=p_id) 
@@ -199,7 +199,7 @@ void add_country(string p_id,string p_area)
 	CHAR_D->set_char(p_id,"ranklocal",leader_title[0]);
 	CHAR_D->set_char(p_id,"nation",p_id);
 	AREA_D->set_area(p_area,"nation",p_id);
-	message=sprintf("¡¾´óÊÂ¼Ç¡¿%sÓÚÈý¹úÖ¾%sÄê%sÔÂ%sÈÕÔÚ%sÁ¢¹ú£®\n",
+	message=sprintf("ã€å¤§äº‹è®°ã€‘%säºŽä¸‰å›½å¿—%så¹´%sæœˆ%sæ—¥åœ¨%sç«‹å›½ï¼Ž\n",
 		CHAR_D->get_char(p_id,"name"),
 		s_year,s_month,s_day,
 		AREA_D->get_area(p_area,"name"));
@@ -231,7 +231,7 @@ int creat_country(string p_id)
 // time. later to use it may cause other conflict
 string remove_country(string p_id) 
 {
-	array p_date;
+	mixed * p_date;
 	int p_day,p_month,p_year;
 	string s_year,s_month,s_day;
 	string message;
@@ -244,7 +244,7 @@ string remove_country(string p_id)
 	s_month=CHINESE_DA->chinese_number(p_month);
 	s_day=CHINESE_DA->chinese_number(p_day);
     if (!countries[p_id]) 
-		return "¸Ã¹ú¼Ò²»´æÔÚ£®\n";
+		return "è¯¥å›½å®¶ä¸å­˜åœ¨ï¼Ž\n";
 	list=CHAR_D->check_char("nation",p_id);
 	if(sizeof(list))
 	{
@@ -263,7 +263,7 @@ string remove_country(string p_id)
 		}
 	}
 
-	message=sprintf("¡¾´óÊÂ¼Ç¡¿%sÓÚÈý¹úÖ¾%sÄê%sÔÂ%sÈÕÍö¹ú£®\n",
+	message=sprintf("ã€å¤§äº‹è®°ã€‘%säºŽä¸‰å›½å¿—%så¹´%sæœˆ%sæ—¥äº¡å›½ï¼Ž\n",
 		CHAR_D->get_char(p_id,"name"),
 		s_year,s_month,s_day);
 	HIS(message);
@@ -272,11 +272,11 @@ string remove_country(string p_id)
 	map_delete(countries, p_id);
 	m_modified=1;
 	NEWS_D->remove_nation_post(p_id);
-    return "¹ú¼ÒÉ¾³ý³É¹¦£®\n";
+    return "å›½å®¶åˆ é™¤æˆåŠŸï¼Ž\n";
 }
 int create_friend_country(string c1,string c2)
 {
-	array p_date;
+	mixed * p_date;
 	int p_day,p_month,p_year;
 	string s_year,s_month,s_day;
 	string message;
@@ -303,7 +303,7 @@ int create_friend_country(string c1,string c2)
 	countries[c1]["friend"]+=({c2});
 	countries[c2]["friend"]-=({c1});
 	countries[c2]["friend"]+=({c1});
-	message=sprintf("¡¾´óÊÂ¼Ç¡¿%sÓÚÈý¹úÖ¾%sÄê%sÔÂ%sÈÕÓë%s½áÎªÍ¬ÃË¹ú£®\n",
+	message=sprintf("ã€å¤§äº‹è®°ã€‘%säºŽä¸‰å›½å¿—%så¹´%sæœˆ%sæ—¥ä¸Ž%sç»“ä¸ºåŒç›Ÿå›½ï¼Ž\n",
 		COUNTRY_D->get_country(c1,"name"),
 		s_year,s_month,s_day,
 		COUNTRY_D->get_country(c2,"name"));
@@ -315,7 +315,7 @@ int create_friend_country(string c1,string c2)
 }
 int remove_friend_country(string c1,string c2)
 {
-	array p_date;
+	mixed * p_date;
 	int p_day,p_month,p_year;
 	string s_year,s_month,s_day;
 	string message;
@@ -348,7 +348,7 @@ int remove_friend_country(string c1,string c2)
 		{
 			countries[c1]["friend"]-=({c2});
 			countries[c2]["friend"]-=({c1});
-			message=sprintf("¡¾´óÊÂ¼Ç¡¿%sÓÚÈý¹úÖ¾%sÄê%sÔÂ%sÈÕÓë%s½â³ýÍ¬ÃË£®\n",
+			message=sprintf("ã€å¤§äº‹è®°ã€‘%säºŽä¸‰å›½å¿—%så¹´%sæœˆ%sæ—¥ä¸Ž%sè§£é™¤åŒç›Ÿï¼Ž\n",
 				COUNTRY_D->get_country(c1,"name"),
 				s_year,s_month,s_day,
 				COUNTRY_D->get_country(c2,"name"));
@@ -366,27 +366,27 @@ string set_country(string p_id,string para_name,mixed para_value)
 	string p_ret;
 	int i_ret;
 	if(!countries[p_id])
-		return "¸Ã¹ú¼Ò²»´æÔÚ£®\n";
+		return "è¯¥å›½å®¶ä¸å­˜åœ¨ï¼Ž\n";
 	switch (para_name)
 	{
 		
 	case "addfriend":
                 i_ret=create_friend_country(p_id,para_value);
                 if(i_ret==CF_ACCEPT)
-			p_ret="¹ú¼ÒÍ¬ÃËÉèÖÃ³É¹¦£®\n";
+			p_ret="å›½å®¶åŒç›Ÿè®¾ç½®æˆåŠŸï¼Ž\n";
 		else
-			p_ret="¹ú¼ÒÍ¬ÃËÉèÖÃÊ§°Ü£®\n";
+			p_ret="å›½å®¶åŒç›Ÿè®¾ç½®å¤±è´¥ï¼Ž\n";
 		break;
 	case "rmfriend":
 		i_ret=remove_friend_country(p_id,para_value);
 		if(i_ret==1)
-			p_ret="¹ú¼ÒÍ¬ÃË½â³ý³É¹¦£®\n";
+			p_ret="å›½å®¶åŒç›Ÿè§£é™¤æˆåŠŸï¼Ž\n";
 		else
-			p_ret="¹ú¼ÒÍ¬ÃË½â³ýÊ§°Ü£®\n";
+			p_ret="å›½å®¶åŒç›Ÿè§£é™¤å¤±è´¥ï¼Ž\n";
 		break;
 	default:
 		countries[p_id][para_name]=para_value;
-		p_ret="¹ú¼Ò²ÎÊýÉèÖÃ³É¹¦\n";
+		p_ret="å›½å®¶å‚æ•°è®¾ç½®æˆåŠŸ\n";
 		break;
 	}
 	m_modified=1;
@@ -400,11 +400,11 @@ string get_country_name(string p_id)
 	if (!countries[p_id])
 	   {
 	     switch(p_id){
-    	     case "bo si"   : return "²¨Ë¹¹ú";
-   	     case "xiong nu": return "ÐÙÅ«¹ú";
-    	     case "gao li"  : return "¸ßÀö¹ú";
-    	     case "jiao zhi": return "½»Öº¹ú";
-    	     default        : return "ººÄ© ";
+    	     case "bo si"   : return "æ³¢æ–¯å›½";
+   	     case "xiong nu": return "åŒˆå¥´å›½";
+    	     case "gao li"  : return "é«˜ä¸½å›½";
+    	     case "jiao zhi": return "äº¤è¶¾å›½";
+    	     default        : return "æ±‰æœ« ";
                           } 
 
 	   }
@@ -412,7 +412,7 @@ string get_country_name(string p_id)
 	if(!stringp(countries[p_id]["name"]))
 	{
 		p_name=CHAR_D->get_char(p_id,"r_name");
-	        return p_name+"¹ú";   
+	        return p_name+"å›½";   
 	}
 	return (countries[p_id]["name"]);
 }
@@ -460,7 +460,7 @@ void country_pay(string p_id)
 	}
 	if(p_nopay)
 	{
-		mess=sprintf("¡¾·¢âÃ¡¿%s¹ÙÔ±Î´ÄÜÁì¹»ÙºÂ»£¬ÖÒ³ÏÏÂ½µ£®\n",
+		mess=sprintf("ã€å‘é¥·ã€‘%så®˜å‘˜æœªèƒ½é¢†å¤Ÿä¿¸ç¦„ï¼Œå¿ è¯šä¸‹é™ï¼Ž\n",
 			COUNTRY_D->get_country(p_id,"name"));
 		tell(users(),HIR+mess+NOR);
 		CHAR_D->set_char(p_id,"reputation",
@@ -536,7 +536,7 @@ void adjust_product_level()
 	list=keys(countries);
 	foreach(string p_id in list)
 	{
-		array a_tmp;
+		mixed * a_tmp;
 		int n_businesslevel,n_agriculturelevel,n_industrylevel;
 		int l_businesslevel,l_agriculturelevel,l_industrylevel;
 		int r_business,r_agriculture,r_industry;
@@ -655,7 +655,7 @@ void adjust_safe_level()
 	list=keys(countries);
 	foreach(string p_id in list)
 	{
-		array a_tmp;
+		mixed * a_tmp;
 		int n_safelevel;
 		int l_safelevel;
 
@@ -745,7 +745,7 @@ void adjust_military_level()
 	list=keys(countries);
 	foreach(string p_id in list)
 	{
-		array a_tmp;
+		mixed * a_tmp;
 		int n_trainlevel,n_moralelevel;
 		int l_trainlevel,l_moralelevel;
 
@@ -857,12 +857,12 @@ void remove() {
 }
 
 //addedd by suicide in 2000.02.28
-//stÎï×ÊµÄÊý¾Ý¸ñÊ½.
+//stç‰©èµ„çš„æ•°æ®æ ¼å¼.
 //new:(["food":(["num":11200,"price":100,...]),
 //      "wine":(["num":12200,"price":200,...]),
 //      "cotten":(["num":2200,"price":400,...]),
 //    ])
-//num==ÊýÁ¿ price==³É±¾¼Û 
+//num==æ•°é‡ price==æˆæœ¬ä»· 
 void set_country_st(string n_id,string st_name,string para_name,mixed para_value) {
    if(!sizeof(countries[n_id]["st"])) 
       countries[n_id]["st"]=([]);
@@ -910,24 +910,24 @@ mapping get_country_st_info(string n_id,string st_name) {
    return countries[n_id]["st"][st_name];
 }
 
-//////////////////////// ¼¸ÖÖÍö¹úµÄ·½Ê½ /////////////////////////////////////////
+//////////////////////// å‡ ç§äº¡å›½çš„æ–¹å¼ /////////////////////////////////////////
 
-//////////////// Í¶½µ
+//////////////// æŠ•é™
 
 // xiaobai: added on 26 Oct. 2001 ( moved from /daemons/nation_channel_d/surrender.c )
 //! action of nation "par_strSlave" surrending to nation "par_strMaster"
 void do_surrender( string par_strSlave, string par_strMaster )
 {
     string *list, tmp, his;
-    mixed wear; // ¾ýÖ÷µÄ×°±¸
+    mixed wear; // å›ä¸»çš„è£…å¤‡
    
-    his= COUNTRY_D->get_country( par_strSlave,"name")+"¾Ù¹úÏò"+COUNTRY_D->get_country(par_strMaster,"name")+"Í¶½µ£¡\n";
+    his= COUNTRY_D->get_country( par_strSlave,"name")+"ä¸¾å›½å‘"+COUNTRY_D->get_country(par_strMaster,"name")+"æŠ•é™ï¼\n";
 
 	CHAR_D->set_char(par_strSlave, "reputation", to_int(CHAR_D->get_char(par_strSlave,"reputation")/10));
 	CHAR_D->set_char(par_strSlave, "gold",CHAR_D->get_char(par_strSlave,"gold")/5 );
 	CHAR_D->set_char(par_strSlave,"h",0);
 
-    // Í¶½µ¹ú¾ýÖ÷Ê§È¥ÂíÆ¥ºÍÎäÆ÷
+    // æŠ•é™å›½å›ä¸»å¤±åŽ»é©¬åŒ¹å’Œæ­¦å™¨
 	wear=CHAR_D->get_char(par_strSlave,"wear");
 	if(mapp(wear))
 	{
@@ -936,7 +936,7 @@ void do_surrender( string par_strSlave, string par_strMaster )
 		CHAR_D->set_char(par_strSlave,"wear",wear);
 	}
 
-    // ÃðÍö¹ú¼ÒÖÐµÄ¹ÙÔ±
+    // ç­äº¡å›½å®¶ä¸­çš„å®˜å‘˜
 	list = CHAR_D->check_char("nation", par_strSlave);
 	foreach(tmp in list){
 		CHAR_D->set_char(tmp, "nation", par_strMaster);
@@ -945,7 +945,7 @@ void do_surrender( string par_strSlave, string par_strMaster )
                         to_int(CHAR_D->get_char(tmp,"reputation")*0.8));
 	}
 	
-	// ÃðÍö¹ú¼ÒÖÐµÄ³ÇÊÐ
+	// ç­äº¡å›½å®¶ä¸­çš„åŸŽå¸‚
 	list = AREA_D->check_area("nation",par_strSlave);
 	foreach(tmp in list)
 	{
@@ -958,8 +958,8 @@ void do_surrender( string par_strSlave, string par_strMaster )
         else
           {CHAR_D->set_char(n_id,"reputation",CHAR_D->get_char(n_id,"reputation")/10*4);
            CHAR_D->set_char(cc,"gold",CHAR_D->get_char(cc,"gold")/2);}*/
-        //added end µÛ¹ú¾ýÖ÷Í¶½µ½µ%80ÉùÍû,½ð½µ2/3
-        //          Ò»°ã¾ýÖ÷ÈÃÎ»½µ%60ÉùÍû,½ð½µ1/2.
+        //added end å¸å›½å›ä¸»æŠ•é™é™%80å£°æœ›,é‡‘é™2/3
+        //          ä¸€èˆ¬å›ä¸»è®©ä½é™%60å£°æœ›,é‡‘é™1/2.
 
 	COUNTRY_D->remove_country(par_strSlave);
 	tell(users(), HIR+his+NOR);
@@ -967,31 +967,31 @@ void do_surrender( string par_strSlave, string par_strMaster )
 	
 }  // end do_surrender
 
-///////////////////////// ÏûÍö
+///////////////////////// æ¶ˆäº¡
 
 // xiaobai: 27 Oct. 2001
-//! Ò»¸ö¹ú¼Ò×Ô¼ºÏûÍö(¹úÍõÊÜµ½µÄ³Í·£½ÏµÍ)
+//! ä¸€ä¸ªå›½å®¶è‡ªå·±æ¶ˆäº¡(å›½çŽ‹å—åˆ°çš„æƒ©ç½šè¾ƒä½Ž)
 void do_dieout( string par_strNation )
 {
     string *list, tmp, his;
-    mixed wear; // ¾ýÖ÷µÄ×°±¸
-    string strZhouFu;  // ÖÝ¸®ËùÔÚ³ÇÊÐ
-    string strZhou;     // ÖÝÃû
+    mixed wear; // å›ä¸»çš„è£…å¤‡
+    string strZhouFu;  // å·žåºœæ‰€åœ¨åŸŽå¸‚
+    string strZhou;     // å·žå
    
     if ( !countries[par_strNation] )
-    // Ã»ÓÐÕâ¸ö¹ú¼Ò
+    // æ²¡æœ‰è¿™ä¸ªå›½å®¶
     {
         return;
     }
    
-    his= COUNTRY_D->get_country( par_strNation,"name")+"ÔÚÂÒÊÀÖÐÏûÍöÁË¡£\n";
+    his= COUNTRY_D->get_country( par_strNation,"name")+"åœ¨ä¹±ä¸–ä¸­æ¶ˆäº¡äº†ã€‚\n";
     
-    // ¶Ô¾ýÖ÷£ºÉùÍû¼õ°ë£¬½ðÇ®Ê£ÏÂ 1/4£¬Ê§È¥·¿×Ó   
+    // å¯¹å›ä¸»ï¼šå£°æœ›å‡åŠï¼Œé‡‘é’±å‰©ä¸‹ 1/4ï¼Œå¤±åŽ»æˆ¿å­   
 	CHAR_D->set_char(par_strNation, "reputation", to_int(CHAR_D->get_char(par_strNation,"reputation")/2));
 	CHAR_D->set_char(par_strNation, "gold", to_int(CHAR_D->get_char(par_strNation,"gold")/4) );
 	CHAR_D->set_char(par_strNation,"h",0);
 
-    // ¹ú¾ýÖ÷Ê§È¥ÂíÆ¥ºÍÎäÆ÷
+    // å›½å›ä¸»å¤±åŽ»é©¬åŒ¹å’Œæ­¦å™¨
 	wear=CHAR_D->get_char(par_strNation,"wear");
 	if(mapp(wear))
 	{
@@ -1000,7 +1000,7 @@ void do_dieout( string par_strNation )
 		CHAR_D->set_char(par_strNation,"wear",wear);
 	}
 
-    // ÃðÍö¹ú¼ÒÖÐµÄ¹ÙÔ±£¬È«²¿ÔÚÒ°
+    // ç­äº¡å›½å®¶ä¸­çš„å®˜å‘˜ï¼Œå…¨éƒ¨åœ¨é‡Ž
 	list = CHAR_D->check_char("nation", par_strNation);
 	foreach(tmp in list)
 	{
@@ -1009,11 +1009,11 @@ void do_dieout( string par_strNation )
 		CHAR_D->set_char(tmp, "ranklocal", 0);
 	}
 	
-	// ÃðÍö¹ú¼ÒÖÐµÄ³ÇÊÐ, ³ÉÎª¿Õ°×³ÇÊÐ
+	// ç­äº¡å›½å®¶ä¸­çš„åŸŽå¸‚, æˆä¸ºç©ºç™½åŸŽå¸‚
 	list = AREA_D->check_area("nation",par_strNation);
 	foreach(tmp in list)
 	{
-	    // ¿´ÊÇ²»ÊÇÖÝ¸©£¬ÊÇµÄ»°£¬ÖÝÄÁÉè¶¨Îª 0
+	    // çœ‹æ˜¯ä¸æ˜¯å·žä¿¯ï¼Œæ˜¯çš„è¯ï¼Œå·žç‰§è®¾å®šä¸º 0
 	    strZhou = AREA_D->get_area( tmp, "zhou" );
 	    strZhouFu = AREA_D->get_zhou_head( strZhou );
 	    if ( tmp == strZhouFu )
@@ -1030,8 +1030,8 @@ void do_dieout( string par_strNation )
         else
           {CHAR_D->set_char(n_id,"reputation",CHAR_D->get_char(n_id,"reputation")/10*4);
            CHAR_D->set_char(cc,"gold",CHAR_D->get_char(cc,"gold")/2);}*/
-        //added end µÛ¹ú¾ýÖ÷Í¶½µ½µ%80ÉùÍû,½ð½µ2/3
-        //          Ò»°ã¾ýÖ÷ÈÃÎ»½µ%60ÉùÍû,½ð½µ1/2.
+        //added end å¸å›½å›ä¸»æŠ•é™é™%80å£°æœ›,é‡‘é™2/3
+        //          ä¸€èˆ¬å›ä¸»è®©ä½é™%60å£°æœ›,é‡‘é™1/2.
 
 	COUNTRY_D->remove_country(par_strNation);
 	tell(users(), HIR+his+NOR);

@@ -62,7 +62,7 @@ void stat_me(string who)
 	mapping tmp;
 
 	if( !who||!stringp(who)||who==""||member_array(who,keys(tribes))==-1 ) {
-		out="´úºÅ      Ãû³Æ   »î¶¯µØÇø   ×î´ó±øÁ¦   ×î¸ß±øÖÖ   °®ºÃÎïÆ·\n";
+		out="ä»£å·      åç§°   æ´»åŠ¨åœ°åŒº   æœ€å¤§å…µåŠ›   æœ€é«˜å…µç§   çˆ±å¥½ç‰©å“\n";
 		foreach(string ss in keys(tribes)){
 			tmp = tribes[ss];
 			if( !tmp||!mapp(tmp) )continue;
@@ -70,7 +70,7 @@ void stat_me(string who)
 				tmp["name"],
 				AREA_D->get_area(tmp["area"],"name"),
 				chinese_number(tmp["num"]*1000),
-				(!tmp["type"]?"Ãñ±ø":TROOP_TYPE_D->get_troop_type(tmp["type"],"name")),
+				(!tmp["type"]?"æ°‘å…µ":TROOP_TYPE_D->get_troop_type(tmp["type"],"name")),
 				tmp["obj"]);
 		}
 	} else {
@@ -82,7 +82,7 @@ void stat_me(string who)
 			foreach(string ss in keys(tmp)){
 				i++;
 				if( i>3 ) { i=0; out+="\n";}
-				out+=sprintf("¡¾%-8s¡¿    %-4d",COUNTRY_D->get_country(ss,"name"), tmp[ss]);
+				out+=sprintf("ã€%-8sã€‘    %-4d",COUNTRY_D->get_country(ss,"name"), tmp[ss]);
 			}
 		}
 	}

@@ -30,14 +30,14 @@ void mudlib_setup(string name, string long, object l)
     ::mudlib_setup(); 
     link = l;
     if ( !name ) {
-        name = "ÎŞÃû";
+        name = "æ— å";
     }
     the_name = name;
-    set_long(long || the_name + "µÄÊ¬Ìå£¬ºÁÎŞÌØÊâÖ®´¦¡£");
-    set_id("corpse", "Ê¬Ìå");
-    set_unit("¾ß");
-    set_proper_name(the_name + "µÄÊ¬Ìå");
-    set_in_room_desc(the_name + "µÄÊ¬Ìå(corpse)");
+    set_long(long || the_name + "çš„å°¸ä½“ï¼Œæ¯«æ— ç‰¹æ®Šä¹‹å¤„ã€‚");
+    set_id("corpse", "å°¸ä½“");
+    set_unit("å…·");
+    set_proper_name(the_name + "çš„å°¸ä½“");
+    set_in_room_desc(the_name + "çš„å°¸ä½“(corpse)");
     set_max_capacity(VERY_LARGE);
     set_size(VERY_LARGE);
     set_preposition("on");
@@ -46,7 +46,7 @@ void mudlib_setup(string name, string long, object l)
  
 string introduce_contents()
 {
-    return "ÔÚ"+query_chinese_id()+"ÉÏÄã¿´µ½£º\n";
+    return "åœ¨"+query_chinese_id()+"ä¸Šä½ çœ‹åˆ°ï¼š\n";
 }   
 mixed indirect_get_obj_from_obj(object ob1,object ob2)
 {
@@ -57,24 +57,24 @@ void decay(int phase)
     switch(phase) {
         case 1:
           tell_environment(this_object(),
-                the_name+"µÄÊ¬Ìå¿ªÊ¼¸¯ÀÃÁË£¬·¢³öÒ»¹ÉÄÑÎÅµÄ¶ñ³ô¡£\n" );
-          set_id("corpse", "¸¯ÀÃµÄÊ¬Ìå");
+                the_name+"çš„å°¸ä½“å¼€å§‹è…çƒ‚äº†ï¼Œå‘å‡ºä¸€è‚¡éš¾é—»çš„æ¶è‡­ã€‚\n" );
+          set_id("corpse", "è…çƒ‚çš„å°¸ä½“");
           set_long(
-"Õâ¾ßÊ¬ÌåÏÔÈ»ÒÑ¾­ÌÉÔÚÕâÀïÓĞÒ»¶ÎÊ±¼äÁË£¬ÕıÉ¢·¢ÖøÒ»¹É¸¯Ê¬µÄÎ¶µÀ¡£\n");
-          set_in_room_desc("Ò»¾ß¸¯ÀÃµÄÊ¬Ìå¡£\n");
+"è¿™å…·å°¸ä½“æ˜¾ç„¶å·²ç»èººåœ¨è¿™é‡Œæœ‰ä¸€æ®µæ—¶é—´äº†ï¼Œæ­£æ•£å‘è‘—ä¸€è‚¡è…å°¸çš„å‘³é“ã€‚\n");
+          set_in_room_desc("ä¸€å…·è…çƒ‚çš„å°¸ä½“ã€‚\n");
           call_out("decay", 120, phase + 1);
           break;
        case 2:
           tell_environment(this_object(),
-                query_chinese_id()+"±»·ç´µÇ¬ÁË£¬±ä³ÉÒ»¾ßº¡¹Ç¡£\n" );
-          set_id("skeleton", "Ò»¾ß¿İÇ¬µÄº¡¹Ç");
-          set_long("Õâ¸±º¡¹ÇÒÑ¾­ÌÉÔÚÕâÀïºÜ¾ÃÁË¡£\n");
-          set_in_room_desc("Ò»¾ß¿İÇ¬µÄº¡¹Ç¡£\n");
+                query_chinese_id()+"è¢«é£å¹ä¹¾äº†ï¼Œå˜æˆä¸€å…·éª¸éª¨ã€‚\n" );
+          set_id("skeleton", "ä¸€å…·æ¯ä¹¾çš„éª¸éª¨");
+          set_long("è¿™å‰¯éª¸éª¨å·²ç»èººåœ¨è¿™é‡Œå¾ˆä¹…äº†ã€‚\n");
+          set_in_room_desc("ä¸€å…·æ¯ä¹¾çš„éª¸éª¨ã€‚\n");
           call_out("decay", 60, phase + 1);
           break;
        case 3:
           tell_environment(this_object(),
-                "Ò»Õó·ç´µ¹ı£¬°Ñ"+query_chinese_id()+"»¯³É¹Ç»Ò´µÉ¢ÁË¡£\n" );
+                "ä¸€é˜µé£å¹è¿‡ï¼ŒæŠŠ"+query_chinese_id()+"åŒ–æˆéª¨ç°å¹æ•£äº†ã€‚\n" );
           if( environment() ) {
               object *inv;
               int i;

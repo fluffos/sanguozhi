@@ -9,7 +9,7 @@ void app(string a_id)
    if(!AREA_D->get_area(a_id,"meeting")) return;
    c_id=AREA_D->get_area(a_id,"leader");
    if(!c_id) return;
-   if(CHAR_D->get_char(c_id,"status")==STATUS_ONLINE) return;     //Èç¹ûÊÇÍæ¼ÒÔÚÏß£¬¾ÍÍË³ö
+   if(CHAR_D->get_char(c_id,"status")==STATUS_ONLINE) return;     //å¦‚æœæ˜¯ç©å®¶åœ¨çº¿ï¼Œå°±é€€å‡º
    if(CHAR_D->get_char(c_id,"task")!=TASK_NONE) return;
    CHAR_D->appear(c_id,a_id,"meeting");
 

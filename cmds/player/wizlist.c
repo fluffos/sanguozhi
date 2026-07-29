@@ -12,7 +12,7 @@
 inherit CMD;
 inherit M_GLOB;
 
-array id_list = ({});
+mixed * id_list = ({});
 int first = 0;
 mixed us = ([]);
 
@@ -34,7 +34,7 @@ void create()
         p_time = c_time - list[i][0];
         p_ip   = list[i][2];
 	p_name = FINGER_D->get_chinese_id(list[i][1]);
-	if( !p_name||!stringp(p_name) ) p_name="©¤©¤";
+	if( !p_name||!stringp(p_name) ) p_name="â”€â”€";
         p_isonline = objectp( find_user(list[i][1]) );
 
         if( p_time>600 ) p_time=p_time-(p_time%60);
@@ -51,7 +51,7 @@ void create()
 void do_upgrade_list()
 {
     int p_time;
-    array who;
+    mixed * who;
 
     foreach(string ss in id_list){
 	who = ({ });
@@ -79,10 +79,10 @@ private void main()
     } else do_upgrade_list();
                 
         if(!wizardp(this_body()))
-	disp = sprintf("£É£Ä¡¡    ĞÕÃû¡¡    Éí·Ö¡¡  ×´Ì¬¡¡Ê±¼ä¡¡\n");
+	disp = sprintf("ï¼©ï¼¤ã€€    å§“åã€€    èº«åˆ†ã€€  çŠ¶æ€ã€€æ—¶é—´ã€€\n");
     else
-    disp = sprintf("£É£Ä¡¡    ĞÕÃû¡¡    Éí·Ö¡¡  ×´Ì¬¡¡Ê±¼ä¡¡		£É£Ğ\n");
-    disp+=sprintf(power_str("¡ª",35))+"\n";
+    disp = sprintf("ï¼©ï¼¤ã€€    å§“åã€€    èº«åˆ†ã€€  çŠ¶æ€ã€€æ—¶é—´ã€€		ï¼©ï¼°\n");
+    disp+=sprintf(power_str("â€”",35))+"\n";
     count=sizeof(id_list);
 
     for(i=0;i<count;i++){
@@ -90,13 +90,13 @@ private void main()
 			(us[id_list[i]][3]>2592000?RED:NOR),
                         id_list[i],
                         us[id_list[i]][0],
-                        (us[id_list[i]][1]=="p" ? "Íæ¼Ò": 
-                        us[id_list[i]][1]=="w" ? "Î×Ê¦" : "´óÉñ"),
-                        (us[id_list[i]][2] ? "  "HIY"ÁªÏß£º"NOR : "  ÀëÏß£º"),
+                        (us[id_list[i]][1]=="p" ? "ç©å®¶": 
+                        us[id_list[i]][1]=="w" ? "å·«å¸ˆ" : "å¤§ç¥"),
+                        (us[id_list[i]][2] ? "  "HIY"è”çº¿ï¼š"NOR : "  ç¦»çº¿ï¼š"),
                         CHINESE_D->chinese_period(us[id_list[i]][3]),
-                        (wizardp(this_body())?us[id_list[i]][4]:"©¤©¤©¤©¤©¤©¤"));
+                        (wizardp(this_body())?us[id_list[i]][4]:"â”€â”€â”€â”€â”€â”€"));
     }
-    disp+="¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª\n";
-    disp+=sprintf("¹²²éµ½%dÃûÓÃ»§£®\n",count);
+    disp+="â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”\n";
+    disp+=sprintf("å…±æŸ¥åˆ°%dåç”¨æˆ·ï¼\n",count);
     more(disp);
 }

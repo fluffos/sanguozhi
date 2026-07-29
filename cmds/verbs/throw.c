@@ -27,7 +27,7 @@ void do_throw_str(string str)
 	if(!o) return;
 	if(ret=o->throw());
 
-	if (!ret) ret = "ÄãÃ»·¨Å×"+o->short()+"¡£\n";
+	if (!ret) ret = "ä½ æ²¡æ³•æŠ›"+o->short()+"ã€‚\n";
 
     if (stringp(ret)) {
         write(ret);
@@ -36,7 +36,7 @@ void do_throw_str(string str)
 		
 }
 
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ "STR" })});
 }

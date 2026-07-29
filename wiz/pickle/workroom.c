@@ -12,10 +12,10 @@ inherit ROOM;
 void setup(){
     set_area("vinegar_bottle");
     set_light(50);
-    set_brief(GRN"´×Ì³×Ó"NOR);
+    set_brief(GRN"é†‹å›å­"NOR);
 
     set_long("  
-Ò»¸ö¿Õ¿ÕµÄ´×Ì³×Ó£¬·º×ÅÒ»¹ÉËáÆø¡£
+ä¸€ä¸ªç©ºç©ºçš„é†‹å›å­ï¼Œæ³›ç€ä¸€è‚¡é…¸æ°”ã€‚
 ");
     set_exits( ([
         "out" :  FROOMPATH+"vzhu_lin.c",

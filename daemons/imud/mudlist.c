@@ -10,8 +10,8 @@
 private int	mudlist_id;
 private mapping	mud_info = ([ ]);
 
-static private mapping  mud_names = ([ ]);
-static private function remap_name =
+nosave private mapping  mud_names = ([ ]);
+nosave private function remap_name =
 	(: lower_case(replace_string($1, " ", ".")) :);
 
 protected nomask int query_mudlist_id()
@@ -39,7 +39,7 @@ protected nomask void rcv_mudlist(string orig_mud, string orig_user,
     string mudname;
     mixed * info;
 
-	/*tell_user("huaer",sprintf("ÊÕµ½mudlist°ü,½øÁË/imud/mudlist.cÖÐ\n"));
+	/*tell_user("huaer",sprintf("æ”¶åˆ°mudliståŒ…,è¿›äº†/imud/mudlist.cä¸­\n"));
 	tell_user("huaer",sprintf("orig_mud = %s\n",orig_mud));
 	tell_user("huaer",sprintf("orig_user = %s\n",orig_user));
 	tell_user("huaer",sprintf("targ_user = %s\n",targ_user));
@@ -68,7 +68,7 @@ nomask mapping query_mudlist()
 
 nomask int has_service(string mud, string service)
 {
-  array inf;
+  mixed * inf;
 
   inf = mud_info[mud];
 

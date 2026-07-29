@@ -1,8 +1,8 @@
 
-#define FLUBS ({ "Êh", "ìÖ", "ó§", "ïÙ", "—…", "‹O",\
-"êı", "ê³", "÷…", "×", "İÁ", "ê`",\
-"å¸", "óè", "õÕ", "íH", "¤Ã", "÷Š", "‡—",\
-"æÀ", "Ùè", "å²", "¤½", "¤Æ","¥ñ","¤å","¥ö","¥½","¥Æ","¥½","¥Ì","¥Æ","¥Á",\
+#define FLUBS ({ "è”´", "ç†˜", "è«", "é•”", "æ¢¾", "å©³",\
+"æŒ²", "ç“¿", "é²„", "æ¾´", "è˜", "é˜˜",\
+"ç”¯", "ç®¬", "è·½", "é¨", "ã£", "é²“", "åš„",\
+"èƒ¬", "å‹¹", "å®€", "ã", "ã¦","ãƒ±","ã‚…","ãƒ¶","ã‚½","ãƒ†","ã‚½","ãƒŒ","ãƒ†","ãƒ",\
 })
 
 varargs string ConvertString(string str, int prof, int xishu) {
@@ -15,7 +15,7 @@ varargs string ConvertString(string str, int prof, int xishu) {
                         if( str[i]>128 && str[i]<255 ){
                                 if (random(100) >= prof){
                                         if(j == xishu) {
-                                                str[i..(i+1)] = "¡õ";//FLUBS[random(fs)];
+                                                str[i..(i+1)] = "â–¡";//FLUBS[random(fs)];
                                                 j=0;
                                         }
                                         else j++;
@@ -24,7 +24,7 @@ varargs string ConvertString(string str, int prof, int xishu) {
                         }
                         else if (random(100) >= prof){
                                 if(j == xishu) {
-                                        str[i]='.';//33+random(94);//33----126Ö®¼äµÄASCIIÂëÎª¿É¼û×Ö·û¡£
+                                        str[i]='.';//33+random(94);//33----126ä¹‹é—´çš„ASCIIç ä¸ºå¯è§å­—ç¬¦ã€‚
                                         j=0;
                                 }
                                 else j++;

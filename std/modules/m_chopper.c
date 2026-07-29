@@ -25,7 +25,7 @@ private void answer_question(string input)
 
 void do_chopping(object arg)
 {
-  object array o;
+  object * o;
 
 
   if(!arg)
@@ -36,7 +36,7 @@ void do_chopping(object arg)
         {
         case 0:
           //write("There is nothing in which to chop here.\n");
-          write("这里没有什么东西好砍的。\n");      
+          write("杩欓噷娌℃湁浠�涔堜笢瑗垮ソ鐮嶇殑銆俓n");      
           return;
         case 1:
           printf("[in %s]\n",o[0]->short());
@@ -45,7 +45,7 @@ void do_chopping(object arg)
         default:
           modal_push((:answer_question:),
                                   //"What do you want to chop in? "
-                                  "你要砍什么？");
+                                  "浣犺鐮嶄粈涔堬紵");
           return;
         }
     }

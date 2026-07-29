@@ -8,26 +8,26 @@ mixed job(string m_id,string officer_id)
    string m_nation=CHAR_D->get_char(officer_id,"nation");//get the officer's nation
 
 	object o=find_body(m_id);
-	if(!objectp(o)) return "$N¶Ô$TµÀ£ºÄÚ²¿ÏµÍ³´íÎó¡£\n";
+	if(!objectp(o)) return "$Nå¯¹$Té“ï¼šå†…éƒ¨ç³»ç»Ÿé”™è¯¯ã€‚\n";
 	
 	if(CHAR_D->get_char(m_id,"level")<4 || CHAR_D->get_char(m_id,"ranknation")==0)
-		return "$N¶Ô$TµÀ£º$Rµ±Ç°µÄ¹ÙÖ°ÎŞ·¨ÉêÇëÉèÖÃ¼äµıµÄ¹¤×÷¡£ \n";
+		return "$Nå¯¹$Té“ï¼š$Rå½“å‰çš„å®˜èŒæ— æ³•ç”³è¯·è®¾ç½®é—´è°çš„å·¥ä½œã€‚ \n";
 		
 	if(o->query_job("setppl","status")=="begin")
-		return "$N¶Ô$TµÀ£ºÄãÉêÇëµÄ¼äµıÈÎÎñ»¹Ã»ÓĞÍê³ÉÄØ¡£\n";
+		return "$Nå¯¹$Té“ï¼šä½ ç”³è¯·çš„é—´è°ä»»åŠ¡è¿˜æ²¡æœ‰å®Œæˆå‘¢ã€‚\n";
 //fobidden from NPC country
 	if (CHAR_D->get_char(m_nation,"type")==TYPE_NPC) //king is a npc
-		return "$N¶Ô$TµÀ£º±¾¹ú¹úÍõ½ûÖ¹Ö´ĞĞÉèÖÃ¼äµıÈÎÎñ¡£\n";
+		return "$Nå¯¹$Té“ï¼šæœ¬å›½å›½ç‹ç¦æ­¢æ‰§è¡Œè®¾ç½®é—´è°ä»»åŠ¡ã€‚\n";
 //try to reduce 50 soldier from the city
 	if(!AREA_D->reduce_soldier(m_area,"sum",50))
-		return "$N¶Ô$TµÀ£º±¾µØÃ»ÓĞ×ã¹»µÄÊ¿±øÈ¥Ö´ĞĞÉèÖÃ¼äµıÈÎÎñ¡£\n";
+		return "$Nå¯¹$Té“ï¼šæœ¬åœ°æ²¡æœ‰è¶³å¤Ÿçš„å£«å…µå»æ‰§è¡Œè®¾ç½®é—´è°ä»»åŠ¡ã€‚\n";
 
 //assign the job to the player
 	o->add_job("setppl");
 	o->set_job("setppl","status","begin");
-	o->set_job("setppl","memo","ÉèÖÃ¼äµı");
+	o->set_job("setppl","memo","è®¾ç½®é—´è°");
 
-	return "$N¶Ô$TµÀ£ºÄÇ¾ÍÂé·³$RÈ¥Ö´ĞĞÉèÖÃ¼äµıµÄÈÎÎñ¡£\nÓĞÀ§ÄÑ¾ÍÓÃ help setppl¡£\n";
+	return "$Nå¯¹$Té“ï¼šé‚£å°±éº»çƒ¦$Rå»æ‰§è¡Œè®¾ç½®é—´è°çš„ä»»åŠ¡ã€‚\næœ‰å›°éš¾å°±ç”¨ help setpplã€‚\n";
 }
 	
 

@@ -24,9 +24,9 @@ inherit M_GRAMMAR;
 inherit CLASS_NEWSMSG;
 
 
-private static string   current_group;
+private nosave string   current_group;
 
-#define TOP_PROMPT      ("(...) " + mud_name() + "ĞÂÎÅ [q?lg] > ")
+#define TOP_PROMPT      ("(...) " + mud_name() + "æ–°é—» [q?lg] > ")
 
 #define STANDARD_WRAP_WIDTH     68
 #define FOLLOWUP_WRAP_WIDTH     76
@@ -90,7 +90,7 @@ private nomask string format_group_line(string group)
     int unread = count_unread_messages(group, 1);
 
     last_id = NEWS_D->get_group_last_id(group);
-    return sprintf("  %-40s (%d ÌõÁôÑÔ, %d ÌõÎ´¶Á)",
+    return sprintf("  %-40s (%d æ¡ç•™è¨€, %d æ¡æœªè¯»)",
       group,
       unread,
       count_unread_messages(group, 0));
@@ -116,7 +116,7 @@ private nomask void add_new_groups()
 //### and help
     */
     write(//"Auto-subscribing to:\n" +
-          "×Ô¶¯µÇ¼ÇÒÔÏÂĞÂÎÅ×é£º\n" +
+          "è‡ªåŠ¨ç™»è®°ä»¥ä¸‹æ–°é—»ç»„ï¼š\n" +
       implode(map_array(groups, (: format_group_line :)), "\n") + "\n");
 }
 
@@ -126,7 +126,7 @@ private nomask string grp_cmd_prompt()
 
     unread_no = count_unread_messages(current_group, 0);
 
-    return sprintf("(%s:%d) %d ÌõÁôÑÔ %d ÌõÎ´¶Á [q?lLmgpnc] > ",
+    return sprintf("(%s:%d) %d æ¡ç•™è¨€ %d æ¡æœªè¯» [q?lLmgpnc] > ",
       current_group,
       /* ### hrm. this is current. needs to be NEXT message. */
       get_current_id(current_group),
@@ -137,7 +137,7 @@ private nomask string grp_cmd_prompt()
 
 private nomask string msg_cmd_prompt()
 {
-    return sprintf("(%s:%d) %d ÌõÊ£Óà [q?lLmgprRfFncMD] > ",
+    return sprintf("(%s:%d) %d æ¡å‰©ä½™ [q?lLmgprRfFncMD] > ",
       current_group,
       get_current_id(current_group),
       count_unread_messages(current_group, 0)
@@ -160,7 +160,7 @@ private nomask void switch_to_message()
 }
 
 
-private static mixed group_selection_menu_items;
+private nosave mixed group_selection_menu_items;
 private nomask void menu_select_newsgroup(string num)
 {
     int index;
@@ -168,7 +168,7 @@ private nomask void menu_select_newsgroup(string num)
     if ( num=="q" )
     {
         //write( "Selection aborted.\n");
-        write("·ÅÆúÑ¡Ôñ¡£\n");
+        write("æ”¾å¼ƒé€‰æ‹©ã€‚\n");
         if( !current_group) destruct( this_object());
         modal_func((: receive_msg_cmd :), (: msg_cmd_prompt :));
         return;
@@ -178,7 +178,7 @@ private nomask void menu_select_newsgroup(string num)
       sizeof(group_selection_menu_items) )
     {
         //write("Invalid selection.\n");
-        write("·Ç·¨Ñ¡Ôñ¡£\n");
+        write("éæ³•é€‰æ‹©ã€‚\n");
         return;
     }
 
@@ -194,7 +194,7 @@ private nomask void menu_select_movegroup(string num)
     if( num == "q" )
     {
         //write( "Aborting Move.\n" );
-        write("·ÅÆúÒÆ¶¯¡£\n");
+        write("æ”¾å¼ƒç§»åŠ¨ã€‚\n");
         modal_func((: receive_msg_cmd :), (: msg_cmd_prompt :));
         return;
     }
@@ -202,7 +202,7 @@ private nomask void menu_select_movegroup(string num)
       sizeof( group_selection_menu_items))
     {
         //write( "Invalid selection.\n");
-        write("·Ç·¨Ñ¡Ôñ¡£\n");
+        write("éæ³•é€‰æ‹©ã€‚\n");
         return;
     }
     to_group = group_selection_menu_items[index - 1];
@@ -230,7 +230,7 @@ private nomask void read_group(string group)
     {
     case 0:
         //write("No such group.\n");
-        write("Ã»ÓĞÕâ¸öĞÂÎÅ×é¡£\n");
+        write("æ²¡æœ‰è¿™ä¸ªæ–°é—»ç»„ã€‚\n");
         if(!current_group) destruct( this_object());
         return;
 
@@ -239,7 +239,7 @@ private nomask void read_group(string group)
         break;
 
     default:
-        write("\nÇëÑ¡ÔñĞÂÎÅ×éĞòºÅ£º\n" //"\nSelect group by number:\n"
+        write("\nè¯·é€‰æ‹©æ–°é—»ç»„åºå·ï¼š\n" //"\nSelect group by number:\n"
           "----------------------------\n");
         for(i=1; i<=sizeof(matches);i++)
             printf("%-4d%s\n",i,matches[i-1]);
@@ -292,7 +292,7 @@ private nomask void display_groups_with_new( string arg )
         current_group = groups[0];
 
         list = ({//"Groups with new messages:"
-                 "ÓĞĞÂÁôÑÔµÄĞÂÎÅ×é£º", ""}) +
+                 "æœ‰æ–°ç•™è¨€çš„æ–°é—»ç»„ï¼š", ""}) +
         map_array(groups, (: format_group_line :));
 
         more(list);
@@ -316,7 +316,7 @@ private nomask void next_group()
     if( max_group == -1 )
     {
         //write("No more groups with new news.\n");
-        write("Ã»ÓĞÓĞĞÂÁôÑÔµÄĞÂÎÅ×éÁË¡£\n");
+        write("æ²¡æœ‰æœ‰æ–°ç•™è¨€çš„æ–°é—»ç»„äº†ã€‚\n");
         switch_to_top();
     }
     else
@@ -333,7 +333,7 @@ private nomask void next_group()
             }
         }
         current_group = groups[next_group];
-        write("½øÈë: " + current_group + "\n");
+        write("è¿›å…¥: " + current_group + "\n");
         switch_to_group();
     }
 }
@@ -350,7 +350,7 @@ string format_message_line(int short_fmt, int id, int noremoved)
         if (noremoved)
             return 0;
         else
-            subject = sprintf(short_fmt ? "%d. %s" : "%4d. %-35s", id, " (ÒÑÉ¾³ı)");
+            subject = sprintf(short_fmt ? "%d. %s" : "%4d. %-35s", id, " (å·²åˆ é™¤)");
     } else
         subject = msg->subject;                                                         
                                
@@ -378,7 +378,7 @@ private nomask void display_messages(int display_all)
     }
 
     lines = map_array(sort_array(ids, 1), (: format_message_line(0, $1, 1) :)) - ({ 0 });
-    lines = ({sprintf("%s µÄÁôÑÔÓĞ:", current_group)}) + lines + ({""});
+    lines = ({sprintf("%s çš„ç•™è¨€æœ‰:", current_group)}) + lines + ({""});
     more(lines);
 }
 
@@ -406,7 +406,7 @@ private nomask void receive_post_text(string subject, string * text)
     if ( !text )
     {
         write("Post aborted.\n");
-        write("·ÅÆúÕÅÌùĞÂÎÅ¡£\n");
+        write("æ”¾å¼ƒå¼ è´´æ–°é—»ã€‚\n");
         return;
     }
 
@@ -424,7 +424,7 @@ private nomask void receive_post_subject(mixed subject)
     if ( subject == "" )
     {
         //write("Post aborted.\n");
-        write("·ÅÆúÕÅÌùĞÂÎÅ¡£\n");
+        write("æ”¾å¼ƒå¼ è´´æ–°é—»ã€‚\n");
         return;
     }
 
@@ -435,11 +435,11 @@ private nomask void post_message()
 {
     //write("Subject: ");
         if ( !NEWS_D->post_permitted(this_user(), current_group)) {
-        write("ÄãÎŞÈ¨ÔÚÕâ¸öĞÂÎÅ×éÕÅÌùÁôÑÔ¡£\n");
+        write("ä½ æ— æƒåœ¨è¿™ä¸ªæ–°é—»ç»„å¼ è´´ç•™è¨€ã€‚\n");
         return;
     }
 
-    write("ÌâÄ¿£º");
+    write("é¢˜ç›®ï¼š");
     modal_simple((: receive_post_subject :));
 }
 
@@ -462,7 +462,7 @@ nomask void receive_reply_text( string * text)
     if ( !text )
     {
         //write("Post aborted.\n");
-        write("·ÅÆúÕÅÌùĞÂÎÅ¡£\n");
+        write("æ”¾å¼ƒå¼ è´´æ–°é—»ã€‚\n");
         return;
     }
 
@@ -482,7 +482,7 @@ private nomask void reply_to_message()
     if ( !msg )
     {
         //write("You may not reply to that message -- it was removed.\n");
-        write("ÄãÎŞ·¨¶ÔËü»ØĞÅ --- Ô­À´µÄÁôÑÔÒÑ¾­±»É¾³ıÁË¡£\n");
+        write("ä½ æ— æ³•å¯¹å®ƒå›ä¿¡ --- åŸæ¥çš„ç•™è¨€å·²ç»è¢«åˆ é™¤äº†ã€‚\n");
         return;
     }
     new(EDIT_OB, EDIT_TEXT, 0, (: receive_reply_text :));
@@ -496,7 +496,7 @@ private nomask void reply_with_message()
     if ( !msg )
     {
         //write("You may not reply to that message -- it was removed.\n");
-        write("ÄãÎŞ·¨¶ÔËü»ØĞÅ --- Ô­À´µÄÁôÑÔÒÑ¾­±»É¾³ıÁË¡£\n");
+        write("ä½ æ— æ³•å¯¹å®ƒå›ä¿¡ --- åŸæ¥çš„ç•™è¨€å·²ç»è¢«åˆ é™¤äº†ã€‚\n");
         return;
     }
 
@@ -520,7 +520,7 @@ nomask void receive_followup_text(string * text)
     if ( !text )
     {
         //write("Post aborted.\n");
-        write("ÕÅÌù·ÅÆú¡£\n");
+        write("å¼ è´´æ”¾å¼ƒã€‚\n");
         return;
     }
 
@@ -543,12 +543,12 @@ private nomask void followup_to_message()
     if ( !msg )
     {
         //write("You may not followup to that message -- it was removed.\n");
-        write("ÄãÎŞ·¨ÕÅÌùĞøÌû --- Ô­À´µÄÁôÑÔÒÑ¾­±»É¾³ıÁË¡£\n");
+        write("ä½ æ— æ³•å¼ è´´ç»­å¸– --- åŸæ¥çš„ç•™è¨€å·²ç»è¢«åˆ é™¤äº†ã€‚\n");
         return;
     }
     
     if ( !NEWS_D->post_permitted(this_user(), current_group)) {
-        write("ÄãÎŞÈ¨ÔÚÕâ¸öĞÂÎÅ×éÕÅÌùÁôÑÔ¡£\n");
+        write("ä½ æ— æƒåœ¨è¿™ä¸ªæ–°é—»ç»„å¼ è´´ç•™è¨€ã€‚\n");
         return;
     }
 
@@ -563,11 +563,11 @@ private nomask void followup_with_message()
     if ( !msg )
     {
         //write("You may not followup to that message -- it was removed.\n");
-        write("ÄãÎŞ·¨ÕÅÌùĞøÌû --- Ô­À´µÄÁôÑÔÒÑ¾­±»É¾³ıÁË¡£\n");
+        write("ä½ æ— æ³•å¼ è´´ç»­å¸– --- åŸæ¥çš„ç•™è¨€å·²ç»è¢«åˆ é™¤äº†ã€‚\n");
         return;
     }
     if ( !NEWS_D->post_permitted(this_user(), current_group)) {
-        write("ÄãÎŞÈ¨ÔÚÕâ¸öĞÂÎÅ×éÕÅÌùÁôÑÔ¡£\n");
+        write("ä½ æ— æƒåœ¨è¿™ä¸ªæ–°é—»ç»„å¼ è´´ç•™è¨€ã€‚\n");
         return;
     }
 
@@ -600,7 +600,7 @@ private nomask int read_next_message(int skip_allowed)
             if ( skipped )
             {
                 printf(//"Skipped %d removed messages.\n",
-                       "Ìø¹ı %d ·âÒÑÉ¾³ıµÄÁôÑÔ¡£\n",
+                       "è·³è¿‡ %d å°å·²åˆ é™¤çš„ç•™è¨€ã€‚\n",
                   msg_id - (get_current_id() + 1));
 
                 /*
@@ -611,7 +611,7 @@ private nomask int read_next_message(int skip_allowed)
             }
 
             //write("No more messages.\n");
-            write("Ã»ÓĞÁôÑÔÁË¡£\n");
+            write("æ²¡æœ‰ç•™è¨€äº†ã€‚\n");
             switch_to_group();
             return 1;
         }
@@ -635,7 +635,7 @@ private nomask int read_next_message(int skip_allowed)
     if ( skipped )
     {
         printf(//"Skipped %d removed messages.\n",
-               "Ìø¹ı %d ·âÒÑÉ¾³ıµÄÁôÑÔ¡£\n",
+               "è·³è¿‡ %d å°å·²åˆ é™¤çš„ç•™è¨€ã€‚\n",
           msg_id - (get_current_id() + 1));
     }
 
@@ -646,9 +646,9 @@ private nomask int read_next_message(int skip_allowed)
     switch_to_message();
 
     if ( msg ) {
-        post = sprintf("Ê±¼ä:  %-40sPost-id: %d (%d Last)\n"
-                "×÷Õß:  %s\n"
-                "ÌâÄ¿:  %s\n"
+        post = sprintf("æ—¶é—´:  %-40sPost-id: %d (%d Last)\n"
+                "ä½œè€…:  %s\n"
+                "é¢˜ç›®:  %s\n"
                 "----------------------------------------------------------------------\n"
                 "%s",
                 intp(msg->time) ? ctime(msg->time) : msg->time,
@@ -656,10 +656,10 @@ private nomask int read_next_message(int skip_allowed)
                 NEWS_D->get_group_last_id(current_group),
                 msg->poster,
                 msg->subject,
-                msg->body ? msg->body : "*** ÒÑÉ¾³ı ***");
+                msg->body ? msg->body : "*** å·²åˆ é™¤ ***");
     }
     else {
-        post = sprintf("Post-id: %d (%d Last)\n\n*** ÒÑÉ¾³ı ***",
+        post = sprintf("Post-id: %d (%d Last)\n\n*** å·²åˆ é™¤ ***",
                        msg_id, NEWS_D->get_group_last_id(current_group));
     }
     more(post);
@@ -695,12 +695,12 @@ private nomask void global_commands(string cmd)
         {
             modal_func((: receive_group :),
               //"Which group (Or enter for a menu)? "
-              "ÄÄ¸öĞÂÎÅ×é£¿(»ò<»Ø³µ>À´ÏÔÊ¾Ö÷Ñ¡µ¥)");
+              "å“ªä¸ªæ–°é—»ç»„ï¼Ÿ(æˆ–<å›è½¦>æ¥æ˜¾ç¤ºä¸»é€‰å•)");
         }
     }
     else
     {
-        write("ÎŞ´ËÃüÁî£¬ÓÃ ? À´»ñÈ¡°ïÖúĞÅÏ¢¡£\n"); 
+        write("æ— æ­¤å‘½ä»¤ï¼Œç”¨ ? æ¥è·å–å¸®åŠ©ä¿¡æ¯ã€‚\n"); 
         //"Unknown command. Type ? for help.\n");
     }
 }
@@ -730,7 +730,7 @@ private nomask void group_commands(string cmd)
         id = NEWS_D->get_group_last_id(current_group) + 1;
         this_body()->set_news_group_id(current_group, id);
         //write("All posts marked as read.\n");
-        write("ËùÓĞµÄÌù×Ó¶¼Éè³É¶Á¹ı±êÖ¾¡£\n");
+        write("æ‰€æœ‰çš„è´´å­éƒ½è®¾æˆè¯»è¿‡æ ‡å¿—ã€‚\n");
         next_group();
     }
     else if ( cmd == "" )
@@ -760,7 +760,7 @@ private nomask void receive_remove_verify(string str)
     if ( str[0] != 'y' && str[0] != 'Y' )
     {
         //write("Removal aborted.\n");
-        write("·ÅÆúÉ¾³ı¡£\n");
+        write("æ”¾å¼ƒåˆ é™¤ã€‚\n");
         return;
     }
 
@@ -777,14 +777,14 @@ private nomask void get_move_group( string str )
     {
     case 0:
         //write( "No such group.\n");
-        write("Ã»ÓĞÕâ¸öĞÂÎÅ×é¡£\n");
+        write("æ²¡æœ‰è¿™ä¸ªæ–°é—»ç»„ã€‚\n");
         return;
     case 1:
         NEWS_D->move_post( current_group,  get_current_id(current_group), matches[0] );
         break;
     default:
         write(//"\nSelect group by number:\n"
-              "\nÓÃĞÂÎÅ×éĞòºÅÀ´Ñ¡Ôñ£º\n"
+              "\nç”¨æ–°é—»ç»„åºå·æ¥é€‰æ‹©ï¼š\n"
           "--------------------------------\n");
         for( i = 1; i <= sizeof(matches); i++)
             printf("%-4d%s\n",i,matches[i-1]);
@@ -802,19 +802,19 @@ private nomask void get_send_email(string email)
  if (email == "")
      email = this_user()->query_email();
  if (email == ""){
-     write("%^RED%^Ã»ÓĞÕÒµ½Ä¬ÈÏµÄemailµØÖ·,ÎŞ·¨×ª·¢post!%^RESET%^\n"); 
+     write("%^RED%^æ²¡æœ‰æ‰¾åˆ°é»˜è®¤çš„emailåœ°å€,æ— æ³•è½¬å‘post!%^RESET%^\n"); 
      return;
      }
- data  = "(×ª·¢×Ô" + current_group + 
+ data  = "(è½¬å‘è‡ª" + current_group + 
          sprintf("  ID:%d  ",get_current_id(current_group))+
-         "×÷Õß:" + msg->userid+ ")\n" + msg->body;
+         "ä½œè€…:" + msg->userid+ ")\n" + msg->body;
 NEWS_D->post_to_email(email,msg->subject,data);
 }
 
 private nomask void send_post_as_email()
 {
     write( //"Move post to: ");
-           "ÁôÑÔ×ª·¢µÄemail[Ä¬ÈÏÎª×Ô¼º×¢²áµÄemailµØÖ·]£º");
+           "ç•™è¨€è½¬å‘çš„email[é»˜è®¤ä¸ºè‡ªå·±æ³¨å†Œçš„emailåœ°å€]ï¼š");
     modal_simple( (: get_send_email :));
 }
 
@@ -823,11 +823,11 @@ private nomask void receive_move_verify( string str )
     if( str[0] != 'y' && str[0] != 'Y' )
     {
         //write( "Move aborted.\n");
-        write("ÒÆ¶¯·ÅÆú¡£\n");
+        write("ç§»åŠ¨æ”¾å¼ƒã€‚\n");
         return;
     }
     write( //"Move post to: ");
-           "°ÑÁôÑÔÒÆµ½£º");
+           "æŠŠç•™è¨€ç§»åˆ°ï¼š");
     modal_simple( (: get_move_group :));
 }
 
@@ -838,19 +838,19 @@ private nomask void remove_message()
     if ( !msg )
     {
         //write("This post has already been removed.\n");
-        write("Õâ¸öÌù×ÓÒÑ¾­±»É¾³ıÁË¡£\n");
+        write("è¿™ä¸ªè´´å­å·²ç»è¢«åˆ é™¤äº†ã€‚\n");
         return;
     }
     if ( !adminp(this_user()) &&
       msg->userid != this_user()->query_userid() )
     {
         //write("You are not allowed to remove that post.\n");
-        write("ÄãÎŞÈ¨É¾³ıÄÇÕÅÌû×Ó¡£\n");
+        write("ä½ æ— æƒåˆ é™¤é‚£å¼ å¸–å­ã€‚\n");
         return;
     }
 
     printf(//"Removing: %s\nAre you sure? [yn] > ",
-           "×¼±¸É¾³ı£º%s\nÄãÈ·¶¨Âğ£¿[yn] > ",
+           "å‡†å¤‡åˆ é™¤ï¼š%s\nä½ ç¡®å®šå—ï¼Ÿ[yn] > ",
       format_message_line(1, get_current_id()));
     modal_simple((: receive_remove_verify :));
 }
@@ -877,13 +877,13 @@ private nomask void receive_top_cmd(mixed cmd)
           "Just type a command at the prompt and hit return.\n"
         );
 */
-        write("\nÕâÊÇµ±Äã½øÈëĞÂÎÅ×éÖ®Ç°µÄÃüÁîÑ¡µ¥£º\n"
-              "     q   - ÍË³öä¯ÀÀ\n"
-              "     ?   - ±¾°ïÖú\n"
-              "     l   - ÁĞ³öĞÂÎÅ×é\n"
-              "     g   - ½øÈëĞÂÎÅ×é\n"
+        write("\nè¿™æ˜¯å½“ä½ è¿›å…¥æ–°é—»ç»„ä¹‹å‰çš„å‘½ä»¤é€‰å•ï¼š\n"
+              "     q   - é€€å‡ºæµè§ˆ\n"
+              "     ?   - æœ¬å¸®åŠ©\n"
+              "     l   - åˆ—å‡ºæ–°é—»ç»„\n"
+              "     g   - è¿›å…¥æ–°é—»ç»„\n"
               "\n"
-              "¼üÈëÃüÁîÈ»ºó»Ø³µ¾ÍĞĞÁË¡£\n");
+              "é”®å…¥å‘½ä»¤ç„¶åå›è½¦å°±è¡Œäº†ã€‚\n");
     }
     else if ( cmd == "l" )
     {
@@ -891,7 +891,7 @@ private nomask void receive_top_cmd(mixed cmd)
 
         list = map_array(NEWS_D->get_groups(), (: format_group_line :));
         list = ({ "", //"Available groups are:"
-                      "ÏÖÓĞµÄĞÂÎÅ×éÓĞ£º" }) + list;
+                      "ç°æœ‰çš„æ–°é—»ç»„æœ‰ï¼š" }) + list;
         more(list);
     }
     else
@@ -929,21 +929,21 @@ private nomask void receive_grp_cmd(mixed cmd)
           "Just type a command at the prompt and hit return.\n"
         );
  */
-        write("\nÕâÊÇÄã½øÈëÒ»¸öĞÂÎÅ×éÖ®ºóµÄÃüÁîÑ¡µ¥£º\n"
-              "µ±Ç°ĞÂÎÅ×é£º( "+current_group+" )\n"
-              "     q           - ÍË³öä¯ÀÀĞÂÎÅ\n"
-              "     ?           - ±¾°ïÖú\n"
-              "     l           - ÁĞ³öÎ´¶ÁµÄÁôÑÔ\n"
-              "     L           - ÁĞ³öËùÓĞµÄÁôÑÔ\n"
-              "     m           - ·µ»ØÖ÷Ñ¡µ¥\n"
-              "     g <ĞÂÎÅ×é>  - ½øÈëĞÂÎÅ×é\n"
-              "     p           - ÕÅÌùÁôÑÔ\n"
-              "     n           - ½øÈëÏÂÒ»¸öÓĞÎ´¶ÁÁôÑÔµÄĞÂÎÅ×é\n"
-              "     c           - °ÑËùÓĞµÄÁôÑÔ¶¼¼ÇÎªÒÑ¶Á\n"
+        write("\nè¿™æ˜¯ä½ è¿›å…¥ä¸€ä¸ªæ–°é—»ç»„ä¹‹åçš„å‘½ä»¤é€‰å•ï¼š\n"
+              "å½“å‰æ–°é—»ç»„ï¼š( "+current_group+" )\n"
+              "     q           - é€€å‡ºæµè§ˆæ–°é—»\n"
+              "     ?           - æœ¬å¸®åŠ©\n"
+              "     l           - åˆ—å‡ºæœªè¯»çš„ç•™è¨€\n"
+              "     L           - åˆ—å‡ºæ‰€æœ‰çš„ç•™è¨€\n"
+              "     m           - è¿”å›ä¸»é€‰å•\n"
+              "     g <æ–°é—»ç»„>  - è¿›å…¥æ–°é—»ç»„\n"
+              "     p           - å¼ è´´ç•™è¨€\n"
+              "     n           - è¿›å…¥ä¸‹ä¸€ä¸ªæœ‰æœªè¯»ç•™è¨€çš„æ–°é—»ç»„\n"
+              "     c           - æŠŠæ‰€æœ‰çš„ç•™è¨€éƒ½è®°ä¸ºå·²è¯»\n"
               "\n"
-              "   <»Ø³µ>        - ¶ÁÈ¡ÏÂÒ»ÌõÁôÑÔ»ò½øÈëÒ»¸öÓĞÎ´¶ÁÁôÑÔµÄĞÂÎÅ×é\n"
+              "   <å›è½¦>        - è¯»å–ä¸‹ä¸€æ¡ç•™è¨€æˆ–è¿›å…¥ä¸€ä¸ªæœ‰æœªè¯»ç•™è¨€çš„æ–°é—»ç»„\n"
               "\n"
-              "¼üÈëÃüÁîÈ»ºó»Ø³µ¾ÍĞĞÁË¡£\n");        
+              "é”®å…¥å‘½ä»¤ç„¶åå›è½¦å°±è¡Œäº†ã€‚\n");        
     }
     else
     {
@@ -987,27 +987,27 @@ private nomask void receive_msg_cmd(mixed cmd)
           "Just type a command at the prompt and hit return.\n"
         );
 */
-        write("\nÕâÊÇÄã½øÈëÒ»¸öĞÂÎÅ×éÖ®ºóµÄÃüÁîÑ¡µ¥£º\n"
-              "µ±Ç°ĞÂÎÅ×é£º( "+current_group+" )\n"
-              "     q           - ÍË³öä¯ÀÀĞÂÎÅ\n"
-              "     ?           - ±¾°ïÖú\n"
-              "     l           - ÁĞ³öÎ´¶ÁµÄÁôÑÔ\n"
-              "     L           - ÁĞ³öËùÓĞµÄÁôÑÔ\n"
-              "     m           - ·µ»ØÖ÷Ñ¡µ¥\n"
-              "     g <ĞÂÎÅ×é>  - ½øÈëĞÂÎÅ×é\n"
-              "     p           - ÕÅÌùÁôÑÔ\n"
-              "     r           - »ØĞÅÁôÑÔ\n"
-              "     R           - »ØĞÅÁôÑÔ£¬²¢ÒıÓÃËü\n"
-              "     f           - ÕÅÌùÒ»¸ö¸úÌù\n"
-              "     F           - ÕÅÌùÒ»¸ö¸úÌù£¬²¢ÒıÓÃËü\n"
-              "     n           - ½øÈëÏÂÒ»¸öÓĞÎ´¶ÁÁôÑÔµÄĞÂÎÅ×é\n"
-              "     c           - °ÑËùÓĞµÄÁôÑÔ¶¼¼ÇÎªÒÑ¶Á\n"
-              "     M           - °ÑÁôÑÔÒÆµ½ÁíÒ»¸öĞÂÎÅ×é [×Ô¼º/´óÉñ]\n"
-              "     E           - °ÑÁôÑÔ×ª·¢µ½emailĞÅÏä\n"
-              "     D           - É¾³ıÄ¿Ç°ÕıÔÚÔÄ¶ÁµÄÁôÑÔ\n"
-              "   <»Ø³µ>        - ¶ÁÈ¡ÏÂÒ»ÌõÁôÑÔ»ò½øÈëÒ»¸öÓĞÎ´¶ÁÁôÑÔµÄĞÂÎÅ×é\n"
+        write("\nè¿™æ˜¯ä½ è¿›å…¥ä¸€ä¸ªæ–°é—»ç»„ä¹‹åçš„å‘½ä»¤é€‰å•ï¼š\n"
+              "å½“å‰æ–°é—»ç»„ï¼š( "+current_group+" )\n"
+              "     q           - é€€å‡ºæµè§ˆæ–°é—»\n"
+              "     ?           - æœ¬å¸®åŠ©\n"
+              "     l           - åˆ—å‡ºæœªè¯»çš„ç•™è¨€\n"
+              "     L           - åˆ—å‡ºæ‰€æœ‰çš„ç•™è¨€\n"
+              "     m           - è¿”å›ä¸»é€‰å•\n"
+              "     g <æ–°é—»ç»„>  - è¿›å…¥æ–°é—»ç»„\n"
+              "     p           - å¼ è´´ç•™è¨€\n"
+              "     r           - å›ä¿¡ç•™è¨€\n"
+              "     R           - å›ä¿¡ç•™è¨€ï¼Œå¹¶å¼•ç”¨å®ƒ\n"
+              "     f           - å¼ è´´ä¸€ä¸ªè·Ÿè´´\n"
+              "     F           - å¼ è´´ä¸€ä¸ªè·Ÿè´´ï¼Œå¹¶å¼•ç”¨å®ƒ\n"
+              "     n           - è¿›å…¥ä¸‹ä¸€ä¸ªæœ‰æœªè¯»ç•™è¨€çš„æ–°é—»ç»„\n"
+              "     c           - æŠŠæ‰€æœ‰çš„ç•™è¨€éƒ½è®°ä¸ºå·²è¯»\n"
+              "     M           - æŠŠç•™è¨€ç§»åˆ°å¦ä¸€ä¸ªæ–°é—»ç»„ [è‡ªå·±/å¤§ç¥]\n"
+              "     E           - æŠŠç•™è¨€è½¬å‘åˆ°emailä¿¡ç®±\n"
+              "     D           - åˆ é™¤ç›®å‰æ­£åœ¨é˜…è¯»çš„ç•™è¨€\n"
+              "   <å›è½¦>        - è¯»å–ä¸‹ä¸€æ¡ç•™è¨€æˆ–è¿›å…¥ä¸€ä¸ªæœ‰æœªè¯»ç•™è¨€çš„æ–°é—»ç»„\n"
               "\n"
-              "¼üÈëÃüÁîÈ»ºó»Ø³µ¾ÍĞĞÁË¡£\n");
+              "é”®å…¥å‘½ä»¤ç„¶åå›è½¦å°±è¡Œäº†ã€‚\n");
     }
     else if (cmd == "D" )
     {
@@ -1031,7 +1031,7 @@ private nomask void receive_msg_cmd(mixed cmd)
     }
     else if ( cmd == "M" )
     {
-        write( "ÒÆ¶¯ÁôÑÔ£¿[y/N]");
+        write( "ç§»åŠ¨ç•™è¨€ï¼Ÿ[y/N]");
         modal_simple((: receive_move_verify :));
     }
     else if ( cmd == "E" )
@@ -1049,7 +1049,7 @@ varargs nomask void begin_reading(string arg)
     if(!sizeof(NEWS_D->get_groups()))
     {
         printf( //"%s has no newsgroups right now.\n"
-                "%sÄ¿Ç°Ã»ÓĞÈÎºÎĞÂÎÅ×é¡£\n", mud_name());
+                "%sç›®å‰æ²¡æœ‰ä»»ä½•æ–°é—»ç»„ã€‚\n", mud_name());
         destruct();
         return;
     }

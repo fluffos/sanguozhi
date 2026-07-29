@@ -27,7 +27,7 @@ private string count_file(string fname, int flags)
   return count(read_file(fname), flags);
 }
 
-private void main(mixed array argv, mapping flags, string stdin)
+private void main(mixed * argv, mapping flags, string stdin)
 {
   int   f = 3;
 
@@ -47,7 +47,7 @@ private void main(mixed array argv, mapping flags, string stdin)
     {
       if(!sizeof(argv[0]))
         {
-          write("ÓÃ·¨: wc [-lw] file(s)\n");
+          write("ç”¨æ³•: wc [-lw] file(s)\n");
           return;
         }
       map(argv[0], (:out($1+":  "+count_file($1,$(f))):));

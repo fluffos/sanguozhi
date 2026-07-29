@@ -19,7 +19,7 @@ private void main(string * arg)
     if ( get_privilege(this_user()) && !check_privilege(userid) )
     {
         out(//"Permission denied.\n"
-            "È¨ÏŞ²»×ã¡£\n");
+            "æƒé™ä¸è¶³ã€‚\n");
         return;
     }
 
@@ -29,7 +29,7 @@ private void main(string * arg)
         if ( item == arg[0] )
         {
             out(//"You have had the path added already\n"
-                "Õâ¸öÄ¿Â¼ÄãÔç¾Í¼ÓÉÏÁË¡£\n");
+                "è¿™ä¸ªç›®å½•ä½ æ—©å°±åŠ ä¸Šäº†ã€‚\n");
             return;
         }
     }
@@ -40,5 +40,5 @@ private void main(string * arg)
     out(iwrap(implode(paths,
                         (: $1 + $2[0..<2] + ", " :),
                         //"Your path is now: "
-                        "µ±Ç°Ä¿Â¼£º")[0..<3]) + "\n");
+                        "å½“å‰ç›®å½•ï¼š")[0..<3]) + "\n");
 }

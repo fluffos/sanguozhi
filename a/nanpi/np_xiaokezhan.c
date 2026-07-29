@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is ∞Õ…Ω“π”Í
+// driver is Â∑¥Â±±Â§úÈõ®
 // created date is Mon May 30 19:30:47 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,7 +7,7 @@ inherit INDOOR_ROOM;
 void setup() {
 set_area("nanpi");
 set_light(50);
-set_brief("%^YELLOW%^"+"–°øÕ’ª"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"Â∞èÂÆ¢Ê†à"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "east":"/a/nanpi/np_xiaolu.c",

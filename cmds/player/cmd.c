@@ -31,7 +31,7 @@ private void main(string arg)
 		int i=0;
                 list=get_dir(PCMD+"*.c");
 		list=sort_array(list,1);
-		printf("Ä¿Ç°¿ÉÒÔÊ¹ÓÃµÄÃüÁîÓĞ£º");
+		printf("ç›®å‰å¯ä»¥ä½¿ç”¨çš„å‘½ä»¤æœ‰ï¼š");
 		while(i<sizeof(list))
 		{
 			if((i%5)==0)
@@ -40,14 +40,14 @@ private void main(string arg)
 			i++;
 		}
 		printf("\n");
-		printf("¹²ÓĞÃüÁî%dÌõ£®\n",sizeof(list));
+		printf("å…±æœ‰å‘½ä»¤%dæ¡ï¼\n",sizeof(list));
 		return;
    }
    p_cmd=PCMD+p_cmd;
    p_cmd=p_cmd+".c";
    if(file_size(p_cmd)==-1)
    {
-		write("Ã»ÓĞÕâÌõÖ¸Áî£¬ÓÃ cmd list ²éÕÒËùÓĞÃüÁî£®\n");
+		write("æ²¡æœ‰è¿™æ¡æŒ‡ä»¤ï¼Œç”¨ cmd list æŸ¥æ‰¾æ‰€æœ‰å‘½ä»¤ï¼\n");
 		return;
    }
    if(!p_cmd->no_need_hp())
@@ -56,7 +56,7 @@ private void main(string arg)
 	   hp=this_body()->query_cur_hp();
 	   if(hp<5)
 	   {
-		   write("ÄãÌåÁ¦²»×ã£¬ÎŞÁ¦Ë¼¿¼ÏÂ´ïÃüÁî¡£\n");
+		   write("ä½ ä½“åŠ›ä¸è¶³ï¼Œæ— åŠ›æ€è€ƒä¸‹è¾¾å‘½ä»¤ã€‚\n");
 		   return;
 	   }
 	   this_body()->set_cur_hp(hp-2);

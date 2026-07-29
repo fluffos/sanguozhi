@@ -33,7 +33,7 @@ int check_id(string str)
 
 mixed check_ok( mixed str)
 {
-	if( !str || str == "" || str == 0)return "Î´Öª";
+	if( !str || str == "" || str == 0)return "æœªçŸ¥";
 	else return str;
 }
 
@@ -50,29 +50,29 @@ void create()
 {
 	set_privilege(1);
 	
-	toplevel = new_menu("\n" + mud_name() + "½ÇÉ«¹ÜÀí²Ëµ¥");
-	quit_item = new_menu_item("ÍË³ö", (:quit_menu_application:), "q");
-	seperator = new_seperator("\n¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş\n");
+	toplevel = new_menu("\n" + mud_name() + "è§’è‰²ç®¡ç†èœå•");
+	quit_item = new_menu_item("é€€å‡º", (:quit_menu_application:), "q");
+	seperator = new_seperator("\nã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“\n");
 
 	add_menu_item(toplevel, seperator);
-	add_menu_item(toplevel, new_menu_item("ÁĞ³ö½ÇÉ«(List)",
+	add_menu_item(toplevel, new_menu_item("åˆ—å‡ºè§’è‰²(List)",
                         (: get_input_then_call, (: do_list :),
-                        "ÒÔÄÄ¸ö×ÖÄ¸¿ªÍ·£¿(enter ´ú±íËùÓĞµÄ): ":), "l"));
-        add_menu_item(toplevel, new_menu_item("Ñ°ÕÒÒ»¸ö½ÇÉ«(Find)",
+                        "ä»¥å“ªä¸ªå­—æ¯å¼€å¤´ï¼Ÿ(enter ä»£è¡¨æ‰€æœ‰çš„): ":), "l"));
+        add_menu_item(toplevel, new_menu_item("å¯»æ‰¾ä¸€ä¸ªè§’è‰²(Find)",
                         (: get_input_then_call, (: do_find :),
-                        "ÊäÈëÒª²éÑ¯µÄ½ÇÉ«Ãû :" :), "f"));
-	add_menu_item(toplevel, new_menu_item("Ôö¼ÓÒ»¸ö½ÇÉ«(Add)",
+                        "è¾“å…¥è¦æŸ¥è¯¢çš„è§’è‰²å :" :), "f"));
+	add_menu_item(toplevel, new_menu_item("å¢åŠ ä¸€ä¸ªè§’è‰²(Add)",
 			(: get_input_then_call, (: do_add :),
-                        "ÊäÈëÒªÔö¼ÓµÄ½ÇÉ«Ãû :" :), "a"));
-        add_menu_item(toplevel, new_menu_item("É¾³ıÒ»¸ö½ÇÉ«(Delete)",
+                        "è¾“å…¥è¦å¢åŠ çš„è§’è‰²å :" :), "a"));
+        add_menu_item(toplevel, new_menu_item("åˆ é™¤ä¸€ä¸ªè§’è‰²(Delete)",
                         (: get_input_then_call, (: do_del :),
-                        "ÊäÈëÒªÉ¾³ıµÄ½ÇÉ«Ãû :" :), "d"));
-        add_menu_item(toplevel, new_menu_item("ĞŞ¸ÄÒ»¸ö½ÇÉ«(Edit)",
+                        "è¾“å…¥è¦åˆ é™¤çš„è§’è‰²å :" :), "d"));
+        add_menu_item(toplevel, new_menu_item("ä¿®æ”¹ä¸€ä¸ªè§’è‰²(Edit)",
                         (: get_input_then_call, (: do_edit :),
-                        "ÊäÈëÒªĞŞ¸ÄµÄ½ÇÉ«Ãû :" :), "e") );
+                        "è¾“å…¥è¦ä¿®æ”¹çš„è§’è‰²å :" :), "e") );
         add_menu_item(toplevel, quit_item);
         add_menu_item(toplevel, seperator);
-        set_menu_prompt (toplevel, "ÊäÈëÖ¸Áî[adeflq]: ");
+        set_menu_prompt (toplevel, "è¾“å…¥æŒ‡ä»¤[adeflq]: ");
 }
 void start_menu()
 {
@@ -94,7 +94,7 @@ void do_list(string str)
         list = regexp(list, str);
 
 	if( !list ){
-		printf("Ã»ÓĞÓë '%s' ¶ÔÓ¦µÄ½ÇÉ«¡£\n", str);
+		printf("æ²¡æœ‰ä¸ '%s' å¯¹åº”çš„è§’è‰²ã€‚\n", str);
 		prompt_then_return();
 	};
         for(count = 0; count < sizeof(list); count++){
@@ -105,7 +105,7 @@ void do_list(string str)
                         out = out + "\n";
                 }
         };
-	out = out + sprintf("\n¹²²éµ½£º%d¸ö½ÇÉ«¡£\n", count);
+	out = out + sprintf("\nå…±æŸ¥åˆ°ï¼š%dä¸ªè§’è‰²ã€‚\n", count);
         printf(out + "\n");
 
         prompt_then_return();
@@ -119,11 +119,11 @@ void do_find(string str)
 	list = sort_array(CHAR_D->list_chars(), 1);        
 
 	if( !str ){
-                printf("ÄãÒª²éÕÒÄÇ¸ö½ÇÉ«£¿\n");
+                printf("ä½ è¦æŸ¥æ‰¾é‚£ä¸ªè§’è‰²ï¼Ÿ\n");
 		return;
         };
 	if( !comfirm_char(list, str) ){
-		printf("%sÕâ¸ö½ÇÉ«²¢²»´æÔÚ¡£\n", str);
+		printf("%sè¿™ä¸ªè§’è‰²å¹¶ä¸å­˜åœ¨ã€‚\n", str);
 		return;
 	};
 	
@@ -132,27 +132,27 @@ void do_find(string str)
 	temp = CHAR_D->get_char(str, "skills");
 
 	printf("\n\n");
-	printf("½ÇÉ«´úºÅ: %-10s, Ãû³Æ: %-10s, ×Ö: %s \n", 
+	printf("è§’è‰²ä»£å·: %-10s, åç§°: %-10s, å­—: %s \n", 
 		str, 
 		check_ok( CHAR_D->get_char(str, "name")), 
 		check_ok( CHAR_D->get_char(str, "zi")));
-	printf("ĞÔ±ğ:     %-10s, ÄêÁä: %d\n", 
-		(CHAR_D->get_char(str, "gender")==1 ? "ÄĞ" :"Å®"),
+	printf("æ€§åˆ«:     %-10s, å¹´é¾„: %d\n", 
+		(CHAR_D->get_char(str, "gender")==1 ? "ç”·" :"å¥³"),
 		CHAR_D->get_char(str, "age"));
-	printf("ÎäÁ¦:     %-10d, ÖÇÄ±: %-10d, ÷ÈÁ¦: %-10d, ÈİÃ²: %d\n",
+	printf("æ­¦åŠ›:     %-10d, æ™ºè°‹: %-10d, é­…åŠ›: %-10d, å®¹è²Œ: %d\n",
 		temp["sk_wuli"],
 		temp["sk_zhimou"],
 		temp["sk_meili"],
 		per );
-	printf("ÉùÍû:     %-10s \n", 
+	printf("å£°æœ›:     %-10s \n", 
 		CHAR_D->get_char(str, "reputationstr") );
-	printf("ËùÔÚµØ:   %-10s, ËùÊô¹ú: %s\n", 
+	printf("æ‰€åœ¨åœ°:   %-10s, æ‰€å±å›½: %s\n", 
 		check_ok( AREA_D->get_area(CHAR_D->get_char(str, "area"), "name")),
 		check_ok( COUNTRY_D->get_country(CHAR_D->get_char(str, "nation"), "name")));
-	printf("³¯Í¢¹ÙÖ°: %-10s, µØ·½¹Ù: %s\n", 
+	printf("æœå»·å®˜èŒ: %-10s, åœ°æ–¹å®˜: %s\n", 
 		check_ok( OFFICER_D->query_rank_name(CHAR_D->get_char(str, "ranknation"))),
 		check_ok( OFFICER_D->query_rank_name(CHAR_D->get_char(str, "ranklocal"))));
-	printf("ÖÒ³Ï:     %-10d, ÙºÂ»: %d\n", 
+	printf("å¿ è¯š:     %-10d, ä¿¸ç¦„: %d\n", 
 		CHAR_D->get_char(str,"loyalty"),		
 		CHAR_D->get_char(str,"salary"),);	
 	printf("\n");
@@ -165,11 +165,11 @@ void do_add(string str)
 	string *list;
 
 	if( !str ){
-		printf("ÇëÊäÈëÒªÌí¼ÓµÄ½ÇÉ«Ó¢ÎÄÃû¡£\n");
+		printf("è¯·è¾“å…¥è¦æ·»åŠ çš„è§’è‰²è‹±æ–‡åã€‚\n");
 		return;
 	};
 	if( !wizardp( this_body()->query_userid() ) ){
-                printf("ÏÈÉêÇë×öÎ×Ê¦ÔÙÀ´°ïÃ¦°É¡£\n");
+                printf("å…ˆç”³è¯·åšå·«å¸ˆå†æ¥å¸®å¿™å§ã€‚\n");
                 return;
 	};
 	if( !check_id( this_body()->query_userid() ) ){
@@ -177,19 +177,19 @@ void do_add(string str)
 		return;
 	};
 	if( sscanf(str, "%s %s", str1, str2 ) != 2){
-		printf("ĞÕÓëÃûÖ®¼äÒªÓĞ¿Õ¸ñ£®\n");
+		printf("å§“ä¸åä¹‹é—´è¦æœ‰ç©ºæ ¼ï¼\n");
 		return;
 	};
 	
         list = sort_array(CHAR_D->list_chars(), 1);
 	if( comfirm_char(list, str) ){
-		printf("%sÒÑ¾­´æÔÚ£¡\n", str);
-		printf("ÒªÉ¾³ı´Ë½ÇÉ«ÇëÓÃ( d )Ñ¡Ïî£¬Òª±à¼­´Ë½ÇÉ«ÇëÓÃ( e )Ñ¡Ïî¡£\n");
+		printf("%så·²ç»å­˜åœ¨ï¼\n", str);
+		printf("è¦åˆ é™¤æ­¤è§’è‰²è¯·ç”¨( d )é€‰é¡¹ï¼Œè¦ç¼–è¾‘æ­¤è§’è‰²è¯·ç”¨( e )é€‰é¡¹ã€‚\n");
 		return;
 	};
 
-	if( CHAR_D->add_char( str ) )printf("%sÌí¼Ó³É¹¦.\n", str);
-	else printf("%sÌí¼ÓÊ§°Ü.\n", str);
+	if( CHAR_D->add_char( str ) )printf("%sæ·»åŠ æˆåŠŸ.\n", str);
+	else printf("%sæ·»åŠ å¤±è´¥.\n", str);
 
 	prompt_then_return();
 }
@@ -199,11 +199,11 @@ void do_del(string str)
 
 
         if( !str ){
-                printf("ÇëÊäÈëÒªÉ¾³ıµÄ½ÇÉ«Ó¢ÎÄÃû¡£\n");
+                printf("è¯·è¾“å…¥è¦åˆ é™¤çš„è§’è‰²è‹±æ–‡åã€‚\n");
                 prompt_then_return();
         };
         if( !wizardp( this_body()->query_userid() ) ){
-                printf("ÏÈÉêÇë×öÎ×Ê¦ÔÙÀ´°ïÃ¦°É¡£\n");
+                printf("å…ˆç”³è¯·åšå·«å¸ˆå†æ¥å¸®å¿™å§ã€‚\n");
                 prompt_then_return();
         };
         if( !check_id( this_body()->query_userid() ) ){
@@ -213,21 +213,21 @@ void do_del(string str)
 
         list = sort_array(CHAR_D->list_chars(), 1);
 	if( !comfirm_char(list, str) ){
-                printf("%s²¢²»´æÔÚ£¡\n", str);
+                printf("%så¹¶ä¸å­˜åœ¨ï¼\n", str);
                 return;
         };
 
 	do_find( str );
 
-	get_input_then_call( (: done_delete , str :), "ÄãÈ·¶¨Âğ£¿(yes or no)>" ); 
+	get_input_then_call( (: done_delete , str :), "ä½ ç¡®å®šå—ï¼Ÿ(yes or no)>" ); 
 	return;
 }
 void done_delete(string arg, string str)
 {
 
 	if( str == "yes" || str == "YES"){
-		if( CHAR_D->remove_char( arg ) )printf("%sÉ¾³ı³É¹¦! \n", str);
-		else printf("%sÉ¾³ıÊ§°Ü!\n", str);
+		if( CHAR_D->remove_char( arg ) )printf("%såˆ é™¤æˆåŠŸ! \n", str);
+		else printf("%såˆ é™¤å¤±è´¥!\n", str);
 		return;
 	} else if( str == "no" || str == "NO" ){
 		printf("canceled\n");
@@ -240,11 +240,11 @@ void do_edit(string str)
 
 
         if( !str ){
-                printf("ÇëÊäÈëÒªÉ¾³ıµÄ½ÇÉ«Ó¢ÎÄÃû¡£\n");
+                printf("è¯·è¾“å…¥è¦åˆ é™¤çš„è§’è‰²è‹±æ–‡åã€‚\n");
                 prompt_then_return();
         };
         if( !wizardp( this_body()->query_userid() ) ){
-                printf("ÏÈÉêÇë×öÎ×Ê¦ÔÙÀ´°ïÃ¦°É¡£\n");
+                printf("å…ˆç”³è¯·åšå·«å¸ˆå†æ¥å¸®å¿™å§ã€‚\n");
                 prompt_then_return();
         };
         if( !check_id( this_body()->query_userid() ) ){
@@ -254,33 +254,33 @@ void do_edit(string str)
 
         list = sort_array(CHAR_D->list_chars(), 1);
         if( !comfirm_char(list, str) ){
-                printf("%s²¢²»´æÔÚ£¡\n", str);
+                printf("%så¹¶ä¸å­˜åœ¨ï¼\n", str);
                 return;
         };
 
 	do_find( str );
-	printf("Ãû³Æ: name          , ×Ö: zi,\n"); 
-	printf("ĞÔ±ğ: gender(1 ÎªÄĞ,0 ÎªÅ®), ÄêÁä: age\n");
-	printf("ÎäÁ¦: wuli          , ÖÇÄ±: zhimou    , ÷ÈÁ¦: meili     , ÈİÃ²: rongmao\n");
-	printf("ÉùÍû: reputationstr\n");
-	printf("ËùÔÚµØ: area        , ËùÊô¹ú: nation\n");
-	printf("³¯Í¢¹ÙÖ°: ranknation, µØ·½¹Ù: ranklocal\n");
-	printf("ÖÒ³Ï: loyalty       , ÙºÂ»: salary\n"); 
+	printf("åç§°: name          , å­—: zi,\n"); 
+	printf("æ€§åˆ«: gender(1 ä¸ºç”·,0 ä¸ºå¥³), å¹´é¾„: age\n");
+	printf("æ­¦åŠ›: wuli          , æ™ºè°‹: zhimou    , é­…åŠ›: meili     , å®¹è²Œ: rongmao\n");
+	printf("å£°æœ›: reputationstr\n");
+	printf("æ‰€åœ¨åœ°: area        , æ‰€å±å›½: nation\n");
+	printf("æœå»·å®˜èŒ: ranknation, åœ°æ–¹å®˜: ranklocal\n");
+	printf("å¿ è¯š: loyalty       , ä¿¸ç¦„: salary\n"); 
 
-	get_input_then_call( (: done_edit , str :), "ÊäÈëÒª±à¼­µÄÏîÄ¿ºÍËüµÄÖµ>"); 
+	get_input_then_call( (: done_edit , str :), "è¾“å…¥è¦ç¼–è¾‘çš„é¡¹ç›®å’Œå®ƒçš„å€¼>"); 
 }
 void done_edit(string char, string input)
 {
 	string parameter;
 	mixed value;
 	if( sscanf( input, "%s %s", parameter, value) != 2 ){
-		printf("¸ñÊ½£ºÏîÄ¿  ÏîÄ¿µÄÖµ\n");
+		printf("æ ¼å¼ï¼šé¡¹ç›®  é¡¹ç›®çš„å€¼\n");
 		return;
 	};
 	if( restore_variable( value ) != 0 )value = restore_variable( value );
         if( value == "0" )value = 0;
-	if( CHAR_D->set_char(char, parameter , value) )printf("¸Ä±ä³É¹¦£¡\n");
-	else printf("¸Ä±äÊ§°Ü£¡\n");
+	if( CHAR_D->set_char(char, parameter , value) )printf("æ”¹å˜æˆåŠŸï¼\n");
+	else printf("æ”¹å˜å¤±è´¥ï¼\n");
 }	
 
 private void main(string args) 

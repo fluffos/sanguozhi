@@ -6,10 +6,10 @@ inherit M_VALUE;
 int isfill;
 string short();
 void setup() {
-    set_adj("¼òÂªµÄ");
-    set_id("mu tong", "Ä¾Í°","barrel");
-    set_unit("¸ö");
-    set_in_room_desc("Ò»Ö»Å©¼Ò½½µØµÄÄ¾Í°(mu tong)¡£");
+    set_adj("ç®€é™‹çš„");
+    set_id("mu tong", "æœ¨æ¡¶","barrel");
+    set_unit("ä¸ª");
+    set_in_room_desc("ä¸€åªå†œå®¶æµ‡åœ°çš„æœ¨æ¡¶(mu tong)ã€‚");
     isfill=0;
     set_value(100);
     set_currency_type("coin");
@@ -18,10 +18,10 @@ string long()
 {
     if(isfill)
     {
-       return "Ò»Ö»Å©¼Ò½½µØµÄÄ¾Í°(mu tong)¡£\n"+
-        "ÀïÃæ×°ÂúÁËË®¡£\n";
+       return "ä¸€åªå†œå®¶æµ‡åœ°çš„æœ¨æ¡¶(mu tong)ã€‚\n"+
+        "é‡Œé¢è£…æ»¡äº†æ°´ã€‚\n";
     }
-    return "Ò»Ö»Å©¼Ò½½µØµÄÄ¾Í°(mu tong)¡£\n";
+    return "ä¸€åªå†œå®¶æµ‡åœ°çš„æœ¨æ¡¶(mu tong)ã€‚\n";
 }
 mixed direct_fill_obj()
 {
@@ -32,11 +32,11 @@ void fill_with(object with)
    string s_obj;
    if(isfill)
    {
-      printf("%sÒÑ¾­ÂúÁË¡£\n",short());
+      printf("%så·²ç»æ»¡äº†ã€‚\n",short());
       return;
    }
    isfill=1;
-   this_body()->simple_action("$N½«"+short()+"×°ÂúÁËË®¡£\n");
+   this_body()->simple_action("$Nå°†"+short()+"è£…æ»¡äº†æ°´ã€‚\n");
 }
 mixed direct_turn_obj()
 {
@@ -53,12 +53,12 @@ int turn()
         room = environment( player );
         if( !soil = present("tu di", room) )
         {
-                write("ÄãÏë°ÑË®½½ÔÚÄÄÀï£¿\n");
+                write("ä½ æƒ³æŠŠæ°´æµ‡åœ¨å“ªé‡Œï¼Ÿ\n");
                 return 1;
         }
  	stat=soil->query_status();
 	if((stat<21)) {
-		write("ÏÖÔÚÓ¦¸ÃÏÈ³ú³úµØ¡£dig soil with chu tou\n");
+		write("çŽ°åœ¨åº”è¯¥å…ˆé”„é”„åœ°ã€‚dig soil with chu tou\n");
 		return 1;
 	}
 	if(stat>40) {
@@ -66,17 +66,17 @@ int turn()
         {
            this_body()->set_job("digsoil","status","done");
         }
-		write("µØÒÑ¾­¸ãºÃÁË£¬¿ìÈ¥ÁìÇ®°É¡£\n");
+		write("åœ°å·²ç»æžå¥½äº†ï¼Œå¿«åŽ»é¢†é’±å§ã€‚\n");
 		return 1;
 	}
 
         hp = player->query_cur_hp();    
         if( hp < 10 ){
-                printf("ÄãÒÑ¾­Ì«ÀÛÁË£¬»¹ÊÇÏÈÐÝÏ¢Ò»ÏÂÔÙ¸É°É¡£\n");
+                printf("ä½ å·²ç»å¤ªç´¯äº†ï¼Œè¿˜æ˜¯å…ˆä¼‘æ¯ä¸€ä¸‹å†å¹²å§ã€‚\n");
                 return 1;
         }
         if( !isfill){
-                printf("Í°ÀïµÄË®ÓÃÍêÁË¡£\n");
+                printf("æ¡¶é‡Œçš„æ°´ç”¨å®Œäº†ã€‚\n");
                 return 1;
         }
 	if(soil->water())

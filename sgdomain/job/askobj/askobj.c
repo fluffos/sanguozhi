@@ -25,7 +25,7 @@ mixed job(string m_id,string officer_id)
    if (o_maker == 0) {
 	load_object(CHAR_D->get_char(maker_id,"shd_room"));
 	o_maker=CHAR_D->find_char(maker_id);
-	if(o_maker==0) return "$NµÀ£º"+maker_id+"ÓÐBUG£¬¸æËßWIZ\n";
+	if(o_maker==0) return "$Né“ï¼š"+maker_id+"æœ‰BUGï¼Œå‘Šè¯‰WIZ\n";
    }
 	
    p_area=o_maker->query_room()->get_area();
@@ -38,28 +38,28 @@ mixed job(string m_id,string officer_id)
   o->add_job("askobj");
   o->set_job("askobj","status","begin");
   o->set_job("askobj","obj_id",obj_id);
-  o->set_job("askobj","memo","ÕÒ"+AREA_D->get_area(p_area,"name")+
-       "µÄ"+CHAR_D->get_char(maker_id,"name")+"´ß"+OBJ_D->get_obj(obj_id,"name"));
+  o->set_job("askobj","memo","æ‰¾"+AREA_D->get_area(p_area,"name")+
+       "çš„"+CHAR_D->get_char(maker_id,"name")+"å‚¬"+OBJ_D->get_obj(obj_id,"name"));
    
-   return "$N¶Ô$TµÀ£ºÄÇ¾ÍÂé·³$Rµ½"+AREA_D->get_area(p_area,"name")+"ÕÒ"+
-	   CHAR_D->get_char(maker_id,"name")+"´ßÒ»ÏÂÎÒ¶¨µÄ"+OBJ_D->get_obj(obj_id,"name")+
-            "£¬\n¼ûÃæ¾ÍËµask "+maker_id+" about kick ¡£\n";
+   return "$Nå¯¹$Té“ï¼šé‚£å°±éº»çƒ¦$Råˆ°"+AREA_D->get_area(p_area,"name")+"æ‰¾"+
+	   CHAR_D->get_char(maker_id,"name")+"å‚¬ä¸€ä¸‹æˆ‘å®šçš„"+OBJ_D->get_obj(obj_id,"name")+
+            "ï¼Œ\nè§é¢å°±è¯´ask "+maker_id+" about kick ã€‚\n";
 }
 void finish(string m_id) {
-	tell_user(m_id,"%^H_GREEN%^ÈÎÎñÍê³É£¬¿ìÈ¥Ì«ÊØ´¦ÁìÉÍ°É¡£\n%^RESET%^");
+	tell_user(m_id,"%^H_GREEN%^ä»»åŠ¡å®Œæˆï¼Œå¿«åŽ»å¤ªå®ˆå¤„é¢†èµå§ã€‚\n%^RESET%^");
 }
 void ask_kick(object me, object target)
 {
 	string m_id;
 	m_id=me->query_primary_id();
 	me->targetted_action(
-           "$NÒ»½ÅÌßµ½$TµÄÆ¨¹ÉÉÏµÀ£ºÎÒÃÇÌ«ÊØÒªµÄ"+
+           "$Nä¸€è„šè¸¢åˆ°$Tçš„å±è‚¡ä¸Šé“ï¼šæˆ‘ä»¬å¤ªå®ˆè¦çš„"+
            OBJ_D->get_obj(me->query_job("askobj","obj_id"),"name")+
-           "ÔõÃ´»¹Ã»ËÍµ½£¿\n",target);
+           "æ€Žä¹ˆè¿˜æ²¡é€åˆ°ï¼Ÿ\n",target);
 	DELAY_D->delay_targetted_action(
-		target,me,"$N¶Ô$TµãÍ·ÅâÐ¦µÀ£º$s¸ÃËÀ£¬Õâ¾Í¸ãºÃËÍÈ¥¡£\n",1);
+		target,me,"$Nå¯¹$Tç‚¹å¤´èµ”ç¬‘é“ï¼š$sè¯¥æ­»ï¼Œè¿™å°±æžå¥½é€åŽ»ã€‚\n",1);
 	DELAY_D->delay_targetted_action(
-		me,target,"$N¶Ô$TµÀ£ºÔÙ²»¿ìµã£¬Ð¡ÐÄÄãµÄÄÔ´ü¡£\n",2);
+		me,target,"$Nå¯¹$Té“ï¼šå†ä¸å¿«ç‚¹ï¼Œå°å¿ƒä½ çš„è„‘è¢‹ã€‚\n",2);
 
 	me->clear_asklist("kick");
 	me->set_job("askobj","status","done");

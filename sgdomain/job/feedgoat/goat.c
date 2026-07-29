@@ -10,19 +10,19 @@ private int food=10;
 private int water=10;
 private int count=0;
 private object owner;
-string *emotes = ({"$NÁ³ÉÏÂ¶³ö²ÓÀÃµÄĞ¦Èİ¡£",
-		"$N¿ìÀÖµÄÌøÀ´ÌøÈ¥¡£",
-		"$NÕıÔÚÃÆÃÆ²»ÀÖ¡£",
-		"$NÍ´¿àµÃßÚÑÀßÖ×ì£¬´ó¸ÅÊÇÑÀÍ´µÃÀ÷º¦¡£",
+string *emotes = ({"$Nè„¸ä¸Šéœ²å‡ºç¿çƒ‚çš„ç¬‘å®¹ã€‚",
+		"$Nå¿«ä¹çš„è·³æ¥è·³å»ã€‚",
+		"$Næ­£åœ¨é—·é—·ä¸ä¹ã€‚",
+		"$Nç—›è‹¦å¾—å‘²ç‰™å’§å˜´ï¼Œå¤§æ¦‚æ˜¯ç‰™ç—›å¾—å‰å®³ã€‚",
 });
 
 void setup()
 {
-	set_name("goat", "Ğ¡É½Ñò");
+	set_name("goat", "å°å±±ç¾Š");
 	set_gender(0);
-	set_proper_name("Ò»Ö»¿É°®µÄĞ¡É½Ñò");
-	set_in_room_desc("Ğ¡É½Ñò(goat)");
-	set_long("Ò»Ö»¿É°®µÄĞ¡É½ÑòÔÚÄãµÄ½ÅÏÂ´ÜÀ´´ÜÈ¥¡£");	
+	set_proper_name("ä¸€åªå¯çˆ±çš„å°å±±ç¾Š");
+	set_in_room_desc("å°å±±ç¾Š(goat)");
+	set_long("ä¸€åªå¯çˆ±çš„å°å±±ç¾Šåœ¨ä½ çš„è„šä¸‹çªœæ¥çªœå»ã€‚");	
 	call_out("heart_beat", 10);
 }
 void set_owner(object player)
@@ -36,26 +36,26 @@ mixed indirect_give_obj_to_liv(object ob, object liv)
 /*
 	if( objectp(obj = present("grass", environment(this_object())))&& 
 		obj->direct_cut_obj() ){
-		return "Ğ¡Ñò¸ßĞËµÄÔÚ²İµØÉÏÌøÀ´ÌøÈ¥¡£\n";
+		return "å°ç¾Šé«˜å…´çš„åœ¨è‰åœ°ä¸Šè·³æ¥è·³å»ã€‚\n";
 	};
 */
-	if( !ob || !objectp(ob) )return "Ğ¡ÑòÆæ¹ÖµÄ´òÁ¿×ÅÄã¡£\n";
+	if( !ob || !objectp(ob) )return "å°ç¾Šå¥‡æ€ªçš„æ‰“é‡ç€ä½ ã€‚\n";
 	if( ob->is_food() ){
-		this_body()->simple_action("$NÎ¹ÁËÒ»Ğ©Çà²İ¸øĞ¡Ñò¡£\n");
-		if( food >= 8 )this_object()->simple_action("$NÒ»½Å°ÑÇà²İÌßµ½ÁËÒ»±ß¡£");
-		else this_object()->simple_action("$N¼¸¿Ú¾Í°ÑÇà²İ³Ô¹âÁË¡£\n");
+		this_body()->simple_action("$Nå–‚äº†ä¸€äº›é’è‰ç»™å°ç¾Šã€‚\n");
+		if( food >= 8 )this_object()->simple_action("$Nä¸€è„šæŠŠé’è‰è¸¢åˆ°äº†ä¸€è¾¹ã€‚");
+		else this_object()->simple_action("$Nå‡ å£å°±æŠŠé’è‰åƒå…‰äº†ã€‚\n");
 		food ++;
 		destruct(ob);
-		return "Ğ¡Ñò¸ßĞËµÄ½ĞÁË¼¸Éù¡£\n";
+		return "å°ç¾Šé«˜å…´çš„å«äº†å‡ å£°ã€‚\n";
 	} else if( ob->direct_fill_obj() ){
-		this_body()->simple_action("$NÏë¸øĞ¡ÑòµãË®ºÈ¡£\n");
-                if( water >= 8 )this_object()->simple_action("$NÒ»Õó·çËÆµÄÅÜ¿ªÁË¡£\n");
-                else this_object()->simple_action("$NĞ¡ÑòµÍÍ·ºÈÁË¼¸¿ÚË®¡£\n");
+		this_body()->simple_action("$Næƒ³ç»™å°ç¾Šç‚¹æ°´å–ã€‚\n");
+                if( water >= 8 )this_object()->simple_action("$Nä¸€é˜µé£ä¼¼çš„è·‘å¼€äº†ã€‚\n");
+                else this_object()->simple_action("$Nå°ç¾Šä½å¤´å–äº†å‡ å£æ°´ã€‚\n");
                 water ++;
 		ob->move(environment(this_object()));
-                return "Ğ¡Ñò¸ßĞËµÄ½ĞÁË¼¸Éù¡£\n";
+                return "å°ç¾Šé«˜å…´çš„å«äº†å‡ å£°ã€‚\n";
 	};
-	return "Ğ¡ÑòÆæ¹ÖµÄ´òÁ¿×ÅÄã¡£\n";
+	return "å°ç¾Šå¥‡æ€ªçš„æ‰“é‡ç€ä½ ã€‚\n";
 }	
 void heart_beat()
 {
@@ -65,29 +65,29 @@ void heart_beat()
 	count++;
 
 	if( food < 0 || water < 0  ){
-		this_object()->simple_action("$Nµ¹ÔÚµØÉÏÕõÔúÁË¼¸ÏÂ£¬ËÀµôÁË¡£\n");
-		tell_user(owner->query_id()[0], "Õæ¿ÉÏ§£¬ÄúÃ»ÄÜÍê³ÉÕâÏîÈÎÎñ¡£\n");
+		this_object()->simple_action("$Nå€’åœ¨åœ°ä¸ŠæŒ£æ‰äº†å‡ ä¸‹ï¼Œæ­»æ‰äº†ã€‚\n");
+		tell_user(owner->query_id()[0], "çœŸå¯æƒœï¼Œæ‚¨æ²¡èƒ½å®Œæˆè¿™é¡¹ä»»åŠ¡ã€‚\n");
 		owner->finish_job("feedgoat");
 		destruct( this_object() );
 		return;
 	};
 	if( count >= __WORK__ ){
-		tell_user(owner->query_id()[0], "ÄúµÄÈÎÎñÒÑ¾­Íê³ÉÁË£¬¸Ï½ô»ØÈ¥½»²î°É¡£ \n");
+		tell_user(owner->query_id()[0], "æ‚¨çš„ä»»åŠ¡å·²ç»å®Œæˆäº†ï¼Œèµ¶ç´§å›å»äº¤å·®å§ã€‚ \n");
 		owner->set_job("feedgoat", "end", 1);
 		destruct( this_object() );
 		return;
 	};
 	if( !present(owner->query_id()[0], environment(this_object())) ){
-		tell_environment(this_object(), "Ğ¡Ñò¿´Ã»ÈË×¢Òâ£¬²»ÖªÅÜµ½ÄÄ¶ùÈ¥ÁË¡£\n");
-		tell_user(owner->query_id()[0], "ÄúµÄĞ¡Ñò×ß¶ªÁË£¡\nÕæ¿ÉÏ§£¬ÄúÃ»ÄÜÍê³ÉÕâÏîÈÎÎñ¡£\n");
+		tell_environment(this_object(), "å°ç¾Šçœ‹æ²¡äººæ³¨æ„ï¼Œä¸çŸ¥è·‘åˆ°å“ªå„¿å»äº†ã€‚\n");
+		tell_user(owner->query_id()[0], "æ‚¨çš„å°ç¾Šèµ°ä¸¢äº†ï¼\nçœŸå¯æƒœï¼Œæ‚¨æ²¡èƒ½å®Œæˆè¿™é¡¹ä»»åŠ¡ã€‚\n");
 		owner->finish_job("feedgoat");
                 destruct( this_object() );
                 return;
         };
 	if( water <= 5 )this_object()->targetted_action(
-		"$NÔÚ$TµÄ½ÅÏÂÈÆÀ´ÈÆÈ¥£¬´ó¸ÅÊÇ¿ÊÁË¡£\n", owner);
+		"$Nåœ¨$Tçš„è„šä¸‹ç»•æ¥ç»•å»ï¼Œå¤§æ¦‚æ˜¯æ¸´äº†ã€‚\n", owner);
 	else if( food <= 5 )this_object()->targetted_action(
-		"$NÔÚ$TµÄ½ÅÏÂÈÆÀ´ÈÆÈ¥£¬ÏëÌÖµã¶«Î÷³Ô¡£\n", owner);
+		"$Nåœ¨$Tçš„è„šä¸‹ç»•æ¥ç»•å»ï¼Œæƒ³è®¨ç‚¹ä¸œè¥¿åƒã€‚\n", owner);
 	else this_object()->simple_action(emotes[random(sizeof(emotes))]);
 									
 	call_out("heart_beat", 15);

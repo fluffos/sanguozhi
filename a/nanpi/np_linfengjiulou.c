@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is 巴山夜雨
+// driver is 宸村北澶滈洦
 // created date is Mon May 30 19:11:59 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -8,12 +8,12 @@ inherit STORE;
 void setup() {
 set_area("nanpi");
 set_light(50);
-set_brief("%^YELLOW%^"+"临风酒楼"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"涓撮閰掓ゼ"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "east":"/a/nanpi/np_lianhuachi.c",
  ]));
-set_objects((["/sgdomain/obj/other/board.c" : ({ 1,"临风酒楼，一栋高大的酒楼。宾客如云，高朋满座。list列出货品，buy购买。\n\n"}) ]) );
+set_objects((["/sgdomain/obj/other/board.c" : ({ 1,"涓撮閰掓ゼ锛屼竴鏍嬮珮澶х殑閰掓ゼ銆傚瀹㈠浜戯紝楂樻湅婊″骇銆俵ist鍒楀嚭璐у搧锛宐uy璐拱銆俓n\n"}) ]) );
 
 add_object("/sgdomain/obj/foodanddrink/mantou.c");
 add_object("/sgdomain/obj/foodanddrink/ypjd.c");

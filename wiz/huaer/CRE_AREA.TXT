@@ -1,4 +1,4 @@
-                              ½¨Á¢µØÇøareaµÄÖ¸Áî
+                              å»ºç«‹åœ°åŒºareaçš„æŒ‡ä»¤
 ==========================================================================
 first make sure the map is there, check
 /sgdomain/txt/maps/
@@ -7,25 +7,25 @@ and according to the level of city, 1-2 area belong to
 3 area belongs to /sgdomain/area/town/
 4-5 area belongs to /sgdomain/area/cities/
 so...when u r rdy to add an area, goto its dir and create
-a dir there, such as add beiping ±±Æ½:
-cd /sgdomain/area/cities/, mkdir beiping(²»ÄÜ½¨Ä¿Â¼)
-==============================ÒÑ¾­×ö¹ıÁË===================================
+a dir there, such as add beiping åŒ—å¹³:
+cd /sgdomain/area/cities/, mkdir beiping(ä¸èƒ½å»ºç›®å½•)
+==============================å·²ç»åšè¿‡äº†===================================
 
 @AREA_D->add_area("beiping")
-@AREA_D->set_area("beiping","name","±±Æ½")
+@AREA_D->set_area("beiping","name","åŒ—å¹³")
 @AREA_D->set_area("beiping","level",4) 
 
-/cmds/area/addarea £¨ÔÚ/a/ÏÂÃæ½¨Ò»¸öÎÄ¼ş£¬¿ÉÒÔ¿ªÊ¼Ôì·¿¼ä£©
-/cmds/area/initarea £¨°ÑËùÓĞµØÇø¶¼¼ÓÁËÖ®ºóÔÚÔËĞĞÕâ¸ö£©
-/cmds/area/createwarroom £¨Õâ²½warroomÒÑ¾­È«²¿½¨ºÃÁË£©
+/cmds/area/addarea ï¼ˆåœ¨/a/ä¸‹é¢å»ºä¸€ä¸ªæ–‡ä»¶ï¼Œå¯ä»¥å¼€å§‹é€ æˆ¿é—´ï¼‰
+/cmds/area/initarea ï¼ˆæŠŠæ‰€æœ‰åœ°åŒºéƒ½åŠ äº†ä¹‹ååœ¨è¿è¡Œè¿™ä¸ªï¼‰
+/cmds/area/createwarroom ï¼ˆè¿™æ­¥warroomå·²ç»å…¨éƒ¨å»ºå¥½äº†ï¼‰
 
 then run a cmd under fire's dir:
 /wiz/fire/cmds/initarea.c, this cmd will create a tmp room and a tmp
 warroom for the new area, and i recommand u run this cmd after u create
-all new area.£¨Õâ²½²»ĞèÒªÁË£©
+all new area.ï¼ˆè¿™æ­¥ä¸éœ€è¦äº†ï¼‰
 next step: use buzzer
 then: setting, u should know that, "fly","meeting","prison","go","entry",etc.
 and..erase the tmp.c. at last u may add mafu and bed, and makers.
 maybe i missed sth, if meet problem, ask me anytime, addoil.
 
-rmarea É¾³ıµØÇøarea
+rmarea åˆ é™¤åœ°åŒºarea

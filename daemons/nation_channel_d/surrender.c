@@ -9,7 +9,7 @@ void add_suggest(string n_id,string topic,mixed para,string who,string *areas);
 mixed do_check_can_surrender(string who)
 {
         if( !mapp(COUNTRY_D->get_country(who)) )
-                return "Ö»ÓÐ¹úÍõ²ÅÓÐÈ¨ÌáÒéÍ¶½µ£¡\n";
+                return "åªæœ‰å›½çŽ‹æ‰æœ‰æƒæè®®æŠ•é™ï¼\n";
         else return 1;
 }
 mixed do_check_surrender_para(string *para, string who)
@@ -18,23 +18,23 @@ mixed do_check_surrender_para(string *para, string who)
 	
 	area = CHAR_D->get_char(who,"area");
 	do_check_can_surrender(who);
-	if( !sizeof(para)||sizeof(para)!=2||!stringp(cc=para[1]) ) return "´íÎóµÄ¸ñÊ½¡£\n";
-	if( !mapp(COUNTRY_D->get_country(cc)) ) return "Ã»ÓÐÕâ¸ö¹ú¼Ò£¡\n";
-	if( COUNTRY_D->get_country(who,"init_time") >= (time() - 5*24*3600) ) //¶ÀÁ¢ÉÙÓÚ5Ìì
-		return "Äã²Å¿ª½®Á¢¹ú£¬ÔõÄÜÇáÑÔÍ¶½µ£¿\n";
+	if( !sizeof(para)||sizeof(para)!=2||!stringp(cc=para[1]) ) return "é”™è¯¯çš„æ ¼å¼ã€‚\n";
+	if( !mapp(COUNTRY_D->get_country(cc)) ) return "æ²¡æœ‰è¿™ä¸ªå›½å®¶ï¼\n";
+	if( COUNTRY_D->get_country(who,"init_time") >= (time() - 5*24*3600) ) //ç‹¬ç«‹å°‘äºŽ5å¤©
+		return "ä½ æ‰å¼€ç–†ç«‹å›½ï¼Œæ€Žèƒ½è½»è¨€æŠ•é™ï¼Ÿ\n";
 	areas = AREA_D->check_area("nation",who);
-	if( sizeof(areas)>2 ) return "ÄãÉÐÓÐÊý³ÇÖ®µØ£¬ÔõÄÜÇáÑÔÍ¶½µ£¿\n"; 
+	if( sizeof(areas)>2 ) return "ä½ å°šæœ‰æ•°åŸŽä¹‹åœ°ï¼Œæ€Žèƒ½è½»è¨€æŠ•é™ï¼Ÿ\n"; 
 	areas = AREA_D->check_area("nation",cc);
-	if( sizeof(areas)<10 ) return "¶Ô·½Òà·ÇÇ¿¹ú£¬Õâ¸öÑ¡Ôñ²»Ì«Ã÷ÖÇ°É£¿\n";
+	if( sizeof(areas)<10 ) return "å¯¹æ–¹äº¦éžå¼ºå›½ï¼Œè¿™ä¸ªé€‰æ‹©ä¸å¤ªæ˜Žæ™ºå§ï¼Ÿ\n";
 	if( (COUNTRY_D->get_country(cc,"soldier")/5)<COUNTRY_D->get_country(who,"soldier") )
-		return "Á½¹úÊ¤°Ü»¹ÊÇÎ´ÖªÊý£¬Ôõ¿ÉÏò¶Ô·½Çü·þÄØ£¿\n";
+		return "ä¸¤å›½èƒœè´¥è¿˜æ˜¯æœªçŸ¥æ•°ï¼Œæ€Žå¯å‘å¯¹æ–¹å±ˆæœå‘¢ï¼Ÿ\n";
 	if( (COUNTRY_D->get_country(cc,"population")/5)<COUNTRY_D->get_country(who,"soldier") )
-		return "Á½¹úÊ¤°Ü»¹ÊÇÎ´ÖªÊý£¬Ôõ¿ÉÏò¶Ô·½Çü·þÄØ£¿\n";
+		return "ä¸¤å›½èƒœè´¥è¿˜æ˜¯æœªçŸ¥æ•°ï¼Œæ€Žå¯å‘å¯¹æ–¹å±ˆæœå‘¢ï¼Ÿ\n";
 	foreach(string aa in areas){
 		if( AREA_D->get_distance(area, aa)!=1 )continue;
 
-		set_suggest(who, "str", "¾Ù¹úÏò"+COUNTRY_D->get_country(cc,"name")+"Í¶½µ");
-                set_suggest(who,"reason","¹úÊÆÐéÈõ");
+		set_suggest(who, "str", "ä¸¾å›½å‘"+COUNTRY_D->get_country(cc,"name")+"æŠ•é™");
+                set_suggest(who,"reason","å›½åŠ¿è™šå¼±");
 
 		add_suggest(who,"surrender",({cc}), who, ({area}));
 
@@ -43,14 +43,14 @@ mixed do_check_surrender_para(string *para, string who)
         	return 1;
         } 
 	
-	return "Á½¹ú¾àÀëÌ«Ô¶£¬Í¶½µÁËÒ²Ã»Ê²Ã´ºÃ´¦£¡\n";
+	return "ä¸¤å›½è·ç¦»å¤ªè¿œï¼ŒæŠ•é™äº†ä¹Ÿæ²¡ä»€ä¹ˆå¥½å¤„ï¼\n";
 }	
 void do_surrender(string n_id)
 {
 	string cc, *list, tmp, his;
 	mixed wear;
 	cc = get_suggest(n_id,"para")[0];
-	his= COUNTRY_D->get_country(n_id,"name")+"¾Ù¹úÏò"+COUNTRY_D->get_country(cc,"name")+"Í¶½µ£¡\n";
+	his= COUNTRY_D->get_country(n_id,"name")+"ä¸¾å›½å‘"+COUNTRY_D->get_country(cc,"name")+"æŠ•é™ï¼\n";
 
 	CHAR_D->set_char(n_id, "reputation", to_int(CHAR_D->get_char(n_id,"reputation")/10));
 	CHAR_D->set_char(n_id, "gold",CHAR_D->get_char(n_id,"gold")/5 );
@@ -81,8 +81,8 @@ void do_surrender(string n_id)
         else
           {CHAR_D->set_char(n_id,"reputation",CHAR_D->get_char(n_id,"reputation")/10*4);
            CHAR_D->set_char(cc,"gold",CHAR_D->get_char(cc,"gold")/2);}*/
-        //added end µÛ¹ú¾ýÖ÷Í¶½µ½µ%80ÉùÍû,½ð½µ2/3
-        //          Ò»°ã¾ýÖ÷ÈÃÎ»½µ%60ÉùÍû,½ð½µ1/2.
+        //added end å¸å›½å›ä¸»æŠ•é™é™%80å£°æœ›,é‡‘é™2/3
+        //          ä¸€èˆ¬å›ä¸»è®©ä½é™%60å£°æœ›,é‡‘é™1/2.
 
 	COUNTRY_D->remove_country(n_id);
 	tell(users(), HIR+his+NOR);

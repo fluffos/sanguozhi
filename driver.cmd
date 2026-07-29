@@ -1,5 +1,5 @@
 @echo off
-title Èý¹úÖ¾@FLuffOS v2017
+title ä¸‰å›½å¿—@FLuffOS v2017
 color 02
 
 set DRIVER="%cd%\bin\driver.exe"

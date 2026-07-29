@@ -10,6 +10,6 @@ private void main( mixed *arg )
 {
 //:FIXME the room where the object was probably needs a message too
     arg[0]->move(arg[1]);
-    tell(arg[0], "Äã±»´«ËÍµ½£º" + arg[1]->short() + "\n");
-    tell_from_inside(arg[1], arg[0]->a_short() + "±»Î×Êõ´«ËÍµ½ÁËÕâÀï¡£\n", 0, ({arg[0]}));
+    tell(arg[0], "ä½ è¢«ä¼ é€åˆ°ï¼š" + arg[1]->short() + "\n");
+    tell_from_inside(arg[1], arg[0]->a_short() + "è¢«å·«æœ¯ä¼ é€åˆ°äº†è¿™é‡Œã€‚\n", 0, ({arg[0]}));
 }

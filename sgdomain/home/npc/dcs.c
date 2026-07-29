@@ -8,10 +8,10 @@ string get_type() {
 	return "dcs";
 }
 string get_type_name() {
-	return "%^YELLOW%^´ó³øÊ¦%^RESET%^";
+	return "%^YELLOW%^å¤§åŽ¨å¸ˆ%^RESET%^";
 }
 void extra_init() {
-	add_ask_str("order","$N¶Ô$T¿´ÁËÒ»ÑÛ£¬¿´À´ÊÇ¶Ç×Ó¶öÁË¡£\n");
+	add_ask_str("order","$Nå¯¹$Tçœ‹äº†ä¸€çœ¼ï¼Œçœ‹æ¥æ˜¯è‚šå­é¥¿äº†ã€‚\n");
 	add_question("order","order" );
 }
 void special_answer(object who, string matt)
@@ -27,24 +27,24 @@ void special_answer(object who, string matt)
 				is_busy=1;
 				if(rom->get_type()!="kitchen") {
 				        this_object()->targetted_action(
-						"$N¶Ô$TµãÍ·µ½£¬$RÒªÓÃÉÅ£¬ÎÒµÃÏÈÈ¥³ø·¿×¼±¸¡£\n",who);
+						"$Nå¯¹$Tç‚¹å¤´åˆ°ï¼Œ$Rè¦ç”¨è†³ï¼Œæˆ‘å¾—å…ˆåŽ»åŽ¨æˆ¿å‡†å¤‡ã€‚\n",who);
 					new(__DIR__+"free_menu")->start_menu(who,this_object());
 					return;
 
 				}
 				if(rom->get_status()<50) {
 				        this_object()->targetted_action(
-						"$NÌ¾¿ÚÆøµÀ£º³ø·¿ÔçÒÑÆÆÀÃ²»¿°£¬»ð¶¼Éú²»ÆðÀ´¡£\n",who);
+						"$Nå¹å£æ°”é“ï¼šåŽ¨æˆ¿æ—©å·²ç ´çƒ‚ä¸å ªï¼Œç«éƒ½ç”Ÿä¸èµ·æ¥ã€‚\n",who);
 					new(__DIR__+"free_menu")->start_menu(who,this_object());
 					return;
 				}
 			        this_object()->targetted_action(
-				"$NµãÍ·µÀ£¬$R¶öÁË°É£¬ÒªÓÃµãÊ²Ã´¡£\n",who);
+				"$Nç‚¹å¤´é“ï¼Œ$Ré¥¿äº†å§ï¼Œè¦ç”¨ç‚¹ä»€ä¹ˆã€‚\n",who);
 				new(__DIR__+"dcs_menu")->start_menu(who,this_object());
 				return;
 			}
 		        this_object()->targetted_action(
-				"$NµÉÁË$TÒ»ÑÛ¡£\n",who);
+				"$Nçžªäº†$Tä¸€çœ¼ã€‚\n",who);
 				return;
         }
 }

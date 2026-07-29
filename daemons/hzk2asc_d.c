@@ -1,7 +1,7 @@
 //
 // hzk2asc.c
 // 
-// ªÀµ€(emperor)
+// Âá∞Â∏ù(emperor)
 // 2003/5/6 create.
 
 #include <ansi.h>
@@ -123,14 +123,14 @@ string hzk2asc(string s, string hzk){
 //		int x;
 		col[l] = ran_color[random(sizeof( ran_color-col ))];
 	}
-	str = HIC"\n®q"+repeat_string("©§",dz*j/2)+"®r\n";
+	str = HIC"\n‚ï≠"+repeat_string("‚îÄ",dz*j/2)+"‚ïÆ\n";
 	if(random(20)>18) k=1;
 	else k=0;
 	
 	if(dz==24){
 		int x, y, i;
 		for(x=0;x<dz;x++){
-			str += "©¶"NOR;
+			str += "‚îÇ"NOR;
 //printf("buffer_size=%O\n",j);
 			for(i=0;i<j;i++){
 				for(y=0;y<dz;y++){
@@ -141,13 +141,13 @@ string hzk2asc(string s, string hzk){
 				}
 			}
 			
-			str += HIC"©¶\n";
+			str += HIC"‚îÇ\n";
 		}
 		
 	}
 	else
 	for(int a1=0;a1<dz;a1++){   //lines
-		str += "©¶"NOR;
+		str += "‚îÇ"NOR;
 		for(int i=0;i<j;i++){   //words
 			for(int a2=0;a2<(dz/8);a2++){ //bytes
 				for(int a3=0;a3<8;a3++){  // 
@@ -190,9 +190,9 @@ string hzk2asc(string s, string hzk){
 				}
 			}
 		}
-		str += HIC"©¶\n";
+		str += HIC"‚îÇ\n";
 	}
-	str += "®t"+repeat_string("©§",dz*j/2)+"®s\n"NOR;
+	str += "‚ï∞"+repeat_string("‚îÄ",dz*j/2)+"‚ïØ\n"NOR;
 	if(wizardp(this_user())) printf("max len = %d.\nlocation=%s\n", sizeof(str), s);
 	return str;
 }

@@ -2,14 +2,14 @@
 inherit LIVING;
 void ppp(object me,object who,string item)
 {
-        me->targetted_action("$N¶Ô×Å$T¹ş¹ş´óĞ¦",who);
+        me->targetted_action("$Nå¯¹ç€$Tå“ˆå“ˆå¤§ç¬‘",who);
 }
 void setup()
 {
-    set_name("papasmurf", "À¶°Ö°Ö");
+    set_name("papasmurf", "è“çˆ¸çˆ¸");
     set_gender(1);
-    set_proper_name("Ñ©°×ºúĞëµÄÀ¶°Ö°Ö");
-    set_in_room_desc("%^H_BLUE%^À¶°Ö°Ö%^RESET%^(papasmurf)ÕıÔÚµ÷¶¾Ò©... fear");
-    set_long("À¶°Ö°ÖµÉÁËÄãÒ»ÑÛ£º¡°±ğ·³ÎÒ£¬Ã¦×ÅÄØ!¡±");
+    set_proper_name("é›ªç™½èƒ¡é¡»çš„è“çˆ¸çˆ¸");
+    set_in_room_desc("%^H_BLUE%^è“çˆ¸çˆ¸%^RESET%^(papasmurf)æ­£åœ¨è°ƒæ¯’è¯... fear");
+    set_long("è“çˆ¸çˆ¸çªäº†ä½ ä¸€çœ¼ï¼šâ€œåˆ«çƒ¦æˆ‘ï¼Œå¿™ç€å‘¢!â€");
     set_answer("net", (: ppp :)) ;
 }

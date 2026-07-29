@@ -9,7 +9,7 @@ string main(string str)
 <html>
 <body  topmargin="12" background="http://sgz.yesite.com/images/desk5.gif" text="#FFFFFF">
 <br>
-<head><h2><center>Èý¹ú×î½ü¸üÐÂ</center></h2><head>
+<head><h2><center>ä¸‰å›½æœ€è¿‘æ›´æ–°</center></h2><head>
 <br><br>
 HTML;
 	html = html + GOT_WIZ_MSG;

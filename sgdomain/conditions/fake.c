@@ -1,4 +1,4 @@
-// condition fake.c ÃÔ»ó
+// condition fake.c è¿·æƒ‘
 // group@sgz August 23, 1999
 #include <ansi.h>
 #include <mudlib.h>
@@ -18,7 +18,7 @@ void execute_con(int tid, int damage, int duration)
 	
 	if (duration <= 3)
 	{ tell(all_inventory(tt),
-	  HIR"ÃÔ»ó½â³ý¡£"+NOR+"\n");
+	  HIR"è¿·æƒ‘è§£é™¤ã€‚"+NOR+"\n");
 	  if (TROOP_D->get_troops(tid, "fake"))
 		TROOP_D->set_troops(tid,"fake", "");
 	}	

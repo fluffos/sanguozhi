@@ -6,7 +6,7 @@ string get_type() {
 	return "jsp";
 }
 string get_type_name() {
-	return "%^H_GREEN%^½ÓÉúÆÅ%^RESET%^";
+	return "%^H_GREEN%^æ¥ç”Ÿå©†%^RESET%^";
 }
 void extra_init() {
 }

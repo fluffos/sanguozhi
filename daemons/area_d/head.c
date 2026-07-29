@@ -22,12 +22,12 @@ void auto_head(string p_id)
    }
 	m_tmp=OFFICER_D->query_area_officer_title(AREA_D->get_area(p_id,"level"),0,0);
 	title=m_tmp[0];
-	tell_user("huaer",sprintf("ÔÚ×Ô¶¯Ñ¡Ì«ÊØº¯ÊıÖĞhead.c /auto_head(%s)\n",p_id));
-	tell_user("huaer",sprintf("Ì«ÊØ¹ÙÖ°ĞÅÏ¢ÊÇ %O\n",m_tmp));
+	tell_user("huaer",sprintf("åœ¨è‡ªåŠ¨é€‰å¤ªå®ˆå‡½æ•°ä¸­head.c /auto_head(%s)\n",p_id));
+	tell_user("huaer",sprintf("å¤ªå®ˆå®˜èŒä¿¡æ¯æ˜¯ %O\n",m_tmp));
 	for(i=0;i<sizeof(list_char);i++)
 	{
 		my_id=list_char[i];
-		//tell_user("huaer",sprintf("Îä½«Ãû×ÖÊÇ%s\n",my_id));
+		//tell_user("huaer",sprintf("æ­¦å°†åå­—æ˜¯%s\n",my_id));
 //	if(my_id==my_nation) continue; // the leader
 		if(CHAR_D->get_char(my_id,"task")) continue;
 		if(AREA_D->get_area(CHAR_D->get_char(my_id,"area"),"leader")==my_id) 
@@ -59,7 +59,7 @@ void auto_head(string p_id)
    if(recorder_holder=="")
    {
      CHANNEL_D->deliver_emote("gossip","",
-         sprintf("%sÃ»ÓĞ%s£¬µ±µØ¾ÓÃñ¸Ğµ½²»Âú£®",
+         sprintf("%sæ²¡æœ‰%sï¼Œå½“åœ°å±…æ°‘æ„Ÿåˆ°ä¸æ»¡ï¼",
            AREA_D->get_area(p_id,"name"),
            OFFICER_D->query_rank_name(title)));
        AREA_D->set_area(p_id,"safe",
@@ -74,7 +74,7 @@ void auto_head(string p_id)
 	 CHAR_D->set_char(recorder_holder,"area",p_id);
 
        CHANNEL_D->deliver_emote("gossip","",sprintf(
-           "ÊÜµ±µØ¹ÙÔ±ÍÆ¾Ù£¬%s³ÉÎª%sµÄ%s",
+           "å—å½“åœ°å®˜å‘˜æ¨ä¸¾ï¼Œ%sæˆä¸º%sçš„%s",
           CHAR_D->get_char(recorder_holder,"name"),
           AREA_D->get_area(p_id,"name"),
           OFFICER_D->query_rank_name(title)));
@@ -88,7 +88,7 @@ void auto_head(string p_id)
          CHAR_D->set_char(recorder_holder,"nation",
          AREA_D->get_area(p_id,"nation"));
          CHANNEL_D->deliver_emote("gossip","",sprintf(
-            "ÊÜµ±µØ°ÙĞÕÍÆ¾Ù£¬%s³ÉÎª%sµÄ%s",
+            "å—å½“åœ°ç™¾å§“æ¨ä¸¾ï¼Œ%sæˆä¸º%sçš„%s",
          CHAR_D->get_char(recorder_holder,"name"),
          AREA_D->get_area(p_id,"name"),
          OFFICER_D->query_rank_name(title)));

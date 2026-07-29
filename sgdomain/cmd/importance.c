@@ -6,17 +6,17 @@ string get_reson(int p_inp)
         switch(p_inp)
         {
                 case AI_BALANCE:
-                        return "ÓÉÓÚ±¾µØÇø·¢Õ¹²»Æ½ºâ£¬";
+                        return "ç”±äºæœ¬åœ°åŒºå‘å±•ä¸å¹³è¡¡ï¼Œ";
                 case AI_AGRICULTURE:
-                        return "ÓÉÓÚ±¾µØÇø±øÁ¸²»×ã£¬";
+                        return "ç”±äºæœ¬åœ°åŒºå…µç²®ä¸è¶³ï¼Œ";
                 case AI_INDUSTRY:
-                        return "ÓÉÓÚ±¾µØÇøÎï×Ê²»×ã£¬";
+                        return "ç”±äºæœ¬åœ°åŒºç‰©èµ„ä¸è¶³ï¼Œ";
                 case AI_BUSINESS:
-                        return "ÓÉÓÚ±¾µØÇø¾ü×Ê²»×ã£¬";
+                        return "ç”±äºæœ¬åœ°åŒºå†›èµ„ä¸è¶³ï¼Œ";
                 case AI_SAFE:
-                        return "ÓÉÓÚ±¾µØÇøÃñĞÄ²»ÎÈ£¬";
+                        return "ç”±äºæœ¬åœ°åŒºæ°‘å¿ƒä¸ç¨³ï¼Œ";
                 case AI_MILITARY:
-                        return "ÓÉÓÚ±¾µØÇø±øÊ¿Õ½Á¦²»×ã£¬";
+                        return "ç”±äºæœ¬åœ°åŒºå…µå£«æˆ˜åŠ›ä¸è¶³ï¼Œ";
         }
 }
 string get_obj(int p_inp)
@@ -24,25 +24,25 @@ string get_obj(int p_inp)
         switch(p_inp)
         {
                 case AI_BALANCE:
-                        return "¾ùºâ";
+                        return "å‡è¡¡";
                 case AI_AGRICULTURE:
-                        return "¼ÓÇ¿Å©Òµ";
+                        return "åŠ å¼ºå†œä¸š";
                 case AI_INDUSTRY:
-                        return "¼ÓÇ¿¹¤Òµ";
+                        return "åŠ å¼ºå·¥ä¸š";
                 case AI_BUSINESS:
-                        return "¼ÓÇ¿ÉÌÒµ";
+                        return "åŠ å¼ºå•†ä¸š";
                 case AI_SAFE:
-                        return "ÎÈ¶¨ÃñĞÄ";
+                        return "ç¨³å®šæ°‘å¿ƒ";
                 case AI_MILITARY:
-                        return "¼ÓÇ¿¾üÊÂ";
+                        return "åŠ å¼ºå†›äº‹";
         }
 }
 string get_talk(int p_oldinp,int p_inp)
 {
         string p_ret;
         p_ret=get_reson(p_inp);
-        p_ret+="$sÒÔÎª£ºÄ¿Ç°µÄ"+get_obj(p_oldinp)+"·¢Õ¹²ßÂÔÄÑÒÔ½â¾öÕâ¸öÎÊÌâ£¬\n"+
-"¹Ê½¨Òé¸ÄÎª"+get_obj(p_inp)+"·¢Õ¹²ßÂÔ£¬ÍûÖîÎ»´óÈË¡¢½«¾üÉîË¼¡£\n";
+        p_ret+="$sä»¥ä¸ºï¼šç›®å‰çš„"+get_obj(p_oldinp)+"å‘å±•ç­–ç•¥éš¾ä»¥è§£å†³è¿™ä¸ªé—®é¢˜ï¼Œ\n"+
+"æ•…å»ºè®®æ”¹ä¸º"+get_obj(p_inp)+"å‘å±•ç­–ç•¥ï¼Œæœ›è¯¸ä½å¤§äººã€å°†å†›æ·±æ€ã€‚\n";
         return p_ret;
 }
 int get_importance(string p_inp)
@@ -80,47 +80,47 @@ void start(string arg)
         p_inp=get_importance(arg);
         if(p_inp==-1)
         {
-                write("ÓÃ·¨´íÎó£¡");
-                write("ÓÃ cmd help importance ²é¿´ÏêÏ¸°ïÖú¡£\n");
+                write("ç”¨æ³•é”™è¯¯ï¼");
+                write("ç”¨ cmd help importance æŸ¥çœ‹è¯¦ç»†å¸®åŠ©ã€‚\n");
                 return;
         }
         my_id=this_body()->query_id()[0];
         if(!CHAR_D->get_char(my_id,"nation"))
         {
-                write("µÈÄã»ìÁË¸öÒ»¹Ù°ëÖ°Ö®ºó£¬ÔÙ¿¼ÂÇµØÇøÖØµãµÄÎÊÌâ°É¡£\n");
+                write("ç­‰ä½ æ··äº†ä¸ªä¸€å®˜åŠèŒä¹‹åï¼Œå†è€ƒè™‘åœ°åŒºé‡ç‚¹çš„é—®é¢˜å§ã€‚\n");
                 return;
         }
         if(CHAR_D->get_char(my_id,"level")<2)
         {
-                write("ÄãµÄ¹ÙÖ°Ì«µÍ£¬²»ÄÜÌáÕâÑùµÄ½¨Òé¡£\n");
+                write("ä½ çš„å®˜èŒå¤ªä½ï¼Œä¸èƒ½æè¿™æ ·çš„å»ºè®®ã€‚\n");
                 return;
         }
 
         my_task = TASK_D->get_char_task(my_id);
         if(my_task[1]!=TT_LOCALMEETING)
         {
-                write("Õâ¸öÎÊÌâ»¹ÊÇµØÇø»áÒéÉÏÔÙÌ¸°É¡£\n");
+                write("è¿™ä¸ªé—®é¢˜è¿˜æ˜¯åœ°åŒºä¼šè®®ä¸Šå†è°ˆå§ã€‚\n");
                 return;
         }
 	if(((file_name(environment(this_body())))!=
 ((AREA_D->get_area(p_area1,"path"))+(AREA_D->get_area(p_area1,"meeting"))))||(p_area1!=
 		environment(this_body())->get_area()))
 	{
-		write("Õâ¸öÎÊÌâ±ØĞëÔÚ»áÒéÖ®ËùÌÖÂÛ¡£\n");
+		write("è¿™ä¸ªé—®é¢˜å¿…é¡»åœ¨ä¼šè®®ä¹‹æ‰€è®¨è®ºã€‚\n");
 		return;
 	}
 
         task_id=my_task[0];
         if(TASK_D->get_task(task_id,"suggestion"))
         {
-                write("ÏÖÔÚÕıÔÚÌÖÂÛ±ğµÄÒéÌâ£¬ÄãµÄÒâ¼ûµÈ»á¶ùÔÙËµ°É¡£\n");
+                write("ç°åœ¨æ­£åœ¨è®¨è®ºåˆ«çš„è®®é¢˜ï¼Œä½ çš„æ„è§ç­‰ä¼šå„¿å†è¯´å§ã€‚\n");
                 return;
         }
         if(((TASK_D->get_task(task_id,"timaim")-
                 TASK_D->get_task(task_id,"timer"))<3)&&
                 (TASK_D->get_task(task_id,"stage")!=0))
         {
-                write("Ê±¼ä²»¶àÁË£¬»ØÍ·ÔÙÌá°É¡£\n");
+                write("æ—¶é—´ä¸å¤šäº†ï¼Œå›å¤´å†æå§ã€‚\n");
                 return;
         }
         {       
@@ -130,7 +130,7 @@ void start(string arg)
                 p_safe=AREA_D->get_area(p_area,"safe");
                 if(p_safe<5)
                 {
-                        write("°ÙĞÕÒÑ¾­¼«¶È²»Âú£¬ÔÙ±ä¶¯Õş²ß£¬ÏëÒıÆğ±©¶¯°¡£¿£¡\n");
+                        write("ç™¾å§“å·²ç»æåº¦ä¸æ»¡ï¼Œå†å˜åŠ¨æ”¿ç­–ï¼Œæƒ³å¼•èµ·æš´åŠ¨å•Šï¼Ÿï¼\n");
                         return;
                 }
         }
@@ -138,10 +138,10 @@ void start(string arg)
                 "area"),"importance");
         if(p_oldinp==p_inp)
         {
-                printf("ÄãµÄ½¨ÒéÃ»ÓĞÊ²Ã´ĞÂÒâ£¬»¹ÊÇËãÁË°É¡£\n");
+                printf("ä½ çš„å»ºè®®æ²¡æœ‰ä»€ä¹ˆæ–°æ„ï¼Œè¿˜æ˜¯ç®—äº†å§ã€‚\n");
                 return ;
         }
         p_talk=get_talk(p_oldinp,p_inp);
-        this_body()->simple_action("$NµÀ£º"+p_talk);
+        this_body()->simple_action("$Né“ï¼š"+p_talk);
         (EV_LOCALMEETING)->get_suggestion(task_id,my_id,"importance",p_inp);
 }

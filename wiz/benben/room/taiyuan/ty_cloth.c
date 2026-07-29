@@ -1,4 +1,4 @@
-// ²¼×¯  by Benben
+// å¸ƒåº„  by Benben
 // ty_cloth.c 
 #include <mudlib.h>
 #include "/wiz/fire/fire.h"
@@ -7,8 +7,8 @@ inherit ROOM;
 void setup(){
     set_area("ty_area");
     set_light(50);
-    set_brief(""+YEL+"²¼×¯"+NOR+"");
-    set_long("    ÃèÊö¡£\n");
+    set_brief(""+YEL+"å¸ƒåº„"+NOR+"");
+    set_long("    æè¿°ã€‚\n");
     set_exits( ([
         "north" :  __DIR__+"ty_wst1.c",
     ]) );

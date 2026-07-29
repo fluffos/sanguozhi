@@ -7,7 +7,7 @@ inherit CLASS_COMBAT_RESULT;
 object query_weapon();
 object query_target();
 object query_horse();
-void simple_action(string msg, array obs...);
+void simple_action(string msg, mixed *obs...);
 varargs mixed *action(mixed *, mixed, object, object);
 void inform(mixed *, mixed, object);
 string default_message(int, int);
@@ -16,7 +16,7 @@ void die();
 void stun();
 void knock_out();
 void hurt_us(int);
-static void print_one_result(class combat_result result) {
+protected void print_one_result(class combat_result result) {
 	object me,target,my_wep,t_wep,my_horse,t_horse;
 	int m_lev,t_lev;
 	string my_wep_type,t_wep_type;
@@ -101,16 +101,16 @@ static void print_one_result(class combat_result result) {
 }
 //:FUNCTION print_result
 //Print the result of a round of combat
-void print_result(class combat_result array arg) {
+void print_result(class combat_result * arg) {
     foreach (mixed tmp in arg)
     print_one_result(tmp);
 }
-class combat_result array negotiate_result(class combat_result array result) {
+class combat_result * negotiate_result(class combat_result * result) {
 //    result = query_weapon()->adjust_my_result(result);
 //    result = query_target()->adjust_result(result);
     return result;
 }
-static void do_one_result(class combat_result res) {
+protected void do_one_result(class combat_result res) {
 /*    int s = res->special;
     if (s & RES_NONE)
         return;

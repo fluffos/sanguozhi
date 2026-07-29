@@ -23,7 +23,7 @@ string main(string arg)
 
 	html=@HTML
 <html><body topmargin="12" background="http://sgz.yesite.com/images/desk5.gif" text="#FFFFFF">
-<br><head><h2>Èı¹úÖ¾ÔÚÏßÍæ¼ÒÁĞ±í</h2></head>
+<br><head><h2>ä¸‰å›½å¿—åœ¨çº¿ç©å®¶åˆ—è¡¨</h2></head>
 HTML;
 	if( arg&&arg!=""&&stringp(arg) )
 		html = html + FINGER_D->get_finger(arg, 1);

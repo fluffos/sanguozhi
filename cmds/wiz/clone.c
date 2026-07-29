@@ -18,23 +18,23 @@ private void main( mixed *arg ) {
     o = new(arg[0]);
     if( !o )
     {
-        out("ÔØÈëÎï¼şÊ§°Ü¡£\n");
+        out("è½½å…¥ç‰©ä»¶å¤±è´¥ã€‚\n");
         return;
     }
     if( !size && !inherits( "/std/object.c", o))
     {
         destruct(o);
-        out( "clone [ÎÄ¼şÃû]\n");
+        out( "clone [æ–‡ä»¶å]\n");
         return;
     }
     this_body()->do_player_message("clone", o);
     if (o->get() != MOVE_OK || o->move(this_body()) != MOVE_OK) {
         if (o->move(environment(this_body())) != MOVE_OK)
-            out("Íê³É¡£(ÎŞ·¨ÒÆ¶¯)\n");
+            out("å®Œæˆã€‚(æ— æ³•ç§»åŠ¨)\n");
         else
-            out("Íê³É¡£(·ÅÔÚÕâÀï)\n");
+            out("å®Œæˆã€‚(æ”¾åœ¨è¿™é‡Œ)\n");
     } else
-        out("Íê³É¡£(·ÅÔÚÄãµÄÎïÆ·À¸)\n");
+        out("å®Œæˆã€‚(æ”¾åœ¨ä½ çš„ç‰©å“æ )\n");
     return;
 }
 

@@ -6,7 +6,7 @@ void start(string arg)
 
 	who = present(arg, environment(this_body()));
 	if( !who || !objectp(who) || !function_exists("do_work", who) ){
-		printf("ÄãÒªÎªË­¹¤×÷£¿\n");
+		printf("ä½ è¦ä¸ºè°å·¥ä½œï¼Ÿ\n");
 		return;
 	} else {
 		who->do_work( this_body() );

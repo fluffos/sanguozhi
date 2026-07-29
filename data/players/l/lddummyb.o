@@ -1,6 +1,6 @@
 #/std/race/human.c
 primary_id "lddummyb"
-chinese_id "ºÃÁË"
+chinese_id "å¥½äº†"
 persist_flags ([0:0,])
 can_drop 1
 can_sell 1
@@ -12,8 +12,8 @@ main_prep "in"
 contained_light_added 1
 gender 1
 messages ([])
-def_messages (["invis":"$n´ÓÄãµÄÊÓÒ°ÖĞÍ»È»ÏûÊ§ÁË¡£","menter":"$nÍ»È»³öÏÖÔÚÒ»ÕóÑÌÎíÖĞ¡£","clone":"$nÉìÊÖÁè¿ÕÒ»Ö¸£¬±ä³öÁË$o¡£","vis":"$nÍ»È»³öÏÖÔÚÄãÃæÇ°£¬ÓÖËÆºõÔÚÕâÀïºÜ¾ÃÁË¡£","destruct":"$nÅÛĞäÒ»»Ó£¬$o±»»¯³ÉÒ»¹ÉºÚÑÌ£¬´µÉ¢¿ªÈ¥¡£","enter":"$n×ßÁË¹ıÀ´¡£","mleave":"$nµÄÉíÓ°ÔÚÒ»ÕóÑÌÎíÖĞ½¥½¥ÒşÈ¥¡£","leave":"$n³¯$oÀë¿ªÁË¡£","home":"$n»Ø¼ÒÈ¥ÁË¡£",])
-busy_msg "ÄãÏÖÔÚÕıÃ¦×ÅÄØ¡£"
+def_messages (["invis":"$nä»ä½ çš„è§†é‡ä¸­çªç„¶æ¶ˆå¤±äº†ã€‚","menter":"$nçªç„¶å‡ºç°åœ¨ä¸€é˜µçƒŸé›¾ä¸­ã€‚","clone":"$nä¼¸æ‰‹å‡Œç©ºä¸€æŒ‡ï¼Œå˜å‡ºäº†$oã€‚","vis":"$nçªç„¶å‡ºç°åœ¨ä½ é¢å‰ï¼Œåˆä¼¼ä¹åœ¨è¿™é‡Œå¾ˆä¹…äº†ã€‚","destruct":"$nè¢è¢–ä¸€æŒ¥ï¼Œ$oè¢«åŒ–æˆä¸€è‚¡é»‘çƒŸï¼Œå¹æ•£å¼€å»ã€‚","enter":"$nèµ°äº†è¿‡æ¥ã€‚","mleave":"$nçš„èº«å½±åœ¨ä¸€é˜µçƒŸé›¾ä¸­æ¸æ¸éšå»ã€‚","leave":"$næœ$oç¦»å¼€äº†ã€‚","home":"$nå›å®¶å»äº†ã€‚",])
+busy_msg "ä½ ç°åœ¨æ­£å¿™ç€å‘¢ã€‚"
 busy 1307202997
 answer_list ({({"settle","settle",}),({"position","position",}),({"localmeeting","localmeeting",}),({"job","job",}),({"zgxy","zgxy",}),({"wxxy","wxxy",}),({"bfxy","bfxy",}),({"guoshi","guoshi",}),})
 ask_list ([])
@@ -45,12 +45,12 @@ ilog_time 1312624139
 money (["gold":3,"silver":9,"coin":0,])
 sg_home ([])
 name "lddummyb"
-invis_name "Ä³Ä³"
-chinese_name "ºÃÁË"
+invis_name "æŸæŸ"
+chinese_name "å¥½äº†"
 response_queue ({})
 reply "zhujy"
 channel_list ({"gossip","newbie","weather","rumor","imud_imud_sgz",})
 saved_items "([\"#inventory#\":({\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/money/m_silver\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/money/m_gold\\\",])\",}),\"#base_name#\":\"/std/race/human\",])"
 ag_day 5
 ag_month 5
-jobs (["findbody":(["status":"begin","memo":"ÕÒ%^H_CYAN%^Å£½ğ%^RESET%^(niu jin)","assignarea":"nanpi","lasttimes":({}),"beg_time":1306922180,]),"choppork":(["lasttimes":({}),"count":36,"beg_time":1306907960,"finish_time":1306907950,]),"bugao":(["status":"begin","memo":"½­ÁêµÄ%^YELLOW%^¼àÓü%^RESET%^","assignarea":"nanpi","lasttimes":({1307195989,1307197091,1307197389,1307197603,1307198043,1307198357,1307198557,1307199311,1307199905,1307200483,1307200951,1307201247,1307201449,1307201673,1307201837,1307202309,1307202691,1307203145,}),"count":18,"beg_time":1307203231,"finish_time":1307203145,]),"askobj":(["status":"over","memo":"ÕÒ½­ÁêµÄ%^H_CYAN%^²Ìçß%^RESET%^´ß0","assignarea":"nanpi","lasttimes":({}),"obj_id":"test","count":10,"beg_time":0,"finish_time":1307112149,]),])
+jobs (["findbody":(["status":"begin","memo":"æ‰¾%^H_CYAN%^ç‰›é‡‘%^RESET%^(niu jin)","assignarea":"nanpi","lasttimes":({}),"beg_time":1306922180,]),"choppork":(["lasttimes":({}),"count":36,"beg_time":1306907960,"finish_time":1306907950,]),"bugao":(["status":"begin","memo":"æ±Ÿé™µçš„%^YELLOW%^ç›‘ç‹±%^RESET%^","assignarea":"nanpi","lasttimes":({1307195989,1307197091,1307197389,1307197603,1307198043,1307198357,1307198557,1307199311,1307199905,1307200483,1307200951,1307201247,1307201449,1307201673,1307201837,1307202309,1307202691,1307203145,}),"count":18,"beg_time":1307203231,"finish_time":1307203145,]),"askobj":(["status":"over","memo":"æ‰¾æ±Ÿé™µçš„%^H_CYAN%^è”¡é‚•%^RESET%^å‚¬0","assignarea":"nanpi","lasttimes":({}),"obj_id":"test","count":10,"beg_time":0,"finish_time":1307112149,]),])

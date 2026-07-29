@@ -6,10 +6,10 @@
 inherit VERB_OB;
 
 void do_wish_for_str(string str) {
-    write("那样会很好，不是么？\n");
+    write("閭ｆ牱浼氬緢濂斤紝涓嶆槸涔堬紵\n");
 }
 
-array query_verb_info() 
+mixed * query_verb_info() 
 {
     return ({ ({ "for STR" }) });
 }

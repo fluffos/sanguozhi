@@ -17,7 +17,7 @@
 /* More simul conversion fall out */
 string punctuate(string);
 
-#define A_SHORT(x) (objectp(x) ? x->a_short() : "Ò»¸ö" + x)
+#define A_SHORT(x) (objectp(x) ? x->a_short() : "ä¸€ä¸ª" + x)
 //#define SHORT(x) (objectp(x) ? x->short() : x)
 #define SHORT(x) (objectp(x) ? x->query_chinese_id() : x)
 mapping messages = ([]);
@@ -64,7 +64,7 @@ string *query_msg_types() {
 //Usually this routine is used through the higher level interfaces.
 // 
 varargs string compose_message(object forwhom, string msg, object *who, 
-                               array obs...) {
+                               mixed *obs...) {
     mixed ob;
     mixed *fmt;
     string res;
@@ -109,12 +109,12 @@ varargs string compose_message(object forwhom, string msg, object *who,
         case 'O': // absolute name for obj added by fire with unit
             ob = obs[num];
             if (nullp(ob)) break;
-            bit = "Ò»"+ob->query_unit()+SHORT(ob);
+            bit = "ä¸€"+ob->query_unit()+SHORT(ob);
             has[ob]++;
             break;
         case 'o':
             ob = obs[num];
-            if (objectp(ob) && has[ob]) bit = "Ëü";
+            if (objectp(ob) && has[ob]) bit = "å®ƒ";
             else {
                 bit = SHORT(ob);
                 has[ob]++;
@@ -132,67 +132,67 @@ varargs string compose_message(object forwhom, string msg, object *who,
             if (str=="") str = "n";     // n for proper name.
             ch = str[0];
             if (ch != 'n' && ch != 'm') {
-	        if (ch == 'c') {	// $N12c ÖÐ 2 Ïà¶ÔÓÚ 1 µÄÇ×êÇ³Æºô
+	        if (ch == 'c') {	// $N12c ä¸­ 2 ç›¸å¯¹äºŽ 1 çš„äº²æ˜µç§°å‘¼
 	            bit = CHENGHU_D->query_chenghu_c(who[subj],who[num]);
 	            break;
 	        }
-	        if (ch == 'a') {	// $N1r ÖÐ 1 µÄ×ð³Æ
+	        if (ch == 'a') {	// $N1r ä¸­ 1 çš„å°Šç§°
 	            bit = CHENGHU_D->query_chenghu_R(who[subj],who[num]);
 	            break;
 	        }
-	        if (ch == 'h') {	// $N1q ÖÐ 1 µÄÇ«³Æ
+	        if (ch == 'h') {	// $N1q ä¸­ 1 çš„è°¦ç§°
 	            bit = CHENGHU_D->query_chenghu_s(who[num]);
 	            break;
 	        }
-	        if (ch == 'r') {	// $N1m ÖÐ 1 µÄÃï³Æ
+	        if (ch == 'r') {	// $N1m ä¸­ 1 çš„è”‘ç§°
 	            bit = CHENGHU_D->query_chenghu_r(who[subj],who[num]);
 	            break;
 	        }
 	        if (who[num]==forwhom) {
-                    if (ch=='o' && has[who[num]]) bit = "Äã×Ô¼º";
-                    else bit = "Äã";
+                    if (ch=='o' && has[who[num]]) bit = "ä½ è‡ªå·±";
+                    else bit = "ä½ ";
 		    has[who[num]]++;
         	    break;
                 }
 	        if ((ch == 'p' || ch == 'o') && has[who[num]]) {
 	            if (ch == 'o' && who[num] == who[subj]) 
-	                bit = who[num]->query_pronoun() + "×Ô¼º";
+	                bit = who[num]->query_pronoun() + "è‡ªå·±";
 	            else bit = who[num]->query_pronoun();
-		    if(!who[num]->is_living()) bit="Ëü";
+		    if(!who[num]->is_living()) bit="å®ƒ";
 		    has[who[num]]++;
 	            break;
 	        }
 	    }
             if (who[num]==forwhom && ch != 'm') {
-                bit = "Äã";
+                bit = "ä½ ";
                 has[who[num]]++;
                 break;
             }
             has[who[num]]++;
             if(is_rumor&&(num==0))
 	    {
-		bit="Ä³ÈË";
+		bit="æŸäºº";
 		break;
 	    }
             bit = who[num]->query_chinese_id();
             break;
 	case 'C' :
-		bit=CHENGHU_D->query_chenghu_C(who[subj],who[num]);//±íÊ¾Ç×½üµÄ×ÔÎÒ³Æºô£¬Í¨³£ÔÚ¶Ô»°ÖÐ
+		bit=CHENGHU_D->query_chenghu_C(who[subj],who[num]);//è¡¨ç¤ºäº²è¿‘çš„è‡ªæˆ‘ç§°å‘¼ï¼Œé€šå¸¸åœ¨å¯¹è¯ä¸­
 		break;
 	case 'c' :
-		bit=CHENGHU_D->query_chenghu_c(who[subj],who[num]);//±íÊ¾Ç×½üµÄ¶Ô·½³Æºô£¬Í¨³£ÔÚ¶Ô»°ÖÐ
+		bit=CHENGHU_D->query_chenghu_c(who[subj],who[num]);//è¡¨ç¤ºäº²è¿‘çš„å¯¹æ–¹ç§°å‘¼ï¼Œé€šå¸¸åœ¨å¯¹è¯ä¸­
 		break;
 	case 'S' :
-		bit=CHENGHU_D->query_chenghu_S(who[num]);//Õý³£µÄ×ÔÎÒ³Æºô£¬Í¨³£ÔÚ¶Ô»°ÖÐ
+		bit=CHENGHU_D->query_chenghu_S(who[num]);//æ­£å¸¸çš„è‡ªæˆ‘ç§°å‘¼ï¼Œé€šå¸¸åœ¨å¯¹è¯ä¸­
 		break;
 	case 's' :
-		bit=CHENGHU_D->query_chenghu_s(who[num]); //Ç«±°µÄ×ÔÎÒ³Æºô£¬Í¨³£ÔÚ¶Ô»°ÖÐ
+		bit=CHENGHU_D->query_chenghu_s(who[num]); //è°¦å‘çš„è‡ªæˆ‘ç§°å‘¼ï¼Œé€šå¸¸åœ¨å¯¹è¯ä¸­
 		break;
 	case 'R' :
-		bit=CHENGHU_D->query_chenghu_R(who[subj],who[num]); //Õý³£µÄ¶Ô·½³Æºô
+		bit=CHENGHU_D->query_chenghu_R(who[subj],who[num]); //æ­£å¸¸çš„å¯¹æ–¹ç§°å‘¼
 		break;
 	case 'r' :
-		bit=CHENGHU_D->query_chenghu_r(who[subj],who[num]); //ÈèÂîµÄ¶Ô·½³Æºô¡£
+		bit=CHENGHU_D->query_chenghu_r(who[subj],who[num]); //è¾±éª‚çš„å¯¹æ–¹ç§°å‘¼ã€‚
 		break;
 	case 'M' :
 	case 'm' :
@@ -218,7 +218,7 @@ varargs string compose_message(object forwhom, string msg, object *who,
 //inform() can be used to send these messages to the right people.
 //see: inform
 
-varargs string *action(object *who, mixed msg, array obs...) {
+varargs string *action(object *who, mixed msg, mixed *obs...) {
     int i;
     string *res;
 
@@ -259,7 +259,7 @@ void inform(object *who, string *msgs, mixed others) {
 //:FUNCTION simple_action
 //Generate and send messages for an action involving the user and possibly
 //some objects
-varargs void simple_action(mixed msg, array obs...) {
+varargs void simple_action(mixed msg, mixed *obs...) {
     string us;
     string others;
     object *who;
@@ -281,7 +281,7 @@ varargs void simple_action(mixed msg, array obs...) {
 
 //:FUNCTION my_action
 //Generate and send a message that should only be seen by the person doing it
-varargs void my_action(mixed msg, array obs...) {
+varargs void my_action(mixed msg, mixed *obs...) {
     string us;
     object *who;
 
@@ -295,7 +295,7 @@ varargs void my_action(mixed msg, array obs...) {
 
 //:FUNCTION other_action
 //Generate and send a message that should only be seen by others
-varargs void other_action(mixed msg, array obs...) {
+varargs void other_action(mixed msg, mixed *obs...) {
     string others;
     object *who;
 
@@ -310,7 +310,7 @@ varargs void other_action(mixed msg, array obs...) {
 //:FUNCTION targetted_action
 //Generate and send a message involving the doer and a target (and possibly
 //other objects)
-varargs void targetted_action(mixed msg, object target, array obs...) {
+varargs void targetted_action(mixed msg, object target, mixed *obs...) {
     string us, them, others;
     object *who;
 

@@ -10,7 +10,7 @@ string show_all_job(int p_lev)
   int assign_job,finish_job,lev;
   list=JOB_D->list_jobs();
   ret=
-"ĞòºÅ ¹¤×÷ID        ¹¤×÷Ãû³Æ  µÈ¼¶  ÉêÇë´ÎÊı  Íê³É´ÎÊı\n"+
+"åºå· å·¥ä½œID        å·¥ä½œåç§°  ç­‰çº§  ç”³è¯·æ¬¡æ•°  å®Œæˆæ¬¡æ•°\n"+
 "=====================================================\n";
 foreach(string t in list)
 {
@@ -21,17 +21,17 @@ foreach(string t in list)
 	finish_job=JOB_D->query_job(t,"finish_job");
         switch (lev) {
 		case -1:
-			s_lev="ÌØÊâ";
+			s_lev="ç‰¹æ®Š";
 			break;
 		case 0: 
-			s_lev="³õ¼¶";
+			s_lev="åˆçº§";
 			break;
-		case 1: s_lev="ÖĞ¼¶";
+		case 1: s_lev="ä¸­çº§";
 			break;
-		case 2: s_lev="¸ß¼¶";
+		case 2: s_lev="é«˜çº§";
 			break;
 		default :
-			s_lev="Î´Öª";
+			s_lev="æœªçŸ¥";
 	}
     ret+=sprintf("%3d  %-12s  %-8s  %4s  %6d    %6d\n",num++,t,nam,s_lev,assign_job,finish_job);
   }
@@ -44,11 +44,11 @@ string show_job(object o_id, int level) { // -2 means all level
         int num=1;
 	jobs=o_id->query_job("list");
   	if(sizeof(jobs)==0)
-      		return "Î´²éµ½ÈÎºÎ¹¤×÷¼ÍÂ¼¡£\n";
+      		return "æœªæŸ¥åˆ°ä»»ä½•å·¥ä½œçºªå½•ã€‚\n";
 	ret =
-"                                   µ±Ìì Ä¿Ç°  ÉÏ´Î¿ªÊ¼      \n"+
-"ĞòºÅ ¹¤×÷Ãû³Æ  ¹¤×÷ID       ×Ü´ÎÊı ´ÎÊı ×´Ì¬ »òÍê³ÉÊ±¼ä   ±¸×¢ \n"+
-"¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş\n";
+"                                   å½“å¤© ç›®å‰  ä¸Šæ¬¡å¼€å§‹      \n"+
+"åºå· å·¥ä½œåç§°  å·¥ä½œID       æ€»æ¬¡æ•° æ¬¡æ•° çŠ¶æ€ æˆ–å®Œæˆæ—¶é—´   å¤‡æ³¨ \n"+
+"ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“\n";
 	foreach(string jb in jobs)
   	{
       		string name,statue,lasttimes,s_time;
@@ -62,24 +62,24 @@ string show_job(object o_id, int level) { // -2 means all level
       		count=o_id->query_job(jb,"count");
 	      	lastcount=o_id->query_job(jb,"count_lasttimes");
 	      	p_time=o_id->query_job(jb,"beg_time");     
-      		statue=(p_time>0 ? "Ö´ĞĞ" : "Íê³É");
+      		statue=(p_time>0 ? "æ‰§è¡Œ" : "å®Œæˆ");
 	      	if(!p_time)
         		p_time=o_id->query_job(jb,"finish_time");
 		p_time=time()-p_time;
 		p_time/=60;
 
 		if( p_time > 24 * 60 * 30 )
-        		s_time= chinese_number(p_time/(24 * 60 * 30))+"ÔÂ";
+        		s_time= chinese_number(p_time/(24 * 60 * 30))+"æœˆ";
 		else if( p_time > 24 * 60 * 7 )
-        		s_time= chinese_number(p_time/(24 * 60 * 7))+"ÖÜ";
+        		s_time= chinese_number(p_time/(24 * 60 * 7))+"å‘¨";
 		else if( p_time > 24 * 60 )
-        		s_time= chinese_number(p_time/(24 * 60))+"Ìì";
+        		s_time= chinese_number(p_time/(24 * 60))+"å¤©";
 		else if( p_time > 60 )
-        		s_time= chinese_number(p_time/60)+"Ğ¡Ê±";
+        		s_time= chinese_number(p_time/60)+"å°æ—¶";
 		else
-        		s_time= chinese_number(p_time)+"·ÖÖÓ";
+        		s_time= chinese_number(p_time)+"åˆ†é’Ÿ";
 
-		s_time+="Ç°";
+		s_time+="å‰";
 
 	  	memo=o_id->query_job(jb,"memo");
 	  	if(!memo) memo="____";
@@ -114,11 +114,11 @@ void start(string arg)
   o_id=find_body(who);
 
   if(!wizardp(this_body()) && objectp(o_id) && (o_id!=this_body()) ) {
-        write("Ö»ÓĞÎ×Ê¦²Å¿É¼ì²éËûÈËµÄ¹¤×÷Çé¿ö¡£\n");
+        write("åªæœ‰å·«å¸ˆæ‰å¯æ£€æŸ¥ä»–äººçš„å·¥ä½œæƒ…å†µã€‚\n");
         return;
   }
 
-  if(!objectp(o_id)) {write("ÕÒ²»µ½£º"+who+"¡£\n"); return; }
+  if(!objectp(o_id)) {write("æ‰¾ä¸åˆ°ï¼š"+who+"ã€‚\n"); return; }
 
   if((what=="")||!what) what="all";
   switch (what) {
@@ -154,7 +154,7 @@ void start(string arg)
 	break;
 
       default :
-        msg="Ã»ÓĞÕâ¸ö²ÎÊı£ºÇë²ÎÔÄ help job¡£\n";
+        msg="æ²¡æœ‰è¿™ä¸ªå‚æ•°ï¼šè¯·å‚é˜… help jobã€‚\n";
   }
   write (msg);
   return ;

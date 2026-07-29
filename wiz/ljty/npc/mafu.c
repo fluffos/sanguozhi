@@ -10,12 +10,12 @@ void setup()
 {
   object jia;
   
-  set_name("mafu", "Âí·ò");
-  set_proper_name("Âí·ò");
+  set_name("mafu", "é©¬å¤«");
+  set_proper_name("é©¬å¤«");
   set_gender(1);
   set_age(38);
-  set_in_room_desc("Âí·ò(mafu)");
-  set_long("ÕâÊÇÎ»ÀÏÊµ°Í½»µÄÂí·ò£¬ÂúÍ·´óº¹£¬Á³ÉÏÉíÉÏÕ´ÂúÁË²İÁÏĞ¼¡£\n");
+  set_in_room_desc("é©¬å¤«(mafu)");
+  set_long("è¿™æ˜¯ä½è€å®å·´äº¤çš„é©¬å¤«ï¼Œæ»¡å¤´å¤§æ±—ï¼Œè„¸ä¸Šèº«ä¸Šæ²¾æ»¡äº†è‰æ–™å±‘ã€‚\n");
 
   jia = new("/sgdomain/obj/cloth/torso/buyi.c");
   jia->move(this_object());
@@ -37,14 +37,14 @@ void special_answer(object who,string matt)
 	if(member_array(p_id,name_list_take_horse) != -1)
 	  {
 	    this_object()->targetted_action(
-"$N¶Ô$tËµµ½£º¡°ÄãÒÑ¾­Òª¹ıÒ»Æ¥ÁË£¬ÔõÃ´»¹Òª£¬ĞÎÊÆ³Ô½ô£¬²»ÄÜ¶à¸ø¡£¡±\n",who);
+"$Nå¯¹$tè¯´åˆ°ï¼šâ€œä½ å·²ç»è¦è¿‡ä¸€åŒ¹äº†ï¼Œæ€ä¹ˆè¿˜è¦ï¼Œå½¢åŠ¿åƒç´§ï¼Œä¸èƒ½å¤šç»™ã€‚â€\n",who);
 	    return;
 	  }
 	else
 	  {
 	    this_object()->targetted_action(
- "$N¶Ô$tËµµ½£º¡°ÇëÄúÉÔµÈ£¬Ğ¡µÄÕâ¾Í¸øÄãÇ£ÂíÀ´¡£¡±\n¹ıÁËÒ»»á£¬$NÇ£ÁËÒ»Æ¥Âí£¬°Ñ\
-çÖÉş·ÅÔÚ$tµÄÊÖÉÏ£¬¶Ô$tËµ£º¡°Õâ¾ÍÊÇÄúµÄÂíÁË¡£¡±\n",who);
+ "$Nå¯¹$tè¯´åˆ°ï¼šâ€œè¯·æ‚¨ç¨ç­‰ï¼Œå°çš„è¿™å°±ç»™ä½ ç‰µé©¬æ¥ã€‚â€\nè¿‡äº†ä¸€ä¼šï¼Œ$Nç‰µäº†ä¸€åŒ¹é©¬ï¼ŒæŠŠ\
+ç¼°ç»³æ”¾åœ¨$tçš„æ‰‹ä¸Šï¼Œå¯¹$tè¯´ï¼šâ€œè¿™å°±æ˜¯æ‚¨çš„é©¬äº†ã€‚â€\n",who);
 	    
 	    name_list_take_horse += ({ p_id });
 	    p_shenwang = who->query_shengwang_int();
@@ -69,8 +69,8 @@ void special_answer(object who,string matt)
 	    return;
 	  }
       default:
-	this_object()->targetted_action("$NºÜ±§Ç¸µØ¶Ô$T"+
-	"ËµµÀ£º¡°¿Í¹ÙµÄÎÊÌâ£¬$sÊµÔÚÊÇÒ»µã¶¼²»ÖªµÀ¡£¡±\n", 
+	this_object()->targetted_action("$Nå¾ˆæŠ±æ­‰åœ°å¯¹$T"+
+	"è¯´é“ï¼šâ€œå®¢å®˜çš„é—®é¢˜ï¼Œ$så®åœ¨æ˜¯ä¸€ç‚¹éƒ½ä¸çŸ¥é“ã€‚â€\n", 
 					who);
 	return;
       }

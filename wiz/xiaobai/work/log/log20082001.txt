@@ -1,23 +1,23 @@
 20.08.2001
 * changed /daemons/troop_d/horse.c
     funcion int get_horse_kills(int p_id) // not real number
-    ¶ÔÊ¿±øÊı p_n ¼ÓÈë»»Ëã adj_num()
+    å¯¹å£«å…µæ•° p_n åŠ å…¥æ¢ç®— adj_num()
 
 * changed /daemons/troop_d/array.c
     funcion int get_array_kills(int p_id) // not real number
-    ¶ÔÊ¿±øÊı p_n ¼ÓÈë»»Ëã adj_num()
+    å¯¹å£«å…µæ•° p_n åŠ å…¥æ¢ç®— adj_num()
     
 * changed /daemons/warai_d/array_attack.c
     function void array_attack_kill(int p_id, string dir)
-    µ÷ÕûÁËÉ±ÉËµÄÏµÊı p_kill
+    è°ƒæ•´äº†æ€ä¼¤çš„ç³»æ•° p_kill
     
 * changed /sgdomain/event/ev_localmeeting/suggestion
     function get_suggestion(..)
-    ³ö±ø½¨Òé²»ÊÜµ±Ìì½¨Òé´ÎÊıÏŞÖÆ
+    å‡ºå…µå»ºè®®ä¸å—å½“å¤©å»ºè®®æ¬¡æ•°é™åˆ¶
 
 * changed /daemons/map_d.c
     function preview(...)
-        ÒÔµØÍ¼µ¥ÔªÉÏµÄµÚÒ»Ö§²¿¶ÓµÄµÚÒ»Î»½«ÁìµÄÖĞÎÄÃû×ÖÖĞµÄµÚÒ»
-        ¸ö×Ö×÷ÎªÏÔÊ¾¡£
-        ×Ô¼ºµÄ²¿¶ÓÈÔÈ»ÊÇ M ²»±ä¡£
+        ä»¥åœ°å›¾å•å…ƒä¸Šçš„ç¬¬ä¸€æ”¯éƒ¨é˜Ÿçš„ç¬¬ä¸€ä½å°†é¢†çš„ä¸­æ–‡åå­—ä¸­çš„ç¬¬ä¸€
+        ä¸ªå­—ä½œä¸ºæ˜¾ç¤ºã€‚
+        è‡ªå·±çš„éƒ¨é˜Ÿä»ç„¶æ˜¯ M ä¸å˜ã€‚
         

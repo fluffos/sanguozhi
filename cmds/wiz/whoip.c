@@ -25,7 +25,7 @@
 
 inherit CMD;
 
-static array color_sort = ({HIM, HIG, CYN, MAG, ORG, WHT, YEL, GRN});
+nosave protected mixed * color_sort = ({HIM, HIG, CYN, MAG, ORG, WHT, YEL, GRN});
 
 //! only show online users who satisfiy the condition
 private void show_onlineonly( string par_strPara );
@@ -33,7 +33,7 @@ private void show_onlineonly( string par_strPara );
 //! show all users who satisfy the condition
 private void show_all( string par_strPara );
 
-//! Èç¹û ip µÄÇ°Ä³¶ÎÏëµÈ£¬·µ»Ø1£¬·ñÔò·µ»Ø0
+//! å¦‚æœ ip çš„å‰æŸæ®µæƒ³ç­‰ï¼Œè¿”å›1ï¼Œå¦åˆ™è¿”å›0
 private int filter_ip( string par_strId, int par_nLength, string par_strPara );
  
 private void main(string arg)
@@ -50,9 +50,9 @@ private void main(string arg)
     
     if ( !arg )
     {
-        outf("%s:  (µ±µØÊ±¼ä: %s)\n%s",
+        outf("%s:  (å½“åœ°æ—¶é—´: %s)\n%s",
                mud_name(), ctime(time()), DIVIDER);
-        out("Ãû×Ö         IP number                 IP name\n"+DIVIDER);
+        out("åå­—         IP number                 IP name\n"+DIVIDER);
 
 /*
         foreach ( user in users() )
@@ -99,7 +99,7 @@ private void main(string arg)
             out("\n"+NOR);
             	/*
             outf(c_str + "%-16s%-24s %-25s %-25s\n" + NOR,
-            	   c_n?c_n:"Ã»ÓĞ¹ú¼Ò",
+            	   c_n?c_n:"æ²¡æœ‰å›½å®¶",
                    sprintf("%s(%s)",user->query_chinese_id()?user->query_chinese_id():"LOGIN",user->query_userid()?user->query_userid():"(logind)" ),
                    query_ip_number(user)?query_ip_number(user):"0", 
                    query_ip_name(user)?query_ip_name(user):"0");
@@ -108,7 +108,7 @@ private void main(string arg)
 
 	    }
         x = sizeof(userlist);
-        outf("%sÄ¿Ç°ÓĞ %d Î»Íæ¼Ò£¬%d¸öIPµØÖ·¡£\n",DIVIDER, x , i+1);//sizeof(keys(u_m)));
+        outf("%sç›®å‰æœ‰ %d ä½ç©å®¶ï¼Œ%dä¸ªIPåœ°å€ã€‚\n",DIVIDER, x , i+1);//sizeof(keys(u_m)));
         return;
     }
     else
@@ -172,11 +172,11 @@ private void show_onlineonly( string par_strPara )
         if (str != query_ip_number(userlist[0]))
             str += " ("+query_ip_number(userlist[0])+")";
 
-        outf("Ä¿Ç°ÓĞ %d Î»´Ó %s ÉÏÏßµÄÍæ¼Ò:\n", x, str);  
+        outf("ç›®å‰æœ‰ %d ä½ä» %s ä¸Šçº¿çš„ç©å®¶:\n", x, str);  
         outf("%-=78s",implode(n,", ")+".\n");
     }
     else
-        out("Ã»ÓĞÈË´ÓÄÇ¸öµØÖ·Á¬Ïß¡£\n");
+        out("æ²¡æœ‰äººä»é‚£ä¸ªåœ°å€è¿çº¿ã€‚\n");
 }
 
 
@@ -186,8 +186,8 @@ private void show_all( string par_strPara )
     int x;
     object ob;
     string ip;
-    string array strLastDataArr = ({});
-    string array strUserIdArr;
+    string * strLastDataArr = ({});
+    string * strUserIdArr;
     int nIpLength;   
  
     
@@ -219,11 +219,11 @@ private void show_all( string par_strPara )
 
     if ( ( x = sizeof( strUserIdArr ) ) > 0 )
     {
-        outf("ÓĞ %d Î»´Ó %s ÉÏÏßµÄÍæ¼Ò:\n", x, ip );  
+        outf("æœ‰ %d ä½ä» %s ä¸Šçº¿çš„ç©å®¶:\n", x, ip );  
         outf("%-=78s",implode( strUserIdArr, ", " )+".\n");
     }
     else
-        out("Ã»ÓĞÈË´ÓÄÇ¸öµØÖ·Á¬Ïß¡£\n");
+        out("æ²¡æœ‰äººä»é‚£ä¸ªåœ°å€è¿çº¿ã€‚\n");
 }
 
 private int filter_ip( string par_strId, int par_nLength, string par_strPara )

@@ -42,7 +42,7 @@
 #define M_MERGEABLE "/sgdomain/modules/m_mergeable.c"
 #define BANKINTEREST 0.9
 #define SET_GIFT "/wiz/fire/cmds/set_gift.c"
-#define s_notfinish "¶Ô²»Æğ£¬ÕıÔÚÊ©¹¤£¬²»ÄÜÍ¨ĞĞ¡£"
+#define s_notfinish "å¯¹ä¸èµ·ï¼Œæ­£åœ¨æ–½å·¥ï¼Œä¸èƒ½é€šè¡Œã€‚"
 //************************************************************
 #define HELP_GIFT "/wiz/fire/help/help_gift.txt"
 // *************MESSAGE **************************************

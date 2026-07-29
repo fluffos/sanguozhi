@@ -16,12 +16,12 @@ private void main()
 	mixed data, tmp;
 	object war_grid, room1;
 
-	mapinfo = ({(["shape":4, "size":20, "type":"£ª" ]), 
-			(["shape":4, "size":20, "type":"¡Ä" ]),
-			(["shape":4, "size":20, "type":"¡«" ]),
-			(["shape":4, "size":20, "type":"£®" ]),
-			(["shape":4, "size":20, "type":"¡ù" ]),
-			(["shape":4, "size":20, "type":"¡á" ]),});
+	mapinfo = ({(["shape":4, "size":20, "type":"ï¼Š" ]), 
+			(["shape":4, "size":20, "type":"âˆ§" ]),
+			(["shape":4, "size":20, "type":"ï½ž" ]),
+			(["shape":4, "size":20, "type":"ï¼Ž" ]),
+			(["shape":4, "size":20, "type":"â€»" ]),
+			(["shape":4, "size":20, "type":"â™‚" ]),});
 	fn = TMP_DIR+this_body()->query_primary_id()+".c";
 	if( file_size(fn)!=-1 ) rm(fn);
 	write_file(fn, FILE);

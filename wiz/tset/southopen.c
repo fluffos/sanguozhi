@@ -1,4 +1,4 @@
-// southopen.c "ÄÏ´å¿Ú"
+// southopen.c "å—æ‘å£"
 #include <mudlib.h>
 #include <ansi.h>
 
@@ -7,10 +7,10 @@ inherit OUTDOOR_ROOM;
 void setup(){
     set_area("huayin");
     set_light(100);
-    set_brief(YEL+"ÄÏ´å¿Ú"+NOR);
+    set_brief(YEL+"å—æ‘å£"+NOR);
     set_long("
-ÕâÀïÊÇÒ»¸ö´å¿Ú£¬±±ÃæÊÇÒ»×ùĞ¡Ğ¡µÄ´å×¯¡£Ò»¸öĞ¡ÄÁÍ¯ÕıÔÚ·ÅÅ£¡£
-ÄÏ±ßÓĞÒ»ÌõĞ¡ºÓ£¬¿ÉÒÔ´ÓÇÅÉÏ(bridge)×ß¹ıÈ¥¡£
+è¿™é‡Œæ˜¯ä¸€ä¸ªæ‘å£ï¼ŒåŒ—é¢æ˜¯ä¸€åº§å°å°çš„æ‘åº„ã€‚ä¸€ä¸ªå°ç‰§ç«¥æ­£åœ¨æ”¾ç‰›ã€‚
+å—è¾¹æœ‰ä¸€æ¡å°æ²³ï¼Œå¯ä»¥ä»æ¡¥ä¸Š(bridge)èµ°è¿‡å»ã€‚
 \n\n");
 
     set_exits( ([
@@ -18,8 +18,8 @@ void setup(){
         "south" : __DIR__+"riverarea",
     ]) );
 
-    set_exit_msg("south", "$NĞ¡ĞÄÒíÒíµØ×ß½øĞ¡ºÓ¡£\n");
-    set_enter_msg("north", "$N´ÓĞ¡ºÓÀï×ßÉÏ°¶À´¡£\n"); 
+    set_exit_msg("south", "$Nå°å¿ƒç¿¼ç¿¼åœ°èµ°è¿›å°æ²³ã€‚\n");
+    set_enter_msg("north", "$Nä»å°æ²³é‡Œèµ°ä¸Šå²¸æ¥ã€‚\n"); 
 
     set_objects( ([
         __DIR__"bridge" : 1,

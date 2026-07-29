@@ -19,7 +19,7 @@ void create( string guildname )
 	return;
 
     ::create();
-    set_name("Guildmaster", "°ïÖ÷");
+    set_name("Guildmaster", "å¸®ä¸»");
     set_proper_name("The Guildmaster");
     add_id("master");
     set_id("guildmaster");

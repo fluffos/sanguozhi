@@ -26,7 +26,7 @@ mixed do_wave_it(object ob, object with)
 //        return;
     
     if (!ob->wave(with)) {
-        write(useless("»Ó¶¯"+ob->short()));
+        write(useless("æŒ¥åŠ¨"+ob->short()));
     }
 }
 
@@ -38,7 +38,7 @@ void do_wave_obj_at_obj(object ob1, object ob2) {
     do_wave_it(ob1, ob2);
 }
 
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ "OBJ", "OBJ at OBJ:v" }) });
 }

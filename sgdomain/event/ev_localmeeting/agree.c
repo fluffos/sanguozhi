@@ -34,19 +34,19 @@ void do_agree_sb(int task_id,string my_id,string t_id)
         switch(p_ran)
         {
                 case 0:
-                        p_act="$N¶Ô$TÒ»¹°ÊÖ£¬µÀ£º$RÕæ¸ß¼ûÒ²¡£\n";
+                        p_act="$Nå¯¹$Tä¸€æ‹±æ‰‹ï¼Œé“ï¼š$RçœŸé«˜è§ä¹Ÿã€‚\n";
                         break;
                 case 1:
-                        p_act="$NÒ»ÅÄ$TµÄ¼ç°ò£¬µÀ£º¸ß£¡¸ß£¡ÊµÔÚ¸ßÃ÷¡£\n";
+                        p_act="$Nä¸€æ‹$Tçš„è‚©è†€ï¼Œé“ï¼šé«˜ï¼é«˜ï¼å®åœ¨é«˜æ˜ã€‚\n";
                         break;
                 case 2:
-                        p_act="$N¶Ô$TĞ¦µÀ£º$RÖ®¼ûÓë$s²»Ä±¶øºÍÑ½¡£\n";
+                        p_act="$Nå¯¹$Tç¬‘é“ï¼š$Rä¹‹è§ä¸$sä¸è°‹è€Œå’Œå‘€ã€‚\n";
                         break;
                 case 3:
-                        p_act="$NµãÍ·µÀ£ºÎÒÖ§³Ö$m$RµÄ¹Ûµã¡£\n";
+                        p_act="$Nç‚¹å¤´é“ï¼šæˆ‘æ”¯æŒ$m$Rçš„è§‚ç‚¹ã€‚\n";
                         break;
                 default:
-                        p_act="$NÒ»ÅÄ´óÍÈ£¬µÀ£º$m$RËùÑÔ¼«ÊÇ¡£\n";
+                        p_act="$Nä¸€æ‹å¤§è…¿ï¼Œé“ï¼š$m$Ræ‰€è¨€ææ˜¯ã€‚\n";
                         break;
         }
         if(objectp(o_my)&&objectp(o_tar))
@@ -56,17 +56,17 @@ void do_agree_sb(int task_id,string my_id,string t_id)
                 case 1:
                         ag+=({my_id});
                         TASK_D->set_task(task_id,"supportgrp",ag);
-                        p_act="$N½Ó×ÅµÀ£ºÎÒÖ§³Ö"+p_problem+"¡£";
+                        p_act="$Næ¥ç€é“ï¼šæˆ‘æ”¯æŒ"+p_problem+"ã€‚";
                         break;
                 case 2:
                         dg+=({my_id});
                         TASK_D->set_task(task_id,"againstgrp",dg);
-                        p_act="$N½Ó×ÅµÀ£ºÎÒ·´¶Ô"+p_problem+"¡£";
+                        p_act="$Næ¥ç€é“ï¼šæˆ‘åå¯¹"+p_problem+"ã€‚";
                         break;
                 default:
                         ng+=({my_id});
                         TASK_D->set_task(task_id,"neutalgrp",ng);
-                        p_act="$N½Ó×ÅËµµÀ£º¶ÔÓÚ"+p_problem+"£¬ÎÒÃ»ÓĞ¿´·¨¡£";
+                        p_act="$Næ¥ç€è¯´é“ï¼šå¯¹äº"+p_problem+"ï¼Œæˆ‘æ²¡æœ‰çœ‹æ³•ã€‚";
                         break;
         }
         if(objectp(o_my))
@@ -83,32 +83,32 @@ mixed agree_sb(int task_id,string my_id,string t_id)
         string sub;
         sub=TASK_D->get_task(task_id,"suggestion");
         if(!sizeof(sub))
-                return "ÏÖÔÚÃ»ÓĞÊ²Ã´ÒéÌâ¡£\n";
+                return "ç°åœ¨æ²¡æœ‰ä»€ä¹ˆè®®é¢˜ã€‚\n";
         if(sub=="train") 
-             return "ÑµÁ·Ã»Ê²Ã´ºÃÌÖÂÛµÄ£¬ÓÃcmd me±íÊ¾²Î¼Ó¡£\n";   
+             return "è®­ç»ƒæ²¡ä»€ä¹ˆå¥½è®¨è®ºçš„ï¼Œç”¨cmd meè¡¨ç¤ºå‚åŠ ã€‚\n";   
 		if(sub=="over")
-             return "ÌáÇ°É¢»áÃ»Ê²Ã´ºÃÌÖÂÛµÄ£¬²»Í¬ÒâÓÃcmd against±íÊ¾·´¶Ô¡£\n";   
+             return "æå‰æ•£ä¼šæ²¡ä»€ä¹ˆå¥½è®¨è®ºçš„ï¼Œä¸åŒæ„ç”¨cmd againstè¡¨ç¤ºåå¯¹ã€‚\n";   
         if(!sizeof(t_id))
                 t_id=TASK_D->get_task(task_id,"suggestionppl");
         p_name=CHAR_D->get_char(t_id,"name");
         if(!p_name)
-                return "ÄãÍ¬ÒâË­µÄÒâ¼û£¿\n";
+                return "ä½ åŒæ„è°çš„æ„è§ï¼Ÿ\n";
         if(t_id==my_id)
-                return "Äãµ±È»Í¬ÒâÄãµÄÒâ¼ûÁË¡£\n";
+                return "ä½ å½“ç„¶åŒæ„ä½ çš„æ„è§äº†ã€‚\n";
         chars=keys(TASK_D->get_task(task_id,"chars"));
         ag=TASK_D->get_task(task_id,"supportgrp");
         dg=TASK_D->get_task(task_id,"againstgrp");
         ng=TASK_D->get_task(task_id,"neutalgrp");
         if(member_array(t_id,chars)==-1)
-                return sprintf("%s¾ÍÃ»ÓĞ²Î¼Ó»áÒé¡£\n",p_name);
+                return sprintf("%så°±æ²¡æœ‰å‚åŠ ä¼šè®®ã€‚\n",p_name);
         if((member_array(t_id,ag)==-1)&&
            (member_array(t_id,dg)==-1)&&
            (member_array(t_id,ng)==-1))
-                return sprintf("%s»¹Ã»ÓĞ·¢±íÒâ¼û¡£\n",p_name);
+                return sprintf("%sè¿˜æ²¡æœ‰å‘è¡¨æ„è§ã€‚\n",p_name);
         if((member_array(my_id,ag)!=-1)||
            (member_array(my_id,dg)!=-1)||
            (member_array(my_id,ng)!=-1))
-                return "ÄãÒÑ¾­·¢±í¹ı¸ß¼ûÁË¡£\n";
+                return "ä½ å·²ç»å‘è¡¨è¿‡é«˜è§äº†ã€‚\n";
         do_agree_sb(task_id,my_id,t_id);
         return 0;
 }
@@ -138,19 +138,19 @@ void do_disagree_sb(int task_id,string my_id,string t_id)
         switch(p_ran)
         {
                 case 0:
-                        p_act="$NÖåÃ¼µÀ£º$m$RÖ®¼ûËÆºõÓëÀí²»ºÏ¡£\n";
+                        p_act="$Nçš±çœ‰é“ï¼š$m$Rä¹‹è§ä¼¼ä¹ä¸ç†ä¸åˆã€‚\n";
                         break;
                 case 1:
-                        p_act="$N¶Ô$TÒ¡Í·µÀ£º$RÖ®¼û£¬$s²»¸Ò¹¶Í¬¡£\n";
+                        p_act="$Nå¯¹$Tæ‘‡å¤´é“ï¼š$Rä¹‹è§ï¼Œ$sä¸æ•¢è‹ŸåŒã€‚\n";
                         break;
                 case 2:
-                        p_act="$NÒ¡Ò¡Í·£¬µÀ£º$m$RËùÑÔ·ÇÎÒĞÄËùÏë¡£\n";
+                        p_act="$Næ‘‡æ‘‡å¤´ï¼Œé“ï¼š$m$Ræ‰€è¨€éæˆ‘å¿ƒæ‰€æƒ³ã€‚\n";
                         break;
                 case 3:
-                        p_act="$NµÀ£ºÎÒ·´¶Ô$m$RµÄ¹Ûµã¡£\n";
+                        p_act="$Né“ï¼šæˆ‘åå¯¹$m$Rçš„è§‚ç‚¹ã€‚\n";
                         break;
                 default:
-                     p_act="$N³ÁÒ÷Æ¬¿Ì£¬µÀ£º$m$RËùÑÔËÆºõÓĞÀí£¬ÆäÊµ²»È»¡£\n";
+                     p_act="$Næ²‰åŸç‰‡åˆ»ï¼Œé“ï¼š$m$Ræ‰€è¨€ä¼¼ä¹æœ‰ç†ï¼Œå…¶å®ä¸ç„¶ã€‚\n";
                         break;
         }
         if(objectp(o_my)&&objectp(o_tar))
@@ -160,12 +160,12 @@ void do_disagree_sb(int task_id,string my_id,string t_id)
                 case 2:
                         ag+=({my_id});
                         TASK_D->set_task(task_id,"supportgrp",ag);
-                        p_act="$N½Ó×ÅµÀ£ºÎÒÖ§³Ö"+p_problem+"¡£";
+                        p_act="$Næ¥ç€é“ï¼šæˆ‘æ”¯æŒ"+p_problem+"ã€‚";
                         break;
                 default:
                         dg+=({my_id});
                         TASK_D->set_task(task_id,"againstgrp",dg);
-                        p_act="$N½Ó×ÅËµµÀ£ºÎÒ·´¶Ô"+p_problem+"¡£";
+                        p_act="$Næ¥ç€è¯´é“ï¼šæˆ‘åå¯¹"+p_problem+"ã€‚";
                         break;
         }
         if(objectp(o_my))
@@ -182,14 +182,14 @@ mixed disagree_sb(int task_id,string my_id,string t_id)
         string sub;
         sub=TASK_D->get_task(task_id,"suggestion");
         if(!sizeof(sub))
-                return "ÏÖÔÚÃ»ÓĞÊ²Ã´ÒéÌâ¿É·´¶Ô¡£\n";
+                return "ç°åœ¨æ²¡æœ‰ä»€ä¹ˆè®®é¢˜å¯åå¯¹ã€‚\n";
         if(sub=="train") 
-             return "ÑµÁ·Ã»Ê²Ã´ºÃÌÖÂÛµÄ£¬ÓÃcmd me±íÊ¾²Î¼Ó¡£\n";   
+             return "è®­ç»ƒæ²¡ä»€ä¹ˆå¥½è®¨è®ºçš„ï¼Œç”¨cmd meè¡¨ç¤ºå‚åŠ ã€‚\n";   
 		if(sub=="over") {
 			object o;
 			o=CHAR_D->find_char(my_id);
 			if(!objectp(o)) return; // impossible
-			o->simple_action("$NµÀ£º±ğÃ¦£¬±ğÃ¦É¢»á£¬ÎÒ»¹ÓĞ»°½²¡£\n");
+			o->simple_action("$Né“ï¼šåˆ«å¿™ï¼Œåˆ«å¿™æ•£ä¼šï¼Œæˆ‘è¿˜æœ‰è¯è®²ã€‚\n");
 			dis_over(task_id);
 			return 0;
 		}
@@ -198,25 +198,25 @@ mixed disagree_sb(int task_id,string my_id,string t_id)
                 t_id=TASK_D->get_task(task_id,"suggestionppl");
         p_name=CHAR_D->get_char(t_id,"name");
         if(!p_name)
-                return "Äã·´¶ÔË­µÄÒâ¼û£¿\n";
+                return "ä½ åå¯¹è°çš„æ„è§ï¼Ÿ\n";
         if(t_id==my_id)
-                return "Äã·´¶ÔÄã×Ô¼º£¿\n";
+                return "ä½ åå¯¹ä½ è‡ªå·±ï¼Ÿ\n";
         chars=keys(TASK_D->get_task(task_id,"chars"));
         ag=TASK_D->get_task(task_id,"supportgrp");
         dg=TASK_D->get_task(task_id,"againstgrp");
         ng=TASK_D->get_task(task_id,"neutalgrp");
         if(member_array(t_id,chars)==-1)
-                return sprintf("%s¾ÍÃ»ÓĞ²Î¼Ó»áÒé¡£\n",p_name);
+                return sprintf("%så°±æ²¡æœ‰å‚åŠ ä¼šè®®ã€‚\n",p_name);
         if((member_array(t_id,ag)==-1)&&
            (member_array(t_id,dg)==-1)&&
            (member_array(t_id,ng)==-1))
-                return sprintf("%s»¹Ã»ÓĞ·¢±íÒâ¼û¡£\n",p_name);
+                return sprintf("%sè¿˜æ²¡æœ‰å‘è¡¨æ„è§ã€‚\n",p_name);
         if(member_array(t_id,ng)!=-1)
-                return sprintf("%sµÄÒâ¼ûÃ»·¨·´¶Ô¡£\n",p_name);
+                return sprintf("%sçš„æ„è§æ²¡æ³•åå¯¹ã€‚\n",p_name);
         if((member_array(my_id,ag)!=-1)||
            (member_array(my_id,dg)!=-1)||
            (member_array(my_id,ng)!=-1))
-                return "ÄãÒÑ¾­·¢±í¹ı¸ß¼ûÁË¡£\n";
+                return "ä½ å·²ç»å‘è¡¨è¿‡é«˜è§äº†ã€‚\n";
         do_disagree_sb(task_id,my_id,t_id);
         return 0;
 }
@@ -242,17 +242,17 @@ void do_neutral_sb(int task_id,string my_id,string t_id)
         switch(p_ran)
         {
            case 0:
-	      p_act="$NµÀ£º$m$RÖ®¼ûºÃÏñ¶Ô£¬Ò²ºÃÏñ²»¶Ô£¬×ÜÖ®£¬¶÷¡­¡­\n";
+	      p_act="$Né“ï¼š$m$Rä¹‹è§å¥½åƒå¯¹ï¼Œä¹Ÿå¥½åƒä¸å¯¹ï¼Œæ€»ä¹‹ï¼Œæ©â€¦â€¦\n";
               break;
            default:
-              p_act="$NÖåÃ¼µÀ£º$m$RËùÑÔ£¬Ö§³Ö²»ÊÇ£¬²»Ö§³ÖÒ²²»ÊÇ£¬°¦¡­¡­\n";
+              p_act="$Nçš±çœ‰é“ï¼š$m$Ræ‰€è¨€ï¼Œæ”¯æŒä¸æ˜¯ï¼Œä¸æ”¯æŒä¹Ÿä¸æ˜¯ï¼Œå”‰â€¦â€¦\n";
                         break;
         }
         if(objectp(o_my)&&objectp(o_tar))
                 o_my->targetted_action(p_act,o_tar);
         ng+=({my_id});
         TASK_D->set_task(task_id,"neutalgrp",ng);
-        p_act="$N½Ó×ÅµÀ£º¶ÔÓÚ"+p_problem+"£¬ÎÒÃ»ÓĞ¿´·¨¡£\n";
+        p_act="$Næ¥ç€é“ï¼šå¯¹äº"+p_problem+"ï¼Œæˆ‘æ²¡æœ‰çœ‹æ³•ã€‚\n";
         if(objectp(o_my))
         o_my->simple_action(p_act);
       begin_judge(task_id);
@@ -267,32 +267,32 @@ mixed neutral_sb(int task_id,string my_id,string t_id)
         string sub;
         sub=TASK_D->get_task(task_id,"suggestion");
         if(!sizeof(sub))
-                return "ÏÖÔÚÃ»ÓĞÊ²Ã´ÒéÌâ¿É±íÊ¾ÖĞÁ¢¡£\n";
+                return "ç°åœ¨æ²¡æœ‰ä»€ä¹ˆè®®é¢˜å¯è¡¨ç¤ºä¸­ç«‹ã€‚\n";
         if(sub=="train") 
-             return "ÑµÁ·Ã»Ê²Ã´ºÃÌÖÂÛµÄ£¬ÓÃcmd me±íÊ¾²Î¼Ó¡£\n";   
+             return "è®­ç»ƒæ²¡ä»€ä¹ˆå¥½è®¨è®ºçš„ï¼Œç”¨cmd meè¡¨ç¤ºå‚åŠ ã€‚\n";   
 		if(sub=="over")
-             return "ÌáÇ°É¢»áÃ»Ê²Ã´ºÃÌÖÂÛµÄ£¬²»Í¬ÒâÓÃcmd against±íÊ¾·´¶Ô¡£\n";   
+             return "æå‰æ•£ä¼šæ²¡ä»€ä¹ˆå¥½è®¨è®ºçš„ï¼Œä¸åŒæ„ç”¨cmd againstè¡¨ç¤ºåå¯¹ã€‚\n";   
         if(!sizeof(t_id))
                 t_id=TASK_D->get_task(task_id,"suggestionppl");
         p_name=CHAR_D->get_char(t_id,"name");
         if(!p_name)
-                return "Äã¶ÔË­µÄÒâ¼û±íÊ¾ÖĞÁ¢£¿\n";
+                return "ä½ å¯¹è°çš„æ„è§è¡¨ç¤ºä¸­ç«‹ï¼Ÿ\n";
         if(t_id==my_id)
-                return "Äã¶ÔÄã×Ô¼º±íÊ¾ÖĞÁ¢£¿\n";
+                return "ä½ å¯¹ä½ è‡ªå·±è¡¨ç¤ºä¸­ç«‹ï¼Ÿ\n";
         chars=keys(TASK_D->get_task(task_id,"chars"));
         ag=TASK_D->get_task(task_id,"supportgrp");
         dg=TASK_D->get_task(task_id,"againstgrp");
         ng=TASK_D->get_task(task_id,"neutalgrp");
         if(member_array(t_id,chars)==-1)
-                return sprintf("%s¾ÍÃ»ÓĞ²Î¼Ó»áÒé¡£\n",p_name);
+                return sprintf("%så°±æ²¡æœ‰å‚åŠ ä¼šè®®ã€‚\n",p_name);
         if((member_array(t_id,ag)==-1)&&
            (member_array(t_id,dg)==-1)&&
            (member_array(t_id,ng)==-1))
-                return sprintf("%s»¹Ã»ÓĞ·¢±íÒâ¼û¡£\n",p_name);
+                return sprintf("%sè¿˜æ²¡æœ‰å‘è¡¨æ„è§ã€‚\n",p_name);
         if((member_array(my_id,ag)!=-1)||
            (member_array(my_id,dg)!=-1)||
            (member_array(my_id,ng)!=-1))
-                return "ÄãÒÑ¾­·¢±í¹ı¸ß¼ûÁË¡£\n";
+                return "ä½ å·²ç»å‘è¡¨è¿‡é«˜è§äº†ã€‚\n";
         do_neutral_sb(task_id,my_id,t_id);
         return 0;
 }

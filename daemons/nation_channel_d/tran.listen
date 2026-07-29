@@ -11,7 +11,7 @@ mixed do_check_can_tran(string who)
 
 //	ply = find_body("who");
 //	if( objectp(ply)&&ply->query_sk_level("sk_wuli")<=50 )
-//		return "ÄãÎäÑ§ĞŞÑøÌ«µÍ£¬ÔõÄÜ¶ÔÔËÊäÕâÖÖ¾ü¹ú´óÊÂÖ¸ÊÖ»®½Å£¡\n";
+//		return "ä½ æ­¦å­¦ä¿®å…»å¤ªä½ï¼Œæ€èƒ½å¯¹è¿è¾“è¿™ç§å†›å›½å¤§äº‹æŒ‡æ‰‹åˆ’è„šï¼\n";
 //	else return 1;
 	return 1;
 }
@@ -26,10 +26,10 @@ mixed legal_stuff(string p_stuf) {
 }
 string stuff_name(string p_stuf,string typ) {
         switch(typ) {
-                case "gold": return "»Æ½ğ";
+                case "gold": return "é»„é‡‘";
                 case "troop" : return TROOP_TYPE_D->get_troop_type(p_stuf,"name");
                 case "stuff" : return (EV_MERCHANT)->query_goods(p_stuf,"name");
-                default : return "Î´Öª»õÎï";
+                default : return "æœªçŸ¥è´§ç‰©";
         }
 }
 int have_enough_stuf(string b_area,string p_stuf,string typ,int val) {
@@ -58,37 +58,37 @@ mixed do_check_tran_para(string *para, string who)
         
         n_id = CHAR_D->get_char(who,"nation");
 	if (CHAR_D->get_char(n_id,"type")==TYPE_NPC)
-	   return "NPC¹ú¼ÒµÄ±øÁ¦Îï×ÊÍæ¼Ò²»µÃËæÒâµ÷¶¯!\n";
-	if(sizeof(para)!=5&&sizeof(para)!=6) return "´íÎóµÄ¸ñÊ½¡£\n";
+	   return "NPCå›½å®¶çš„å…µåŠ›ç‰©èµ„ç©å®¶ä¸å¾—éšæ„è°ƒåŠ¨!\n";
+	if(sizeof(para)!=5&&sizeof(para)!=6) return "é”™è¯¯çš„æ ¼å¼ã€‚\n";
 	from = para[1];
-	if(!AREA_D->area_exist(from)) return "Ã»ÓĞ"+from+"Õâ¸öµØÇø¡£\n";
+	if(!AREA_D->area_exist(from)) return "æ²¡æœ‰"+from+"è¿™ä¸ªåœ°åŒºã€‚\n";
         if(AREA_D->get_area(from,"nation")!=n_id)
-                return AREA_D->get_area(from,"name")+"²»ÊôÓÚ±¾¹ú¡£\n";
+                return AREA_D->get_area(from,"name")+"ä¸å±äºæœ¬å›½ã€‚\n";
 	to   = para[2];
 
 	if(!CHAR_D->get_char(who,"ranknation")) {
 		if((AREA_D->get_area(from,"leader")!=who)&&(AREA_D->get_area(to,"leader")!=who))
-			return "Ö»ÓĞ¹ú¼Ò¹ÙÔ±»òÏà¹ØµØÇøµÄÌ«ÊØ²Å¿ÉÒÔÌá³öÔËÊä½¨Òé¡£\n";
+			return "åªæœ‰å›½å®¶å®˜å‘˜æˆ–ç›¸å…³åœ°åŒºçš„å¤ªå®ˆæ‰å¯ä»¥æå‡ºè¿è¾“å»ºè®®ã€‚\n";
 	}
 	
-	//Added by suicide for can't tran stuff or soldier from area which ºÍÌáÒéÈË·ÇÍ¬ÅÉÏµ
+	//Added by suicide for can't tran stuff or soldier from area which å’Œæè®®äººéåŒæ´¾ç³»
 	if (CHAR_D->get_char(n_id,"type")==TYPE_NPC)
 	{
 	f_leader = AREA_D->get_area(from,"leader");
 	if ((f_leader!=who)&&
 	    (CHAR_D->get_char(f_leader,"fealty")!=who)&&
 	    (CHAR_D->get_char(f_leader,"fealty")!=CHAR_D->get_char(who,"fealty")))
-	   return "Êä³ö»õÎï»ò±øÖÖµØÇøµÄÌ«ÊØºÍÄã²»ÊÇÒ»¸öÅÉÏµ£¬¿ÖÅÂ²»»á´ğÓ¦¡£\n";
+	   return "è¾“å‡ºè´§ç‰©æˆ–å…µç§åœ°åŒºçš„å¤ªå®ˆå’Œä½ ä¸æ˜¯ä¸€ä¸ªæ´¾ç³»ï¼Œææ€•ä¸ä¼šç­”åº”ã€‚\n";
 	}
 	//Added end 2000.08.07
 	
 	
-	if(!AREA_D->area_exist(to)) return "Ã»ÓĞ"+to+"Õâ¸öµØÇø¡£\n";
+	if(!AREA_D->area_exist(to)) return "æ²¡æœ‰"+to+"è¿™ä¸ªåœ°åŒºã€‚\n";
         if(AREA_D->get_area(to,"nation")!=n_id)
-                return AREA_D->get_area(to,"name")+"²»ÊôÓÚ±¾¹ú¡£\n";
+                return AREA_D->get_area(to,"name")+"ä¸å±äºæœ¬å›½ã€‚\n";
 	if(AREA_D->get_distance(from,to)!=1)
-                return AREA_D->get_area(from,"name")+"Óë"+
-                        AREA_D->get_area(to,"name")+"²»ÊÇÏàÁÚµØÇø¡£\n";
+                return AREA_D->get_area(from,"name")+"ä¸"+
+                        AREA_D->get_area(to,"name")+"ä¸æ˜¯ç›¸é‚»åœ°åŒºã€‚\n";
 	if(sizeof(para)==6){
 		p_stuff=para[3]+" "+para[4] ; 
 		val=to_int(para[5]);
@@ -97,17 +97,17 @@ mixed do_check_tran_para(string *para, string who)
 		val=to_int(para[4]);	
 	}
         typ=legal_stuff(p_stuff);
-	if( !stringp(typ) ) return "Ã»ÓĞ"+p_stuff+"ÕâÖÖ»õÎï»ò±øÖÖ¡£\n";
-        if( val<=0 ) 	return "ÔËÊäÊıÁ¿±ØĞè´óÓÚÁã¡£\n";
-        if( val>1000000 ) return "Ò»´ÎÔËÊäµÄ×î´óÁ¿ÊÇÒ»°ÙÍò¡£\n";
+	if( !stringp(typ) ) return "æ²¡æœ‰"+p_stuff+"è¿™ç§è´§ç‰©æˆ–å…µç§ã€‚\n";
+        if( val<=0 ) 	return "è¿è¾“æ•°é‡å¿…éœ€å¤§äºé›¶ã€‚\n";
+        if( val>1000000 ) return "ä¸€æ¬¡è¿è¾“çš„æœ€å¤§é‡æ˜¯ä¸€ç™¾ä¸‡ã€‚\n";
     	name=stuff_name(p_stuff,typ);
         if( !have_enough_stuf(from,p_stuff,typ,val) ) 
-		return AREA_D->get_area(from,"name")+"Ã»ÓĞÄÇÃ´¶à"+name+"¡£\n";
+		return AREA_D->get_area(from,"name")+"æ²¡æœ‰é‚£ä¹ˆå¤š"+name+"ã€‚\n";
 
         add_suggest(n_id,"tran",({from,to,p_stuff,val,typ,name}), who,({from,to}));
-        set_suggest(n_id,"str","½«"+AREA_D->get_area(from,"name")+
-		"µÄ"+name+"µ÷"+chinese_number(val)+"µ½"+AREA_D->get_area(to,"name"));
-        set_suggest(n_id,"reason","ÎªÆ½ºâ·¢Õ¹");
+        set_suggest(n_id,"str","å°†"+AREA_D->get_area(from,"name")+
+		"çš„"+name+"è°ƒ"+chinese_number(val)+"åˆ°"+AREA_D->get_area(to,"name"));
+        set_suggest(n_id,"reason","ä¸ºå¹³è¡¡å‘å±•");
 
         announce_suggest(n_id);
         call_out("discuss_suggest",2,n_id);
@@ -128,8 +128,8 @@ void do_tran(string n_id)
 	name	= para[5];
 
         if( !have_enough_stuf(b_area,p_stuff,typ,val) ){
-		deliever_tell(p_id,n_id,"²»ÖªÊ²Ã´Ô­Òò£¬"+AREA_D->get_area(b_area,"name")
-			+"ÓÖÃ»ÓĞÄÇÃ´¶à"+name+"¡£ÔËÊäÈ¡Ïû¡£\n");
+		deliever_tell(p_id,n_id,"ä¸çŸ¥ä»€ä¹ˆåŸå› ï¼Œ"+AREA_D->get_area(b_area,"name")
+			+"åˆæ²¡æœ‰é‚£ä¹ˆå¤š"+name+"ã€‚è¿è¾“å–æ¶ˆã€‚\n");
                 return;
         }
 	switch (typ) {
@@ -154,18 +154,18 @@ void do_tran(string n_id)
 
         if((reab<5)&&(rea<80)) {
                 val=val*9/10;
-                dis="·Ç³£²»ĞÒ£¬Ê®·ÖÖ®Ò»µÄ"+name+"ÔÚÂÃÍ¾¶ªÊ§¡£";
+                dis="éå¸¸ä¸å¹¸ï¼Œååˆ†ä¹‹ä¸€çš„"+name+"åœ¨æ—…é€”ä¸¢å¤±ã€‚";
         } else if( (reab<40)&&(rea<80) ) {
 
             	val*=(reab/10+95);
                 val/=100;
-                dis="ÓÉÓÚÖÖÖÖÔ­Òò£¬";
-                dis+="Ö»ÓĞ"+chinese_number(val)+name+
-                	"°²È«µ½´ï"+AREA_D->get_area(t_area,"name")+"¡£";
+                dis="ç”±äºç§ç§åŸå› ï¼Œ";
+                dis+="åªæœ‰"+chinese_number(val)+name+
+                	"å®‰å…¨åˆ°è¾¾"+AREA_D->get_area(t_area,"name")+"ã€‚";
         } else
 
-	dis = "·Ç³£ĞÒÔË£¬ËùÓĞ"+chinese_number(val)+name+
-        	"È«²¿°²È«µ½´ï"+AREA_D->get_area(t_area,"name")+"¡£";
+	dis = "éå¸¸å¹¸è¿ï¼Œæ‰€æœ‰"+chinese_number(val)+name+
+        	"å…¨éƒ¨å®‰å…¨åˆ°è¾¾"+AREA_D->get_area(t_area,"name")+"ã€‚";
         switch ( typ ) {
                 case "gold" :
                 case "stuff" :

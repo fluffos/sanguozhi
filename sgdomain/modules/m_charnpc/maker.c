@@ -1,25 +1,25 @@
 // maker.c the maker could be able to make weapon, cloth or armor
 
 // updated by xiaobai on 31 Oct. 2001
-//      ¹óÖØµÄÎïÆ·(1 gold ÒÔÉÏ)ÓĞÒ»¶¨µÄ´æ»õÏŞÁ¿£¬
-//      ´æ»õÁ¿ÔÚ¸üĞÂ»òÕßÏÖÊµÈÕÆÚ×ª»»Ê±»á×Ô¶¯²¹Âú
-//      ²é¿´ p_mpStorage[ÎïÖÖ] Îª·ÇÁãÕß£¬¸ÃÎïÖÖÎªÏŞÁ¿
+//      è´µé‡çš„ç‰©å“(1 gold ä»¥ä¸Š)æœ‰ä¸€å®šçš„å­˜è´§é™é‡ï¼Œ
+//      å­˜è´§é‡åœ¨æ›´æ–°æˆ–è€…ç°å®æ—¥æœŸè½¬æ¢æ—¶ä¼šè‡ªåŠ¨è¡¥æ»¡
+//      æŸ¥çœ‹ p_mpStorage[ç‰©ç§] ä¸ºéé›¶è€…ï¼Œè¯¥ç‰©ç§ä¸ºé™é‡
 //
 
 #include <move.h>
 #include <localtime.h>
 
 #define FIXVAL 2
-#define MAX_STORAGE 20  // xiaobai: Âú²Ö´æ»õÁ¿
-#define VALUE_LIMIT 10000   // xiaobai:¼ÛÖµ 1 gold ÒÔÉÏµÄÃ¿Ìì´æ»õÏŞÁ¿
+#define MAX_STORAGE 20  // xiaobai: æ»¡ä»“å­˜è´§é‡
+#define VALUE_LIMIT 10000   // xiaobai:ä»·å€¼ 1 gold ä»¥ä¸Šçš„æ¯å¤©å­˜è´§é™é‡
 
 inherit PMODULES+"m_charnpc";
 inherit M_ANSI;
 inherit M_GREETER;
 
 private string m_id;
-private mapping p_mpStorage = ([]);    // xiaobai: ´æ»õÊıÁ¿
-private int p_nDay; // xiaobai: ÈÕÆÚ
+private mapping p_mpStorage = ([]);    // xiaobai: å­˜è´§æ•°é‡
+private int p_nDay; // xiaobai: æ—¥æœŸ
 
 void my_select(string str);
 void input_name(string str);
@@ -30,7 +30,7 @@ void no_answer();
 void fail_answer();
 void succ_answer();
 // xiaobai added
-//! Ö¸¶¨Ä³Ğ©¹óÖØÎïÆ·µÄ´æ»õ
+//! æŒ‡å®šæŸäº›è´µé‡ç‰©å“çš„å­˜è´§
 private void full_storage();
 
 void setup()
@@ -53,17 +53,17 @@ void extra_init()
 
 		ask_order=CHAR_D->get_char(m_id,"ask_order");
 		if(!ask_order) 
-			ask_order="$N¶Ô$TÕĞÁËÕĞÊÖ£º$m£¬$SÏë¶¨µã¶ù¶«Î÷¡£\n";
+			ask_order="$Nå¯¹$Tæ‹›äº†æ‹›æ‰‹ï¼š$mï¼Œ$Sæƒ³å®šç‚¹å„¿ä¸œè¥¿ã€‚\n";
 		add_ask_str("order",ask_order);
 
 		ask_fix=CHAR_D->get_char(m_id,"ask_fix");
 		if(!ask_fix) 
-			ask_fix="$N¶Ô$TÕĞÁËÕĞÊÖ£º$m£¬$SÓĞµã¶ù¶«Î÷£¬ÄãÄÜ²»ÄÜ°ïÃ¦¸ÄÒ»¸Ä£¿\n";
+			ask_fix="$Nå¯¹$Tæ‹›äº†æ‹›æ‰‹ï¼š$mï¼Œ$Sæœ‰ç‚¹å„¿ä¸œè¥¿ï¼Œä½ èƒ½ä¸èƒ½å¸®å¿™æ”¹ä¸€æ”¹ï¼Ÿ\n";
 		add_ask_str("fix",ask_fix);
 
 		ask_good=CHAR_D->get_char(m_id,"ask_good");
 		if(!ask_good) 
-			ask_good="$N¶Ô$TÕĞÁËÕĞÊÖ£º$m£¬$SµÄ¶«Î÷×¼±¸ºÃÁËÂğ£¿\n";
+			ask_good="$Nå¯¹$Tæ‹›äº†æ‹›æ‰‹ï¼š$mï¼Œ$Sçš„ä¸œè¥¿å‡†å¤‡å¥½äº†å—ï¼Ÿ\n";
 		add_ask_str("good",ask_good);
 
 	
@@ -71,12 +71,12 @@ void extra_init()
 
 	ask_list=CHAR_D->get_char(m_id,"ask_list");
 	if(!ask_list) 
-		ask_list="$N¶Ô$TÕĞÁËÕĞÊÖ£º$m£¬ÈÃ$S¿´¿´ÄãÕâ¶ù¶¼ÓĞĞ©Ê²Ã´»õ¡£\n";
+		ask_list="$Nå¯¹$Tæ‹›äº†æ‹›æ‰‹ï¼š$mï¼Œè®©$Sçœ‹çœ‹ä½ è¿™å„¿éƒ½æœ‰äº›ä»€ä¹ˆè´§ã€‚\n";
 	add_ask_str("list",ask_list);
 
 	ask_buy=CHAR_D->get_char(m_id,"ask_buy");
 	if(!ask_buy) 
-		ask_buy="$N¶Ô$TÕĞÁËÕĞÊÖ£º$m£¬$SÏëÂòµã¶«Î÷¡£\n";
+		ask_buy="$Nå¯¹$Tæ‹›äº†æ‹›æ‰‹ï¼š$mï¼Œ$Sæƒ³ä¹°ç‚¹ä¸œè¥¿ã€‚\n";
 	add_ask_str("buy",ask_buy);
 
 	add_id("maker");
@@ -87,7 +87,7 @@ void extra_init()
 string long(){  
 	string p_long;
 	p_long=CHAR_D->get_char(m_id,"long");
-	if(!p_long) p_long="Ò»¸öÕıÃ¦µÃÍÅÍÅ×ªµÄ¹¤½³¡£\n";
+	if(!p_long) p_long="ä¸€ä¸ªæ­£å¿™å¾—å›¢å›¢è½¬çš„å·¥åŒ ã€‚\n";
 	return p_long;
 }
 void check_order() {
@@ -103,7 +103,7 @@ void check_order() {
 			{
 				name=OBJ_D->get_obj(orders[id]["item"],"name");
 				responda("hi "+id);
-				responda("tell "+id+" Äã¶¨µÃ"+name+"ÒÑ¾­×¼±¸ºÃÁË£¬ÇëËÙÀ´ÑéÈ¡¡£\n");
+				responda("tell "+id+" ä½ å®šå¾—"+name+"å·²ç»å‡†å¤‡å¥½äº†ï¼Œè¯·é€Ÿæ¥éªŒå–ã€‚\n");
 			}
 		}
 	}
@@ -115,7 +115,7 @@ void do_my_speak(){
 	if(sizeof(m_act)){
 		act=m_act[random(sizeof(m_act))];
 	}
-	else act="$NºÇºÇµØĞ¦ÁË¼¸Éù£¬µÀ£º»¶Ó­¹âÁÙ¡£\n";
+	else act="$Nå‘µå‘µåœ°ç¬‘äº†å‡ å£°ï¼Œé“ï¼šæ¬¢è¿å…‰ä¸´ã€‚\n";
 	if(act[<1]!=10) act+="\n";
 	this_object()->simple_action(act);
 	return;
@@ -132,11 +132,11 @@ void check_myroom()
 // xiaobai added
 private void full_storage()
 {
-    string array strGoodsArr = CHAR_D->get_char(m_id,"goods");
+    string * strGoodsArr = CHAR_D->get_char(m_id,"goods");
     int nNum = 0;
-    int array nLocalTimeArr = localtime( time() );
+    int * nLocalTimeArr = localtime( time() );
     
-    // Ö»¹ØĞÄ¼ÛÖµ´óÓÚ 1 gold µÄ·ÇÒûÊ³ÀàÎïÆ·
+    // åªå…³å¿ƒä»·å€¼å¤§äº 1 gold çš„éé¥®é£Ÿç±»ç‰©å“
     strGoodsArr = filter_array( strGoodsArr, (: ( (OBJ_D->get_obj($1,"type") != "food") 
         && (OBJ_D->get_obj($1,"type") != "drink") 
         && (OBJ_D->get_obj($1,"value") > VALUE_LIMIT) ) :) );
@@ -162,19 +162,19 @@ private void full_storage()
 
 void my_charaction()
 {
-    int array nLocalTimeArr = localtime( time() );
+    int * nLocalTimeArr = localtime( time() );
     	
 	check_myroom();
 	check_order();
     do_my_speak();
     
-    // xiaobai: ÏÖÊµÊ±¼äÖĞ£¬ĞÂµÄÒ»Ìì£¬Âú²Ö
+    // xiaobai: ç°å®æ—¶é—´ä¸­ï¼Œæ–°çš„ä¸€å¤©ï¼Œæ»¡ä»“
     if ( nLocalTimeArr[LT_MDAY] != p_nDay )
         full_storage();
 }
 
 void answer_list(object who){
-	array goods;
+	mixed * goods;
 	string tmp,name;
 	string bar="                                 ";
 	int val,len;
@@ -183,13 +183,13 @@ void answer_list(object who){
 	CHAR_D->set_char(m_id,"goods",goods);
 	if(!sizeof(goods)){
 		this_object()->simple_action(
-			"$NĞ¦µÀ£º²»ºÃÒâË¼£¬Ğ¡ÆÌ»¹Ã»¿ªÕÅÄØ¡£\n");
+			"$Nç¬‘é“ï¼šä¸å¥½æ„æ€ï¼Œå°é“ºè¿˜æ²¡å¼€å¼ å‘¢ã€‚\n");
 		return; 
 	}
 	this_object()->targetted_action(
-		"$NµÀ£º²»Öª$RĞèÒªĞ©Ê²Ã´£¿\n",who);
+		"$Né“ï¼šä¸çŸ¥$Réœ€è¦äº›ä»€ä¹ˆï¼Ÿ\n",who);
 	write(
-"ÎïÆ·Ãû³Æ               ¹ºÂò¼Û            ¶¨×ö¼Û            µÈ¼¶  ´æ»õ\n");
+"ç‰©å“åç§°               è´­ä¹°ä»·            å®šåšä»·            ç­‰çº§  å­˜è´§\n");
 	write(
 "--------------------------------------------------------------------\n");
 
@@ -218,13 +218,13 @@ void answer_list(object who){
 		   (reusetype ? CHINESE_D->chinese_value(to_int(val*(1+FIXVAL))):"--------"),
 //   		   (reusetype ? CHINESE_D->chinese_value(to_int(val*(FIXVAL))):"--------")
 		chinese_number(OBJ_D->get_obj(g,"level")),
-		// xiaobai: ¼ÓÉÏ´æ»õµÄÏÔÊ¾
-		(p_mpStorage[g] ? chinese_number( p_mpStorage[g] ) : "ºÜ¶à" ) );
+		// xiaobai: åŠ ä¸Šå­˜è´§çš„æ˜¾ç¤º
+		(p_mpStorage[g] ? chinese_number( p_mpStorage[g] ) : "å¾ˆå¤š" ) );
 	}
 
 }
 mixed check_order_posible(object maker,object me,string ans) {
-	array goods;
+	mixed * goods;
     int p_buyersmoney;
     int p_itemvalue;
 	int p_level,m_l;
@@ -232,22 +232,22 @@ mixed check_order_posible(object maker,object me,string ans) {
 	string p_id,name;
 	goods=CHAR_D->get_char(m_id,"goods");
 	if(member_array(ans,goods)==-1)
-		return "$N¶Ô$TÒ¡Ò¡Í·£¬µÀ£º$RÒªµÄ¶«Î÷ÎÒÕâ¶ùÃ»·¨¶ù×ö¡£\n";
+		return "$Nå¯¹$Tæ‘‡æ‘‡å¤´ï¼Œé“ï¼š$Rè¦çš„ä¸œè¥¿æˆ‘è¿™å„¿æ²¡æ³•å„¿åšã€‚\n";
 	if(OBJ_D->get_obj(ans,"type")=="food")
-		return "$N¶Ô$TÒ¡Ò¡Í·£¬µÀ£º$RÒªµÄ¶«Î÷ÎÒ²»ÄÜ¶¨×ö¡£\n";
+		return "$Nå¯¹$Tæ‘‡æ‘‡å¤´ï¼Œé“ï¼š$Rè¦çš„ä¸œè¥¿æˆ‘ä¸èƒ½å®šåšã€‚\n";
 	if(OBJ_D->get_obj(ans,"type")=="drink")
-		return "$N¶Ô$TÒ¡Ò¡Í·£¬µÀ£º$RÒªµÄ¶«Î÷ÎÒ²»ÄÜ¶¨×ö¡£\n";
+		return "$Nå¯¹$Tæ‘‡æ‘‡å¤´ï¼Œé“ï¼š$Rè¦çš„ä¸œè¥¿æˆ‘ä¸èƒ½å®šåšã€‚\n";
 
     maker->clear_answer();
     p_buyersmoney=me->query_all_con_money();
 	p_itemvalue=OBJ_D->get_obj(ans,"value")*(1+FIXVAL);
 	if(p_itemvalue>p_buyersmoney) 
-                return "$NÆæ¹ÖµØ¿´ÁË$TÒ»ÑÛ£¬µÀ£º$RµÄÇ®ºÃÏñÃ»´ø¹»¡£\n";
+                return "$Nå¥‡æ€ªåœ°çœ‹äº†$Tä¸€çœ¼ï¼Œé“ï¼š$Rçš„é’±å¥½åƒæ²¡å¸¦å¤Ÿã€‚\n";
 
 	p_id=me->query_id()[0];
 	if(!CHAR_D->char_exist(p_id))
-		return "$N¶Ô$TÒ¡Ò¡Í·£¬µÀ£º$R·ÇÊÀË×Ö®ÈË£¬ÕâĞ©¶«Î÷ÎÒ¿´¾Í²»ÒªÁË°É¡£\n"
-		+"Èç·ÇÒª²»¿É£¬µÃÏÈÕÒ¸öµØ·½¶¨¾ÓÏÂÀ´(help settle)¡£\n";
+		return "$Nå¯¹$Tæ‘‡æ‘‡å¤´ï¼Œé“ï¼š$Réä¸–ä¿—ä¹‹äººï¼Œè¿™äº›ä¸œè¥¿æˆ‘çœ‹å°±ä¸è¦äº†å§ã€‚\n"
+		+"å¦‚éè¦ä¸å¯ï¼Œå¾—å…ˆæ‰¾ä¸ªåœ°æ–¹å®šå±…ä¸‹æ¥(help settle)ã€‚\n";
 //	l_n=OFFICER_D->query_level(CHAR_D->get_char(p_id,"ranknation"));
 //    l_l=OFFICER_D->query_level(CHAR_D->get_char(p_id,"ranklocal"));
 //    m_l=bmax(l_n,l_l);
@@ -258,15 +258,15 @@ mixed check_order_posible(object maker,object me,string ans) {
     name=OBJ_D->get_obj(ans,"name");
 //	if(m_l>p_level){
 //		if(p_level==0)
-//			return "$N¶Ô$TÒ¡Ò¡Í·£¬µÀ£º"+name+"ÄËÆ½Ãñ°ÙĞÕËùÓÃÖ®Îï£¬²»ÊÊºÏ$R¡£\n";
+//			return "$Nå¯¹$Tæ‘‡æ‘‡å¤´ï¼Œé“ï¼š"+name+"ä¹ƒå¹³æ°‘ç™¾å§“æ‰€ç”¨ä¹‹ç‰©ï¼Œä¸é€‚åˆ$Rã€‚\n";
 //		else
-//			return "$N¶Ô$TÒ¡Ò¡Í·£¬µÀ£º"+name+"ÄËÏÂ¼¶¹ÙÔ±ËùÓÃÖ®Îï£¬²»ÊÊºÏ$R¡£\n";
+//			return "$Nå¯¹$Tæ‘‡æ‘‡å¤´ï¼Œé“ï¼š"+name+"ä¹ƒä¸‹çº§å®˜å‘˜æ‰€ç”¨ä¹‹ç‰©ï¼Œä¸é€‚åˆ$Rã€‚\n";
 //	}
 	if(m_l<p_level) {
 //		if(p_level==5)
-//			return "$N¶Ô$TÒ¡Ò¡Í·£¬µÀ£º¿ªÍæĞ¦£¡"+name+"ÄËÍòËêÓùÓÃÖ®Îï£¬$RÆñÄÜ¡£¡£¡££¿£¡\n";
+//			return "$Nå¯¹$Tæ‘‡æ‘‡å¤´ï¼Œé“ï¼šå¼€ç©ç¬‘ï¼"+name+"ä¹ƒä¸‡å²å¾¡ç”¨ä¹‹ç‰©ï¼Œ$Rå²‚èƒ½ã€‚ã€‚ã€‚ï¼Ÿï¼\n";
 //		else
-			return "$N¶Ô$TÒ¡Ò¡Í·£¬µÀ£º²»ĞĞ£¬"+name+"ÄË¸ß¾ôÎ»¹ÙÔ±ËùÓÃÖ®Îï£¬$R»¹ÊÇÉıÁË¾ôÎ»ºóÔÙÀ´°É¡£\n";
+			return "$Nå¯¹$Tæ‘‡æ‘‡å¤´ï¼Œé“ï¼šä¸è¡Œï¼Œ"+name+"ä¹ƒé«˜çˆµä½å®˜å‘˜æ‰€ç”¨ä¹‹ç‰©ï¼Œ$Rè¿˜æ˜¯å‡äº†çˆµä½åå†æ¥å§ã€‚\n";
 	}
    	me->set_all_con_money(p_buyersmoney - p_itemvalue);
 	orders=CHAR_D->get_char(m_id,"orders");
@@ -275,7 +275,7 @@ mixed check_order_posible(object maker,object me,string ans) {
 	orders[p_id]["item"]=ans;
 	orders[p_id]["time"]=time()+(60+random(60))*(p_level+1);
 	CHAR_D->set_char(m_id,"orders",orders);
-	return "$N¶Ô$TµãµãÍ·£¬µÀ£º»î¶ùÎÒÒÑ¾­½ÓÏÂ£¬´ı"+name+"Íê³Éºó¼´¿ÌÍ¨Öª$RÑéÈ¡¡£\n";
+	return "$Nå¯¹$Tç‚¹ç‚¹å¤´ï¼Œé“ï¼šæ´»å„¿æˆ‘å·²ç»æ¥ä¸‹ï¼Œå¾…"+name+"å®Œæˆåå³åˆ»é€šçŸ¥$RéªŒå–ã€‚\n";
 }
 void to_order(object maker,object me,string ans){
 	mixed ret;
@@ -287,25 +287,25 @@ void to_order(object maker,object me,string ans){
 
 }
 void to_fix(object maker,object me,string ans){
-	write("¸ÄÔì»¹Ã»Íê³É£¬Ö±½Ó¶¨×ö°É¡£\n");
+	write("æ”¹é€ è¿˜æ²¡å®Œæˆï¼Œç›´æ¥å®šåšå§ã€‚\n");
 }
 
 void to_buy(object maker,object me,string ans)
 {
-	array goods;
+	mixed * goods;
     int p_buyersmoney;
     int p_itemvalue;
     object ob;
 	goods=CHAR_D->get_char(m_id,"goods");
 	if(member_array(ans,goods)==-1){
-		maker->targetted_action("$N¶Ô$TÒ¡Ò¡Í·£¬µÀ£º$RÒªµÄ¶«Î÷ÎÒÕâ¶ùÃ»·¨×ö¡£\n",me);
+		maker->targetted_action("$Nå¯¹$Tæ‘‡æ‘‡å¤´ï¼Œé“ï¼š$Rè¦çš„ä¸œè¥¿æˆ‘è¿™å„¿æ²¡æ³•åšã€‚\n",me);
 		return;
 	}
 	
-// xiaobai: ×îºóÒ»¼şÎïÆ·£¬·ÇÂô£¬Ö÷ÒªÊÇÒªÎ¬³ÖÕâ¸ö mapping ³ÉÔ±µÄÊı¾İÎª·Ç0
+// xiaobai: æœ€åä¸€ä»¶ç‰©å“ï¼Œéå–ï¼Œä¸»è¦æ˜¯è¦ç»´æŒè¿™ä¸ª mapping æˆå‘˜çš„æ•°æ®ä¸ºé0
 	if ( p_mpStorage[ans] == 1 )
 	{
-		maker->targetted_action("$N²»ºÃÒâË¼µØ¶Ô$TµÀ£ºÎÒÕâ¶ùÖ»Ê£ÏÂÒ»¼ş³ÂÁĞÆ·ÁË£¬²»ÄÜÂô¸ø$R£¬ÇëÃ÷ÌìÔÙÀ´¡£\n",me);
+		maker->targetted_action("$Nä¸å¥½æ„æ€åœ°å¯¹$Té“ï¼šæˆ‘è¿™å„¿åªå‰©ä¸‹ä¸€ä»¶é™ˆåˆ—å“äº†ï¼Œä¸èƒ½å–ç»™$Rï¼Œè¯·æ˜å¤©å†æ¥ã€‚\n",me);
 		return;
 	}
 //// xiaobai
@@ -316,23 +316,23 @@ void to_buy(object maker,object me,string ans)
 	p_itemvalue=OBJ_D->get_obj(ans,"value");
 
 	if(p_itemvalue>p_buyersmoney) {
-		maker->targetted_action("$NÆæ¹ÖµØ¿´ÁË$TÒ»ÑÛ£¬µÀ£º$RµÄÇ®ºÃÏñÃ»´ø¹»¡£\n",me);
+		maker->targetted_action("$Nå¥‡æ€ªåœ°çœ‹äº†$Tä¸€çœ¼ï¼Œé“ï¼š$Rçš„é’±å¥½åƒæ²¡å¸¦å¤Ÿã€‚\n",me);
 		return;
 	}
 	ob=OBJ_D->clone_obj(ans);
 	if(!objectp(ob)) {
-		maker->targetted_action("$N¶Ô$T²»ºÃÒâË¼µÄËµ£º¶«Î÷ÄÃ²»µ½£¬ºÃÏñÓĞBUG£¬±¨¸æÎ×Ê¦°É¡£\n",me);
+		maker->targetted_action("$Nå¯¹$Tä¸å¥½æ„æ€çš„è¯´ï¼šä¸œè¥¿æ‹¿ä¸åˆ°ï¼Œå¥½åƒæœ‰BUGï¼ŒæŠ¥å‘Šå·«å¸ˆå§ã€‚\n",me);
 		return;
 	}
 
     if((ob->move(me)) == MOVE_OK)
     {		
-   		me->simple_action("$NÔÚ´ËÂòÏÂÁËÒ»"+
-            ob->query_unit()+ob->short()+"¡£\n"); 
+   		me->simple_action("$Nåœ¨æ­¤ä¹°ä¸‹äº†ä¸€"+
+            ob->query_unit()+ob->short()+"ã€‚\n"); 
     	me->set_all_con_money(p_buyersmoney - p_itemvalue);
 	    ob->set_buyer(me->query_primary_id());
         
-        // xiaobai: Èç¹ûÊÇÏŞÁ¿ÎïÆ·£¬´æ»õ¼õÒ»  
+        // xiaobai: å¦‚æœæ˜¯é™é‡ç‰©å“ï¼Œå­˜è´§å‡ä¸€  
     	if ( p_mpStorage[ans] > 1 )
 	    {
 	        p_mpStorage[ans] --;
@@ -342,13 +342,13 @@ void to_buy(object maker,object me,string ans)
      }
     else
     {
-		maker->targetted_action("$N¶Ô$TÒ¡Ò¡Í·£¬µÀ£º$RÉíÉÏ¶«Î÷Ì«¶à£¬ÈÓµôĞ©ÔÙÀ´Âò°É¡£\n",me);
+		maker->targetted_action("$Nå¯¹$Tæ‘‡æ‘‡å¤´ï¼Œé“ï¼š$Rèº«ä¸Šä¸œè¥¿å¤ªå¤šï¼Œæ‰”æ‰äº›å†æ¥ä¹°å§ã€‚\n",me);
 	        destruct(ob);
 		return;
     }
 }
 void answers(object who,string what) {
-	array goods;
+	mixed * goods;
 	string p_id,name;
 	p_id=who->query_id()[0];
 	goods=CHAR_D->get_char(m_id,"goods");
@@ -356,7 +356,7 @@ void answers(object who,string what) {
 	CHAR_D->set_char(m_id,"goods",goods);
 	if(!sizeof(goods)){
 		this_object()->simple_action(
-			"$NĞ¦µÀ£º²»ºÃÒâË¼£¬Ğ¡ÆÌ»¹Ã»¿ªÕÅÄØ¡£\n");
+			"$Nç¬‘é“ï¼šä¸å¥½æ„æ€ï¼Œå°é“ºè¿˜æ²¡å¼€å¼ å‘¢ã€‚\n");
 		return; 
 	}
 	if((what=="order")||(what=="fix"))
@@ -370,27 +370,27 @@ void answers(object who,string what) {
 	case "buy":
 		this_object()->set_answer(p_id, (: to_buy :) );
 		this_object()->targetted_action(
-			"$N¶Ô$TĞ¦µÀ£º$RÏëÂòĞ©Ê²Ã´£¿\n",who);
+			"$Nå¯¹$Tç¬‘é“ï¼š$Ræƒ³ä¹°äº›ä»€ä¹ˆï¼Ÿ\n",who);
 		break;
 	case "order":
 		if(!sizeof(goods)) {
 			this_object()->simple_action(
-				"$NĞ¦µÀ£º²»ºÃÒâË¼£¬Ğ¡ÆÌÃ»¶«Î÷¿É¶¨¡£\n");
+				"$Nç¬‘é“ï¼šä¸å¥½æ„æ€ï¼Œå°é“ºæ²¡ä¸œè¥¿å¯å®šã€‚\n");
 			return; 
 		}
 		this_object()->set_answer(p_id, (: to_order :) );
 		this_object()->targetted_action(
-			"$N¶Ô$TµÀ£º$RÏë¶¨×öĞ©Ê²Ã´£¿\n",who);
+			"$Nå¯¹$Té“ï¼š$Ræƒ³å®šåšäº›ä»€ä¹ˆï¼Ÿ\n",who);
 		break;
 	case "fix":
 		if(!sizeof(goods)) {
 			this_object()->simple_action(
-				"$NĞ¦µÀ£º²»ºÃÒâË¼£¬Ğ¡ÆÌÃ»¶«Î÷¿É¸Ä¡£\n");
+				"$Nç¬‘é“ï¼šä¸å¥½æ„æ€ï¼Œå°é“ºæ²¡ä¸œè¥¿å¯æ”¹ã€‚\n");
 			return; 
 		}
 		this_object()->set_answer(p_id, (: to_fix :) );
 		this_object()->targetted_action(
-			"$N¶Ô$TµÀ£º$RÏë¸ÄÊ²Ã´£¿\n",who);
+			"$Nå¯¹$Té“ï¼š$Ræƒ³æ”¹ä»€ä¹ˆï¼Ÿ\n",who);
 		break;
 	}
 
@@ -405,7 +405,7 @@ void answers(object who,string what) {
 		name=name+"("+g+")";
 		write(name+"\n");
 	}
-	write("ÏëºÃÁË¾ÍÊäÈë\n%^H_WHITE%^answer <ÎïÆ·´úºÅ> to "+m_id+"%^RESET%^\n");
+	write("æƒ³å¥½äº†å°±è¾“å…¥\n%^H_WHITE%^answer <ç‰©å“ä»£å·> to "+m_id+"%^RESET%^\n");
 
 }
 void answer_good(object who){
@@ -421,28 +421,28 @@ void answer_good(object who){
 	if(!orders) orders=([]);
 	if(!orders[p_id]){
       maker->targetted_action(
-		"$N¶Ô$TÒ¡Ò¡Í·£¬µÀ£º$RÃ»ÔÚÕâ¶ù¶¨¹ı¶«Î÷°É£¿\n",me);
+		"$Nå¯¹$Tæ‘‡æ‘‡å¤´ï¼Œé“ï¼š$Ræ²¡åœ¨è¿™å„¿å®šè¿‡ä¸œè¥¿å§ï¼Ÿ\n",me);
 			return;
 	}
 	item=orders[p_id]["item"];
 	name=OBJ_D->get_obj(item,"name");
 	if(orders[p_id]["time"]>time())
 	{	maker->targetted_action(
-			"$N¶Ô$TµÀ£º$RµÄ"+name+"»¹Ã»×¼±¸ºÃ£¬ÇëÔÙÉÔµÈÆ¬¿Ì¡£\n",me);
+			"$Nå¯¹$Té“ï¼š$Rçš„"+name+"è¿˜æ²¡å‡†å¤‡å¥½ï¼Œè¯·å†ç¨ç­‰ç‰‡åˆ»ã€‚\n",me);
 			return;
 	}
 	maker->targetted_action(
-			"$N¶Ô$TµÀ£º$RµÄ"+name+"ÒÑ¾­×¼±¸ºÃÁË£¬Õâ¸øÄúÈ¡À´¡£\n",me);
+			"$Nå¯¹$Té“ï¼š$Rçš„"+name+"å·²ç»å‡†å¤‡å¥½äº†ï¼Œè¿™ç»™æ‚¨å–æ¥ã€‚\n",me);
 
 	ob=OBJ_D->clone_obj(item);
 	if(!objectp(ob)) {
-		maker->targetted_action("$N¶Ô$T²»ºÃÒâË¼µÄËµ£º¶«Î÷ÄÃ²»µ½£¬ºÃÏñÓĞBUG£¬±¨¸æÎ×Ê¦°É¡£\n",me);
+		maker->targetted_action("$Nå¯¹$Tä¸å¥½æ„æ€çš„è¯´ï¼šä¸œè¥¿æ‹¿ä¸åˆ°ï¼Œå¥½åƒæœ‰BUGï¼ŒæŠ¥å‘Šå·«å¸ˆå§ã€‚\n",me);
 		return;
 	}
 	if(ob->is_horse())
 	{
 		ob->move(environment(me)); // should no problem
-		me->simple_action("$NÁìµ½×¨ÃÅÎª$n×¨ÃÅ×¼±¸µÄ"+ob->short()+"\n");
+		me->simple_action("$Né¢†åˆ°ä¸“é—¨ä¸º$nä¸“é—¨å‡†å¤‡çš„"+ob->short()+"\n");
 		map_delete(orders,p_id);
 		CHAR_D->add_char_wear(p_id,item);
 		ob->set_owner(p_id);
@@ -450,8 +450,8 @@ void answer_good(object who){
 	else
 	{
 		if((ob->move(me)) == MOVE_OK) {	
-   			me->simple_action("$NÔÚ´ËÌáµ½ÁËËù¶¨µÄ"+
-				ob->query_unit()+ob->short()+"¡£\n"); 
+   			me->simple_action("$Nåœ¨æ­¤æåˆ°äº†æ‰€å®šçš„"+
+				ob->query_unit()+ob->short()+"ã€‚\n"); 
 			CHAR_D->add_char_wear(p_id,item);
 	//		CHAR_D->put_on_cloth(p_id);
 			map_delete(orders,p_id);
@@ -460,7 +460,7 @@ void answer_good(object who){
 		 }
 		else
 		{
-			maker->targetted_action("$N¶Ô$TÒ¡Ò¡Í·£¬µÀ£º$RÉíÉÏ¶«Î÷Ì«¶à£¬ÈÓµôĞ©ÔÙÀ´È¡»õ°É¡£\n",me);
+			maker->targetted_action("$Nå¯¹$Tæ‘‡æ‘‡å¤´ï¼Œé“ï¼š$Rèº«ä¸Šä¸œè¥¿å¤ªå¤šï¼Œæ‰”æ‰äº›å†æ¥å–è´§å§ã€‚\n",me);
 				destruct(ob);
 			return;
 		}

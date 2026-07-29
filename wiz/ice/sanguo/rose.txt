@@ -8,21 +8,21 @@ inherit OBJ;
 inherit M_GETTABLE;
 inherit M_DAMAGE_SINK;
 
-string *sname=({HIR"ºì",HIY"»Æ",HIB"À¶",HIG"ÂÌ",HIW"°×",HIM"×Ï",});
-string *adjtive=({"»ª¹óµÄ","ÓºÈİµÄ","ÑŞÀöµÄ","ÇÎÀöµÄ","¾²Ú×µÄ","º¬ĞßµÄ",
-"ÇåÑÅµÄ","ÇáÈáµÄ","åüÃÄµÄ"});
+string *sname=({HIR"çº¢",HIY"é»„",HIB"è“",HIG"ç»¿",HIW"ç™½",HIM"ç´«",});
+string *adjtive=({"åè´µçš„","é›å®¹çš„","è‰³ä¸½çš„","ä¿ä¸½çš„","é™è°§çš„","å«ç¾çš„",
+"æ¸…é›…çš„","è½»æŸ”çš„","å¦©åªšçš„"});
 
 void setup()
 {
-string name=sname[random(sizeof(sname))]+"Ãµ¹å"NOR;
+string name=sname[random(sizeof(sname))]+"ç«ç‘°"NOR;
 string adjt=adjtive[random(sizeof(adjtive))];
-set_unit("Ö¦");
+set_unit("æ");
 set_id("rose", name);
-set_in_room_desc("Ò»Ö¦"+ name);
+set_in_room_desc("ä¸€æ"+ name);
 set_gettable(1);
 set_adj(adjt);
 //set_slot(BREST);
-//set_wearmsg("$NÔÚĞØÇ°±ğÉÏÒ»Ö¦"+name+"£¬ÏÔµÃ¸ü¼Ó½¿ÑŞ¶¯ÈË¡£\n");
-//set_removemsg("$NĞ¡ĞÄÒíÒíµØ½«"+HIR+name+"´ÓĞØÇ°È¡ÏÂÀ´¡£\n");
-set_long("ÕâÊÇ¸Õ¸Õ²ÉÕªÏÂÀ´µÄĞÂÏÊÃµ¹å£¬»¨°êÉÏ»¹Õ´×ÅÒ»µãË®Öé¡£\n");
+//set_wearmsg("$Nåœ¨èƒ¸å‰åˆ«ä¸Šä¸€æ"+name+"ï¼Œæ˜¾å¾—æ›´åŠ å¨‡è‰³åŠ¨äººã€‚\n");
+//set_removemsg("$Nå°å¿ƒç¿¼ç¿¼åœ°å°†"+HIR+name+"ä»èƒ¸å‰å–ä¸‹æ¥ã€‚\n");
+set_long("è¿™æ˜¯åˆšåˆšé‡‡æ‘˜ä¸‹æ¥çš„æ–°é²œç«ç‘°ï¼ŒèŠ±ç“£ä¸Šè¿˜æ²¾ç€ä¸€ç‚¹æ°´ç ã€‚\n");
 }

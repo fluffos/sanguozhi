@@ -1,4 +1,4 @@
-// ·Ü·¢
+// å¥‹å‘
 #include <mudlib.h>
 #include <daemons.h>
 #include <ansi.h>
@@ -17,21 +17,21 @@ void main(object ob)
 	p_id = TROOP_D->get_char_troop(this_body()->query_primary_id());
 	p_name=this_body()->query_id()[0];
         if(!(CHAR_D->get_char(p_name,"skills")))
-        {       write("Äã²»»á·Ü·¢Ö®¼Æ¡£\n");
+        {       write("ä½ ä¸ä¼šå¥‹å‘ä¹‹è®¡ã€‚\n");
                 return;
 	}
 	if(!p_skill=CHAR_D->get_char(p_name,"skills")["fenfa"])
-        {       write("Äã²»»á·Ü·¢Ö®¼Æ¡£\n");
+        {       write("ä½ ä¸ä¼šå¥‹å‘ä¹‹è®¡ã€‚\n");
                 return;
         }
 	if( !p_id){
-		write("Ö»ÓĞÉíÔÚ¾üÖĞ²ÅÄÜÊ¹ÓÃ·Ü·¢¡£\n");
+		write("åªæœ‰èº«åœ¨å†›ä¸­æ‰èƒ½ä½¿ç”¨å¥‹å‘ã€‚\n");
 		return;
 	};
 	solider = TROOP_D->get_troops(p_id, "soldier");
 	s_type= keys(solider)[random(sizeof(keys(solider)))];	
 	if( solider[s_type]["energy"] < 20 ){
-		write("Ê¿±øĞĞ¶¯Á¦²»×ã£¬ÄÑÒÔÊ¹ÓÃ·Ü·¢¡£\n");
+		write("å£«å…µè¡ŒåŠ¨åŠ›ä¸è¶³ï¼Œéš¾ä»¥ä½¿ç”¨å¥‹å‘ã€‚\n");
 		return;
 	};
 
@@ -55,10 +55,10 @@ void main(object ob)
 		if( TROOP_D->get_troop_area(id) != where )continue;
 		if( (x-x2)*(x-x2)+(y-y2)*(y-y2) > 1 )continue;
 		tell(deep_inventory(TROOP_D->find_troop(id)),
-			"±»°üÎ§µÄµĞÈËÏòÄã¾ü³åÁË¹ıÀ´£¡\n",
+			"è¢«åŒ…å›´çš„æ•Œäººå‘ä½ å†›å†²äº†è¿‡æ¥ï¼\n",
 			MSG_INDENT);		
 		tell(deep_inventory(TROOP_D->find_troop(p_id)),
-                        "·ÜÓÂµÄÊ¿±ø³åÈëÒ»Ö§µĞ¾üÖĞ£¡\n",
+                        "å¥‹å‹‡çš„å£«å…µå†²å…¥ä¸€æ”¯æ•Œå†›ä¸­ï¼\n",
                         MSG_INDENT);
 		kill = p_skill*100/11;
 		enemy = TROOP_D->get_troops(id, "soldier");
@@ -67,7 +67,7 @@ void main(object ob)
 		WARAI_D->clear_empty_troop(({id}));
 	};
 	WARAI_D->war_inf(TROOP_D->get_troops(p_id,"task_id"),
-TROOP_D->find_troop(p_id)->query_id()[1]+"Ê¹ÓÃ·Ü·¢Ö®¼Æ£¬É±µĞ"+
-chinese_number(kill)+"ÈË¡£","b");
+TROOP_D->find_troop(p_id)->query_id()[1]+"ä½¿ç”¨å¥‹å‘ä¹‹è®¡ï¼Œæ€æ•Œ"+
+chinese_number(kill)+"äººã€‚","b");
 	return;
 }

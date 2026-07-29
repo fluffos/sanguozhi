@@ -3,7 +3,7 @@
 // by fire on Dec 30 1997
 // last modified by tset Feb 7 1998
 #include <ansi.h>
-#define p_sep "%%^H_YELLOW%%^¡ò%%^H_CYAN%%^£½£½£½£½£½£½£½£½%%^B_RED%%^%%^H_YELLOW%%^¡¼¸ö  ÈË  µµ  °¸¡½%%^RESET%%^%%^H_CYAN%%^£½£½£½£½£½£½£½£½%%^H_YELLOW%%^¡ò%%^RESET%%^"
+#define p_sep "%%^H_YELLOW%%^â—%%^H_CYAN%%^ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼%%^B_RED%%^%%^H_YELLOW%%^ã€–ä¸ª  äºº  æ¡£  æ¡ˆã€—%%^RESET%%^%%^H_CYAN%%^ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼%%^H_YELLOW%%^â—%%^RESET%%^"
 inherit VERB_OB;
 inherit M_OUT;
 inherit CHINESE_DA;
@@ -27,33 +27,33 @@ private void score_print(object who)
                 p_name=who->query_in_room_desc();
 //        printf("%s\n",p_name);
         printf("%s\n",p_sep);
-	printf("%%^H_CYAN%%^¡¬                                                  ¡¬\n");
+	printf("%%^H_CYAN%%^â€–                                                  â€–\n");
         
         p_age=who->query_age();
         p_gender=who->query_gender();
-p_tmp="ÄãÊÇÒ»Î»"+chinese_number(p_age)+"ËêµÄ"+NORMAL_D->get_dis1(p_age,p_gender);
-        printf("%s¡£\n",p_tmp);
+p_tmp="ä½ æ˜¯ä¸€ä½"+chinese_number(p_age)+"å²çš„"+NORMAL_D->get_dis1(p_age,p_gender);
+        printf("%sã€‚\n",p_tmp);
         p_wuli=who->query_wuli_pure();
         p_zhimou=who->query_zhimou_pure();
         p_meili=who->query_meili_pure();
         p_rongmao=who->query_sg_rongmao();
-        printf("ÎäÁ¦£º[%3d] ÖÇÄ±£º[%3d] ÷ÈÁ¦£º[%3d] ÈİÃ²£º[%3d]\n",
+        printf("æ­¦åŠ›ï¼š[%3d] æ™ºè°‹ï¼š[%3d] é­…åŠ›ï¼š[%3d] å®¹è²Œï¼š[%3d]\n",
                 p_wuli,p_zhimou,p_meili,p_rongmao);
-        printf("µ¥ÌôÎä¹¦£º%3d[%+2d] É±ÉËÁ¦£º%2d[%+2d] µÖ¿¹Á¦£º%2d[%+2d] \n",
+        printf("å•æŒ‘æ­¦åŠŸï¼š%3d[%+2d] æ€ä¼¤åŠ›ï¼š%2d[%+2d] æŠµæŠ—åŠ›ï¼š%2d[%+2d] \n",
 		FIGHT_D->get_pure_att_abi(who),FIGHT_D->get_add_att_abi(who),
 		FIGHT_D->get_pure_att_pow(who),FIGHT_D->get_add_att_pow(who),
 		FIGHT_D->get_pure_def_pow(who),FIGHT_D->get_add_def_pow(who));
-        p_tmp=sprintf("ËùÊô¹ú£º%6s  ËùÔÚµØ£º%6s  ÖÒ³Ï£º%d\n",
+        p_tmp=sprintf("æ‰€å±å›½ï¼š%6s  æ‰€åœ¨åœ°ï¼š%6s  å¿ è¯šï¼š%d\n",
                 COUNTRY_D->get_country(CHAR_D->get_char(p_id,"nation"),"name"),
                 AREA_D->get_area(CHAR_D->get_char(p_id,"area"),"name"),
                 CHAR_D->get_char(p_id,"loyalty"));
-        p_tmp+=sprintf("³¯Í¢¹ÙÖ°£º%s  µØ·½¹ÙÖ°£º%s%s  ÙºÂ»£º%d\n",
+        p_tmp+=sprintf("æœå»·å®˜èŒï¼š%s  åœ°æ–¹å®˜èŒï¼š%s%s  ä¿¸ç¦„ï¼š%d\n",
                 OFFICER_D->query_rank_name(CHAR_D->get_char(p_id,"ranknation")),
                 AREA_D->get_area(CHAR_D->get_char(p_id,"area"),"name"),
                 OFFICER_D->query_rank_name(CHAR_D->get_char(p_id,"ranklocal")),
                 CHAR_D->get_char(p_id,"salary"),
                 );
-        p_tmp+=sprintf("ÉùÍû£º%s(%d)  ÎÄÑ§ĞŞÑø£º%s(%d)\n",
+        p_tmp+=sprintf("å£°æœ›ï¼š%s(%d)  æ–‡å­¦ä¿®å…»ï¼š%s(%d)\n",
                 CHAR_D->get_char(p_id,"reputationstr"),
                 CHAR_D->get_char(p_id,"reputation"),
                 who->query_literate_str(),
@@ -75,7 +75,7 @@ void do_score_str(string liv)
         object ob;
         if(!(wizardp(this_body()->query_userid())))
         {
-                printf("Ö»ÓĞÎ×Ê¦²Å¿ÉÒÔÍ¸ÊÓ±ğÈËµÄ×´¿ö\n");
+                printf("åªæœ‰å·«å¸ˆæ‰å¯ä»¥é€è§†åˆ«äººçš„çŠ¶å†µ\n");
                 return;
         }
         else
@@ -83,17 +83,17 @@ void do_score_str(string liv)
                 ob = present(liv, environment(this_body()));
                 if (!ob) ob = find_body(liv);
                 if (!ob) {
-                        write("ÄãÒª²ì¿´Ë­µÄ×´¿ö£¿\n"); 
+                        write("ä½ è¦å¯Ÿçœ‹è°çš„çŠ¶å†µï¼Ÿ\n"); 
                         return;
                 }
 		if (!ob->is_living()) {
-			write("²ì¿´Îï¼şµÄ³É¼¨£¿\n"); 
+			write("å¯Ÿçœ‹ç‰©ä»¶çš„æˆç»©ï¼Ÿ\n"); 
 			return;
 		}
                 score_print(ob);
         }
 }
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ "", "STR", }), ({  }) });
 }

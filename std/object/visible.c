@@ -10,7 +10,7 @@ int test_flag(mixed);
 void set_flag(mixed);
 void clear_flag(mixed);
 void set_id(string);
-void remove_id(string array ...);
+void remove_id(string * ...);
 
 void resync_visibility() {
     // The parser needs to know whether our contents can be seen
@@ -37,7 +37,7 @@ is_visible()
 
 string invis_name() {
     return //"something";
-           "不明物体";
+           "涓嶆槑鐗╀綋";
 }
 
 void set_visibility(int x)

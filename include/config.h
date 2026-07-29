@@ -15,7 +15,7 @@
 #define START           "/a/huayin/vhall"
 #define WIZARD_START            "/domains/std/wizroom"
 
-#define LOGIN_PROMPT            "ÇëÊäÈëÄúµÄÓ¢ÎÄÃû×Ö£¨ĞÂÍæ¼ÒÇëÓÃ new À´µÇ¼Ç£©£º"
+#define LOGIN_PROMPT            "è¯·è¾“å…¥æ‚¨çš„è‹±æ–‡åå­—ï¼ˆæ–°ç©å®¶è¯·ç”¨ new æ¥ç™»è®°ï¼‰ï¼š"
 
 /* ! will give you problems since it's used as input escape. */
 #define HISTORY_CHAR            '%'

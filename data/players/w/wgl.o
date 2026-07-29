@@ -1,6 +1,6 @@
 #/std/race/human.c
 primary_id "wgl"
-chinese_id "Íû¹öÁ÷"
+chinese_id "æœ›æ»šæµ"
 persist_flags ([0:0,])
 can_drop 1
 can_sell 1
@@ -13,8 +13,8 @@ main_prep "in"
 contained_light_added 1
 gender 1
 messages ([])
-def_messages (["invis":"$n´ÓÄãµÄÊÓÒ°ÖĞÍ»È»ÏûÊ§ÁË¡£","enter":"$n×ßÁË¹ıÀ´¡£","mleave":"$nµÄÉíÓ°ÔÚÒ»ÕóÑÌÎíÖĞ½¥½¥ÒşÈ¥¡£","vis":"$nÍ»È»³öÏÖÔÚÄãÃæÇ°£¬ÓÖËÆºõÔÚÕâÀïºÜ¾ÃÁË¡£","destruct":"$nÅÛĞäÒ»»Ó£¬$o±»»¯³ÉÒ»¹ÉºÚÑÌ£¬´µÉ¢¿ªÈ¥¡£","menter":"$nÍ»È»³öÏÖÔÚÒ»ÕóÑÌÎíÖĞ¡£","clone":"$nÉìÊÖÁè¿ÕÒ»Ö¸£¬±ä³öÁË$o¡£","home":"$n»Ø¼ÒÈ¥ÁË¡£","leave":"$n³¯$oÀë¿ªÁË¡£",])
-busy_msg "ÄãÕıÔÚÃÎÏçÖĞ¡£"
+def_messages (["invis":"$nä»ä½ çš„è§†é‡ä¸­çªç„¶æ¶ˆå¤±äº†ã€‚","enter":"$nèµ°äº†è¿‡æ¥ã€‚","mleave":"$nçš„èº«å½±åœ¨ä¸€é˜µçƒŸé›¾ä¸­æ¸æ¸éšå»ã€‚","vis":"$nçªç„¶å‡ºç°åœ¨ä½ é¢å‰ï¼Œåˆä¼¼ä¹åœ¨è¿™é‡Œå¾ˆä¹…äº†ã€‚","destruct":"$nè¢è¢–ä¸€æŒ¥ï¼Œ$oè¢«åŒ–æˆä¸€è‚¡é»‘çƒŸï¼Œå¹æ•£å¼€å»ã€‚","menter":"$nçªç„¶å‡ºç°åœ¨ä¸€é˜µçƒŸé›¾ä¸­ã€‚","clone":"$nä¼¸æ‰‹å‡Œç©ºä¸€æŒ‡ï¼Œå˜å‡ºäº†$oã€‚","home":"$nå›å®¶å»äº†ã€‚","leave":"$næœ$oç¦»å¼€äº†ã€‚",])
+busy_msg "ä½ æ­£åœ¨æ¢¦ä¹¡ä¸­ã€‚"
 busy 1306900686
 answer_list ({({"settle","settle",}),({"position","position",}),({"localmeeting","localmeeting",}),({"job","job",}),({"zgxy","zgxy",}),({"wxxy","wxxy",}),({"bfxy","bfxy",}),({"guoshi","guoshi",}),})
 ask_list ([])
@@ -49,8 +49,8 @@ ilog_time 1306900374
 money (["gold":2,"coin":50,"silver":52,])
 sg_home ([])
 name "wgl"
-invis_name "Ä³Ä³"
-chinese_name "Íû¹öÁ÷"
+invis_name "æŸæŸ"
+chinese_name "æœ›æ»šæµ"
 response_queue ({})
 channel_list ({"gossip","newbie","weather","rumor","imud_imud_sgz",})
 saved_items "([\"#inventory#\":({\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/other/tiezi\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/other/tiezi\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/other/tiezi\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/other/tiezi\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/other/tiezi\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/other/tiezi\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/other/tiezi\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/other/tiezi\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/other/tiezi\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/money/m_gold\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/money/m_coin\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/other/tiezi\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/other/tiezi\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/other/tiezi\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/other/tiezi\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/other/tiezi\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/other/tiezi\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/money/m_silver\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/other/tiezi\\\",])\",}),\"#base_name#\":\"/std/race/human\",])"

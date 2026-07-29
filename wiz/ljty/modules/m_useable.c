@@ -13,7 +13,7 @@ void num_decrease()
   if(num_uses > 1)  num_uses --;
   else 
     {
-      write(short()+"只剩最后一些了。\n");
+      write(short()+"鍙墿鏈�鍚庝竴浜涗簡銆俓n");
       destruct();
     }
 }

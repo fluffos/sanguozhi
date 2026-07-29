@@ -3,7 +3,7 @@
 // last modified:
 //      by xiaobai at 12.10.2001
 //          in function room_consume(...)
-//          µ±½ğ×Ó²»¹»£¬É¾³ıÅ©Ìï´¦ÓĞĞ¡¸Ä¶¯
+//          å½“é‡‘å­ä¸å¤Ÿï¼Œåˆ é™¤å†œç”°å¤„æœ‰å°æ”¹åŠ¨
           
 #include <security.h>
 #include <base.h>
@@ -43,16 +43,16 @@ int get_level() {
 mixed set_leader(string p) {
 	string nam;
 	if(!CHAR_D->char_exist(p))
-		return p+"²»ÊÇ½ÇÉ«¡£";
+		return p+"ä¸æ˜¯è§’è‰²ã€‚";
 	nam=CHAR_D->get_char(p,"name");
 	if(CHAR_D->get_char(p,"type")!=TYPE_NPC)
-		return nam+"²»ÊÇÈı¹úÖĞÊ·ÊµÈËÎï¡£";
+		return nam+"ä¸æ˜¯ä¸‰å›½ä¸­å²å®äººç‰©ã€‚";
 	if(CHAR_D->get_char(p,"area")!=p_area)
-		return nam+"Ã»ÔÚ"+AREA_D->get_area(p_area,"name")+"¶¨¾Ó¡£";
+		return nam+"æ²¡åœ¨"+AREA_D->get_area(p_area,"name")+"å®šå±…ã€‚";
 	if(CHAR_D->get_char(p,"ranklocal")==0)
-		return nam+"²»ÊÇµØ·½¹ÙÔ±¡£";
+		return nam+"ä¸æ˜¯åœ°æ–¹å®˜å‘˜ã€‚";
 	if(AREA_D->get_area(p_area,"leader")==p)
-		return "µØ·½Ê×Áì²»ÄÜÔÚÖ±½ÓÁìµ¼Éú²ú»ùµØ¡£";
+		return "åœ°æ–¹é¦–é¢†ä¸èƒ½åœ¨ç›´æ¥é¢†å¯¼ç”Ÿäº§åŸºåœ°ã€‚";
 	p_leader=p;
 	CHAR_D->set_char(p,"baseleader",f_id);
 	this_object()->update_room("enter");
@@ -181,19 +181,19 @@ mixed can_have_more_ppl(string r_id) {
 
 	if(curnum>=maxnum) 
 		return BASE_D->get_base(f_id,"name")+
-			"µÈ¼¶²»¹»£¬ÎŞ·¨ÔÙÔö¼Ó"+BASE_D->get_base(f_id,"workername")+"µÄÊıÁ¿ÁË¡£";
+			"ç­‰çº§ä¸å¤Ÿï¼Œæ— æ³•å†å¢åŠ "+BASE_D->get_base(f_id,"workername")+"çš„æ•°é‡äº†ã€‚";
 	areapopulation=AREA_D->get_area(p_area,"population");
 	totalpplnum=get_base_pplnum();
 	maxtotppl=MAXPPLNUMRATE*areapopulation;
 	if(totalpplnum>=maxtotppl) {
-		return "µØÇøÈË¿Ú²»×ã£¬ÎŞ·¨ÔÙÔö¼Ó"+BASE_D->get_base(f_id,"workername")+"µÄÊıÁ¿ÁË¡£";
+		return "åœ°åŒºäººå£ä¸è¶³ï¼Œæ— æ³•å†å¢åŠ "+BASE_D->get_base(f_id,"workername")+"çš„æ•°é‡äº†ã€‚";
 	}
 	p_id=get_leader();
 	if(!CHAR_D->char_exist(p_id)) 
-		return "Ã»ÓĞ×Ü¼à£¬ÎŞ·¨ÔÙÔö¼Ó"+BASE_D->get_base(f_id,"workername")+"µÄÊıÁ¿ÁË¡£";
+		return "æ²¡æœ‰æ€»ç›‘ï¼Œæ— æ³•å†å¢åŠ "+BASE_D->get_base(f_id,"workername")+"çš„æ•°é‡äº†ã€‚";
 	if(!mapp(get_room(r_id,"head"))) 
-		return "Ã»ÓĞ"+BASE_D->get_base(f_id,"headname")+"£¬ÎŞ·¨ÔÙÔö¼Ó"+
-			BASE_D->get_base(f_id,"workername")+"µÄÊıÁ¿ÁË¡£";
+		return "æ²¡æœ‰"+BASE_D->get_base(f_id,"headname")+"ï¼Œæ— æ³•å†å¢åŠ "+
+			BASE_D->get_base(f_id,"workername")+"çš„æ•°é‡äº†ã€‚";
 	return 1;
 }
 mixed add_ppl(string r_id,int num) {
@@ -213,7 +213,7 @@ mixed add_ppl(string r_id,int num) {
 void reduce_ppl(string r_id,int num)
 {
 	int curnum = get_room(r_id,"pplnum");
-	array bs = AREA_D->get_area(p_area,"base");
+	mixed * bs = AREA_D->get_area(p_area,"base");
 	string *ks = get_room("list","");
 	string dis;
 	int level=get_level();
@@ -247,8 +247,8 @@ void reduce_ppl(string r_id,int num)
 	{
         	bs-=({f_id});
 		AREA_D->set_area(p_area,"base",bs);
-		dis="ÓÉÓÚÎóÓÃ´õÈË£¬"+AREA_D->get_area(p_area,"name")+"µÄ"+
-	      		BASE_D->get_base(f_id,"name")+"µ¹±ÕÁË¡£";
+		dis="ç”±äºè¯¯ç”¨æ­¹äººï¼Œ"+AREA_D->get_area(p_area,"name")+"çš„"+
+	      		BASE_D->get_base(f_id,"name")+"å€’é—­äº†ã€‚";
 	 }
 	 else
 	 {
@@ -262,8 +262,8 @@ void reduce_ppl(string r_id,int num)
 		   rooms[r]["pplnum"]=0;
 		}
 
-       		dis="ÓÉÓÚÎóÓÃ´õÈË"+AREA_D->get_area(p_area,"name")+"µÄ"+
-	   		BASE_D->get_base(f_id,"name")+"½µ¼¶ÁË¡£";
+       		dis="ç”±äºè¯¯ç”¨æ­¹äºº"+AREA_D->get_area(p_area,"name")+"çš„"+
+	   		BASE_D->get_base(f_id,"name")+"é™çº§äº†ã€‚";
 	   }
 	 CHANNEL_D->deliver_tell("rumor","system",dis);
 	log_me(dis);
@@ -279,13 +279,13 @@ mixed can_have_more_room() {
 	string p_id;
 	if((lv*2)<=rms) 
 		return BASE_D->get_base(f_id,"name")+
-			"µÈ¼¶²»¹»£¬ÎŞ·¨ÔÙÔö¼ÓĞÂµÄ"+BASE_D->get_base(f_id,"roomname")+"ÁË¡£";
+			"ç­‰çº§ä¸å¤Ÿï¼Œæ— æ³•å†å¢åŠ æ–°çš„"+BASE_D->get_base(f_id,"roomname")+"äº†ã€‚";
 	goldneed=BASE_D->get_base(f_id,"gold")/2;
 	if(AREA_D->get_area(p_area,"gold")<goldneed)
-		return "µØÇø²ÆÕşÀ§ÄÑ£¬ÎŞ·¨Ôö¼ÓĞÂµÄ"+BASE_D->get_base(f_id,"roomname")+"ÁË¡£";
+		return "åœ°åŒºè´¢æ”¿å›°éš¾ï¼Œæ— æ³•å¢åŠ æ–°çš„"+BASE_D->get_base(f_id,"roomname")+"äº†ã€‚";
 	p_id=get_leader();
 	if(!CHAR_D->char_exist(p_id)) 
-		return "Ã»ÓĞ×Ü¼à£¬ÎŞ·¨Ôö¼ÓĞÂµÄ"+BASE_D->get_base(f_id,"roomname")+"ÁË¡£";
+		return "æ²¡æœ‰æ€»ç›‘ï¼Œæ— æ³•å¢åŠ æ–°çš„"+BASE_D->get_base(f_id,"roomname")+"äº†ã€‚";
 	return 1;
 }
 
@@ -343,7 +343,7 @@ mixed add_head(object tar) {
 	return 1;	
 }
 
-//ÔÚ»ùµØÉÏÔö¼ÓĞÂµÄ·¿¼ä(·¿¼ä¿ÉÒÔÊÇÅ©ÌïÖ®ÀàµÄ)
+//åœ¨åŸºåœ°ä¸Šå¢åŠ æ–°çš„æˆ¿é—´(æˆ¿é—´å¯ä»¥æ˜¯å†œç”°ä¹‹ç±»çš„)
 mixed add_new_room() {
 	string *valid_dir=({"east","west","north","south","southeast","southwest","northeast","northwest"});
 
@@ -369,7 +369,7 @@ mixed add_new_room() {
 	rooms[r_id]["e"][opext]="enter";
 	rooms[r_id]["pro"]=BASE_D->get_base(f_id,"defproduct");
 	rooms["enter"]["e"][ext]=r_id;
-	dis=AREA_D->get_area(p_area,"name")+"ÓÖ½¨ÉèÁËĞÂµÄ"+BASE_D->get_base(f_id,"roomname");
+	dis=AREA_D->get_area(p_area,"name")+"åˆå»ºè®¾äº†æ–°çš„"+BASE_D->get_base(f_id,"roomname");
 	gold=AREA_D->get_area(p_area,"gold");
 	gold-=BASE_D->get_base(f_id,"gold")/2;
 	AREA_D->set_area(p_area,"gold",gold);
@@ -411,7 +411,7 @@ void calculate_power(string r_id) {
 	int safe,ind,agr,bus;
 	int pow;
 	int si,sa,sb,ss,sp,sw,ps,pp,pw;
-	int lzg,lbf; // ÖÎ¹úĞŞÑøºÍ±ø·¨ĞŞÑø
+	int lzg,lbf; // æ²»å›½ä¿®å…»å’Œå…µæ³•ä¿®å…»
 	int spr;
 	string leader;
 	mixed bs,head;
@@ -468,17 +468,17 @@ string get_room_statusstr(string r_id) {
 	int st=get_room(r_id,"status");
 	switch (st) {
 	case S_NOLEADER:
-		return "Ã»ÓĞ×Ü¼à¡£";
+		return "æ²¡æœ‰æ€»ç›‘ã€‚";
 	case S_NOHEAD:
-		return "Ã»ÓĞ"+BASE_D->get_base(f_id,"headname");
+		return "æ²¡æœ‰"+BASE_D->get_base(f_id,"headname");
 	case S_NOPPL:
-		return "Ã»ÓĞ"+BASE_D->get_base(f_id,"workername");
+		return "æ²¡æœ‰"+BASE_D->get_base(f_id,"workername");
 	case S_NOSOURCESTUFF:
-		return "Ô­ÁÏ²»×ã";
+		return "åŸæ–™ä¸è¶³";
 	case S_NORMAL:
-		return "Õı³£Éú²ú";
+		return "æ­£å¸¸ç”Ÿäº§";
 	default :
-		return "Ææ¹ÖµÄÎ´Öª×´Ì¬"+st;
+		return "å¥‡æ€ªçš„æœªçŸ¥çŠ¶æ€"+st;
 	}
 }
 
@@ -487,15 +487,15 @@ string get_room_problemstr(string r_id) {
 	switch (st) {
 
 	case P_ASKWINE:
-		return BASE_D->get_base(f_id,"workername")+"ÏëÒªºÈ¾Æ¡£";
+		return BASE_D->get_base(f_id,"workername")+"æƒ³è¦å–é…’ã€‚";
 	case P_ASKMEAT:
-		return BASE_D->get_base(f_id,"workername")+"ÏëÒª³ÔÈâ¡£";
+		return BASE_D->get_base(f_id,"workername")+"æƒ³è¦åƒè‚‰ã€‚";
 	case P_ASKRAISE:
-		return BASE_D->get_base(f_id,"headname")+"ÒªÕÇÓ¶½ğ¡£";
+		return BASE_D->get_base(f_id,"headname")+"è¦æ¶¨ä½£é‡‘ã€‚";
 	case P_NORMAL:
-		return "Ò»ÇĞÕı³£";
+		return "ä¸€åˆ‡æ­£å¸¸";
 	default :
-		return "Ææ¹ÖµÄÎ´ÖªÎÊÌâ"+st;
+		return "å¥‡æ€ªçš„æœªçŸ¥é—®é¢˜"+st;
 	}
 }
 mixed get_room(string r_id,string para) {
@@ -522,27 +522,27 @@ string stat_me(string r_id) {
 	roomname=BASE_D->get_base(f_id,"roomname");
 	workername=BASE_D->get_base(f_id,"workername");
 	headname=BASE_D->get_base(f_id,"headname");
-	if(!mapp(c)) return "Ã»ÓĞÕâ¸ö"+roomname+"\n";
-	ret+="ÀàĞÍ£º"+roomname+"\n";
-	ret+=workername+"ÊıÁ¿£º"+c["pplnum"]+" ¸É¾¢£º"+c["spr"]+"\n";
+	if(!mapp(c)) return "æ²¡æœ‰è¿™ä¸ª"+roomname+"\n";
+	ret+="ç±»å‹ï¼š"+roomname+"\n";
+	ret+=workername+"æ•°é‡ï¼š"+c["pplnum"]+" å¹²åŠ²ï¼š"+c["spr"]+"\n";
 	head=c["head"]; 
 	if(!mapp(head))
-		ret+="Ä¿Ç°Ã»ÓĞ"+headname+"\n";
+		ret+="ç›®å‰æ²¡æœ‰"+headname+"\n";
 	else {
-		ret+=headname+"£º"+head["sname"]+head["gname"];
-		ret+=" Á¦Á¿£º"+head["ps"]+" ÄÍÁ¦£º"+head["pp"]+" ÖÇ»Û£º"+head["pw"]+"\n";
+		ret+=headname+"ï¼š"+head["sname"]+head["gname"];
+		ret+=" åŠ›é‡ï¼š"+head["ps"]+" è€åŠ›ï¼š"+head["pp"]+" æ™ºæ…§ï¼š"+head["pw"]+"\n";
 	}
 	if(!stringp(c["pro"])) 
 		c["pro"]=BASE_D->get_base(f_id,"defproduct");
 	pow=get_room(r_id,"power");
-	ret+="Éú²úÁ¦£º"+pow+" Éú²úÁ¦»ıÀÛ£º"+c["work"]+"\n";
-	ret+="²úÆ·£º"+BASE_D->get_stuff(c["pro"],"name")+" Ã¿"+
+	ret+="ç”Ÿäº§åŠ›ï¼š"+pow+" ç”Ÿäº§åŠ›ç§¯ç´¯ï¼š"+c["work"]+"\n";
+	ret+="äº§å“ï¼š"+BASE_D->get_stuff(c["pro"],"name")+" æ¯"+
 		BASE_D->get_stuff(c["pro"],"quantity")+
-		BASE_D->get_stuff(c["pro"],"unit")+"ĞèÒªÉú²úÁ¦£º"+
+		BASE_D->get_stuff(c["pro"],"unit")+"éœ€è¦ç”Ÿäº§åŠ›ï¼š"+
 		BASE_D->get_stuff(c["pro"],"work")+" ";
 	consume=BASE_D->get_stuff(c["pro"],"consume");
 	if(sizeof(consume)) {
-		ret+="ĞèÒªÔ­ÁÏ£º";
+		ret+="éœ€è¦åŸæ–™ï¼š";
 		foreach(string con, int vol in consume) {
 			ret+=""+vol+BASE_D->get_stuff(con,"unit")+
 				BASE_D->get_stuff(con,"name")+" ";
@@ -551,7 +551,7 @@ string stat_me(string r_id) {
 	ret+="\n";
 	src=c["src"];
 	if(sizeof(src)) {
-		ret+="Ä¿Ç°¿â´æÔ­ÁÏ£º";//modified by suicide 2000.02.20
+		ret+="ç›®å‰åº“å­˜åŸæ–™ï¼š";//modified by suicide 2000.02.20
 		foreach(string s in keys(src)) {
 			ret+=""+src[s]["num"]+BASE_D->get_stuff(s,"unit")+
 				BASE_D->get_stuff(s,"name")+" ";
@@ -565,14 +565,14 @@ string stat_me(string r_id) {
 		}
 	}
 
-	ret+="Ä¿Ç°×´¿ö£º"+get_room_statusstr(r_id)+"\n";
-	ret+="Ä¿Ç°ÎÊÌâ£º"+get_room_problemstr(r_id)+"\n";
-	ret+="Ä¿Ç°×Ü³É±¾£º"+c["cost"]+" Á½ÎÆÒø  ";//added by suicide 2000.02.20
+	ret+="ç›®å‰çŠ¶å†µï¼š"+get_room_statusstr(r_id)+"\n";
+	ret+="ç›®å‰é—®é¢˜ï¼š"+get_room_problemstr(r_id)+"\n";
+	ret+="ç›®å‰æ€»æˆæœ¬ï¼š"+c["cost"]+" ä¸¤çº¹é“¶  ";//added by suicide 2000.02.20
 
-	ret+="¹À¼ÆÔÂ²úÁ¿£º"+pow*10*BASE_D->get_stuff(c["pro"],"quantity")/BASE_D->get_stuff(c["pro"],"work")+
+	ret+="ä¼°è®¡æœˆäº§é‡ï¼š"+pow*10*BASE_D->get_stuff(c["pro"],"quantity")/BASE_D->get_stuff(c["pro"],"work")+
 		BASE_D->get_stuff(c["pro"],"unit")+
 		BASE_D->get_stuff(c["pro"],"name")+"\n";
-	ret+="¹À¼ÆÄê²úÁ¿£º"+pow*10*12*BASE_D->get_stuff(c["pro"],"quantity")/BASE_D->get_stuff(c["pro"],"work")+
+	ret+="ä¼°è®¡å¹´äº§é‡ï¼š"+pow*10*12*BASE_D->get_stuff(c["pro"],"quantity")/BASE_D->get_stuff(c["pro"],"work")+
 		BASE_D->get_stuff(c["pro"],"unit")+
 		BASE_D->get_stuff(c["pro"],"name")+"\n";
 	return ret;
@@ -617,7 +617,7 @@ void restore_data() {
 }
 
 void create(string a_id,string fd) {
-	array bases;
+	mixed * bases;
 	if(!clonep(this_object())) return;
 	set_privilege(1);
 
@@ -789,7 +789,7 @@ int get_ppl_gold_consume() {
 
 int get_ppl_food_consume() {
 	int pplnum=get_base("pplnum");
-	if(f_id=="farm") return 0; // Å©³¡²»ÏûºÄÁ¸Ê³
+	if(f_id=="farm") return 0; // å†œåœºä¸æ¶ˆè€—ç²®é£Ÿ
 	return pplnum/2;
 }
 
@@ -813,9 +813,9 @@ mixed get_base_src_consume(string r_id) {
 
 //modified by suicide at 2000.02.20 
 //Change the source data format of the rooms for calculate the cost of the product
-//old :   Ô­ÁÏÃû  
-//new :   Ô­ÁÏÃû:ÊıÁ¿  "num"
-//              ¼Û¸ñ  "price"
+//old :   åŸæ–™å  
+//new :   åŸæ–™å:æ•°é‡  "num"
+//              ä»·æ ¼  "price"
 int have_enough_src(string r_id,int real) { // real will consume
 	mixed consume,c;						// other just query
 	int pow,powconsume,v1;
@@ -874,7 +874,7 @@ mixed room_consume(string r_id)
     //rs=keys(rooms);
     //rs-=({"enter"});
     level=get_level();
-    cost += 2500*level;  //Éú²ú·¿¼äµÄÒøºÄ
+    cost += 2500*level;  //ç”Ÿäº§æˆ¿é—´çš„é“¶è€—
 
     if (p_gold*100<cost)
     {
@@ -883,18 +883,18 @@ mixed room_consume(string r_id)
         
         if( level==0 )
         {
-            array bs;
+            mixed * bs;
             bs=AREA_D->get_area(p_area,"base");
             bs-=({f_id});
             AREA_D->set_area(p_area,"base",bs);
-            dis=AREA_D->get_area(p_area,"name")+"×Ê½ğ²»×ã"+
-            AREA_D->get_area(p_area,"name")+"µÄ"+
-            BASE_D->get_base(f_id,"name")+"µ¹±ÕÁË¡£";
+            dis=AREA_D->get_area(p_area,"name")+"èµ„é‡‘ä¸è¶³"+
+            AREA_D->get_area(p_area,"name")+"çš„"+
+            BASE_D->get_base(f_id,"name")+"å€’é—­äº†ã€‚";
             CHANNEL_D->deliver_tell("rumor","system",dis);
             log_me(dis);
             save_data();
             return -1;		
-        }    // end if, ÍêÈ«µ¹±ÕÁË
+        }    // end if, å®Œå…¨å€’é—­äº†
         
         rooms[r_id]["cost"]+=p_gold; 
        
@@ -902,7 +902,7 @@ mixed room_consume(string r_id)
         {
             r = rs[random(rnum)];
             map_delete(rooms,r);
-// xiaobai: 12.10.2001, É¾³ıÒ»¿éÅ©Ìï£¬ÓĞĞ©Êı¾İÒª¼õÈ¥
+// xiaobai: 12.10.2001, åˆ é™¤ä¸€å—å†œç”°ï¼Œæœ‰äº›æ•°æ®è¦å‡å»
             rs -= ({ r });
             rnum--;
 //// xiaobai
@@ -914,20 +914,20 @@ mixed room_consume(string r_id)
             rooms[r]["pplnum"]=0;
         }
 
-        dis=AREA_D->get_area(p_area,"name")+"×Ê½ğ²»×ã"+
-        AREA_D->get_area(p_area,"name")+"µÄ"+
-        BASE_D->get_base(f_id,"name")+"½µ¼¶ÁË¡£";
+        dis=AREA_D->get_area(p_area,"name")+"èµ„é‡‘ä¸è¶³"+
+        AREA_D->get_area(p_area,"name")+"çš„"+
+        BASE_D->get_base(f_id,"name")+"é™çº§äº†ã€‚";
         CHANNEL_D->deliver_tell("rumor","system",dis);
         set_level(level);
         log_me(dis);
         save_data();
         return -2;		
     
-    }  // end if, ½ğ×Ó²»¹»
+    }  // end if, é‡‘å­ä¸å¤Ÿ
     
     if(mapp(rooms[r_id]["head"])) 
-    cost += rooms[r_id]["head"]["salary"];//¹¤Í·µÄÒøºÄ
-    cost += rooms[r_id]["pplnum"]*5;  //¹¤ÈËµÄÒøºÄ
+    cost += rooms[r_id]["head"]["salary"];//å·¥å¤´çš„é“¶è€—
+    cost += rooms[r_id]["pplnum"]*5;  //å·¥äººçš„é“¶è€—
     
     if (p_gold*100<cost)
     {
@@ -938,9 +938,9 @@ mixed room_consume(string r_id)
             rooms[r]["pplnum"]=rooms[r]["pplnum"]/2;
         }
         
-        dis=AREA_D->get_area(p_area,"name")+"×Ê½ğ²»×ã"+
-          AREA_D->get_area(p_area,"name")+"µÄ"+
-          BASE_D->get_base(f_id,"workername")+"ÌÓÅÜÁË¡£";
+        dis=AREA_D->get_area(p_area,"name")+"èµ„é‡‘ä¸è¶³"+
+          AREA_D->get_area(p_area,"name")+"çš„"+
+          BASE_D->get_base(f_id,"workername")+"é€ƒè·‘äº†ã€‚";
         
         CHANNEL_D->deliver_tell("rumor","system",dis);
         rooms[r_id]["cost"]+=p_gold;
@@ -953,7 +953,7 @@ mixed room_consume(string r_id)
       
     rooms[r_id]["cost"]+=cost;cost=0;
     
-    if    (f_id=="farm") p_foodneed= 0; // Å©³¡²»ÏûºÄÁ¸Ê³
+    if    (f_id=="farm") p_foodneed= 0; // å†œåœºä¸æ¶ˆè€—ç²®é£Ÿ
     else  p_foodneed=rooms[r_id]["pplnum"]/2;
     
     if(p_food<p_foodneed)
@@ -963,9 +963,9 @@ mixed room_consume(string r_id)
         {
         	rooms[r]["pplnum"]=rooms[r]["pplnum"]/2;
         }
-        dis=AREA_D->get_area(p_area,"name")+"Á¸Ê³²»×ã"+
-            AREA_D->get_area(p_area,"name")+"µÄ"+
-            BASE_D->get_base(f_id,"workername")+"ÌÓÅÜÁË¡£";
+        dis=AREA_D->get_area(p_area,"name")+"ç²®é£Ÿä¸è¶³"+
+            AREA_D->get_area(p_area,"name")+"çš„"+
+            BASE_D->get_base(f_id,"workername")+"é€ƒè·‘äº†ã€‚";
         CHANNEL_D->deliver_tell("rumor","system",dis);
         rooms[r_id]["cost"]+=p_food*AREA_D->get_area_st_price(p_area,"food");
         log_me(dis);
@@ -976,8 +976,8 @@ mixed room_consume(string r_id)
 
     AREA_D->set_area(p_area,"food",p_food-p_foodneed);
     rooms[r_id]["cost"]+=rooms[r_id]["pplnum"]/2*AREA_D->get_area_st_price(p_area,"food");
-    //¹¤ÈË³ÔÁ¸µÄÒøºÄ
-    //Ô­ÁÏµÄÒøºÄÔÚroom_workingº¯ÊıÏûºÄÔ­ÁÏÊ±¼ÆËã¡£ 
+    //å·¥äººåƒç²®çš„é“¶è€—
+    //åŸæ–™çš„é“¶è€—åœ¨room_workingå‡½æ•°æ¶ˆè€—åŸæ–™æ—¶è®¡ç®—ã€‚ 
     save_data();
     return 0;
 }
@@ -992,7 +992,7 @@ void base_consume()
 	    if ( rooms[r_id] )
             breakflag = room_consume(r_id);
         
-        if ( breakflag < 0 )   //Èç¹ûÉú²ú·¿¼äµÄÏûºÄ¼ÆËã²»Õı³£,Ôò²»ÔÙ½øĞĞÆäËûÉú²ú·¿¼äµÄÏûºÄ¼ÆËã
+        if ( breakflag < 0 )   //å¦‚æœç”Ÿäº§æˆ¿é—´çš„æ¶ˆè€—è®¡ç®—ä¸æ­£å¸¸,åˆ™ä¸å†è¿›è¡Œå…¶ä»–ç”Ÿäº§æˆ¿é—´çš„æ¶ˆè€—è®¡ç®—
 	        break; 
 	}	
 }
@@ -1011,13 +1011,13 @@ void base_consume()
 		AREA_D->set_area(p_area,"gold",0);
 		level--;
 		if(level==0) {
-			array bs;
+			mixed * bs;
 			bs=AREA_D->get_area(p_area,"base");
 			bs-=({f_id});
 			AREA_D->set_area(p_area,"base",bs);
-			dis=AREA_D->get_area(p_area,"name")+"×Ê½ğ²»×ã"+
-				AREA_D->get_area(p_area,"name")+"µÄ"+
-				BASE_D->get_base(f_id,"name")+"µ¹±ÕÁË¡£";
+			dis=AREA_D->get_area(p_area,"name")+"èµ„é‡‘ä¸è¶³"+
+				AREA_D->get_area(p_area,"name")+"çš„"+
+				BASE_D->get_base(f_id,"name")+"å€’é—­äº†ã€‚";
 			CHANNEL_D->deliver_tell("rumor","system",dis);
 			return;		
 		}
@@ -1031,9 +1031,9 @@ void base_consume()
 			rooms[r]["pplnum"]=0;
 		}
 
-		dis=AREA_D->get_area(p_area,"name")+"×Ê½ğ²»×ã"+
-			AREA_D->get_area(p_area,"name")+"µÄ"+
-			BASE_D->get_base(f_id,"name")+"½µ¼¶ÁË¡£";
+		dis=AREA_D->get_area(p_area,"name")+"èµ„é‡‘ä¸è¶³"+
+			AREA_D->get_area(p_area,"name")+"çš„"+
+			BASE_D->get_base(f_id,"name")+"é™çº§äº†ã€‚";
 		CHANNEL_D->deliver_tell("rumor","system",dis);
 		set_level(level);
 		save_data();	
@@ -1046,9 +1046,9 @@ void base_consume()
 		foreach ( r in rs) {
 			rooms[r]["pplnum"]=rooms[r]["pplnum"]/2;
 		}
-		dis=AREA_D->get_area(p_area,"name")+"×Ê½ğ²»×ã"+
-			AREA_D->get_area(p_area,"name")+"µÄ"+
-			BASE_D->get_base(f_id,"workername")+"ÌÓÅÜÁË¡£";
+		dis=AREA_D->get_area(p_area,"name")+"èµ„é‡‘ä¸è¶³"+
+			AREA_D->get_area(p_area,"name")+"çš„"+
+			BASE_D->get_base(f_id,"workername")+"é€ƒè·‘äº†ã€‚";
 		CHANNEL_D->deliver_tell("rumor","system",dis);
 		save_data();	
 		return;		
@@ -1063,9 +1063,9 @@ void base_consume()
 		foreach ( r in rs) {
 			rooms[r]["pplnum"]=rooms[r]["pplnum"]/2;
 		}
-		dis=AREA_D->get_area(p_area,"name")+"Á¸Ê³²»×ã"+
-			AREA_D->get_area(p_area,"name")+"µÄ"+
-			BASE_D->get_base(f_id,"workername")+"ÌÓÅÜÁË¡£";
+		dis=AREA_D->get_area(p_area,"name")+"ç²®é£Ÿä¸è¶³"+
+			AREA_D->get_area(p_area,"name")+"çš„"+
+			BASE_D->get_base(f_id,"workername")+"é€ƒè·‘äº†ã€‚";
 		CHANNEL_D->deliver_tell("rumor","system",dis);
 		save_data();	
 		return;		
@@ -1079,8 +1079,8 @@ string stat_me_total() {
 	string *rds;
 	int tppl=0,tpow=0,trms=0,thds=0;
 	int tgoldc=0,tfoodc=0;
-	ret="±¾"+BASE_D->get_base(f_id,"name")+"µÄÇé¿öÈçÏÂ£º\n";
-	ret+="µÈ¼¶£º"+get_level()+" ×Ü¼à£º"+CHAR_D->get_char(get_leader(),"name")+"\n";
+	ret="æœ¬"+BASE_D->get_base(f_id,"name")+"çš„æƒ…å†µå¦‚ä¸‹ï¼š\n";
+	ret+="ç­‰çº§ï¼š"+get_level()+" æ€»ç›‘ï¼š"+CHAR_D->get_char(get_leader(),"name")+"\n";
 	rds=get_room("list","");
 	tgoldc=get_gold_consume();
 	tfoodc=get_ppl_food_consume();
@@ -1091,11 +1091,11 @@ string stat_me_total() {
 		if(mapp(rooms[r]["head"])) thds++;
 		tpow+=get_power(r);
 	}
-	ret+=BASE_D->get_base(f_id,"roomname")+"Êı£º"+trms+" "+
-		BASE_D->get_base(f_id,"headname")+"Êı£º"+thds+"\n";
-	ret+=BASE_D->get_base(f_id,"workername")+"Êı£º"+tppl+
-		" ×ÜÉú²úÁ¦£º"+tpow+"\n";
-	ret+="ÔÂ½ğ×ÜÏûºÄ£º"+tgoldc+" ÔÂÁ¸×ÜÏûºÄ£º"+tfoodc+"\n¡£";
+	ret+=BASE_D->get_base(f_id,"roomname")+"æ•°ï¼š"+trms+" "+
+		BASE_D->get_base(f_id,"headname")+"æ•°ï¼š"+thds+"\n";
+	ret+=BASE_D->get_base(f_id,"workername")+"æ•°ï¼š"+tppl+
+		" æ€»ç”Ÿäº§åŠ›ï¼š"+tpow+"\n";
+	ret+="æœˆé‡‘æ€»æ¶ˆè€—ï¼š"+tgoldc+" æœˆç²®æ€»æ¶ˆè€—ï¼š"+tfoodc+"\nã€‚";
 	return ret;
 }
 

@@ -24,31 +24,31 @@ protected string p_id,n_id,master_id;
 protected mapping p_pos=
 ([ 
   "gj" : ([
-		"name" : "ÀÏ¹Ü¼Ò",
+		"name" : "è€ç®¡å®¶",
 		"num" : 1, // maximum number for one family
 		"type" : ({OLDWOMAN,OLDMAN}), // just old man and old woman can do it
 	   ]),
   "nwj" : ([
-		"name" : "ÄàÍß½³",
+		"name" : "æ³¥ç“¦åŒ ",
 		"num" : 1, // maximum number for one family
 		"type" : ({MIDMAN}), // just old man and old woman can do it
 	   ]),
   "zfxs" : ([
-		"name" : "ÕÊ·¿ÏÈÉú",
+		"name" : "å¸æˆ¿å…ˆç”Ÿ",
 		"num" : 1, // maximum number for one family
 		"type" : ({OLDMAN}), // just old man and old woman can do it
 		"room" : "zhangfang",
 	   ]),
 
   "dcs" : ([
-		"name" : "´ó³øÊ¦",
+		"name" : "å¤§å¨å¸ˆ",
 		"num" : 1, // maximum number for one family
 		"type" : ({OLDMAN,OLDWOMAN,MIDMAN,MIDWOMAN}), 
 		"room" : "kitchen",
 	   ]),
 
   "sc" : ([
-		"name" : "Ëæ´Ó",
+		"name" : "éšä»",
 		"num" : 3, // maximum number for one family
 		"type" : ({OLDMAN,OLDWOMAN,MIDMAN,MIDWOMAN,YOUNGMAN,YOUNGWOMAN}), 
 	   ]),
@@ -57,11 +57,11 @@ protected mapping p_pos=
 string show_pos() {
 	string ret,*ps;
 	ps=keys(p_pos);
-	ret="Ä¿Ç°ÓĞµÄÖ°Î»ÊÇ£º\n";
+	ret="ç›®å‰æœ‰çš„èŒä½æ˜¯ï¼š\n";
 	foreach(string p in ps) {
 		ret+=p_pos[p]["name"]+"("+p+")   ";
 	}
-	ret+="\nÇëÊäÈëÒª°²ÅÅµ½µÄÖ°ÎñµÄID£º";
+	ret+="\nè¯·è¾“å…¥è¦å®‰æ’åˆ°çš„èŒåŠ¡çš„IDï¼š";
 	return ret;
 }		
 void do_getinfo()
@@ -75,10 +75,10 @@ void do_getinfo()
     	modal_pop();
 	p_cometime=o_h->get_npc(n_id,"cometime");
 	p_salary=o_h->get_npc(n_id,"salary");
-	p_info="$N¶Ô$TµÀ£º»Ø$R£¬$sµ½¸®ÉÏÒÑÓĞ"+CHINESE_D->chinese_period((time()-p_cometime)*90)+
-		"£¬Ä¿Ç°µÄÙºÒøÊÇ£º"+chinese_number(p_salary)+"Á½Òø×ÓÒ»¸öÔÂ¡£\n";
+	p_info="$Nå¯¹$Té“ï¼šå›$Rï¼Œ$såˆ°åºœä¸Šå·²æœ‰"+CHINESE_D->chinese_period((time()-p_cometime)*90)+
+		"ï¼Œç›®å‰çš„ä¿¸é“¶æ˜¯ï¼š"+chinese_number(p_salary)+"ä¸¤é“¶å­ä¸€ä¸ªæœˆã€‚\n";
 	master->targetted_action(
-		"$N¶Ô$TµÀ£º$m£¬ÄãÔÚÕâÀïµÄÇé¿öÔõÃ´Ñù¡£\n",slave);
+		"$Nå¯¹$Té“ï¼š$mï¼Œä½ åœ¨è¿™é‡Œçš„æƒ…å†µæ€ä¹ˆæ ·ã€‚\n",slave);
 
         DELAY_D->delay_targetted_action(slave,master,p_info,2);
 	call_out("quit_menu_application",5);
@@ -98,10 +98,10 @@ void do_stayhere()
 	poped=0;
 
 	master->targetted_action(
-		"$N¶Ô$TµÀ£º$m£¬½ñºóÄãÃ»ÊÂµÄÊ±ºò¾ÍÔÚ´ËÌıºòµ÷Ç²¡£\n",slave);
+		"$Nå¯¹$Té“ï¼š$mï¼Œä»Šåä½ æ²¡äº‹çš„æ—¶å€™å°±åœ¨æ­¤å¬å€™è°ƒé£ã€‚\n",slave);
 
         DELAY_D->delay_targetted_action(slave,master,
-		"$N¶Ô$T¹ªÉíµÀ£º×ñÃü¡£\n",2);
+		"$Nå¯¹$Tèº¬èº«é“ï¼šéµå‘½ã€‚\n",2);
 	call_out("quit_menu_application",3);
 }
 
@@ -113,7 +113,7 @@ void do_praise(string str)
     o_obj=present(str,master) ;
 
     if(!objectp(o_obj)) {
-	write("ÄãÉíÉÏÃ»ÓĞ"+str+"¡£\n");
+	write("ä½ èº«ä¸Šæ²¡æœ‰"+str+"ã€‚\n");
 	return;
     }
 
@@ -122,10 +122,10 @@ void do_praise(string str)
 
     call_out("quit_menu_application",5);
 
-    master->targetted_action("$N¶Ô$TµÀ£º$RĞÁ¿àÁË£¬Õâ$O¾ÍÉÍ¸øÄã°É¡£\n",slave,o_obj);
-    master->targetted_action("$NµÖ¸ø$T$O¡£\n",slave,o_obj);
+    master->targetted_action("$Nå¯¹$Té“ï¼š$Rè¾›è‹¦äº†ï¼Œè¿™$Oå°±èµç»™ä½ å§ã€‚\n",slave,o_obj);
+    master->targetted_action("$NæŠµç»™$T$Oã€‚\n",slave,o_obj);
 
-    DELAY_D->delay_simple_action(slave,"$N¸ßĞËµØÌøÁËÆğÀ´¡£\n",2);
+    DELAY_D->delay_simple_action(slave,"$Né«˜å…´åœ°è·³äº†èµ·æ¥ã€‚\n",2);
 
     destruct(o_obj);
     o_obj=present(str,master) ;
@@ -150,12 +150,12 @@ void do_changeid(string str)
     object o_h;
     o_h=SGHOME(p_id);
 	if(strsrch(str," ")>=0) {
-		write("ID ÖĞ²»ÄÜÓĞ¿Õ¸ñ¡£\n");
+		write("ID ä¸­ä¸èƒ½æœ‰ç©ºæ ¼ã€‚\n");
 		return;
 	}
 
     if((sizeof(str)>8)||(sizeof(str)<3)) {
-	write("ID±ØĞèÊÇ3µ½8¸ö×ÖÄ¸¡£\n");
+	write("IDå¿…éœ€æ˜¯3åˆ°8ä¸ªå­—æ¯ã€‚\n");
 	return;
     }
 	poped=0;
@@ -166,16 +166,16 @@ void do_changeid(string str)
 
     call_out("quit_menu_application",5);
 
-    master->targetted_action("$N¶Ô$TµÀ£º$RĞÁ¿àÁË£¬$S´ÍÓèÄãĞÂµÄID£º"+str+"£¬¼Ç×¡ÁËÂğ¡£\n",slave);
+    master->targetted_action("$Nå¯¹$Té“ï¼š$Rè¾›è‹¦äº†ï¼Œ$Sèµäºˆä½ æ–°çš„IDï¼š"+str+"ï¼Œè®°ä½äº†å—ã€‚\n",slave);
 
-    DELAY_D->delay_simple_action(slave,"$NµãÍ·µÀ£º¼Ç×¡ÁË¡£\n",2);
+    DELAY_D->delay_simple_action(slave,"$Nç‚¹å¤´é“ï¼šè®°ä½äº†ã€‚\n",2);
 }
 
 void create( )
 {
     set_privilege(1);
-    toplevel = new_menu("\nÇë¶ÔÏĞÈËÏÂ´ïÖ¸Áî£º");
-    quit_item = new_menu_item("ÍËÏÂ", (:quit_old_place:), "q");
+    toplevel = new_menu("\nè¯·å¯¹é—²äººä¸‹è¾¾æŒ‡ä»¤ï¼š");
+    quit_item = new_menu_item("é€€ä¸‹", (:quit_old_place:), "q");
     seperator = new_seperator
     ("----------------------------------------------------------------------");
     space = new_seperator
@@ -183,23 +183,23 @@ void create( )
 
     add_menu_item(toplevel, seperator);
     add_menu_item(toplevel, space);
-    add_menu_item(toplevel, new_menu_item("ÔÚ´Ë¹§ºò",	(: do_stayhere :) ,"1"));
-    add_menu_item(toplevel, new_menu_item("°²ÅÅÖ°Îñ",	(: get_input_then_call,
+    add_menu_item(toplevel, new_menu_item("åœ¨æ­¤æ­å€™",	(: do_stayhere :) ,"1"));
+    add_menu_item(toplevel, new_menu_item("å®‰æ’èŒåŠ¡",	(: get_input_then_call,
 		(: do_givepos :) ,show_pos() :), "2"));
 
-    add_menu_item(toplevel, new_menu_item("Ñ¯ÎÊÇé¿ö",	(: do_getinfo :) ,"3"));
-    add_menu_item(toplevel, new_menu_item("ÉÍ´ÍÎïÆ·",	(: get_input_then_call,
-		(: do_praise :) ,"ÉÍ´ÍºÎÎï£º" :) ,"4"));
+    add_menu_item(toplevel, new_menu_item("è¯¢é—®æƒ…å†µ",	(: do_getinfo :) ,"3"));
+    add_menu_item(toplevel, new_menu_item("èµèµç‰©å“",	(: get_input_then_call,
+		(: do_praise :) ,"èµèµä½•ç‰©ï¼š" :) ,"4"));
 
-    add_menu_item(toplevel, new_menu_item("¸Ä±äID",	(: get_input_then_call,
-		(: do_changeid :) ,"±äÎªºÎID£º" :) ,"9"));
+    add_menu_item(toplevel, new_menu_item("æ”¹å˜ID",	(: get_input_then_call,
+		(: do_changeid :) ,"å˜ä¸ºä½•IDï¼š" :) ,"9"));
 
-    add_menu_item(toplevel, new_menu_item("¿ª³ı", (: get_input_then_call,
-	(: do_cut :) ,"È·ÈÏ¿ª³ıÂğ(y/n)£¿" :) ,"0"));
+    add_menu_item(toplevel, new_menu_item("å¼€é™¤", (: get_input_then_call,
+	(: do_cut :) ,"ç¡®è®¤å¼€é™¤å—(y/n)ï¼Ÿ" :) ,"0"));
 
     add_menu_item(toplevel, quit_item);
     add_menu_item(toplevel, space);
-    set_menu_prompt (toplevel, "ÊäÈëÖ¸Áî[123490q]: ");
+    set_menu_prompt (toplevel, "è¾“å…¥æŒ‡ä»¤[123490q]: ");
 }
 
 void start_menu(object m,object s)
@@ -224,22 +224,22 @@ void do_givepos(string str)
 	ps=keys(p_pos);
 	if(member_array(str,ps)==-1)
 	{
-		write("Ã»ÓĞ"+str+"Õâ¸öÖ°Îñ¡£\n");
+		write("æ²¡æœ‰"+str+"è¿™ä¸ªèŒåŠ¡ã€‚\n");
 		return;
 	}
 	curs=sizeof(o_h->check_npc("pos",str));
 	if(p_pos[str]["num"]&&(curs>=p_pos[str]["num"])) {
-		write("Ä¿Ç°"+p_pos[str]["name"]+"µÄÖ°Î»ÒÑ¾­ÂúÁË¡£\n");
+		write("ç›®å‰"+p_pos[str]["name"]+"çš„èŒä½å·²ç»æ»¡äº†ã€‚\n");
 		return;
 	}
 	my_typ=o_h->get_npc(n_id,"typ");
 	if(sizeof(p_pos[str]["type"])&&(member_array(my_typ,p_pos[str]["type"])==-1)) {
-		write(slave->short()+"²»ÊÊºÏ"+p_pos[str]["name"]+"Õâ¸öÖ°Î»¡£\n");
+		write(slave->short()+"ä¸é€‚åˆ"+p_pos[str]["name"]+"è¿™ä¸ªèŒä½ã€‚\n");
 		return;
 	}
 
 	if(sizeof(p_pos[str]["type"])&&(member_array(my_typ,p_pos[str]["type"])==-1)) {
-		write(slave->short()+"²»ÊÊºÏ"+p_pos[str]["name"]+"Õâ¸öÖ°Î»¡£\n");
+		write(slave->short()+"ä¸é€‚åˆ"+p_pos[str]["name"]+"è¿™ä¸ªèŒä½ã€‚\n");
 		return;
 	}
 
@@ -248,10 +248,10 @@ void do_givepos(string str)
 	call_out("quit_menu_application",7);
 	o_h->set_npc(n_id,"pos",str);
 	slave=o_h->update_npc(n_id);
-	master->targetted_action("$N¶Ô$TµÀ£º$RÀÍ¿à¹¦¸ß£¬$SÉıÄãÎª"+
-		p_pos[str]["name"]+"¡£\n",slave);
-	DELAY_D->delay_simple_action(slave,"$N¸ßĞËµØÌøÁËÆğÀ´¡£\n",2);
-	DELAY_D->delay_targetted_action(slave,master,"$N¶Ô$TµÀ£º×ñÃü¡£\n",3);
+	master->targetted_action("$Nå¯¹$Té“ï¼š$RåŠ³è‹¦åŠŸé«˜ï¼Œ$Så‡ä½ ä¸º"+
+		p_pos[str]["name"]+"ã€‚\n",slave);
+	DELAY_D->delay_simple_action(slave,"$Né«˜å…´åœ°è·³äº†èµ·æ¥ã€‚\n",2);
+	DELAY_D->delay_targetted_action(slave,master,"$Nå¯¹$Té“ï¼šéµå‘½ã€‚\n",3);
 
 	
 }
@@ -269,20 +269,20 @@ void do_cut(string cf)
 	modal_pop();
 
 	master->targetted_action(
-		"$N¶Ô$TµÀ£º¼Ò¾³²»±Èµ±Äê£¬Ñø²»ÆğÄãÕâĞí¶àÏĞÈË£¬Äã»Ø¼ÒÈ¥°É£¬\n",slave);
-        DELAY_D->delay_simple_action(slave,"$NµÀ£º×ñÃü£¡\n",2);
+		"$Nå¯¹$Té“ï¼šå®¶å¢ƒä¸æ¯”å½“å¹´ï¼Œå…»ä¸èµ·ä½ è¿™è®¸å¤šé—²äººï¼Œä½ å›å®¶å»å§ï¼Œ\n",slave);
+        DELAY_D->delay_simple_action(slave,"$Né“ï¼šéµå‘½ï¼\n",2);
 
         DELAY_D->delay_targetted_action(slave,master,
-			"$NÒ»½ÅÌßÔÚ$TµÄÆ¨Æ¨ÉÏ£¬Ó¡³öÒ»¸öÇå³şµÄĞ¬Ó¡¡£\n",3);
+			"$Nä¸€è„šè¸¢åœ¨$Tçš„å±å±ä¸Šï¼Œå°å‡ºä¸€ä¸ªæ¸…æ¥šçš„é‹å°ã€‚\n",3);
 	DELAY_D->delay_simple_action(master,
-			"$NÌÛµÃà»à»Ö±½Ğ¡£\n",4);
+			"$Nç–¼å¾—å—·å—·ç›´å«ã€‚\n",4);
 	MONEY_D->sub_all_money(master,10000);
 
 	DELAY_D->delay_targetted_action(master,slave,
-			"$N¸Ï½ô¸ø$TÌáÁËÒ»Á½½ğ×Ó¡£\n",5);
+			"$Nèµ¶ç´§ç»™$Tæäº†ä¸€ä¸¤é‡‘å­ã€‚\n",5);
 
 	DELAY_D->delay_simple_action(slave,
-			"$N·ß·ßÀë¿ªÁË¡£\n",6);
+			"$Næ„¤æ„¤ç¦»å¼€äº†ã€‚\n",6);
 	o_h->remove_npc(n_id);
 	call_out("kill_me",7);
 	call_out("real_quit",8);
@@ -300,16 +300,16 @@ void do_demote(string cf)
 	slave=o_h->update_npc(n_id);
 
 	master->targetted_action(
-		"$N¶Ô$TµÀ£ºÌıËµÄã¶ÔÄãµÄ»î²»Ì«ÂúÒâÂï¡£\n",slave);
-        DELAY_D->delay_simple_action(slave,"$NµÀ£º²»¸Ò¡£\n",2);
+		"$Nå¯¹$Té“ï¼šå¬è¯´ä½ å¯¹ä½ çš„æ´»ä¸å¤ªæ»¡æ„å˜›ã€‚\n",slave);
+        DELAY_D->delay_simple_action(slave,"$Né“ï¼šä¸æ•¢ã€‚\n",2);
 
         DELAY_D->delay_targetted_action(master,slave,
-			"$N¶Ô$TµÀ£ºÄãÏÈĞİÏ¢ĞİÏ¢Ò²ºÃ¡£ÔİÊ±µ±»áÏĞÈË°É¡£\n",3);
+			"$Nå¯¹$Té“ï¼šä½ å…ˆä¼‘æ¯ä¼‘æ¯ä¹Ÿå¥½ã€‚æš‚æ—¶å½“ä¼šé—²äººå§ã€‚\n",3);
 	DELAY_D->delay_simple_action(slave,
-			"$NµÀ£ºÊÇ¡£\n",4);
+			"$Né“ï¼šæ˜¯ã€‚\n",4);
 
 	DELAY_D->delay_simple_action(slave,
-			"$NÃÆÃÆ²»ÀÖµØÍËµ½Ò»±ß¡£\n",6);
+			"$Né—·é—·ä¸ä¹åœ°é€€åˆ°ä¸€è¾¹ã€‚\n",6);
 
 	call_out("real_quit",8);
 }
@@ -327,10 +327,10 @@ void quit_old_place() {
 	o_r=o_h->load_room(p_rm);
 	slave->move(o_r);
 	master->targetted_action(
-		"$N¶Ô$TµÀ£ºÏÖÔÚÃ»ÊÂÁË£¬ÏÈÍËÏÂ°É¡£\n",slave);
+		"$Nå¯¹$Té“ï¼šç°åœ¨æ²¡äº‹äº†ï¼Œå…ˆé€€ä¸‹å§ã€‚\n",slave);
 
 	DELAY_D->delay_targetted_action(slave,master,
-		"$N¶Ô$TÒ»¾Ï¹ªµÀ£ºÊÇ£¬È»ºóÍËÏÂÁË£¡\n",2);
+		"$Nå¯¹$Tä¸€é èº¬é“ï¼šæ˜¯ï¼Œç„¶åé€€ä¸‹äº†ï¼\n",2);
 	call_out("real_quit",4);
 }
 void quit_menu_application()
@@ -341,9 +341,9 @@ void quit_menu_application()
 	if (!slave) {real_quit(); return;}
 	if(objectp(master)) 
 	master->targetted_action(
-		"$N¶Ô$TµÀ£ºÏÖÔÚÃ»ÊÂÁË£¬ÏÈÍËÏÂ°É¡£\n",slave);
+		"$Nå¯¹$Té“ï¼šç°åœ¨æ²¡äº‹äº†ï¼Œå…ˆé€€ä¸‹å§ã€‚\n",slave);
 	DELAY_D->delay_simple_action(slave,
-		"$NÒ»¾Ï¹ªµÀ£ºÊÇ£¬È»ºóÍËµ½Ò»±ß£¡\n",2);
+		"$Nä¸€é èº¬é“ï¼šæ˜¯ï¼Œç„¶åé€€åˆ°ä¸€è¾¹ï¼\n",2);
 	call_out("real_quit",4);
 
 }

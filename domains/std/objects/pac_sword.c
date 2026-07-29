@@ -6,8 +6,8 @@
 inherit SWORD;
 inherit CLASS_COMBAT_RESULT;
 
-class combat_result array
-adjust_my_result(class combat_result array result) {
+class combat_result *
+adjust_my_result(class combat_result * result) {
     foreach (class combat_result res in result) {
         if (res->special & (RES_FATAL | RES_NO_RESISTANCE)) {
             res->special = 0;
@@ -27,9 +27,9 @@ adjust_my_result(class combat_result array result) {
 }
 
 void setup() {
-    set_adj("ÉÁ¹âµÄ");
-    set_unit("°Ñ");
-    set_id("sword", "±¦½£", "mercy");
-    set_proper_name("ĞÒÔËÖ®½£");
+    set_adj("é—ªå…‰çš„");
+    set_unit("æŠŠ");
+    set_id("sword", "å®å‰‘", "mercy");
+    set_proper_name("å¹¸è¿ä¹‹å‰‘");
     set_size(MEDIUM);
 }

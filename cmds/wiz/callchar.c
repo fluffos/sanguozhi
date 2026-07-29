@@ -12,11 +12,11 @@ private string spc="                                                            
 void end_magic(object rom,object o) {
 	string dis;
 	if(!objectp(rom)) return;
-	dis=ret+"һ����������";
+	dis=ret+"一阵红光闪过，";
 	if(objectp(o))
-		dis+=o->short()+"��ʧ�ˡ�\n\n";
+		dis+=o->short()+"消失了。\n\n";
 	else
-		dis+="һ���˲����ˡ�\n\n";
+		dis+="一个人不见了。\n\n";
 	tell_from_inside(rom,dis);
 }
 
@@ -39,7 +39,7 @@ private void main(string arg)
 	string s_room;
     if(!arg)
 	{
-		write("�÷���callchar <char id>\n");
+		write("用法：callchar <char id>\n");
 	}
 	s_room=file_name(environment(this_body()));
 
@@ -47,27 +47,27 @@ private void main(string arg)
 	if(!objectp(o)) {
 
 		if((CHAR_D->put_char(arg,s_room))==PC_SUCCESSFUL)
-			write("�ٻ��ɹ�\n");
+			write("召唤成功\n");
 		else
-			write("�ٻ�ʧ��\n");
+			write("召唤失败\n");
 		return;
 	}
 	rom=o->query_room();
 	if(rom==this_body()->query_room()) // some room
 	{
 		if((CHAR_D->put_char(arg,s_room))==PC_SUCCESSFUL)
-			write("�ٻ��ɹ�\n");
+			write("召唤成功\n");
 		else
-			write("�ٻ�ʧ��\n");
+			write("召唤失败\n");
 		return;
 	}
 
 	if((CHAR_D->put_char(arg,s_room))==PC_SUCCESSFUL) {
 		show_magic(o,rom);
-		write("�ٻ��ɹ�\n");
+		write("召唤成功\n");
 	}
 		else
-		write("�ٻ�ʧ��\n");
+		write("召唤失败\n");
 	return;
 
 }

@@ -55,8 +55,8 @@ class proto_info
 }
 
 
-private static mapping cmd_info = ([]);
-private static mapping proto_info = ([]);
+private mapping cmd_info = ([]);
+private mapping proto_info = ([]);
 
 void create()
 {
@@ -255,7 +255,7 @@ mixed smart_arg_parsing(mixed argv, string* path, string *implode_info)
     
     cmd_name = trim_spaces(argv[0]);
     if (member_array('/', cmd_name) != -1) {
-        array matches = filter_array(glob(cmd_name + ".c"), (: is_file :));
+        mixed * matches = filter_array(glob(cmd_name + ".c"), (: is_file :));
         switch (sizeof(matches)) {
         case 1:
             if ((cmd_obj = load_object(matches[0])) &&
@@ -330,7 +330,7 @@ mixed smart_arg_parsing(mixed argv, string* path, string *implode_info)
         {
             if(i >= pstuff->first_optional_arg && pstuff->first_optional_arg != -1)
                 break;
-            printf("²ÎÊı²»×ã¡£\nÓÃ·¨: %s\n", USAGE);
+            printf("å‚æ•°ä¸è¶³ã€‚\nç”¨æ³•: %s\n", USAGE);
             return 1;
         }
         expanded_arg = parse_arg(pstuff->prototype[i],argv[argcounter++]);
@@ -338,15 +338,15 @@ mixed smart_arg_parsing(mixed argv, string* path, string *implode_info)
             // error
             switch (expanded_arg) {
             case -1:
-                printf("·Ç·¨²ÎÊı¡£%O\nÓÃ·¨: %s\n",
+                printf("éæ³•å‚æ•°ã€‚%O\nç”¨æ³•: %s\n",
                        argv[argcounter-1], USAGE);
                 break;
             case -2:
-                printf("·Ç·¨²ÎÊı: %O\nÓÃ·¨: %s\n",
+                printf("éæ³•å‚æ•°: %O\nç”¨æ³•: %s\n",
                        argv[argcounter-1], USAGE);
                 break;
             case -3:
-                printf("%s: Ã»ÓĞÕâ¸öÎÄ¼ş»òÄ¿Â¼¡£\n", argv[argcounter-1]);
+                printf("%s: æ²¡æœ‰è¿™ä¸ªæ–‡ä»¶æˆ–ç›®å½•ã€‚\n", argv[argcounter-1]);
                 break;
             }
             return 1;
@@ -358,7 +358,7 @@ mixed smart_arg_parsing(mixed argv, string* path, string *implode_info)
         {
             if(sizeof(resv[i]) > 1)
             {
-                printf("²ÎÊı²»Ã÷È·: %s\nÓÃ·¨: %s\n", argv[argcounter-1], USAGE);
+                printf("å‚æ•°ä¸æ˜ç¡®: %s\nç”¨æ³•: %s\n", argv[argcounter-1], USAGE);
                 return 1;
             }
             resv[i] = resv[i][0];
@@ -385,9 +385,9 @@ mixed smart_arg_parsing(mixed argv, string* path, string *implode_info)
     if(argcounter != sizeof(argv))
     {
         if(pstuff->prototype[i-1] & PLURAL)
-            printf("%s: Ã»ÓĞÕÒµ½¡£\n", argv[argcounter]);
+            printf("%s: æ²¡æœ‰æ‰¾åˆ°ã€‚\n", argv[argcounter]);
         else
-            printf("²ÎÊı¹ı¶à¡£\nÓÃ·¨: %s\n",USAGE);
+            printf("å‚æ•°è¿‡å¤šã€‚\nç”¨æ³•: %s\n",USAGE);
         return 1;
     }
     return ({ cmd_obj, ops, resv });
@@ -397,7 +397,7 @@ private mixed parse_arg(int this_arg, mixed argv)
 {
     int         hits;
     mixed       untrimmed_argv;
-    array       result, string_result;
+    mixed *       result, string_result;
     
     untrimmed_argv = argv;
 

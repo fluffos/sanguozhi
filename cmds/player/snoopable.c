@@ -13,8 +13,8 @@ inherit CMD;
 private void main(string arg){
   if(!arg || arg == ""){
     if(this_body()->test_flag(F_SNOOPABLE) )
-                out("巫师目前能够监听你。\n");
-        else out( "巫师目前不能监听你。\n");
+                out("宸笀鐩墠鑳藉鐩戝惉浣犮�俓n");
+        else out( "宸笀鐩墠涓嶈兘鐩戝惉浣犮�俓n");
     return;
   }
   switch(arg){
@@ -22,9 +22,9 @@ private void main(string arg){
                 break;
     case "off": this_body()->clear_flag(F_SNOOPABLE);
                 break;
-    default:    out("用法：snoopable (on|off)\n");
+    default:    out("鐢ㄦ硶锛歴noopable (on|off)\n");
                 return;
   }
-  out("完成。\n");
+  out("瀹屾垚銆俓n");
   return;
 }

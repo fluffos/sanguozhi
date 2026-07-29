@@ -3,8 +3,8 @@
 
 #include <mudlib.h>
 
-static mapping variables = ([]);
-static mapping set_var_hooks = ([]);
+nosave protected mapping variables = ([]);
+nosave protected mapping set_var_hooks = ([]);
 
 
 //:FUNCTION setup_for_save
@@ -40,7 +40,7 @@ unset_variable(string var)
     this_object()->save();
 }
 
-static void
+nosave protected void
 set_if_undefined(string var, mixed value)
 {
     if ( !is_variable(var) )
@@ -53,19 +53,19 @@ get_variable(string var)
     return variables[var];
 }
 
-static
+nosave protected
 void
 print_variable(string v)
 {
   if(undefinedp(variables[v]))
     //printf("%s: undefined variable.\n",v);
-    printf("%s: Ã»ÓĞ¶¨ÒåÕâ¸ö±äÁ¿¡£\n", v);
+    printf("%s: æ²¡æœ‰å®šä¹‰è¿™ä¸ªå˜é‡ã€‚\n", v);
   else
     //printf("The value of %s is: %O\n", v, variables[v]);
-    printf("±äÁ¿ %s µÄÖµÊÇ£º %O\n", v, variables[v]);
+    printf("å˜é‡ %s çš„å€¼æ˜¯ï¼š %O\n", v, variables[v]);
 }
 
-varargs static mixed expand_if_variable(string arg, int only_expand_if_string)
+varargs protected mixed expand_if_variable(string arg, int only_expand_if_string)
 {
   mixed a;
 
@@ -101,18 +101,18 @@ mixed* substitute_variables(mixed* argv)
 ** This is the implementation of the command interface to
 ** this module from a shell command line.
 */
-private string implode_rest(int start, string array argv, string array implode_info) {
+private string implode_rest(int start, string * argv, string * implode_info) {
     // we don't want to use the first separator
     return implode_by_arr(argv[start..], ({ "" }) + implode_info[start+1..]);
 }
 
-int cmd_unset(string array argv, string array implode_info)
+int cmd_unset(string * argv, string * implode_info)
 {
     string name;
 
     if(sizeof(argv) < 2) {
       //printf("Usage: unset variable\n");
-      printf("ÓÃ·¨£ºunset <±äÁ¿Ãû>\n");
+      printf("ç”¨æ³•ï¼šunset <å˜é‡å>\n");
       return 1;
     }
   // Variable names usually can't have spaces in them, but this allows
@@ -121,15 +121,15 @@ int cmd_unset(string array argv, string array implode_info)
     name = implode_rest(1, argv, implode_info);
     if (variables[name]) {
         unset_variable(name);
-        printf("Íê³É¡£\n");
+        printf("å®Œæˆã€‚\n");
     } else {
-        printf("Ã»ÓĞ¶¨Òå %s Õâ¸ö±äÁ¿¡£\n", name);
+        printf("æ²¡æœ‰å®šä¹‰ %s è¿™ä¸ªå˜é‡ã€‚\n", name);
     }
     return 1;
 }
 
 
-int cmd_set(string array argv, string array implode_info)
+int cmd_set(string * argv, string * implode_info)
 {
   string var, val;
 
@@ -137,9 +137,9 @@ int cmd_set(string array argv, string array implode_info)
     {
     case 1:
       write(//"Current variables\n"
-            "ÏÖÓĞ±äÁ¿£º\n"
+            "ç°æœ‰å˜é‡ï¼š\n"
         "(unset varname to unset):\n"
-        "(unset <±äÁ¿Ãû> ¿ÉÒÔÇå³ıÉè¶¨)£º\n"
+        "(unset <å˜é‡å> å¯ä»¥æ¸…é™¤è®¾å®š)ï¼š\n"
         "-----------------------------\n");
       foreach(var, val in variables)
     if(val == "")
@@ -152,22 +152,22 @@ int cmd_set(string array argv, string array implode_info)
       if (!undefinedp(variables[argv[1]]))
     {
       //printf("Variable %s is already set.\n", argv[1]);
-      printf("±äÁ¿ %s Ôç±»Éè¶¨ÁË¡£\n", argv[1]);
+      printf("å˜é‡ %s æ—©è¢«è®¾å®šäº†ã€‚\n", argv[1]);
       return 1;
     }
       set_variable(argv[1],"");
       //printf("Variable %s set.\n",argv[1]);
-      printf("±äÁ¿ %s Éè¶¨³É¹¦¡£\n",argv[1]);
+      printf("å˜é‡ %s è®¾å®šæˆåŠŸã€‚\n",argv[1]);
       return 1;
     case 3:
       set_variable(argv[1],argv[2]);
       //printf("Variable %s set to %O.\n",argv[1],argv[2]);
-      printf("±äÁ¿ %s ±»Éè¶¨Îª %O¡£\n",argv[1],argv[2]);
+      printf("å˜é‡ %s è¢«è®¾å®šä¸º %Oã€‚\n",argv[1],argv[2]);
       return 1;
     default:
       set_variable(argv[1], implode_rest(2, argv, implode_info));
       printf(//"Variable %s set to %s.\n",
-             "±äÁ¿ %s ±»Éè¶¨Îª %s¡£\n",
+             "å˜é‡ %s è¢«è®¾å®šä¸º %sã€‚\n",
          argv[1], get_variable(argv[1]));
       return 1;
     }

@@ -1,5 +1,5 @@
 //  maliao.c
-//  ÂíÁÏ
+//  é©¬æ–™
 //  created by tset 1/17/98
 //  last updated by tset 1/17/98
 
@@ -10,9 +10,9 @@ inherit OBJ;
 inherit M_GETTABLE;
 
 void setup() {
-        set_id("maliao", "ÂíÁÏ");
-        set_long("Ò»À¦ĞÂÏÊµÄÂíÁÏ");
-        set_unit("À¦");
+        set_id("maliao", "é©¬æ–™");
+        set_long("ä¸€æ†æ–°é²œçš„é©¬æ–™");
+        set_unit("æ†");
         set_gettable(1);
         set_value(20);  
         set_currency_type("coin");

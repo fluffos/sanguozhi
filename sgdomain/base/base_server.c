@@ -6,7 +6,7 @@
 #define CONTROL "/sgdomain/base/control"
 
 mixed create_control(string p_area,string f_id) {
-	array bases;
+	mixed * bases;
 	bases=AREA_D->get_area(p_area,"base");
 
 	if(!arrayp(bases)) return 0;
@@ -83,7 +83,7 @@ object virtual_create(string arg)
 	return room;
 }
 // Disappear if no longer needed
-static void clean_up() {
+protected void clean_up() {
 	return 0; // don't want it is destroyed
 }
 

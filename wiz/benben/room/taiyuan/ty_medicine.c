@@ -1,4 +1,4 @@
-// Ò©ÆÌ  by Benben
+// è¯é“º  by Benben
 // ty_medicine.c 
 #include <mudlib.h>
 #include "/wiz/fire/fire.h"
@@ -7,8 +7,8 @@ inherit ROOM;
 void setup(){
     set_area("ty_area");
     set_light(50);
-    set_brief(""+YEL+"Ò©ÆÌ"+NOR+"");
-    set_long("    ÃèÊö¡£\n");
+    set_brief(""+YEL+"è¯é“º"+NOR+"");
+    set_long("    æè¿°ã€‚\n");
     set_exits( ([
         "north" :  __DIR__+"ty_est2.c",
     ]) );

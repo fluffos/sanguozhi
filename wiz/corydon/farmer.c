@@ -2,7 +2,7 @@
 inherit LIVING;
 void ppp(object me,object who,string item)
 {
-        me->targetted_action("$N¶Ô×Å$T¹ş¹ş´óĞ¦",who);
+        me->targetted_action("$Nå¯¹ç€$Tå“ˆå“ˆå¤§ç¬‘",who);
 }
 void setup()
 {
@@ -10,11 +10,11 @@ void setup()
      owner=find_body("liaotian");
      @.newsun->set_owner(owner);
 
-    set_name("farmer", "Å©·ò");
+    set_name("farmer", "å†œå¤«");
     set_gender(1);
     
-    set_proper_name("ÀÍÀÛµÄÅ©·ò");
-    set_in_room_desc("Ò»¸öÀÛµÃ°ëËÀµÄÅ©·ò(farmer)");
-    set_long("Å©·òµÉÁËÄãÒ»ÑÛ£º¡°ºÃÒİ¶ñÀÍµÄ¼Ò»ï£¬»¹²»¹ıÀ´°ïÃ¦·­·­µØ¡£¡±");
+    set_proper_name("åŠ³ç´¯çš„å†œå¤«");
+    set_in_room_desc("ä¸€ä¸ªç´¯å¾—åŠæ­»çš„å†œå¤«(farmer)");
+    set_long("å†œå¤«çªäº†ä½ ä¸€çœ¼ï¼šâ€œå¥½é€¸æ¶åŠ³çš„å®¶ä¼™ï¼Œè¿˜ä¸è¿‡æ¥å¸®å¿™ç¿»ç¿»åœ°ã€‚â€");
     set_answer("net", (: ppp :)) ;
 }

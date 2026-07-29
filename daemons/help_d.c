@@ -35,9 +35,9 @@ private mapping restrict;
 
 #define BASE_DIR    "/help/"
 
-private static int  pending_count;
-private static object   initiator;
-private static array    ignore = ({ BASE_DIR "autodoc/FIXME/" });
+private nosave int  pending_count;
+private nosave object   initiator;
+private mixed *    ignore = ({ BASE_DIR "autodoc/FIXME/" });
 
 nomask void process_dir(string path);
 
@@ -96,7 +96,7 @@ nomask void process_dir(string path)
     if ( initiator )
     {
         tell(initiator, //"HELP_D has finished the rebuild.\n");
-                               "HELP_D ÖØ½¨³É¹¦¡£\n");
+                               "HELP_D é‡å»ºæˆåŠŸã€‚\n");
         initiator = 0;
     }
     }
@@ -110,12 +110,12 @@ nomask void rebuild_data()
     if ( pending_count )
     {
     //write("HELP_D is currently rebuilding!\n");
-    write("HELP_D ÕıÔÚÖØ½¨£¡\n");
+    write("HELP_D æ­£åœ¨é‡å»ºï¼\n");
     return;
     }
 
     //write("HELP_D is beginning the rebuild...\n");
-    write("HELP_D ¿ªÊ¼ÖØ½¨ ... \n");
+    write("HELP_D å¼€å§‹é‡å»º ... \n");
     initiator = this_user();
 
     topics = ([ ]);
@@ -160,7 +160,7 @@ nomask string * find_topic(string name)
     lvl = adminp(this_user()) ? 5 : wizardp(this_user()) ? 1 : 0;
 
     return filter_array(result, function(string file, int lvl) {
-    array parts = explode(file, "/");
+    mixed * parts = explode(file, "/");
     if (sizeof(parts) < 3) return 1;
     return (lvl >= restrict[parts[1]]);
     }, lvl);

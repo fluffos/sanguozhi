@@ -7,10 +7,10 @@ inherit M_DRINK_CONTAINER;
 inherit M_DRINKABLE;
 
 void setup()
-{   set_id("bottle", "ф©вс", "flask");
-    set_long("©╢фПю╢оСйг╦Жфум╗╣дф©вс║ё");
+{   set_id("bottle", "Г⌠╤Е╜░", "flask");
+    set_long("Г°▀Х╣╥Ф²╔Х╠║Ф≤╞Д╦╙Ф≥╝И─ Г └Г⌠╤Е╜░Ц─┌");
     set_gettable(1);
     set_num_drinks(5);
-    set_drink_action( (: this_body()->simple_action("$NдцфПф©вс╨хак╪╦©з║ё\n$N") :));
-    set_last_drink_action( (: this_body()->simple_action("$NдцфПф©вс╨хак╪╦©зё╛╟явН╨Ср╩©зр╡╨х╧Бак║ё\n") :));
+    set_drink_action( (: this_body()->simple_action("$NФ▀©Х╣╥Г⌠╤Е╜░Е√²Д╨├Е┤═Е▐ёЦ─┌\n$N") :));
+    set_last_drink_action( (: this_body()->simple_action("$NФ▀©Х╣╥Г⌠╤Е╜░Е√²Д╨├Е┤═Е▐ёО╪▄Ф┼┼Ф°─Е░▌Д╦─Е▐ёД╧÷Е√²Е┘┴Д╨├Ц─┌\n") :));
 }

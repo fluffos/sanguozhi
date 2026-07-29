@@ -22,7 +22,7 @@ void do_lock_str_with_str(string door,string key)
 	ret=ob_d->direct_lock_obj_with_obj();
 	if(!ret)
 	{
-		ret="Ã»·¨ÓÃ"+ob_k->short()+"Ëø"+ob_d->short()+"¡£\n";
+		ret="æ²¡æ³•ç”¨"+ob_k->short()+"é”"+ob_d->short()+"ã€‚\n";
 	}
 	if(stringp(ret))
 	{
@@ -37,7 +37,7 @@ void do_lock_str(string str)
 	do_lock_str_with_str(str,"key");
 }
 
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ "STR", "STR with STR" }) });
 

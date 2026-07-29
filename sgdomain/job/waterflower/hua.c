@@ -5,21 +5,21 @@
 inherit M_GETTABLE;
 inherit M_WEARABLE;
 inherit M_VALUE;
-string *sname=({HIR"ºì",HIY"»Æ",HIB"À¶",HIG"ÂÌ",HIW"°×",HIM"×Ï",});
-string *adjtive=({"»ª¹óµÄ","ÓºÈİµÄ","ÑŞÀöµÄ","ÇÎÀöµÄ","¾²Ú×µÄ","º¬ĞßµÄ",
-"ÇåÑÅµÄ","ÇáÈáµÄ","åüÃÄµÄ"});
+string *sname=({HIR"çº¢",HIY"é»„",HIB"è“",HIG"ç»¿",HIW"ç™½",HIM"ç´«",});
+string *adjtive=({"åè´µçš„","é›å®¹çš„","è‰³ä¸½çš„","ä¿ä¸½çš„","é™è°§çš„","å«ç¾çš„",
+"æ¸…é›…çš„","è½»æŸ”çš„","å¦©åªšçš„"});
 
 void setup()
 {	
-	string name=sname[random(sizeof(sname))]+"Äµµ¤"NOR;
+	string name=sname[random(sizeof(sname))]+"ç‰¡ä¸¹"NOR;
         string adjt=adjtive[random(sizeof(adjtive))];
 	set_id("flower", name);
-	set_unit("¶ä");
+	set_unit("æœµ");
 	set_adj(adjt);
 	set_gettable(1);
         set_slot(HEAD);
-        set_wearmsg("$NÇáÇá½«$o²åÔÚ÷ŞÅÔ£¬ÍğÈ»Ò»Ğ¦¡£\n");
-        set_removemsg("$NÈ¡ÏÂ÷ŞÅÔµÄ$o£¬ÇáÇáÍìÆğÆ®É¢µÄÒ»ç¸³¤·¢¡£¡£\n");
+        set_wearmsg("$Nè½»è½»å°†$oæ’åœ¨é¬“æ—ï¼Œå®›ç„¶ä¸€ç¬‘ã€‚\n");
+        set_removemsg("$Nå–ä¸‹é¬“æ—çš„$oï¼Œè½»è½»æŒ½èµ·é£˜æ•£çš„ä¸€ç»ºé•¿å‘ã€‚ã€‚\n");
 	set_size(1);
 	set_attack_ability(0);
  	set_defence_power(0);
@@ -30,5 +30,5 @@ void setup()
 
 string long()
 {
-	return "ÂåÑôÄµµ¤»¨ÆÔÖĞÓı³öµÄÁ¼ÖÖÄµµ¤£¬ÃÀÀö»ª¹ó¡£\n";
+	return "æ´›é˜³ç‰¡ä¸¹èŠ±åœƒä¸­è‚²å‡ºçš„è‰¯ç§ç‰¡ä¸¹ï¼Œç¾ä¸½åè´µã€‚\n";
 }

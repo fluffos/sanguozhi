@@ -53,9 +53,9 @@ void create()
 // this can be called just use SGSYS("something")
 void sgsys(string str) {
 	object o;
-	string reporter="Èı¹ú¼à¿Ø";
+	string reporter="ä¸‰å›½ç›‘æ§";
 	string from;
 	o=previous_object();
 	from=file_name(o);
-	CHANNEL_D->deliver_tell("announce",reporter,str+" À´×Ô£º"+from);
+	CHANNEL_D->deliver_tell("announce",reporter,str+" æ¥è‡ªï¼š"+from);
 }

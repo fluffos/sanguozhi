@@ -27,9 +27,9 @@ private void main(string str) {
     }
 
     if ( ndays == 1 )
-        header = "DID_D ¶Ô×òÌì½øĞĞ»ã±¨";
+        header = "DID_D å¯¹æ˜¨å¤©è¿›è¡Œæ±‡æŠ¥";
     else
-        header = sprintf("DID_D ¶Ô¹ıÈ¥µÄ %d Ìì½øĞĞ»ã±¨", ndays);
+        header = sprintf("DID_D å¯¹è¿‡å»çš„ %d å¤©è¿›è¡Œæ±‡æŠ¥", ndays);
 
     out(DID_D->get_did_info(time() - ndays * 24 * 60 * 60,
         ({ header,

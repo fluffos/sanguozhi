@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is °ÍÉ½Ò¹Óê
+// driver is å·´å±±å¤œé›¨
 // created date is Thu Jun  2 20:56:02 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,7 +7,7 @@ inherit INDOOR_ROOM;
 void setup() {
 set_area("poyang");
 set_light(50);
-set_brief("%^YELLOW%^"+"¹ÙÕ¬"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"å®˜å®…"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "west":"/a/poyang/py_xiaoxiang.c",

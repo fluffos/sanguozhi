@@ -22,7 +22,7 @@ private void main(string arg)
 
     if( !arg )
     {
-        write( "ÓÃ·¨£ºIdfind <id>\n");
+        write( "ç”¨æ³•ï¼šIdfind <id>\n");
         return;
     }
     obs = objects( (: $1->id($(arg)) :));

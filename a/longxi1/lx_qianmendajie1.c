@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is »¨¶ù¶ä¶ä
+// driver is èŠ±å„¿æœµæœµ
 // created date is Sat May  7 13:45:33 2011
 #include <mudlib.h>
 #include <ansi.h>
@@ -7,7 +7,7 @@ inherit OUTDOOR_ROOM;
 void setup() {
 set_area("longxi");
 set_light(50);
-set_brief("%^YELLOW%^"+"Ç°ÃÅ´ó½Ö"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"å‰é—¨å¤§è¡—"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "north":"/a/longxi/lx_beichenjie1.c",
@@ -18,5 +18,5 @@ set_exits( ([
 
 "south":"/a/longxi/lx_dounanjie1.c",
  ]));
-set_objects(([M_BOARD : ({ 1,"Ê®×ÖÂ·¿ÚÀ´ÍùµÄ³µÂíÂçÒï²»¾ø£¬ÏÔ³öÁËÁ¹ÖİÖĞĞÄ³ÇÊĞµÄ·±»ª¡£\n\nÂ·±ßÕÅÌù×Å"+"%^MAGENTA%^"+"Â¤Î÷ÁôÑÔ°ñ"+"%^RESET%^", "city.longxi" }) ]) );
+set_objects(([M_BOARD : ({ 1,"åå­—è·¯å£æ¥å¾€çš„è½¦é©¬ç»œç»ä¸ç»ï¼Œæ˜¾å‡ºäº†å‡‰å·ä¸­å¿ƒåŸå¸‚çš„ç¹åã€‚\n\nè·¯è¾¹å¼ è´´ç€"+"%^MAGENTA%^"+"é™‡è¥¿ç•™è¨€æ¦œ"+"%^RESET%^", "city.longxi" }) ]) );
 }

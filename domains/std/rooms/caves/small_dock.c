@@ -5,19 +5,19 @@
 
 inherit ROOM;
 
-private static int passage_open = 0;
+private nosave int passage_open = 0;
 
 void close_passage();
 void open_passage();
 
 void setup() 
 { 
-  string river = "Äã»á±»ºÓË®ÑÍËÀµÄ¡£";
+  string river = "ä½ ä¼šè¢«æ²³æ°´æ·¹æ­»çš„ã€‚";
 
   set_area("pirate");
-  set_brief("Ğ¡´¬Îë");
-  set_long("ºÓË®´ÓÑÒ¶´µÄÄÏÃæÁ÷Èë£¬Á÷Ïò¶«ÃæµÄ³ö¿Ú¡£ÕâÀïÓĞÒ»¸öÓÃÄ¾Í·´î½¨µÄĞ¡"
-           "´¬Îë£¬Ä¾ÖÊÔçÒÑ¸¯ÀÃÁË£¬ÏóÊÇÒ»¸öÃØÃÜµÄÂëÍ·¡£");
+  set_brief("å°èˆ¹å");
+  set_long("æ²³æ°´ä»å²©æ´çš„å—é¢æµå…¥ï¼Œæµå‘ä¸œé¢çš„å‡ºå£ã€‚è¿™é‡Œæœ‰ä¸€ä¸ªç”¨æœ¨å¤´æ­å»ºçš„å°"
+           "èˆ¹åï¼Œæœ¨è´¨æ—©å·²è…çƒ‚äº†ï¼Œè±¡æ˜¯ä¸€ä¸ªç§˜å¯†çš„ç å¤´ã€‚");
   
   set_light(0);
   set_exits( ([
@@ -27,14 +27,14 @@ void setup()
                "northwest" : "inside_cave",
                ]) );
 
-  set_exit_msg("south", "$NÍäÏÂÑü£¬´ÓºÓË®Èë¿Ú×ßÁË³öÈ¥¡£\n");
+  set_exit_msg("south", "$Nå¼¯ä¸‹è…°ï¼Œä»æ²³æ°´å…¥å£èµ°äº†å‡ºå»ã€‚\n");
 
   set_hidden_exits("north","east", "northeast");
-  set_default_exit ("Õâ¸ö·½ÏòÃ»ÓĞ³ö¿Ú¡£\n");
+  set_default_exit ("è¿™ä¸ªæ–¹å‘æ²¡æœ‰å‡ºå£ã€‚\n");
   add_item("door", "outline", 
            ([ 
-             "look" :  "Õâ¸öÂÖÀªºÜÄ£ºı£¬Äã¿´ÁË¿´£¬¾õµÃ²»Ì«¿ÉÄÜ´ÓÕâ±ß°ÑËü´ò¿ª¡£", 
-             "open" : "´ÓÕâ±ß²»Ì«¿ÉÄÜ°ÑËü´ò¿ª¡£"
+             "look" :  "è¿™ä¸ªè½®å»“å¾ˆæ¨¡ç³Šï¼Œä½ çœ‹äº†çœ‹ï¼Œè§‰å¾—ä¸å¤ªå¯èƒ½ä»è¿™è¾¹æŠŠå®ƒæ‰“å¼€ã€‚", 
+             "open" : "ä»è¿™è¾¹ä¸å¤ªå¯èƒ½æŠŠå®ƒæ‰“å¼€ã€‚"
             ]));
 
   set_objects( ([
@@ -61,14 +61,14 @@ void close_passage()
   object o = load_object("/domains/std/rooms/caves/navigation_room.c");
   o->passage_closed();
   delete_exit("south");
-  receive_inside_msg("Í¨µÀÂıÂı¹ØÉÏÁË¡£\n");
+  receive_inside_msg("é€šé“æ…¢æ…¢å…³ä¸Šäº†ã€‚\n");
   passage_open = 0;
 }
 
 void passage_closed()
 {
   delete_exit("south");
-  receive_inside_msg("Í¨µÀ¹ØÉÏÁË¡£\n");
+  receive_inside_msg("é€šé“å…³ä¸Šäº†ã€‚\n");
   passage_open = 1;
 }
 
@@ -80,7 +80,7 @@ void open_passage()
     {
       return;
     }
-  this_body()->simple_action("±®ÃúÏÂ·½µÄÊ¯Í·Í»È»ÏòÒ»ÅÔ»¬¿ª£¬Â¶³öÒ»¸öÍ¨µÀ¡£");
+  this_body()->simple_action("ç¢‘é“­ä¸‹æ–¹çš„çŸ³å¤´çªç„¶å‘ä¸€æ—æ»‘å¼€ï¼Œéœ²å‡ºä¸€ä¸ªé€šé“ã€‚");
   QUEST_D->grant_points(this_body(),"pirate:secretPsg");
   o = load_object("/domains/std/rooms/caves/navigation_room.c");
   add_exit("south" , "/domains/std/rooms/caves/navigation_room.c");
@@ -91,7 +91,7 @@ void open_passage()
 
 void passage_opened()
 {
-    receive_inside_msg("±®ÃúÏÂ·½µÄÊ¯Í·Í»È»ÏòÒ»ÅÔ»¬¿ª£¬Â¶³öÒ»¸öÍ¨µÀ¡£\n");
+    receive_inside_msg("ç¢‘é“­ä¸‹æ–¹çš„çŸ³å¤´çªç„¶å‘ä¸€æ—æ»‘å¼€ï¼Œéœ²å‡ºä¸€ä¸ªé€šé“ã€‚\n");
   add_exit("south" , "/domains/std/rooms/caves/navigation_room.c");
   passage_open = 1;
 }

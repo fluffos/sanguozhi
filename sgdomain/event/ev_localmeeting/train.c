@@ -15,7 +15,7 @@ void discuss_train(int task_id,int p_disnum)
    {
       if(objectp(o_leader))
           o_leader->simple_action(
-     "$NµÀ£ºÑø±øÇ§ÈÕ£¬ÓÃ±øÒ»Ê±¡£ÈËµÀÊÇ£º±ø²»Á·²»¾«£¬²»ÖªÄÄÎ»\n½«¾ü´óÈË»¹Ô¸Ò»Í¬Á·±ø£¿\n");
+     "$Né“ï¼šå…»å…µåƒæ—¥ï¼Œç”¨å…µä¸€æ—¶ã€‚äººé“æ˜¯ï¼šå…µä¸ç»ƒä¸ç²¾ï¼Œä¸çŸ¥å“ªä½\nå°†å†›å¤§äººè¿˜æ„¿ä¸€åŒç»ƒå…µï¼Ÿ\n");
      call_out("auto_want_join",random(3)+1,task_id);
    }
    if(p_disnum>5)
@@ -24,7 +24,7 @@ void discuss_train(int task_id,int p_disnum)
       join=TASK_D->get_task(task_id,"supportgrp");
       TASK_D->set_task(task_id,"traingrp",join);
       if(objectp(o_leader))
-          o_leader->simple_action("$NµÀ£ºÁ·±ø¾ÍÌ¸µ½ÕâÀï£¬»áºó¾Í¿ªÊ¼Á·±ø°É¡£\n");
+          o_leader->simple_action("$Né“ï¼šç»ƒå…µå°±è°ˆåˆ°è¿™é‡Œï¼Œä¼šåå°±å¼€å§‹ç»ƒå…µå§ã€‚\n");
       leader=TASK_D->get_task(task_id,"suggestionppl");
       TASK_D->set_task(task_id,"trainleader",leader);
       suggested=TASK_D->get_task(task_id,"suggested");
@@ -38,8 +38,8 @@ void discuss_train(int task_id,int p_disnum)
 void auto_want_join(int task_id)
 {
     string p_subject,my_id;
-    string p_leader;  // Ì«ÊØ id
-    string p_area;  // ³ÇÊĞ id
+    string p_leader;  // å¤ªå®ˆ id
+    string p_area;  // åŸå¸‚ id
     mixed chars,join,left;
     int nleft;
 
@@ -56,7 +56,7 @@ void auto_want_join(int task_id)
     nleft=sizeof(left);
     if(!nleft) return;
     my_id=left[random(nleft)];
-    // xiaobai: ²»ÊÇÌ«ÊØµÄ npc ²Å»á²Î¼ÓÑµÁ·
+    // xiaobai: ä¸æ˜¯å¤ªå®ˆçš„ npc æ‰ä¼šå‚åŠ è®­ç»ƒ
     if( ( my_id!=p_leader ) && ( CHAR_D->get_char_status(my_id)!= STATUS_ONLINE ) )
     {
        i_want_join(task_id,my_id);
@@ -74,10 +74,10 @@ mixed i_want_join(int task_id,string my_id)
    if(member_array(my_id,join_group)==-1)
    {
        if(objectp(o_id))
-         o_id->simple_action("$NµÀ£º$sÔ¸Ò»Í¬Á·±ø¡£\n");
+         o_id->simple_action("$Né“ï¼š$sæ„¿ä¸€åŒç»ƒå…µã€‚\n");
        join_group+=({my_id});   
        TASK_D->set_task(task_id,"supportgrp",join_group);
        return 1;
    }
-   return "ÄãÒÑ¾­ÒªÇó¹ıÁË¡£\n";
+   return "ä½ å·²ç»è¦æ±‚è¿‡äº†ã€‚\n";
 }

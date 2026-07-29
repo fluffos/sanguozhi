@@ -8,9 +8,9 @@ inherit CONTAINER;
 void
 setup() {
     
-    set_id("table", "×À×Ó");
-    set_adj("Ğ¡Ä¾Í·");
-    set_long("ÕâÊÇÒ»¸öÈı³ß¿íµÄĞ¡·½×À¡£¼Ğ°å×öµÄ×ÀÃæºÍËÄÌõ×ÀÍÈ¡£");
+    set_id("table", "æ¡Œå­");
+    set_adj("å°æœ¨å¤´");
+    set_long("è¿™æ˜¯ä¸€ä¸ªä¸‰å°ºå®½çš„å°æ–¹æ¡Œã€‚å¤¹æ¿åšçš„æ¡Œé¢å’Œå››æ¡æ¡Œè…¿ã€‚");
     set_flag(ATTACHED);
     set_preposition("on");
     set_size(LARGE);

@@ -1,4 +1,4 @@
-//  ·à³Ø by benben
+//  ç²ªæ±  by benben
 // xy_fch.c 
 #include <mudlib.h>
 #include "/wiz/fire/fire.h"
@@ -7,8 +7,8 @@ inherit OUTDOOR_ROOM;
 void setup(){
     set_area("xianyang");
     set_light(50);
-    set_brief(""+YEL+"·à³Ø"+NOR+"");
-    set_long("    ÃèÊö¡£\n\n");
+    set_brief(""+YEL+"ç²ªæ± "+NOR+"");
+    set_long("    æè¿°ã€‚\n\n");
     set_exits( ([
         "south" :  __DIR__+"xy_nchx3.c",
     ]) );

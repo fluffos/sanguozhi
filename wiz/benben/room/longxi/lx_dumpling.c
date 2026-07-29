@@ -1,4 +1,4 @@
-//  ½È×Ó¹İ by benben
+//  é¥ºå­é¦† by benben
 // lx_dumpling.c 
 #include <mudlib.h>
 #include "/wiz/fire/fire.h"
@@ -7,8 +7,8 @@ inherit ROOM;
 void setup(){
     set_area("longxi");
     set_light(50);
-    set_brief(""+YEL+"--½È×Ó¹İ--"+NOR+"");
-    set_long("    ÃèÊö¡£\n");
+    set_brief(""+YEL+"--é¥ºå­é¦†--"+NOR+"");
+    set_long("    æè¿°ã€‚\n");
     set_exits( ([
         "west" :  __DIR__+"lx_bhst1.c",
     ]) );

@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is 巴山夜雨
+// driver is 宸村北澶滈洦
 // created date is Thu Jun  2 21:17:08 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,7 +7,7 @@ inherit OUTDOOR_ROOM;
 void setup() {
 set_area("baima");
 set_light(50);
-set_brief("%^YELLOW%^"+"牢房"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"鐗㈡埧"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "north":"/a/baima/bm_tulu.c",

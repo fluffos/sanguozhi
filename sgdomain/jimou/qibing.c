@@ -1,4 +1,4 @@
-// Ææ±ø
+// å¥‡å…µ
 #include <mudlib.h>
 #include <daemons.h>
 #include <ansi.h>
@@ -16,18 +16,18 @@ void main(object ob)
 	p_name=this_body()->query_id()[0];
 
 	if( !(CHAR_D->get_char(p_name,"skills")) )
-		write("Äã²»»áÆæ±øÖ®¼Æ¡£\n");
+		write("ä½ ä¸ä¼šå¥‡å…µä¹‹è®¡ã€‚\n");
         else if( !p_skill=CHAR_D->get_char(p_name,"skills")["qibing"] )
-		write("Äã²»»áÆæ±øÖ®¼Æ¡£\n");
+		write("ä½ ä¸ä¼šå¥‡å…µä¹‹è®¡ã€‚\n");
 	else if( !p_id)
-                write("Ö»ÓÐÉíÔÚ¾üÖÐ²ÅÄÜÊ¹ÓÃÆæ±øÖ®¼Æ¡£\n");
+                write("åªæœ‰èº«åœ¨å†›ä¸­æ‰èƒ½ä½¿ç”¨å¥‡å…µä¹‹è®¡ã€‚\n");
 	else if( ob->query_cur_mp()<60 ) 
-		write("Äã¾«Éñ²»×ã£¬²»ÄÜÊ¹ÓÃÕâÖÖ¼ÆÄ±£¡\n");
+		write("ä½ ç²¾ç¥žä¸è¶³ï¼Œä¸èƒ½ä½¿ç”¨è¿™ç§è®¡è°‹ï¼\n");
 	else {
 		load_object("/daemons/cast_d.c")->reg_player(p_name, "qibing");
 		ob->award_exp(ob->query_sk_level("sk_zhimou")/2+random(20),"qibing");
 		ob->simple_action(SG_SKILL_D->query_use("qibing"));
-		ob->start_busy(10, "ÄãÕýÃ¦ÓÚÊ¹ÓÃÆæ±øÖ®¼Æ¡£");
+		ob->start_busy(10, "ä½ æ­£å¿™äºŽä½¿ç”¨å¥‡å…µä¹‹è®¡ã€‚");
 
 		call_out("show_result", 5+random(5), ob, p_skill, p_id);
 	}
@@ -61,7 +61,7 @@ void show_result(object ob, int p_skill, int p_id)
 	   	mora = -(mora * 10);
 		load_object("/daemons/condition_d.c")->apply_condition(p_id,"confuse",mora,damage);
 		WARAI_D->war_inf(TROOP_D->get_troops(p_id,"task_id"),
-			TROOP_D->find_troop(p_id)->query_id()[1]+"Ê¹ÓÃÆæ±øÖ®¼ÆÊ§°Ü£¬ÏÝÈë»ìÂÒÖ®ÖÐ¡£","b");
+			TROOP_D->find_troop(p_id)->query_id()[1]+"ä½¿ç”¨å¥‡å…µä¹‹è®¡å¤±è´¥ï¼Œé™·å…¥æ··ä¹±ä¹‹ä¸­ã€‚","b");
 	} else {
 		damage = (random(p_skill) + 12)/ 12;
 		mora = mora * 10;

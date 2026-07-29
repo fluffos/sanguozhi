@@ -1,10 +1,10 @@
-ÓÃ·¨£º  %^H_CYAN%^info here%^RESET%^             ²éÑ¯±¾µØÐÅÏ¢¡£
-        %^H_CYAN%^info a list%^RESET%^           µØÇøÁÐ±í¡£
-        %^H_CYAN%^info aa %^H_YELLOW%^<area_id>%^RESET%^     ²éÔÄÄ³Ò»µØÇøÐÅÏ¢¡£
-        %^H_CYAN%^info ag %^H_YELLOW%^<area_id>%^RESET%^     ²éÔÄÄ³Ò»µØÇø»ù±¾ÐÅÏ¢¡£
-        %^H_CYAN%^info am %^H_YELLOW%^<area_id>%^RESET%^     ²éÔÄÄ³Ò»µØÇø¾üÊÂ¼°´¢±¸ÐÅÏ¢¡£
-        %^H_CYAN%^info af %^H_YELLOW%^<area_id>%^RESET%^     ²éÔÄÄ³Ò»µØÇø²ÆÕþÐÅÏ¢¡£
-        %^H_CYAN%^info ao %^H_YELLOW%^<area_id>%^RESET%^     ²éÔÄÄ³Ò»µØÇøÈËÊÂÐÅÏ¢¡£
-        %^H_CYAN%^info ac %^H_YELLOW%^<area_id>%^RESET%^     ÁÐ³öÒ»µØÇøµÄËùÓÐ¶¨¾Ó½ÇÉ«ID¡£
+ç”¨æ³•ï¼š  %^H_CYAN%^info here%^RESET%^             æŸ¥è¯¢æœ¬åœ°ä¿¡æ¯ã€‚
+        %^H_CYAN%^info a list%^RESET%^           åœ°åŒºåˆ—è¡¨ã€‚
+        %^H_CYAN%^info aa %^H_YELLOW%^<area_id>%^RESET%^     æŸ¥é˜…æŸä¸€åœ°åŒºä¿¡æ¯ã€‚
+        %^H_CYAN%^info ag %^H_YELLOW%^<area_id>%^RESET%^     æŸ¥é˜…æŸä¸€åœ°åŒºåŸºæœ¬ä¿¡æ¯ã€‚
+        %^H_CYAN%^info am %^H_YELLOW%^<area_id>%^RESET%^     æŸ¥é˜…æŸä¸€åœ°åŒºå†›äº‹åŠå‚¨å¤‡ä¿¡æ¯ã€‚
+        %^H_CYAN%^info af %^H_YELLOW%^<area_id>%^RESET%^     æŸ¥é˜…æŸä¸€åœ°åŒºè´¢æ”¿ä¿¡æ¯ã€‚
+        %^H_CYAN%^info ao %^H_YELLOW%^<area_id>%^RESET%^     æŸ¥é˜…æŸä¸€åœ°åŒºäººäº‹ä¿¡æ¯ã€‚
+        %^H_CYAN%^info ac %^H_YELLOW%^<area_id>%^RESET%^     åˆ—å‡ºä¸€åœ°åŒºçš„æ‰€æœ‰å®šå±…è§’è‰²IDã€‚
 
-Àý×Ó£º  %^H_CYAN%^info aa changan%^RESET%^       ÁÐ³ö³¤°²µØÇøÐÅÏ¢¡£
+ä¾‹å­ï¼š  %^H_CYAN%^info aa changan%^RESET%^       åˆ—å‡ºé•¿å®‰åœ°åŒºä¿¡æ¯ã€‚

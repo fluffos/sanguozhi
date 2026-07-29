@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is 巴山夜雨
+// driver is 宸村北澶滈洦
 // created date is Sat May 28 19:40:58 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,9 +7,9 @@ inherit OUTDOOR_ROOM;
 void setup() {
 set_area("wuling");
 set_light(50);
-set_brief("%^YELLOW%^"+"民居"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"姘戝眳"+"%^RESET%^");
 set_long("
-    里面破破烂烂的，丢满了各种杂物。\n\n");
+    閲岄潰鐮寸牬鐑傜儌鐨勶紝涓㈡弧浜嗗悇绉嶆潅鐗┿�俓n\n");
 set_exits( ([
 "east":"/a/wuling/wl_nanjie1.c",
  ]));

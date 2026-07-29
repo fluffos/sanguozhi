@@ -7,47 +7,47 @@ inherit CMD;
 private void main(string arg)
 {
 	string p_area;
-    array bases;
+    mixed * bases;
 	string f_name;
 	object ob;
 	p_area=this_body()->query_room()->get_area();
 
 	if(!AREA_D->area_exist(p_area)) {
-		write("ÕâÀï²»ÊÇÈı¹úµØÇø¡£\n");
+		write("è¿™é‡Œä¸æ˜¯ä¸‰å›½åœ°åŒºã€‚\n");
 		return;
 	}
 
 	f_name=file_name(this_body()->query_room());
 	if(f_name!=(AREA_D->get_area(p_area,"path")+AREA_D->get_area(p_area,"go"))) {
-		write("Ö»ÓĞ´Ó³ÇÃÅ¿Ú²ÅÄÜ½øÈëÉú²ú»ùµØ¡£\n");
+		write("åªæœ‰ä»åŸé—¨å£æ‰èƒ½è¿›å…¥ç”Ÿäº§åŸºåœ°ã€‚\n");
 		return;
 	}
 	bases=AREA_D->get_area(p_area,"base");
 	if(!sizeof(bases)) {
-		write("±¾µØÇøÃ»ÓĞÈÎºÎÉú²ú»ùµØ¡£\n");
+		write("æœ¬åœ°åŒºæ²¡æœ‰ä»»ä½•ç”Ÿäº§åŸºåœ°ã€‚\n");
 		return;
 	}
 	if(sizeof(bases)>1) {
 		if(member_array(arg,bases)==-1) {
-			write("ÄãÒª½øÈëÄÄ¸öÉú²ú»ùµØÑ½¡£\n");
+			write("ä½ è¦è¿›å…¥å“ªä¸ªç”Ÿäº§åŸºåœ°å‘€ã€‚\n");
 			foreach(string b in bases) {
 				write(BASE_D->get_base(b,"name")+"("+b+") " );
 			}
 			write("\n");
-			write("ÓÃ base <id> ½øÈëÌØµãµÄÉú²ú»ùµØ¡£\n");
+			write("ç”¨ base <id> è¿›å…¥ç‰¹ç‚¹çš„ç”Ÿäº§åŸºåœ°ã€‚\n");
 			return;
 		}
 	}
 	else arg=bases[0];
 
-	this_body()->simple_action("$Nµ½"+BASE_D->get_base(arg,"name")+
-		"È¥ÁË¡£\n");
+	this_body()->simple_action("$Nåˆ°"+BASE_D->get_base(arg,"name")+
+		"å»äº†ã€‚\n");
 
      ob = load_object(BASE_SERVER+p_area+"/"+arg+"/enter");
 	 if(objectp(ob)) {
 			this_body()->move(ob);
 	        this_body()->do_game_command("look");
-			this_body()->other_action("$N½øÈëÁË"+BASE_D->get_base(arg,"name"));
+			this_body()->other_action("$Nè¿›å…¥äº†"+BASE_D->get_base(arg,"name"));
 	 }
      return;
 }

@@ -3,67 +3,67 @@ private mapping msg=
 ([
    "gini" : ([
 "call_old_player" : ({
-"$Nһָ$T����ι����ƣ������Ҹ�������ָ��ָ�㡣\n",
+"$N一指$T道：喂，伙计，给咱找个高手来指点指点。\n",
 }),
 "busy" : ({
-"$T��$N�������ˣ�����һ������û����ء�\n",
+"$T对$N道：主人，我上一向任务还没完成呢。\n",
 }),
 "noneed" : ({
-"$T��$N�������ˣ����С�£������Ұ���Ҳ���԰쵽ѽ��\n",
+"$T对$N道：主人，这点小事，不用我帮你也可以办到呀。\n",
 }),
 "toosoon" : ({
-"$T��$N�������ˣ���ʩ���˷�����������û�ָ�ѽ��\n",
+"$T对$N道：主人，刚施过此法术，法力还没恢复呀。\n",
 }),
 "nooldplyer" : ({ 
-"$T�ͳ���Զ����������һͨ�������ˣ����ʵĸ����Ҳ���ѽ��\n",
+"$T掏出望远镜四面望了一通道：主人，合适的高手找不到呀。\n",
 }),
 "magic" : ({
-"$T�ͳ�һ��ˮ���򣬿��л�����һЩ�����������ˮ������ɫԽ��Խ�ͻȻð��һ�����⡣\n",
+"$T掏出一个水晶球，口中还念着一些听不懂得咒语。水晶球颜色越来越深，突然冒出一道蓝光。\n",
 }),
 "birth" : ({
-"ͻȻð��һ��%^BLUE%^����%^RESET%^�������У�һ��$T�ݸ�$Nһյ��ƣ�˵����\n������ı����񣬵�����Ҫ��ʱ��ֻҪ���� gini �Ҿͻ�����㡣\n���㲻��Ҫ���ˣ����� gini return���Ҿͻ���ʧ��\n",
+"突然冒起一股%^BLUE%^篮烟%^RESET%^，烟雾中，一个$T递给$N一盏神灯，说道：\n我是你的保护神，当你需要我时，只要输入 gini 我就会帮助你。\n若你不需要我了，输入 gini return，我就会消失。\n",
 }),
 "call" : ({
-"$N�ӻ����ͳ�һյ��������ƣ������Ӳ��˲�. . . . \nһ��%^BLUE%^����%^RESET%^�ӵ���ð���������ػ���һ����ɫ��־��顣\n",
+"$N从怀里掏出一盏阿拉伯神灯，用袖子擦了擦. . . . \n一股%^BLUE%^篮烟%^RESET%^从灯中冒出，慢慢地化成一个蓝色大怪精灵。\n",
 "GTbow",
 }),
 "come" : ({
-"$Nһ����ƣ�$T��æ��Զ��Ʈ����\n",
-"GS���ˣ��кηԸ���",
-"$T��$N���˸�������$R�кηԸ���\n",
+"$N一擦神灯，$T急忙从远处飘来。\n",
+"GS主人，有何吩咐。",
+"$T对$N作了个鬼脸，$R有何吩咐？\n",
 }),
 "go" : ({
-"$T��æ��Զ��Ʈ������$N�������ϵ���һ�¡�\n",
-"GS������������",
+"$T急忙从远处飘来，在$N的脑门上弹了一下。\n",
+"GS主人我来拉。",
 }),
 
 "ask" : ({
-"$N��$T����gini���㶼�ܸ�ʲô�أ�\n",
-"$N��$T����gini�����ҿ�����ı��°ɡ�\n",
+"$N对$T道：gini，你都能干什么呢？\n",
+"$N对$T道：gini，让我看看你的本事吧。\n",
 }),
 "disappear" : ({
-"$N����һ��%^BLUE%^����%^RESET%^����������ʧ�ˡ�\n",
+"$N化作一股%^BLUE%^蓝烟%^RESET%^，慢慢地消失了。\n",
 }),
 "return" : ({
-"$N�������ҡ��ҡ��$T����һ�����̣���ص��С�\n",
+"$N拿着神灯摇了摇，$T化作一股蓝烟，钻回灯中。\n",
 }),
 "readhint" : ({
-"$Tҡ��һ�䣬��������ģ�����ֱֳ��飬һ�������ض�$N���\n",
+"$T摇身一变，化成孙武模样，手持兵书，一本正经地对$N念到，\n",
 }),
 "do" : ({
-"$N��$Tʹ�˸���ɫ��\n",
-"$N��$T�����ֹ���Щʲô��\n",
-"$N�������µؿ���$Tһ�ۡ�\n",
+"$N对$T使了个眼色。\n",
+"$N在$T耳边嘀咕了些什么。\n",
+"$N若无其事地看了$T一眼。\n",
 }),
 "know" : ({
-"$T�����ҵı��¿ɴ��ˡ�\n",
-"GS�ҵ�����Ϸ�ɶ��ˡ�",
+"$T道：我的本事可大了。\n",
+"GS我的拿手戏可多了。",
 }),
 "random" : ({
-"GEface","GMack","GS�ܾúܾ���ǰ����һ�����������꣬�������־ͽУ����� . �� . �� . �� . . . .��",
+"GEface","GMack","GS很久很久以前，有一个阿拉伯青年，他的名字就叫：“阿 . 里 . 吧 . 吧 . . . .”",
 "GMbow",
-"GT���ˣ��㻹����","MEhehe","MGpat","MA$N��һ������ס�ڡ�\n",
-"$TͻȻ���һ��ħ�����ſ���һ�ڰ�$N������ȥ��\n",
+"GT主人，你还好吗？","MEhehe","MGpat","MA$N大喊一声：“住口”\n",
+"$T突然变成一个魔鬼，张开嘴一口把$N吞了下去。\n",
 }),
 
 ]), // end of gini
@@ -71,47 +71,47 @@ private mapping msg=
 ]);
 
 
-private array hints=({
-"��ʿʤ�����䣻��ʿʤ�����ǣ���ʿʤ���ڵ¡�\n",
-"������ͬ������MUD��ֻ��ͷ���������������������ͨ�챾�죬Ҳ�ѳɴ�ҵ��\n",
-"���ж��ݺ����£��������ܾ������£����Ǵ�ã�\n���ܵ��������Ը�֮��Ҳ������һ����\n",
-"ǧ���׵ã�һ�������ҵ�һ������˫ȫ�����Ĺ����Ĵ󽫣������������ѡ�\n",
-"���˹�֮�����������ۣ��า�ۣ��������в���ʧҲ��\n",
-"��ʼ������࣬����н�����������տ�ͼҲ��\n",
-"����������ƶ�������ƣ��������ɷ�Ҳ��\n",
+private mixed * hints=({
+"下士胜人于武；中士胜人于智；上士胜人于德。\n",
+"三国不同于其他MUD，只埋头练功，不广结贤良，纵有通天本领，也难成大业。\n",
+"好男儿纵横天下，若他日能君临天下，自是大好，\n但能得遇明主以辅之，也不枉活一世。\n",
+"千军易得，一将难求，找到一个智勇双全，忠心耿耿的大将，真是难上又难。\n",
+"民乃国之根本，亦载舟，亦覆舟，故民心切不可失也。\n",
+"开始工作虽苦，但卧薪尝胆，大事终可图也。\n",
+"富贵不能淫，贫贱不能移，此乃真丈夫也。\n",
 });
 string get_hint() {
     return hints[random(sizeof(hints))];
 }
 string get_msg(string char,string typ) {
-    array tmp;
-    if(!mapp(msg[char])) return "$N��֪������ʲô�á�\n";
+    mixed * tmp;
+    if(!mapp(msg[char])) return "$N不知道该做什么好。\n";
     tmp=msg[char][typ];
-    if(!arrayp(tmp)) return "$N��֪������ʲô�á�\n";
+    if(!arrayp(tmp)) return "$N不知道该做什么好。\n";
     return tmp[random(sizeof(tmp))];
 }
 string get_title(string char){
     switch (char) {
         case "gini":
-           return "%^BLUE%^��ɫ����%^RESET%^(gini)";
+           return "%^BLUE%^蓝色大精灵%^RESET%^(gini)";
         default :
-           return "��֪����ʲô������\n";
+           return "不知道是什么东西。\n";
     }
 }
 string get_long(string char) {
     switch (char) {
         case "gini":
-           return "һ��%^BLUE%^��ɫ����%^RESET%^��Ʈ�ڿ��У����ϵ����Ź�����\n";
+           return "一个%^BLUE%^蓝色大精灵%^RESET%^，飘在空中，不断地做着鬼脸。\n";
         default :
-           return "��֪����ʲô������\n";
+           return "不知道是什么东西。\n";
     }
 }
 string get_name(string char) {
     switch (char) {
         case "gini":
-           return "��ɫ����";
+           return "蓝色大精灵";
         default :
-           return "��֪����ʲô������\n";
+           return "不知道是什么东西。\n";
     }
 }
 
@@ -121,32 +121,32 @@ string get_lamp_id(string my_type) {
         case "gini":
            return "lamp";
         default :
-           return "��֪����ʲô������\n";
+           return "不知道是什么东西。\n";
     }
 }
 string get_lamp_name(string my_type) {
     switch (my_type) {
         case "gini":
-           return "���������";
+           return "阿拉伯神灯";
         default :
-           return "��֪����ʲô������\n";
+           return "不知道是什么东西。\n";
     }
 }
 string get_lamp_unit(string my_type) {
     switch (my_type) {
         case "gini":
-           return "յ";
+           return "盏";
         default :
-           return "��֪����ʲô������\n";
+           return "不知道是什么东西。\n";
     }
 }
 
 string get_lamp_long(string my_type) {
     switch (my_type) {
         case "gini":
-           return "һյ����ħ���İ�������ƣ�Ҫʹ�þ����룺gini\n";
+           return "一盏富有魔力的阿拉伯神灯，要使用就输入：gini\n";
         default :
-           return "��֪����ʲô������\n";
+           return "不知道是什么东西。\n";
     }
 }
 void gini_birth(object oo) {
@@ -253,11 +253,11 @@ void gini_act(string p_id,string typ) {
 }
 string what_can_do() {
 return 
-"%^H_BLUE%^gini%^RESET%^��               �ٻ��ҵĵ�����
-%^H_BLUE%^gini do %^H_RED%^some thing%^RESET%^�� ������һЩ�¡�
-  ���磺%^H_GREEN%^gini do hi %^RESET%^  �Ҿͻ�Ϲ���
-%^H_BLUE%^gini return%^RESET%^��        �Ҿͻ��Ȳ�������
-%^H_BLUE%^gini old%^RESET%^��           �Ҿͻ��Ҹ������������㡣
+"%^H_BLUE%^gini%^RESET%^：               召唤我的到来。
+%^H_BLUE%^gini do %^H_RED%^some thing%^RESET%^： 让我做一些事。
+  例如：%^H_GREEN%^gini do hi %^RESET%^  我就会鞠躬。
+%^H_BLUE%^gini return%^RESET%^；        我就会先藏起来。
+%^H_BLUE%^gini old%^RESET%^；           我就会找个高手来帮助你。
 
 ";
 }

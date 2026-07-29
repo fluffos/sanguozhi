@@ -16,13 +16,13 @@ nomask private void main(string str)
 	string extra;
     if (!str)
     {
-        write("用法：setcountry <country_id> <para_name> <para_value>\n");
+        write("鐢ㄦ硶锛歴etcountry <country_id> <para_name> <para_value>\n");
         return;
     }
     sscanf(p_id, "%s %s %s %s", p_id,p_id2,para_name,para_value);
 	if(!para_value)
     {
-        write("用法：setcountry <country_id> <para_name> <para_value>\n");
+        write("鐢ㄦ硶锛歴etcountry <country_id> <para_name> <para_value>\n");
         return;
     }
 	if (restore_variable(para_value)!=0)

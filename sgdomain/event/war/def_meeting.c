@@ -13,7 +13,7 @@ void def_meeting(int t_num)
         a_id=TASK_D->get_task(t_num,"def_area");
         att_name=TASK_D->get_task(t_num,"att_name");
         CHANNEL_D->deliver_tell("rumor","system",
-                 sprintf("%sÕÙ¿ª½ô¼±·ÀÓù»áÒé¡£",AREA_D->get_area(a_id,
+                 sprintf("%så¬å¼€ç´§æ€¥é˜²å¾¡ä¼šè®®ã€‚",AREA_D->get_area(a_id,
 "name")));
         s_room=TASK_D->get_task(t_num,"def_room");
         
@@ -29,7 +29,7 @@ void def_meeting(int t_num)
            {
                if(file_name(environment(CHAR_D->find_char(u_list[i])))!=s_room)
                    (EV_INFORMSB)->inform_sb(u_list[i],
-                       AREA_D->get_area(a_id,"name")+"ÒªÕÙ¿ª½ô¼±·ÀÓù»áÒé£¬Çë$RËÙÈ¥¡£");    
+                       AREA_D->get_area(a_id,"name")+"è¦å¬å¼€ç´§æ€¥é˜²å¾¡ä¼šè®®ï¼Œè¯·$Ré€Ÿå»ã€‚");    
            }
            else
            {
@@ -39,15 +39,15 @@ void def_meeting(int t_num)
                     if(CHAR_D->get_char(u_list[i],"room")!=s_room)
                     {
                         (EV_INFORMSB)->inform_sb(u_list[i],
-                             AREA_D->get_area(a_id,"name")+"ÒªÕÙ¿ª½ô¼±·ÀÓù»áÒé£¬Çë$RËÙÈ¥¡£");    
+                             AREA_D->get_area(a_id,"name")+"è¦å¬å¼€ç´§æ€¥é˜²å¾¡ä¼šè®®ï¼Œè¯·$Ré€Ÿå»ã€‚");    
                         if(objectp(ob_char))
                         {
-                             ob_char->simple_action("$N¹°ÊÖµÀ£º$sÓĞÒªÊÂÔÚÉí£¬Õâ±ã¸æ´Ç£¬ÍòÍû¼ûÁÂ¡£\n");
-                             ob_char->simple_action("$N¼±´Ò´ÒµØÀë¿ªÁË¡£\n");
+                             ob_char->simple_action("$Næ‹±æ‰‹é“ï¼š$sæœ‰è¦äº‹åœ¨èº«ï¼Œè¿™ä¾¿å‘Šè¾ï¼Œä¸‡æœ›è§è°…ã€‚\n");
+                             ob_char->simple_action("$Næ€¥åŒ†åŒ†åœ°ç¦»å¼€äº†ã€‚\n");
                         }
                         CHAR_D->put_char(u_list[i],s_room);
                      if(objectp(ob_char))
-                        ob_char->simple_action("$N¼±´Ò´ÒµØ×ßÁË¹ıÀ´¡£\n");
+                        ob_char->simple_action("$Næ€¥åŒ†åŒ†åœ°èµ°äº†è¿‡æ¥ã€‚\n");
                     }
                 }
                 else
@@ -58,14 +58,14 @@ void def_meeting(int t_num)
                        CHAR_D->put_char(u_list[i],s_room);
                        ob_char=CHAR_D->find_char(u_list[i]);
                           if(objectp(ob_char))
-                             ob_char->simple_action("$N¼±´Ò´ÒµØ×ßÁË¹ıÀ´¡£\n");
+                             ob_char->simple_action("$Næ€¥åŒ†åŒ†åœ°èµ°äº†è¿‡æ¥ã€‚\n");
                     }
                 }
             } // end of f((CHAR_D->get_char(u_list[i],"status")==STATUS_ONLINE)
         }// end of for(i=0;i<sizeof(u_list);++i)
         ob_char=CHAR_D->find_char(p_leader);
         if(objectp(ob_char))
-           ob_char->simple_action("$NÀÊÉùµÀ£ºÖîÎ»ÉÔ°²ÎğÔï£¬µ±Ç°ĞÎÊÆÑÏ¾ş£¬²»ÖªÄÄÎ»\n´óÈË¡¢½«¾üÔ¸Áì±øµÖÓù"+att_name+"µÄ½ø¹¥£¿\n");
+           ob_char->simple_action("$Næœ—å£°é“ï¼šè¯¸ä½ç¨å®‰å‹¿ç‡¥ï¼Œå½“å‰å½¢åŠ¿ä¸¥å³»ï¼Œä¸çŸ¥å“ªä½\nå¤§äººã€å°†å†›æ„¿é¢†å…µæŠµå¾¡"+att_name+"çš„è¿›æ”»ï¼Ÿ\n");
      call_out("auto_want_leader",random(4)+1,t_num);
 	 call_out("final_decision",60,t_num);
 }
@@ -81,15 +81,15 @@ void i_want_leader(int task_id,string my_id)
    def_candidate=({});
    def_area=TASK_D->get_task(task_id,"def_area");//2001.4.13
    p_nation=AREA_D->get_area(def_area,"nation");
-   //NPCÊ×¶¼µØÇø 2001.4.13
+   //NPCé¦–éƒ½åœ°åŒº 2001.4.13
    if ((CHAR_D->get_char(p_nation,"area")==def_area)&&(CHAR_D->get_char(p_nation,"type")==TYPE_NPC))
       {
        if(objectp(o_id))
-         o_id->simple_action("$NµÀ£ºÎÒ¿´»¹ÊÇÓÉ±İÏÂÇ××Ô³öÂí×îÎªÍ×µ±¡£$sÔ¸×·Ëæ±İÏÂ×óÓÒ£¬ÊÄËÀĞ§ÖÒ¡£\n");
+         o_id->simple_action("$Né“ï¼šæˆ‘çœ‹è¿˜æ˜¯ç”±é™›ä¸‹äº²è‡ªå‡ºé©¬æœ€ä¸ºå¦¥å½“ã€‚$sæ„¿è¿½éšé™›ä¸‹å·¦å³ï¼Œèª“æ­»æ•ˆå¿ ã€‚\n");
 
-       AREA_D->set_area(def_area,"train",200);  //NPCÊ×¶¼Ôâµ½¹¥»÷Ê±,²¿¶ÓÊ¿ÆøºÍÑµÁ·¶Èºã¶¨ÔÚ200
+       AREA_D->set_area(def_area,"train",200);  //NPCé¦–éƒ½é­åˆ°æ”»å‡»æ—¶,éƒ¨é˜Ÿå£«æ°”å’Œè®­ç»ƒåº¦æ’å®šåœ¨200
        AREA_D->set_area(def_area,"morale",200);
-       TASK_D->set_task(task_id,"def_stage","arrange"); //µã±ø
+       TASK_D->set_task(task_id,"def_stage","arrange"); //ç‚¹å…µ
        TASK_D->set_task(task_id,"def_leader",p_nation);
        call_out("def_arrange",3,task_id);
       return;
@@ -103,14 +103,14 @@ void i_want_leader(int task_id,string my_id)
 	if(sizeof(def_candidate))
         {
 	   if(objectp(o_id))
-             o_id->simple_action("$NµÀ£ºÎÒ¿´»¹ÊÇÓÉ$sÇ××Ô³öÂí×îÎªÍ×µ±¡£\n");
+             o_id->simple_action("$Né“ï¼šæˆ‘çœ‹è¿˜æ˜¯ç”±$säº²è‡ªå‡ºé©¬æœ€ä¸ºå¦¥å½“ã€‚\n");
 	}
 	else
         {
 	   if(objectp(o_id))
-             o_id->simple_action("$NÌ¾ÁËÒ»¿ÚÆø£¬µÀ£º¼ÈÈ»ÎŞÈË¸ÒÕ½£¬Ö»ºÃÓÉ$sÇ××Ô³öÂí±ãÊÇÁË¡£\n");
+             o_id->simple_action("$Nå¹äº†ä¸€å£æ°”ï¼Œé“ï¼šæ—¢ç„¶æ— äººæ•¢æˆ˜ï¼Œåªå¥½ç”±$säº²è‡ªå‡ºé©¬ä¾¿æ˜¯äº†ã€‚\n");
         }
-        TASK_D->set_task(task_id,"def_stage","arrange"); //µã±ø
+        TASK_D->set_task(task_id,"def_stage","arrange"); //ç‚¹å…µ
         TASK_D->set_task(task_id,"def_leader",my_id);
 	call_out("def_arrange",3,task_id);
    }
@@ -118,14 +118,14 @@ void i_want_leader(int task_id,string my_id)
    {
 	if(member_array(my_id,def_candidate)!=-1)
         {
-           write("ÄãÒÑ¾­ÒªÇó¹ıÁË¡£\n");
+           write("ä½ å·²ç»è¦æ±‚è¿‡äº†ã€‚\n");
 	   return;
         }
  	else
         {
 	   if(objectp(o_id))
-             o_id->simple_action(({"$NÍ¦ÉíµÀ£º$s²»²Å£¬Ô¸Áì±øÉ±ÍËµĞ¿Ü£¡\n",
-              "$NµÀ£º$sÔ¸Æ´ËÀÒ»Õ½£¡\n","$NµÀ£º$sÔ¸ÁìÒ»ÉÚÈËÂí£¬É±µĞÁ¢¹¦£¡\n"}));
+             o_id->simple_action(({"$NæŒºèº«é“ï¼š$sä¸æ‰ï¼Œæ„¿é¢†å…µæ€é€€æ•Œå¯‡ï¼\n",
+              "$Né“ï¼š$sæ„¿æ‹¼æ­»ä¸€æˆ˜ï¼\n","$Né“ï¼š$sæ„¿é¢†ä¸€å“¨äººé©¬ï¼Œæ€æ•Œç«‹åŠŸï¼\n"}));
 	   def_candidate-=({my_id});
 	   def_candidate+=({my_id});
            TASK_D->set_task(task_id,"def_candidate",def_candidate);
@@ -155,7 +155,7 @@ void final_decision(int task_id)
 
    o_ld=CHAR_D->find_char(p_leader);
    if(objectp(o_ld))
-     o_ld->simple_action("$NµÀ£ºÊÂÌ¬½ô¼±£¬ÎÒÃÇÒª¸Ï¿ì¾ö¶¨¡£\n");
+     o_ld->simple_action("$Né“ï¼šäº‹æ€ç´§æ€¥ï¼Œæˆ‘ä»¬è¦èµ¶å¿«å†³å®šã€‚\n");
    if(!def_candidate)
       def_candidate=({});
    sum_can=sizeof(def_candidate);
@@ -181,30 +181,30 @@ void final_decision(int task_id)
         //   p_selected=def_candidate[random(sum_can)];
         }
    }
-   //2001.4.13   NPC¿ØÖÆµÄµØÇøÓÉNPCÌ«ÊØ·Ö±ø
+   //2001.4.13   NPCæ§åˆ¶çš„åœ°åŒºç”±NPCå¤ªå®ˆåˆ†å…µ
    if (CHAR_D->get_char(p_nation,"type")==TYPE_NPC)
    {  if (p_area == CHAR_D->get_char(p_nation,"area"))
-          p_selected = p_nation;     //ÈçÎªÊ×¶¼£¬Ôò¹úÍõÇ××Ô×÷ÎªÖ÷½«
+          p_selected = p_nation;     //å¦‚ä¸ºé¦–éƒ½ï¼Œåˆ™å›½ç‹äº²è‡ªä½œä¸ºä¸»å°†
       else
       if ((CHAR_D->get_char(p_leader,"type")==TYPE_NPC)&&(p_selected!=p_leader))
-      {   //Èç¹ûÔ¤ÉèµÄleaderÎªNPC,Ò²¾ÍÊÇËµÊÇNPC¿ØÖÆµØÇø£¬Ñ¡ÔñNPC leaderÎªÖ÷½«¡£
+      {   //å¦‚æœé¢„è®¾çš„leaderä¸ºNPC,ä¹Ÿå°±æ˜¯è¯´æ˜¯NPCæ§åˆ¶åœ°åŒºï¼Œé€‰æ‹©NPC leaderä¸ºä¸»å°†ã€‚
           p_selected=p_leader;
       }
    }
    //
-   TASK_D->set_task(task_id,"def_stage","arrange"); //µã±ø
+   TASK_D->set_task(task_id,"def_stage","arrange"); //ç‚¹å…µ
    TASK_D->set_task(task_id,"def_leader",p_selected);
    o_ld=CHAR_D->find_char(p_leader);
    o_se=CHAR_D->find_char(p_selected);
    if(p_leader==p_selected)
    {
       if(objectp(o_ld))
-             o_ld->simple_action("$NÌ¾ÁËÒ»¿ÚÆø£¬µÀ£º¼ÈÈ»ÎŞÈË¸ÒÕ½£¬Ö»ºÃÓÉ$sÇ××Ô³öÂí±ãÊÇÁË¡£\n");
+             o_ld->simple_action("$Nå¹äº†ä¸€å£æ°”ï¼Œé“ï¼šæ—¢ç„¶æ— äººæ•¢æˆ˜ï¼Œåªå¥½ç”±$säº²è‡ªå‡ºé©¬ä¾¿æ˜¯äº†ã€‚\n");
    }
    else
    {
       if((objectp(o_ld))&&(objectp(o_se)))
-o_ld->targetted_action("$N¶Ô$TµÀ£º$m$RÎÄÎäÈ«²Å£¬Õâ´Î¾ÍÈ«ÕÌ$n1pÍËµĞÁ¢¹¦ÁË£¡\n",o_se);
+o_ld->targetted_action("$Nå¯¹$Té“ï¼š$m$Ræ–‡æ­¦å…¨æ‰ï¼Œè¿™æ¬¡å°±å…¨ä»—$n1pé€€æ•Œç«‹åŠŸäº†ï¼\n",o_se);
    }
    call_out("def_arrange",3,task_id);
    return;

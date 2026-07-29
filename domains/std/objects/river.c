@@ -5,10 +5,10 @@ inherit OBJ;
 
 void setup()
 {
-  set_unit("Ìõ");
-  set_id("river", "Ğ¡ºÓ", "water");
+  set_unit("æ¡");
+  set_id("river", "å°æ²³", "water");
   set_long(
-"Ò»ÌõĞ¡ºÓÓÉ¶«¶øÀ´£¬»º»ºµØÁ÷ÏòÎ÷È¥¡£Ëü²»ºÜÉî£¬ÒªÌÊ¹ıËüÈ¥±±·½²»ÊÇ¸öÎÊÌâ¡£\n");
+"ä¸€æ¡å°æ²³ç”±ä¸œè€Œæ¥ï¼Œç¼“ç¼“åœ°æµå‘è¥¿å»ã€‚å®ƒä¸å¾ˆæ·±ï¼Œè¦æ·Œè¿‡å®ƒå»åŒ—æ–¹ä¸æ˜¯ä¸ªé—®é¢˜ã€‚\n");
   set_size(TOO_LARGE);
 set_flag(ATTACHED);
 }
@@ -16,16 +16,16 @@ set_flag(ATTACHED);
 mixed swim()
 {
 
-  this_body()->simple_action("$NÔÚºÓÀïÓÎÁËÒ»»á¶ù¡£\n"
-                             "µ±$nÅÀÉÏ°¶Ê±£¬¶´µØºöÈ»Õğ¶¯ÁËÒ»ÏÂ¡£");
+  this_body()->simple_action("$Nåœ¨æ²³é‡Œæ¸¸äº†ä¸€ä¼šå„¿ã€‚\n"
+                             "å½“$nçˆ¬ä¸Šå²¸æ—¶ï¼Œæ´åœ°å¿½ç„¶éœ‡åŠ¨äº†ä¸€ä¸‹ã€‚");
   call_out((: environment(this_object())->open_passage() :), 3);
   return 1;
 }
 
 mixed wade()
 {
-  this_body()->simple_action("$NÔÚºÓÀïÌÊÁËÒ»»á¶ùË®¡£\n"
-                             "µ±$nÉÏ°¶Ê±£¬¶´µØºöÈ»Õğ¶¯ÁËÒ»ÏÂ¡£");
+  this_body()->simple_action("$Nåœ¨æ²³é‡Œæ·Œäº†ä¸€ä¼šå„¿æ°´ã€‚\n"
+                             "å½“$nä¸Šå²¸æ—¶ï¼Œæ´åœ°å¿½ç„¶éœ‡åŠ¨äº†ä¸€ä¸‹ã€‚");
   call_out((: environment(this_object())->open_passage() :), 3);
   return 1;
 }

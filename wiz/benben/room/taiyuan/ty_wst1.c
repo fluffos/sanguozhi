@@ -1,4 +1,4 @@
-//  Î÷´ó½Ö  by Benben
+//  è¥¿å¤§è¡—  by Benben
 // ty_wst1.c 
 #include <mudlib.h>
 #include "/wiz/fire/fire.h"
@@ -7,8 +7,8 @@ inherit OUTDOOR_ROOM;
 void setup(){
     set_area("ty_area");
     set_light(50);
-    set_brief(""+YEL+"Î÷´ó½Ö"+NOR+"");
-    set_long("    ÃèÊö¡£\n");
+    set_brief(""+YEL+"è¥¿å¤§è¡—"+NOR+"");
+    set_long("    æè¿°ã€‚\n");
     set_exits( ([
         "east" :  __DIR__+"ty_center.c",
         "west" :  __DIR__+"ty_wst2.c",

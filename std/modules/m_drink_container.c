@@ -18,7 +18,7 @@ mixed direct_drink_from_obj() {
     object ob;
     
     if (this_object()->query_closed())
-        return short() + "�ǹ��ŵġ�\n";
+        return short() + "是关着的。\n";
 
     if (needs_contents)
         ob = first_inventory();
@@ -26,7 +26,7 @@ mixed direct_drink_from_obj() {
         ob = this_object();
     
     if (!ob)
-        return short() + "�ǿյġ�\n";
+        return short() + "是空的。\n";
 
     return ob->direct_drink_obj();
 }

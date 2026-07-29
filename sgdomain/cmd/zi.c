@@ -9,20 +9,20 @@ void start(string arg)
 	{
 		this_body()->set_sg_zi(0);
 		CHAR_D->set_char(p_id,"zi",0);
-		write("×ÖÈ¡Ïû³É¹¦¡£\n");
+		write("å­—å–æ¶ˆæˆåŠŸã€‚\n");
 	}
 	else
 	{
 		if(strlen(arg)!=4)
 		{
-			write("×Ö±ØÐèÓÉÁ½¸öºº×Ö×é³É¡£\n");
+			write("å­—å¿…éœ€ç”±ä¸¤ä¸ªæ±‰å­—ç»„æˆã€‚\n");
 			return;
 		}
 		else
 		{
 			this_body()->set_sg_zi(arg);
 			CHAR_D->set_char(p_id,"zi",arg);
-	                write("×ÖÉèÖÃ³É¹¦¡£\n");
+	                write("å­—è®¾ç½®æˆåŠŸã€‚\n");
 		}
       }
 }

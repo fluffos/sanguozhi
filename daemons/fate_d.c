@@ -8,24 +8,24 @@
 #define LOG       "/data/log/fates.log"
 #define NO_ALERT 1
 inherit M_ACCESS;
-static string array sym_tien = ({ "¼×","ÒÒ","±û","¶¡","Îì","¼º","¸ı","ĞÁ","ÈÉ","¹ï" });
-static string array sym_dee = ({ "×Ó","³ó","Òú","Ã®","³½","ËÈ","Îç","Î´","Éê","ÓÏ","Ğç","º¥" });
-static string array season = ({"spring","summer","autumn","winter"});
-static mapping fate_name = ([
-"goodsign"  :"ÏéÈğ",
-"snow"      :"ÈğÑ©",
-"foison"    :"·áÊÕ",
-"fire"      :"´ó»ğ",
-"flood"     :"ºéË®",
-"earthquake":"µØÕğ",
-"locust"    :"»È³æ",
-"murrain"   :"ÎÁÒß",
-"drought"   :"¸Éºµ",
-"cyclone"   :"ì«·ç",
-"bandit"    :"·Ë»ö",
-"riot"      :"±©ÂÒ",
+nosave protected string * sym_tien = ({ "ç”²","ä¹™","ä¸™","ä¸","æˆŠ","å·±","åºš","è¾›","å£¬","ç™¸" });
+nosave protected string * sym_dee = ({ "å­","ä¸‘","å¯…","å¯","è¾°","å·³","åˆ","æœª","ç”³","é…‰","æˆŒ","äº¥" });
+nosave protected string * season = ({"spring","summer","autumn","winter"});
+nosave protected mapping fate_name = ([
+"goodsign"  :"ç¥¥ç‘",
+"snow"      :"ç‘é›ª",
+"foison"    :"ä¸°æ”¶",
+"fire"      :"å¤§ç«",
+"flood"     :"æ´ªæ°´",
+"earthquake":"åœ°éœ‡",
+"locust"    :"è—è™«",
+"murrain"   :"ç˜Ÿç–«",
+"drought"   :"å¹²æ—±",
+"cyclone"   :"é£“é£",
+"bandit"    :"åŒªç¥¸",
+"riot"      :"æš´ä¹±",
 ]);
-static array omen=({
+nosave protected mixed * omen=({
 ({"good","east","north"}),
 ({"bad","east","center"}),
 ({"good","east","south"}), 
@@ -88,16 +88,16 @@ static array omen=({
 ({})
                      });
                      
-static mapping geo = ([
-"east":({"ÙğÖİ","ÇàÖİ","ĞìÖİ"}),            //5+3+5=13 cities
-"south":({"ÑïÖİ","Û«Öİ","½»Öİ","ÄÏ¾£Öİ"}),  //7+6+3+8=24 cities
-"center":({"Ë¾Á¥","Ô¥Öİ","±±¾£Öİ"}),          //7+4+7=18 cities
-"west":({"ÒæÖİ","ÁºÖİ","Á¹Öİ","ÓºÖİ"}),    //4+8+8+8=28 cities
-"north":({"²¢Öİ","¼½Öİ","ÓÄÖİ"})           //4+4+6=14 cities
+nosave protected mapping geo = ([
+"east":({"å…–å·","é’å·","å¾å·"}),            //5+3+5=13 cities
+"south":({"æ‰¬å·","éƒ¢å·","äº¤å·","å—è†å·"}),  //7+6+3+8=24 cities
+"center":({"å¸éš¶","è±«å·","åŒ—è†å·"}),          //7+4+7=18 cities
+"west":({"ç›Šå·","æ¢å·","å‡‰å·","é›å·"}),    //4+8+8+8=28 cities
+"north":({"å¹¶å·","å†€å·","å¹½å·"})           //4+4+6=14 cities
       ]);
-static string seasonnow="spring";
-static int times=3;
-static array info=({});
+nosave protected string seasonnow="spring";
+nosave protected int times=3;
+nosave protected mixed * info=({});
 private int adjust_level;  
 private int create_year;  
 private mapping tz_type;                  
@@ -114,9 +114,9 @@ void save_data()
 
 
 //add fate type
-mixed add_fate_type(string what,string type,array seasons)
+mixed add_fate_type(string what,string type,mixed *seasons)
 {
-if ((type!="good")&&(type!="bad")) return "ÌìµÀÊ±¼äÀàĞÍÖ»ÓĞgoodºÍbadÁ½ÖÖ.\n";
+if ((type!="good")&&(type!="bad")) return "å¤©é“æ—¶é—´ç±»å‹åªæœ‰goodå’Œbadä¸¤ç§.\n";
 foreach(string ss in seasons)
 {int index = member_array(season,ss);
  if (index!=-1)
@@ -128,9 +128,9 @@ return 1;
 }
 
 //delete fate type
-mixed del_fate_type(string what,string type,array seasons)
+mixed del_fate_type(string what,string type,mixed *seasons)
 {
-if ((type!="good")&&(type!="bad")) return "ÌìµÀÊ±¼äÀàĞÍÖ»ÓĞgoodºÍbadÁ½ÖÖ.\n";
+if ((type!="good")&&(type!="bad")) return "å¤©é“æ—¶é—´ç±»å‹åªæœ‰goodå’Œbadä¸¤ç§.\n";
 foreach(string ss in seasons)
 {int index = member_array(season,ss);
  if (index!=-1)
@@ -141,7 +141,7 @@ return 1;
 }
 string get_fate_type(string fate)
 {string type = "good";
- foreach(array ss in tz_type["bad"])
+ foreach(mixed *ss in tz_type["bad"])
     if (member_array(fate,ss)!=-1)
          {type = "bad";break;}
  return type;
@@ -155,9 +155,9 @@ string get_fate_name(string fate)
 }
 
 //update the fate_table when one fate event happened or runaway.
-//info[2]=-1       Î´·¢Éú
-//         0       ¶ã¹ı»ò±»ÖĞÖ¹
-//         [1..10] ·¢ÉúµÄ¼¶±ğ£®
+//info[2]=-1       æœªå‘ç”Ÿ
+//         0       èº²è¿‡æˆ–è¢«ä¸­æ­¢
+//         [1..10] å‘ç”Ÿçš„çº§åˆ«ï¼
 void update_fate_info(int level)
 {
  if (!sizeof(info)) return ;
@@ -218,7 +218,7 @@ int get_damage_level(string p_area,mapping condition,int type)
         i +=  (condition[ss]-j)*10/condition[ss]+1;
    }
  if (i==0) 
-    if (type==0) return 0;   //type =0 ÔÖ»ö type = 1 ½µ·ù
+    if (type==0) return 0;   //type =0 ç¾ç¥¸ type = 1 é™å¹…
     else      return 6+random(5);
  if (type==1) i= 10*sizeof(condition)-i;
  if (random(10)<=(i/sizeof(condition))) 
@@ -228,18 +228,18 @@ int get_damage_level(string p_area,mapping condition,int type)
 }            
  
                      
-string get_tgdz(int year)  //µÃµ½¶ÔÓ¦Äê·İµÄÌì¸ÉµØÖ§
-{year -= 184;        //Èı¹úµÄÆô¶¯ÆğÊ¼ÄêÎª184Äê,Îª¼××ÓÄê
+string get_tgdz(int year)  //å¾—åˆ°å¯¹åº”å¹´ä»½çš„å¤©å¹²åœ°æ”¯
+{year -= 184;        //ä¸‰å›½çš„å¯åŠ¨èµ·å§‹å¹´ä¸º184å¹´,ä¸ºç”²å­å¹´
  return sym_tien[year%10]+sym_dee[year%12];
 }
 
 //create the fate_table
-mapping create_tz_table(int year)  //µÃµ½Ã¿ÄêµÄÌìÔÖ±í
+mapping create_tz_table(int year)  //å¾—åˆ°æ¯å¹´çš„å¤©ç¾è¡¨
 {
- array data=({});
- array zhou=({});
- array type=({});
- array areas=({});
+ mixed * data=({});
+ mixed * zhou=({});
+ mixed * type=({});
+ mixed * areas=({});
  mapping table=([
  "spring":({}),
  "summer":({}),
@@ -247,7 +247,7 @@ mapping create_tz_table(int year)  //µÃµ½Ã¿ÄêµÄÌìÔÖ±í
  "winter":({})
                ]);
  int datalen,i,rad,tgdz;
- array seek;
+ mixed * seek;
  create_year= year;
 tgdz=(year+56)%60;
  data = omen[tgdz];
@@ -272,7 +272,7 @@ return ([]);}
       { 
        	i++;
         seek += ({rad});
-        type = tz_type[data[0]][i%4]; //ÓÉi¾ö¶¨ËÄ¼¾
+        type = tz_type[data[0]][i%4]; //ç”±iå†³å®šå››å­£
       	table[season[i%4]] += ({({areas[rad],type[random(sizeof(type))],-1})});
       }
  }
@@ -281,7 +281,7 @@ return ([]);}
   return fate_table;
 }
 
-array query_tz_info(string season)
+mixed * query_tz_info(string season)
 {if (!fate_table[season]) return ({});
  return fate_table[season];}  
  
@@ -292,7 +292,7 @@ if (mapp(fate_table))
 }
      
 void create()
-{   array p_date;   
+{   mixed * p_date;   
     p_date = DAY_D->query_date(); 
     unguarded(1, (: restore_object, SAVE_FILE, 1 :));
     if (!adjust_level) adjust_level=5;
@@ -323,19 +323,19 @@ void create()
 
 void start_fate()
 { 
-  array  tz_info;
+  mixed *  tz_info;
  string filename;
 mixed msg;
   int    adjust;
-  array  p_date;
+  mixed *  p_date;
   
   remove_call_out("start_fate");
-  call_out("start_fate",240*5); //mudÉÏÎåÌìµ÷Ò»´Î£®
+  call_out("start_fate",240*5); //mudä¸Šäº”å¤©è°ƒä¸€æ¬¡ï¼
     
-  if (times<0) times=3;   //ÌáĞÑ£³´Î£¬µÚËÄ´Î·¢×÷£®
-                          //ÖĞ¼äÈÎºÎÒ»´ÎÌõ¼şÅĞ¶Ï²»·¢Éú£¬Ìø¹ı¸ÃÊÂ¼ş£®
+  if (times<0) times=3;   //æé†’ï¼“æ¬¡ï¼Œç¬¬å››æ¬¡å‘ä½œï¼
+                          //ä¸­é—´ä»»ä½•ä¸€æ¬¡æ¡ä»¶åˆ¤æ–­ä¸å‘ç”Ÿï¼Œè·³è¿‡è¯¥äº‹ä»¶ï¼
     
-  if (!sizeof(info))      //Èç¹ûÃ»ÓĞµ±Ç°µÄfateĞÅÏ¢£¬È¡Öµ£®
+  if (!sizeof(info))      //å¦‚æœæ²¡æœ‰å½“å‰çš„fateä¿¡æ¯ï¼Œå–å€¼ï¼
   {
   p_date = DAY_D->query_date(); 
 if (p_date[3]!=FATE_D->get_create_year())
@@ -366,66 +366,66 @@ FATE_D->create_tz_table(p_date[3]);
   tz_info = query_tz_info(seasonnow);
   tz_info = filter_array(tz_info,(: (($1)[2]==-1) :));
   if (!sizeof(tz_info)) 
-   {SGSYS("Ã»ÓĞ¶ÔÓ¦µÄÌìÔÖĞÅÏ¢!");
+   {SGSYS("æ²¡æœ‰å¯¹åº”çš„å¤©ç¾ä¿¡æ¯!");
        return;}
        
- // foreach(array info in tz_info){
+ // foreach(arrayinfo in tz_info){
   info=tz_info[0];
   }
   //SGSYS(sprintf("times=%d\n",times));   
   filename = "/sgdomain/event/ev_fate/ev_"+info[1];
-  if (times)  //»¹ÓĞÌáĞÑ´ÎÊı
+  if (times)  //è¿˜æœ‰æé†’æ¬¡æ•°
     {msg = (filename)->get_alert_msg(info[0],times); 
 // if (intp(msg)&&msg==NO_ALERT) return;
      //don't alert for good things in defualt
-    if (adjust=(filename)->can_do_fate(info[0])) //ÄÜ·¢Éú£®
+    if (adjust=(filename)->can_do_fate(info[0])) //èƒ½å‘ç”Ÿï¼
     {     
      if (!stringp(msg))
 if (FATE_D->get_fate_type(info[1])=="bad")
-        msg = "%^B_RED%^%^H_YELLOW%^¡¾ÌìµÀ¡¿ÄÏ»ªÀÏÏÉ£º×òÈÕÒ¹¹Û"+AREA_D->get_area(info[0],"name")+
-            "Ö®µØÔÖĞÇ¸¡ÏÖ£¬½üÈÕ¿ÖÓĞÎŞÍıÖ®ÔÖ£¬ÍûÔç×ö·À±¸£®\n%^RESET%^";
+        msg = "%^B_RED%^%^H_YELLOW%^ã€å¤©é“ã€‘å—åè€ä»™ï¼šæ˜¨æ—¥å¤œè§‚"+AREA_D->get_area(info[0],"name")+
+            "ä¹‹åœ°ç¾æ˜Ÿæµ®ç°ï¼Œè¿‘æ—¥ææœ‰æ— å¦„ä¹‹ç¾ï¼Œæœ›æ—©åšé˜²å¤‡ï¼\n%^RESET%^";
 else
-  msg = "%^B_RED%^%^H_YELLOW%^¡¾ÌìµÀ¡¿ÄÏ»ªÀÏÏÉ£º×òÈÕÒ¹¹Û"+AREA_D->get_area(info[0],"name")+
-        "Ö®µØ¸£ĞÇÉÁÒ«£¬½üÈÕÓ¦ÓĞÌì½µ´Í¸££®\n%^RESET%^";
+  msg = "%^B_RED%^%^H_YELLOW%^ã€å¤©é“ã€‘å—åè€ä»™ï¼šæ˜¨æ—¥å¤œè§‚"+AREA_D->get_area(info[0],"name")+
+        "ä¹‹åœ°ç¦æ˜Ÿé—ªè€€ï¼Œè¿‘æ—¥åº”æœ‰å¤©é™èµç¦ï¼\n%^RESET%^";
      tell(users(),msg);
      times--;
     return;}
-    else //²»ÄÜ·¢Éú
+    else //ä¸èƒ½å‘ç”Ÿ
     {
 if (FATE_D->get_fate_type(info[1])=="bad")
-     msg = "%^B_RED%^%^H_YELLOW%^¡¾ÌìµÀ¡¿ÄÏ»ªÀÏÏÉ£º×òÈÕÒ¹¹ÛĞÇÏà£¬Òò"+AREA_D->get_area(info[0],"name")+
-            "Ö®µØ°ÙĞÕò¯³Ï£¬¸£ĞÇ±Ó»¤£¬ÎŞÍıÖ®ÔÖÏûÓëÃÖĞÎ£®\n%^RESET%^";
+     msg = "%^B_RED%^%^H_YELLOW%^ã€å¤©é“ã€‘å—åè€ä»™ï¼šæ˜¨æ—¥å¤œè§‚æ˜Ÿç›¸ï¼Œå› "+AREA_D->get_area(info[0],"name")+
+            "ä¹‹åœ°ç™¾å§“è™”è¯šï¼Œç¦æ˜Ÿåº‡æŠ¤ï¼Œæ— å¦„ä¹‹ç¾æ¶ˆä¸å¼¥å½¢ï¼\n%^RESET%^";
 else
-msg = "%^B_RED%^%^H_YELLOW%^¡¾ÌìµÀ¡¿ÄÏ»ªÀÏÏÉ£º×òÈÕÒ¹¹ÛĞÇÏà£¬Òò"+AREA_D->get_area(info[0],"name")+
-            "Ö®µØÃñÔ¹ËÄÆğ£¬¸£ĞÇ°µµ­£¬Ìì½µ´Í¸£ÏûÓëÃÖĞÎ£®\n%^RESET%^";
+msg = "%^B_RED%^%^H_YELLOW%^ã€å¤©é“ã€‘å—åè€ä»™ï¼šæ˜¨æ—¥å¤œè§‚æ˜Ÿç›¸ï¼Œå› "+AREA_D->get_area(info[0],"name")+
+            "ä¹‹åœ°æ°‘æ€¨å››èµ·ï¼Œç¦æ˜Ÿæš—æ·¡ï¼Œå¤©é™èµç¦æ¶ˆä¸å¼¥å½¢ï¼\n%^RESET%^";
      tell(users(),msg);
-     //SGSYS(sprintf("%s¶ã¹ıÁË%sµÄfate\n",info[0],info[1]));
-     msg = sprintf("%s ¶ã¹ı %s at %s\n",info[0],info[1],ctime(time()));
+     //SGSYS(sprintf("%sèº²è¿‡äº†%sçš„fate\n",info[0],info[1]));
+     msg = sprintf("%s èº²è¿‡ %s at %s\n",info[0],info[1],ctime(time()));
      update_fate_info(0);
      log(msg);
      
      return;
     }
     }
-  else //ÌáĞÑ´ÎÊıÒÑÓÃÍê£®
-    if (adjust=(filename)->can_do_fate(info[0])) //·¢Éú
+  else //æé†’æ¬¡æ•°å·²ç”¨å®Œï¼
+    if (adjust=(filename)->can_do_fate(info[0])) //å‘ç”Ÿ
       {
        (filename)->do_fate(info[0],adjust);
-     //   msg = "%^B_RED%^%^H_YELLOW%^¡¾ÌìµÀ¡¿ÄÏ»ªÀÏÏÉ£º"+AREA_D->get_area(info[0],"name")+
-     //       "×òÈÕµØ¶¯É½Ò¡£¬ÔÖÇéÑÏÖØ£¬°ÙĞÕÁ÷ÀëÊ§Ëù£®\n%^RESET%^";
+     //   msg = "%^B_RED%^%^H_YELLOW%^ã€å¤©é“ã€‘å—åè€ä»™ï¼š"+AREA_D->get_area(info[0],"name")+
+     //       "æ˜¨æ—¥åœ°åŠ¨å±±æ‘‡ï¼Œç¾æƒ…ä¸¥é‡ï¼Œç™¾å§“æµç¦»å¤±æ‰€ï¼\n%^RESET%^";
      //   tell(users(),msg);
 
-        msg = sprintf("%s ·¢Éú %s ¼¶±ğ %d at %s \n",info[0],info[1],adjust, ctime(time()));
+        msg = sprintf("%s å‘ç”Ÿ %s çº§åˆ« %d at %s \n",info[0],info[1],adjust, ctime(time()));
         update_fate_info(adjust);
         log(msg);
         info=({});times=3;
       }
-    else  //²»·¢Éú
-      {//SGSYS(sprintf("%s¶ã¹ıÁË%sµÄfate\n",info[0],info[1]));
-       msg = sprintf("%s ¶ã¹ı %s at %s\n",info[0],info[1],ctime(time()));
+    else  //ä¸å‘ç”Ÿ
+      {//SGSYS(sprintf("%sèº²è¿‡äº†%sçš„fate\n",info[0],info[1]));
+       msg = sprintf("%s èº²è¿‡ %s at %s\n",info[0],info[1],ctime(time()));
        log(msg);
-       msg = "%^B_RED%^%^H_YELLOW%^¡¾ÌìµÀ¡¿ÄÏ»¯ÀÏÏÉ£º×òÈÕÒ¹¹ÛĞÇÏà£¬Òò"+AREA_D->get_area(info[0],"name")+
-            "Ö®µØ°ÙĞÕò¯³Ï£¬¸£ĞÇ±Ó»¤£¬ÎŞÍıÖ®ÔÖÏûÓëÃÖĞÎ£®\n%^RESET%^";
+       msg = "%^B_RED%^%^H_YELLOW%^ã€å¤©é“ã€‘å—åŒ–è€ä»™ï¼šæ˜¨æ—¥å¤œè§‚æ˜Ÿç›¸ï¼Œå› "+AREA_D->get_area(info[0],"name")+
+            "ä¹‹åœ°ç™¾å§“è™”è¯šï¼Œç¦æ˜Ÿåº‡æŠ¤ï¼Œæ— å¦„ä¹‹ç¾æ¶ˆä¸å¼¥å½¢ï¼\n%^RESET%^";
        tell(users(),msg);
        update_fate_info(0);
        info=({});times=3;

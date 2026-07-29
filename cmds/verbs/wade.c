@@ -23,7 +23,7 @@ void do_wade()
     }
   else if(!s)
     {
-      write("你要在什么地方涉水而过呢？\n");
+      write("浣犺鍦ㄤ粈涔堝湴鏂规秹姘磋�岃繃鍛紵\n");
       return;
     }
 }
@@ -40,7 +40,7 @@ void do_wade_in_obj(object ob, string str) {
       }
     if(!s)
       {
-        write("这样做是不行的。\n");
+        write("杩欐牱鍋氭槸涓嶈鐨勩�俓n");
       }
 }
 
@@ -50,7 +50,7 @@ int direct_wade_in_obj(object ob)
 }
 
 
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ "", "in OBJ", }),({  }) });
 

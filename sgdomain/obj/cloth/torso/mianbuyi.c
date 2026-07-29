@@ -8,15 +8,15 @@ inherit M_VALUE;
 void setup()
 {
         ::mudlib_setup();
-        set_unit("¼ş");
-        set_id("mianbuyi","ÃŞ²¼ÒÂ");
+        set_unit("ä»¶");
+        set_id("mianbuyi","æ£‰å¸ƒè¡£");
         add_id("mian", "cloth");
-        set_in_room_desc("ÃŞ²¼ÒÂ(buyi)");
-        set_long("Ò»¼şÃŞ×öµÄÒÂ·ş£¬´©ÆğÀ´½ÏÊæ·ş¶ø±£Å¯¡£");
+        set_in_room_desc("æ£‰å¸ƒè¡£(buyi)");
+        set_long("ä¸€ä»¶æ£‰åšçš„è¡£æœï¼Œç©¿èµ·æ¥è¾ƒèˆ’æœè€Œä¿æš–ã€‚");
         set_gettable(1);
         set_slot(ARMORS);
-        set_wearmsg("$N´©ÉÏÒ»¼şÃŞ²¼ÒÂ¡£\n");
-        set_removemsg("$NÍÑÈ¥Ò»¼şÃŞ²¼ÒÂ¡£\n");
+        set_wearmsg("$Nç©¿ä¸Šä¸€ä»¶æ£‰å¸ƒè¡£ã€‚\n");
+        set_removemsg("$Nè„±å»ä¸€ä»¶æ£‰å¸ƒè¡£ã€‚\n");
         set_attack_ability(-2);
         set_defence_power(0);
         set_defence_ability(-2);

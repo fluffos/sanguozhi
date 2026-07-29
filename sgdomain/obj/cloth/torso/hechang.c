@@ -8,15 +8,15 @@ inherit M_VALUE;
 void setup()
 {
     ::mudlib_setup();
-    set_unit("¼ş");
-    set_id("hechang", "º×ë©");
+    set_unit("ä»¶");
+    set_id("hechang", "é¹¤æ°…");
     add_id("he chang");
-    set_in_room_desc("º×ë©(hechang)");
-    set_long("Ò»¼ş¿í´óµÄº×ë©£¬´©ÆğÀ´ÆÄÓĞÏÉ·çµÀ¹Ç¡£");
+    set_in_room_desc("é¹¤æ°…(hechang)");
+    set_long("ä¸€ä»¶å®½å¤§çš„é¹¤æ°…ï¼Œç©¿èµ·æ¥é¢‡æœ‰ä»™é£é“éª¨ã€‚");
     set_gettable(1);
     set_slot(TORSO);
-    set_wearmsg("$NÅûÉÏ$o£¬¿´ÉÏÈ¥ÏÉ·çµÀ¹Ç£¬ÆÄÓĞÒşÊ¿·ç·¶¡£\n");
-    set_removemsg("$NÍÑÏÂÒ»¼ş$o¡£\n");
+    set_wearmsg("$NæŠ«ä¸Š$oï¼Œçœ‹ä¸Šå»ä»™é£é“éª¨ï¼Œé¢‡æœ‰éšå£«é£èŒƒã€‚\n");
+    set_removemsg("$Nè„±ä¸‹ä¸€ä»¶$oã€‚\n");
     set_attack_ability(0);
     set_defence_power(1);
     set_defence_ability(0);

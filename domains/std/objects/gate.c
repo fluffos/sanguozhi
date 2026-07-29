@@ -22,10 +22,10 @@ load_object("/domains/std/rooms/caves/north_tunnel.c")->clear_room_state("gate_o
 void setup(string dir) {
    add_hook("open", (:do_on_open:) );
    add_hook("close", (:do_on_close :) );
-    set_id("gate", "´óÃÅ");
-    set_adj("ÉúĞâµÄ" );
-  set_long("ÕâµÀÃÅÒÑ¾­ĞâµÄ²»³ÉÑù×ÓÁË£¬ÔÙÒ²²»ÄÜµ²×¡Ê²Ã´¶«Î÷ÁË¡£");
+    set_id("gate", "å¤§é—¨");
+    set_adj("ç”Ÿé”ˆçš„" );
+  set_long("è¿™é“é—¨å·²ç»é”ˆçš„ä¸æˆæ ·å­äº†ï¼Œå†ä¹Ÿä¸èƒ½æŒ¡ä½ä»€ä¹ˆä¸œè¥¿äº†ã€‚");
     set_closed(1);
-    setup_door("ÉúĞâµÄ´óÃÅ", dir);
+    setup_door("ç”Ÿé”ˆçš„å¤§é—¨", dir);
     set_flag(ATTACHED);
 }

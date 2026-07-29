@@ -20,7 +20,7 @@ private void main(string * arg)
     if ( member_array(path, paths) == -1 )
     {
         //out("The path does not exist in your current path\n");
-        out("ÕâÌõÂ·¾¶²¢Ã»ÓĞ³öÏÖÔÚÄãµ±Ç°µÄÂ·¾¶ÖĞ¡£\n");
+        out("è¿™æ¡è·¯å¾„å¹¶æ²¡æœ‰å‡ºç°åœ¨ä½ å½“å‰çš„è·¯å¾„ä¸­ã€‚\n");
         return;
     }
 
@@ -30,5 +30,5 @@ private void main(string * arg)
     out(iwrap(implode(paths,
                         (: $1 + $2[0..<2] + ", " :),
                         //"Your path is now: "
-                        "µ±Ç°Â·¾¶£º")[0..<3]) + "\n");
+                        "å½“å‰è·¯å¾„ï¼š")[0..<3]) + "\n");
 }

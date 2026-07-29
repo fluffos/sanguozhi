@@ -2,11 +2,11 @@
 #include <ansi.h>
 inherit OBJ;
 void setup() {
-    set_adj("±¿ÖØµÄ");
-    set_id("luzi", "Â¯×Ó","fire");
-    set_unit("¸ö");
-set_in_room_desc("Ò»¸öÅ©¼ÒÉÕ·¹µÄÂ¯×Ó£¬ÉÏÃæÃ°×ÅºìºìµÄ"+HIR+"Â¯»ğ(fire)"+NOR+"¡£");
-    set_long("Ò»¸öÅ©¼ÒÉÕ·¹µÄÂ¯×Ó£¬ÉÏÃæÃ°×ÅºìºìµÄ"+HIR+"Â¯»ğ(fire)"+NOR+"¡£\n");
+    set_adj("ç¬¨é‡çš„");
+    set_id("luzi", "ç‚‰å­","fire");
+    set_unit("ä¸ª");
+set_in_room_desc("ä¸€ä¸ªå†œå®¶çƒ§é¥­çš„ç‚‰å­ï¼Œä¸Šé¢å†’ç€çº¢çº¢çš„"+HIR+"ç‚‰ç«(fire)"+NOR+"ã€‚");
+    set_long("ä¸€ä¸ªå†œå®¶çƒ§é¥­çš„ç‚‰å­ï¼Œä¸Šé¢å†’ç€çº¢çº¢çš„"+HIR+"ç‚‰ç«(fire)"+NOR+"ã€‚\n");
 }
 int can_light_the_magic_torch() {
     return 1;

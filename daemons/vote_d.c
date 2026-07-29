@@ -38,26 +38,26 @@ mixed add_special_vote(string nation,string index,string memo,int time_limit,str
 if (!mapp(special_vote[nation]))
    special_vote[nation] = ([]);
 if (special_vote[nation][index])
-    return "Õâ¸öÍ¶Æ±½¨ÒéÒÑ¾­´æÔÚ£¬ÎŞ·¨½¨Á¢£¡\n";
+    return "è¿™ä¸ªæŠ•ç¥¨å»ºè®®å·²ç»å­˜åœ¨ï¼Œæ— æ³•å»ºç«‹ï¼\n";
 special_vote[nation][index] = ({last_special_voteid,memo,time_limit,data});
 last_special_voteid ++;
 save_data();
 return 1;
 }
 
-mixed modify_special_vote(string nation,string index,array info)
+mixed modify_special_vote(string nation,string index,mixed *info)
 {
 if (!mapp(special_vote[nation]))
-    return "Õâ¸öÍ¶Æ±½¨Òé²»´æÔÚ£¬ÎŞ·¨ĞŞ¸Ä£¡\n"; 
+    return "è¿™ä¸ªæŠ•ç¥¨å»ºè®®ä¸å­˜åœ¨ï¼Œæ— æ³•ä¿®æ”¹ï¼\n"; 
 if (!arrayp(special_vote[nation][index]))
-    return "Õâ¸öÍ¶Æ±½¨Òé²»´æÔÚ£¬ÎŞ·¨ĞŞ¸Ä£¡\n"; 
+    return "è¿™ä¸ªæŠ•ç¥¨å»ºè®®ä¸å­˜åœ¨ï¼Œæ— æ³•ä¿®æ”¹ï¼\n"; 
 special_vote[nation][index] = info;
 save_data();
 return 1;
 }
 
 
-array get_special_vote(string nation,string index)
+mixed * get_special_vote(string nation,string index)
 {if (!special_vote[nation])
     return 0;
  if (!special_vote[nation][index])
@@ -111,7 +111,7 @@ mixed can_post(string userid)
 if (wizardp(userid))
     return 1;
 else 
-    return "%^RED%^ÄãÃ»ÓĞÕâ¸öÈ¨Àû%^RESET%^";
+    return "%^RED%^ä½ æ²¡æœ‰è¿™ä¸ªæƒåˆ©%^RESET%^";
 }
 mixed can_read(int vote_id,string userid)
 {
@@ -124,7 +124,7 @@ mixed can_vote(int vote_id,string userid)
  key = keys(info->result);
  for (int i=0;i<sizeof(key);i++)
      if (member_array(userid,info->result[key[i]])!=-1)
-         return "%^RED%^ÄãÒÑ¾­²Î¼Ó¹ıÕâ¸ö±í¾ö,²»ÄÜÖØ¸´Í¶Æ±!%^RESET%^\n"; 
+         return "%^RED%^ä½ å·²ç»å‚åŠ è¿‡è¿™ä¸ªè¡¨å†³,ä¸èƒ½é‡å¤æŠ•ç¥¨!%^RESET%^\n"; 
 return 1;
 }
  
@@ -132,7 +132,7 @@ void set_vote(int vote_id,int sel_id,string userid)
 {int* keys;
  int i,have_voted=0;
 if (!vote_info[vote_id])
-   write("Ã»ÓĞ¶ÔÓ¦µÄÍ¶Æ±ĞÅÏ¢!\n");
+   write("æ²¡æœ‰å¯¹åº”çš„æŠ•ç¥¨ä¿¡æ¯!\n");
 else
    { class vote_info info = vote_info[vote_id];
      if (!info->result[sel_id])
@@ -145,14 +145,14 @@ else
          {info->result[sel_id] += ({userid});
           save_data();}
      else
-         write("%^RED%^ÄãÒÑ¾­²Î¼Ó¹ıÕâ¸ö±í¾ö,²»ÄÜÖØ¸´Í¶Æ±!%^RESET%^\n"); 
+         write("%^RED%^ä½ å·²ç»å‚åŠ è¿‡è¿™ä¸ªè¡¨å†³,ä¸èƒ½é‡å¤æŠ•ç¥¨!%^RESET%^\n"); 
    }   
    
 }
 void del_vote(int vote_id,int sel_id,string userid)
 {
 if (!vote_info[vote_id])
-   write("Ã»ÓĞ¶ÔÓ¦µÄÍ¶Æ±ĞÅÏ¢!\n");
+   write("æ²¡æœ‰å¯¹åº”çš„æŠ•ç¥¨ä¿¡æ¯!\n");
 else
    { class vote_info info = vote_info[vote_id];
      if (!info->result[sel_id])
@@ -162,7 +162,7 @@ else
      else
         {info->result[sel_id] -= ({userid});
           save_data();}
-     write("É¾³ıÍ¶Æ±ĞÅÏ¢³É¹¦!\n");
+     write("åˆ é™¤æŠ•ç¥¨ä¿¡æ¯æˆåŠŸ!\n");
    }  
 }
 
@@ -170,7 +170,7 @@ else
 mapping get_vote_result(int vote_id)
 {
 if (!vote_info[vote_id])
-  {printf("Ã»ÓĞ¶ÔÓ¦µÄÍ¶Æ±ĞÅÏ¢!\n");
+  {printf("æ²¡æœ‰å¯¹åº”çš„æŠ•ç¥¨ä¿¡æ¯!\n");
    return ([]);}
 else
   {class vote_info info = vote_info[vote_id];
@@ -181,12 +181,12 @@ else
 void show_vote_result(int vote_id)
 {
 if (!vote_info[vote_id])
-   printf("Ã»ÓĞ¶ÔÓ¦µÄÍ¶Æ±ĞÅÏ¢!\n");
+   printf("æ²¡æœ‰å¯¹åº”çš„æŠ•ç¥¨ä¿¡æ¯!\n");
 else
   {  class vote_info info = vote_info[vote_id];
    printf("\n");
    for (int i=1;i<=sizeof(info->selectitems);i++)
-       printf("%%^CYAN%%^(%2d)    %-20s  %4dÆ±%%^RESET%%^\n",i,
+       printf("%%^CYAN%%^(%2d)    %-20s  %4dç¥¨%%^RESET%%^\n",i,
                  (info->selectitems)[i],
                  sizeof((info->result)[i]));
   }               

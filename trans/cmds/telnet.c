@@ -25,13 +25,13 @@ private void main()
     if (!check_privilege(1))
     {
         //out("Only admins may use telnet!\n");
-        out("Ö»ÓĞ´óÉñ²Å¿ÉÒÔÓÃ telnet£¡\n");
+        out("åªæœ‰å¤§ç¥æ‰å¯ä»¥ç”¨ telnetï¼\n");
         return;
     }
     else
     {
         //write("Type /help or /? for help on telnet.\n");
-        write("ÔÚ telnet ÖĞÓÃ /help »ò /? À´»ñÈ¡¶Ô telnet µÄ°ïÖú¡£\n");
+        write("åœ¨ telnet ä¸­ç”¨ /help æˆ– /? æ¥è·å–å¯¹ telnet çš„å¸®åŠ©ã€‚\n");
         new(TELNET_OB)->init_telnet();
     }
 }

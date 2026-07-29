@@ -14,7 +14,7 @@ string get_top10(string prop)
     {
      ids= sort_array(ids, (: (( CHAR_D->get_char($1,"reputation") >
                       CHAR_D->get_char($2,"reputation") ) ? -1 : 1):));
-     msg+="ID          ĞÕÃû        ËùÊô¹ú    ÄêÁä  ĞÔ±ğ  ÉùÍû    \n";
+     msg+="ID          å§“å        æ‰€å±å›½    å¹´é¾„  æ€§åˆ«  å£°æœ›    \n";
      
      for(int i=0;i<MAX;i++)
        { c = CHAR_D->get_char(ids[i],"");
@@ -22,7 +22,7 @@ string get_top10(string prop)
              ids[i],c["name"],
              COUNTRY_D->get_country(c["nation"],"name"),
              c["age"],
-             (c["gender"]==1? "ÄĞĞÔ" :"Å®ĞÔ" ),
+             (c["gender"]==1? "ç”·æ€§" :"å¥³æ€§" ),
              c["reputation"]);
         }
       return msg;      
@@ -31,14 +31,14 @@ string get_top10(string prop)
     {
      ids= sort_array(ids, (: (( CHAR_D->get_char($1,"literate") >
                       CHAR_D->get_char($2,"literate") ) ? -1 : 1):));
-     msg+="ID          ĞÕÃû        ËùÊô¹ú    ÄêÁä  ĞÔ±ğ  ÎÄÑ§ĞŞÑø    \n";
+     msg+="ID          å§“å        æ‰€å±å›½    å¹´é¾„  æ€§åˆ«  æ–‡å­¦ä¿®å…»    \n";
      for (int i=0;i<MAX;i++)
        { c = CHAR_D->get_char(ids[i],"");
          msg+=sprintf("%-12s%-12s%-10s%-6d%-6s%-8d\n",
              ids[i],c["name"],
              COUNTRY_D->get_country(c["nation"],"name"),
              c["age"],
-             (c["gender"]==1? "ÄĞĞÔ" :"Å®ĞÔ" ),
+             (c["gender"]==1? "ç”·æ€§" :"å¥³æ€§" ),
              c["literate"]);
         }
       return msg;      
@@ -48,14 +48,14 @@ string get_top10(string prop)
      ids= sort_array(ids, (: (( CHAR_D->get_sgrate($1) >
                       CHAR_D->get_sgrate($2) ) ? -1 : 1):));
      tell_user("group","process 1");
-	msg+="ID          ĞÕÃû        ËùÊô¹ú    ÄêÁä  ĞÔ±ğ  Èı¹úµÈ¼¶µã  \n";
+	msg+="ID          å§“å        æ‰€å±å›½    å¹´é¾„  æ€§åˆ«  ä¸‰å›½ç­‰çº§ç‚¹  \n";
      for (int i=0;i<MAX;i++)
        { c = CHAR_D->get_char(ids[i],"");
          msg+=sprintf("%-12s%-12s%-10s%-6d%-6s%-8d\n",
              ids[i],c["name"],
              COUNTRY_D->get_country(c["nation"],"name"),
              c["age"],
-             (c["gender"]==1? "ÄĞĞÔ" :"Å®ĞÔ" ),
+             (c["gender"]==1? "ç”·æ€§" :"å¥³æ€§" ),
  CHAR_D->get_char(ids[i],"sgrate"));
         }
       return msg;      
@@ -63,30 +63,30 @@ string get_top10(string prop)
       
                  
    default :
-      return "¸ÃÀàĞÍµÄÅÅĞĞ°ñÉĞÎ´¿ª·Å\n";
+      return "è¯¥ç±»å‹çš„æ’è¡Œæ¦œå°šæœªå¼€æ”¾\n";
  }
 }
   
 void log_news(string type)
 {
- array p_date;
+ mixed * p_date;
  int MAX=10;
  p_date = DAY_D->query_date();
  switch (type)
  {
   case "reputation" :
     NEWS_D->system_post("ranks",
-            "Èı¹úÖ¾"+chinese_number(p_date[3])+"Äê"+chinese_number(MAX)+"´óÃûÈË", 
+            "ä¸‰å›½å¿—"+chinese_number(p_date[3])+"å¹´"+chinese_number(MAX)+"å¤§åäºº", 
              get_top10("reputation"),"suicide");
     break;
   case  "literate"  :
     NEWS_D->system_post("ranks",
-            "Èı¹úÖ¾"+chinese_number(p_date[3])+"Äê"+chinese_number(MAX)+"´ó²Å×Ó", 
+            "ä¸‰å›½å¿—"+chinese_number(p_date[3])+"å¹´"+chinese_number(MAX)+"å¤§æ‰å­", 
              get_top10("literate"),"suicide");
     break;
   case  "sgrate"  :
     NEWS_D->system_post("ranks",
-            "Èı¹úÖ¾"+chinese_number(p_date[3])+"Äê"+chinese_number(MAX)+"´óÏÍÈË", 
+            "ä¸‰å›½å¿—"+chinese_number(p_date[3])+"å¹´"+chinese_number(MAX)+"å¤§è´¤äºº", 
              get_top10("sgrate"),"suicide");
     break;
   default :

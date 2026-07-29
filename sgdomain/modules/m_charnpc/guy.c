@@ -18,21 +18,21 @@ void setup()
 	add_question("recruit","recruit");
 	add_question("followme","followme");
 	add_question("getppl","getppl");
-	add_ask_str("followme","$N¶ÔÕâÈº$TÕĞÁËÕĞÊÖ£ºĞ¡»ï×ÓÃÇ£¬ÔÚ¼ÒÏĞÕß¶àÃ»ÒâË¼£¬\n"+
-		"ºÍÎÒÈ¥°É£¬ÓĞ³ÔÓĞºÈ»¹¿ÉÒÔÉ±ÈË·Å»ğ£¬¶à×ÔÔÚÑ½¡£\n");
-	add_ask_str("recruit","$N¶ÔÕâÈº$TÕĞÁËÕĞÊÖ£ºĞ¡»ï×ÓÃÇ£¬ÔÚ¼ÒÏĞÕß¶àÃ»ÒâË¼£¬\n"+
-		"ºÍÎÒÈ¥°Éµ±±ø°É£¬ÓĞ³ÔÓĞºÈ»¹¿ÉÒÔÉ±ÈË·Å»ğ£¬¶à×ÔÔÚÑ½¡£\n");
-	add_ask_str("getppl","$N¶ÔÕâÈº$TÕĞÁËÕĞÊÖ£ºĞ¡»ï×ÓÃÇ£¬¹ıÀ´£¬¹ıÀ´¡£$SÕÒÄãÃÇÓĞºÃÊÂ¸É¡£\n");
+	add_ask_str("followme","$Nå¯¹è¿™ç¾¤$Tæ‹›äº†æ‹›æ‰‹ï¼šå°ä¼™å­ä»¬ï¼Œåœ¨å®¶é—²è€…å¤šæ²¡æ„æ€ï¼Œ\n"+
+		"å’Œæˆ‘å»å§ï¼Œæœ‰åƒæœ‰å–è¿˜å¯ä»¥æ€äººæ”¾ç«ï¼Œå¤šè‡ªåœ¨å‘€ã€‚\n");
+	add_ask_str("recruit","$Nå¯¹è¿™ç¾¤$Tæ‹›äº†æ‹›æ‰‹ï¼šå°ä¼™å­ä»¬ï¼Œåœ¨å®¶é—²è€…å¤šæ²¡æ„æ€ï¼Œ\n"+
+		"å’Œæˆ‘å»å§å½“å…µå§ï¼Œæœ‰åƒæœ‰å–è¿˜å¯ä»¥æ€äººæ”¾ç«ï¼Œå¤šè‡ªåœ¨å‘€ã€‚\n");
+	add_ask_str("getppl","$Nå¯¹è¿™ç¾¤$Tæ‹›äº†æ‹›æ‰‹ï¼šå°ä¼™å­ä»¬ï¼Œè¿‡æ¥ï¼Œè¿‡æ¥ã€‚$Sæ‰¾ä½ ä»¬æœ‰å¥½äº‹å¹²ã€‚\n");
 	call_out("my_heart",20);
 }
 string long()
 {
   string p_id=this_object()->query_id()[1];
-   return "Ò»Èº"+p_id+
-      "£¬ÕıÔÚÒ»ÆğÒéÂÛÊ²Ã´¡£\n";
+   return "ä¸€ç¾¤"+p_id+
+      "ï¼Œæ­£åœ¨ä¸€èµ·è®®è®ºä»€ä¹ˆã€‚\n";
 }
 string query_title(string p_id,string c_id)
-{  return "Ò»Èº"+c_id+ "("+p_id+")";
+{  return "ä¸€ç¾¤"+c_id+ "("+p_id+")";
 }
 void do_my_dispear()
 {
@@ -46,40 +46,40 @@ void do_my_dispear()
 			o->modal_pop();
 	}
 	this_object()->simple_action
-     ("Ò»$NµÀ£ºÊ±ºò²»Ôç£¬´ó¼Ò¶¼»ØÈ¥°É¡£\n");
+     ("ä¸€$Né“ï¼šæ—¶å€™ä¸æ—©ï¼Œå¤§å®¶éƒ½å›å»å§ã€‚\n");
    this_object()->simple_action
-     ("ÖÚ$NÒ»É¢¶øÈ¥ÁË¡£\n");
+     ("ä¼—$Nä¸€æ•£è€Œå»äº†ã€‚\n");
    remove();
 }
 void do_my_speak()
 {  switch(random(5))
    {  case 0:
         this_object()->simple_action
-          ("$N²»ÖªÔÚÒéÂÛÊ²Ã´£¬Í»È»´óĞ¦ÆğÀ´¡£\n");
+          ("$Nä¸çŸ¥åœ¨è®®è®ºä»€ä¹ˆï¼Œçªç„¶å¤§ç¬‘èµ·æ¥ã€‚\n");
        break;
      case 1:
         this_object()->simple_action
-          ("Ò»Ãû$NµÀ£º»¹ÊÇµ±±ø×î×¬Ç®¡£\n");
+          ("ä¸€å$Né“ï¼šè¿˜æ˜¯å½“å…µæœ€èµšé’±ã€‚\n");
         this_object()->simple_action
-          ("ÖÚÈËµãÍ·³ÆÊÇ¡£\n");
+          ("ä¼—äººç‚¹å¤´ç§°æ˜¯ã€‚\n");
        break;
      case 2:
         this_object()->simple_action
-          ("Ò»Ãû$NµÀ£ºÌıËµµ±±øºó¶Ù¶ÙÓĞÈâ³Ô¡£\n");
+          ("ä¸€å$Né“ï¼šå¬è¯´å½“å…µåé¡¿é¡¿æœ‰è‚‰åƒã€‚\n");
         this_object()->simple_action
-          ("ÁíÒ»$NµÀ£º±ğÉµÁË£¬Ç°¼¸ÌìÎÒ¼ûÁË¼¸¸öÀÏ±ø£¬¸ö¸ö¶öµÃÆ¤°ü¹ÇÍ·¡£\n");
+          ("å¦ä¸€$Né“ï¼šåˆ«å‚»äº†ï¼Œå‰å‡ å¤©æˆ‘è§äº†å‡ ä¸ªè€å…µï¼Œä¸ªä¸ªé¥¿å¾—çš®åŒ…éª¨å¤´ã€‚\n");
        break;
      case 3:
         this_object()->simple_action
-          ("Ò»Ãû$NµÀ£ºÆäÊµÔÚ¼Ò´ıµÃÒ²²»°²Äş£¬»¹²»ÈçÈ¥´òÕÌ¡£\n");
+          ("ä¸€å$Né“ï¼šå…¶å®åœ¨å®¶å¾…å¾—ä¹Ÿä¸å®‰å®ï¼Œè¿˜ä¸å¦‚å»æ‰“ä»—ã€‚\n");
         this_object()->simple_action
-          ("ÖÚ$N¾ù¸Ğ¿®µÀ£ºÕâÊÀµÀ¡£\n");
+          ("ä¼—$Nå‡æ„Ÿæ…¨é“ï¼šè¿™ä¸–é“ã€‚\n");
        break;
      default: 
         this_object()->simple_action
-          ("Ò»Ãû$NµÀ£ºµ±½ñÊ¥ÉÏ»èÓ¹£¬¼é³¼µ±µÀ£¬½­É½²»±£Ñ½¡£\n");
+          ("ä¸€å$Né“ï¼šå½“ä»Šåœ£ä¸Šæ˜åº¸ï¼Œå¥¸è‡£å½“é“ï¼Œæ±Ÿå±±ä¸ä¿å‘€ã€‚\n");
         this_object()->simple_action
-          ("ÁíÒ»$NĞêµÀ£ºĞ¡Éùµã£¬²»ÒªÃüÀ²¡£\n");
+          ("å¦ä¸€$Nå˜˜é“ï¼šå°å£°ç‚¹ï¼Œä¸è¦å‘½å•¦ã€‚\n");
        break;
     }
 }
@@ -121,8 +121,8 @@ void my_heart()
 		else
 		{
 		   if (stringp(this_object()->query("master")))
-			tell_user(this_object()->query("master"),"%^H_RED%^¡¾·É¸ë´«Êé¡¿ÃÜ±¨£º"+
-				"Îá·½¼äµıÒÑ±»µĞÈËÊ¶ÆÆ£¬È«ÌåÉ±Éí³ÉÈÊ¡£%^RESET%^ \n");
+			tell_user(this_object()->query("master"),"%^H_RED%^ã€é£é¸½ä¼ ä¹¦ã€‘å¯†æŠ¥ï¼š"+
+				"å¾æ–¹é—´è°å·²è¢«æ•Œäººè¯†ç ´ï¼Œå…¨ä½“æ€èº«æˆä»ã€‚%^RESET%^ \n");
 		   do_my_dispear();
 		}
 	}
@@ -138,10 +138,10 @@ void answer_followme(object who)
    mixed ret;
    string p_id=who->query_id()[0];
 
-   write("%^H_RED%^¶Ô²»Æğ,ÕÙÇ×±øµÄ¹¦ÄÜÔİÊ±±»¹Ø±ÕÁË£¡%^RESET%^\n");
+   write("%^H_RED%^å¯¹ä¸èµ·,å¬äº²å…µçš„åŠŸèƒ½æš‚æ—¶è¢«å…³é—­äº†ï¼%^RESET%^\n");
    return;
 
-   who->start_busy(2,"ÄãÕıÔÚËµ»°ÄØ£¡\n");
+   who->start_busy(2,"ä½ æ­£åœ¨è¯´è¯å‘¢ï¼\n");
    this_object()->set("is_locked",1);
    ret=can_ask_for_join(p_id);
    if(ret!=1)
@@ -158,7 +158,7 @@ void answer_recruit(object who)
 {
    mixed ret;
    string p_id=who->query_id()[0];
-   who->start_busy(2,"ÄãÕıÔÚËµ»°ÄØ£¡\n");
+   who->start_busy(2,"ä½ æ­£åœ¨è¯´è¯å‘¢ï¼\n");
    this_object()->set("is_locked",1);
    ret=can_ask_for_recruit(p_id);
    if(ret!=1)
@@ -176,7 +176,7 @@ void answer_getppl(object who)
    mixed ret;
    string p_area,f_id,r_id;
    string p_id=who->query_id()[0];
-   who->start_busy(2,"ÄãÕıÔÚËµ»°ÄØ£¡\n");
+   who->start_busy(2,"ä½ æ­£åœ¨è¯´è¯å‘¢ï¼\n");
    this_object()->set("is_locked",1);
    ret=can_ask_for_getppl(p_id);
    if(ret!=1)
@@ -189,10 +189,10 @@ void answer_getppl(object who)
    p_area=who->query_job("getppl","p_area");
    f_id=who->query_job("getppl","f_id");
    r_id=who->query_job("getppl","r_id");
-   this_object()->targetted_action("$NÎÊ$TµÀ£ºÊ²Ã´ºÃÊÂ¡£\n",who);
-   who->targetted_action("$NµÀ£º"+AREA_D->get_area(p_area,"name")+
-	   "µÄ"+BASE_D->get_base(f_id,"name")+ "ÒªÕĞÒ»Åú"+
-	   BASE_D->get_base(f_id,"workername")+"£¬¸úÎÒÈ¥°É£¬±ØÈ»´óÓĞºÃ´¦¡£\n",this_object());
+   this_object()->targetted_action("$Né—®$Té“ï¼šä»€ä¹ˆå¥½äº‹ã€‚\n",who);
+   who->targetted_action("$Né“ï¼š"+AREA_D->get_area(p_area,"name")+
+	   "çš„"+BASE_D->get_base(f_id,"name")+ "è¦æ‹›ä¸€æ‰¹"+
+	   BASE_D->get_base(f_id,"workername")+"ï¼Œè·Ÿæˆ‘å»å§ï¼Œå¿…ç„¶å¤§æœ‰å¥½å¤„ã€‚\n",this_object());
 
    call_out("my_respond",1);
 

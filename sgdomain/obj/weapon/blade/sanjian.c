@@ -5,15 +5,15 @@ inherit M_WEAPON;
 inherit M_VALUE;
 void setup()
 {
-set_unit("±ú");
-set_id("sanjianliangren dao", HIW+"Èı¼âÁ½ÈĞµ¶"+NOR);
+set_unit("æŸ„");
+set_id("sanjianliangren dao", HIW+"ä¸‰å°–ä¸¤åˆƒåˆ€"+NOR);
 add_id("sanjianliangren dao");
 add_id("dao");
 add_id("sanjian");
 add_id("blade");
-set_in_room_desc(HIW+"Èı¼âÁ½ÈĞµ¶"+NOR+"(sanjianliangren dao)");
-set_long("ĞÎ×´ÆæÌØµÄ³¤±øÆ÷£¬Ò»ÕÉÎå³ßÓĞÓà£¬µ¶¸ËÓÉ»ëÌúÖı³É£¬
-ËÄ³ß³¤Ö®¾«¸Öµ¶Éí¹²ÓĞÈı¸ö¼â´Ì£¬Á½²à¿ªÈĞ£¬·æÀûÎŞ±È¡£\n");
+set_in_room_desc(HIW+"ä¸‰å°–ä¸¤åˆƒåˆ€"+NOR+"(sanjianliangren dao)");
+set_long("å½¢çŠ¶å¥‡ç‰¹çš„é•¿å…µå™¨ï¼Œä¸€ä¸ˆäº”å°ºæœ‰ä½™ï¼Œåˆ€æ†ç”±æµ‘é“é“¸æˆï¼Œ
+å››å°ºé•¿ä¹‹ç²¾é’¢åˆ€èº«å…±æœ‰ä¸‰ä¸ªå°–åˆºï¼Œä¸¤ä¾§å¼€åˆƒï¼Œé”‹åˆ©æ— æ¯”ã€‚\n");
 set_size(MEDIUM);
 set_value(1000);
 set_currency_type("silver");
@@ -21,6 +21,6 @@ set_attack_ability(120);
 set_attack_power(80);
 set_defence_ability(120);
 set_combat_messages("combat-blade");
-set_wield_message("$N´óºÈÒ»Éù£¬Ë«ÊÖ×óÓÒÒ»°Ú£¬½«$oÇæÔÚÕÆÖĞ¡£\n");
-set_unwield_message("$N×óÊÖĞé»Î£¬ÓÒÊÖÒ»»Ó£¬ÔçÒÑ½«$o²å»ØàÎÍ·¡£\n");
+set_wield_message("$Nå¤§å–ä¸€å£°ï¼ŒåŒæ‰‹å·¦å³ä¸€æ‘†ï¼Œå°†$oæ“åœ¨æŒä¸­ã€‚\n");
+set_unwield_message("$Nå·¦æ‰‹è™šæ™ƒï¼Œå³æ‰‹ä¸€æŒ¥ï¼Œæ—©å·²å°†$oæ’å›è¾”å¤´ã€‚\n");
 }

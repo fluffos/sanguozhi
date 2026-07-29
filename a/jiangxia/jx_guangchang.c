@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is »¨¶ù¶ä¶ä
+// driver is èŠ±å„¿æœµæœµ
 // created date is Sat Jul 23 22:10:39 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,7 +7,7 @@ inherit OUTDOOR_ROOM;
 void setup() {
 set_area("jiangxia");
 set_light(50);
-set_brief("%^YELLOW%^"+"¹ã³¡"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"å¹¿åœº"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "south":"/a/jiangxia/jx_xianyamen.c",

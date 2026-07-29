@@ -22,6 +22,6 @@ void main() {
          }
            
         }
-        write("地区的stuff参数数据格式更新完毕!\n");
+        write("鍦板尯鐨剆tuff鍙傛暟鏁版嵁鏍煎紡鏇存柊瀹屾瘯!\n");
         return;
 }

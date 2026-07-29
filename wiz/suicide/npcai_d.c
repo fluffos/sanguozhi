@@ -5,7 +5,7 @@
 #define SAVE_FILE "/data/daemons/npcai_d"
 
 inherit M_ACCESS;
-private string array cities ;
+private string * cities ;
 private int last_ai_city_id ;
 
 void save_data()
@@ -54,21 +54,21 @@ void create_taishou(string p_area) {
 	 CHAR_D->set_char(old_leader,"grant",0);
 	}
 	CHAR_D->set_char(p_id,"ranklocal",title);
-	CHAR_D->set_char(p_id,"tsx",200);   //Ì«ÊØĞÅÓş¶È,³õÊ¼200
+	CHAR_D->set_char(p_id,"tsx",200);   //å¤ªå®ˆä¿¡èª‰åº¦,åˆå§‹200
 	CHAR_D->set_char(p_id,"grant",0);	   
 
-	msg=sprintf("%sÓÉÓÚ¹¦¼¨×¿Öø±»%sÈÎÃüÎª%sµÄÌ«ÊØ¡£",
+	msg=sprintf("%sç”±äºåŠŸç»©å“è‘—è¢«%sä»»å‘½ä¸º%sçš„å¤ªå®ˆã€‚",
 		CHAR_D->get_char(p_id,"name"),
 		CHAR_D->get_char(n,"name"),
 		AREA_D->get_area(p_area,"name"));
 	CHANNEL_D->deliver_tell("rumor","system",msg);
 	HIS(msg);
 	CHANNEL_D->deliver_tell("gossip",CHAR_D->get_char(n,"name"),
-		CHAR_D->get_char(p_id,"name")+"£¬ºÃºÃ¸É£¬"+
-		AREA_D->get_area(p_area,"name")+"µÄĞËÍú¾Í¼ÄÍĞÔÚÄãÉíÉÏÁË¡£");
+		CHAR_D->get_char(p_id,"name")+"ï¼Œå¥½å¥½å¹²ï¼Œ"+
+		AREA_D->get_area(p_area,"name")+"çš„å…´æ—ºå°±å¯„æ‰˜åœ¨ä½ èº«ä¸Šäº†ã€‚");
 
 	CHANNEL_D->deliver_tell("gossip",CHAR_D->get_char(p_id,"name"),
-		"³¼¸Îµ¨Í¿µØÄÑ±¨Ö÷¹«´ó¶÷¡£");
+		"è‡£è‚èƒ†æ¶‚åœ°éš¾æŠ¥ä¸»å…¬å¤§æ©ã€‚");
 	
 	return ;
 }
@@ -84,8 +84,8 @@ void remove_taishou(string p_area,string p_id) {
 	   }
 	if ((tmp=CHAR_D->get_char(p_id,"tsx"))>0)
 	   {
-	    tmp -= 20;     //Ò»Ìì±»ÂÖÑ²Ò»´Î,tsx¼õÈ¥20,Èç¹ûÔÚtsx²»Ôö¼ÓµÄÇé¿öÏÂ
-	    CHAR_D->set_char(p_id,"tsx",tmp);//Ê®ÌìºóÌ«ÊØ¾Í»á±»³·Ö°  
+	    tmp -= 20;     //ä¸€å¤©è¢«è½®å·¡ä¸€æ¬¡,tsxå‡å»20,å¦‚æœåœ¨tsxä¸å¢åŠ çš„æƒ…å†µä¸‹
+	    CHAR_D->set_char(p_id,"tsx",tmp);//åå¤©åå¤ªå®ˆå°±ä¼šè¢«æ’¤èŒ  
 	    return;
 	   }        
 	 
@@ -102,15 +102,15 @@ void remove_taishou(string p_area,string p_id) {
 	   {CHAR_D->set_char(g_id,"ranklocal",R_SG);
 	    CHAR_D->set_char(g_id,"grant",0);
 	   }
-	msg=sprintf("%sÓÉÓÚ»Ä·ÏÕşÊÂ±»%s³·Ïú%sÌ«ÊØÖ°Î»¡£",
+	msg=sprintf("%sç”±äºè’åºŸæ”¿äº‹è¢«%sæ’¤é”€%så¤ªå®ˆèŒä½ã€‚",
 		CHAR_D->get_char(p_id,"name"),
 		CHAR_D->get_char(n,"name"),
 		AREA_D->get_area(p_area,"name"));
 	CHANNEL_D->deliver_tell("rumor","system",msg);
 	HIS(msg);
 	CHANNEL_D->deliver_tell("gossip",CHAR_D->get_char(n,"name"),
-		CHAR_D->get_char(p_id,"name")+"£¬ÄãÕæÈÃÎÒÊ§Íû¡£");
-	AREA_D->auto_head(p_area);  //Íæ¼Ò±»³·Ö°ºó,ÓÉÏµÍ³×Ô¶¯ÌôÑ¡NPCÎªÌ«ÊØ
+		CHAR_D->get_char(p_id,"name")+"ï¼Œä½ çœŸè®©æˆ‘å¤±æœ›ã€‚");
+	AREA_D->auto_head(p_area);  //ç©å®¶è¢«æ’¤èŒå,ç”±ç³»ç»Ÿè‡ªåŠ¨æŒ‘é€‰NPCä¸ºå¤ªå®ˆ
 	//create_taishou(p_area);
 	return ;
 
@@ -120,54 +120,54 @@ void check_guoshi_vote(string nation)
 {mapping vote;
  int vote_id,need_ballot=5,areas_amount;
  string p_id,msg,gs;
- array vote_info;
- if (!VOTE_D->get_special_vote(nation,"elect"))  //¹ú¼ÒÃ»ÓĞ¹úÊ¦Ñ¡¾Ù
+ mixed * vote_info;
+ if (!VOTE_D->get_special_vote(nation,"elect"))  //å›½å®¶æ²¡æœ‰å›½å¸ˆé€‰ä¸¾
       return;
  vote_id = VOTE_D->get_special_vote(nation,"elect")[0];
  vote = VOTE_D->get_vote_result(vote_id);
  areas_amount = sizeof(AREA_D->check_area("nation",nation));
- need_ballot = areas_amount * 2 / 3 ; //2/3Ì«ÊØÍ¬Òâ
- if (areas_amount<4) need_ballot++;   //Ğ¡ÓÚ4×ù³ÇÊĞµÄNPC¹ú¼Ò,ËùÓĞÌ«ÊØÍ¬Òâ²Å¿ÉÒÔ
+ need_ballot = areas_amount * 2 / 3 ; //2/3å¤ªå®ˆåŒæ„
+ if (areas_amount<4) need_ballot++;   //å°äº4åº§åŸå¸‚çš„NPCå›½å®¶,æ‰€æœ‰å¤ªå®ˆåŒæ„æ‰å¯ä»¥
  if (sizeof(vote[1])>=need_ballot)
     { 
       p_id = VOTE_D->get_special_vote(nation,"elect")[3];
       COUNTRY_D->set_country(nation,"gs",p_id);
       COUNTRY_D->set_country(nation,"gsx",200); // not too much
-      msg=sprintf("ÓÉÓÚµÃµ½´ó¶àÊıÌ«ÊØµÄÖ§³Ö£¬%s±»%sÈÎÃüÎª%sµÄ¹úÊ¦¡£",
+      msg=sprintf("ç”±äºå¾—åˆ°å¤§å¤šæ•°å¤ªå®ˆçš„æ”¯æŒï¼Œ%sè¢«%sä»»å‘½ä¸º%sçš„å›½å¸ˆã€‚",
 		CHAR_D->get_char(p_id,"name"),
 		CHAR_D->get_char(nation,"name"),
 		COUNTRY_D->get_country(nation,"name"));
       CHANNEL_D->deliver_tell("rumor","system",msg);
       HIS(msg);
       CHANNEL_D->deliver_tell("gossip",CHAR_D->get_char(nation,"name"),
-           CHAR_D->get_char(p_id,"name")+"£¬ºÃºÃ¸É£¬±¾¹úµÄĞËÍú¾Í¼ÄÍĞÔÚÄãÉíÉÏÁË¡£");
+           CHAR_D->get_char(p_id,"name")+"ï¼Œå¥½å¥½å¹²ï¼Œæœ¬å›½çš„å…´æ—ºå°±å¯„æ‰˜åœ¨ä½ èº«ä¸Šäº†ã€‚");
 
       CHANNEL_D->deliver_tell("gossip",CHAR_D->get_char(p_id,"name"),
-		"³¼¸Îµ¨Í¿µØÄÑ±¨Ö÷¹«´ó¶÷¡£");
+		"è‡£è‚èƒ†æ¶‚åœ°éš¾æŠ¥ä¸»å…¬å¤§æ©ã€‚");
       VOTE_D->del_special_vote(nation,"elect");
       CHAR_D->set_char(p_id,"candidate",0);
     }
  else
     { vote_info = VOTE_D->get_special_vote(nation,"elect");
       vote_info[2] = vote_info[2] - 1;
-      need_ballot = areas_amount - need_ballot + 1; //·´¶ÔÆ±ËùĞèÆ±Êı
+      need_ballot = areas_amount - need_ballot + 1; //åå¯¹ç¥¨æ‰€éœ€ç¥¨æ•°
       if ((vote_info[2]>0)&&(sizeof(vote[2])<need_ballot))
           VOTE_D->modify_special_vote(nation,"elect",vote_info);
       else
       {
       p_id = VOTE_D->get_special_vote(nation,"elect")[3];
-      msg=sprintf("ÓÉÓÚ%sµÄÖ§³Ö¶È²»¹»£¬%sÈ¡ÏûÁËÓûÈÎÃüÆäÎª%s¹úÊ¦µÄÏë·¨¡£",
+      msg=sprintf("ç”±äº%sçš„æ”¯æŒåº¦ä¸å¤Ÿï¼Œ%så–æ¶ˆäº†æ¬²ä»»å‘½å…¶ä¸º%så›½å¸ˆçš„æƒ³æ³•ã€‚",
 		CHAR_D->get_char(p_id,"name"),
 		CHAR_D->get_char(nation,"name"),
 		COUNTRY_D->get_country(nation,"name"));
       CHANNEL_D->deliver_tell("rumor","system",msg);
       HIS(msg);
       CHANNEL_D->deliver_tell("gossip",CHAR_D->get_char(nation,"name"),
-           CHAR_D->get_char(p_id,"name")+"°®Çä£¬ÓÉÓÚ¸÷µØÌ«ÊØ·´¶ÔÕßÖÚ£¬ÈÎÃüÄãÎª¹úÊ¦µÄÊÂÖ»ºÃÔİ»º¡£");
+           CHAR_D->get_char(p_id,"name")+"çˆ±å¿ï¼Œç”±äºå„åœ°å¤ªå®ˆåå¯¹è€…ä¼—ï¼Œä»»å‘½ä½ ä¸ºå›½å¸ˆçš„äº‹åªå¥½æš‚ç¼“ã€‚");
 
       CHANNEL_D->deliver_tell("gossip",CHAR_D->get_char(p_id,"name"),
-		"³¼ÖªµÀ£¬³¼ËûÈÕ¶¨µ±ºÍ¸÷Â·Ì«ÊØ´èÉÌ£¬µÃµ½Ö§³ÖºóÔÙÇë±İÏÂ¶¨¶á¡£");
-      //´¦·£Î´³É¹¦µÄµÄ¹úÊ¦ÉêÇëÈË£¬ÓĞ¹ØÖµ½µ1/10	
+		"è‡£çŸ¥é“ï¼Œè‡£ä»–æ—¥å®šå½“å’Œå„è·¯å¤ªå®ˆç£‹å•†ï¼Œå¾—åˆ°æ”¯æŒåå†è¯·é™›ä¸‹å®šå¤ºã€‚");
+      //å¤„ç½šæœªæˆåŠŸçš„çš„å›½å¸ˆç”³è¯·äººï¼Œæœ‰å…³å€¼é™1/10	
       CHAR_D->set_char(p_id,"reputation",CHAR_D->get_char(p_id,"reputation")*9/10);		
       CHAR_D->set_char(p_id,"localcontribution",CHAR_D->get_char(p_id,"localcontribution")*9/10);
       CHAR_D->set_char(p_id,"nationcontribution",CHAR_D->get_char(p_id,"nationcontribution")*9/10); 		
@@ -184,34 +184,34 @@ void check_guoshi_dismiss_vote(string nation)
 {mapping vote;
  int vote_id,need_ballot=5,areas_amount;
  string p_id,msg,gs,v_id;
- array vote_info;
- if (!VOTE_D->get_special_vote(nation,"dismiss"))  //¹ú¼ÒÃ»ÓĞ¹úÊ¦Ñ¡¾Ù
+ mixed * vote_info;
+ if (!VOTE_D->get_special_vote(nation,"dismiss"))  //å›½å®¶æ²¡æœ‰å›½å¸ˆé€‰ä¸¾
       return;
  vote_id = VOTE_D->get_special_vote(nation,"dismiss")[0];
  vote = VOTE_D->get_vote_result(vote_id);
  areas_amount = sizeof(AREA_D->check_area("nation",nation));
- need_ballot = areas_amount * 2 / 3 ; //2/3Ì«ÊØÍ¬Òâ 
+ need_ballot = areas_amount * 2 / 3 ; //2/3å¤ªå®ˆåŒæ„ 
  if (sizeof(vote[1])>=need_ballot)
     { 
-      v_id = VOTE_D->get_special_vote(nation,"dismiss")[3]; //·¢¶¯²»ĞÅÈÎÑ¡¾ÙµÄÍæ¼Òid
+      v_id = VOTE_D->get_special_vote(nation,"dismiss")[3]; //å‘åŠ¨ä¸ä¿¡ä»»é€‰ä¸¾çš„ç©å®¶id
       p_id = COUNTRY_D->get_country(nation,"gs");
       COUNTRY_D->set_country(nation,"gs",0);
-      msg=sprintf("ÔÚ´ó¶àÊıÌ«ÊØµÄ·´¶ÔÉùÖĞ£¬%s±»¸ÏÏÂÁË%sµÄ¹úÊ¦µÄÎ»×Ó¡£",
+      msg=sprintf("åœ¨å¤§å¤šæ•°å¤ªå®ˆçš„åå¯¹å£°ä¸­ï¼Œ%sè¢«èµ¶ä¸‹äº†%sçš„å›½å¸ˆçš„ä½å­ã€‚",
 		CHAR_D->get_char(p_id,"name"),
 		COUNTRY_D->get_country(nation,"name"));
       CHANNEL_D->deliver_tell("rumor","system",msg);
       HIS(msg);
       CHANNEL_D->deliver_tell("gossip",CHAR_D->get_char(nation,"name"),
-           CHAR_D->get_char(p_id,"name")+"Äã½áµ³ÓªË½¡¢»ö¹úÑêÃñ£¬ÕæÊÇÌ«ÁîÎÒÊ§ÍûÁË£¡");
+           CHAR_D->get_char(p_id,"name")+"ä½ ç»“å…šè¥ç§ã€ç¥¸å›½æ®ƒæ°‘ï¼ŒçœŸæ˜¯å¤ªä»¤æˆ‘å¤±æœ›äº†ï¼");
 
       CHANNEL_D->deliver_tell("gossip",CHAR_D->get_char(p_id,"name"),
-		"³¼×ï¸ÃÍòËÀ£¬×ï¸ÃÍòËÀ¡£");
-      //´¦·£±»¸ÏÏÂÌ¨µÄ¹úÊ¦£¬ÓĞ¹ØÖµ½µÒ»°ë		
+		"è‡£ç½ªè¯¥ä¸‡æ­»ï¼Œç½ªè¯¥ä¸‡æ­»ã€‚");
+      //å¤„ç½šè¢«èµ¶ä¸‹å°çš„å›½å¸ˆï¼Œæœ‰å…³å€¼é™ä¸€åŠ		
       CHAR_D->set_char(p_id,"reputation",CHAR_D->get_char(p_id,"reputation")/2);		
       CHAR_D->set_char(p_id,"loyalty",45);
       CHAR_D->set_char(p_id,"localcontribution",CHAR_D->get_char(p_id,"localcontribution")/2);
       CHAR_D->set_char(p_id,"nationcontribution",CHAR_D->get_char(p_id,"nationcontribution")/2); 		
-      //½±Àø²»ĞÅÈÎÍ¶Æ±µÄ·¢ÆğÈË£¬ÓĞ¹ØÖµ³¤1/10
+      //å¥–åŠ±ä¸ä¿¡ä»»æŠ•ç¥¨çš„å‘èµ·äººï¼Œæœ‰å…³å€¼é•¿1/10
       CHAR_D->set_char(v_id,"reputation",CHAR_D->get_char(v_id,"reputation")*11/10);		
       CHAR_D->set_char(v_id,"loyalty",CHAR_D->get_char(v_id,"loyalty")*11/10);		
       CHAR_D->set_char(v_id,"localcontribution",CHAR_D->get_char(v_id,"localcontribution")*11/10);
@@ -230,19 +230,19 @@ void check_guoshi_dismiss_vote(string nation)
       {
       p_id = COUNTRY_D->get_country(nation,"gs");
       v_id = VOTE_D->get_special_vote(nation,"dismiss")[3];
-      msg=sprintf("ÓÉÓÚ²»ĞÅÈÎÍ¶Æ±Î´»ñµÃ×ã¹»Æ±Êı£¬%s±£×¡ÁË%s¹úÊ¦µÄ¹ÙÖ°¡£",
+      msg=sprintf("ç”±äºä¸ä¿¡ä»»æŠ•ç¥¨æœªè·å¾—è¶³å¤Ÿç¥¨æ•°ï¼Œ%sä¿ä½äº†%så›½å¸ˆçš„å®˜èŒã€‚",
 		CHAR_D->get_char(p_id,"name"),
 		COUNTRY_D->get_country(nation,"name"));
       CHANNEL_D->deliver_tell("rumor","system",msg);
       HIS(msg);
       CHANNEL_D->deliver_tell("gossip",CHAR_D->get_char(nation,"name"),
-           CHAR_D->get_char(p_id,"name")+"°®Çä£¬¹ÑÈË´í¹ÖÄãÁË£¬ÍûÄãÔÚ¹úÊ¦Ö®Î»¸üºÃµÄÎª¹ÑÈË·ÖÓÇ¡£");
+           CHAR_D->get_char(p_id,"name")+"çˆ±å¿ï¼Œå¯¡äººé”™æ€ªä½ äº†ï¼Œæœ›ä½ åœ¨å›½å¸ˆä¹‹ä½æ›´å¥½çš„ä¸ºå¯¡äººåˆ†å¿§ã€‚");
 
       CHANNEL_D->deliver_tell("gossip",CHAR_D->get_char(p_id,"name"),
-		"³¼¶àĞ»Ö÷¹«ĞÅÈÎ£¬±Øµ±¾Ï¹ª¾¡´á±¨Ğ§Ö÷¹«¡£");
+		"è‡£å¤šè°¢ä¸»å…¬ä¿¡ä»»ï¼Œå¿…å½“é èº¬å°½ç˜æŠ¥æ•ˆä¸»å…¬ã€‚");
       VOTE_D->del_special_vote(nation,"dismiss"); 
       
-       //´¦·£²»ĞÅÈÎÍ¶Æ±µÄ·¢ÆğÈË£¬ÓĞ¹ØÖµ½µ1/10  
+       //å¤„ç½šä¸ä¿¡ä»»æŠ•ç¥¨çš„å‘èµ·äººï¼Œæœ‰å…³å€¼é™1/10  
       CHAR_D->set_char(v_id,"reputation",CHAR_D->get_char(v_id,"reputation")*9/10);		
       CHAR_D->set_char(v_id,"localcontribution",CHAR_D->get_char(v_id,"localcontribution")*9/10);
       CHAR_D->set_char(v_id,"nationcontribution",CHAR_D->get_char(v_id,"nationcontribution")*9/10); 		
@@ -260,14 +260,14 @@ mixed test_is_capital(string p_area)
 {string p_gs,na;
  na = AREA_D->get_area(p_area,"nation");
  if (CHAR_D->get_char(na,"area")!=p_area)
-   return  "²»ÊÇ¹ú¼ÒÊ×¶¼£¬NPC¹ú¼ÒË¼¿¼½áÊø!\n";
+   return  "ä¸æ˜¯å›½å®¶é¦–éƒ½ï¼ŒNPCå›½å®¶æ€è€ƒç»“æŸ!\n";
  if (CHAR_D->get_char(na,"type")==TYPE_PLAYER)
-   return "¹ú¼ÒÖ÷¹«ÎªÍæ¼Ò,NPCµØÇøAIË¼¿¼½áÊø!\n";
+   return "å›½å®¶ä¸»å…¬ä¸ºç©å®¶,NPCåœ°åŒºAIæ€è€ƒç»“æŸ!\n";
  p_gs=COUNTRY_D->get_country(na,"gs");
  if (!p_gs)
-     check_guoshi_vote(na);//Ã»ÓĞ¹úÊ¦µÄ»°£¬Ôò¼ì²é¹úÊ¦Í¶Æ±
+     check_guoshi_vote(na);//æ²¡æœ‰å›½å¸ˆçš„è¯ï¼Œåˆ™æ£€æŸ¥å›½å¸ˆæŠ•ç¥¨
  else
-     check_guoshi_dismiss_vote(na); //ÓĞ¹úÊ¦µÄ»°£¬Ôò¼ì²é¹úÊ¦°ÕÃâÍ¶Æ±
+     check_guoshi_dismiss_vote(na); //æœ‰å›½å¸ˆçš„è¯ï¼Œåˆ™æ£€æŸ¥å›½å¸ˆç½¢å…æŠ•ç¥¨
  return 1; 
 }
 
@@ -278,27 +278,27 @@ mixed test_npc_taishou(string p_area){
 	int status =0;
 	
 	if (CHAR_D->get_char(AREA_D->get_area(p_area,"nation"),"type")==TYPE_PLAYER)
-	   return "¹ú¼ÒÖ÷¹«ÎªÍæ¼Ò,NPCµØÇøAIË¼¿¼½áÊø!\n";
+	   return "å›½å®¶ä¸»å…¬ä¸ºç©å®¶,NPCåœ°åŒºAIæ€è€ƒç»“æŸ!\n";
 	   
 	p_gs=COUNTRY_D->get_country(AREA_D->get_area(p_area,"nation"),"gs");
 	if((CHAR_D->char_exist(p_gs))&&
 	   (CHAR_D->get_char(p_gs,"nation")==AREA_D->get_area(p_area,"nation")))
-	   return  "¹ú¼ÒÓĞ¹úÊ¦´æÔÚ,NPCµØÇøAIË¼¿¼½áÊø!\n";
+	   return  "å›½å®¶æœ‰å›½å¸ˆå­˜åœ¨,NPCåœ°åŒºAIæ€è€ƒç»“æŸ!\n";
 	m_id = AREA_D->get_area_leader(p_area);
 	if ((CHAR_D->get_char(m_id,"type")==TYPE_NPC)&&
 	   (CHAR_D->get_char(m_id,"grant")))
-	   status = 1 ;  //Íæ¼ÒÔİÈÃÌ«ÊØ  
+	   status = 1 ;  //ç©å®¶æš‚è®©å¤ªå®ˆ  
 	if (CHAR_D->get_char(m_id,"type")==TYPE_PLAYER)
-	   status = 2 ;  //Íæ¼ÒÎªÌ«ÊØ   	   
+	   status = 2 ;  //ç©å®¶ä¸ºå¤ªå®ˆ   	   
                  
         if (status == 0)
            {
             create_taishou(p_area);
-            return "µØÇøÃ»ÓĞÍæ¼ÒÌ«ÊØ,ÏµÍ³×Ô¶¯ÌôÑ¡Íæ¼ÒÌ«ÊØ!\n";
+            return "åœ°åŒºæ²¡æœ‰ç©å®¶å¤ªå®ˆ,ç³»ç»Ÿè‡ªåŠ¨æŒ‘é€‰ç©å®¶å¤ªå®ˆ!\n";
             }
         else
            {remove_taishou(p_area,m_id);
-            return "µØÇøÒÑÓĞÍæ¼ÒÌ«ÊØ,ÏµÍ³¿¼²ìÍæ¼ÒÌ«ÊØÇÚ·Ü¶È!\n";
+            return "åœ°åŒºå·²æœ‰ç©å®¶å¤ªå®ˆ,ç³»ç»Ÿè€ƒå¯Ÿç©å®¶å¤ªå®ˆå‹¤å¥‹åº¦!\n";
            }
      
 }
@@ -315,14 +315,14 @@ mixed test_is_fit_officer(string p_area)
  p_gs=COUNTRY_D->get_country(n,"gs");
  
  if (CHAR_D->get_char(n,"type")==TYPE_PLAYER)
-	   return "¹ú¼ÒÖ÷¹«ÎªÍæ¼Ò,NPCµØÇøAIË¼¿¼½áÊø!\n";
+	   return "å›½å®¶ä¸»å…¬ä¸ºç©å®¶,NPCåœ°åŒºAIæ€è€ƒç»“æŸ!\n";
  if (CHAR_D->char_exist(p_gs)&&
     (CHAR_D->get_char(p_gs,"nation")==n))
-	   return  "¹ú¼ÒÓĞ¹úÊ¦´æÔÚ,NPCµØÇøAIË¼¿¼½áÊø!\n";
+	   return  "å›½å®¶æœ‰å›½å¸ˆå­˜åœ¨,NPCåœ°åŒºAIæ€è€ƒç»“æŸ!\n";
  if ((CHAR_D->get_char(ts_id,"type")==TYPE_PLAYER)||
      ((CHAR_D->get_char(ts_id,"type")==TYPE_NPC)&&
        CHAR_D->get_char(ts_id,"grant")))
- 	   a_type = 1;  //ÊÇNPC¹úÍõµÄÍæ¼ÒÌ«ÊØÇøÓò,Ö»¿¼²ì¹ú¼Ò¹ÙÔ±ÇÚ·Ü¶È,²»¿¼²ìµØ·½¹ÙÔ±
+ 	   a_type = 1;  //æ˜¯NPCå›½ç‹çš„ç©å®¶å¤ªå®ˆåŒºåŸŸ,åªè€ƒå¯Ÿå›½å®¶å®˜å‘˜å‹¤å¥‹åº¦,ä¸è€ƒå¯Ÿåœ°æ–¹å®˜å‘˜
  
            
  
@@ -330,16 +330,16 @@ mixed test_is_fit_officer(string p_area)
      {p_id = list_char[i];
       rank_type = 0;
       if (CHAR_D->get_char(p_id,"type")==TYPE_NPC)
-          continue; //²»¼ì²éNPC¹ÙÔ±
+          continue; //ä¸æ£€æŸ¥NPCå®˜å‘˜
       if (ts_id==p_id)
-          continue; //²»¼ì²éÌ«ÊØ
+          continue; //ä¸æ£€æŸ¥å¤ªå®ˆ
       if (CHAR_D->get_char_level(p_id)<2)
           continue; 
           
-      if (!(rank=CHAR_D->get_char(p_id,"ranknation")))//Èç¹ûÍæ¼Ò¼ÈÊÇ¹ú¼Ò¹ÙÔ±ÓÖÊÇ
-         if (a_type)  continue;      //a_type =1 Ê±,ÈçÍæ¼Ò²»ÊÇ¹ú¼Ò¹ÙÔ±¾Í²»¿¼²ì
+      if (!(rank=CHAR_D->get_char(p_id,"ranknation")))//å¦‚æœç©å®¶æ—¢æ˜¯å›½å®¶å®˜å‘˜åˆæ˜¯
+         if (a_type)  continue;      //a_type =1 æ—¶,å¦‚ç©å®¶ä¸æ˜¯å›½å®¶å®˜å‘˜å°±ä¸è€ƒå¯Ÿ
          else
-          {rank = CHAR_D->get_char(p_id,"ranklocal");  //µØ·½¹ÙÔ±,ÏÈ¿¼ÂÇ¹ú¼Ò¹ÙÔ±Ö°Î»
+          {rank = CHAR_D->get_char(p_id,"ranklocal");  //åœ°æ–¹å®˜å‘˜,å…ˆè€ƒè™‘å›½å®¶å®˜å‘˜èŒä½
            rank_type = 1;}
            
       result = ("/sgdomain/event/ev_position")->check_whole(p_id,rank);
@@ -348,14 +348,14 @@ mixed test_is_fit_officer(string p_area)
          if (rank_type)
             {CHAR_D->set_char(p_id,"ranklocal",R_SG);
              CHAR_D->set_char(p_id,"grant",0);
-             msg=sprintf("%sÓÉÓÚ%s½µµÍ±»%s³·Ïú%s%sÖ°Î»¡£",
+             msg=sprintf("%sç”±äº%sé™ä½è¢«%sæ’¤é”€%s%sèŒä½ã€‚",
 		CHAR_D->get_char(p_id,"name"),result,
 		CHAR_D->get_char(ts_id,"name"),
 		AREA_D->get_area(p_area,"name"),OFFICER_D->query_rank_name(rank));
             }
          else
             {CHAR_D->set_char(p_id,"ranknation",0);
-             msg=sprintf("%sÓÉÓÚ%s½µµÍ±»%s³·Ïú%s%sÖ°Î»¡£",
+             msg=sprintf("%sç”±äº%sé™ä½è¢«%sæ’¤é”€%s%sèŒä½ã€‚",
 		CHAR_D->get_char(p_id,"name"),result,
 		CHAR_D->get_char(n,"name"),
 		COUNTRY_D->get_country(n,"name"),
@@ -367,7 +367,7 @@ mixed test_is_fit_officer(string p_area)
          }
       if ((tmp=CHAR_D->get_char(p_id,"tsx"))>0)
 	 {
-	  tmp -= 15;     //¹ÙÔ±Ã¿´ÎÂÖÑ²½µµÄÇÚ·Ü¶ÈĞ¡ÓÚÌ«ÊØ,ÏÈÉè¶¨Îª15
+	  tmp -= 15;     //å®˜å‘˜æ¯æ¬¡è½®å·¡é™çš„å‹¤å¥‹åº¦å°äºå¤ªå®ˆ,å…ˆè®¾å®šä¸º15
 	  CHAR_D->set_char(p_id,"tsx",tmp);
 	  continue;
 	 }
@@ -381,7 +381,7 @@ mixed test_is_fit_officer(string p_area)
       if (rank_type)
         {CHAR_D->set_char(p_id,"ranklocal",R_SG);
          CHAR_D->set_char(p_id,"grant",0);
-         msg=sprintf("%sÓÉÓÚ»Ä·ÏÕşÊÂ±»%s³·Ïú%s%s¹ÙÔ±Ö°Î»¡£",
+         msg=sprintf("%sç”±äºè’åºŸæ”¿äº‹è¢«%sæ’¤é”€%s%så®˜å‘˜èŒä½ã€‚",
 		CHAR_D->get_char(p_id,"name"),
 		CHAR_D->get_char(ts_id,"name"),
 		AREA_D->get_area(p_area,"name"),
@@ -389,7 +389,7 @@ mixed test_is_fit_officer(string p_area)
 	}
       else
         {CHAR_D->set_char(p_id,"ranknation",0);
-         msg=sprintf("%sÓÉÓÚ»Ä·ÏÕşÊÂ±»%s³·Ïú%s%sÖ°Î»¡£",
+         msg=sprintf("%sç”±äºè’åºŸæ”¿äº‹è¢«%sæ’¤é”€%s%sèŒä½ã€‚",
 		CHAR_D->get_char(p_id,"name"),
 		CHAR_D->get_char(n,"name"),
 		COUNTRY_D->get_country(n,"name"),
@@ -397,16 +397,16 @@ mixed test_is_fit_officer(string p_area)
         }
       CHANNEL_D->deliver_tell("rumor","system",msg);
       HIS(msg);        
-      CHAR_D->set_char(p_id,"tsx",100); //±»½âÖ°µÄ¹ÙÔ±µÄÇÚ·Ü¶È»Ö¸´µ½³õÊ¼µÄÒ»°ë   
-     	                                //±ÜÃâ±»½âÖ°ºóÓÖÈÎÖ°,ÒòÎªÇÚ·Ü¶ÈÎª¸ºÖµ
-     	                                //¶ø±»ÔÙ´Î½âÖ°ÔâÊÜ¸ü´óËğÊ§.
+      CHAR_D->set_char(p_id,"tsx",100); //è¢«è§£èŒçš„å®˜å‘˜çš„å‹¤å¥‹åº¦æ¢å¤åˆ°åˆå§‹çš„ä¸€åŠ   
+     	                                //é¿å…è¢«è§£èŒååˆä»»èŒ,å› ä¸ºå‹¤å¥‹åº¦ä¸ºè´Ÿå€¼
+     	                                //è€Œè¢«å†æ¬¡è§£èŒé­å—æ›´å¤§æŸå¤±.
      }
 
 }
 
 void act() 
 {       mixed result;
-	//SUBUG("ÏÖÔÚÂÖÑ²µÄ³ÇÊĞÊÇ"+cities[last_ai_city_id]);
+	//SUBUG("ç°åœ¨è½®å·¡çš„åŸå¸‚æ˜¯"+cities[last_ai_city_id]);
 	result=test_npc_taishou(cities[last_ai_city_id]);
 	result=test_is_fit_officer(cities[last_ai_city_id]);
 	test_is_capital(cities[last_ai_city_id]);
@@ -417,10 +417,10 @@ void act()
 	if (last_ai_city_id == sizeof(cities))
 	   last_ai_city_id =0;
 	save_data();
-	call_out("act",240);  //MUDÃ¿Ìì¼´ÏÖÊµ16·ÖÖÓ,ÂÖÑ²Ò»´Î
-	                      //ËùÓĞµØÇøÖ´ĞĞÒ»±éĞè16*99µÈÓÚ1584·ÖÖÓ
-	                      //ÏÖÊµÒ»ÌìµÈÓÚ24*60=1440·ÖÖÓ,Ô¼µÈÓÚÒ»Ìì
-	                      //ËùÓĞ³ÇÊĞÂÖÑ²Ò»´Î
+	call_out("act",240);  //MUDæ¯å¤©å³ç°å®16åˆ†é’Ÿ,è½®å·¡ä¸€æ¬¡
+	                      //æ‰€æœ‰åœ°åŒºæ‰§è¡Œä¸€ééœ€16*99ç­‰äº1584åˆ†é’Ÿ
+	                      //ç°å®ä¸€å¤©ç­‰äº24*60=1440åˆ†é’Ÿ,çº¦ç­‰äºä¸€å¤©
+	                      //æ‰€æœ‰åŸå¸‚è½®å·¡ä¸€æ¬¡
 }
 
 void create()

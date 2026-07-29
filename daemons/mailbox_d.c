@@ -18,7 +18,7 @@
 
 #include <clean_up.h>
 
-private static mapping mailboxes = ([ ]);
+private mapping mailboxes = ([ ]);
 
 
 private nomask void create()
@@ -43,7 +43,7 @@ nomask object get_mailbox(string the_owner)
     mailbox = mailboxes[the_owner] = new(MAILBOX, the_owner);
     if ( !mailbox )
 //        error("mailbox wasn't created");
-          error("ÓÊÏä»¹Î´½¨Á¢");
+          error("é‚®ç®±è¿˜æœªå»ºç«‹");
     }
 
     return mailbox;

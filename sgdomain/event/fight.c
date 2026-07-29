@@ -17,18 +17,18 @@ mixed do_fight_str(string str)
 		write(ret); return;
 	}
 	if(ret==1) {
-		write("这儿不是比武的地方。\n");
+		write("杩欏効涓嶆槸姣旀鐨勫湴鏂广�俓n");
 		return;
 	}
 	if(!objectp(o)) return;
 	if(o==this_body()) {
-		write("自己打自己？笑话。\n");
+		write("鑷繁鎵撹嚜宸憋紵绗戣瘽銆俓n");
 		return;
 	}
 	ret=FIGHT_D->can_fight(this_body(),o);
 }
 
-array query_verb_info()
+mixed * query_verb_info()
 {
      return ({ ({"STR" }) });
 }

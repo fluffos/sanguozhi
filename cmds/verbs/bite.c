@@ -24,7 +24,7 @@ void do_bite_str(string str)
 		write(ret);
 		return;
 	}
-	write("你好象咬不动"+o->short()+"。\n");
+	write("浣犲ソ璞″挰涓嶅姩"+o->short()+"銆俓n");
 	return;
 		
 }
@@ -36,7 +36,7 @@ void do_bite_str(string str)
     ob->eat_it();
 } */
 
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ "STR" }), ({ "eat" }) });
 }

@@ -54,8 +54,8 @@ private void main(mixed *arg, mapping flags)
             case "destruct":
                 oo=new(OBJ);
                 oo->set_id("something");
-                oo->add_id("Ä³Îï");
-                oo->set_unit("¼ş");
+                oo->add_id("æŸç‰©");
+                oo->set_unit("ä»¶");
                 msgs = action( ({ ob }), ob_msgs[j], oo);
                 destruct(oo);
                 break;
@@ -73,12 +73,12 @@ private void main(mixed *arg, mapping flags)
 
 // so we can use this object as a generic object
 
-string query_objective() { return "Ëû"; }
+string query_objective() { return "ä»–"; }
 
-string query_subjective() { return "Ëû"; }
+string query_subjective() { return "ä»–"; }
 
-string query_named_possessive() { return "Ä³ÈËµÄ"; }
+string query_named_possessive() { return "æŸäººçš„"; }
 
-string query_possessive() { return "ËûµÄ"; }
+string query_possessive() { return "ä»–çš„"; }
 
-string short() { return "Ä³ÈË"; }
+string short() { return "æŸäºº"; }

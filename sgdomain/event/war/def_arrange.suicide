@@ -15,8 +15,8 @@ void def_arrange_left(int task_id)
    	o_leader = CHAR_D->find_char(p_leader);
 
    	if( objectp(o_leader) ){
-		o_leader->simple_action("$NºÈµÀ£ºÈ«Ìå½«Ê¿¶¨Òª·ÜÓÂÉ±µĞ£¬$s×ÔÓĞÖØÉÍ£¡\n");
-       		o_leader->simple_action("$NÁì½«Ê¿½øÈëÕ½³¡¡£\n");
+		o_leader->simple_action("$Nå–é“ï¼šå…¨ä½“å°†å£«å®šè¦å¥‹å‹‡æ€æ•Œï¼Œ$sè‡ªæœ‰é‡èµï¼\n");
+       		o_leader->simple_action("$Né¢†å°†å£«è¿›å…¥æˆ˜åœºã€‚\n");
    	}
 	TASK_D->set_task(task_id,"start_war","yes");
 
@@ -34,8 +34,8 @@ void def_arrange_left(int task_id)
 	AREA_D->set_area(p_area, "troop", troop);
 
 	TASK_D->set_task(task_id,"msg_total_def_soldiers",
-		"·ÀÊØ·½Ö÷Ë§£º"+CHAR_D->get_char(p_leader,"name")+
-		"¡£·ÀÊØ·½×Ü±øÁ¦£º"+chinese_number(TASK_D->get_task(task_id,"def_total_number")));
+		"é˜²å®ˆæ–¹ä¸»å¸…ï¼š"+CHAR_D->get_char(p_leader,"name")+
+		"ã€‚é˜²å®ˆæ–¹æ€»å…µåŠ›ï¼š"+chinese_number(TASK_D->get_task(task_id,"def_total_number")));
 
 }
 void put_def_troop(int task_id)
@@ -62,14 +62,14 @@ void put_def_troop(int task_id)
 
    	if( (objectp(o_leader))&&(objectp(o_general)) ){
 		if( p_leader == p_general )
-			o_leader->simple_action("$NºÈµÀ£º$sÇ××Ô´ø"+CHINESE_D->chinese_number(total_soldier)+"±øÂí³öÕ½£¡\n");
+			o_leader->simple_action("$Nå–é“ï¼š$säº²è‡ªå¸¦"+CHINESE_D->chinese_number(total_soldier)+"å…µé©¬å‡ºæˆ˜ï¼\n");
 		else {
-       			o_leader->targetted_action("$NºÈµÀ£º$TºÎÔÚ£¿\n",o_general);
-       			o_general->simple_action("$N´ğµÀ£º$sÔÚ£¡\n");
-       			o_leader->targetted_action("$N¶Ô$TµÀ£ºËÙµã"+
-       				CHINESE_D->chinese_number(total_soldier)+"±øÂí³ö±ø£¡\n",o_general);
-       			o_general->simple_action("$N´ğµÀ£ºµÃÁî£¡\n");
-       			o_general->simple_action("$NÁì±ø³ö·¢ÁË¡£\n");
+       			o_leader->targetted_action("$Nå–é“ï¼š$Tä½•åœ¨ï¼Ÿ\n",o_general);
+       			o_general->simple_action("$Nç­”é“ï¼š$såœ¨ï¼\n");
+       			o_leader->targetted_action("$Nå¯¹$Té“ï¼šé€Ÿç‚¹"+
+       				CHINESE_D->chinese_number(total_soldier)+"å…µé©¬å‡ºå…µï¼\n",o_general);
+       			o_general->simple_action("$Nç­”é“ï¼šå¾—ä»¤ï¼\n");
+       			o_general->simple_action("$Né¢†å…µå‡ºå‘äº†ã€‚\n");
 		}
    	}
 
@@ -218,10 +218,10 @@ void def_arrange(int task_id)
    	p_short = load_object(p_flyroom)->short();
 
    	if( objectp(o_char )){ 
-		o_char->simple_action("$NµÀ£ºÖîÎ»½«¾ü¡¢´óÈË£¬ËÙµ½"+p_short+"µã½«³ö±ø£¬Î¥ÁîÕß£¬Õ¶£¡£¡\n");
-      		o_char->simple_action("$N´Ò´ÒÀë¿ªÁË¡£\n");
+		o_char->simple_action("$Né“ï¼šè¯¸ä½å°†å†›ã€å¤§äººï¼Œé€Ÿåˆ°"+p_short+"ç‚¹å°†å‡ºå…µï¼Œè¿ä»¤è€…ï¼Œæ–©ï¼ï¼\n");
+      		o_char->simple_action("$NåŒ†åŒ†ç¦»å¼€äº†ã€‚\n");
       		CHAR_D->put_char(def_leader,p_flyroom);
-    		o_char->simple_action("$NÀ´µ½ÁË"+p_short+"¡£\n");
+    		o_char->simple_action("$Næ¥åˆ°äº†"+p_short+"ã€‚\n");
    	}
    	CHAR_D->put_char(def_leader,p_flyroom);
 
@@ -231,9 +231,9 @@ void def_arrange(int task_id)
       		if( (p_id!=def_leader)&&(p_id!=p_leader) ){
          		o_char = CHAR_D->find_char(p_id);
          		if(objectp(o_char)){
-           			o_char->simple_action("$N´Ò´ÒÀë¿ªÁË¡£\n");
+           			o_char->simple_action("$NåŒ†åŒ†ç¦»å¼€äº†ã€‚\n");
            			CHAR_D->put_char(p_id,p_flyroom);
-           			o_char->simple_action("$NÀ´µ½ÁË"+p_short+"¡£\n");
+           			o_char->simple_action("$Næ¥åˆ°äº†"+p_short+"ã€‚\n");
          		}
          	CHAR_D->put_char(p_id,p_flyroom);
          	def_general_left+=({p_id});

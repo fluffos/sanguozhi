@@ -6,11 +6,11 @@
 inherit BASE_OBJ;
 inherit __DIR__ "object/vsupport";
 
-private static mapping descs = ([]);
-private static string my_name;
+private mapping descs = ([]);
+private nosave string my_name;
 
 
-varargs void create(string long, string array ids, object dest)
+varargs void create(string long, string * ids, object dest)
 {
     ::create();
 
@@ -38,7 +38,7 @@ string get_item_desc(string id)
     return descs[id];
 }
 
-void add_simple_fake_item(string long, string array ids)
+void add_simple_fake_item(string long, string * ids)
 {
     set_id(ids...);
     foreach(string id in ids)

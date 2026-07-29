@@ -1,5 +1,5 @@
-static string *title = ({"Ø©Ïà","Ì«Î¾","´óË¾¿Õ","Ì«ÆÍÇä","Ì«³£Çä",
-                                "ºèëÍÇä","Í¢Î¾Çä","ÎÀÎ¾Çä","×ÚÕıÇä","Ë¾Å©Çä" });
+nosave protected string *title = ({"ä¸ç›¸","å¤ªå°‰","å¤§å¸ç©º","å¤ªä»†å¿","å¤ªå¸¸å¿",
+                                "é¸¿èƒªå¿","å»·å°‰å¿","å«å°‰å¿","å®—æ­£å¿","å¸å†œå¿" });
 void announce_elect_result(string *ss);
 void call_for_meeting(string *ss);
 void announce_process(int tt);

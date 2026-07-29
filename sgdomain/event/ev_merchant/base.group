@@ -5,10 +5,10 @@ mixed query_goods(string p_name,string p_para)
 {
 mapping goods=
 ([
-"food":(["name":"粮食","price":10,"quantity":10000]),
-"horse":(["name":"马匹","price":1000,"quantity":100]),
-"bow":(["name":"弓箭","price":1000,"quantity":100]),
-"stuff":(["name":"物资","price":200,"quantity":100]),
+"food":(["name":"绮","price":10,"quantity":10000]),
+"horse":(["name":"椹尮","price":1000,"quantity":100]),
+"bow":(["name":"寮撶","price":1000,"quantity":100]),
+"stuff":(["name":"鐗╄祫","price":200,"quantity":100]),
 ]);
    switch(p_name)
    {

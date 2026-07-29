@@ -17,29 +17,29 @@ mixed can_get_str(string str)
 	mixed ret;
 	object* objs=all_inventory(environment(this_body()));
 	if(str=="all")
-	{	if(sizeof(objs)<=1) return "��Χûʲô���õġ�\n";
+	{	if(sizeof(objs)<=1) return "周围没什么好拿的。\n";
 		return 1;
 	}
 	ret=PARASE_D->retrieve_num_object( str, objs);
-	if(!ret) return "��Ҫ��ʲô��\n";
+	if(!ret) return "你要拿什么？\n";
 	return 1;
 }
 void my_get(object ob)
 {
     mixed tmp = ob->get();
-    if (!tmp) tmp = "�㲻��������������\n";
+    if (!tmp) tmp = "你不能拿这样东西。\n";
     if (stringp(tmp)) {
         write(tmp);
         return ;
     }
     if(ob->query_is_money())
-    {  	this_body()->simple_action("$Nʰ��"+"$o��\n",ob);
-	    tmp = ob->move(this_body()); // Ǯһ���ܼ�����
+    {  	this_body()->simple_action("$N拾起"+"$o。\n",ob);
+	    tmp = ob->move(this_body()); // 钱一定能检起来
 		return;
 	}
     if(ob->is_mergeable())
     {
-        string t="$Nʰ��"+ob->short();
+        string t="$N拾起"+ob->short();
         tmp=ob->move(this_body());
         if(tmp==MOVE_OK)
         {
@@ -51,7 +51,7 @@ void my_get(object ob)
     tmp = ob->move(this_body());
     if (tmp == MOVE_OK)
 	{
-       this_body()->simple_action("$Nʰ��һ"+ob->query_unit()+"$o��\n",ob);
+       this_body()->simple_action("$N拾起一"+ob->query_unit()+"$o。\n",ob);
        ob->set_flag(TOUCHED);
 	   return;
 	}
@@ -59,8 +59,8 @@ void my_get(object ob)
     {
         return;
     }
-    if (tmp == MOVE_NO_ROOM) tmp = "�㸺�ɹ����ˣ�\n";
-    if (!tmp) tmp = "�����̫���ܡ�\n";
+    if (tmp == MOVE_NO_ROOM) tmp = "你负荷过重了！\n";
+    if (!tmp) tmp = "这好象不太可能。\n";
     write(tmp);
 }
 void do_get_str(string str)
@@ -96,7 +96,7 @@ void my_get_wrd_obj(string amount, object o)
        o1=o->split(amount);
        if(o1==-1)
        {
-         printf("��û����ô��%s����ѽ��\n",o->query_chinese_id());
+         printf("你没有那么多%s可拿呀。\n",o->query_chinese_id());
          return;
        }
        if(objectp(o1))
@@ -105,17 +105,17 @@ void my_get_wrd_obj(string amount, object o)
     }
 	if(o->query_is_money())
 	{
-		write("ǮҪ�þ�ȫ�á�\n");
+		write("钱要拿就全拿。\n");
 		return;
 	}
-	write("��֡�\n");
+	write("奇怪。\n");
 	return;
 }
 void do_get_obj_from_obj(object o1,object o2)
 {
 	my_get(o1);
 }
-array query_verb_info()
+mixed * query_verb_info()
 {
     return 
         ({ 

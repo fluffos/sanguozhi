@@ -23,7 +23,7 @@ private void main(string message, mapping flags, string stdin, mixed impl)
 }
     if(!sizeof( message))
           {
-            write("×öÊ²Ã´±íÇé£¿\n");
+            write("åšä»€ä¹ˆè¡¨æƒ…ï¼Ÿ\n");
             return;
           }
 
@@ -33,7 +33,7 @@ private void main(string message, mapping flags, string stdin, mixed impl)
     else
         message = punctuate(name + message) + "\n";
 
-    out("Äã×ö±íÇé£º" + message);
+    out("ä½ åšè¡¨æƒ…ï¼š" + message);
     tell_environment(this_body(),
                      message, MSG_INDENT,
                      ({ this_body() }) );

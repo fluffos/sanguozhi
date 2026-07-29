@@ -1,4 +1,4 @@
-// call.c  //ÕĞËæ´Ó Jan 1999
+// call.c  //æ‹›éšä» Jan 1999
 int no_need_hp()
 { // this is used if player doesnt have food and drink
 	return 1;
@@ -13,7 +13,7 @@ void create_qb(string p_id)
 	CHAR_D->add_char(n_id);
     CHAR_D->set_char(n_id,"my_master",p_id);
     CHAR_D->set_char(n_id,"name",
-        CHAR_D->get_char(p_id,"name")+"µÄÇ×±ø");
+        CHAR_D->get_char(p_id,"name")+"çš„äº²å…µ");
     CHAR_D->set_char(n_id,"is_tmp",1);
     CHAR_D->set_char(n_id,"is_qb",1);
     CHAR_D->set_char(n_id,"body","qb");
@@ -27,14 +27,14 @@ void call_guanjia(string p_id) {
 	o_h=SGHOME(p_id);
 	gjs=o_h->check_npc("pos","gj");
 	if(!sizeof(gjs)) {
-		write("ÄãÏÖÔÚ»¹Ã»ÓĞ¹ÍÓ¶¹Ü¼Ò¡£\n");
+		write("ä½ ç°åœ¨è¿˜æ²¡æœ‰é›‡ä½£ç®¡å®¶ã€‚\n");
 		return;
 	}
 	gj=gjs[0];
 	o_gj=o_h->load_npc(gj);
 	if(environment(o_gj)!=(this_body()->query_room())) {
 		o_gj->move(environment(this_body()));
-		o_gj->simple_action("$N·ç·ç»ğ»ğµØÅÜÁË¹ıÀ´¡£\n");
+		o_gj->simple_action("$Né£é£ç«ç«åœ°è·‘äº†è¿‡æ¥ã€‚\n");
 	}
 	o_gj->special_answer(this_body(),"order");
 	return;
@@ -46,19 +46,19 @@ void call_suicong(string p_id) {
 	object o_gj;
 	o_h=SGHOME(p_id);
 	if(!objectp(o_h)) {
-		write("ÄãÏÖÔÚ»¹Ã»ÓĞ¼Ò£¬ÄÄÀïÀ´µÄËæ´Ó¡£\n");
+		write("ä½ ç°åœ¨è¿˜æ²¡æœ‰å®¶ï¼Œå“ªé‡Œæ¥çš„éšä»ã€‚\n");
 		return;
 	}
 	gjs=o_h->check_npc("pos","sc");
 	if(!sizeof(gjs)) {
-		write("ÄãÏÖÔÚ»¹Ã»ÓĞ¹ÍÓ¶Ëæ´Ó¡£\n");
+		write("ä½ ç°åœ¨è¿˜æ²¡æœ‰é›‡ä½£éšä»ã€‚\n");
 		return;
 	}
 	gj=gjs[0];
 	o_gj=o_h->load_npc(gj);
 	if(environment(o_gj)!=(this_body()->query_room())) {
 		o_gj->move(environment(this_body()));
-		o_gj->simple_action("$N·ç·ç»ğ»ğµØÅÜÁË¹ıÀ´¡£\n");
+		o_gj->simple_action("$Né£é£ç«ç«åœ°è·‘äº†è¿‡æ¥ã€‚\n");
 	}
 	o_gj->special_answer(this_body(),"order");
 	return;
@@ -72,7 +72,7 @@ void start(string arg)
 	string p_id,n_id,p_room;
     	p_id=this_body()->query_id()[0];
     	env=this_body()->query_room();
-        this_body()->simple_action("$N»ØÍ·º°ÁËÒ»Éù£ºÀ´ÈËÄÄ£¡");
+        this_body()->simple_action("$Nå›å¤´å–Šäº†ä¸€å£°ï¼šæ¥äººå“ªï¼");
 
 	if((env->is_home())&&(env->get_owner()==p_id)) {
 		call_guanjia(p_id);
@@ -86,7 +86,7 @@ void start(string arg)
 	if(!myarmy) myarmy=([]);
 	if(!myarmy["qbnum"])
 	{
-                write("ÄãËÆºõÃ»ÓĞËæ´Ó¿ÉÒÔÊ¹»½¡£\n");
+                write("ä½ ä¼¼ä¹æ²¡æœ‰éšä»å¯ä»¥ä½¿å”¤ã€‚\n");
 		return;
 	}
 	create_qb(p_id);
@@ -95,12 +95,12 @@ void start(string arg)
     	o=CHAR_D->find_char(n_id);
 	if(!o)
 	{
-                write("Ææ¹Ö£¬ÔõÃ´Ã»ÈË£¿\n");
+                write("å¥‡æ€ªï¼Œæ€ä¹ˆæ²¡äººï¼Ÿ\n");
 		CHAR_D->remove_char(n_id);
 		return;
 	}
-	o->simple_action("$NÉÁÉí½øÈë¡£\n");
-        o->targetted_action("$N¶Ô$T¹ªÉíµÀ£º$RÓĞºÎ·Ô¸À£¿\n",this_body());
+	o->simple_action("$Né—ªèº«è¿›å…¥ã€‚\n");
+        o->targetted_action("$Nå¯¹$Tèº¬èº«é“ï¼š$Ræœ‰ä½•å©å’ï¼Ÿ\n",this_body());
 	call_out("pop_menu",2);
     	return; */
 }

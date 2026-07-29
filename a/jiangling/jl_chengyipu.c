@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is »¨¶ù¶ä¶ä
+// driver is èŠ±å„¿æœµæœµ
 // created date is Mon May  9 09:28:46 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -9,10 +9,10 @@ inherit STORE;
 void setup() {
 set_area("jiangling");
 set_light(50);
-set_brief("%^YELLOW%^"+"³ÉÒÂÆÌ"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"æˆè¡£é“º"+"%^RESET%^");
 set_long("
-    ÕâÊÇ½­Áê½ÖÉÏµÄÒ»ËùÒÂÃ±µê£¬ÕâÀï»õÆ·ÖÊÁ¿¹ıÓ²£¬ÉúÒâĞËÂ¡¡£
-ÕâÀïÓĞÒÂ·ş£¬Ğ¬×Ó£¬Ã±×Ó³öÊÛ¡£listÖ¸ÁîÁĞ³ö»õÆ·£¬buyÖ¸Áî¹ºÂò¡£\n\n");
+    è¿™æ˜¯æ±Ÿé™µè¡—ä¸Šçš„ä¸€æ‰€è¡£å¸½åº—ï¼Œè¿™é‡Œè´§å“è´¨é‡è¿‡ç¡¬ï¼Œç”Ÿæ„å…´éš†ã€‚
+è¿™é‡Œæœ‰è¡£æœï¼Œé‹å­ï¼Œå¸½å­å‡ºå”®ã€‚listæŒ‡ä»¤åˆ—å‡ºè´§å“ï¼ŒbuyæŒ‡ä»¤è´­ä¹°ã€‚\n\n");
 set_exits( ([
 "north":"/a/jiangling/jl_xiaoxiang.c",
 

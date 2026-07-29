@@ -3,21 +3,21 @@
 
 inherit OBJ;
 inherit M_GETTABLE;
-string *sname=({HIR"ºì",HIY"»Æ",HIB"À¶",HIG"ÂÌ",HIW"°×",HIM"×Ï",});
-string *adjtive=({"»ª¹óµÄ","ÓºÈİµÄ","ÑŞÀöµÄ","ÇÎÀöµÄ","¾²Ú×µÄ","º¬ĞßµÄ",
-"ÇåÑÅµÄ","ÇáÈáµÄ","åüÃÄµÄ"});
+string *sname=({HIR"çº¢",HIY"é»„",HIB"è“",HIG"ç»¿",HIW"ç™½",HIM"ç´«",});
+string *adjtive=({"åè´µçš„","é›å®¹çš„","è‰³ä¸½çš„","ä¿ä¸½çš„","é™è°§çš„","å«ç¾çš„",
+"æ¸…é›…çš„","è½»æŸ”çš„","å¦©åªšçš„"});
 
 void setup()
 {	
-	string name=sname[random(sizeof(sname))]+"Äµµ¤"NOR;
+	string name=sname[random(sizeof(sname))]+"ç‰¡ä¸¹"NOR;
         string adjt=adjtive[random(sizeof(adjtive))];
 	set_id("flower", name);
-	set_unit("¶ä");
+	set_unit("æœµ");
 	set_adj(adjt);
 	return;
 }
 
 string long()
 {
-	return "ÂåÑôÄµµ¤»¨ÆÔÖĞÓı³öµÄÁ¼ÖÖÄµµ¤£¬ÃÀÀö»ª¹ó¡£\n";
+	return "æ´›é˜³ç‰¡ä¸¹èŠ±åœƒä¸­è‚²å‡ºçš„è‰¯ç§ç‰¡ä¸¹ï¼Œç¾ä¸½åè´µã€‚\n";
 }

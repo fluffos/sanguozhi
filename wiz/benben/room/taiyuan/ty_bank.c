@@ -1,4 +1,4 @@
-// Ç®×¯  by Benben
+// é’±åº„  by Benben
 // ty_bank.c 
 #include <mudlib.h>
 #include "/wiz/fire/fire.h"
@@ -7,8 +7,8 @@ inherit ROOM;
 void setup(){
     set_area("ty_area");
     set_light(50);
-    set_brief(""+YEL+"Ç®×¯"+NOR+"");
-    set_long("    ÃèÊö¡£\n");
+    set_brief(""+YEL+"é’±åº„"+NOR+"");
+    set_long("    æè¿°ã€‚\n");
     set_exits( ([
         "east" :  __DIR__+"ty_sst1.c",
     ]) );

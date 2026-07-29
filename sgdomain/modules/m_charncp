@@ -8,7 +8,7 @@ void setup()
 {
 //   add_block(enter);
    add_question("enter","enter");
-   add_ask_str("enter","$N¶Ô$TÒ»¹°ÊÖ£¬µÀ£º$sÓĞÒªÊÂÔÚÉí£¬²»Öª´óÈË¿É·ñ·ÅĞĞ£¿\n");
+   add_ask_str("enter","$Nå¯¹$Tä¸€æ‹±æ‰‹ï¼Œé“ï¼š$sæœ‰è¦äº‹åœ¨èº«ï¼Œä¸çŸ¥å¤§äººå¯å¦æ”¾è¡Œï¼Ÿ\n");
 }
 string long()
 {
@@ -16,7 +16,7 @@ string long()
    string a_id;
    my_area=CHAR_D->get_char(this_object()->query_id()[0],"my_area");
    a_id=AREA_D->get_area(my_area,"name");
-   return a_id+"Ë¾Á¥Ğ£Î¾£¬×¨ÃÅ¸ºÔğµØÇøµÄ°²È«±£ÎÀÊÂÒË¡£\nËûÕıÔÚÈÏÕæµØÅÌ²é¹ıÍùµÄÒ»ÇĞĞĞÈË¡£\n";
+   return a_id+"å¸éš¶æ ¡å°‰ï¼Œä¸“é—¨è´Ÿè´£åœ°åŒºçš„å®‰å…¨ä¿å«äº‹å®œã€‚\nä»–æ­£åœ¨è®¤çœŸåœ°ç›˜æŸ¥è¿‡å¾€çš„ä¸€åˆ‡è¡Œäººã€‚\n";
 }
 string query_title(string p_id,string c_id)
 {
@@ -24,7 +24,7 @@ string query_title(string p_id,string c_id)
    string p_areaname;
    p_areaname=AREA_D->get_area(CHAR_D->get_char(p_id,"my_area"),"name");
    p_nationname=COUNTRY_D->get_country(AREA_D->get_area(CHAR_D->get_char(p_id,"my_area"),"nation"),"name");
-   return ""HIC"¡¾"+p_nationname+"¡¿"HIY"¡Ñ"+p_areaname+"¡ÑË¾Á¥Ğ£Î¾"NOR"(guard)";
+   return ""HIC"ã€"+p_nationname+"ã€‘"HIY"âŠ™"+p_areaname+"âŠ™å¸éš¶æ ¡å°‰"NOR"(guard)";
 }
 void extra_init()
 {
@@ -45,21 +45,21 @@ void answer_enter(object who)
 	if(my_area==p_area)
 	{
 	this_object()->targetted_action
-	("$NµÀ£º$RÄË±¾µØÈËÊ¿£¬Ö±½Ó½øÈë±ã¿É¡£\n",who);
+	("$Né“ï¼š$Rä¹ƒæœ¬åœ°äººå£«ï¼Œç›´æ¥è¿›å…¥ä¾¿å¯ã€‚\n",who);
 	return;
 	}
 	if(!COUNTRY_D->nation_exist(CHAR_D->get_char(p_id,"nation")))
 	{
 	this_object()->targetted_action
-	("$N¿´ÁË$TÒ»ÑÛ£ºÅ¶£¬$RÄËÊÇÒş¾ÓÏÍÈË£¬Çë½ø£¬Çë½ø¡£\n",who);
-	CHAR_D->appear(p_id,my_area,"entry","$NÔÚË¾Á¥Ğ£Î¾µÄÖ¸ÒıÏÂ£¬À´µ½ÁË"+p_short+"¡£\n");
+	("$Nçœ‹äº†$Tä¸€çœ¼ï¼šå“¦ï¼Œ$Rä¹ƒæ˜¯éšå±…è´¤äººï¼Œè¯·è¿›ï¼Œè¯·è¿›ã€‚\n",who);
+	CHAR_D->appear(p_id,my_area,"entry","$Nåœ¨å¸éš¶æ ¡å°‰çš„æŒ‡å¼•ä¸‹ï¼Œæ¥åˆ°äº†"+p_short+"ã€‚\n");
 	return;
 	}
 	if(p_lo>49)
 	{
 	this_object()->targetted_action
-	("$NÃ¦µÀ£ºÔ­À´ÊÇ$M$R£¬Ê§¾´Ê§¾´£¬¿ì¿ìÇë½ø¡£\n",who);
-	CHAR_D->appear(p_id,my_area,"entry","$NÔÚË¾Á¥Ğ£Î¾µÄÖ¸ÒıÏÂ£¬À´µ½ÁË"+p_short+"¡£\n");
+	("$Nå¿™é“ï¼šåŸæ¥æ˜¯$M$Rï¼Œå¤±æ•¬å¤±æ•¬ï¼Œå¿«å¿«è¯·è¿›ã€‚\n",who);
+	CHAR_D->appear(p_id,my_area,"entry","$Nåœ¨å¸éš¶æ ¡å°‰çš„æŒ‡å¼•ä¸‹ï¼Œæ¥åˆ°äº†"+p_short+"ã€‚\n");
 	return;
 	}
 }

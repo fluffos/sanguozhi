@@ -33,8 +33,8 @@ mixed requestGood(object seller)
     write(buyerid+"before seller\n");
     sellerid = (seller->query_id())[0];
     seller->targetted_action
-      ("$N¶Ô$TĞ¦×ÅËµµÀ£ºÄãÏë½»»»Ê²Ã´£¿
-ÏëºÃÁË¾ÍÇëÊäÈë answer <ÎïÆ·> to "+sellerid+"\n", this_body());
+      ("$Nå¯¹$Tç¬‘ç€è¯´é“ï¼šä½ æƒ³äº¤æ¢ä»€ä¹ˆï¼Ÿ
+æƒ³å¥½äº†å°±è¯·è¾“å…¥ answer <ç‰©å“> to "+sellerid+"\n", this_body());
     seller->set_answer(buyerid, (:wantGood:) );
     return mBuyGood;
 }

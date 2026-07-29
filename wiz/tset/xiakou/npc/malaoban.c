@@ -1,5 +1,5 @@
 //  malaoban.c
-//  ÂíÀÏ°å
+//  é©¬è€æ¿
 //  created by tset 1/17/98
 //  last updated by tset 2/2/98  
   
@@ -23,20 +23,20 @@ void guess_age(string p, string g)
   int true_age = this_object()->query_age();
 
   if(sscanf(g, "%d", age) != 1) { 
-//        write("ÄãÔÚÏ¹²ÂĞ©É¶Ñ½£¿\n");
+//        write("ä½ åœ¨ççŒœäº›å•¥å‘€ï¼Ÿ\n");
         return;
   }
   if(age == true_age) {
-        printf("%s´ó³ÔÒ»¾ª£¬¶ÔÄãËµµÀ£º¡°¿Í¹ÙÕæÊÇÉñÏÉ£¡\n",
+        printf("%så¤§åƒä¸€æƒŠï¼Œå¯¹ä½ è¯´é“ï¼šâ€œå®¢å®˜çœŸæ˜¯ç¥ä»™ï¼\n",
                                 this_object()->short());
-        printf("%sÉñÃØµØ¸æËßÄã£º¡°Ğ¡ÈËÌıËµ¹ÜéûÉñ²·£¬ÇÒÓĞÑÓÄêÒæÊÙÖ®Êõ£¬",
+        printf("%sç¥ç§˜åœ°å‘Šè¯‰ä½ ï¼šâ€œå°äººå¬è¯´ç®¡è¾‚ç¥åœï¼Œä¸”æœ‰å»¶å¹´ç›Šå¯¿ä¹‹æœ¯ï¼Œ",
                                 this_object()->short());
-        printf("¿Í¹ÙºÎ²»·ÃÇó´ËÈË£¿¡±\n");
+        printf("å®¢å®˜ä½•ä¸è®¿æ±‚æ­¤äººï¼Ÿâ€\n");
         age = random(10) + 40;
         this_object()->set_age(age);
   }
   else  {
-    printf("%s¶ÔÄãÒ¡ÁËÒ¡Í·£º¡°¿Í¹ÙÇÒÔÙ²Â²Â¿´¡£¡±\n",this_object()->short());
+    printf("%så¯¹ä½ æ‘‡äº†æ‘‡å¤´ï¼šâ€œå®¢å®˜ä¸”å†çŒœçŒœçœ‹ã€‚â€\n",this_object()->short());
   }
 }
   
@@ -44,13 +44,13 @@ void setup() {
         int age = random(10) + 40;
         object jia;
 
-        set_name("ma laoban", "ÂíÀÏ°å");
+        set_name("ma laoban", "é©¬è€æ¿");
         add_id("ma", "laoban", "boss");
         set_gender(1);
-        set_proper_name("ÂíÀÏ°å");
-        set_in_room_desc("ÂíÀÏ°å(ma laoban)");
+        set_proper_name("é©¬è€æ¿");
+        set_in_room_desc("é©¬è€æ¿(ma laoban)");
         set_age(age);
-        set_long("Ò»¸öËÄÊ®¿ªÍâµÄ¾«Êİºº×Ó¡£\n");
+        set_long("ä¸€ä¸ªå››åå¼€å¤–çš„ç²¾ç˜¦æ±‰å­ã€‚\n");
 
         jia = new("/sgdomain/obj/cloth/torso/buyi.c");
         jia->move(this_object());
@@ -61,8 +61,8 @@ void setup() {
         add_question("age", "age"); 
         add_question("xiakou", "xiakou");
    
-        add_pattern("%s×ßÁË¹ıÀ´¡£", "say ¿Í¹ÙÀÛÁË°É£¬¿ìÇë½øĞİÏ¢¡£\n");
-        add_pattern("%sËµµÀ£ºguess %s", (: guess_age($1, $2) :) );
+        add_pattern("%sèµ°äº†è¿‡æ¥ã€‚", "say å®¢å®˜ç´¯äº†å§ï¼Œå¿«è¯·è¿›ä¼‘æ¯ã€‚\n");
+        add_pattern("%sè¯´é“ï¼šguess %s", (: guess_age($1, $2) :) );
 }
         
 void special_answer(object who, string matter)
@@ -70,16 +70,16 @@ void special_answer(object who, string matter)
         switch(matter)
         {
             case "rumors":
-                    this_object()->targetted_action("$NÕıÉ«µÀ£º"+
-                    "¡°ÕâÊÀµÀ£¬¿Í¹Ù»¹ÊÇÉÙ¹ÜÏĞÊÂÎªÃî¡£¡±\n", who);
+                    this_object()->targetted_action("$Næ­£è‰²é“ï¼š"+
+                    "â€œè¿™ä¸–é“ï¼Œå®¢å®˜è¿˜æ˜¯å°‘ç®¡é—²äº‹ä¸ºå¦™ã€‚â€\n", who);
                     return;
             case "age":
-                    this_object()->targetted_action("$N¶Ô$TºÇºÇµÄĞ¦ÁË¼¸Éù¡£"+
-                    "¡°¿Í¹ÙºÎ²»²ÂÉÏÒ»²Â£¿(say guess <num>)¡±\n", who);
+                    this_object()->targetted_action("$Nå¯¹$Tå‘µå‘µçš„ç¬‘äº†å‡ å£°ã€‚"+
+                    "â€œå®¢å®˜ä½•ä¸çŒœä¸Šä¸€çŒœï¼Ÿ(say guess <num>)â€\n", who);
                    return;
             default:
-                    this_object()->targetted_action("$NºÜ±§Ç¸µØ¶Ô$T"+
-                    "ËµµÀ£º¡°¿Í¹ÙµÄÎÊÌâ£¬$sÊµÔÚÊÇÒ»µã¶¼²»ÖªµÀ¡£¡±\n", who);
+                    this_object()->targetted_action("$Nå¾ˆæŠ±æ­‰åœ°å¯¹$T"+
+                    "è¯´é“ï¼šâ€œå®¢å®˜çš„é—®é¢˜ï¼Œ$så®åœ¨æ˜¯ä¸€ç‚¹éƒ½ä¸çŸ¥é“ã€‚â€\n", who);
                     return;
         }
 }

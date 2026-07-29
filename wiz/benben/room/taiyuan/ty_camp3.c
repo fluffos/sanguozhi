@@ -1,4 +1,4 @@
-//  Ö÷Ë§ÓªÕÊ  by Benben
+//  ä¸»å¸…è¥å¸  by Benben
 // ty_camp3.c 
 #include <mudlib.h>
 #include "/wiz/fire/fire.h"
@@ -7,8 +7,8 @@ inherit ROOM;
 void setup(){
     set_area("ty_area");
     set_light(50);
-    set_brief(""+YEL+"Ö÷Ë§ÓªÕÊ"+NOR+"");
-    set_long("    ÃèÊö¡£\n");
+    set_brief(""+YEL+"ä¸»å¸…è¥å¸"+NOR+"");
+    set_long("    æè¿°ã€‚\n");
     set_exits( ([
         "east" :  __DIR__+"ty_camp4.c",
     ]) );

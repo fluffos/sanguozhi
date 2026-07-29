@@ -5,11 +5,11 @@
 // $N refers to itself and $n refers to enermy troop
 #include <ansi.h>
 private mapping *do_attack = ({
-	(["msg":HIB"Æï±ø¶Ó·Ö³ÉÁ½Ö§ÏòµĞÈËÁ½Òí°ü³­¹ıÈ¥¡£"NOR,
+	(["msg":HIB"éª‘å…µé˜Ÿåˆ†æˆä¸¤æ”¯å‘æ•Œäººä¸¤ç¿¼åŒ…æŠ„è¿‡å»ã€‚"NOR,
 	  "damage": 7,]),
-        (["msg":HIY"Æï±ø¶Ó»ÓÎè×Å±øÆ÷Å­ºğ×ÅÏòµĞÈË³åÈ¥¡£"NOR,
+        (["msg":HIY"éª‘å…µé˜ŸæŒ¥èˆç€å…µå™¨æ€’å¼ç€å‘æ•Œäººå†²å»ã€‚"NOR,
           "damage": 8,]),
-        (["msg":HIG"Æï±ø¶ÓÂıÂıµÄ£¬ÊÔÌ½×Å£¬ÏòµĞ¾ü¹¥È¥¡£"NOR,
+        (["msg":HIG"éª‘å…µé˜Ÿæ…¢æ…¢çš„ï¼Œè¯•æ¢ç€ï¼Œå‘æ•Œå†›æ”»å»ã€‚"NOR,
           "damage": 6,]),
 });
 mapping query_attack(string environment)
@@ -24,7 +24,7 @@ string query_id()
 }
 string query_name()
 {
-	return "Æï±ø";
+	return "éª‘å…µ";
 }
 string query_type()
 {
@@ -55,10 +55,10 @@ int query_energy_recover(string environment, int weather, int zhenfa)
 {
         int cost;
 
-        if( environment == "¡Ä" ) cost = 3;
-        else if ( environment == "¡«" ) cost = 3;
-        else if ( environment == "£®" ) cost = 8;
-        else if ( environment == "£ª" ) cost = 8;
+        if( environment == "âˆ§" ) cost = 3;
+        else if ( environment == "ï½" ) cost = 3;
+        else if ( environment == "ï¼" ) cost = 8;
+        else if ( environment == "ï¼Š" ) cost = 8;
         else cost = 4;
 
         if( weather == 0 ) cost = cost + 1;
@@ -75,11 +75,11 @@ int query_energy_cost(string environment, int weather, int zhenfa)
 {
 	int cost;
 
-	if( environment == "¡Ä" ) cost =21;
-	else if ( environment == "¡«" ) cost = 21;
+	if( environment == "âˆ§" ) cost =21;
+	else if ( environment == "ï½" ) cost = 21;
 // edc 08/15/2001 add move speed for cavalry
-	else if ( environment == "£®" ) cost = 8; //15;
-	else if ( environment == "£ª" ) cost = 8; //15;
+	else if ( environment == "ï¼" ) cost = 8; //15;
+	else if ( environment == "ï¼Š" ) cost = 8; //15;
 	else cost = 20;
 ////
 	if( weather == 0 ) cost = cost - 2;
@@ -102,7 +102,7 @@ int query_basic_attack(string environment, int weather, int zhenfa)
 // can not enter
 string *query_forbiden()
 {
-	return ({"¡ù", });
+	return ({"â€»", });
 }
 // Special abilily of the troop such as bowman can use
 // bow and arrow to attack

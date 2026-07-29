@@ -1,4 +1,4 @@
-// Âñ·ü
+// åŸ‹ä¼
 #include <mudlib.h>
 #include <daemons.h>
 #include <ansi.h>
@@ -16,23 +16,23 @@ void main(object ob)
 	p_id=TROOP_D->get_char_troop(this_body()->query_id()[0]);
 	p_name=this_body()->query_id()[0];
 	if(!(CHAR_D->get_char(p_name,"skills")))
-       	{       write("Äã²»»áÂñ·üÖ®¼Æ¡£\n");
+       	{       write("ä½ ä¸ä¼šåŸ‹ä¼ä¹‹è®¡ã€‚\n");
                 return;
        	}
 	
         if(!p_skill=CHAR_D->get_char(p_name,"skills")["maifu"])
-	{	write("Äã²»»áÂñ·üÖ®¼Æ¡£\n");
+	{	write("ä½ ä¸ä¼šåŸ‹ä¼ä¹‹è®¡ã€‚\n");
 		return;
 	}
 	if( !p_id){
-                write("Ö»ÓĞÉíÔÚ¾üÖĞ²ÅÄÜÊ¹ÓÃÂñ·üÖ®¼Æ¡£\n");
+                write("åªæœ‰èº«åœ¨å†›ä¸­æ‰èƒ½ä½¿ç”¨åŸ‹ä¼ä¹‹è®¡ã€‚\n");
                 return;
         };	
 	// In the furture, We have to consider theplayer's ablility
 	// add the exp of this jimou, reduce mp, etc.
 
 	ob->simple_action(SG_SKILL_D->query_use("maifu"));
-	ob->start_busy(10, "ÄãÕıÃ¦ÓÚÊ¹ÓÃÂñ·üÖ®¼Æ¡£");
+	ob->start_busy(10, "ä½ æ­£å¿™äºä½¿ç”¨åŸ‹ä¼ä¹‹è®¡ã€‚");
 
 	call_out("show_result", 5+random(5), ob);
 }
@@ -70,7 +70,7 @@ void show_result(object ob)
 "/daemons/condition_d.c"->apply_condition(p_id,"confuse",mora,damage);
 	  
 	WARAI_D->war_inf(TROOP_D->get_troops(p_id,"task_id"),
-TROOP_D->find_troop(p_id)->query_id()[1]+"Ê¹ÓÃÂñ·üÖ®¼ÆÊ§°Ü£¬ÏİÈë»ìÂÒÖ®ÖĞ¡£","b");	
+TROOP_D->find_troop(p_id)->query_id()[1]+"ä½¿ç”¨åŸ‹ä¼ä¹‹è®¡å¤±è´¥ï¼Œé™·å…¥æ··ä¹±ä¹‹ä¸­ã€‚","b");	
 	}
 	else {
 	damage = (random(p_skill) + 12)/ 12;	

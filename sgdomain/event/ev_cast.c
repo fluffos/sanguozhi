@@ -24,7 +24,7 @@ int j,k,tp;
 
 
         remove_call_out("start");
-        //ÔİÊ±¹Ø±ÕÕâ¸öÄ£¿éµÄNPC jimou²Ù×÷£¬×¨ÓÃtroop_heartÀ´¿ØÖÆ suicide 20001.4.29
+        //æš‚æ—¶å…³é—­è¿™ä¸ªæ¨¡å—çš„NPC jimouæ“ä½œï¼Œä¸“ç”¨troop_heartæ¥æ§åˆ¶ suicide 20001.4.29
         return; 
         if(!count)
         {
@@ -48,7 +48,7 @@ for(k=0;k<tp;k++){
         foreach (int i in troops)
         {
                 chars = TROOP_D->get_troops(i,"chars");
-if(CHAR_D->get_char(chars[0],"taskstr")!="Õ½Õù")
+if(CHAR_D->get_char(chars[0],"taskstr")!="æˆ˜äº‰")
                 {
                         troops-=({i});
                         continue;

@@ -7,7 +7,7 @@
 */
 
 #include <playerflags.h>
-#define USAGE "ÓÃ·¨: verbose [on|off]\n"
+#define USAGE "ç”¨æ³•: verbose [on|off]\n"
 
 inherit CMD;
 
@@ -15,14 +15,14 @@ inherit CMD;
 
 private string query_setting()
 {
-    return this_body()->test_flag(F_BRIEF) ? "¹Ø±Õ" : "¿ªÆô";
+    return this_body()->test_flag(F_BRIEF) ? "å…³é—­" : "å¼€å¯";
 }
 
 nomask private void main(string arg)
 {
     if ( !arg || arg == "" )
     {
-        out("Ä¿Ç° Verbose ×´Ì¬ÊÇ" + query_setting() +
+        out("ç›®å‰ Verbose çŠ¶æ€æ˜¯" + query_setting() +
               ".\n" + USAGE);
         return;
     }
@@ -42,5 +42,5 @@ nomask private void main(string arg)
         return;
     }
 
-    out("ÏÖÔÚ" + query_setting() + " verbose ×´Ì¬¡£\n");
+    out("ç°åœ¨" + query_setting() + " verbose çŠ¶æ€ã€‚\n");
 }

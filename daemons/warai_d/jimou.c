@@ -117,7 +117,7 @@ void cast_jm(string p_id, int t_id, int skill, int type)
          if(i=can_fenfa(t_id))
           { __SGJI__"fenfa.c"->main(ob);
            SGSYS(p_id+"use fenfa skill.");
-           //if (i<4) //²»±»ËÄÃæÎ§¹¥¾ÍÌÓ»Ø³Ç
+           //if (i<4) //ä¸è¢«å››é¢å›´æ”»å°±é€ƒå›åŸ
               {
               mixed mtmp=TROOP_D->get_troops(t_id,"command");
               mtmp["action"]="match";
@@ -212,8 +212,8 @@ mixed  npc_char=TROOP_D->get_troops(t_id,"chars");
 if (!npc_char) return;
 if (arrayp(npc_char)) 
     npc_char=TROOP_D->get_troops(t_id,"chars")[0];
-if (!random(3))  //1/3»ú»á
-    cast_jm(npc_char,t_id,100,2);  //ÓÃ100µÄ¼¼ÄÜÈ¥ÍêÈ«½â³ınpc²¿¶ÓµÄÖĞ¶¾»òÕßÊÇ»ìÂÒ×´Ì¬¡£
+if (!random(3))  //1/3æœºä¼š
+    cast_jm(npc_char,t_id,100,2);  //ç”¨100çš„æŠ€èƒ½å»å®Œå…¨è§£é™¤npcéƒ¨é˜Ÿçš„ä¸­æ¯’æˆ–è€…æ˜¯æ··ä¹±çŠ¶æ€ã€‚
 if (random(3)==1)
    cast_jm(npc_char,t_id,100,0);
 else 

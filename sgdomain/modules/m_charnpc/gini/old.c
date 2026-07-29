@@ -24,13 +24,13 @@ void op_method(string str) {
 		u->modal_pop();		
 		remove_call_out("no_select_answer");
 		ol_method="stay";
-                tell_user(ol_id,"ÓÉÓÚÄãÒÑ±»ÁĞÈë"+AREA_D->get_area(my_area,"name")+
-                  "µÄºÚÃûµ¥£¬Èç´ËÄã±ã²»±ØÇ×¸°ÏÖ³¡Ö¸µ¼ÁË£¬ÇëÔ¶³Ì°ïÖúÎÒµÄÖ÷ÈË°É¡£\n");
+                tell_user(ol_id,"ç”±äºä½ å·²è¢«åˆ—å…¥"+AREA_D->get_area(my_area,"name")+
+                  "çš„é»‘åå•ï¼Œå¦‚æ­¤ä½ ä¾¿ä¸å¿…äº²èµ´ç°åœºæŒ‡å¯¼äº†ï¼Œè¯·è¿œç¨‹å¸®åŠ©æˆ‘çš„ä¸»äººå§ã€‚\n");
 this_object()->targetted_action(
-"%^H_BLUE%^$N¶Ô$Tµ½£ºÄãÄ¿Ç°µÄ¹¤×÷¾ÍÊÇ°ïÖúÎÒµÄÖ÷ÈË%^H_RED%^$o%^H_BLUE%^¡£
-Îå·ÖÖÓºó£¬ÎÒ»áÎÊÎÒÖ÷ÈË¶ÔÄãµÄ°ïÖúÂú²»ÂúÒâ£¬
-Èç¹ûÂúÒâ£¬Äã»áµÃµ½½±Àø£»·´Ö®ÎÒ½«ÒÔ´ó¾«ÁéµÄÃûÒå·£Äã%^H_RED%^×øÀÎÎå·ÖÖÓ¡£%^RESET%^\n",od,o);
-		this_object()->responda("say "+ol_name+"can't come£¬¾ÍÈÃËûÒ£¿ØÖ¸µ¼ÁË¡£");
+"%^H_BLUE%^$Nå¯¹$Tåˆ°ï¼šä½ ç›®å‰çš„å·¥ä½œå°±æ˜¯å¸®åŠ©æˆ‘çš„ä¸»äºº%^H_RED%^$o%^H_BLUE%^ã€‚
+äº”åˆ†é’Ÿåï¼Œæˆ‘ä¼šé—®æˆ‘ä¸»äººå¯¹ä½ çš„å¸®åŠ©æ»¡ä¸æ»¡æ„ï¼Œ
+å¦‚æœæ»¡æ„ï¼Œä½ ä¼šå¾—åˆ°å¥–åŠ±ï¼›åä¹‹æˆ‘å°†ä»¥å¤§ç²¾çµçš„åä¹‰ç½šä½ %^H_RED%^åç‰¢äº”åˆ†é’Ÿã€‚%^RESET%^\n",od,o);
+		this_object()->responda("say "+ol_name+"can't comeï¼Œå°±è®©ä»–é¥æ§æŒ‡å¯¼äº†ã€‚");
 
 		ol_state="beg_help";
 		set_my_task("op");
@@ -43,13 +43,13 @@ this_object()->targetted_action(
 		remove_call_out("no_select_answer");
 		ol_method="come";
 
-		od->simple_action("$N±»Ò»Õó·ç¾íÆğ¡£\n");
+		od->simple_action("$Nè¢«ä¸€é˜µé£å·èµ·ã€‚\n");
 		od->move(o->query_room());
-		od->simple_action("$N´Ó¿ÕÖĞµôÁËÏÂÀ´¡£\n");
+		od->simple_action("$Nä»ç©ºä¸­æ‰äº†ä¸‹æ¥ã€‚\n");
 		this_object()->targetted_action(
-"%^H_BLUE%^$N¶Ô$Tµ½£ºÄãÄ¿Ç°µÄ¹¤×÷¾ÍÊÇ°ïÖúÎÒµÄÖ÷ÈË%^H_RED%^$o%^H_BLUE%^¡£
-Îå·ÖÖÓºó£¬ÎÒ»áÎÊÎÒÖ÷ÈË¶ÔÄãµÄ°ïÖúÂú²»ÂúÒâ£¬
-Èç¹ûÂúÒâ£¬Äã»áµÃµ½½±Àø£»·´Ö®ÎÒ½«ÒÔ´ó¾«ÁéµÄÃûÒå·£Äã%^H_RED%^×øÀÎÎå·ÖÖÓ¡£%^RESET%^\n",od,o);
+"%^H_BLUE%^$Nå¯¹$Tåˆ°ï¼šä½ ç›®å‰çš„å·¥ä½œå°±æ˜¯å¸®åŠ©æˆ‘çš„ä¸»äºº%^H_RED%^$o%^H_BLUE%^ã€‚
+äº”åˆ†é’Ÿåï¼Œæˆ‘ä¼šé—®æˆ‘ä¸»äººå¯¹ä½ çš„å¸®åŠ©æ»¡ä¸æ»¡æ„ï¼Œ
+å¦‚æœæ»¡æ„ï¼Œä½ ä¼šå¾—åˆ°å¥–åŠ±ï¼›åä¹‹æˆ‘å°†ä»¥å¤§ç²¾çµçš„åä¹‰ç½šä½ %^H_RED%^åç‰¢äº”åˆ†é’Ÿã€‚%^RESET%^\n",od,o);
 		ol_state="beg_help";
 		set_my_task("op");
 	}
@@ -61,16 +61,16 @@ this_object()->targetted_action(
 		ol_method="stay";
 
 this_object()->targetted_action(
-"%^H_BLUE%^$N¶Ô$Tµ½£ºÄãÄ¿Ç°µÄ¹¤×÷¾ÍÊÇ°ïÖúÎÒµÄÖ÷ÈË%^H_RED%^$o%^H_BLUE%^¡£
-Îå·ÖÖÓºó£¬ÎÒ»áÎÊÎÒÖ÷ÈË¶ÔÄãµÄ°ïÖúÂú²»ÂúÒâ£¬
-Èç¹ûÂúÒâ£¬Äã»áµÃµ½½±Àø£»·´Ö®ÎÒ½«ÒÔ´ó¾«ÁéµÄÃûÒå·£Äã%^H_RED%^×øÀÎÎå·ÖÖÓ¡£%^RESET%^\n",od,o);
-		this_object()->responda("say "+ol_name+"²»Ô¸ÏÖ³¡Ö¸µ¼£¬¾ÍÈÃËûÒ£¿ØÖ¸µ¼ÁË¡£");
+"%^H_BLUE%^$Nå¯¹$Tåˆ°ï¼šä½ ç›®å‰çš„å·¥ä½œå°±æ˜¯å¸®åŠ©æˆ‘çš„ä¸»äºº%^H_RED%^$o%^H_BLUE%^ã€‚
+äº”åˆ†é’Ÿåï¼Œæˆ‘ä¼šé—®æˆ‘ä¸»äººå¯¹ä½ çš„å¸®åŠ©æ»¡ä¸æ»¡æ„ï¼Œ
+å¦‚æœæ»¡æ„ï¼Œä½ ä¼šå¾—åˆ°å¥–åŠ±ï¼›åä¹‹æˆ‘å°†ä»¥å¤§ç²¾çµçš„åä¹‰ç½šä½ %^H_RED%^åç‰¢äº”åˆ†é’Ÿã€‚%^RESET%^\n",od,o);
+		this_object()->responda("say "+ol_name+"ä¸æ„¿ç°åœºæŒ‡å¯¼ï¼Œå°±è®©ä»–é¥æ§æŒ‡å¯¼äº†ã€‚");
 		ol_state="beg_help";
 		set_my_task("op");
 	}
 }
 void no_select_answer() {
-	tell_user(ol_id,"²»»Ø´ğ±íÊ¾Ô¸ÒâÏÖ³¡Ö¸µ¼¡£\n");
+	tell_user(ol_id,"ä¸å›ç­”è¡¨ç¤ºæ„¿æ„ç°åœºæŒ‡å¯¼ã€‚\n");
 	op_method("y");
 }
 void my_call_old_player() {
@@ -121,16 +121,16 @@ void my_call_old_player() {
 	ol_name=od->query_chinese_id();
 	od->resign_job("helper");
 	od->add_job("helper");
-	od->set_job("helper","memo","°ïÖú"+get_my_master_name());
+	od->set_job("helper","memo","å¸®åŠ©"+get_my_master_name());
 	this_object()->responda("tell "+p_id+" "+
-"Ç×°®µÄ"+ol_name+"£ºÄã±»Ñ¡ÔñÖ¸µ¼ÎÒ¼ÒÖ÷ÈË"+get_my_master_name()+"("+get_my_master()+")"+
-"Îå·ÖÖÓ¡£\n"+"ÄãÔ¸²»Ô¸ÒâÇ×ÁÙÏÖ³¡Ö¸µ¼£¬ÕâÑù»áÊ¹ÄãµÄ½±Àø¼Ó±¶¡£");
+"äº²çˆ±çš„"+ol_name+"ï¼šä½ è¢«é€‰æ‹©æŒ‡å¯¼æˆ‘å®¶ä¸»äºº"+get_my_master_name()+"("+get_my_master()+")"+
+"äº”åˆ†é’Ÿã€‚\n"+"ä½ æ„¿ä¸æ„¿æ„äº²ä¸´ç°åœºæŒ‡å¯¼ï¼Œè¿™æ ·ä¼šä½¿ä½ çš„å¥–åŠ±åŠ å€ã€‚");
 	tell_user(p_id,"\n");
-	set_this_player(od);
-	find_user(p_id)->modal_push((: op_method :), "ÇëÎÊ£¬ÄãÔ¸ÒâÇ×ÁÙÏÖ³¡°ïÖúÂğ£¿<y|n>£º",0,0,0);
+	// set_this_player(od); // set_this_player() unavailable in this driver build (no NO_ADD_ACTION) -- no-op'd, this_player() is whatever it naturally is here
+	find_user(p_id)->modal_push((: op_method :), "è¯·é—®ï¼Œä½ æ„¿æ„äº²ä¸´ç°åœºå¸®åŠ©å—ï¼Ÿ<y|n>ï¼š",0,0,0);
 	ol_state="select_method";
 	call_out("no_select_answer",30);
-	this_object()->responda("say ÈÃ"+ol_name+"°ïÖúÄã£¬¿´Ëû»á²»»áÇ××ÔÀ´¡£");
+	this_object()->responda("say è®©"+ol_name+"å¸®åŠ©ä½ ï¼Œçœ‹ä»–ä¼šä¸ä¼šäº²è‡ªæ¥ã€‚");
 
 }
 
@@ -146,11 +146,11 @@ void op_award(object usr)
     p_name=CHAR_D->get_char(p_id,"name");
     if(isrobot)
     {   this_object()->simple_action(
-         "$N°µĞ¦µÀ£ºÕæÊÇ¸ö°×³Õ,ºÙºÙ£¬²»±Ø¸ø½±ÁË¡£\n");
+         "$Næš—ç¬‘é“ï¼šçœŸæ˜¯ä¸ªç™½ç—´,å˜¿å˜¿ï¼Œä¸å¿…ç»™å¥–äº†ã€‚\n");
     }
     else
     {
-        this_object()->simple_action("$NËµµ½£º²»´í£¬²»´í£®\n");
+        this_object()->simple_action("$Nè¯´åˆ°ï¼šä¸é”™ï¼Œä¸é”™ï¼\n");
 	ob->award_exp(100);
         CHAR_D->set_char(p_id,"reputation",
 		CHAR_D->get_char(p_id,"reputation")+100);
@@ -161,9 +161,9 @@ void op_award(object usr)
 			CHAR_D->get_char(p_id,"reputation")+100);
 	}
 
-        tell_user(p_id,"ÄãµÄÉùÍûºÍ¼¼ÄÜÌá¸ßÁË¡£\n");
+        tell_user(p_id,"ä½ çš„å£°æœ›å’ŒæŠ€èƒ½æé«˜äº†ã€‚\n");
 	CHANNEL_D->deliver_tell("gossip",this_object()->short(),
-	   p_name+"»ı¼«°ïÖúĞÂÊÖ£¬"+p_name+"µÄÉùÍûºÍ¼¼ÄÜÌá¸ßÁË¡£");
+	   p_name+"ç§¯æå¸®åŠ©æ–°æ‰‹ï¼Œ"+p_name+"çš„å£°æœ›å’ŒæŠ€èƒ½æé«˜äº†ã€‚");
     }
 }
 void op_input(string inp) {
@@ -180,7 +180,7 @@ void op_input(string inp) {
 	if((inp=="y")||(inp=="Y")) {
 		od->finish_job("helper");
 		u->modal_pop();
-		o->targetted_action("$N¶Ô$TÒ»¹°ÊÖµÀ£º¶àĞ»$RµÄ°ïÖú£¬$s¸ĞĞ»²»¾¡¡£\n",od);
+		o->targetted_action("$Nå¯¹$Tä¸€æ‹±æ‰‹é“ï¼šå¤šè°¢$Rçš„å¸®åŠ©ï¼Œ$sæ„Ÿè°¢ä¸å°½ã€‚\n",od);
 		ol_state="test_rob";
 		ROBOT->robot_test(od->query_link(),(:op_award:));
 		return ;
@@ -189,16 +189,16 @@ void op_input(string inp) {
 		od->finish_job("helper");
 		set_my_task("");
 		u->modal_pop();
-		o->targetted_action("$N¶Ô$TµÀ£ºÆøËÀÎÒÁË£¬¸øÎÒ°Ñ$o¸Ï×ß¡£\n",this_object(),od);
-		this_object()->targetted_action("$N°Ñ$TÒ»½ÅÌß×ßÁË¡£\n",od);
+		o->targetted_action("$Nå¯¹$Té“ï¼šæ°”æ­»æˆ‘äº†ï¼Œç»™æˆ‘æŠŠ$oèµ¶èµ°ã€‚\n",this_object(),od);
+		this_object()->targetted_action("$NæŠŠ$Tä¸€è„šè¸¢èµ°äº†ã€‚\n",od);
 		CHANNEL_D->deliver_tell("gossip",this_object()->short(),
-		   p_name+"²»¿Ï°ïÖúĞÂÊÖ£¬"+p_name+"±»¹Ø½ø¼àÓüÁË¡£");
+		   p_name+"ä¸è‚¯å¸®åŠ©æ–°æ‰‹ï¼Œ"+p_name+"è¢«å…³è¿›ç›‘ç‹±äº†ã€‚");
 		CHAR_D->put_prison(p_id,5);
 		return ;
 	}
 }
 void no_answer_sat() {
-	this_object()->responda("say ²»»Ø´ğ¾ÍÊÇÂúÒâ¡£");
+	this_object()->responda("say ä¸å›ç­”å°±æ˜¯æ»¡æ„ã€‚");
 	op_input("y");
 }
 void my_test_op() {
@@ -212,7 +212,7 @@ void my_test_op() {
 	p_name=CHAR_D->get_char(p_id,"name");
 	p_area=CHAR_D->get_char(p_id,"area");
 	if(!objectp(od)) {
-		this_object()->responda("say "+p_name+"µ¨¸ÒÌÓÅÜ£¬ÎÒ°ÑËûËÍ½ø´óÀÎ¡£");
+		this_object()->responda("say "+p_name+"èƒ†æ•¢é€ƒè·‘ï¼Œæˆ‘æŠŠä»–é€è¿›å¤§ç‰¢ã€‚");
 		set_my_task("");
 		CHAR_D->put_prison(p_id,5);
 		return;
@@ -220,40 +220,40 @@ void my_test_op() {
 
 	switch(ol_state) {
 		case "select_method" :
-			this_object()->responda("say »¹²»ÖªµÀ"+p_name+"À´²»À´¡£");
-			this_object()->responda("tell "+p_id+" Äãµ½µ×À´»¹ÊÇ²»À´¡£");
+			this_object()->responda("say è¿˜ä¸çŸ¥é“"+p_name+"æ¥ä¸æ¥ã€‚");
+			this_object()->responda("tell "+p_id+" ä½ åˆ°åº•æ¥è¿˜æ˜¯ä¸æ¥ã€‚");
 			return;
 		case "beg_help" :
 			p_time=o->get_gini_q("op_time");
 			if((time()-p_time)<300) // less than 5 min
 			{
 				this_object()->targetted_action(
-				"$N¶Ô$TµÀ£ººÃºÃ°ïÖúÎÒ¼ÒÖ÷ÈË$o£¬»áÓĞ½±ÉÍµÄ¡£\n",od,o);
+				"$Nå¯¹$Té“ï¼šå¥½å¥½å¸®åŠ©æˆ‘å®¶ä¸»äºº$oï¼Œä¼šæœ‰å¥–èµçš„ã€‚\n",od,o);
 				return ;
 			}
 			u=o->query_link();
 			if(!objectp(u)) return;
 			this_object()->targetted_action(
-				"$N¶Ô$TµÀ£ºÄãÏÖÔÚ¾ÍµÈÎÒ¼ÒÖ÷ÈË$o¶ÔÄãµÄÆÀ¼ÛÁË¡£\n",od,o);
-			tell_user(get_my_master(),"ÇëÎÊ£¬Äã¶Ô" + p_name + 
-                                "µÄ°ïÖúÂúÒâÂğ£¿<y|n>£º\n");
+				"$Nå¯¹$Té“ï¼šä½ ç°åœ¨å°±ç­‰æˆ‘å®¶ä¸»äºº$oå¯¹ä½ çš„è¯„ä»·äº†ã€‚\n",od,o);
+			tell_user(get_my_master(),"è¯·é—®ï¼Œä½ å¯¹" + p_name + 
+                                "çš„å¸®åŠ©æ»¡æ„å—ï¼Ÿ<y|n>ï¼š\n");
 			ol_state="wait_answer";
-			set_this_player(o);
-			u->modal_push((: op_input :), "ÇëÎÊ£¬Äã¶Ô" + 
-				p_name + "µÄ°ïÖúÂúÒâÂğ£¿<y|n>£º");
+			// set_this_player(o); // set_this_player() unavailable in this driver build (no NO_ADD_ACTION) -- no-op'd, this_player() is whatever it naturally is here
+			u->modal_push((: op_input :), "è¯·é—®ï¼Œä½ å¯¹" + 
+				p_name + "çš„å¸®åŠ©æ»¡æ„å—ï¼Ÿ<y|n>ï¼š");
 			call_out("no_answer_sat",30);
 			return ;
 		case "wait_answer" :
 			this_object()->targetted_action(
-				"$N¶Ô$TµÀ£ºÄãÏÖÔÚ¾ÍµÈÎÒ¼ÒÖ÷ÈË$o¶ÔÄãµÄÆÀ¼ÛÁË¡£\n",od,o);
-			tell_user(get_my_master(),"ÇëÎÊ£¬Äã¶Ô" + p_name + 
-                                "µÄ°ïÖúÂúÒâÂğ£¿<y|n>£º\n");
+				"$Nå¯¹$Té“ï¼šä½ ç°åœ¨å°±ç­‰æˆ‘å®¶ä¸»äºº$oå¯¹ä½ çš„è¯„ä»·äº†ã€‚\n",od,o);
+			tell_user(get_my_master(),"è¯·é—®ï¼Œä½ å¯¹" + p_name + 
+                                "çš„å¸®åŠ©æ»¡æ„å—ï¼Ÿ<y|n>ï¼š\n");
 			return ;
 		case "test_rob":
-			this_object()->responda("say "+ol_name+"ÕıÔÚ½øĞĞÖÇÄÜ²âÊÔ¡£");
+			this_object()->responda("say "+ol_name+"æ­£åœ¨è¿›è¡Œæ™ºèƒ½æµ‹è¯•ã€‚");
 			return ;
 
 		default :
-			this_object()->responda("say ÓĞbug,¿ì±¨¸æwiz°É¡£");
+			this_object()->responda("say æœ‰bug,å¿«æŠ¥å‘Šwizå§ã€‚");
 	}
 }

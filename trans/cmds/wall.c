@@ -8,7 +8,7 @@ inherit CMD;
 inherit M_GRAMMAR;
 
 
-#define SYNTAX  "ÓÃ·¨: wall <ÏûÏ¢>\n"
+#define SYNTAX  "ç”¨æ³•: wall <æ¶ˆæ¯>\n"
 
 void create()
 {
@@ -20,8 +20,8 @@ private void main( string arg )
 {
     string              broadcast;
 
-    if ( !check_privilege(1) )			//Ô­À´ÊÇ"Admin:system"
-        error("Ö»ÓÐ´óÉñ²Å¿ÉÒÔÓÃ wall\n"); //"Must be an admin to use wall.\n");
+    if ( !check_privilege(1) )			//åŽŸæ¥æ˜¯"Admin:system"
+        error("åªæœ‰å¤§ç¥žæ‰å¯ä»¥ç”¨ wall\n"); //"Must be an admin to use wall.\n");
 
     if( !sizeof( arg ))
     {
@@ -29,7 +29,7 @@ private void main( string arg )
         return;
     }
 
-    broadcast = sprintf("%s ÓÚ %s ·¢³öÏµÍ³ÐÅÏ¢£º\n    %s\n",
+    broadcast = sprintf("%s äºŽ %s å‘å‡ºç³»ç»Ÿä¿¡æ¯ï¼š\n    %s\n",
       this_body()->query_name(), ctime(time()),
       punctuate(arg) );
 

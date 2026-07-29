@@ -1,5 +1,5 @@
 // by fire on Jan 8 1998
-// dunjia.c ¶İ¼×ÌìÊé
+// dunjia.c éç”²å¤©ä¹¦
 #include <ansi.h>
 #include <sanguo.h>
 inherit OBJ;
@@ -13,29 +13,29 @@ int study_book()
   switch(p_res)
   {
         case TOO_TIRED:
-		this_body()->simple_action("$NÏëÑĞ¾¿ÆæÃÅ¶İ¼×£¬¿Éî§Ë¯µÃÁ¬ÑÛ¾¦¶¼Õö²»¿ª¡£\n");
+		this_body()->simple_action("$Næƒ³ç ”ç©¶å¥‡é—¨éç”²ï¼Œå¯çŒç¡å¾—è¿çœ¼ç›éƒ½çä¸å¼€ã€‚\n");
                 return 0;
 	case LESS_EXP:
-                this_body()->simple_action("$N°ÑÊé·­ÁË°ëÌì£¬×ÜÊÇÁì»á²»ÁËÆäÖĞµÄ°ÂÃî¡£\n");
+                this_body()->simple_action("$NæŠŠä¹¦ç¿»äº†åŠå¤©ï¼Œæ€»æ˜¯é¢†ä¼šä¸äº†å…¶ä¸­çš„å¥¥å¦™ã€‚\n");
                 return 0;
         case TOO_EASY:
-                this_body()->simple_action("$N·¢ÏÖÕâ±¾ÊéÌ«¼òµ¥ÁË¡£\n");
+                this_body()->simple_action("$Nå‘ç°è¿™æœ¬ä¹¦å¤ªç®€å•äº†ã€‚\n");
                 return 0;
         case CAN_LEARN:
                 p_st=SG_SKILL_D->query_get("qmdj");
                 this_body()->simple_action(p_st);
                 return 1;
         default :
-                write("²»ÖªÎªÊ²Ã´ÄãÑ§²»»á£¬ÎÊÎÊÎ×Ê¦°É¡£\n");
+                write("ä¸çŸ¥ä¸ºä»€ä¹ˆä½ å­¦ä¸ä¼šï¼Œé—®é—®å·«å¸ˆå§ã€‚\n");
   }
   return 0;
 }
 void setup() {
-    set_adj("ÆÆÀÃ²»¿°µÄ");
-    set_unit("±¾");
-    set_id("book", "¡¶¶İ¼×ÌìÊé¡·µÚÒ»¾í");
-    set_long("Ò»±¾ÆÆÀÃ²»¿°¹ÅÊé£¬¿´ÉÏÈ¥ºÜÓĞÄêÍ·ÁË¡£\n");
-    set_getmsg("$N ¼ìÆğ·¨ÊõÊé£¬¼¤¶¯µÃË«ÊÖ·¢¶¶"); 
+    set_adj("ç ´çƒ‚ä¸å ªçš„");
+    set_unit("æœ¬");
+    set_id("book", "ã€Šéç”²å¤©ä¹¦ã€‹ç¬¬ä¸€å·");
+    set_long("ä¸€æœ¬ç ´çƒ‚ä¸å ªå¤ä¹¦ï¼Œçœ‹ä¸Šå»å¾ˆæœ‰å¹´å¤´äº†ã€‚\n");
+    set_getmsg("$N æ£€èµ·æ³•æœ¯ä¹¦ï¼Œæ¿€åŠ¨å¾—åŒæ‰‹å‘æŠ–"); 
     set_study_action((: study_book :));
     set_gettable(1);
 }

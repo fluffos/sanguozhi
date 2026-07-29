@@ -19,7 +19,7 @@ void do_dismount(object what)
 
   if(what != environment(this_body()))
     {
-      write("Äã²»ÔÚËüÉÏÃæ¡£\n");
+      write("ä½ ä¸åœ¨å®ƒä¸Šé¢ã€‚\n");
       return;
     }
   if(s = what->dismount())
@@ -29,8 +29,8 @@ void do_dismount(object what)
           if(stringp(s))
             this_body()->simple_action(s);
           else
-            this_body()->simple_action("$N´Ó" + what->short()+
-                                       "ÏÂÀ´¡£");
+            this_body()->simple_action("$Nä»" + what->short()+
+                                       "ä¸‹æ¥ã€‚");
         }
       else
         {
@@ -40,7 +40,7 @@ void do_dismount(object what)
   else
     {
       if(!environment(environment(this_body())))
-        write("ÄãÒÑ¾­ÊÇÕ¾×ÅµÄÁË¡£\n");
+        write("ä½ å·²ç»æ˜¯ç«™ç€çš„äº†ã€‚\n");
       else
         write("You're have no mount of which to speak.\n");
     }
@@ -51,7 +51,7 @@ void do_dismount_obj(object o)
   do_dismount(o);
 }
 
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ "", "OBJ" }) });
 }

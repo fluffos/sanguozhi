@@ -147,23 +147,23 @@ void announce_task(int task_id)
    switch(question)
    {
      case "arrange" :
-       mess="½«±ø·ÖºÃ£¬ÁìÈëÕ½³¡¡£";
+       mess="å°†å…µåˆ†å¥½ï¼Œé¢†å…¥æˆ˜åœºã€‚";
        break;
      case "moveme" :
        s_point=WARAI_D->get_pos_disp
           (WARAI_D->point_toint(trainpara));
-       mess="ÐÐ¾üµ½"+s_point+"¡£";
+       mess="è¡Œå†›åˆ°"+s_point+"ã€‚";
        break;
      case "moveother":
        my_troop=keys(trainpara)[0];
        s_point=trainpara[my_troop];
        s_point=WARAI_D->get_pos_disp
           (WARAI_D->point_toint(s_point));
-       mess="Ö¸»Ó"+TROOP_D->get_troops(my_troop,"name")+
-          "ÐÐ¾üµ½"+s_point+"¡£";
+       mess="æŒ‡æŒ¥"+TROOP_D->get_troops(my_troop,"name")+
+          "è¡Œå†›åˆ°"+s_point+"ã€‚";
        break;
      case "moveall":
-       mess="Íê³ÉÒÔÏÂÐÐ¾üÈÎÎñ£º\n";
+       mess="å®Œæˆä»¥ä¸‹è¡Œå†›ä»»åŠ¡ï¼š\n";
        troops=keys(trainpara);
        { int i,sum;
          sum=sizeof(troops);
@@ -173,40 +173,40 @@ void announce_task(int task_id)
            s_point=WARAI_D->get_pos_disp
               (WARAI_D->point_toint(s_point));
           mess+=TROOP_D->get_troops(troops[i],"name")+
-          "µ½"+s_point+"¡£\n";
+          "åˆ°"+s_point+"ã€‚\n";
          }
        }
        break;
      case "followme":
        my_troop=keys(trainpara)[0];
-       mess="Ö¸»Ó"+TROOP_D->get_troops(my_troop,"name")+
-          "×·»÷·½Ê½ÐÐ¾üµ½Äã×Ô¼ºµÄ²¿¶ÓËùÔÚµØ¡£\n";
+       mess="æŒ‡æŒ¥"+TROOP_D->get_troops(my_troop,"name")+
+          "è¿½å‡»æ–¹å¼è¡Œå†›åˆ°ä½ è‡ªå·±çš„éƒ¨é˜Ÿæ‰€åœ¨åœ°ã€‚\n";
        break;
      case "stay" :
        my_troop=trainpara;
-       mess="Ö¸»Ó"+TROOP_D->get_troops(my_troop,"name")+
-          "ÔÚÔ­µØ´ýÃü¡£";
+       mess="æŒ‡æŒ¥"+TROOP_D->get_troops(my_troop,"name")+
+          "åœ¨åŽŸåœ°å¾…å‘½ã€‚";
        break;
      case "guard" :
        my_troop=keys(trainpara)[0];
-       mess="Ö¸»Ó"+TROOP_D->get_troops(my_troop,"name")+
-          "ÔÚÔ­µØ·ÀÊØ£¬·ÀÊØ·¶Î§Îª£º"+
-          CHINESE_D->chinese_number(trainpara[my_troop])+"¡£\n";
+       mess="æŒ‡æŒ¥"+TROOP_D->get_troops(my_troop,"name")+
+          "åœ¨åŽŸåœ°é˜²å®ˆï¼Œé˜²å®ˆèŒƒå›´ä¸ºï¼š"+
+          CHINESE_D->chinese_number(trainpara[my_troop])+"ã€‚\n";
        break;
      case "question":
-       mess="»Ø´ðÏÂÃæÎÊÌâ£¬²»Çå³þÓÃhelp¿´°ïÖúÐÅÏ¢¡£\n";
+       mess="å›žç­”ä¸‹é¢é—®é¢˜ï¼Œä¸æ¸…æ¥šç”¨helpçœ‹å¸®åŠ©ä¿¡æ¯ã€‚\n";
        break;
      case "defence":
-       mess="ÏûÃðµÐ¾ü¡£";
+       mess="æ¶ˆç­æ•Œå†›ã€‚";
        break;
      case "attack":
-       mess="ÏûÃðËùÓÐµÐ¾ü¡£";
+       mess="æ¶ˆç­æ‰€æœ‰æ•Œå†›ã€‚";
        break;
      default:
    }
-   mess="%^H_WHITE%^ÈÎÎñ"+chinese_number(question_num)+"£º"+
-     "ÇëÔÚ"+CHINESE_D->chinese_period((maxtime)*10)+"ÄÚ"+               
-mess+"Ä¿Ç°Ê£ÓàÊ±¼ä£º"+
-       CHINESE_D->chinese_period((maxtime-curtime)*10)+"¡£%^RESET%^\n";
+   mess="%^H_WHITE%^ä»»åŠ¡"+chinese_number(question_num)+"ï¼š"+
+     "è¯·åœ¨"+CHINESE_D->chinese_period((maxtime)*10)+"å†…"+               
+mess+"ç›®å‰å‰©ä½™æ—¶é—´ï¼š"+
+       CHINESE_D->chinese_period((maxtime-curtime)*10)+"ã€‚%^RESET%^\n";
    tell_user(p_leader,mess);
 }

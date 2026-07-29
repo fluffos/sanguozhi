@@ -5,20 +5,20 @@ inherit M_GETTABLE;
 int isfill;
 string short();
 void setup() {
-    set_adj("Ð¡ÇÉµÄ");
-    set_id("shui hu", "Ë®ºø","bottle");
-    set_unit("¸ö");
-    set_in_room_desc("Ò»Ö»½½»¨ÓÃµÄË®ºø(shui hu)¡£");
+    set_adj("å°å·§çš„");
+    set_id("shui hu", "æ°´å£¶","bottle");
+    set_unit("ä¸ª");
+    set_in_room_desc("ä¸€åªæµ‡èŠ±ç”¨çš„æ°´å£¶(shui hu)ã€‚");
     isfill=0;
 }
 string long()
 {
     if(isfill)
     {
-       return "Ò»Ö»½½»¨ÓÃµÄË®ºø(shui hu)¡£\n"+
-        "ÀïÃæ×°ÂúÁËË®¡£\n";
+       return "ä¸€åªæµ‡èŠ±ç”¨çš„æ°´å£¶(shui hu)ã€‚\n"+
+        "é‡Œé¢è£…æ»¡äº†æ°´ã€‚\n";
     }
-    return "Ò»Ö»½½»¨ÓÃµÄË®ºø(shui hu)¡£\n";
+    return "ä¸€åªæµ‡èŠ±ç”¨çš„æ°´å£¶(shui hu)ã€‚\n";
 }
 mixed direct_fill_obj()
 {
@@ -29,11 +29,11 @@ void fill_with(object with)
    string s_obj;
    if(isfill)
    {
-      printf("%sÒÑ¾­ÂúÁË¡£\n",short());
+      printf("%så·²ç»æ»¡äº†ã€‚\n",short());
       return;
    }
    isfill=1;
-   this_body()->simple_action("$N½«"+short()+"×°ÂúÁËË®¡£\n");
+   this_body()->simple_action("$Nå°†"+short()+"è£…æ»¡äº†æ°´ã€‚\n");
 }
 int can_turn()
 {

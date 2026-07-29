@@ -15,7 +15,7 @@ nomask private void main(string str)
     string extra = 0;
     if (!str)
     {
-        write("ÓÃ·¨£ºrmcountry <country_id>\n");
+        write("ç”¨æ³•ï¼šrmcountry <country_id>\n");
         return;
     }
 	extra=COUNTRY_D->remove_country(p_id);

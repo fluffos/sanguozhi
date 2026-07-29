@@ -20,17 +20,17 @@ void do_dig_str_with_str(string st1, string st2)
 	if(!ob2){ return;}
     if(!ob2->can_dig_with_obj())
 	{
-		write(ob2->short()+"好象没法用来挖东西。\n");
+		write(ob2->short()+"濂借薄娌℃硶鐢ㄦ潵鎸栦笢瑗裤�俓n");
 		return;
 	}
 	if(!ob1->is_digable())
 	{
-		write(ob1->short()+"好象不能挖。\n");
+		write(ob1->short()+"濂借薄涓嶈兘鎸栥�俓n");
 		return;
 	}
 	ob2->do_digging(ob1);
 }
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ "STR with STR", }) });
 }

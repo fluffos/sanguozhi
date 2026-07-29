@@ -1,20 +1,20 @@
-// mutong.c "ÄÁÍ¯"
+// mutong.c "ç‰§ç«¥"
 #include <mudlib.h>
 inherit LIVING;
 inherit M_ITEMS;
 
 void setup() {
-    set_name("boy", "ÄÁÍ¯");
+    set_name("boy", "ç‰§ç«¥");
     set_gender(1);
-    set_proper_name("Ğ¡ÄÁÍ¯");
-    set_in_room_desc("·ÅÅ£µÄĞ¡ÄÁÍ¯(boy)");
-    set_long("Ğ¡ÄÁÍ¯ÕıÀÁÑóÑóµØÌÉÔÚÀÏ»ÆÅ£±³ÉÏ£¬ÓÃ²İÃ±ÕÚ×ÅÌ«Ñô£¬ÊÖÉÏÊ±²»Ê±ÍæÅª×ÅÒ»±ú¶ÌµÑ¡£");
+    set_proper_name("å°ç‰§ç«¥");
+    set_in_room_desc("æ”¾ç‰›çš„å°ç‰§ç«¥(boy)");
+    set_long("å°ç‰§ç«¥æ­£æ‡’æ´‹æ´‹åœ°èººåœ¨è€é»„ç‰›èƒŒä¸Šï¼Œç”¨è‰å¸½é®ç€å¤ªé˜³ï¼Œæ‰‹ä¸Šæ—¶ä¸æ—¶ç©å¼„ç€ä¸€æŸ„çŸ­ç¬›ã€‚");
 
-    add_item("¶ÌµÑ", "flute", "duan di",
-		([ "look" : "Ò»±úÊÖÖÆµÄ¶ÌµÑ¡£",
+    add_item("çŸ­ç¬›", "flute", "duan di",
+		([ "look" : "ä¸€æŸ„æ‰‹åˆ¶çš„çŸ­ç¬›ã€‚",
 		]) );
-    add_item("²İÃ±", "hat", "caomao",
-                 ([     "look" : "Ò»¶¥ÆÆ²İÃ±¡£",
-                        "get" : "ÄãÈ¡²»ÏÂÀ´¡£",
+    add_item("è‰å¸½", "hat", "caomao",
+                 ([     "look" : "ä¸€é¡¶ç ´è‰å¸½ã€‚",
+                        "get" : "ä½ å–ä¸ä¸‹æ¥ã€‚",
                  ]) );
 }

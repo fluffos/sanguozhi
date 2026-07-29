@@ -49,7 +49,7 @@ Once approved, the trader will be summoned to the meeting place
 to begin the trading.
 
 The trader can be classified into 2 types:
-- money-minded ¼éÉÌ
+- money-minded å¥¸å•†
 - normal
 
 Each trader may deal with only 1 type of good or all types.

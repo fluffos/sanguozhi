@@ -23,7 +23,7 @@ void banish_name(string name, string reason)
 
   LOG_D->log(LOG_BANISH,
          sprintf(//"%s banished the name %s (%s) because: %s\n",
-                 "%s ½ûÖ¹Ê¹ÓÃÃû×Ö %s £¬Ô­ÒòÊÇ £º%s\n",
+                 "%s ç¦æ­¢ä½¿ç”¨åå­— %s ï¼ŒåŽŸå› æ˜¯ ï¼š%s\n",
              this_user()->query_userid(), name,
              ctime(time()), reason));
 
@@ -50,7 +50,7 @@ void banish_site(string site, string reason)
 
   LOG_D->log(LOG_BANISH,
          sprintf(//"%s banished the site %s (%s) because: %s\n",
-                 "%s ½ûÖ¹ÁËµØÖ· %s £¬Ô­ÒòÊÇ £º%s\n",
+                 "%s ç¦æ­¢äº†åœ°å€ %s ï¼ŒåŽŸå› æ˜¯ ï¼š%s\n",
              this_user()->query_userid(), site,
              ctime(time()), reason));
 

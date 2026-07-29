@@ -27,8 +27,8 @@ void auto_run()
         tmp_time++;
         if (tmp["name"]&&objectp(find_user(tmp["name"]))){
 		/*if(tmp_time == 6 ||tmp_time== 12 ||tmp_time== 18 ||tmp_time==24)
-		{       mess="ÓùÇ°ÖÐÀÉ½«¸ßÉùÐûµÀ£º"
-			+CHAR_D->get_char(tmp["name"],"name")+"ÎðÈÃ±ÝÏÂ¾Ãºò£¬ËÙÀ´½ú¼û£¡ \n";
+		{       mess="å¾¡å‰ä¸­éƒŽå°†é«˜å£°å®£é“ï¼š"
+			+CHAR_D->get_char(tmp["name"],"name")+"å‹¿è®©é™›ä¸‹ä¹…å€™ï¼Œé€Ÿæ¥æ™‹è§ï¼ \n";
 		        CHANNEL_D->deliver_tell("rumor","system",mess);    
 		        return;
 		}
@@ -42,8 +42,8 @@ void auto_run()
 			                if (repred>15000)repred=15000;
 			                CHAR_D->set_char(m_id,"reputation",rep-repred);
 			                remove_name();
-			                mess=CHAR_D->get_char(m_id,"name")+"ÊÜÕÙ²»ÖÁ£¬ÉùÍû½µµÍ"
-					+chinese_number(repred)+"µã¡£";
+			                mess=CHAR_D->get_char(m_id,"name")+"å—å¬ä¸è‡³ï¼Œå£°æœ›é™ä½Ž"
+					+chinese_number(repred)+"ç‚¹ã€‚";
 			                CHANNEL_D->deliver_tell("rumor","system",mess);                         
 			        }
 			}
@@ -106,11 +106,11 @@ void auto_invite(string m_id)
         
         p_id=m_id;
         p_nation=COUNTRY_D->get_country(CHAR_D->get_char(p_id,"nation"),"name");
-        if (p_nation==0)p_nation="Á÷ÀËµÄÏÍÈË";
-        mess=sprintf("Ï×µÛ½ñÈÕÁúÑÕ´óÔÃ£¬ÏÂÖ¼Ú¯¼û%s¡£\n",
+        if (p_nation==0)p_nation="æµæµªçš„è´¤äºº";
+        mess=sprintf("çŒ®å¸ä»Šæ—¥é¾™é¢œå¤§æ‚¦ï¼Œä¸‹æ—¨è¯è§%sã€‚\n",
         CHAR_D->get_char(p_id,"name"),);
-        mess1="ÓùÇ°ÖÐÀÉ½«¸ßÉùÐûµÀ£º»ÊÉÏÓÐÖ¼£¬"
-+p_nation+CHAR_D->get_char(p_id,"name")+"ËÙÀ´½ú¼û£¡ \n";
+        mess1="å¾¡å‰ä¸­éƒŽå°†é«˜å£°å®£é“ï¼šçš‡ä¸Šæœ‰æ—¨ï¼Œ"
++p_nation+CHAR_D->get_char(p_id,"name")+"é€Ÿæ¥æ™‹è§ï¼ \n";
         CHANNEL_D->deliver_tell("rumor","system",mess);
         CHANNEL_D->deliver_tell("rumor","system",mess1);
         tmp["time"] = time();                   

@@ -91,7 +91,7 @@ private void answer_question(string input)
 
 void complete_chop()
 {
-  object array obs;
+  object * obs;
 
   obs = filter(all_inventory(this_body())+all_inventory(environment(this_body())),
                (: $1->can_chop() :));
@@ -100,17 +100,17 @@ void complete_chop()
     {
     case 0:
       //write("You have nothing with which to chop.\n");   
-      write("ÄãÃ»ÓĞ¿³·¥µÄ¹¤¾ß¡£\n");
+      write("ä½ æ²¡æœ‰ç ä¼çš„å·¥å…·ã€‚\n");
       return;
     case 1:
           printf(//"[with %s]\n"
-                 "[´ø×Å %s]",obs[0]->short());
+                 "[å¸¦ç€ %s]",obs[0]->short());
           obs[0]->do_chopping(this_object());
           return;
     default:
           modal_push((:answer_question:),
                                   //"What do you want to chop with? "
-                                  "ÄãÒªÄÃÊ²Ã´À´¿³Ñ½£¿");
+                                  "ä½ è¦æ‹¿ä»€ä¹ˆæ¥ç å‘€ï¼Ÿ");
           return;
     }
 }

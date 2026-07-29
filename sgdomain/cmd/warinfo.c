@@ -26,24 +26,24 @@ string get_action(int t)
    foreach(string c in chars)
    {
       if(CHAR_D->get_char(c,"status")==STATUS_ONLINE)
-            return "ÈË¿Ø";
+            return "äººæŽ§";
    }
    cmd=TROOP_D->get_troops(t,"command");
-   if(!cmd) return "´ýÃü";
-   if(!cmd["action"]) return "´ýÃü";
+   if(!cmd) return "å¾…å‘½";
+   if(!cmd["action"]) return "å¾…å‘½";
    switch(cmd["action"])
    {
-      case "match": return "ÐÐ¾ü";
-      case "guard": return "·ÀÊØ";
-      case "pursue": return "×·»÷";
-      default : return "´ýÃü";
+      case "match": return "è¡Œå†›";
+      case "guard": return "é˜²å®ˆ";
+      case "pursue": return "è¿½å‡»";
+      default : return "å¾…å‘½";
    }
 
 }
 string get_pos(int t)
 {
    int* pos;
-   string ps="£Á£Â£Ã£Ä£Å£Æ£Ç£È£É£Ê£Ë£Ì£Í£Î£Ï£Ð£Ñ£Ò£Ó£Ô£Õ£Ö£×£Ø£Ù£Ú";
+   string ps="ï¼¡ï¼¢ï¼£ï¼¤ï¼¥ï¼¦ï¼§ï¼¨ï¼©ï¼ªï¼«ï¼¬ï¼­ï¼®ï¼¯ï¼°ï¼±ï¼²ï¼³ï¼´ï¼µï¼¶ï¼·ï¼¸ï¼¹ï¼º";
    string ret="";
    pos=TROOP_D->get_troops(t,"position");
    ret=ps[pos[0]*2..pos[0]*2+1];
@@ -73,12 +73,12 @@ void start(string arg)
         if(!arg||arg=="")
           arg=p_id;
         if((arg!=p_id)&&(!wizardp(this_body())))
-        {  write("Ö»ÓÐÎ×Ê¦²Å¿ÉÒÔ²é¿´ËûÈËµÄ¾üÊÂÇé±¨¡£\n");
+        {  write("åªæœ‰å·«å¸ˆæ‰å¯ä»¥æŸ¥çœ‹ä»–äººçš„å†›äº‹æƒ…æŠ¥ã€‚\n");
            return;
         }
         t_task=TASK_D->get_char_task(arg);
         if((t_task[0]==-1)||((t_task[1]!=TASK_WAR)&&(t_task[1]!=TASK_TRAIN)))
-        {  write("Äã²¢Ã»´¦ÔÚÕ½ÕùÖÐ¡£  \n");
+        {  write("ä½ å¹¶æ²¡å¤„åœ¨æˆ˜äº‰ä¸­ã€‚  \n");
            return;
         }
 	p_id=arg;
@@ -87,7 +87,7 @@ void start(string arg)
 	if(member_array(p_id,def_party)!=-1) m_side="d";
 		else m_side="a";
 //        m_side=TROOP_D->get_troop_side(TROOP_D->get_char_troop(p_id));
-//        if(m_side="£Á") m_side="a";
+//        if(m_side="ï¼¡") m_side="a";
 //        else m_side ="d";
 
         if(m_side=="a")
@@ -101,9 +101,9 @@ void start(string arg)
            tf=TASK_D->get_task(t_id,"def_army");
         }
         disp=
-"ÎÒ·½²¿¶Ó¡¡¡¡¡¡¡¡¡¡´úºÅ     Ö÷½«¡¡¡¡ ´ó½«Êý¡¡±øÊý¡¡ ±øÖÖ    Î»ÖÃ¡¡×´Ì¬\n";
+"æˆ‘æ–¹éƒ¨é˜Ÿã€€ã€€ã€€ã€€ã€€ä»£å·     ä¸»å°†ã€€ã€€ å¤§å°†æ•°ã€€å…µæ•°ã€€ å…µç§    ä½ç½®ã€€çŠ¶æ€\n";
 disp+=
-"¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ\n";
+"ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“\n";
 if(sizeof(tf))
 {
 	foreach(int t in tf)
@@ -124,9 +124,9 @@ if(sizeof(tf))
 }
 }
         disp+=
-"µÐ·½²¿¶Ó¡¡¡¡¡¡¡¡¡¡´úºÅ     Ö÷½«¡¡¡¡ ´ó½«Êý¡¡±øÊý¡¡ ±øÖÖ    Î»ÖÃ¡¡×´Ì¬\n";
+"æ•Œæ–¹éƒ¨é˜Ÿã€€ã€€ã€€ã€€ã€€ä»£å·     ä¸»å°†ã€€ã€€ å¤§å°†æ•°ã€€å…µæ•°ã€€ å…µç§    ä½ç½®ã€€çŠ¶æ€\n";
 disp+=
-"¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ\n";
+"ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“\n";
 if(sizeof(te))
 {
 foreach(int t in te)

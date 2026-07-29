@@ -6,20 +6,20 @@ void eat_dan()
 	int sw;
 	string p_id;
 	p_id=this_body()->query_primary_id();
-	sw=CHAR_D->get_char(p_id,"reputation");		//»ñÈ¡ÉùÍûÖµ
+	sw=CHAR_D->get_char(p_id,"reputation");		//è·å–å£°æœ›å€¼
 	sw+=10000;
 	CHAR_D->set_char(p_id,"reputation",sw);
 	
 	this_body()->simple_action(
-"$N·şÏÂÁËÒ»Ã¶%^H_MAGENTA%^ÉùÍûµ¤%^RESET%^£¬Ğ§¹ûÁ¢¸Í¼ûÓ°£¬ÉùÍûÂíÉÏ±ä´óÁËÒ»Íòµã¡£\n");
+"$Næœä¸‹äº†ä¸€æš%^H_MAGENTA%^å£°æœ›ä¸¹%^RESET%^ï¼Œæ•ˆæœç«‹ç«¿è§å½±ï¼Œå£°æœ›é©¬ä¸Šå˜å¤§äº†ä¸€ä¸‡ç‚¹ã€‚\n");
 }
 void setup()
-{   set_id("shengwang dan", "%^H_MAGENTA%^ÉùÍûµ¤%^RESET%^");
-    set_long("Ò»Á£×ÏÉ«µÄ%^H_MAGENTA%^ÉùÍûµ¤%^RESET%^£¬ÌıËµ³ÔÁË¿ÉÒÔ¼ÓÒ»ÍòµãÉùÍû¡£");
+{   set_id("shengwang dan", "%^H_MAGENTA%^å£°æœ›ä¸¹%^RESET%^");
+    set_long("ä¸€ç²’ç´«è‰²çš„%^H_MAGENTA%^å£°æœ›ä¸¹%^RESET%^ï¼Œå¬è¯´åƒäº†å¯ä»¥åŠ ä¸€ä¸‡ç‚¹å£°æœ›ã€‚");
     set_size(VERY_SMALL);
     set_gettable(1);
     set_num_eats(1);
-    set_unit("Á£");
+    set_unit("ç²’");
     set_eat_action((: eat_dan :));
     set_last_eat_action( (: eat_dan :));
 }

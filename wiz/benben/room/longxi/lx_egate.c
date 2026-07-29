@@ -1,4 +1,4 @@
-//  ¶«³ÇÃÅ by benben
+//  ä¸œåŸé—¨ by benben
 // lx_egate.c 
 #include <mudlib.h>
 #include "/wiz/fire/fire.h"
@@ -7,8 +7,8 @@ inherit ROOM;
 void setup(){
     set_area("longxi");
     set_light(50);
-    set_brief(""+YEL+"--¶«³ÇÃÅ--"+NOR+"");
-    set_long("    ÃèÊö¡£Í¨ÏòÌìË®¡£\n");
+    set_brief(""+YEL+"--ä¸œåŸé—¨--"+NOR+"");
+    set_long("    æè¿°ã€‚é€šå‘å¤©æ°´ã€‚\n");
     set_exits( ([
         "west" :  __DIR__+"lx_qmst5.c",
         "east" :  __DIR__+"?_?.c",

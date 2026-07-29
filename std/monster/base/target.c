@@ -9,15 +9,15 @@ concentrating
 return
  * the same object between get_target()'s
  */
-private static object target;
+private nosave object target;
 #ifdef TARGETTING_IS_RANDOM
-private static int explicit; // if this is on, don't take a random choice.
+private nosave int explicit; // if this is on, don't take a random choice.
                              // Attack the person we just switch_to()'ed
 #endif
 object query_room();
-private static object array other_targets = ({});
+private object * other_targets = ({});
 object query_target() { return target; }
-object array query_targets() { return ({ target }) + other_targets; }
+object * query_targets() { return ({ target }) + other_targets; }
 /* Find someone to attack.  Return zero if we're dead or asleep or
  * have noone to attack.
  */

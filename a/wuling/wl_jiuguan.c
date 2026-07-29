@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is °ÍÉ½Ò¹Óê
+// driver is å·´å±±å¤œé›¨
 // created date is Sat May 28 19:31:14 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -8,11 +8,11 @@ inherit STORE;
 void setup() {
 set_area("wuling");
 set_light(50);
-set_brief("%^YELLOW%^"+"¾Æ¹İ"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"é…’é¦†"+"%^RESET%^");
 set_long("
-    ¾ÆÂ¥Àï×ÀÒÎ½à¾»¡£×ùÖĞ¿ÍÈËÒÂÊÎºÀÉİ£¬Ê®Ö®°Ë¾ÅÊÇ¸»ÉÌ´ó
-¼Ö¡£ÎäÁêµØ´¦½»Í¨ÒªµØ£¬À´Õâ³Ô·¹µÄÈË»¹Õæ²»ÉÙ¡£listÁĞ³ö»õ
-Æ·£¬buy¹ºÂò¡£\n\n");
+    é…’æ¥¼é‡Œæ¡Œæ¤…æ´å‡€ã€‚åº§ä¸­å®¢äººè¡£é¥°è±ªå¥¢ï¼Œåä¹‹å…«ä¹æ˜¯å¯Œå•†å¤§
+è´¾ã€‚æ­¦é™µåœ°å¤„äº¤é€šè¦åœ°ï¼Œæ¥è¿™åƒé¥­çš„äººè¿˜çœŸä¸å°‘ã€‚liståˆ—å‡ºè´§
+å“ï¼Œbuyè´­ä¹°ã€‚\n\n");
 set_exits( ([
 "west":"/a/wuling/wl_xiaoxiang.c",
  ]));

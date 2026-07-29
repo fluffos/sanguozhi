@@ -26,12 +26,12 @@ void train_arrange_defence(int task_id)
     CHAR_D->set_char(l_id,"zhimou",1);
     CHAR_D->set_char(l_id,"meili",1);
 
-    CHAR_D->set_char(l_id,"name","假设敌将");
+    CHAR_D->set_char(l_id,"name","鍋囪鏁屽皢");
 
     TASK_D->set_task(task_id,"att_leader",l_id);
     TASK_D->add_char(task_id,l_id,0);
     CHAR_D->set_char(l_id,"is_tmp",1);
-    o_troop=TROOP_D->new_troop("假设敌军",({l_id}),0
+    o_troop=TROOP_D->new_troop("鍋囪鏁屽啗",({l_id}),0
       ,p_baseroom+auto_start_point( p_area,"a"));
    troop_id=o_troop->get_id();
    TROOP_D->set_troops(troop_id,"task_id",task_id);
@@ -69,14 +69,14 @@ void train_arrange_attack(int task_id)
       l_id=p_area+" trainee"+i;
       att_party+=({l_id});
       CHAR_D->add_char(l_id);
-      CHAR_D->set_char(l_id,"name","假设敌将");
+      CHAR_D->set_char(l_id,"name","鍋囪鏁屽皢");
       CHAR_D->set_char(l_id,"wuli",1);
       CHAR_D->set_char(l_id,"zhimou",1);
       CHAR_D->set_char(l_id,"meili",1);
 
       TASK_D->add_char(task_id,l_id,0);
       CHAR_D->set_char(l_id,"is_tmp",1);
-      o_troop=TROOP_D->new_troop("假设敌军",({l_id}),0
+      o_troop=TROOP_D->new_troop("鍋囪鏁屽啗",({l_id}),0
          ,p_baseroom+auto_start_point( p_area,"a"));
       troop_id=o_troop->get_id();
       TROOP_D->set_troops(troop_id,"task_id",task_id);

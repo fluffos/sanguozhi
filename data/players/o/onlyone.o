@@ -1,6 +1,6 @@
 #/std/race/human.c
 primary_id "onlyone"
-chinese_id "¿´¿´"
+chinese_id "çœ‹çœ‹"
 persist_flags ([0:0,])
 can_drop 1
 can_sell 1
@@ -13,7 +13,7 @@ main_prep "in"
 contained_light_added 1
 gender 1
 messages ([])
-def_messages (["invis":"$n´ÓÄãµÄÊÓÒ°ÖĞÍ»È»ÏûÊ§ÁË¡£","vis":"$nÍ»È»³öÏÖÔÚÄãÃæÇ°£¬ÓÖËÆºõÔÚÕâÀïºÜ¾ÃÁË¡£","home":"$n»Ø¼ÒÈ¥ÁË¡£","menter":"$nÍ»È»³öÏÖÔÚÒ»ÕóÑÌÎíÖĞ¡£","clone":"$nÉìÊÖÁè¿ÕÒ»Ö¸£¬±ä³öÁË$o¡£","enter":"$n×ßÁË¹ıÀ´¡£","destruct":"$nÅÛĞäÒ»»Ó£¬$o±»»¯³ÉÒ»¹ÉºÚÑÌ£¬´µÉ¢¿ªÈ¥¡£","mleave":"$nµÄÉíÓ°ÔÚÒ»ÕóÑÌÎíÖĞ½¥½¥ÒşÈ¥¡£","leave":"$n³¯$oÀë¿ªÁË¡£",])
+def_messages (["invis":"$nä»ä½ çš„è§†é‡ä¸­çªç„¶æ¶ˆå¤±äº†ã€‚","vis":"$nçªç„¶å‡ºç°åœ¨ä½ é¢å‰ï¼Œåˆä¼¼ä¹åœ¨è¿™é‡Œå¾ˆä¹…äº†ã€‚","home":"$nå›å®¶å»äº†ã€‚","menter":"$nçªç„¶å‡ºç°åœ¨ä¸€é˜µçƒŸé›¾ä¸­ã€‚","clone":"$nä¼¸æ‰‹å‡Œç©ºä¸€æŒ‡ï¼Œå˜å‡ºäº†$oã€‚","enter":"$nèµ°äº†è¿‡æ¥ã€‚","destruct":"$nè¢è¢–ä¸€æŒ¥ï¼Œ$oè¢«åŒ–æˆä¸€è‚¡é»‘çƒŸï¼Œå¹æ•£å¼€å»ã€‚","mleave":"$nçš„èº«å½±åœ¨ä¸€é˜µçƒŸé›¾ä¸­æ¸æ¸éšå»ã€‚","leave":"$næœ$oç¦»å¼€äº†ã€‚",])
 answer_list ({({"settle","settle",}),({"position","position",}),({"localmeeting","localmeeting",}),({"job","job",}),({"zgxy","zgxy",}),({"wxxy","wxxy",}),({"bfxy","bfxy",}),({"guoshi","guoshi",}),})
 ask_list ([])
 asklist ([])
@@ -43,8 +43,8 @@ ilog_time 1308740618
 money (["gold":0,"silver":0,"coin":0,])
 sg_home ([])
 name "onlyone"
-invis_name "Ä³Ä³"
-chinese_name "¿´¿´"
+invis_name "æŸæŸ"
+chinese_name "çœ‹çœ‹"
 response_queue ({})
 channel_list ({"gossip","newbie","weather","rumor","imud_imud_sgz",})
 saved_items "([\"#inventory#\":({}),\"#base_name#\":\"/std/race/human\",])"

@@ -1,4 +1,4 @@
 #/daemons/base_d.c
-bases (["farm":(["si":10,"sb":10,"sw":15,"headname":"Å©·òÍ·","pop":500,"ss":15,"defproduct":"food","workername":"Å©·ò","gold":500,"sa":30,"area":({"changan","jiangling","huayin","tianshui","longxi",}),"sp":15,"safe":100,"roomname":"Å©Ìï","name":"Å©³¡",]),"test_base":([]),])
-stuffs (["tiekuang":(["src":({}),"base":([]),"real_work":0,]),"tongkuang":(["src":({}),"base":([]),"real_work":0,]),"food":(["work":1,"unit":"½ï","quantity":2,"src":({}),"type":1,"base":(["farm":1,]),"comment":"ÎÞ","name":"Á¸Ê³","real_work":1,]),])
+bases (["farm":(["si":10,"sb":10,"sw":15,"headname":"å†œå¤«å¤´","pop":500,"ss":15,"defproduct":"food","workername":"å†œå¤«","gold":500,"sa":30,"area":({"changan","jiangling","huayin","tianshui","longxi",}),"sp":15,"safe":100,"roomname":"å†œç”°","name":"å†œåœº",]),"test_base":([]),])
+stuffs (["tiekuang":(["src":({}),"base":([]),"real_work":0,]),"tongkuang":(["src":({}),"base":([]),"real_work":0,]),"food":(["work":1,"unit":"æ–¤","quantity":2,"src":({}),"type":1,"base":(["farm":1,]),"comment":"æ— ","name":"ç²®é£Ÿ","real_work":1,]),])
 price (["food":(["sum":114664646,"price":0,"left":28807065,]),])

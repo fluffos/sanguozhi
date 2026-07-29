@@ -10,15 +10,15 @@ inherit M_ACCESS;
 #define SAVE_FILE "/data/daemons/day"
 #define LOG_FILE "/data/daemons/daylog"
 #define WEATHER_CHANNEL "weather"
-#define CHANNEL_FORMAT "%%^WEATHER_CHANNEL%%^¡¾%s¡¿%s%%^RESET%%^\n"
-#define MORN "¶«·½Â¶³öÒ»Ë¿ÀèÃ÷µÄÊï¹â£¬ĞÂµÄÒ»Ìì¿ªÊ¼ÁË¡£"
-#define NOON "Ì«ÑôÉıµ½ÁËÕıÌì¶¥£¬ÒÑ¾­ÊÇÖĞÎçÁË¡£"
-#define AFTN "Ì«ÑôÂäÉ½ÁË£¬Î÷·½Ìì¼Ê±»ÂäÈÕÓ³³öÒ»Æ¬»ğºì¡£"
-#define NIGT "ÒÑ¾­ÊÇ×ÓÒ¹ÁË£¬ÖÜÎ§µÄÒ»ÇĞ¶¼ÁıÕÖÔÚºÚ°µÖ®ÖĞ¡£"
-#define SPRING "´ºÌìÀ´ÁË£¬´óµØ³ÊÏÖÒ»Æ¬ÂÌÉ«¡£"
-#define SUMMER "ÏÄÌìÀ´ÁË£¬Ğ¡ºÓÀïÂúÊÇ³àÉíÏ·Ë®µÄº¢Í¯¡£"
-#define AUTUMN "ÇïÌìÀ´ÁË£¬ÈË¼ä³äÂúÁË·áÊÕµÄÏ²ÔÃ¡£"
-#define WINTER "¶¬ÌìÀ´ÁË£¬½à°×µÄÑ©ËÆºõÔÚ¾»»¯ÈË¼äµÄ×ï¶ñ¡£"
+#define CHANNEL_FORMAT "%%^WEATHER_CHANNEL%%^ã€%sã€‘%s%%^RESET%%^\n"
+#define MORN "ä¸œæ–¹éœ²å‡ºä¸€ä¸é»æ˜çš„æ›™å…‰ï¼Œæ–°çš„ä¸€å¤©å¼€å§‹äº†ã€‚"
+#define NOON "å¤ªé˜³å‡åˆ°äº†æ­£å¤©é¡¶ï¼Œå·²ç»æ˜¯ä¸­åˆäº†ã€‚"
+#define AFTN "å¤ªé˜³è½å±±äº†ï¼Œè¥¿æ–¹å¤©é™…è¢«è½æ—¥æ˜ å‡ºä¸€ç‰‡ç«çº¢ã€‚"
+#define NIGT "å·²ç»æ˜¯å­å¤œäº†ï¼Œå‘¨å›´çš„ä¸€åˆ‡éƒ½ç¬¼ç½©åœ¨é»‘æš—ä¹‹ä¸­ã€‚"
+#define SPRING "æ˜¥å¤©æ¥äº†ï¼Œå¤§åœ°å‘ˆç°ä¸€ç‰‡ç»¿è‰²ã€‚"
+#define SUMMER "å¤å¤©æ¥äº†ï¼Œå°æ²³é‡Œæ»¡æ˜¯èµ¤èº«æˆæ°´çš„å­©ç«¥ã€‚"
+#define AUTUMN "ç§‹å¤©æ¥äº†ï¼Œäººé—´å……æ»¡äº†ä¸°æ”¶çš„å–œæ‚¦ã€‚"
+#define WINTER "å†¬å¤©æ¥äº†ï¼Œæ´ç™½çš„é›ªä¼¼ä¹åœ¨å‡€åŒ–äººé—´çš„ç½ªæ¶ã€‚"
 #define DAY_LENGTH 240
 #define W_SUNN 0
 #define W_RAIN 1
@@ -28,15 +28,15 @@ inherit M_ACCESS;
 #define W_BIGRAIN 5
 #define W_HALL 6
 #define MAXWEATHERTYPE 7
-#define SUNN "Ì«Ñô³öÀ´ÁË£¬À¶À¶µÄÌì¿ÕÃ»ÓĞÒ»Ë¿ÔÆ²Ê¡£"
-#define RAIN "ÌìÉÏÏÂÆğÓêÀ´¡£"
-#define FOGG "ÆğÎíÁË¡£"
-#define SNOW "ÌìÉÏ¾²¾²µØÆ®ÆğÑ©À´¡£"
-#define WIND "Æğ·çÁË£¬. . . ."
-#define BIGRAIN "´óÓêÇãÅè¶ø½µ£¬µÀÂ·Ò»Æ¬ÄàÅ¢¡£"
-#define HALL "Ò»ÕóÉÁµç¹ıºó£¬Ìì¿Õ½µÏÂÁË±ù±¢¡£"
-#define W_UNKNOW "ÌìÆø²»Ã÷²»°×¡£"
-#define PROTECTION_TIME (3600*24*5)  //ÖØĞÂÆô¶¯ºóµÄ²»ÄÜwarµÄÊ±¼ä,ÔİÊ±Îª5Ìì
+#define SUNN "å¤ªé˜³å‡ºæ¥äº†ï¼Œè“è“çš„å¤©ç©ºæ²¡æœ‰ä¸€ä¸äº‘å½©ã€‚"
+#define RAIN "å¤©ä¸Šä¸‹èµ·é›¨æ¥ã€‚"
+#define FOGG "èµ·é›¾äº†ã€‚"
+#define SNOW "å¤©ä¸Šé™é™åœ°é£˜èµ·é›ªæ¥ã€‚"
+#define WIND "èµ·é£äº†ï¼Œ. . . ."
+#define BIGRAIN "å¤§é›¨å€¾ç›†è€Œé™ï¼Œé“è·¯ä¸€ç‰‡æ³¥æ³ã€‚"
+#define HALL "ä¸€é˜µé—ªç”µè¿‡åï¼Œå¤©ç©ºé™ä¸‹äº†å†°é›¹ã€‚"
+#define W_UNKNOW "å¤©æ°”ä¸æ˜ä¸ç™½ã€‚"
+#define PROTECTION_TIME (3600*24*5)  //é‡æ–°å¯åŠ¨åçš„ä¸èƒ½warçš„æ—¶é—´,æš‚æ—¶ä¸º5å¤©
 #define DAY_IN_SECONDS (3600*24) //a whole day in seconds
 
 private int p_day;
@@ -52,9 +52,9 @@ private int is_crash;
 
 private int generation=7;
 
-static float p_utime,p_stime;
-static int p_uptime;
-static int p_boottime;
+nosave protected float p_utime,p_stime;
+nosave protected int p_uptime;
+nosave protected int p_boottime;
 
 void deliver_weather();
 
@@ -81,7 +81,7 @@ int get_temp_wartime(string c_id) //check if a country's temp wartime is open
 void block_war (int hour)
 {
 	change_time=time()+hour*3600;
-	//SGSYS(" Õ½ÕùÏÖÔÚ±»Î×Ê¦½ûÖ¹ÁË.");
+	//SGSYS(" æˆ˜äº‰ç°åœ¨è¢«å·«å¸ˆç¦æ­¢äº†.");
 }
 
 int war_status (string c_id)
@@ -96,7 +96,7 @@ int war_status (string c_id)
 	if (get_temp_wartime(c_id) > 0) // temp wartime opens
 		return 0;
 	_lt = localtime(_t);
-	weekday = _lt[LT_WDAY]; //¿´½ñÌìÊÇĞÇÆÚ¼¸
+	weekday = _lt[LT_WDAY]; //çœ‹ä»Šå¤©æ˜¯æ˜ŸæœŸå‡ 
 	if ((_lt[LT_HOUR] == COUNTRY_D->get_wartime(c_id,weekday*2))
 	   || ( _lt[LT_HOUR] == COUNTRY_D->get_wartime(c_id,weekday*2+1)))//match any of war time period
 	   	return 0; //message for can war
@@ -106,8 +106,8 @@ int war_status (string c_id)
 int beijing_time(int base_time)
 {
 	return localtime(base_time)[LT_GMTOFF]+28800; 
-	//µÚÒ»¸ö²ÎÊıÊÇµ±µØÊ±¼äÏà¶ÔÓÚ±ê×¼Ê±¼äµÄÃë²î£¬²»ÖªµÀÊÇ·ñÄÜ½â¾öÏÄÁîÊ±ÎÊÌâ
-	//28800ÊÇ±±¾©Ê±¼äÏà¶ÔÓÚ±ê×¼Ê±¼äµÄÃë²î-8Ğ¡Ê±
+	//ç¬¬ä¸€ä¸ªå‚æ•°æ˜¯å½“åœ°æ—¶é—´ç›¸å¯¹äºæ ‡å‡†æ—¶é—´çš„ç§’å·®ï¼Œä¸çŸ¥é“æ˜¯å¦èƒ½è§£å†³å¤ä»¤æ—¶é—®é¢˜
+	//28800æ˜¯åŒ—äº¬æ—¶é—´ç›¸å¯¹äºæ ‡å‡†æ—¶é—´çš„ç§’å·®-8å°æ—¶
 }
 int london_time(int base_time)//+0 hour
 {
@@ -116,7 +116,7 @@ int london_time(int base_time)//+0 hour
 
 int sydney_time(int base_time)//+10 hour
 {
-	return localtime(base_time)[LT_GMTOFF]+10*3600; //¶¬ÁîÊ±only
+	return localtime(base_time)[LT_GMTOFF]+10*3600; //å†¬ä»¤æ—¶only
 }
 
 int next_modified_day(int base_time)
@@ -126,7 +126,7 @@ int next_modified_day(int base_time)
 	return base_time - lt[LT_HOUR] * 3600 - lt[LT_MIN] * 60 - lt[LT_SEC] + 2 * DAY_IN_SECONDS;
 	
 	//base_time-=localtime(base_time)[LT_GMTOFF]*3600; //
-	//return (base_time/DAY_IN_SECONDS+1)*DAY_IN_SECONDS; //Á½ÌìºóµÄÏµÍ³Áãµã
+	//return (base_time/DAY_IN_SECONDS+1)*DAY_IN_SECONDS; //ä¸¤å¤©åçš„ç³»ç»Ÿé›¶ç‚¹
 }
 string English_time(int time)
 {
@@ -140,7 +140,7 @@ string English_time(int time)
 		minutes = "0" + _lt[LT_MIN];
 	else
 		minutes = "" + _lt[LT_MIN];
-	return _lt[LT_YEAR] + "Äê" + month + "ÔÂ" + _lt[LT_MDAY] + "ÈÕ "
+	return _lt[LT_YEAR] + "å¹´" + month + "æœˆ" + _lt[LT_MDAY] + "æ—¥ "
 		+ _lt[LT_HOUR] + ":" + minutes ;
 }
 	
@@ -149,7 +149,7 @@ string English_time(int time)
 void recover_war ()
 {
 	can_war = 1;
-	SGSYS(" Õ½ÕùÏÖÔÚ±»Î×Ê¦»Ö¸´ÁË.");
+	SGSYS(" æˆ˜äº‰ç°åœ¨è¢«å·«å¸ˆæ¢å¤äº†.");
 }
 */
 /*
@@ -182,9 +182,9 @@ int set_can_war(int a)
 	        }
 		change_time=time()+last*3600;  // open hour from 3 to 12 hours
 "/sgdomain/event/ev_cast.c"->start(); // open the auto cast
-		CHANNEL_D->deliver_tell("gossip","ººÏ×µÛ",
-			"½ñ¼é³¼µ±µÀ£¬³¯¸Ù²»Õñ£¬ëŞÌØĞíÌìÏÂÖîºîÌÖ·¥ÔôÄæ"+chinese_number(last)+
-			"¸öÊ±³½¡£");
+		CHANNEL_D->deliver_tell("gossip","æ±‰çŒ®å¸",
+			"ä»Šå¥¸è‡£å½“é“ï¼Œæœçº²ä¸æŒ¯ï¼Œæœ•ç‰¹è®¸å¤©ä¸‹è¯¸ä¾¯è®¨ä¼è´¼é€†"+chinese_number(last)+
+			"ä¸ªæ—¶è¾°ã€‚");
 	}
 	else {
 		can_war=0;
@@ -200,9 +200,9 @@ int set_can_war(int a)
 		    last*=3600;
 		}
 		change_time=time()+last;  // open hour from 3 to 12 hours
-		CHANNEL_D->deliver_tell("gossip","ººÏ×µÛ",
-			"½ñÕ½»ö²»¶Ï£¬ÉúÁéÍ¿Ì¿£¬°ÙĞÕÊÜ¿à£¬ëŞÌØÁîÌìÏÂÖîºîÍ£Õ½"+
-			CHINESE_D->chinese_period(last)+"¡£");
+		CHANNEL_D->deliver_tell("gossip","æ±‰çŒ®å¸",
+			"ä»Šæˆ˜ç¥¸ä¸æ–­ï¼Œç”Ÿçµæ¶‚ç‚­ï¼Œç™¾å§“å—è‹¦ï¼Œæœ•ç‰¹ä»¤å¤©ä¸‹è¯¸ä¾¯åœæˆ˜"+
+			CHINESE_D->chinese_period(last)+"ã€‚");
 	}
 }
 void check_can_war() {
@@ -211,9 +211,9 @@ void check_can_war() {
 	}
 }
 */
-array query_date()
+mixed * query_date()
 {
-	array p_date=({p_hour,p_day,p_month,p_year});
+	mixed * p_date=({p_hour,p_day,p_month,p_year});
 	return p_date;
 }
 
@@ -225,43 +225,43 @@ string query_season(int eng) {
 		if (eng)
 		  return "winter";
 		else
-		  return "¶¬¼¾";
+		  return "å†¬å­£";
 	  case 3:
 	  case 4:
 	  case 5:
 		if (eng)
 		  return "spring";
 		else
-		  return "´º¼¾";
+		  return "æ˜¥å­£";
 	  case 6:
 	  case 7:
 	  case 8:
 		if (eng)
 		  return "summer";
 		else
-		  return "ÏÄ¼¾";
+		  return "å¤å­£";
 	  case 9:
 	  case 10:
 	  case 11:
 		if (eng)
 		  return "winter";
 		else
-		  return "Çï¼¾";
+		  return "ç§‹å­£";
 	  default:
 		if (eng) 
 		  return "unknown";
 		else
-		  return "²»È·";
+		  return "ä¸ç¡®";
 	}
 }
 
 string query_string_day()
 {
 	if(p_day<4)
-		return "ÉÏÑ®";
+		return "ä¸Šæ—¬";
 	if(p_day>7)
-		return "ÏÂÑ®";
-	return "ÖĞÑ®";
+		return "ä¸‹æ—¬";
+	return "ä¸­æ—¬";
 }
 
 string query_string_hour(int eng)
@@ -272,22 +272,22 @@ string query_string_hour(int eng)
 		if (eng)
 		  return "morning";
 		else
-		  return "Çå³¿";
+		  return "æ¸…æ™¨";
 	case 1:
 		if (eng)
 		  return "noon";
 		else
-		  return "ÕıÎç";
+		  return "æ­£åˆ";
 	case 2:
 		if (eng)
 		  return "afternoon";
 		else
-		  return "»Æ»è";
+		  return "é»„æ˜";
 	default:
 		if (eng)
 		  return "night";
 		else
-		  return "Ò¹¼ä";
+		  return "å¤œé—´";
 	}
 }
 
@@ -331,36 +331,36 @@ void arrange_wind_next()
 string get_wind_short(int wind)
 {
 	switch(wind){
-		case 1 : return "±±·ç";	break;
-		case 2 : return "¶«±±·ç";break;
-		case 3 : return "¶«·ç";break;
-		case 4 : return "¶«ÄÏ·ç";break;
-		case 5 : return "ÄÏ·ç";break;
-		case 6 : return "Î÷ÄÏ·ç";break;
-		case 7 : return "Î÷·ç";break;
-		case 8 : return "Î÷±±·ç";break;
-		default : return "ÎŞ·ç";
+		case 1 : return "åŒ—é£";	break;
+		case 2 : return "ä¸œåŒ—é£";break;
+		case 3 : return "ä¸œé£";break;
+		case 4 : return "ä¸œå—é£";break;
+		case 5 : return "å—é£";break;
+		case 6 : return "è¥¿å—é£";break;
+		case 7 : return "è¥¿é£";break;
+		case 8 : return "è¥¿åŒ—é£";break;
+		default : return "æ— é£";
 	};
 }
 string get_weather_short(int p_w)
 {
 	switch(p_w) {
         case W_SUNN:
-            return "ÇçÌì";
+            return "æ™´å¤©";
         case W_RAIN :
-            return "ÏÂÓê";
+            return "ä¸‹é›¨";
         case W_FOGG :
-            return "ÆğÎí";
+            return "èµ·é›¾";
         case W_SNOW :
-            return "ÏÂÑ©";
+            return "ä¸‹é›ª";
         case W_WIND :
-            return "´ó·ç";
+            return "å¤§é£";
         case W_BIGRAIN :
-            return "±©Óê";
+            return "æš´é›¨";
         case W_HALL :
-            return "±ù±¢";
+            return "å†°é›¹";
         default :
-            return "Î´Öª";
+            return "æœªçŸ¥";
     }
 }
 
@@ -419,7 +419,7 @@ void active_handi() {
 	object o;
 	o=load_object("/sgdomain/area/emp/dadi");
 	if(!objectp(o))
-		SGSYS("ÕÒ²»µ½ººµÛ¹¬");
+		SGSYS("æ‰¾ä¸åˆ°æ±‰å¸å®«");
 }
 void do_log() {
     string msg;
@@ -453,7 +453,7 @@ void day_goes_on()
     string p_dis;
     remove_call_out("day_goes_on");
     call_out( "day_goes_on", DAY_LENGTH);
-    call_out("active_handi",2); //ººµÛ
+    call_out("active_handi",2); //æ±‰å¸
 //by listen for do not need to update everyday    check_can_war();
 //    call_out("do_log",3);
     p_hour++;
@@ -540,9 +540,9 @@ if(!user) continue;
         p_w=AREA_D->get_area(area_name, "weather");
         w_info=weather_str_desc(p_w);
         if (!env->is_indoors()) {
-	    w_info = sprintf(CHANNEL_FORMAT, "»§Íâ", w_info);
+	    w_info = sprintf(CHANNEL_FORMAT, "æˆ·å¤–", w_info);
 	} else {
-	    w_info = sprintf(CHANNEL_FORMAT, "ÌìÆø", w_info);
+	    w_info = sprintf(CHANNEL_FORMAT, "å¤©æ°”", w_info);
 	}
         tell(({user}), w_info, MSG_INDENT);
     }
@@ -556,8 +556,8 @@ void remove()
     unguarded(1, (: save_object, SAVE_FILE :));
 }
 string query_chinese_day() {
-	return "Èı¹ú"+chinese_number(p_year)+"Äê"+chinese_number(p_month)+"ÔÂ"+
-		chinese_number(p_day)+"ÈÕ";
+	return "ä¸‰å›½"+chinese_number(p_year)+"å¹´"+chinese_number(p_month)+"æœˆ"+
+		chinese_number(p_day)+"æ—¥";
 }
 
 //added by suicide on 20001.03.07
@@ -566,9 +566,9 @@ void add_generation()
 generation++;
 //can_war=0;
 change_time=time()+PROTECTION_TIME;
-CHANNEL_D->deliver_tell("gossip","ººÏ×µÛ",
-			"½ñÕ½»ö²»¶Ï£¬ÉúÁéÍ¿Ì¿£¬°ÙĞÕÊÜ¿à£¬ëŞÌØÁîÌìÏÂÖîºîÍ£Õ½"+
-			CHINESE_D->chinese_period(PROTECTION_TIME)+"¡£");
+CHANNEL_D->deliver_tell("gossip","æ±‰çŒ®å¸",
+			"ä»Šæˆ˜ç¥¸ä¸æ–­ï¼Œç”Ÿçµæ¶‚ç‚­ï¼Œç™¾å§“å—è‹¦ï¼Œæœ•ç‰¹ä»¤å¤©ä¸‹è¯¸ä¾¯åœæˆ˜"+
+			CHINESE_D->chinese_period(PROTECTION_TIME)+"ã€‚");
 
 }
 

@@ -18,40 +18,40 @@ string query_title()
         string p_tmp;
         string p_id;
         p_id=query_userid();
-		//printf("½øÁËquery_title()º¯Êý, p_id = %s\n", p_id); DEBUG
-//        ret="¡¾"+CHAR_D->get_char(p_id,"reputationstr")+NOR+"¡¿";
+		//printf("è¿›äº†query_title()å‡½æ•°, p_id = %s\n", p_id); DEBUG
+//        ret="ã€"+CHAR_D->get_char(p_id,"reputationstr")+NOR+"ã€‘";
         ret="";
         p_tmp=COUNTRY_D->get_country(CHAR_D->get_char(p_id,"nation"),"name");
-		//printf("nation nameÎª: %s\n", p_tmp); DEBUG
+		//printf("nation nameä¸º: %s\n", p_tmp); DEBUG
         if(p_tmp)
                 ret+=p_tmp;
         p_tmp=OFFICER_D->query_rank_name(CHAR_D->get_char(p_id,"ranknation"));
-		//printf("ranknationÎª: %s\n", p_tmp); DEBUG
-        if(p_tmp!="©¥©¥")
+		//printf("ranknationä¸º: %s\n", p_tmp); DEBUG
+        if(p_tmp!="â”â”")
         {
                 ret+=p_tmp;
         }
         else
         {
                 p_tmp=AREA_D->get_area(CHAR_D->get_char(p_id,"area"),"name");
-				//printf("area nameÎª: %s\n", p_tmp); DEBUG
+				//printf("area nameä¸º: %s\n", p_tmp); DEBUG
                 if(p_tmp)
                     ret+=p_tmp;
                 else
 					ret = ret[0..<2];
                 p_tmp=OFFICER_D->query_rank_name(CHAR_D->get_char(p_id,"ranklocal"));
-				//printf("ranklocalÎª: %s\n", p_tmp); DEBUG
-                if(p_tmp=="©¥©¥")
-					p_tmp=" ÒþÊ¿ ";//"Òþ¾ÓÏÍÈË";
+				//printf("ranklocalä¸º: %s\n", p_tmp); DEBUG
+                if(p_tmp=="â”â”")
+					p_tmp=" éšå£« ";//"éšå±…è´¤äºº";
                 ret+=p_tmp;
         }
         if(title2&&(title2!=""))
-                ret+="¡¸"+title2+NOR+"¡¹";
+                ret+="ã€Œ"+title2+NOR+"ã€";
         ret+=query_chinese_name();
 //        p_tmp=CHAR_D->get_char(p_id,"zi");
          p_tmp=this_object()->query_sg_zi();
         if(p_tmp)
-                ret+="£¬×Ö"+p_tmp;
+                ret+="ï¼Œå­—"+p_tmp;
         ret+="("+p_id+")";
         return ret;
 }

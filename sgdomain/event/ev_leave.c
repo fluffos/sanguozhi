@@ -8,7 +8,7 @@ private int has_retired;
 private int times=0;
 
 /************************************************************/
-/*  adjust_npc() µ÷ÕûNPCËùÔÚµØÇøµÄnationºÍnpcµÄnation²»Ò»ÖÂ   */
+/*  adjust_npc() è°ƒæ•´NPCæ‰€åœ¨åœ°åŒºçš„nationå’Œnpcçš„nationä¸ä¸€è‡´   */
 /************************** emperor *************************/
 void adjust_npc(){
 	string *list_char,*list_area;
@@ -58,21 +58,21 @@ mixed NpcsInArea(string a_id,string para){
 	if(!sizeof(list_char))return 0;
 	list_char=filter_array(list_char,(:CHAR_D->get_char(($1),"type")==TYPE_NPC&&CHAR_D->get_char(($1),"is_tmp")==0:));
 	switch(para){
-	case "o"://·µ»ØNPC¹ÙÔ±Êý×é
+	case "o"://è¿”å›žNPCå®˜å‘˜æ•°ç»„
 		list_char=filter_array(list_char,function(string c_id){
 			string n=CHAR_D->get_char(c_id,"nation");
 			if((!n)||(n=="")) return 0;
 			return 1;
 		});
 		break;
-	case "ys"://·µ»ØNPCÒþÊ¿Êý×é
+	case "ys"://è¿”å›žNPCéšå£«æ•°ç»„
 		list_char=filter_array(list_char,function(string c_id){
 			string n=CHAR_D->get_char(c_id,"nation");
 			if((!n)||(n=="")) return 1;
 			return 0;
 		});
 		break;
-	default ://·µ»ØËùÓÐNPCÊý×é
+	default ://è¿”å›žæ‰€æœ‰NPCæ•°ç»„
 		break;
 	}
 	return list_char;
@@ -90,10 +90,10 @@ void npc_leave(string p_id,string a_id){
 	p_o=CHAR_D->find_char(p_id);
 	if(objectp(p_o))
 	{
-		p_o->simple_action("$NÌ¾ÁË¿ÚÆø£¬µÀ£º¿´À´´Ë´¦·ÇÎÒ·¢Õ¹Ö®µØ¡£\n");
-		p_o->simple_action("$N´Ò´ÒÀë¿ªÁË¡£\n");
+		p_o->simple_action("$Nå¹äº†å£æ°”ï¼Œé“ï¼šçœ‹æ¥æ­¤å¤„éžæˆ‘å‘å±•ä¹‹åœ°ã€‚\n");
+		p_o->simple_action("$NåŒ†åŒ†ç¦»å¼€äº†ã€‚\n");
 	}
-	p_mess=sprintf("%s²»Âú%s³¯Õþ£¬·ßÈ»Æú¹Ù³ö×ß¡£\n",CHAR_D->get_char(p_id,"name"),
+	p_mess=sprintf("%sä¸æ»¡%sæœæ”¿ï¼Œæ„¤ç„¶å¼ƒå®˜å‡ºèµ°ã€‚\n",CHAR_D->get_char(p_id,"name"),
 		COUNTRY_D->get_country(CHAR_D->get_char(p_id,"nation"),"name"));
 	CHANNEL_D->deliver_tell("rumor","system",p_mess);
 	CHAR_D->set_char(p_id,"ranknation",0);
@@ -104,7 +104,7 @@ void npc_leave(string p_id,string a_id){
 	CHAR_D->set_char(p_id,"area",a_id);
 	CHAR_D->appear(p_id,a_id);
 	CHANNEL_D->deliver_tell("rumor","system",
-		sprintf("%sÍ¶±¼%sÈ¥ÁË¡£",CHAR_D->get_char(p_id,"name"),
+		sprintf("%sæŠ•å¥”%såŽ»äº†ã€‚",CHAR_D->get_char(p_id,"name"),
 			AREA_D->get_area(a_id,"name")));
 	CHAR_D->set_char(p_id,"nation",AREA_D->get_area(a_id,"nation"));
 	CHAR_D->set_char_loyalty(p_id,CHAR_D->get_char(p_id,"nation"),80+random(20));
@@ -131,13 +131,13 @@ void auto_transfernpc(){
 			p_nation=CHAR_D->get_char(p_id,"nation");
         	if(p_nation==p_id) {
         		call_out("auto_transfernpc",2);
-        		return;// "Ö÷¹«²»ÄÜÀëÖ°¡£\n";
+        		return;// "ä¸»å…¬ä¸èƒ½ç¦»èŒã€‚\n";
 			}
     		my_task = TASK_D->get_char_task(p_id);
     		task_id=my_task[0];
 			if(task_id!=-1){
 				call_out("auto_transfernpc",2);
-				return;// "¹¤×÷ÕýÃ¦Ê±²»ÄÜÀëÖ°¡£\n";
+				return;// "å·¥ä½œæ­£å¿™æ—¶ä¸èƒ½ç¦»èŒã€‚\n";
 			}
 			npc_leave(p_id,a2[random(sizeof(a2))]);
 			(EV_POSITION)->npc_aut_localposition(p_id);
@@ -193,20 +193,20 @@ mixed leave(string p_id)
 	string a_id;// Emperor add the Var.
 	p_area=CHAR_D->get_char(p_id,"area");
 	p_nation=CHAR_D->get_char(p_id,"nation");
-        if(p_nation==p_id) return "Ö÷¹«²»ÄÜÀëÖ°¡£\n";
+        if(p_nation==p_id) return "ä¸»å…¬ä¸èƒ½ç¦»èŒã€‚\n";
 
     my_task = TASK_D->get_char_task(p_id);
     task_id=my_task[0];
 	if(task_id!=-1)
-                return "¹¤×÷ÕýÃ¦Ê±²»ÄÜÀëÖ°¡£\n";
-// emperor add ¹ÙÔ±ÊýÐ¡ÓÚ3Ê±²»ÄÜÀë¿ª
+                return "å·¥ä½œæ­£å¿™æ—¶ä¸èƒ½ç¦»èŒã€‚\n";
+// emperor add å®˜å‘˜æ•°å°äºŽ3æ—¶ä¸èƒ½ç¦»å¼€
 	a_id=CHAR_D->get_char(p_id,"area");
 	if(NpcsInArea(a_id,"o")!=1000)
         if(sizeof(NpcsInArea(a_id,"o"))<4 && CHAR_D->get_char(p_id,"type")==TYPE_NPC) 
-		return "NPC¹ÙÔ±ÊýÉÙÓÚ4Ê±²»ÄÜÀëÖ°¡£\n";
+		return "NPCå®˜å‘˜æ•°å°‘äºŽ4æ—¶ä¸èƒ½ç¦»èŒã€‚\n";
 // emperor add
 		
-	p_mess=sprintf("%s²»Âú%s³¯Õþ£¬·ßÈ»Æú¹Ù³ö×ß¡£\n",
+	p_mess=sprintf("%sä¸æ»¡%sæœæ”¿ï¼Œæ„¤ç„¶å¼ƒå®˜å‡ºèµ°ã€‚\n",
 		CHAR_D->get_char(p_id,"name"),
 	COUNTRY_D->get_country(CHAR_D->get_char(p_id,"nation"),"name"));
 //Added by suicide for clear guoshi info when ind
@@ -224,7 +224,7 @@ mixed leave(string p_id)
 	CHAR_D->set_char(p_id,"ranklocal",0);
 	CHAR_D->set_char(p_id,"nation",0);
 	
-	//2001.4.24 ÈÃ³ö×ßµÄNPC³öÏÖÔÚÏÈÇ°Éè¶¨×öwhisper jobµÄÍæ¼ÒËùÔÚµØ
+	//2001.4.24 è®©å‡ºèµ°çš„NPCå‡ºçŽ°åœ¨å…ˆå‰è®¾å®šåšwhisper jobçš„çŽ©å®¶æ‰€åœ¨åœ°
 	{string f_id,f_area;
 	if (f_id=CHAR_D->get_char(p_id,"friend"))
 	   f_area = CHAR_D->get_char(f_id,"area");
@@ -289,20 +289,20 @@ void must_retire() {
 		(CHAR_D->get_skill(p_id,"sk_zhimou")>90) ||
 		(CHAR_D->get_skill(p_id,"sk_meili")>90) )
 		return; // so the high level npc will not retire sigh
-// emperor add ¹ÙÔ±ÊýÐ¡ÓÚ3Ê±²»ÄÜÀë¿ª
+// emperor add å®˜å‘˜æ•°å°äºŽ3æ—¶ä¸èƒ½ç¦»å¼€
 	if(sizeof(NpcsInArea(CHAR_D->get_char(p_id,"area"),"o"))<4) 
 		return;
 // emperor add
 	age=CHAR_D->get_char(p_id,"age");
 	if(age>45) 
-		res="ÎáÍõÍòËê£¬ÀÏÐàÄê¸ßÌåÈõ£¬¸æ¼ÙÐÞÑøÒ»¶ÎÊ±¼ä¡£";
+		res="å¾çŽ‹ä¸‡å²ï¼Œè€æœ½å¹´é«˜ä½“å¼±ï¼Œå‘Šå‡ä¿®å…»ä¸€æ®µæ—¶é—´ã€‚";
 	else
-		res="ÎáÍõÍòËê£¬³¼Îª¹ÙÒÑ¾Ã£¬Ïë»ØÏçÌ½ÍûÒ»ÏÂÄ¸Ç×¡£";
+		res="å¾çŽ‹ä¸‡å²ï¼Œè‡£ä¸ºå®˜å·²ä¹…ï¼Œæƒ³å›žä¹¡æŽ¢æœ›ä¸€ä¸‹æ¯äº²ã€‚";
 
 	CHANNEL_D->deliver_tell("gossip",CHAR_D->get_char(p_id,"name"),res);
-	CHANNEL_D->deliver_tell("gossip",CHAR_D->get_char(n_id,"name"),"àÅ. . . .");
+	CHANNEL_D->deliver_tell("gossip",CHAR_D->get_char(n_id,"name"),"å—¯. . . .");
 	CHANNEL_D->deliver_tell("rumor","system",CHAR_D->get_char(p_id,"name")+
-		"ÏÂÒ°ÁË¡£");
+		"ä¸‹é‡Žäº†ã€‚");
 
 	CHAR_D->set_char(p_id,"ranknation",0);
 	CHAR_D->set_char(p_id,"ranklocal",0);

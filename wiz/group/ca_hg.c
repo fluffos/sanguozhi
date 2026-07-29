@@ -9,9 +9,9 @@ void setup()
 {
    set_area("changan");
    set_light(50);
-   set_brief(""+YEL+"后宫"+NOR+"");
-   set_long("    这里是后宫。无数嫔妃从你面前走过，使你不禁惊叹世上竟然
-还有如此美丽的人。向北是皇宫大殿，东面是内宫御花园。\n\n");
+   set_brief(""+YEL+"鍚庡"+NOR+"");
+   set_long("    杩欓噷鏄悗瀹�傛棤鏁板珨濡冧粠浣犻潰鍓嶈蛋杩囷紝浣夸綘涓嶇鎯婂徆涓栦笂绔熺劧
+杩樻湁濡傛缇庝附鐨勪汉銆傚悜鍖楁槸鐨囧澶ф锛屼笢闈㈡槸鍐呭寰¤姳鍥�俓n\n");
    set_room_state("valid_start");
    set_exits( ([
              "east"  : __DIR__+"ca_yhy.c",

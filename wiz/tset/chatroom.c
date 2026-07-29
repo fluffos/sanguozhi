@@ -1,5 +1,5 @@
 /* RoomMaker.c
-** Coded by Ô·èµ@LIMA
+** Coded by è‹‘ç’§@LIMA
 ** Code generated with RoomMaker v0.9.1 coded by Onyx@RedDragon
 ** Do not remove this header.
 */
@@ -11,7 +11,7 @@ inherit ROOM;
 
 int do_go_ting() {
     if(!wizardp(this_body())) {
-	write("Äã»¹ÁôÔÚÔ­µØ¡£\n");
+	write("ä½ è¿˜ç•™åœ¨åŸåœ°ã€‚\n");
 	return 1;
     }
     return 0;
@@ -20,10 +20,10 @@ int do_go_ting() {
 void setup(){
     set_area("chatting");
     set_light(25);
-    set_brief("%^CYAN%^Ğ¡í¬ÁÄÌì%^RESET%^");
+    set_brief("%^CYAN%^å°æ†©èŠå¤©%^RESET%^");
     set_long("
-Ò»¸ö¿í¿í³¨³¨µÄ·¿¼ä£¬·ÅÁËºÃĞ©Êæ·şËÉÈíµÄ´óÉ³·¢£¬Ò»×øÉÏÈ¥£¬ÁîÈË
-¾õµÃ»ëÉíÊæ³©£¬ÕæÊÇ¸öĞªÏ¢½²»°µÄºÃµØ·½¡£
+ä¸€ä¸ªå®½å®½æ•æ•çš„æˆ¿é—´ï¼Œæ”¾äº†å¥½äº›èˆ’æœæ¾è½¯çš„å¤§æ²™å‘ï¼Œä¸€åä¸Šå»ï¼Œä»¤äºº
+è§‰å¾—æµ‘èº«èˆ’ç•…ï¼ŒçœŸæ˜¯ä¸ªæ­‡æ¯è®²è¯çš„å¥½åœ°æ–¹ã€‚
 \n\n");
 
     set_exits( ([
@@ -31,12 +31,12 @@ void setup(){
 	"ting" : __DIR__"ting.c",
     ]) );
     set_hidden_exits("ting");
-    set_exit_msg("ting", "Ò»ÕóÇá·ç´µ¹ı£¬$NºöµØ»¯×÷·ãÒ¶£¬Ëæ·ç¶øÈ¥¡£\n");
+    set_exit_msg("ting", "ä¸€é˜µè½»é£å¹è¿‡ï¼Œ$Nå¿½åœ°åŒ–ä½œæ«å¶ï¼Œéšé£è€Œå»ã€‚\n");
 
 
-    add_item("sofa", "É³·¢", "seat", "chair", ([
-	   "look" : "¼¸ÕÅÊæ·şËÉÈíµÄ´óÉ³·¢¡£",
-           "sit"  : "ÄãÊæÊæ·ş·şµØ×øÉÏÉ³·¢£¬ÇÌÆğÁË¶şÀÉÍÈ¡£",
+    add_item("sofa", "æ²™å‘", "seat", "chair", ([
+	   "look" : "å‡ å¼ èˆ’æœæ¾è½¯çš„å¤§æ²™å‘ã€‚",
+           "sit"  : "ä½ èˆ’èˆ’æœæœåœ°åä¸Šæ²™å‘ï¼Œç¿˜èµ·äº†äºŒéƒè…¿ã€‚",
         ]));
 }
  

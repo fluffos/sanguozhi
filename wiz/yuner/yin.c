@@ -18,11 +18,11 @@ private void main() {
     }
     if(!this_body()->is_visible())
     {
-        out("宝贝，你已经隐身了。\n");
+        out("瀹濊礉锛屼綘宸茬粡闅愯韩浜嗐�俓n");
         return;
     }
     this_body()->do_player_message("invis");
-    out("我的小猫咪，你现在开始隐身。\n");
+    out("鎴戠殑灏忕尗鍜紝浣犵幇鍦ㄥ紑濮嬮殣韬�俓n");
     this_body()->set_visibility(0);
 
     FINGER_D->update_me();

@@ -13,17 +13,17 @@ string * flowers = ({
 
 void setup()
 {
-    set_name("pretty girl", "Âô»¨¹ÃÄï");
+    set_name("pretty girl", "å–èŠ±å§‘å¨˜");
     set_gender(2);
-    set_proper_name("Âô»¨¹ÃÄï");
-    set_in_room_desc("Âô»¨¹ÃÄï(pretty girl)");
+    set_proper_name("å–èŠ±å§‘å¨˜");
+    set_in_room_desc("å–èŠ±å§‘å¨˜(pretty girl)");
     add_id("girl");
     set_age(16);
-    set_long("Ò»¸öÆ¯ÁÁµÄÂô»¨¹ÃÄï£¬ÇÉÐ¦æÌÈ»£¬¿´µÃÄãÐÄÌøÂ©µôÒ»ÅÄ¡£");
+    set_long("ä¸€ä¸ªæ¼‚äº®çš„å–èŠ±å§‘å¨˜ï¼Œå·§ç¬‘å«£ç„¶ï¼Œçœ‹å¾—ä½ å¿ƒè·³æ¼æŽ‰ä¸€æ‹ã€‚");
         add_question("name","name" );
         add_question("here","here");
         add_question("flower","flower");
-        add_ask_str("flower","$NæÒÆ¤Ð¦Á³µØ´Õµ½$TÉí±ß£¬ËµµÀ£º$sÕýÒªÂòÐ©»¨¶ù£¬ÂùºÃ¿´Âï£¬²»¹ý»¹ÊÇ±È²»ÉÏÐ¡¹ÃÄïÄãÑ½¡£¡£\n");
+        add_ask_str("flower","$Nå¬‰çš®ç¬‘è„¸åœ°å‡‘åˆ°$Tèº«è¾¹ï¼Œè¯´é“ï¼š$sæ­£è¦ä¹°äº›èŠ±å„¿ï¼Œè›®å¥½çœ‹å˜›ï¼Œä¸è¿‡è¿˜æ˜¯æ¯”ä¸ä¸Šå°å§‘å¨˜ä½ å‘€ã€‚ã€‚\n");
 }
 void special_answer(object who, string matt)
 {
@@ -33,19 +33,19 @@ void special_answer(object who, string matt)
         switch(matt)
         {
                 case "name" :
-                        this_object()->simple_action("$NàÛßêÒ»Ð¦£ºÕâÑù¾ÍÏë´òÌýÈË¼ÒµÄÃû×ÖÑ½£¬ÄãÒªÊÇÌìÌìÀ´Âò»¨ÎÒ¾Í¸æËßÄã¡£\n");
+                        this_object()->simple_action("$Nå™—å“§ä¸€ç¬‘ï¼šè¿™æ ·å°±æƒ³æ‰“å¬äººå®¶çš„åå­—å‘€ï¼Œä½ è¦æ˜¯å¤©å¤©æ¥ä¹°èŠ±æˆ‘å°±å‘Šè¯‰ä½ ã€‚\n");
                         return;
                 case "here" :
-                        this_object()->simple_action("$NËµµÀ£ºÕâÀïÊÇ»¨µêÑ½£¬µ±È»ÊÇÂô»¨µÄÀ²£¬ÄãÖ»ÊÇÀ´´îÚ¨µÄÂð£¿\n");
+                        this_object()->simple_action("$Nè¯´é“ï¼šè¿™é‡Œæ˜¯èŠ±åº—å‘€ï¼Œå½“ç„¶æ˜¯å–èŠ±çš„å•¦ï¼Œä½ åªæ˜¯æ¥æ­è®ªçš„å—ï¼Ÿ\n");
                         return;
                 case "flower" :
         ob=present(pobj,this_body());
         if(objectp(ob))
         {
-        this_object()->targetted_action("$N¶Ô$TÒ¡ÁËÒ¡Í·£ºÄãÊÖÉÏ²»ÊÇ»¹ÓÐÂï£¬ÔõÃ´»¹À´ÕÒÈË¼ÒÒªÑ½¡£\n",this_body());
+        this_object()->targetted_action("$Nå¯¹$Tæ‘‡äº†æ‘‡å¤´ï¼šä½ æ‰‹ä¸Šä¸æ˜¯è¿˜æœ‰å˜›ï¼Œæ€Žä¹ˆè¿˜æ¥æ‰¾äººå®¶è¦å‘€ã€‚\n",this_body());
         return;
         }
-        this_object()->targetted_action("$N¶Ô$TÎ¢Î¢Ò»Ð¦£¬µÝÁËÒ»¶ä\n",this_body());
+        this_object()->targetted_action("$Nå¯¹$Tå¾®å¾®ä¸€ç¬‘ï¼Œé€’äº†ä¸€æœµ\n",this_body());
         hua=new(pobj);
         hua->move(this_body());
         }

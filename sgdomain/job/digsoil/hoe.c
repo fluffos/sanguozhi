@@ -5,11 +5,11 @@ inherit M_DIGGER;
 inherit M_INPUT;
 inherit M_VALUE;
 void setup() {
-    set_adj("´Ö±¿µÄ");
-    set_id("chu tou", "³úÍ·","hoe");
-    set_unit("°Ñ");
-    set_in_room_desc("Ò»±úÅ©¼Ò³úµØµÄ³úÍ·(chu tou)¡£");
-    set_long("Ò»±úÅ©¼Ò³úµØµÄ³úÍ·(chu tou)¡£\n");
+    set_adj("ç²—ç¬¨çš„");
+    set_id("chu tou", "é”„å¤´","hoe");
+    set_unit("æŠŠ");
+    set_in_room_desc("ä¸€æŸ„å†œå®¶é”„åœ°çš„é”„å¤´(chu tou)ã€‚");
+    set_long("ä¸€æŸ„å†œå®¶é”„åœ°çš„é”„å¤´(chu tou)ã€‚\n");
     set_attack_ability(2);
     set_attack_power(10);
     set_defence_ability(10);

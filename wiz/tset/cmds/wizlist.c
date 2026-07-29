@@ -17,7 +17,7 @@ private void main()
     int p_time,c_time,p_isonline;
     string disp="";
     string disp_tmp;
-    array id_list=({});
+    mixed * id_list=({});
     mixed us=([]);
     set_privilege(1);
 
@@ -50,22 +50,22 @@ private void main()
 	id_list=sort_array(id_list,1);
 		
     if(!wizardp(this_body()))
-    	disp=sprintf("£É£Ä¡¡    ĞÕÃû¡¡    Éí·Ö¡¡ÁªÀëÏß¡¡Ê±¼ä¡¡\n");
+    	disp=sprintf("ï¼©ï¼¤ã€€    å§“åã€€    èº«åˆ†ã€€è”ç¦»çº¿ã€€æ—¶é—´ã€€\n");
     else
-    	disp=sprintf("£É£Ä¡¡    ĞÕÃû¡¡    Éí·Ö¡¡ÁªÀëÏß¡¡Ê±¼ä¡¡£É£Ğ\n");
-    disp+=sprintf(power_str("¡ª",35))+"\n";
+    	disp=sprintf("ï¼©ï¼¤ã€€    å§“åã€€    èº«åˆ†ã€€è”ç¦»çº¿ã€€æ—¶é—´ã€€ï¼©ï¼°\n");
+    disp+=sprintf(power_str("â€”",35))+"\n";
     count=sizeof(id_list);
 	for(i=0;i<count;i++)
 	{
         disp+=sprintf("%-8s  %-8s  %4s  %8s%-16s %s\n",
 			id_list[i],
 			us[id_list[i]][0],
-			(us[id_list[i]][1]=="p" ? "Íæ¼Ò": 
-			us[id_list[i]][1]=="w" ? "Î×Ê¦" : "´óÉñ"),
-			(us[id_list[i]][2] ? "Áª¡¡Ïß£º" : "¡¡ÀëÏß£º"),
+			(us[id_list[i]][1]=="p" ? "ç©å®¶": 
+			us[id_list[i]][1]=="w" ? "å·«å¸ˆ" : "å¤§ç¥"),
+			(us[id_list[i]][2] ? "è”ã€€çº¿ï¼š" : "ã€€ç¦»çº¿ï¼š"),
 			CHINESE_D->chinese_period(us[id_list[i]][3]),
 			us[id_list[i]][4]);
 	}
-	disp+=sprintf("¹²²éµ½%dÃûÓÃ»§£®\n",count);
+	disp+=sprintf("å…±æŸ¥åˆ°%dåç”¨æˆ·ï¼\n",count);
 	more(disp);
 }

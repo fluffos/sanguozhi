@@ -4,13 +4,13 @@
 inherit __DIR__+"fight_d/formula";
 
 
-#define IAMNOTCHAR "�����������º�ʤ֮�ˣ���ϲ�򶷡�\n"
-#define IAMBUSY "������æ���أ�����ʱ�������书��"
+#define IAMNOTCHAR "非世俗中争勇好胜之人，不喜打斗。\n"
+#define IAMBUSY "现在正忙着呢，那有时间切蹉武功。"
 
-#define IAMFIGHTING "���ڴ��ء�\n"
+#define IAMFIGHTING "正在打呢。\n"
 
-#define ASKFIGHT "$N��$Tһ���ֵ���$M���ţ�Ը��$R���������书��\n"
-#define CONFIRMFIGHT "$N��$T���ͷ��������Ȼ$R���ߴͽ̣�$s�������㡣\n"
+#define ASKFIGHT "$N对$T一拱手道：$M不才，愿与$R切蹉切蹉武功。\n"
+#define CONFIRMFIGHT "$N对$T点点头，道：既然$R不吝赐教，$s理当奉陪。\n"
 #include <security.h>
 #include <classes.h>
 
@@ -106,14 +106,14 @@ mixed confirm_fight(object a, object b)
 mixed can_fight(object a,object b) {
 	mixed ret;
 	ret=can_i_fight(a);
-	if(!ret) ret="��֪Ϊʲô���㲻��򶷡�\n";
+	if(!ret) ret="不知为什么，你不想打斗。\n";
 	if(stringp(ret)) {
 		write(ret);
 		return;
 	}
 	a->targetted_action(ASKFIGHT,b);
 	ret=can_u_fight(b);
-	if(!ret) ret="$N��$T������֪Ϊʲô���Ҳ���򶷡�\n";
+	if(!ret) ret="$N对$T道：不知为什么，我不想打斗。\n";
 	if(stringp(ret)) {
 		DELAY_D->delay_targetted_action(b,a,ret,1);
 		return ret;
@@ -125,23 +125,23 @@ mixed can_fight(object a,object b) {
 mixed can_u_fight(object o) {
 	string p_id;
 	p_id=o->query_id()[0];
-	if(!CHAR_D->char_exist(p_id)) return "$N��$T����$s"+IAMNOTCHAR;
+	if(!CHAR_D->char_exist(p_id)) return "$N对$T道：$s"+IAMNOTCHAR;
 	if((CHAR_D->get_char(p_id,"is_tmp"))&&(!CHAR_D->get_char(p_id,"if_fighter")))
-		return "$N��$T����$s"+IAMNOTCHAR;
-	if(CHAR_D->get_char(p_id,"task")) return "$N��$T����$s"+IAMBUSY;
-	if(o->is_fighting()) return "$N��$T����$s"+IAMFIGHTING;
+		return "$N对$T道：$s"+IAMNOTCHAR;
+	if(CHAR_D->get_char(p_id,"task")) return "$N对$T道：$s"+IAMBUSY;
+	if(o->is_fighting()) return "$N对$T道：$s"+IAMFIGHTING;
 	return 1; // ok i can fight
 }
 mixed can_i_fight(object o) {
 	string p_id;
 	object env,wep;
 	p_id=o->query_id()[0];
-	if(!CHAR_D->char_exist(p_id)) return "��"+IAMNOTCHAR;
-	if(CHAR_D->get_char(p_id,"task")) return "��"+IAMBUSY;
+	if(!CHAR_D->char_exist(p_id)) return "你"+IAMNOTCHAR;
+	if(CHAR_D->get_char(p_id,"task")) return "你"+IAMBUSY;
 	if(CHAR_D->get_char(p_id,"body")=="gini") 
-            { this_body()->simple_action("$N�����Բ������ˣ���ܻ������Լ��ϰ�!\n");
+            { this_body()->simple_action("$N道：对不起，主人，打架还是你自己上吧!\n");
                return "hoho\n";
             }
-	if(o->is_fighting()) return "��"+IAMFIGHTING;
+	if(o->is_fighting()) return "你"+IAMFIGHTING;
 	return 1; // ok i can fight
 } 

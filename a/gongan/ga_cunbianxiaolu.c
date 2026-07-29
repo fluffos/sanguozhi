@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is 花儿朵朵
+// driver is 鑺卞効鏈垫湹
 // created date is Sun Jul 17 23:23:48 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,7 +7,7 @@ inherit OUTDOOR_ROOM;
 void setup() {
 set_area("gongan");
 set_light(50);
-set_brief("%^YELLOW%^"+"村边小路"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"鏉戣竟灏忚矾"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "south":"/a/gongan/ga_nongtian.c",

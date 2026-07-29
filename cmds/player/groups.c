@@ -9,7 +9,7 @@ inherit CMD;
 
 
 
-#define SYNTAX "ÓÃ·¨: groups [-a | -d] [groupname] [name 1] [name 2] ... \n"
+#define SYNTAX "ç”¨æ³•: groups [-a | -d] [groupname] [name 1] [name 2] ... \n"
 
 private string banner =
 "==--==--==--==--==--==--==--==--==--==--==--==--==--==--==--==--==--==--==\n";
@@ -33,17 +33,17 @@ private void main( string arg )
     if( !arg || arg == "" )
     {
         out( banner );
-        outf( "%sÏÖÓĞµÄĞ¡×éÒÔ¼°ËüÃÇµÄ³ÉÔ±£º\n\n",mud_name() );
+        outf( "%sç°æœ‰çš„å°ç»„ä»¥åŠå®ƒä»¬çš„æˆå‘˜ï¼š\n\n",mud_name() );
         print_groups(GROUP_D->get_group_data());
         out( banner );
 
 
         if( !mapp( groups ) || !sizeof( groups ) ) {
-            out( "ÄãÏÖÔÚ²¢Î´²Î¼ÓÈÎºÎĞ¡×é¡£\n" );
+            out( "ä½ ç°åœ¨å¹¶æœªå‚åŠ ä»»ä½•å°ç»„ã€‚\n" );
             return;
         }
 
-        outf( "%s£¬ÄãµÄ¸öÈËĞ¡×éÊÇ£º\n\n", 
+        outf( "%sï¼Œä½ çš„ä¸ªäººå°ç»„æ˜¯ï¼š\n\n", 
           this_body()->query_name() );
 
         print_groups(groups);
@@ -73,13 +73,13 @@ private void main( string arg )
               if ( pointerp(grp_members) &&
                 member_array(grp_members, x) != -1 )
               {
-                  outf("%sÒÑ¾­ÔÚ(%s)Ğ¡×éÖĞÁË¡£\n",
+                  outf("%så·²ç»åœ¨(%s)å°ç»„ä¸­äº†ã€‚\n",
                     x, this_group);
                   return;
               }
               else
               {
-                  outf("%s¼ÓÈëÁË(%s)Ğ¡×é¡£\n",
+                  outf("%såŠ å…¥äº†(%s)å°ç»„ã€‚\n",
                     x, this_group);
                   return 1;
               }
@@ -98,10 +98,10 @@ if( sizeof(arglist) == 2 )
     if(groups[arglist[1]])
     {
         map_delete(groups,arglist[1]);
-        outf("Ğ¡×é(%s)±»É¾³ıÁË¡£\n", arglist[1]);
+        outf("å°ç»„(%s)è¢«åˆ é™¤äº†ã€‚\n", arglist[1]);
         return;
     }
-    outf("Ã»ÓĞÒÔ'%s'ÎªÃû×ÖµÄĞ¡×é£¡\n", arglist[1]);
+    outf("æ²¡æœ‰ä»¥'%s'ä¸ºåå­—çš„å°ç»„ï¼\n", arglist[1]);
     return;
 }
 arglist = arglist[2..];
@@ -112,11 +112,11 @@ not = clean_array( arglist - valid );
 valid = clean_array( valid );
 
 if( sizeof( not ) )
-    out(sprintf("ÎŞ·¨É¾³ı %s.\n", implode( not, ", ")));
+    out(sprintf("æ— æ³•åˆ é™¤ %s.\n", implode( not, ", ")));
 
 if( sizeof( valid ) )
 {
-    out(sprintf("É¾³ı %s.\n", implode( valid, ", " )));
+    out(sprintf("åˆ é™¤ %s.\n", implode( valid, ", " )));
     groups[this_group] -= valid;
     if( !sizeof( groups[this_group] ) )
         map_delete(groups, this_group);

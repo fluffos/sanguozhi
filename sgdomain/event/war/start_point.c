@@ -19,30 +19,30 @@ mixed valid_start_point(string p_area,string p_side,int x,int y)
 	height=MAP_D->get_city(p_area,"height");
 	width=MAP_D->get_city(p_area,"width");
 	if((x<0)||(x>=width)||(y<0)||(y>=height))
-		return "Ô½½ç¡£\n";
+		return "è¶Šç•Œã€‚\n";
 	p_c=MAP_D->get_city(p_area,"center");
 	x_c=p_c[0];y_c=p_c[1];
 	p_here=MAP_D->get_map_cell(p_area,y,x,"m");
-	if(p_here=="¡ù")
-		return "´Ë´¦ÎÞ·¨×¤±ø¡£\n";
+	if(p_here=="â€»")
+		return "æ­¤å¤„æ— æ³•é©»å…µã€‚\n";
 	p_dis=distance(x,y,x_c,y_c);
 	if((p_side=="a"))
 	{   if (p_dis<7)
-		return "ÀëµÐË§ÕÊÌ«½ü¡£\n";
+		return "ç¦»æ•Œå¸…å¸å¤ªè¿‘ã€‚\n";
 	    if((x!=0)&&(y!=0)&&(x!=width-1)&&(y!=height-1))
-		return "½ø¹¥·½Ö»ÄÜ´Ó±ß½ç³ö±ø¡£\n";
+		return "è¿›æ”»æ–¹åªèƒ½ä»Žè¾¹ç•Œå‡ºå…µã€‚\n";
 	}
 	else
 	{
 		if(p_dis>7)
-			return "ÀëË§ÕÊÌ«Ô¶¡£\n";
+			return "ç¦»å¸…å¸å¤ªè¿œã€‚\n";
 	}
 	troops=MAP_D->get_map_cell(p_area,y,x,"t");
 	if(sizeof(troops))
 	foreach(int troop in troops)
 	{
 		if(TROOP_D->get_troops(troop,"side")!=p_side)
-			return "´ËµØÒÑÓÐµÐ¾ü×¤±ø¡£\n";
+			return "æ­¤åœ°å·²æœ‰æ•Œå†›é©»å…µã€‚\n";
 	}
 	return 1;
 }

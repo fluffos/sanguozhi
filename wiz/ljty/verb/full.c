@@ -12,5 +12,5 @@ void main()
 	this_body()->set_cur_max_hp(p_tmp);
 	this_body()->set_cur_hp(p_tmp);
 	this_body()->simple_action(HIG+
-        "$N运起天地神功；一瞬间，一切伤痛全化为无。\n"+NOR);
+        "$N杩愯捣澶╁湴绁炲姛锛涗竴鐬棿锛屼竴鍒囦激鐥涘叏鍖栦负鏃犮�俓n"+NOR);
 }

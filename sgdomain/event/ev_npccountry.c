@@ -1,5 +1,5 @@
 // ev_npc_country.c
-// this is used to control npc countrys ¹úÊ¦
+// this is used to control npc countrys å›½å¸ˆ
 void remove_gs(string n) {
         string p_id;
         string msg;
@@ -7,14 +7,14 @@ void remove_gs(string n) {
 
         COUNTRY_D->set_country(n,"gs",0);
 
-        msg=sprintf("%s±»%s³·Ïú%s¹úÊ¦Ö°Î»¡£",
+        msg=sprintf("%sè¢«%sæ’¤é”€%så›½å¸ˆèŒä½ã€‚",
                 CHAR_D->get_char(p_id,"name"),
                 CHAR_D->get_char(n,"name"),
                 COUNTRY_D->get_country(n,"name"));
         CHANNEL_D->deliver_tell("rumor","system",msg);
         HIS(msg);
         CHANNEL_D->deliver_tell("gossip",CHAR_D->get_char(n,"name"),
-                CHAR_D->get_char(p_id,"name")+"£¬ÄãÕæÈÃÎÒÊ§Íû¡£");
+                CHAR_D->get_char(p_id,"name")+"ï¼Œä½ çœŸè®©æˆ‘å¤±æœ›ã€‚");
 
         return ;
 
@@ -63,7 +63,7 @@ void create_gs(string n) {
 	CHAR_D->set_char(p_id,"ranklocal",title);
 	CHAR_D->set_char(p_id,"grant",0);
 
-	dis=sprintf("%s·â%sÎª%sµÄ%s¡£", CHAR_D->get_char(n,"name"),
+	dis=sprintf("%så°%sä¸º%sçš„%sã€‚", CHAR_D->get_char(n,"name"),
 		CHAR_D->get_char(p_id,"name"),AREA_D->get_area(p_area,"name"),
 		OFFICER_D->query_rank_name(title));
 	CHANNEL_D->deliver_tell("rumor","system",dis);
@@ -90,17 +90,17 @@ void create_gs_old(string n) {
 
         COUNTRY_D->set_country(n,"gs",p_id);
         COUNTRY_D->set_country(n,"gsx",200); // not too much
-        msg=sprintf("%s±»%sÈÎÃüÎª%sµÄ¹úÊ¦¡£",
+        msg=sprintf("%sè¢«%sä»»å‘½ä¸º%sçš„å›½å¸ˆã€‚",
                 CHAR_D->get_char(p_id,"name"),
                 CHAR_D->get_char(n,"name"),
                 COUNTRY_D->get_country(n,"name"));
         CHANNEL_D->deliver_tell("rumor","system",msg);
         HIS(msg);
         CHANNEL_D->deliver_tell("gossip",CHAR_D->get_char(n,"name"),
-                CHAR_D->get_char(p_id,"name")+"£¬ºÃºÃ¸É£¬±¾¹úµÄÐËÍú¾Í¼ÄÍÐÔÚÄãÉíÉÏÁË¡£");
+                CHAR_D->get_char(p_id,"name")+"ï¼Œå¥½å¥½å¹²ï¼Œæœ¬å›½çš„å…´æ—ºå°±å¯„æ‰˜åœ¨ä½ èº«ä¸Šäº†ã€‚");
 
         CHANNEL_D->deliver_tell("gossip",CHAR_D->get_char(p_id,"name"),
-                "³¼¸Îµ¨Í¿µØÄÑ±¨Ö÷¹«´ó¶÷¡£");
+                "è‡£è‚èƒ†æ¶‚åœ°éš¾æŠ¥ä¸»å…¬å¤§æ©ã€‚");
 
         return ;
 }
@@ -122,7 +122,7 @@ void act() {
         int tmp;
         ns=COUNTRY_D->list_countries();
         foreach(string n in ns) {
-                tmp=COUNTRY_D->get_country(n,"gsx"); //¹úÊ¦ÐÅÓþ
+                tmp=COUNTRY_D->get_country(n,"gsx"); //å›½å¸ˆä¿¡èª‰
                 if(tmp>0)
                         COUNTRY_D->set_country(n,"gsx",tmp-1);
         }

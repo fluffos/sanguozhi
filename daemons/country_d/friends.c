@@ -19,7 +19,7 @@ void check_relation()
 		foreach(string f in keys(friends)){
 			if( time()>friends[f] ){
 				map_delete(tmp, f);
-				tell(users(),HIR+sprintf("¡¾´óÊÂ¼Ç¡¿%sÓë%s½â³ýÍ¬ÃË£®\n",
+				tell(users(),HIR+sprintf("ã€å¤§äº‹è®°ã€‘%sä¸Ž%sè§£é™¤åŒç›Ÿï¼Ž\n",
                                 	COUNTRY_D->get_country(n,"name"),COUNTRY_D->get_country(f,"name"))+NOR);
 				continue;
 			};

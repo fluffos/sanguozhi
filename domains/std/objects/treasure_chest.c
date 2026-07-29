@@ -8,18 +8,18 @@ inherit M_GETTABLE;
 
 void setup() {
     
-    set_adj("¾Ş´óµÄ", "Õä±¦");
-    set_unit("¸ö");
-    set_id("chest", "Ïä×Ó");
-    set_untouched_desc("ÔÚ¶´µØÓĞÒ»¸ö´óÏä×Ó¡£");
-    set_long("Ïä×ÓÉÏºÜ¶àÉ³£¬ÔÚÍâÃæºÃÏóÓĞĞ©×Ö¡£\n");
+    set_adj("å·¨å¤§çš„", "çå®");
+    set_unit("ä¸ª");
+    set_id("chest", "ç®±å­");
+    set_untouched_desc("åœ¨æ´åœ°æœ‰ä¸€ä¸ªå¤§ç®±å­ã€‚");
+    set_long("ç®±å­ä¸Šå¾ˆå¤šæ²™ï¼Œåœ¨å¤–é¢å¥½è±¡æœ‰äº›å­—ã€‚\n");
     set_gettable(1);
     set_objects( ([
                    ]) );
     set_size(LARGE);
     set_max_capacity(LARGE);
     set_closed(1);
-    set_text("Ïä×ÓÉÏĞ´×ÅÒ»Ê×Ó¢ÎÄÊ«£º\n"
+    set_text("ç®±å­ä¸Šå†™ç€ä¸€é¦–è‹±æ–‡è¯—ï¼š\n"
              "\tI used to have a treasure chest.\n"
              "\tIt got so heavy that I had to rest.\n"
              "\tI let it slip away from me,\n"

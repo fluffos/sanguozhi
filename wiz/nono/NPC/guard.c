@@ -1,4 +1,4 @@
-// guard.c"ÎÀÊ¿"
+// guard.c"å«å£«"
 #include <mudlib.h>
 #include <ansi.h>
 inherit MONSTER;
@@ -9,13 +9,13 @@ void setup()
 {
   object jia;
   object jia1;
-    set_name("wei shi","ÎÀÊ¿");
-    add_id("wei shi","guard","shi","ÎÀÊ¿");
+    set_name("wei shi","å«å£«");
+    add_id("wei shi","guard","shi","å«å£«");
     set_gender(1);
-    set_proper_name("ÎÀÊ¿");
-    set_in_room_desc("¶¼Í¤¸®  ÎÀÊ¿(wei shi)");
+    set_proper_name("å«å£«");
+    set_in_room_desc("éƒ½äº­åºœ  å«å£«(wei shi)");
     set_wander_area("nono_home"); 
-set_long("Ò»Î»½õÒÂÎÀÊ¿£¬Éí×Å½õÒÂ£¬ÊÖÎÕ³¤Ç¹£¬Ë«Ä¿¾«¹â¾¼¾¼£¬¾¯ÌèµØÑ²ÊÓ×ÅËÄÖÜµÄÇéĞÎ¡£\n");
+set_long("ä¸€ä½é”¦è¡£å«å£«ï¼Œèº«ç€é”¦è¡£ï¼Œæ‰‹æ¡é•¿æªï¼ŒåŒç›®ç²¾å…‰ç‚¯ç‚¯ï¼Œè­¦æƒ•åœ°å·¡è§†ç€å››å‘¨çš„æƒ…å½¢ã€‚\n");
     jia=new("/wiz/nono/obj/jinyi.c");
     jia->move(this_object());
     jia->do_wear();
@@ -30,7 +30,7 @@ void special_answer(object who, string matt)
         switch(matt)
         {
                 case "houfu" :
-                        this_object()->simple_action("ÎÀÊ¿ËµµÀ£º¡°ÕâÀï¾ÍÊÇ¶¼Í¤ºîºî¸®¡£¡±\n");
+                        this_object()->simple_action("å«å£«è¯´é“ï¼šâ€œè¿™é‡Œå°±æ˜¯éƒ½äº­ä¾¯ä¾¯åºœã€‚â€\n");
                         return;
         }
 }

@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is »¨¶ù¶ä¶ä
+// driver is èŠ±å„¿æœµæœµ
 // created date is Tue Jun 14 22:17:07 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,7 +7,7 @@ inherit OUTDOOR_ROOM;
 void setup() {
 set_area("hangu");
 set_light(50);
-set_brief("%^YELLOW%^"+"´óÂ·"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"å¤§è·¯"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "east":"/a/hangu/hgg_beimen.c",

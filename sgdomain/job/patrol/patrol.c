@@ -44,10 +44,10 @@ mixed job(string m_id,string officer_id)
    o->set_job("patrol","score",0);
 
    o->set_job("patrol","area",m_area);
-   o->set_job("patrol","memo","Ñ²Âß"+AREA_D->get_area(m_area,"name"));
+   o->set_job("patrol","memo","å·¡é€»"+AREA_D->get_area(m_area,"name"));
    
-   return "$N¶Ô$TµÀ£ºÄÇ¾ÍÂé·³$RÈ¥±¾µØÇøÑ²ÂßÒ»ÏÂ¡£\n"+
-	   "\nÓÐÀ§ÄÑ¾ÍÓÃ help patrol¡£\n";
+   return "$Nå¯¹$Té“ï¼šé‚£å°±éº»çƒ¦$RåŽ»æœ¬åœ°åŒºå·¡é€»ä¸€ä¸‹ã€‚\n"+
+	   "\næœ‰å›°éš¾å°±ç”¨ help patrolã€‚\n";
 }
 mixed stat_me()
 {
@@ -76,7 +76,7 @@ void job_judge()
 			{
 				o->set_job(JOBID,"status","done");
 				tell_user(p_id,
-				  "%^H_GREEN%^ÈÎÎñÍê³É£¬¿ìÈ¥Ì«ÊØ´¦ÁìÉÍ°É¡£\n%^RESET%^");
+				  "%^H_GREEN%^ä»»åŠ¡å®Œæˆï¼Œå¿«åŽ»å¤ªå®ˆå¤„é¢†èµå§ã€‚\n%^RESET%^");
 			}
 			continue;
 		}
@@ -142,7 +142,7 @@ mixed new_task(string p_id)
 	default: // this is the simplest job
 		ret["task"]="goto";
 		ret["room_name"]=p_roomname;
-		me->set_job(JOBID,"memo","µ½"+p_roomname);
+		me->set_job(JOBID,"memo","åˆ°"+p_roomname);
 		break;
 	}
 	return ret;
@@ -163,7 +163,7 @@ void find_thief(string p_id)
 	ret["task"]="thief";
 	ret["get_thief"]=0;
 
-	me->set_job(JOBID,"memo","×¥Ð¡Íµ");
+	me->set_job(JOBID,"memo","æŠ“å°å·");
 	me->set_job(JOBID,"get_thief",0);
 
 
@@ -173,7 +173,7 @@ void find_thief(string p_id)
     CHAR_D->add_char(n_id);
 
     CHAR_D->set_char(n_id,"my_master",p_id);
-    CHAR_D->set_char(n_id,"name","Ð¡Íµ");
+    CHAR_D->set_char(n_id,"name","å°å·");
     CHAR_D->set_char(n_id,"is_tmp",1);
     CHAR_D->set_char(n_id,"is_thief",1);
     CHAR_D->set_char(n_id,"body","thief");
@@ -182,8 +182,8 @@ void find_thief(string p_id)
 	o_thief=CHAR_D->find_char(n_id);
 	o_thief->set_leader(p_id);
 	me->targetted_action(
-		"$NÒ»Ì§Í·£¬·¢ÏÖÒ»¸ö$TÕýÍµÍµÃþÃþµØÁï¹ýÀ´£¬´óº°Ò»Éù£ºÕ¾×¡¡£\n",o_thief);
-	tell_user(p_id,"×¥×¡Ð¡Íµ£¬ÓÃ£ºcmd catch thief\n");
+		"$Nä¸€æŠ¬å¤´ï¼Œå‘çŽ°ä¸€ä¸ª$Tæ­£å·å·æ‘¸æ‘¸åœ°æºœè¿‡æ¥ï¼Œå¤§å–Šä¸€å£°ï¼šç«™ä½ã€‚\n",o_thief);
+	tell_user(p_id,"æŠ“ä½å°å·ï¼Œç”¨ï¼šcmd catch thief\n");
 	return ;
 
 }
@@ -229,11 +229,11 @@ void finish_task(string p_id)
 		switch(random(10))
 		{
 		case 0:
-			me->simple_action("$NÔÚ"+patrols[p_id]["curtask"]["room_name"]+
-				"×ªÁËÒ»×ª£¬Í»È»·¢ÏÖÇ½½ÇÓÐÊ²Ã´¶«Î÷ÔÚÉÁ¹â¡£\n"+
-                                  "¼ðÆðÒ»Ï¸¿´£¬Ô­À´ÊÇÒ»Ð©Òø×Ó¡£\n");
+			me->simple_action("$Nåœ¨"+patrols[p_id]["curtask"]["room_name"]+
+				"è½¬äº†ä¸€è½¬ï¼Œçªç„¶å‘çŽ°å¢™è§’æœ‰ä»€ä¹ˆä¸œè¥¿åœ¨é—ªå…‰ã€‚\n"+
+                                  "æ‹£èµ·ä¸€ç»†çœ‹ï¼ŒåŽŸæ¥æ˜¯ä¸€äº›é“¶å­ã€‚\n");
 			me->responda("jump");
-			me->simple_action("$NÏ²µÀ£º·¢²ÆÀ²£¬¸ÏÃ¦°ÑÒø×ÓÈûÈë¿Ú´ü¡£\n");
+			me->simple_action("$Nå–œé“ï¼šå‘è´¢å•¦ï¼Œèµ¶å¿™æŠŠé“¶å­å¡žå…¥å£è¢‹ã€‚\n");
 	        o=new(M_SILVER);
 			o->set_m_num(random(50)+1);
 			o->move(me);
@@ -242,10 +242,10 @@ void finish_task(string p_id)
 			find_thief(p_id);
 			return;
 		default:
-			me->simple_action("$NÔÚ"+patrols[p_id]["curtask"]["room_name"]+
-				"×ªÁËÒ»×ª£¬·¢ÏÖÒ»ÇÐÕý³£¡£\n"+
-				"$NÂúÒâµØµãÁËµãÍ·¡£\n");
-			tell_user(p_id,"ÄãµÄ¹¤×÷³É¼¨Ìá¸ßÁË¡£\n");
+			me->simple_action("$Nåœ¨"+patrols[p_id]["curtask"]["room_name"]+
+				"è½¬äº†ä¸€è½¬ï¼Œå‘çŽ°ä¸€åˆ‡æ­£å¸¸ã€‚\n"+
+				"$Næ»¡æ„åœ°ç‚¹äº†ç‚¹å¤´ã€‚\n");
+			tell_user(p_id,"ä½ çš„å·¥ä½œæˆç»©æé«˜äº†ã€‚\n");
 			score=me->query_job(JOBID,"score");
 			me->set_job(JOBID,"score",score+1); 
 			break;
@@ -255,19 +255,19 @@ void finish_task(string p_id)
 	case "thief":
 		if(me->query_job("patrol","get_thief")==1)
 		{
-			me->simple_action("$N×¥×¡ÁËÐ¡Íµ£¬$NµÄ³É¼¨Ìá¸ßÐí¶à¡£\n");
+			me->simple_action("$NæŠ“ä½äº†å°å·ï¼Œ$Nçš„æˆç»©æé«˜è®¸å¤šã€‚\n");
 			AREA_D->set_area(patrols[p_id]["area"],"safe",
 				AREA_D->get_area(patrols[p_id]["area"],"safe")+1);
 	       CHANNEL_D->deliver_tell("rumor","system",
-                sprintf("%s×¥×¡Ð¡Íµ£¬µ±µØ°ÙÐÕ·×·×³ÆÔÞ¡£",CHAR_D->get_char(p_id,"name")));	
+                sprintf("%sæŠ“ä½å°å·ï¼Œå½“åœ°ç™¾å§“çº·çº·ç§°èµžã€‚",CHAR_D->get_char(p_id,"name")));	
 			score=me->query_job(JOBID,"score");
 			me->set_job(JOBID,"score",score+5);
 			break;
 		}
 		else
 		{
-			me->simple_action("$N×ó¿´ÓÒ¿´£¬Ã»ÁËÐ¡ÍµµÄ×ÙÓ°¡£\n");
-			me->simple_action("$NÃ»ÓÐ×¥×¡Ð¡Íµ£¬$NµÄ³É¼¨ÏÂ½µÁË¡£\n");
+			me->simple_action("$Nå·¦çœ‹å³çœ‹ï¼Œæ²¡äº†å°å·çš„è¸ªå½±ã€‚\n");
+			me->simple_action("$Næ²¡æœ‰æŠ“ä½å°å·ï¼Œ$Nçš„æˆç»©ä¸‹é™äº†ã€‚\n");
 			score=me->query_job(JOBID,"score");
 			me->set_job(JOBID,"score",score+5);
 			break;
@@ -288,9 +288,9 @@ void remind_task(string p_id)
 	switch(patrols[p_id]["curtask"]["task"])
 	{
 	case "goto":
-			me->simple_action("$N×óÓÒ¿´¿´£¬Í»È»¾õµÃÓÐ±ØÒªµ½"
+			me->simple_action("$Nå·¦å³çœ‹çœ‹ï¼Œçªç„¶è§‰å¾—æœ‰å¿…è¦åˆ°"
 				+patrols[p_id]["curtask"]["room_name"]+
-				"×ª×ª¡£\n");
+				"è½¬è½¬ã€‚\n");
 			break;
 	case "thief":
 			n_id=patrols[p_id]["area"]+" thief";
@@ -300,12 +300,12 @@ void remind_task(string p_id)
 				env=environment(o);
 				if(objectp(env))
 				{
-					me->simple_action("$NÒ»Ëã£¬Ð¡Íµ¹À¼ÆÔÚ"+
-						env->short()+"£¬¿ìÈ¥×¥°É¡£\n");
+					me->simple_action("$Nä¸€ç®—ï¼Œå°å·ä¼°è®¡åœ¨"+
+						env->short()+"ï¼Œå¿«åŽ»æŠ“å§ã€‚\n");
 					break;
 				}
 			}
-			me->simple_action("$N¼±µÃÍÅÍÅ×ª£¬²»ÖªÐ¡ÍµÅÜÄÄÈ¥ÁË¡£\n");
+			me->simple_action("$Næ€¥å¾—å›¢å›¢è½¬ï¼Œä¸çŸ¥å°å·è·‘å“ªåŽ»äº†ã€‚\n");
 			me->set_job(JOBID,"get_thief",-1);
 			break;
 	default:

@@ -10,7 +10,7 @@ void do_sell_str(string str)
 	sen=PARASE_D->sep_id_num( str);
 	if(!sen) return;
 	ss=o->query_can_sell();
-	if(!ss) ss=o->short()+"不能卖。\n";
+	if(!ss) ss=o->short()+"涓嶈兘鍗栥�俓n";
 	if(stringp(ss)) 
 	{
 		write(ss);
@@ -19,12 +19,12 @@ void do_sell_str(string str)
 	ss=environment(this_body())->sell(sen[0],sen[1]);
     if(!ss)
 	{
-        write("这儿不能卖东西。\n");
+        write("杩欏効涓嶈兘鍗栦笢瑗裤�俓n");
 		return;
 	}
 
     this_body()->start_busy(2);
 }
-array query_verb_info() {
+mixed * query_verb_info() {
     return ({ ({ "STR" }) });
 }

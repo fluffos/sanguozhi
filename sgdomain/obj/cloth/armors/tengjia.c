@@ -8,15 +8,15 @@ inherit M_VALUE;
 void setup()
 {
     ::mudlib_setup();
-    set_unit("¼ş");
-    set_id("tengjia", "ÌÙ¼×");
+    set_unit("ä»¶");
+    set_id("tengjia", "è—¤ç”²");
     add_id("armor", "jia");
-    set_in_room_desc("ÌÙ¼×(tengjia)");
-    set_long("Ò»¼şÌÙ¼×£¬ÓÃÓÍ·´¸´½şÅİ£¬ÁÀÉ¹ÁË¼¸Ê®±é²ÅÖÆ³ÉµÄ£¬ÓĞÓ²ÓÖ»¬£¬µ¶¼ıÄÑÈë¡£");
+    set_in_room_desc("è—¤ç”²(tengjia)");
+    set_long("ä¸€ä»¶è—¤ç”²ï¼Œç”¨æ²¹åå¤æµ¸æ³¡ï¼Œæ™¾æ™’äº†å‡ åéæ‰åˆ¶æˆçš„ï¼Œæœ‰ç¡¬åˆæ»‘ï¼Œåˆ€ç®­éš¾å…¥ã€‚");
     set_gettable(1);
     set_slot(ARMORS);
-    set_wearmsg("$N´©ÉÏÒ»¼şÇáÇÉµÄÌÙ¼×$o¡£ËäÇáÈ´µ¶¼ıÄÑÈë¡£\n");
-    set_removemsg("$NÍÑÏÂÒ»¼ş$o¡£\n");
+    set_wearmsg("$Nç©¿ä¸Šä¸€ä»¶è½»å·§çš„è—¤ç”²$oã€‚è™½è½»å´åˆ€ç®­éš¾å…¥ã€‚\n");
+    set_removemsg("$Nè„±ä¸‹ä¸€ä»¶$oã€‚\n");
     set_attack_ability(-6);
     set_defence_power(40);
     set_defence_ability(-3);

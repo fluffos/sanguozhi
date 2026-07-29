@@ -40,7 +40,7 @@ query_quests()
 }
 
 
-static
+nosave protected
 void
 rack_up_a_death()
 {

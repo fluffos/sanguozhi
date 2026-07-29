@@ -1,7 +1,7 @@
 // queitem.c by fire@lima in Nov 1998
 // this is used to test if this is a robot by item test
 private mapping m_class;
-static string *p_ids=({});
+nosave protected string *p_ids=({});
 int init_class();
 string* init_ids() {
 	if(sizeof(p_ids)>20) return p_ids;
@@ -45,7 +45,7 @@ string q1(string p_id)
       ids-=({id4});
    }
 z4=HZK2ASC_D->hzk2asc(z4);
-   question="\n"+CHAR_D->get_char(id1,"name")+"("+id1+")µÄ×ÖÊÇ:\n";
+   question="\n"+CHAR_D->get_char(id1,"name")+"("+id1+")çš„å­—æ˜¯:\n";
    switch(random(4)) {
        case 0:
          ret="1";
@@ -64,8 +64,8 @@ z4=HZK2ASC_D->hzk2asc(z4);
          question+="1 "+z4+"\n2 "+z2+"\n3 "+z3+"\n4 "+z1+"\n";
 	break;
    }
-   question+="²»ÖªµÀÇëÓÃ < %^H_RED%^!info c id%^RESET%^  >²éÑ¯\nÈçÓÃZMUD£¬ÇëÏÈÓÃCtrl-R¹Ø±Õparse\n";
-//	question+="====´ğ°¸Îª£º"+HZK2ASC_D->hzk2asc(z1);
+   question+="ä¸çŸ¥é“è¯·ç”¨ < %^H_RED%^!info c id%^RESET%^  >æŸ¥è¯¢\nå¦‚ç”¨ZMUDï¼Œè¯·å…ˆç”¨Ctrl-Rå…³é—­parse\n";
+//	question+="====ç­”æ¡ˆä¸ºï¼š"+HZK2ASC_D->hzk2asc(z1);
    tell_user(p_id,question);
    return ret;
 }
@@ -103,7 +103,7 @@ string q2(string p_id)
    }
 
 
-   question=""+HZK2ASC_D->hzk2asc(CHAR_D->get_char(id1,"zi"))+"ÊÇË­µÄ×Ö:  ";
+   question=""+HZK2ASC_D->hzk2asc(CHAR_D->get_char(id1,"zi"))+"æ˜¯è°çš„å­—:  ";
    switch(random(4)) {
        case 0:
          ret="1";
@@ -122,8 +122,8 @@ string q2(string p_id)
          question+="1 "+z4+";  2 "+z2+";  3 "+z3+";  4 "+z1+"\n";
 	break;
    }
-   question+="²»ÖªµÀÇëÓÃ <%^RED%^ !info c id %^RESET%^ >²éÑ¯\nÈçÓÃZMUD£¬ÇëÏÈÓÃCtrl-R¹Ø±Õparse\n";
-//   question+="====´ğ°¸Îª£º"+HZK2ASC_D->hzk2asc(terminal_colour(z1, (previous_object()->query_translations())[1]));
+   question+="ä¸çŸ¥é“è¯·ç”¨ <%^RED%^ !info c id %^RESET%^ >æŸ¥è¯¢\nå¦‚ç”¨ZMUDï¼Œè¯·å…ˆç”¨Ctrl-Rå…³é—­parse\n";
+//   question+="====ç­”æ¡ˆä¸ºï¼š"+HZK2ASC_D->hzk2asc(terminal_colour(z1, (previous_object()->query_translations())[1]));
    tell_user(p_id,question);
    return ret;
 }
@@ -132,7 +132,7 @@ string test(string p_id)
    string ret;
    switch(random(2))
    {
-      case 0:  // ÄÄÒ»Àà
+      case 0:  // å“ªä¸€ç±»
         ret=q1(p_id);
         return ret;
       case 1: 

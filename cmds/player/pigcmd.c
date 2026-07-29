@@ -60,7 +60,7 @@ private void main(string arg)
        write(environment(this_body())->scoreboard_str());
        return;
    default    :
-       write("ºÃÏñÃ»ÓĞÕâÌõÖ¸ÁîÅ¶,Äã¿ÉÒÔÓÃhelp pig_cmdsÖ¸Áî²é¿´Ò»ÏÂ!\n");
+       write("å¥½åƒæ²¡æœ‰è¿™æ¡æŒ‡ä»¤å“¦,ä½ å¯ä»¥ç”¨help pig_cmdsæŒ‡ä»¤æŸ¥çœ‹ä¸€ä¸‹!\n");
        return;
    }
    

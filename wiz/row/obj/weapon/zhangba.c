@@ -5,14 +5,14 @@ inherit M_WEAPON;
 inherit M_VALUE;
 void setup()
 {
-set_unit("¸Ë");
-set_id("zhangbashe mao", HIW+"ÕÉ°ËÉßÃ¬"+NOR);
+set_unit("æ†");
+set_id("zhangbashe mao", HIW+"ä¸ˆå…«è›‡çŸ›"+NOR);
 add_id("zhangbashe mao");
 add_id("zhangbashe");
 add_id("mao");
-set_in_room_desc(HIW+"ÕÉ°ËÉßÃ¬"+NOR+"(zhangbashe mao)");
-set_long("¡¸Îå»¢ÉÏ½«¡¹Ö®Ò»ÕÅ·ÉÖ®¶ÀÃÅ±øÆ÷£¬³¤Ò»ÕÉ°Ë³ßÓĞ
-Óà£¬Ã¬ÉíÍäÇúËÆÉß£¬Í·Éú¶ş´Ì£¬ÈçÉßÉà×´¡£\n");
+set_in_room_desc(HIW+"ä¸ˆå…«è›‡çŸ›"+NOR+"(zhangbashe mao)");
+set_long("ã€Œäº”è™ä¸Šå°†ã€ä¹‹ä¸€å¼ é£ä¹‹ç‹¬é—¨å…µå™¨ï¼Œé•¿ä¸€ä¸ˆå…«å°ºæœ‰
+ä½™ï¼ŒçŸ›èº«å¼¯æ›²ä¼¼è›‡ï¼Œå¤´ç”ŸäºŒåˆºï¼Œå¦‚è›‡èˆŒçŠ¶ã€‚\n");
 set_size(MEDIUM);
 set_value(-1);
 set_currency_type("gold");
@@ -20,6 +20,6 @@ set_attack_ablity(180);
 set_attack_power(140);
 set_defence_ablity(180);
 set_combat_messages("combat-ji");
-set_wield_message("$NÒ»Éù¶ÏºÈ£¬ÇæÆğÕÆÖĞ$o£¬ÎèµÃ»¢»¢Éú·ç£¬ÍşÎäÒì³£¡£\n");
-set_unwield_message("$Nµ¥ÊÖÉÏÑï£¬½«ÕÆÖĞ$oÒ»°Ú£¬²å»ØàÎÍ·¡£\n");
+set_wield_message("$Nä¸€å£°æ–­å–ï¼Œæ“èµ·æŒä¸­$oï¼Œèˆå¾—è™è™ç”Ÿé£ï¼Œå¨æ­¦å¼‚å¸¸ã€‚\n");
+set_unwield_message("$Nå•æ‰‹ä¸Šæ‰¬ï¼Œå°†æŒä¸­$oä¸€æ‘†ï¼Œæ’å›è¾”å¤´ã€‚\n");
 }

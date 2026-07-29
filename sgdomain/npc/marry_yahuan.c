@@ -1,4 +1,4 @@
-// marry_yahuan.c "Ñ¾»·"
+// marry_yahuan.c "ä¸«çŽ¯"
 #include <mudlib.h>
 #include <ansi.h>
 inherit LIVING;
@@ -17,16 +17,16 @@ string *query_channel_list() {
 object jia;
 void setup() 
 {
-    add_id("ya huan","Ñ¾»·","huan");
+    add_id("ya huan","ä¸«çŽ¯","huan");
     set_gender(2);
-    set_proper_name("Ñ¾»·");
-    set_in_room_desc("Á¼ÔµÌÃ Ñ¾»·(ya huan)");
-    set_long("Ò»¸öÑ¾»·£¬ÕýÃ¦×ÅÇåÀí´óÌÃ¡£\n");
+    set_proper_name("ä¸«çŽ¯");
+    set_in_room_desc("è‰¯ç¼˜å ‚ ä¸«çŽ¯(ya huan)");
+    set_long("ä¸€ä¸ªä¸«çŽ¯ï¼Œæ­£å¿™ç€æ¸…ç†å¤§å ‚ã€‚\n");
     jia=new("/sgdomain/obj/cloth/torso/skirt.c");
     jia->move(this_object());
     jia->do_wear();
     set_sg_rongmao(25);
- add_pattern("%s×ßÁË%s",function(string left, string right){
+ add_pattern("%sèµ°äº†%s",function(string left, string right){
                  
                 respond("wanfu");
 });

@@ -22,8 +22,8 @@ void attack_enter(int task_id)
     }
     def_area=TASK_D->get_task(task_id,"def_area");
     def_name=AREA_D->get_area(def_area,"name");
-    disp=att_leadername+"Áì"+att_name+"±øÊ¿"+
-    CHINESE_D->chinese_number(p_num)+"ÈËÏò"+def_name+"¹¥À´¡£";
+    disp=att_leadername+"é¢†"+att_name+"å…µå£«"+
+    CHINESE_D->chinese_number(p_num)+"äººå‘"+def_name+"æ”»æ¥ã€‚";
     CHANNEL_D->deliver_tell("rumor","system",disp);
     call_out("final_decision",1,task_id);
 }

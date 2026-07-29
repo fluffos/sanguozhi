@@ -15,7 +15,7 @@ inherit ARRANGE_MONEY;
 inherit OBJ;
 
 private int max_capacity = 10;
-private static int capacity;
+private nosave int capacity;
 private mapping objects;
 private string main_prep = "in";
 
@@ -24,7 +24,7 @@ private int contained_light_added;
 
 //:FUNCTION valid_prep
 //Overloaded by complex_container
-static int valid_prep(string prep) {
+protected int valid_prep(string prep) {
     return prep == main_prep;
 }
 
@@ -57,7 +57,7 @@ int query_aggregate_size()
 //:FUNCTION set_capacity
 //Sets the amount of mass inside a container; this function should probably
 //never be called as the value is kept internally.
-static void
+protected void
 set_capacity( int c )
 {
     //### what calls this?  Is it needed?
@@ -81,13 +81,13 @@ mixed receive_object( object target, string relation )
 
     if( target == this_object() )
     //return "You can't move an object inside itself.\n";
-    return "ÄãÎŞ·¨°ÑÎïÌå·Åµ½Ëü×Ô¼ºµÄÀïÃæ¡£\n";
+    return "ä½ æ— æ³•æŠŠç‰©ä½“æ”¾åˆ°å®ƒè‡ªå·±çš„é‡Œé¢ã€‚\n";
     if( origin() != ORIGIN_LOCAL )
     {
     /* allow a matching relation or newly cloned objects */
     if ( relation && !valid_prep(relation) && relation != "#CLONE#" )
         //return "You can't put things " + relation + " that.\n";
-        return ("Äã²»ÄÜ°Ñ¶«Î÷ÕâÑù·Å¡£(" + relation + ")\n");
+        return ("ä½ ä¸èƒ½æŠŠä¸œè¥¿è¿™æ ·æ”¾ã€‚(" + relation + ")\n");
     }
 #ifdef USE_SIZE
     x = target->get_size();
@@ -122,7 +122,7 @@ varargs mixed release_object( object target, int force )
 
 //:FUNCTION set_max_capacity
 //Change the maximum capacity of an object.
-static void
+protected void
 set_max_capacity(int x) {
     max_capacity = x;
 }
@@ -141,19 +141,19 @@ string look_in( string relation )
     //in something use prevent_look_in.
     ex = call_hooks("prevent_look_" + relation, HOOK_YES_NO_ERROR);
     if (!ex) ex = //"That doesn't seem possible.";
-                  "ÕâºÃÏó²»Ì«¿ÉÄÜ¡£";
+                  "è¿™å¥½è±¡ä¸å¤ªå¯èƒ½ã€‚";
     if (stringp(ex))
     return ex;
 
     if (relation && !valid_prep(relation))
     //return "There is nothing there.\n";
-    return "ÄÇÀïÃ»ÓĞÈÎºÎ¶«Î÷¡£\n";
+    return "é‚£é‡Œæ²¡æœ‰ä»»ä½•ä¸œè¥¿ã€‚\n";
     inv = inv_list(all_inventory());
     if ( !inv )
-    inv = "Ê²Ã´Ò²Ã»ÓĞ";
+    inv = "ä»€ä¹ˆä¹Ÿæ²¡æœ‰";
 
     return (sprintf( //"%s %s you see: \n%s\n",
-                     "ÔÚ%s£¬Äã¿´µ½£º\n%s\n",
+                     "åœ¨%sï¼Œä½ çœ‹åˆ°ï¼š\n%s\n",
     prep_calc(main_prep, short()),
     inv ));
 }
@@ -192,7 +192,7 @@ int inventory_accessible() {
 //:FUNCTION inventory_header
 //Returns a string header to put before inventory lists
 string inventory_header() {
-    return "ÔÚ" + prep_calc(main_prep, "Ëü") + "Äã¿´µ½£º\n";
+    return "åœ¨" + prep_calc(main_prep, "å®ƒ") + "ä½ çœ‹åˆ°ï¼š\n";
 }
 
 string long()
@@ -263,12 +263,12 @@ void make_objects_if_needed()
         for (int j = 0; j < num; j++)
         {
             object obj = new(file, rest...);
-            if (!obj) error("Îï¼ş³õÊ¼¸´ÖÆÊ§°Ü£º" + file +" : " + "\n");
+            if (!obj) error("ç‰©ä»¶åˆå§‹å¤åˆ¶å¤±è´¥ï¼š" + file +" : " + "\n");
             ret = obj->move(this_object(), "#CLONE#");
             if ( ret != MOVE_OK )
             {
                 //error("Initial clone failed for '" + file +"': " + ret + "\n");
-                error("Îï¼ş³õÊ¼¸´ÖÆÊ§°Ü£º" + file +" : " + ret + "\n");
+                error("ç‰©ä»¶åˆå§‹å¤åˆ¶å¤±è´¥ï¼š" + file +" : " + ret + "\n");
             }
         }
     }
@@ -311,7 +311,7 @@ int can_take_from() { return inventory_accessible(); }
 int can_put_in() {
     if (this_object()->query_closed()) {
     write(short()+//" is closed.\n");
-                                  "Ã»ÓĞ´ò¿ª¡£\n");
+                                  "æ²¡æœ‰æ‰“å¼€ã€‚\n");
     return -1;
     }
     return inventory_accessible();
@@ -323,7 +323,7 @@ int can_put_in() {
 varargs string
 introduce_contents(string prep) {
     if (!prep) prep = main_prep;
-    return "ÔÚ"+prep_calc(prep, short()) + "£¬Äã¿´µ½£º\n";
+    return "åœ¨"+prep_calc(prep, short()) + "ï¼Œä½ çœ‹åˆ°ï¼š\n";
 }
 
 varargs string inventory_recurse(int depth, mixed avoid) {
@@ -402,9 +402,9 @@ mixed direct_get_obj(object ob, string name) {
     if (this_object() == environment(this_body())) {
     if (this_object()->get_item_desc(name))
         return "That doesn't seem possible.\n";
-        return "ÕâºÃÏó²»Ì«¿ÉÄÜ¡£\n";
+        return "è¿™å¥½è±¡ä¸å¤ªå¯èƒ½ã€‚\n";
     return //"#You're in it!\n";
-           "Äã×Ô¼º¾ÍÔÚÀïÃæ£¡\n";
+           "ä½ è‡ªå·±å°±åœ¨é‡Œé¢ï¼\n";
     }
     return ::direct_get_obj(ob);
 }
@@ -414,7 +414,7 @@ mixed indirect_put_obj_wrd_obj(object ob1, string prep, object ob2) {
     if(prep == "in")  {
         if (this_object()->query_closed()) {
         return short()+//" is closed.\n";
-                                       "Ã»ÓĞ´ò¿ª¡£\n";
+                                       "æ²¡æœ‰æ‰“å¼€ã€‚\n";
         }
     }
     return 1;
@@ -425,7 +425,7 @@ mixed indirect_put_obj_wrd_obj(object ob1, string prep, object ob2) {
     case "under":
     case "behind":
     //return "You can't put anything " + prep + " that.\n";
-    return "Äã²»ÄÜ°Ñ¶«Î÷ÕâÑù·Å¡£(" + prep + ")\n";
+    return "ä½ ä¸èƒ½æŠŠä¸œè¥¿è¿™æ ·æ”¾ã€‚(" + prep + ")\n";
     default:
     return 0;
     }
@@ -435,7 +435,7 @@ mixed indirect_get_obj_from_obj(object ob1, object ob2) {
     if(main_prep == "in")  {
     if (this_object()->query_closed()) {
         return short()+//" is closed.\n";
-                                       "Ã»ÓĞ´ò¿ª¡£\n";
+                                       "æ²¡æœ‰æ‰“å¼€ã€‚\n";
     }
     }
     return 1;
@@ -445,7 +445,7 @@ mixed direct_look_str_obj(string prep, object ob) {
     if (valid_prep(prep))
     return 1;
     return //"There is nothing " + prep + " " + short() + ".\n";
-           "Ã»ÓĞ¶«Î÷ÔÚ" + prep_calc(prep, short()) + "¡£\n";
+           "æ²¡æœ‰ä¸œè¥¿åœ¨" + prep_calc(prep, short()) + "ã€‚\n";
 }
 
 int contents_can_hear()
@@ -474,7 +474,7 @@ receive_inside_msg(string msg, object * exclude, int message_type,
   mixed other)
 {
     object env;
-    object array contents;
+    object * contents;
 
     do_receive(msg, message_type);
 
@@ -499,7 +499,7 @@ varargs void
 receive_outside_msg(string msg, object * exclude, int message_type,
   mixed other)
 {
-    object array contents;
+    object * contents;
 
     do_receive(msg, message_type);
 
@@ -514,7 +514,7 @@ receive_outside_msg(string msg, object * exclude, int message_type,
 
 //Remote messages propogate just like an inside message by defauly
 varargs void 
-receive_remote_msg(string msg, object array exclude, int message_type,
+receive_remote_msg(string msg, object * exclude, int message_type,
   mixed other)
 {
     receive_inside_msg(msg, exclude, message_type, other);
@@ -562,11 +562,11 @@ void resync_visibility()
 int stat_me()
 {
     write(//"Container capacity: "
-          "ÈİÆ÷µÄÈİÁ¿£º" +query_capacity()+"/"+max_capacity+"\n");
+          "å®¹å™¨çš„å®¹é‡ï¼š" +query_capacity()+"/"+max_capacity+"\n");
     write(//"main_prep: "
-          "Ö÷Òª½é´Ê£º"  + main_prep + "\n");
+          "ä¸»è¦ä»‹è¯ï¼š"  + main_prep + "\n");
     write(//"It contains:\n"
-          "ËüÀïÃæÓĞ£º\n" + show_contents() + "\n");
+          "å®ƒé‡Œé¢æœ‰ï¼š\n" + show_contents() + "\n");
 
     return ::stat_me();
 }

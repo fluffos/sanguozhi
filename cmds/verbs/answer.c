@@ -17,15 +17,15 @@ mixed do_answer_wrd_to_liv(string item, object liv )
     switch(item)
     {
         case "yes":
-		case "ÊÇ":
-			this_body()->targetted_action("$N¶Ô$T´ðµÀ£ºÊÇ¡£\n",liv);
+		case "æ˜¯":
+			this_body()->targetted_action("$Nå¯¹$Tç­”é“ï¼šæ˜¯ã€‚\n",liv);
             break;
         case "no":
-		case "²»":
-			this_body()->targetted_action("$N¶Ô$T´ðµÀ£º²»¡£\n",liv);
+		case "ä¸":
+			this_body()->targetted_action("$Nå¯¹$Tç­”é“ï¼šä¸ã€‚\n",liv);
             break;
         default :                                               
-		this_body()->targetted_action("$N¶Ô$T´ðµÀ£º"+p_act+"\n",liv);
+		this_body()->targetted_action("$Nå¯¹$Tç­”é“ï¼š"+p_act+"\n",liv);
      }
      liv->be_answered(this_body(), item);
      return 1;
@@ -38,7 +38,7 @@ mixed do_answer_str_to_str(string item, string str )
 	do_answer_wrd_to_liv(item, o);
 }
 
-array query_verb_info()
+mixed * query_verb_info()
 {       
      return ({ ({"STR to STR" }) });
 }

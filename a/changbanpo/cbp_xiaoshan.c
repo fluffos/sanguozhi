@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is 花儿朵朵
+// driver is 鑺卞効鏈垫湹
 // created date is Tue Jul 19 09:46:58 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,7 +7,7 @@ inherit OUTDOOR_ROOM;
 void setup() {
 set_area("changbanpo");
 set_light(50);
-set_brief("%^YELLOW%^"+"小山"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"灏忓北"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "north":"/a/changbanpo/cbp_xiaolu.c",

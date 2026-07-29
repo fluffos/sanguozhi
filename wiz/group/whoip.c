@@ -27,9 +27,9 @@ string *leii;
 
     if ( !arg )
     {
-        outf("%s:  (µ±µØÊ±¼ä: %s)\n%s",
+        outf("%s:  (å½“åœ°æ—¶é—´: %s)\n%s",
                mud_name(), ctime(time()), DIVIDER);
-        out("Ãû×Ö         IP number                 IP name\n"+DIVIDER);
+        out("åå­—         IP number                 IP name\n"+DIVIDER);
 
         foreach ( user in users() )
         {
@@ -44,7 +44,7 @@ string *leii;
                    userid, query_ip_number(user), query_ip_name(user));
         }                                      
         x = sizeof(users());
-        outf("%sÄ¿Ç°ÓĞ %d Î»Íæ¼Ò¡£\n",DIVIDER, x);
+        outf("%sç›®å‰æœ‰ %d ä½ç©å®¶ã€‚\n",DIVIDER, x);
 leii=({});
         foreach(user in users())   
    {       if(sizeof(leii-({query_ip_number(user)}))==sizeof(leii))
@@ -77,10 +77,10 @@ leii = leii+ ({query_ip_number(user)});
         if (str != query_ip_number(userlist[0]))
             str += " ("+query_ip_number(userlist[0])+")";
 
-        outf("Ä¿Ç°ÓĞ %d Î»´Ó %s ÉÏÏßµÄÍæ¼Ò:\n", x, str);  
+        outf("ç›®å‰æœ‰ %d ä½ä» %s ä¸Šçº¿çš„ç©å®¶:\n", x, str);  
         outf("%-=78s",implode(n,", ")+".\n");
     }
     else
-        out("Ã»ÓĞÈË´ÓÄÇ¸öµØÖ·Á¬Ïß¡£\n");
+        out("æ²¡æœ‰äººä»é‚£ä¸ªåœ°å€è¿çº¿ã€‚\n");
 }  
  

@@ -38,7 +38,7 @@ private string      body_fname;
 /*
 ** The body object once it has been instantiated
 */
-static private object   body;
+nosave private object   body;
 
 nomask int query_dummy_limit()
 {
@@ -61,7 +61,7 @@ nomask object query_body()
 }
 
 //### temp hack for upgrading link files. see restore_me()
-static nomask void set_body_fname(string new_body_fname)
+protected nomask void set_body_fname(string new_body_fname)
 {
     body_fname = new_body_fname;
 }
@@ -74,7 +74,7 @@ varargs nomask void switch_body(string new_body_fname, int permanent)
 
     if ( previous_object() != body && this_body() != body )
     //error("security violation: bad body switch attempt\n");
-    error("°²È«Î¥Àı£ºÉíÌåÇĞ»»´íÎó\n");
+    error("å®‰å…¨è¿ä¾‹ï¼šèº«ä½“åˆ‡æ¢é”™è¯¯\n");
 
     where = body ? environment(body) : (mixed)VOID_ROOM;
 
@@ -114,12 +114,12 @@ varargs nomask void switch_body(string new_body_fname, int permanent)
 private nomask void incarnate(int is_new, string bfn)
 {
     if (bfn) body_fname = bfn;
-    write("is_newµÄÖµÊÇ:" + is_new + "\n");
-	write("bfnµÄÖµÊÇ:" + bfn + "\n");
+    write("is_newçš„å€¼æ˜¯:" + is_new + "\n");
+	write("bfnçš„å€¼æ˜¯:" + bfn + "\n");
 //LOG_D->log(LOG_BUG, "sw_body.c: body_fname("+body_fname+") userid("+query_userid()+")\n");
     
     body = new(body_fname, query_userid(), query_chinese_id());
-    //write("bodyµÄÖµÊÇ:" + body + "\n");	//µ÷ÊÔ
+    //write("bodyçš„å€¼æ˜¯:" + body + "\n");	//è°ƒè¯•
     LAST_LOGIN_D->register_last(query_userid(), query_ip_name(this_object()));
     if ( query_n_gen() != -1 )
     body->set_gender(query_n_gen());
@@ -132,7 +132,7 @@ private nomask void incarnate(int is_new, string bfn)
        body->save_me();
 }
 
-static nomask void existing_user_enter_game()
+protected nomask void existing_user_enter_game()
 {
     remove_call_out();  /* all call outs */
 
@@ -156,7 +156,7 @@ private nomask void rcv_try_to_boot(object who, string answer)
 	}
 
     who->receive_private_msg(//"You are taken over by yourself, or something.\n");
-                             "Äã±»Äã×Ô¼º»ò±ğÈËÌæ»»µôÁË¡£\n");
+                             "ä½ è¢«ä½ è‡ªå·±æˆ–åˆ«äººæ›¿æ¢æ‰äº†ã€‚\n");
     who->quit();
 
     existing_user_enter_game();
@@ -171,12 +171,12 @@ private nomask void rcv_try_to_boot(object who, string answer)
     }
 
     //write("Try another time then.\n");
-    write("ÄÇ¾ÍÔÙÊÔÒ»´Î¡£\n");
+    write("é‚£å°±å†è¯•ä¸€æ¬¡ã€‚\n");
     destruct(this_object());
     }
 
     //write("please type 'y' or 'n'  >");
-    write("ÇëÊäÈë 'y' »ò 'n' >");
+    write("è¯·è¾“å…¥ 'y' æˆ– 'n' >");
     modal_simple((: rcv_try_to_boot, who :));
 }
 
@@ -185,7 +185,7 @@ private nomask void rcv_try_to_boot(object who, string answer)
 ** users currently connected with this userid.  Those other users may
 ** be interactive or link-dead.  Do the right thing...
 */
-static nomask void existing_user_ready()
+protected nomask void existing_user_ready()
 {
     object * users;
     string * ids;
@@ -196,7 +196,7 @@ static nomask void existing_user_ready()
 
 #ifdef NO_PLAYERS
     if( !wizardp(query_userid())) {
-        write("Ä¿Ç°Ö»ÓĞÎ×Ê¦²Å¿ÉÒÔ½øÈë£¬ÈçÓĞ²»±ã£¬¾´ÇëÔ­ÁÂ¡£\n");
+        write("ç›®å‰åªæœ‰å·«å¸ˆæ‰å¯ä»¥è¿›å…¥ï¼Œå¦‚æœ‰ä¸ä¾¿ï¼Œæ•¬è¯·åŸè°…ã€‚\n");
         get_lost_now();
         return;
     }
@@ -208,8 +208,8 @@ static nomask void existing_user_ready()
     users = filter(users, (: query_ip_number($1) == $2 :), query_ip_number(this_object()));
     users = filter(users, (: ($1)->query_userid() != $2 :) ,query_userid());
     if (sizeof(users)>=bmax(MAX_DUMMY,dummy_limit))
-       {write("¶Ô²»Æğ£¬ÏÖÔÚ´ÓÄúµÄIPµÇÂ¼µÄ½ÇÉ«¹ı¶à£¬Ê¹ÄúÔİÊ±ÎŞ·¨½øÈë£¬¾´ÇëÔ­ÁÂ¡£\n");
-        write("ºÍÄãÍ¬ÑùIPµÄIDÓĞ:  ");
+       {write("å¯¹ä¸èµ·ï¼Œç°åœ¨ä»æ‚¨çš„IPç™»å½•çš„è§’è‰²è¿‡å¤šï¼Œä½¿æ‚¨æš‚æ—¶æ— æ³•è¿›å…¥ï¼Œæ•¬è¯·åŸè°…ã€‚\n");
+        write("å’Œä½ åŒæ ·IPçš„IDæœ‰:  ");
         //SUBUG(users);
         for (idx=0;idx<sizeof(users);idx++)
             write(users[idx]->query_userid()+",");
@@ -251,7 +251,7 @@ static nomask void existing_user_ready()
     }
 
     //write("\nYou are already logged in!\nThrow yourself off?  ");
-    write("\nÄãÒÑ¾­ÔÚÏßÉÏÁË!\nÄãÈ·¶¨ÒªÌæ»»Âğ£¿");
+    write("\nä½ å·²ç»åœ¨çº¿ä¸Šäº†!\nä½ ç¡®å®šè¦æ›¿æ¢å—ï¼Ÿ");
     modal_simple((: rcv_try_to_boot, the_user :));
 }
 
@@ -261,7 +261,7 @@ nomask void steal_body()
     /* only USER_OB can steal the body, and we should be non-interactive */
     if ( base_name(previous_object()) != USER_OB || interactive() )
     //error("illegal attempt to steal a body\n");
-    error ("·Ç·¨ÊÔÍ¼ÍµµÁÉíÌå\n");
+    error ("éæ³•è¯•å›¾å·ç›—èº«ä½“\n");
     body = 0;
     remove();
 }
@@ -270,13 +270,13 @@ nomask void steal_body()
 ** A new character has been created and all inputs have been entered.
 ** Do a bit of additional work and go for a body.
 */
-static nomask void new_user_ready()
+protected nomask void new_user_ready()
 {
     remove_call_out();  /* all call outs */
 #ifdef AUTO_WIZ
     /* auto-wiz everybody as they are created */
     //write(">>>>> You've been granted automatic guest wizard status. <<<<<\n");
-    write("\n>>>>> Äã±»ÔÊĞí×Ô¶¯³ÉÎªÎ×Ê¦ <<<<<\n");
+    write("\n>>>>> ä½ è¢«å…è®¸è‡ªåŠ¨æˆä¸ºå·«å¸ˆ <<<<<\n");
     unguarded(1, (: SECURE_D->create_wizard($(query_userid())) :));
 #endif 
     /* auto-Admin the first wizard if there are no Admins */
@@ -287,10 +287,10 @@ static nomask void new_user_ready()
         {
             if( !wizardp(query_userid()))
 			{
-				write("ÏÖÔÚ½¨Î×Ê¦.\n");
+				write("ç°åœ¨å»ºå·«å¸ˆ.\n");
 				unguarded( 1, (: SECURE_D->create_wizard($(query_userid())) :));
 			}
-            write( ">>>>> Äã×Ô¶¯³ÉÎª Admin£¬¼ÇµÃÓÃ admtool. <<<<<\n");
+            write( ">>>>> ä½ è‡ªåŠ¨æˆä¸º Adminï¼Œè®°å¾—ç”¨ admtool. <<<<<\n");
             unguarded(1, (: SECURE_D->add_domain_member("Admin",
                             $(query_userid()),
                             1) :));
@@ -298,21 +298,21 @@ static nomask void new_user_ready()
     }
 
     /* adjust the privilege of the user ob */
-	write("×¼±¸ÔËĞĞset_privilegeº¯Êı\n");
-	write("query_userid()ÄÚÈİÊÇ:" + query_userid() + "\n");
+	write("å‡†å¤‡è¿è¡Œset_privilegeå‡½æ•°\n");
+	write("query_userid()å†…å®¹æ˜¯:" + query_userid() + "\n");
     if ( adminp(query_userid()) )
 	{
-		write("·ÖÖ§1\n");
+		write("åˆ†æ”¯1\n");
 		set_privilege(1);
 	}
     else
 	{
-		write("·ÖÖ§2\n");
+		write("åˆ†æ”¯2\n");
 		set_privilege(query_userid());
 	}
 
-    // pass a lfun pointer so that we don't have to worry about validatingÑéÖ¤
+    // pass a lfun pointer so that we don't have to worry about validatingéªŒè¯
     // the call.
-	write("×¼±¸ÔËĞĞincarnateº¯Êı\n");
+	write("å‡†å¤‡è¿è¡Œincarnateå‡½æ•°\n");
     NEW_USER_D->create_user( (: incarnate, 1 :) );
 }

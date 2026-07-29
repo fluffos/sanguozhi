@@ -1,4 +1,4 @@
-// candy.c ´ó°×ÍÃÄÌÌÇ by fire on Jan 7, 1998
+// candy.c å¤§ç™½å…”å¥¶ç³– by fire on Jan 7, 1998
 #include <sanguo.h>
 inherit M_VALUE;
 inherit OBJ;
@@ -9,26 +9,26 @@ void eat_tan()
 	string p_use;
 	p_use=this_body()->query_userid();
         if((p_use=="fire")||(p_use=="tuotuo")||(p_use=="yue")||(p_use=="lily"))
-		this_body()->simple_action("$NÄÃÆğ´ó°×ÍÃÄÌÌÇ³ÔÁË¼¸¿Ú£¬ÕæÌğÑ½¡£\n");
+		this_body()->simple_action("$Næ‹¿èµ·å¤§ç™½å…”å¥¶ç³–åƒäº†å‡ å£ï¼ŒçœŸç”œå‘€ã€‚\n");
 	else
-		this_body()->simple_action("$NÄÃÆğ´ó°×ÍÃÄÌÌÇ³ÔÁË¼¸¿Ú£¬ÑÀÍ´µÃÂúµØ´ò¹ö¡£\n");
+		this_body()->simple_action("$Næ‹¿èµ·å¤§ç™½å…”å¥¶ç³–åƒäº†å‡ å£ï¼Œç‰™ç—›å¾—æ»¡åœ°æ‰“æ»šã€‚\n");
 }
 void eat_last_tan()
 {
 	string p_use;
 	p_use=this_body()->query_userid();
         if((p_use=="fire")||(p_use=="tuotuo")||(p_use=="yue")||(p_use=="lily"))
-this_body()->simple_action("$N°ÑÊ£ÏÂµÄ´ó°×ÍÃÄÌÌÇÒ»°Ñ·Åµ½×ìÀï£¬ÕæÌğÑ½¡£\n");
+this_body()->simple_action("$NæŠŠå‰©ä¸‹çš„å¤§ç™½å…”å¥¶ç³–ä¸€æŠŠæ”¾åˆ°å˜´é‡Œï¼ŒçœŸç”œå‘€ã€‚\n");
 	else
-this_body()->simple_action("$N°ÑÊ£ÏÂµÄ´ó°×ÍÃÄÌÌÇÒ»°Ñ·Åµ½×ìÀï£¬ÑÀÍ´µÃÂúµØ´ò¹ö¡£\n");
+this_body()->simple_action("$NæŠŠå‰©ä¸‹çš„å¤§ç™½å…”å¥¶ç³–ä¸€æŠŠæ”¾åˆ°å˜´é‡Œï¼Œç‰™ç—›å¾—æ»¡åœ°æ‰“æ»šã€‚\n");
 }
 void setup()
-{   set_id("candy", "´ó°×ÍÃÄÌÌÇ", "tang");
-    set_long("¼¸Á£ÓÕÈËµÄ´ó°×ÍÃÄÌÌÇ¡£");
+{   set_id("candy", "å¤§ç™½å…”å¥¶ç³–", "tang");
+    set_long("å‡ ç²’è¯±äººçš„å¤§ç™½å…”å¥¶ç³–ã€‚");
     set_size(VERY_SMALL);
     set_gettable(1);
     set_num_eats(3);
-    set_unit("Á£");
+    set_unit("ç²’");
     set_value(1);
     set_currency_type("gold");
     set_eat_action((: eat_tan :));

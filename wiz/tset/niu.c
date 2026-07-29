@@ -1,12 +1,12 @@
-// niu.c "ÀÏ»ÆÅ£"
+// niu.c "è€é»„ç‰›"
 #include <mudlib.h>
 inherit MONSTER;
 
 void setup()
 {
-    set_name("niu", "ÀÏ»ÆÅ£");
+    set_name("niu", "è€é»„ç‰›");
     set_gender(0);
-    set_proper_name("Ò»Í·ÀÏ»ÆÅ£");
-    set_in_room_desc("ÀÏ»ÆÅ£(niu)");
-    set_long("ÀÏ»ÆÅ£ÕıµÍ×ÅÍ·ÔÚ³Ô²İ£¬¸ù±¾²»ÔÚºõÄãÊÇË­¡£");
+    set_proper_name("ä¸€å¤´è€é»„ç‰›");
+    set_in_room_desc("è€é»„ç‰›(niu)");
+    set_long("è€é»„ç‰›æ­£ä½ç€å¤´åœ¨åƒè‰ï¼Œæ ¹æœ¬ä¸åœ¨ä¹ä½ æ˜¯è°ã€‚");
 }

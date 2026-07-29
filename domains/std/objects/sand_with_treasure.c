@@ -12,10 +12,10 @@ object  my_hole;
 
 void setup()
 {
-  set_id("beach","иЁл╡", "sand");
-  set_unit("ф╛");
+  set_id("beach","Ф╡≥Ф╩╘", "sand");
+  set_unit("Г┴┤");
   set_attached(1);
-  set_long("уБ╤Ысп╨э╤ЮиЁ║ё\n");
+  set_long("Х©≥Е└©Ф°┴Е╬┬Е╓ Ф╡≥Ц─┌\n");
   set_size(TOO_LARGE);
 }
 
@@ -27,40 +27,40 @@ void dig(object o)
     case 0:
       my_hole = new("/domains/std/objects/hole");
       my_hole->move(environment(this_object()));
-      this_body()->simple_action("$N╤╞йжтзиЁ╣ьиомз╤╢ё╛р╩а╛мзак╨ц╪╦об║ё");
-      my_hole->change_desc("иЁ╣ьиоспр╩╦Жп║╤╢║ё");
+      this_body()->simple_action("$NЕ┼╗Ф┴▀Е°╗Ф╡≥Е°╟Д╦┼Ф▄√Ф╢·О╪▄Д╦─Х©·Ф▄√Д╨├Е╔╫Е┤═Д╦▀Ц─┌");
+      my_hole->change_desc("Ф╡≥Е°╟Д╦┼Ф°┴Д╦─Д╦╙Е╟▐Ф╢·Ц─┌");
       break;
     case 1:
-      my_hole->set_in_room_desc("иЁ╣ьиоспр╩╦Ж╤╢║ё");
+      my_hole->set_in_room_desc("Ф╡≥Е°╟Д╦┼Ф°┴Д╦─Д╦╙Ф╢·Ц─┌");
     case 2:
-      this_body()->simple_action("$Nсж╟я╤╢мзиНакр╩п╘║ё");
+      this_body()->simple_action("$NЕ▐┬Ф┼┼Ф╢·Ф▄√Ф╥╠Д╨├Д╦─Д╨⌡Ц─┌");
       break;
     case 3:
-      my_hole->change_desc("иЁ╣ьиоспр╩╦Ж╢С╤╢║ё");
+      my_hole->change_desc("Ф╡≥Е°╟Д╦┼Ф°┴Д╦─Д╦╙Е╓╖Ф╢·Ц─┌");
       my_hole->change_max_capacity(VERY_LARGE);
     case 4:
-      this_body()->simple_action("$N╪лпЬ╟я╤╢мЫиНмз║ё");
+      this_body()->simple_action("$NГ╩╖Г╩╜Ф┼┼Ф╢·Е╬─Ф╥╠Ф▄√Ц─┌");
       break;
     case 5:
-      my_hole->change_desc("иЁ╣ьиоЁЖожакр╩╦Ж╨э╢С╣д╤╢║ё");
+      my_hole->change_desc("Ф╡≥Е°╟Д╦┼Е┤╨Г▌╟Д╨├Д╦─Д╦╙Е╬┬Е╓╖Г └Ф╢·Ц─┌");
       my_hole->change_max_capacity(VERY_LARGE*2);
     case 6:
-      this_body()->simple_action("$Nсж╟я╤╢мзиНакр╩п╘║ё");
+      this_body()->simple_action("$NЕ▐┬Ф┼┼Ф╢·Ф▄√Ф╥╠Д╨├Д╦─Д╨⌡Ц─┌");
       break;
     case 7:
-      this_body()->simple_action("$N╤╞йжсжмзак╪╦обё╛╥╒ожакр╩╦ЖуД╠╕оДё║");
+      this_body()->simple_action("$NЕ┼╗Ф┴▀Е▐┬Ф▄√Д╨├Е┤═Д╦▀О╪▄Е▐▒Г▌╟Д╨├Д╦─Д╦╙Г▐█Е╝²Г╝╠О╪│");
       QUEST_D->grant_points(this_body(), "pirate");
       break;
     case 8:
-      this_body()->simple_action("$N╪лпЬ╟я╤╢мЫиНмз║ё");
+      this_body()->simple_action("$NГ╩╖Г╩╜Ф┼┼Ф╢·Е╬─Ф╥╠Ф▄√Ц─┌");
       break;
     case 9:
     case 10:
-      this_body()->simple_action("$Nсж╟я╤╢мзиНакр╩п╘║ё");
+      this_body()->simple_action("$NЕ▐┬Ф┼┼Ф╢·Ф▄√Ф╥╠Д╨├Д╦─Д╨⌡Ц─┌");
       break;
     default:
-      this_body()->simple_action("$N╪лпЬмз╤╢ё╛╣╚ц╩спй╡ц╢Ёип╖ё╛дг╦Ж╤╢сж╠╩пббДоб╣диЁмалНиоакр╩п╘║ё\n"
-                                 "кЫсп╣д╤╚нВ╤╪мзмЙак║ё");
+      this_body()->simple_action("$NГ╩╖Г╩╜Ф▄√Ф╢·О╪▄Д╫├Ф╡║Ф°┴Д╩─Д╧┬Ф┬░Ф∙┬О╪▄И┌ёД╦╙Ф╢·Е▐┬Х╒╚Ф√╟Х░╫Д╦▀Г └Ф╡≥Е°÷Е║╚Д╦┼Д╨├Д╦─Д╨⌡Ц─┌\n"
+                                 "Ф┴─Ф°┴Г └Д╦°Х╔©И┐╫Ф▄√Е╝▄Д╨├Ц─┌");
       break;
                                 
     }

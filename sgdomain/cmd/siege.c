@@ -11,19 +11,19 @@ void start(string arg)
         env=environment(this_body());
         if(!arg||arg=="")
         {
-          write("ÓÃ·¨´íÎó£¬ÇëÓÃcmd help siege ²é¿´ÏêÏ¸°ïÖú¡£\n");
+          write("ç”¨æ³•é”™è¯¯ï¼Œè¯·ç”¨cmd help siege æŸ¥çœ‹è¯¦ç»†å¸®åŠ©ã€‚\n");
           return;
         }
         if(!env->is_troop())
         {
-           write("Ö»ÓĞÉíÔÚ¾üÖĞ²ÅÄÜÖ¸»ÓÎ§¹¥¡£\n");
+           write("åªæœ‰èº«åœ¨å†›ä¸­æ‰èƒ½æŒ‡æŒ¥å›´æ”»ã€‚\n");
            return ;
         }
         t_id=TROOP_D->get_char_troop(p_id);
         if (TROOP_D->get_troops(t_id, "conds"))
         { if (TROOP_D->get_troops(t_id, "conds")["confuse"])
           {
-        write ("»ìÂÒÖĞ£¬ÎŞ·¨¹¥»÷¡£\n");
+        write ("æ··ä¹±ä¸­ï¼Œæ— æ³•æ”»å‡»ã€‚\n");
         return;
         }
         }
@@ -34,7 +34,7 @@ void start(string arg)
            write(ret);
            return;
         }
-        this_body()->simple_action("$NÒ»Ò¡ÊÖÖĞºìÆì£¬ËÄ·½½«Ê¿Ò»ÆëÏòµĞ¾ü³åÈ¥¡£¡£¡£¡£\n");
+        this_body()->simple_action("$Nä¸€æ‘‡æ‰‹ä¸­çº¢æ——ï¼Œå››æ–¹å°†å£«ä¸€é½å‘æ•Œå†›å†²å»ã€‚ã€‚ã€‚ã€‚\n");
 //        WARAI_D->do_siege_attack(t_id,arg);
         WARAI_D->attack_target(t_id, arg, "siege attack");
         return;

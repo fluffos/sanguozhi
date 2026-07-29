@@ -4,7 +4,7 @@ mixed point_toint(string point);
 void war_inf(int t_id,string mess,string side);
 string get_pos_disp(int* t)
 {
-   string ps="£Á£Â£Ã£Ä£Å£Æ£Ç£È£É£Ê£Ë£Ì£Í£Î£Ï£Ğ£Ñ£Ò£Ó£Ô£Õ£Ö£×£Ø£Ù£Ú";
+   string ps="ï¼¡ï¼¢ï¼£ï¼¤ï¼¥ï¼¦ï¼§ï¼¨ï¼©ï¼ªï¼«ï¼¬ï¼­ï¼®ï¼¯ï¼°ï¼±ï¼²ï¼³ï¼´ï¼µï¼¶ï¼·ï¼¸ï¼¹ï¼º";
    string ret="";
    ret=ps[t[0]*2..t[0]*2+1];
    ret+=sprintf("%d",t[1]+1);
@@ -21,25 +21,25 @@ void order_display(int t)
    if(!cmd["action"]) return;
    p_side=TROOP_D->get_troops(t,"side");
    p_display=TROOP_D->get_troops(t,"name");
-   p_display+="·îÃü";
+   p_display+="å¥‰å‘½";
    switch(cmd["action"])
    {
-      case "stay": p_display+="ÓÚÔ­µØ´ıÃü¡£";break;
+      case "stay": p_display+="äºåŸåœ°å¾…å‘½ã€‚";break;
       case "match": 
         t_tmp=get_pos_disp(point_toint(cmd["target"]));
-        p_display+="Ïò"+t_tmp+"´¦ĞĞ¾ü¡£";
+        p_display+="å‘"+t_tmp+"å¤„è¡Œå†›ã€‚";
         break;
       case "guard":
         t_tmp=get_pos_disp(point_toint(cmd["position"]));
-        p_display+="ÔÚ"+t_tmp+"´¦·ÀÊØ£¬·¶Î§ÊÇ£º"+
-           chinese_number(cmd["range"])+"¡£";
+        p_display+="åœ¨"+t_tmp+"å¤„é˜²å®ˆï¼ŒèŒƒå›´æ˜¯ï¼š"+
+           chinese_number(cmd["range"])+"ã€‚";
         break;
       case "pursue": 
         p_name=TROOP_D->get_troops(cmd["aim"],"name");
         if(TROOP_D->get_troop(cmd["aim"],"side")==p_side)
-           p_display+="¸úËæ"+p_name+"Ò»ÆğĞĞ¶¯¡£";
+           p_display+="è·Ÿéš"+p_name+"ä¸€èµ·è¡ŒåŠ¨ã€‚";
         else
-           p_display+="×·»÷"+p_name+"¡£";
+           p_display+="è¿½å‡»"+p_name+"ã€‚";
         break;
       default: return;
     }

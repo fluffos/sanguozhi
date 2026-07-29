@@ -32,7 +32,7 @@ varargs nomask void register_last(string userid, string addr)
     if ( !addr && lastdata[userid] )
     {
         s = sprintf(//"%s leaves the game [%s]\n",
-                    "%s 离开游戏 [%s]\n",
+                    "%s 绂诲紑娓告垙 [%s]\n",
                      userid, ctime(time()));
     LOG_D->log(LOG_QUIT, s);
     lastdata[userid][0] = time();
@@ -40,7 +40,7 @@ varargs nomask void register_last(string userid, string addr)
     else
     {
         s = sprintf(//"%s enters the mud from %s [%s]\n",
-                    "%s 进入游戏，联线地址 : %s [%s]\n",
+                    "%s 杩涘叆娓告垙锛岃仈绾垮湴鍧� : %s [%s]\n",
             userid, addr, ctime(time()));
     LOG_D->log(LOG_LOGIN, s);
 /*
@@ -86,7 +86,7 @@ nomask void remove_user(string userid, int skip_save)
 {
     if ( !check_previous_privilege(1) )
         error(//"security: illegal attempt to remove user.\n");
-              "安全错误：试图非法清除用户\n");
+              "瀹夊叏閿欒锛氳瘯鍥鹃潪娉曟竻闄ょ敤鎴穃n");
     map_delete(lastdata, userid);
 
     if ( !skip_save )

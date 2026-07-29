@@ -8,10 +8,10 @@ string get_type() {
 	return "nwj";
 }
 string get_type_name() {
-	return "%^YELLOW%^ÄàÍß½³%^RESET%^";
+	return "%^YELLOW%^æ³¥ç“¦åŒ %^RESET%^";
 }
 void extra_init() {
-	add_ask_str("order","$N¶Ô$TÕÐÁËÕÐÊÖ£¬»ï¼Æ£¬»ï¼Æ£¬¹ýÀ´£¬¹ýÀ´¡£\n");
+	add_ask_str("order","$Nå¯¹$Tæ‹›äº†æ‹›æ‰‹ï¼Œä¼™è®¡ï¼Œä¼™è®¡ï¼Œè¿‡æ¥ï¼Œè¿‡æ¥ã€‚\n");
 	add_question("order","order" );
 }
 
@@ -24,13 +24,13 @@ void special_answer(object who, string matt)
                 case "order" :
 			if(p_id==master||p_id==CHAR_D->get_char(master,"mar")) {
 			        this_object()->targetted_action(
-				"$NÌá×ÅË®ÄàÍ°ÅÜÁË¹ýÀ´£º$RÓÐºÎ·Ô¸À£¿\n",who);
+				"$Næç€æ°´æ³¥æ¡¶è·‘äº†è¿‡æ¥ï¼š$Ræœ‰ä½•å©å’ï¼Ÿ\n",who);
 				is_busy=1;
 				new(__DIR__+"nwj_menu")->start_menu(who,this_object());
 				return;
 			}
 		        this_object()->targetted_action(
-				"$NµÉÁË$TÒ»ÑÛ¡£\n",who);
+				"$Nçžªäº†$Tä¸€çœ¼ã€‚\n",who);
 				return;
         }
 }

@@ -16,10 +16,10 @@ void train(string p_area,string leader,string* group)
     t_num=TASK_D->add_task(TT_TRAIN);
         
     att_id="train aim";
-    att_name="Ä¿±ê²¿¶Ó";
+    att_name="ç›®æ ‡éƒ¨é˜Ÿ";
     CHANNEL_D->deliver_tell("rumor","system",
-      CHAR_D->get_char(leader,"name")+"ÔÚ"+
-      AREA_D->get_area(p_area,"name")+"´ó¹æÄ£²ÙÁ·±øÊ¿¡£");
+      CHAR_D->get_char(leader,"name")+"åœ¨"+
+      AREA_D->get_area(p_area,"name")+"å¤§è§„æ¨¡æ“ç»ƒå…µå£«ã€‚");
     TASK_D->set_task(t_num,"def_area",p_area);
     TASK_D->set_task(t_num,"area",p_area);
     TASK_D->set_task(t_num,"att_area",p_area);

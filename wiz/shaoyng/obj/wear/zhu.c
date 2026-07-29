@@ -9,9 +9,9 @@ inherit M_DAMAGE_SINK;
 void setup()
 {
 ::mudlib_setup();
-set_unit("¶¥");
-set_id("zhu", HIY+"·ÉÁú¶şÖé¹Ú"+NOR);
-set_in_room_desc(HIY+"·ÉÁú¶şÖé¹Ú(zhu)"+NOR);
+set_unit("é¡¶");
+set_id("zhu", HIY+"é£é¾™äºŒç å† "+NOR);
+set_in_room_desc(HIY+"é£é¾™äºŒç å† (zhu)"+NOR);
 set_gettable(1);
 set_slot(HEAD);
 }

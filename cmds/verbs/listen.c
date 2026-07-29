@@ -17,7 +17,7 @@ void do_listen_to_obj(object ob)
 {
     if ( !ob->sound() )
     {
-        printf("它听起来很象%s。\n", ob->a_short());
+        printf("瀹冨惉璧锋潵寰堣薄%s銆俓n", ob->a_short());
     }
 }
 
@@ -25,11 +25,11 @@ void do_listen ()
 {
   if (!environment (this_body ()) || !environment (this_body ())->sound ())
     {
-      printf ("你没有听到有什么不同。\n");
+      printf ("浣犳病鏈夊惉鍒版湁浠�涔堜笉鍚屻�俓n");
     }
 }
 
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ "", "to OBJ" }), ({ }) });
 }

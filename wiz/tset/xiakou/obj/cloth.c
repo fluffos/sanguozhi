@@ -1,5 +1,5 @@
 //  cloth.c
-//  ²¼ÒÂ
+//  å¸ƒè¡£
 //  created by tset 1/16/98
 //  last updated by tset 1/26/98
 
@@ -14,9 +14,9 @@ inherit M_DAMAGE_SINK;
 void setup()
 {
         ::mudlib_setup();
-        set_unit("¼þ");
-        set_id("cloth", "²¼ÒÂ", "buyi");
-        set_in_room_desc("Ò»¼þ²¼ÒÂ(cloth)");
+        set_unit("ä»¶");
+        set_id("cloth", "å¸ƒè¡£", "buyi");
+        set_in_room_desc("ä¸€ä»¶å¸ƒè¡£(cloth)");
         set_gettable(1);
         set_slot(TORSO);
         set_is_keeping(1);   

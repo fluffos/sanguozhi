@@ -6,26 +6,26 @@ inherit LIVING;
 inherit M_BLOCKEXITS;
 
 private mapping m_list=([
-"tpys1" : (["name" : "¡¶Ì«Æ½ÒªÊõ.Ìì±äÆª¡·", "skill" : "tianbian" , "lev" : 30,"vol" : 1]),
-"tpys2" : (["name" : "¡¶Ì«Æ½ÒªÊõ.·ç±äÆª¡·", "skill" : "fengbian" , "lev" : 30,"vol" : 1]),
-"tpys3" : (["name" : "¡¶Ì«Æ½ÒªÊõ.Ìì±äÆª¡·", "skill" : "tianbian" , "lev" : 60,"vol" : 2]),
-"tpys4" : (["name" : "¡¶Ì«Æ½ÒªÊõ.·ç±äÆª¡·", "skill" : "fengbian" , "lev" : 60,"vol" : 2]),
-"tpys5" : (["name" : "¡¶Ì«Æ½ÒªÊõ.Ìì±äÆª¡·", "skill" : "tianbian" , "lev" : 90,"vol" : 3]),
-"tpys6" : (["name" : "¡¶Ì«Æ½ÒªÊõ.·ç±äÆª¡·", "skill" : "fengbian" , "lev" : 90,"vol" : 3]),
-"yj1" : (["name" : "¡¶Ò×¾­.²·ËãÆª¡·", "skill" : "zhanbu" , "lev" : 30,"vol" : 1]),
-"yj2" : (["name" : "¡¶Ò×¾­.²·ËãÆª¡·", "skill" : "zhanbu" , "lev" : 60,"vol" : 2]),
-"yj3" : (["name" : "¡¶Ò×¾­.²·ËãÆª¡·", "skill" : "zhanbu" , "lev" : 90,"vol" : 3]),
-"sd1" : (["name" : "¡¶¶¾¾­¡·", "skill" : "shidu" , "lev" : 30,"vol" : 1]),
-"sd2" : (["name" : "¡¶¶¾¾­¡·", "skill" : "shidu" , "lev" : 60,"vol" : 2]),
-"sd3" : (["name" : "¡¶¶¾¾­¡·", "skill" : "shidu" , "lev" : 90,"vol" :3]),
-"jd1" : (["name" : "¡¶ÇàÄÒÊé¡·", "skill" : "jiedu" , "lev" : 30,"vol" : 1]),
-"jd2" : (["name" : "¡¶ÇàÄÒÊé¡·", "skill" : "jiedu" , "lev" : 60,"vol" : 2]),
-"jd3" : (["name" : "¡¶ÇàÄÒÊé¡·", "skill" : "jiedu" , "lev" : 90,"vol" : 3]),
+"tpys1" : (["name" : "ã€Šå¤ªå¹³è¦æœ¯.å¤©å˜ç¯‡ã€‹", "skill" : "tianbian" , "lev" : 30,"vol" : 1]),
+"tpys2" : (["name" : "ã€Šå¤ªå¹³è¦æœ¯.é£å˜ç¯‡ã€‹", "skill" : "fengbian" , "lev" : 30,"vol" : 1]),
+"tpys3" : (["name" : "ã€Šå¤ªå¹³è¦æœ¯.å¤©å˜ç¯‡ã€‹", "skill" : "tianbian" , "lev" : 60,"vol" : 2]),
+"tpys4" : (["name" : "ã€Šå¤ªå¹³è¦æœ¯.é£å˜ç¯‡ã€‹", "skill" : "fengbian" , "lev" : 60,"vol" : 2]),
+"tpys5" : (["name" : "ã€Šå¤ªå¹³è¦æœ¯.å¤©å˜ç¯‡ã€‹", "skill" : "tianbian" , "lev" : 90,"vol" : 3]),
+"tpys6" : (["name" : "ã€Šå¤ªå¹³è¦æœ¯.é£å˜ç¯‡ã€‹", "skill" : "fengbian" , "lev" : 90,"vol" : 3]),
+"yj1" : (["name" : "ã€Šæ˜“ç».åœç®—ç¯‡ã€‹", "skill" : "zhanbu" , "lev" : 30,"vol" : 1]),
+"yj2" : (["name" : "ã€Šæ˜“ç».åœç®—ç¯‡ã€‹", "skill" : "zhanbu" , "lev" : 60,"vol" : 2]),
+"yj3" : (["name" : "ã€Šæ˜“ç».åœç®—ç¯‡ã€‹", "skill" : "zhanbu" , "lev" : 90,"vol" : 3]),
+"sd1" : (["name" : "ã€Šæ¯’ç»ã€‹", "skill" : "shidu" , "lev" : 30,"vol" : 1]),
+"sd2" : (["name" : "ã€Šæ¯’ç»ã€‹", "skill" : "shidu" , "lev" : 60,"vol" : 2]),
+"sd3" : (["name" : "ã€Šæ¯’ç»ã€‹", "skill" : "shidu" , "lev" : 90,"vol" :3]),
+"jd1" : (["name" : "ã€Šé’å›Šä¹¦ã€‹", "skill" : "jiedu" , "lev" : 30,"vol" : 1]),
+"jd2" : (["name" : "ã€Šé’å›Šä¹¦ã€‹", "skill" : "jiedu" , "lev" : 60,"vol" : 2]),
+"jd3" : (["name" : "ã€Šé’å›Šä¹¦ã€‹", "skill" : "jiedu" , "lev" : 90,"vol" : 3]),
 ]);
 
 private mapping d_list=([
-"yyd" : (["name" : "  ÑøÑÕµ¤", "day" : 49 , "gold" : 100,"strday": "ÆßÆßËÄÊ®¾ÅÌì"]),
-"csd" : (["name" : "  ³¤Éú²»ÀÏµ¤", "day" : 81 , "gold" : 500,"strday": "¾Å¾Å°ËÊ®Ò»Ìì"]),
+"yyd" : (["name" : "  å…»é¢œä¸¹", "day" : 49 , "gold" : 100,"strday": "ä¸ƒä¸ƒå››åä¹å¤©"]),
+"csd" : (["name" : "  é•¿ç”Ÿä¸è€ä¸¹", "day" : 81 , "gold" : 500,"strday": "ä¹ä¹å…«åä¸€å¤©"]),
 
 ]);
 
@@ -36,7 +36,7 @@ private mixed handle_blocks( string dir )
         o=present("cang shu",this_body());
 	if(objectp(o)) {
 		this_body()->targetted_action(
-"$N°Ñ$O½»¸øÁË$T¡£\n",this_object(),o);
+"$NæŠŠ$Oäº¤ç»™äº†$Tã€‚\n",this_object(),o);
 		o->remove();
 	}
 	return 0;
@@ -44,26 +44,26 @@ private mixed handle_blocks( string dir )
 
 void setup()
 {
-        set_name("zixu shangren", "×ÏĞéÉÏÈË");
+        set_name("zixu shangren", "ç´«è™šä¸Šäºº");
         set_gender(1);
-        set_in_room_desc("×ÏĞéÉÏÈË(zixu shangren)");
+        set_in_room_desc("ç´«è™šä¸Šäºº(zixu shangren)");
         set_age(60);
 	add_id("daoshi");
         add_question("book","book");
-        add_ask_str("book","$N¶Ô$TµÀ£ºÌıËµÏÉ³¤ÓĞ²»ÉÙÆæÊé£¬¿É·ñ½è$sÒ»¹Û¡£\n");
+        add_ask_str("book","$Nå¯¹$Té“ï¼šå¬è¯´ä»™é•¿æœ‰ä¸å°‘å¥‡ä¹¦ï¼Œå¯å¦å€Ÿ$sä¸€è§‚ã€‚\n");
         add_question("list","list");
-        add_ask_str("list","$N¶Ô$TµÀ£ºÇëÎÊÏÉ³¤¶¼ÓĞĞ©Ê²Ã´ÆæÊéºÍÁéµ¤Ñ½¡£\n");
+        add_ask_str("list","$Nå¯¹$Té“ï¼šè¯·é—®ä»™é•¿éƒ½æœ‰äº›ä»€ä¹ˆå¥‡ä¹¦å’Œçµä¸¹å‘€ã€‚\n");
         add_question("dan","dan");
-        add_ask_str("dan","$N¶Ô$TµÀ£ºÌıËµÏÉ³¤É½ÖĞ¶àÓĞÆæÓö£¬ÄÜÁ¶²»ÉÙÁéµ¤£¬$sÓĞÒ»ÇëÇó£¬²»ÖªÄÜ²»ÄÜ. . . .\n");
+        add_ask_str("dan","$Nå¯¹$Té“ï¼šå¬è¯´ä»™é•¿å±±ä¸­å¤šæœ‰å¥‡é‡ï¼Œèƒ½ç‚¼ä¸å°‘çµä¸¹ï¼Œ$sæœ‰ä¸€è¯·æ±‚ï¼Œä¸çŸ¥èƒ½ä¸èƒ½. . . .\n");
 
         add_question("good","good");
-        add_ask_str("good","$N¶Ô$TµÀ£ºÎÒÏëÒªµÄµ¤£¬Ò²²»ÖªµÀ³¤Á·ºÃÁËÃ»ÓĞ¡£\n");
+        add_ask_str("good","$Nå¯¹$Té“ï¼šæˆ‘æƒ³è¦çš„ä¸¹ï¼Œä¹Ÿä¸çŸ¥é“é•¿ç»ƒå¥½äº†æ²¡æœ‰ã€‚\n");
 
         add_block("south");
 
 }
 string long() {
-        return "ËûÊÇÔÚ´¨ÖĞ½õÆÁÉ½ÉÏĞŞµÀµÄÒìÈË£¬È´²»ÖªµÀÎªÊ²Ã´µ½ÁËÕâÀïÎª»ÊµÛÁ¶µ¤¡£\n";
+        return "ä»–æ˜¯åœ¨å·ä¸­é”¦å±å±±ä¸Šä¿®é“çš„å¼‚äººï¼Œå´ä¸çŸ¥é“ä¸ºä»€ä¹ˆåˆ°äº†è¿™é‡Œä¸ºçš‡å¸ç‚¼ä¸¹ã€‚\n";
 }
 void input_book(object who, string str) {
 	object u,bk,shoyu;
@@ -76,15 +76,15 @@ void input_book(object who, string str) {
 	list=keys(m_list);
 	if(member_array(str,list)==-1) {
 		this_object()->targetted_action(
-"$N¶Ô$TµÀ£º$RËùÒªµÄÊé£¬ÎÒÔõÃ´´ÓÃ»ÌıËµ¹ıÑ½¡£\n",who);
+"$Nå¯¹$Té“ï¼š$Ræ‰€è¦çš„ä¹¦ï¼Œæˆ‘æ€ä¹ˆä»æ²¡å¬è¯´è¿‡å‘€ã€‚\n",who);
 		return;
 	}
 	bk=new(BOOK_FILE);
-	bk->add_id(m_list[str]["name"]+"µÚ"+chinese_number(m_list[str]["vol"])+"¾í");
+	bk->add_id(m_list[str]["name"]+"ç¬¬"+chinese_number(m_list[str]["vol"])+"å·");
 	bk->set_skill(m_list[str]["skill"]);
 	bk->set_lev(m_list[str]["lev"]);
-	who->targetted_action("$N¶Ô$TËµÁËĞ©Ê²Ã´¡£\n",this_object());
-	this_object()->targetted_action("$N½»¸ø$T$O\n",who,bk);
+	who->targetted_action("$Nå¯¹$Tè¯´äº†äº›ä»€ä¹ˆã€‚\n",this_object());
+	this_object()->targetted_action("$Näº¤ç»™$T$O\n",who,bk);
 	bk->move(who);
 
 	shoyu=present("ysf pass",who);
@@ -99,32 +99,32 @@ void ask_book(object who) {
 	shoyu=present("ysf pass",who);
 	if(!objectp(shoyu)) {
 		this_object()->targetted_action(
-"$N¶Ô$TµÀ£ºÃ»ÓĞÊ¥ÉÏµÄÊÖÚÍ£¬ÀÏĞàµÄÕâ¼¸±¾¾ÉÊéÒ²²»¸ÒÂÒ¸øÈË¿´¡£\n",who);
+"$Nå¯¹$Té“ï¼šæ²¡æœ‰åœ£ä¸Šçš„æ‰‹è°•ï¼Œè€æœ½çš„è¿™å‡ æœ¬æ—§ä¹¦ä¹Ÿä¸æ•¢ä¹±ç»™äººçœ‹ã€‚\n",who);
 		return ;
 	}
 	shoyu->remove();
 	this_object()->targetted_action(
-"$N¶Ô$TµÀ£ººÃËµ£¬ºÃËµ£¬²»Öª$RÒª¶ÁÄÄ²¿Êé¡£\n",who);
+"$Nå¯¹$Té“ï¼šå¥½è¯´ï¼Œå¥½è¯´ï¼Œä¸çŸ¥$Rè¦è¯»å“ªéƒ¨ä¹¦ã€‚\n",who);
 	u=who->query_link();
 	if(!objectp(u)) return;
-	u->modal_push((: input_book, who :),"ÇëÊäÈëÊé´úºÅ¡£\n");
+	u->modal_push((: input_book, who :),"è¯·è¾“å…¥ä¹¦ä»£å·ã€‚\n");
 }
 
 void ask_list(object who) {
 	string msg;
 	string *list;
 	this_object()->targetted_action(
-"$N¶Ô$TµÀ£ºÕâÀïÓĞ¼¸±¾¾ÉÊé£¬ÎÒ»¹ÄÜÁ¶Ò»µãÏÉµ¤¡£\n",who);
-        msg="id               Ãû³Æ\n";
+"$Nå¯¹$Té“ï¼šè¿™é‡Œæœ‰å‡ æœ¬æ—§ä¹¦ï¼Œæˆ‘è¿˜èƒ½ç‚¼ä¸€ç‚¹ä»™ä¸¹ã€‚\n",who);
+        msg="id               åç§°\n";
 	list=keys(m_list);
 	foreach(string l in list) {
-		msg+=sprintf("%-7s  %-24s %s\n",l,m_list[l]["name"],"µÚ"+
-			chinese_number(m_list[l]["vol"])+"¾í");
+		msg+=sprintf("%-7s  %-24s %s\n",l,m_list[l]["name"],"ç¬¬"+
+			chinese_number(m_list[l]["vol"])+"å·");
 	}
 	list=keys(d_list);
 	foreach(string l in list) {
                 msg+=sprintf("%-7s  %-24s %s\n",l,d_list[l]["name"],
-			chinese_number(d_list[l]["gold"])+"½ğ");
+			chinese_number(d_list[l]["gold"])+"é‡‘");
 	}
 
 	tell_user(who->query_primary_id(),msg);
@@ -144,21 +144,21 @@ void input_dan(object who, string str) {
 	list=keys(d_list);
 	if(member_array(str,list)==-1) {
 		this_object()->targetted_action(
-"$N¶Ô$TµÀ£º$RËùĞèµÄÏÉµ¤£¬ÎÒÔõÃ´´ÓÃ»ÌıËµ¹ıÑ½¡£\n",who);
+"$Nå¯¹$Té“ï¼š$Ræ‰€éœ€çš„ä»™ä¸¹ï¼Œæˆ‘æ€ä¹ˆä»æ²¡å¬è¯´è¿‡å‘€ã€‚\n",who);
 		return;
 	}
 	p_gold=CHAR_D->get_char(p_id,"gold");
 	if(p_gold<d_list[str]["gold"]) {
 		this_object()->targetted_action(
-"$N¶Ô$TµÀ£º$RÕÊÉÏµÄÇ®²»¹»Âï¡£\n",who);
+"$Nå¯¹$Té“ï¼š$Rå¸ä¸Šçš„é’±ä¸å¤Ÿå˜›ã€‚\n",who);
 		return;
 	}
 	CHAR_D->set_char(p_id,"gold",p_gold-d_list[str]["gold"]);
-	tell_user(p_id,"ÄãÕÊÉÏµÄ"+chinese_number(d_list[str]["gold"])+"Á½»Æ½ğ±»µÀÊ¿»®×ßÁË¡£\n");
+	tell_user(p_id,"ä½ å¸ä¸Šçš„"+chinese_number(d_list[str]["gold"])+"ä¸¤é»„é‡‘è¢«é“å£«åˆ’èµ°äº†ã€‚\n");
 	CHAR_D->set_char(p_id,"lian_dan",(["time" : time(),"dan" : str]));
 	this_object()->targetted_action(
-"$N¶Ô$TµÀ£º$RËùÒªµÄ"+d_list[str]["name"]+"ĞèÁ·"+d_list[str]["strday"]+
-"£¬µ½Ê±¾ÍÀ´ÁìÈ¡ÏÉµ¤°É¡£\n",who);
+"$Nå¯¹$Té“ï¼š$Ræ‰€è¦çš„"+d_list[str]["name"]+"éœ€ç»ƒ"+d_list[str]["strday"]+
+"ï¼Œåˆ°æ—¶å°±æ¥é¢†å–ä»™ä¸¹å§ã€‚\n",who);
 	shoyu=present("ysf pass",who);
 	destruct(shoyu);
 
@@ -173,21 +173,21 @@ void ask_dan(object who) {
 	if(p_id!=CHAR_D->get_char(p_id,"nation")) // this is not king
 	{
 		this_object()->targetted_action(
-		  "$N¶Ô$TµÀ£ºÎÒÖ»¸øÒ»¹úÖ®¾ıÁ¶µ¤¡£\n",who);
+		  "$Nå¯¹$Té“ï¼šæˆ‘åªç»™ä¸€å›½ä¹‹å›ç‚¼ä¸¹ã€‚\n",who);
 		return ;
 	}
 
 	if(!objectp(shoyu)) {
 		this_object()->targetted_action(
-"$N¶Ô$TµÀ£ºÃ»ÓĞÊ¥ÉÏµÄÊÖÚÍ£¬ÀÏĞàÒ²²»¸ÒÂÒ¸øÈËÁ·µ¤¡£\n",who);
+"$Nå¯¹$Té“ï¼šæ²¡æœ‰åœ£ä¸Šçš„æ‰‹è°•ï¼Œè€æœ½ä¹Ÿä¸æ•¢ä¹±ç»™äººç»ƒä¸¹ã€‚\n",who);
 		return ;
 	}
 	shoyu->remove();
 	this_object()->targetted_action(
-"$N¶Ô$TµÀ£ººÃËµ£¬ºÃËµ£¬²»Öª$RÒªÁ·Ê²Ã´µ¤¡£\n",who);
+"$Nå¯¹$Té“ï¼šå¥½è¯´ï¼Œå¥½è¯´ï¼Œä¸çŸ¥$Rè¦ç»ƒä»€ä¹ˆä¸¹ã€‚\n",who);
 	u=who->query_link();
 	if(!objectp(u)) return;
-	u->modal_push((: input_dan, who :),"ÇëÊäÈëÏÉµ¤´úºÅ¡£\n");
+	u->modal_push((: input_dan, who :),"è¯·è¾“å…¥ä»™ä¸¹ä»£å·ã€‚\n");
 
 }
 void ask_good(object who) {
@@ -200,13 +200,13 @@ void ask_good(object who) {
 	my_dan=CHAR_D->get_char(p_id,"lian_dan");
 	if(!mapp(my_dan)) {
 		this_object()->targetted_action(
-"$N¶Ô$TµÀ£º$RÃ»ÔÚÕâ¶ùÁ·µ¤°É¡£\n",who);
+"$Nå¯¹$Té“ï¼š$Ræ²¡åœ¨è¿™å„¿ç»ƒä¸¹å§ã€‚\n",who);
 		return ;
 	}
 	d_id=my_dan["dan"];
 	if(!mapp(d_list[d_id])) {
 		this_object()->targetted_action(
-"$N¶Ô$TµÀ£ººÜ±§Ç¸£¬$RËùÁ·µÄµ¤±»Î×Ê¦È¡ÏûÁË¡£\n",who);
+"$Nå¯¹$Té“ï¼šå¾ˆæŠ±æ­‰ï¼Œ$Ræ‰€ç»ƒçš„ä¸¹è¢«å·«å¸ˆå–æ¶ˆäº†ã€‚\n",who);
 		return ;
 	}
 	t_time=time();
@@ -215,14 +215,14 @@ void ask_good(object who) {
 	t_time=d_list[d_id]["day"]-t_time;
 	if(t_time>0) {
 		this_object()->targetted_action(
-"$N¶Ô$TµÀ£º$RËùÁ·µÄµ¤»¹ĞèÒªµÈ"+chinese_number(t_time)+"Ìì¡£\n",who);
+"$Nå¯¹$Té“ï¼š$Ræ‰€ç»ƒçš„ä¸¹è¿˜éœ€è¦ç­‰"+chinese_number(t_time)+"å¤©ã€‚\n",who);
 		return ;
 	}
 	o_dan=new(__DIR__+"dan/"+d_id);
 	o_dan->move(this_body());
 	CHAR_D->set_char(p_id,"lian_dan",0);
 	this_object()->targetted_action(
-"$N¶Ô$TµÀ£º$RËùÁ·µÄµ¤ÒÑ¾­ºÃÁË£¬$M¸ø$n1p$O¡£\n",who,o_dan);
+"$Nå¯¹$Té“ï¼š$Ræ‰€ç»ƒçš„ä¸¹å·²ç»å¥½äº†ï¼Œ$Mç»™$n1p$Oã€‚\n",who,o_dan);
 	
 }
 void special_answer(object who, string matt)

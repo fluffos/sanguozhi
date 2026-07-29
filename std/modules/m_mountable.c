@@ -1,18 +1,18 @@
 // Updated by stefan on 10 Jan 1997
 /* Do not remove the headers from this file! see /USAGE for more info. */
 
-private static string mount_msg;
-private static string dismount_msg;
+private nosave string mount_msg;
+private nosave string dismount_msg;
 
 string short();
 
 
-static void set_get_on_msg(string s)
+protected void set_get_on_msg(string s)
 {
   mount_msg = s;
 }
 
-static void set_get_off_msg(string s)
+protected void set_get_off_msg(string s)
 {
   dismount_msg = s;
 }
@@ -30,7 +30,7 @@ string query_get_off_msg()
 string handle_exit_msgs(object last_loc)
 {
   return query_get_on_msg() || //"$N $vget on "+short()+".\n";
-                               "$NÕ¾ÉÏÁË"+short()+"¡£\n";  
+                               "$Nç«™ä¸Šäº†"+short()+"ã€‚\n";  
 }
 
 int direct_sit_on_obj()
@@ -43,7 +43,7 @@ private void mount_it_already()
   if(environment(this_body()) == this_object())
     {
       //write("You are already there.\n");
-      write("ÄãÒÑ¾­Õ¾ÔÚÄÇ¶ùÁË¡£\n");
+      write("ä½ å·²ç»ç«™åœ¨é‚£å„¿äº†ã€‚\n");
       return;
     }
   this_body()->move_to(file_name(this_object()), short());
@@ -57,7 +57,7 @@ void sit()
 mixed stand()
 {
   return query_get_off_msg() || //"$N $vget off " 
-                                "$N´Ó"+ short() + "ÉÏÃæÏÂÀ´ÁË¡£\n";
+                                "$Nä»"+ short() + "ä¸Šé¢ä¸‹æ¥äº†ã€‚\n";
 }
 
 int direct_mount_obj()

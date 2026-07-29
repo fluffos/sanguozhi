@@ -1,8 +1,8 @@
-// buzzer.c by fire Èı¹úÍÆÍÁ»ú
+// buzzer.c by fire ä¸‰å›½æ¨åœŸæœº
 // modified by row
 // this cmd is used create quick room
 inherit CMD;
-array dirs=({"east","west","south","north","southeast","southwest","northe
+mixed * dirs=({"east","west","south","north","southeast","southwest","northe
 ast","northwest","up","down","enter","out",});
    
 string p_area,p_dir,p_id,p_name;
@@ -83,8 +83,8 @@ void create_t_room() {
    int res;
    ret=get_cnt();
    res=unguarded(1, (: write_file, p_path+p_id+".c",ret,1 :)); 
-   if(res) write("room "+p_name+" ½¨Ôì³É¹¦.\n");
-   else write ("room "+p_name+" ½¨ÔìÊ§°Ü.\n");
+   if(res) write("room "+p_name+" å»ºé€ æˆåŠŸ.\n");
+   else write ("room "+p_name+" å»ºé€ å¤±è´¥.\n");
    
 }
 void room_update(string p_room)
@@ -126,13 +126,13 @@ void input_indoor(string s) {
    if(s=="q") {over(); return;} //
     is_indoor=0;
    if(s=="y") is_indoor=1;
-   write("µØÇøÊÇ£º"+p_area+"\n");
-   write("·½ÏòÊÇ£º"+p_dir+"\n");
-   write("·¿¼äÎÄ¼şÊÇ£º"+p_id+"\n");
-   write("·¿¼äÃû³ÆÊÇ£º"+p_name+"\n");
-   write("·¿¼äÂ·¾¶ÊÇ£º"+ p_path+"\n");
-   write("ÊÇ"+(is_indoor? "ÊÒÄÚ": "ÊÒÍâ")+"\n");
-   write("ÎÒËùÔÚµÄ·¿¼äÊÇ£º"+m_id+"\n");
+   write("åœ°åŒºæ˜¯ï¼š"+p_area+"\n");
+   write("æ–¹å‘æ˜¯ï¼š"+p_dir+"\n");
+   write("æˆ¿é—´æ–‡ä»¶æ˜¯ï¼š"+p_id+"\n");
+   write("æˆ¿é—´åç§°æ˜¯ï¼š"+p_name+"\n");
+   write("æˆ¿é—´è·¯å¾„æ˜¯ï¼š"+ p_path+"\n");
+   write("æ˜¯"+(is_indoor? "å®¤å†…": "å®¤å¤–")+"\n");
+   write("æˆ‘æ‰€åœ¨çš„æˆ¿é—´æ˜¯ï¼š"+m_id+"\n");
    create_t_room();  
    insert_connection(p_path+m_id+".c",p_dir,p_path+p_id+".c");
    insert_connection(p_path+p_id+".c",opdirs[p_dir],p_path+m_id+".c");
@@ -147,12 +147,12 @@ void input_name(string s) {
    p_usr->modal_pop();
    if(s=="q") {over(); return;} //
    if(!sizeof(s)) {
-     write("Ã»ÓĞ·¿¼äÃû³Æ¡£\n");
+     write("æ²¡æœ‰æˆ¿é—´åç§°ã€‚\n");
      over();
      return;
    }
    p_name=s;
-   write("ÊÇÊÒÄÚ·¿¼äÂğ£¿<y|n>\n");
+   write("æ˜¯å®¤å†…æˆ¿é—´å—ï¼Ÿ<y|n>\n");
    p_usr->modal_push((:input_indoor:),"",0,0);
 }
 
@@ -160,12 +160,12 @@ void input_id(string s) {
    p_usr->modal_pop();
    if(s=="q") {over(); return;} //
    if(!sizeof(s)) {
-     write("Ã»ÓĞÎÄ¼şÃû³Æ¡£\n");
+     write("æ²¡æœ‰æ–‡ä»¶åç§°ã€‚\n");
 	over();
      return;
    }
    p_id=s;
-   write("ÇëÊäÈë·¿¼äÃû³Æ£º\n");
+   write("è¯·è¾“å…¥æˆ¿é—´åç§°ï¼š\n");
    p_usr->modal_push((:input_name:),"",0,0);
 }
 
@@ -173,12 +173,12 @@ void input_dir(string s) {
    p_usr->modal_pop();
    if(s=="q") {over(); return;} //
    if(member_array(s,dirs)==-1) {
-     write("´íÎóµÄ·½Ïò¡£\n");
+     write("é”™è¯¯çš„æ–¹å‘ã€‚\n");
      over();
      return;
    }
    p_dir=s;
-   write("ÇëÊäÈëÎÄ¼şÃû³Æ£º\n");
+   write("è¯·è¾“å…¥æ–‡ä»¶åç§°ï¼š\n");
    p_usr->modal_push((:input_id:),"",0,0);
 
 }
@@ -191,18 +191,18 @@ void main(object usr)
    p_area=o->get_area();
    printf("p_area = %s\n", p_area);
    if(!AREA_D->area_exist(p_area)) {
-      write("ÕâÀï²»ÊÇÈı¹úµØÇø¡£\n");
+      write("è¿™é‡Œä¸æ˜¯ä¸‰å›½åœ°åŒºã€‚\n");
       over();
       return;
    }
    /*CHANNEL_D->deliver_tell("rumor","system",
-   usr->query_body()->short()+"·¢¶¯ÁË×îĞÂÊ½µÄLIMAÈıĞÍÍÆÍÁ»ú£¬ÔÚ"+
-     AREA_D->get_area(p_area,"name")+"´óĞËÍÁÄ¾¡£");*/
+   usr->query_body()->short()+"å‘åŠ¨äº†æœ€æ–°å¼çš„LIMAä¸‰å‹æ¨åœŸæœºï¼Œåœ¨"+
+     AREA_D->get_area(p_area,"name")+"å¤§å…´åœŸæœ¨ã€‚");*/
    p_path=AREA_D->get_area(p_area,"path");
    m_id=file_name(o);
    printf("m_id = %s\n", m_id);
    m_id=m_id[sizeof(p_path)..<1];
-   write("ÇëÊäÈëÍÆÍÁ»ú¿ª¶¯·½Ïò¡£\n");
+   write("è¯·è¾“å…¥æ¨åœŸæœºå¼€åŠ¨æ–¹å‘ã€‚\n");
    p_usr->modal_push((:input_dir:),"",0,0);
 }
 

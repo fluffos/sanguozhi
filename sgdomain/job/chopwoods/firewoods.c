@@ -5,10 +5,10 @@ inherit M_GETTABLE;
 inherit M_MERGEABLE;
 void setup() {
 merge_setup();
-    set_id("firewoods", "²ñ»ğ","chai huo");
-    set_unit("¸ù");
-    set_in_room_desc("²ñ»ğ(chai huo)¡£\n");
-    set_long("¸Õ¸Õ´ÓÊ÷ÉÏ¿³ÏÂµÄ²ñ»ğ£¬¿ÉÒÔÓÃÀ´×÷Òı»ğÖ®Îï¡£\n");
+    set_id("firewoods", "æŸ´ç«","chai huo");
+    set_unit("æ ¹");
+    set_in_room_desc("æŸ´ç«(chai huo)ã€‚\n");
+    set_long("åˆšåˆšä»æ ‘ä¸Šç ä¸‹çš„æŸ´ç«ï¼Œå¯ä»¥ç”¨æ¥ä½œå¼•ç«ä¹‹ç‰©ã€‚\n");
     set_size(VERY_SMALL);
    set_ori_size(VERY_SMALL);
 }

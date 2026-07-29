@@ -18,7 +18,7 @@ void do_press_str(string str) {
 	ret=ob->press(str);
 	if(!ret)
 	{
-        write( useless( "°´¶¯"+ob->short() ) );
+        write( useless( "æŒ‰åŠ¨"+ob->short() ) );
 		return;
 	}
 }
@@ -32,7 +32,7 @@ void do_press_obj_str(object ob, string str) {
 }
 
 */
-array query_verb_info() {
+mixed * query_verb_info() {
     return ({ ({ "STR" }), ({ "push" }) });
 //    return ({ ({ "OBJ", "OBJ STR", "OBJ with OBJ" }), ({ "push" }) });
 }

@@ -33,27 +33,27 @@ void done_title(string str,string title)
 {
     mixed ret;
     ret=SGHELP_D->set_topic(str,"t",title);
-    if(ret) write("³É¹¦¡£\n");
-     else write("Ê§°Ü¡£\n");
+    if(ret) write("æˆåŠŸã€‚\n");
+     else write("å¤±è´¥ã€‚\n");
 }
 void do_title(string str)
 {
     get_input_then_call
-     ((: done_title, str:), "ÊäÈë±êÌâ¡£");
+     ((: done_title, str:), "è¾“å…¥æ ‡é¢˜ã€‚");
 
 }
 void do_class(string str)
 {
     mixed ret;
     ret=SGHELP_D->set_topic(str,"is_parent",1);
-    if(ret) write("³É¹¦¡£\n");
-     else write("Ê§°Ü¡£\n");
+    if(ret) write("æˆåŠŸã€‚\n");
+     else write("å¤±è´¥ã€‚\n");
 }
 void do_unclass(string str)
 {
     mixed ret;
     ret=SGHELP_D->set_topic(str,"is_parent",0);
-     write("³É¹¦¡£\n");
+     write("æˆåŠŸã€‚\n");
 }
 
 void done_subclass(string str,string par)
@@ -65,7 +65,7 @@ void done_subclass(string str,string par)
 void do_subclass(string str)
 {
     get_input_then_call
-     ((: done_subclass, str:), "´ÓÄÄÒ»ÀàÖĞÉ¾³ı¡£");
+     ((: done_subclass, str:), "ä»å“ªä¸€ç±»ä¸­åˆ é™¤ã€‚");
 }
 
 void done_addclass(string str,string par)
@@ -77,7 +77,7 @@ void done_addclass(string str,string par)
 void do_addclass(string str)
 {
     get_input_then_call
-     ((: done_addclass, str:), "¼ÓÈëÄÄÒ»Àà¡£");
+     ((: done_addclass, str:), "åŠ å…¥å“ªä¸€ç±»ã€‚");
 }
 void do_check()
 {
@@ -89,40 +89,40 @@ void do_check()
 void create()
 {
     set_privilege(1);
-    toplevel = new_menu("\n" + mud_name() + "°ïÖúÏµÍ³¹ÜÀí²Ëµ¥");
-    quit_item = new_menu_item("ÍË³ö", (:quit_menu_application:), "q");
+    toplevel = new_menu("\n" + mud_name() + "å¸®åŠ©ç³»ç»Ÿç®¡ç†èœå•");
+    quit_item = new_menu_item("é€€å‡º", (:quit_menu_application:), "q");
     seperator = new_seperator
-    ("\n¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş\n");
+    ("\nã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“\n");
     add_menu_item(toplevel, seperator);
-    add_menu_item(toplevel, new_menu_item("ÎïÆ·ÁĞ±í(List)",
+    add_menu_item(toplevel, new_menu_item("ç‰©å“åˆ—è¡¨(List)",
       (: get_input_then_call, (: do_list :),
-           "ÎïÆ·Àà»ò×ÓÀà£¿(enter ´ú±íËùÓĞµÄ): ":), "l"));
-        add_menu_item(toplevel, new_menu_item("Ñ°ÕÒÒ»¸ö°ïÖúÖ÷Ìâ(Find)",
+           "ç‰©å“ç±»æˆ–å­ç±»ï¼Ÿ(enter ä»£è¡¨æ‰€æœ‰çš„): ":), "l"));
+        add_menu_item(toplevel, new_menu_item("å¯»æ‰¾ä¸€ä¸ªå¸®åŠ©ä¸»é¢˜(Find)",
            (: get_input_then_call, (: do_find :),
-           "ÊäÈëÒª²éÑ¯µÄ°ïÖúÖ÷ÌâÃû :" :), "f"));
-        add_menu_item(toplevel, new_menu_item("ĞŞ¸ÄÖ÷Ìâ±êÌâ(Title)",
+           "è¾“å…¥è¦æŸ¥è¯¢çš„å¸®åŠ©ä¸»é¢˜å :" :), "f"));
+        add_menu_item(toplevel, new_menu_item("ä¿®æ”¹ä¸»é¢˜æ ‡é¢˜(Title)",
            (: get_input_then_call, (: do_title :),
-             "ÊäÈëÒªĞŞ¸Ä±êÌâµÄÖ÷Ìâ :" :), "t"));
-        add_menu_item(toplevel, new_menu_item("ÉèÒ»Ö÷ÌâÎªÀà(Class)",
+             "è¾“å…¥è¦ä¿®æ”¹æ ‡é¢˜çš„ä¸»é¢˜ :" :), "t"));
+        add_menu_item(toplevel, new_menu_item("è®¾ä¸€ä¸»é¢˜ä¸ºç±»(Class)",
             (: get_input_then_call, (: do_class :),
-             "ÊäÈëÒª³ÉÎªÀàµÄÖ÷Ìâ :" :), "c"));
-        add_menu_item(toplevel, new_menu_item("È¡ÏûÒ»Àà(UnClass)",
+             "è¾“å…¥è¦æˆä¸ºç±»çš„ä¸»é¢˜ :" :), "c"));
+        add_menu_item(toplevel, new_menu_item("å–æ¶ˆä¸€ç±»(UnClass)",
             (: get_input_then_call, (: do_unclass :),
-             "ÊäÈëÒªÈ¡ÏûÀàµÄÖ÷Ìâ :" :), "u"));
+             "è¾“å…¥è¦å–æ¶ˆç±»çš„ä¸»é¢˜ :" :), "u"));
 
-        add_menu_item(toplevel, new_menu_item("°ÑÒ»Ö÷Ìâ¼ÓÈëÒ»Àà(AddClass)",
+        add_menu_item(toplevel, new_menu_item("æŠŠä¸€ä¸»é¢˜åŠ å…¥ä¸€ç±»(AddClass)",
             (: get_input_then_call, (: do_addclass :),
-             "ÊäÈëÒªµ÷ÕûµÄÖ÷Ìâ :" :), "a"));
-        add_menu_item(toplevel, new_menu_item("°ÑÒ»Ö÷Ìâ´ÓÒ»ÀàÖĞÈ¡Ïû(SubClass)",
+             "è¾“å…¥è¦è°ƒæ•´çš„ä¸»é¢˜ :" :), "a"));
+        add_menu_item(toplevel, new_menu_item("æŠŠä¸€ä¸»é¢˜ä»ä¸€ç±»ä¸­å–æ¶ˆ(SubClass)",
             (: get_input_then_call, (: do_subclass :),
-             "ÊäÈëÒªµ÷ÕûµÄÖ÷Ìâ :" :), "s"));
+             "è¾“å…¥è¦è°ƒæ•´çš„ä¸»é¢˜ :" :), "s"));
 
-        add_menu_item(toplevel, new_menu_item("²éÕÒ²»ÍêÕûÖ÷Ìâ(cHeck)",
+        add_menu_item(toplevel, new_menu_item("æŸ¥æ‰¾ä¸å®Œæ•´ä¸»é¢˜(cHeck)",
              (: do_check :), "h"));
 
         add_menu_item(toplevel, quit_item);
         add_menu_item(toplevel, seperator);
-        set_menu_prompt (toplevel, "ÊäÈëÖ¸Áî[lftcuasq]: ");
+        set_menu_prompt (toplevel, "è¾“å…¥æŒ‡ä»¤[lftcuasq]: ");
 }
 void start_menu()
 {
@@ -172,13 +172,13 @@ void do_list(string str)
 			ids=OBJ_D->check_obj("sub_type",str);
 	}
 	if(!sizeof(ids)) {
-         printf("Ã»ÓĞ¸ÃÀàÎïÆ·¡£\n", str);
+         printf("æ²¡æœ‰è¯¥ç±»ç‰©å“ã€‚\n", str);
          prompt_then_return();
          return;
     }
 
     get_input_then_call
-     ((: doreal_list, ids:), "ÏÔÊ¾ÄÄĞ©ĞÅÏ¢¡£");
+     ((: doreal_list, ids:), "æ˜¾ç¤ºå“ªäº›ä¿¡æ¯ã€‚");
 }
 
 void do_find(string str)
@@ -187,14 +187,14 @@ void do_find(string str)
     string dis;
     temp = SGHELP_D->get_topic(str);
     if( !temp ){
-         printf("Ã»ÓĞ¹ØÓÚ '%s' µÄ°ïÖúÖ÷Ìâ¡£\n", str);
+         printf("æ²¡æœ‰å…³äº '%s' çš„å¸®åŠ©ä¸»é¢˜ã€‚\n", str);
          prompt_then_return();
          return;
     }
-    dis=sprintf("Ö÷Ìâ: %s : ±êÌâ :%O\n",str,temp["t"]);
-    dis+=sprintf("Î»ÖÃ£º %O\n",temp["p"]);
-    dis+=sprintf("ÊÇ·ñÀà: %O \n",temp["is_parent"]);
-    dis+=sprintf("ËùÊôÀà£º%O \n",temp["parent"]);
-    dis+=sprintf("Ïà¹ØÖ÷Ìâ£º%O \n",temp["related"]);
+    dis=sprintf("ä¸»é¢˜: %s : æ ‡é¢˜ :%O\n",str,temp["t"]);
+    dis+=sprintf("ä½ç½®ï¼š %O\n",temp["p"]);
+    dis+=sprintf("æ˜¯å¦ç±»: %O \n",temp["is_parent"]);
+    dis+=sprintf("æ‰€å±ç±»ï¼š%O \n",temp["parent"]);
+    dis+=sprintf("ç›¸å…³ä¸»é¢˜ï¼š%O \n",temp["related"]);
     write(dis);
 }

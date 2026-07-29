@@ -1,6 +1,6 @@
 #/std/race/human.c
 primary_id "damii"
-chinese_id "´óÃ×Ò»"
+chinese_id "å¤§ç±³ä¸€"
 persist_flags ([2:64,0:0,])
 can_drop 1
 can_sell 1
@@ -13,8 +13,8 @@ main_prep "in"
 contained_light_added 1
 gender 2
 messages ([])
-def_messages (["clone":"$nÉìÊÖÁè¿ÕÒ»Ö¸£¬±ä³öÁË$o¡£","enter":"$n×ßÁË¹ıÀ´¡£","mleave":"$nµÄÉíÓ°ÔÚÒ»ÕóÑÌÎíÖĞ½¥½¥ÒşÈ¥¡£","leave":"$n³¯$oÀë¿ªÁË¡£","home":"$n»Ø¼ÒÈ¥ÁË¡£","destruct":"$nÅÛĞäÒ»»Ó£¬$o±»»¯³ÉÒ»¹ÉºÚÑÌ£¬´µÉ¢¿ªÈ¥¡£","menter":"$nÍ»È»³öÏÖÔÚÒ»ÕóÑÌÎíÖĞ¡£","vis":"$nÍ»È»³öÏÖÔÚÄãÃæÇ°£¬ÓÖËÆºõÔÚÕâÀïºÜ¾ÃÁË¡£","invis":"$n´ÓÄãµÄÊÓÒ°ÖĞÍ»È»ÏûÊ§ÁË¡£",])
-busy_msg "ÄãÒ»´ÎÊäÈëÌ«¶àÃüÁîÁË.."
+def_messages (["clone":"$nä¼¸æ‰‹å‡Œç©ºä¸€æŒ‡ï¼Œå˜å‡ºäº†$oã€‚","enter":"$nèµ°äº†è¿‡æ¥ã€‚","mleave":"$nçš„èº«å½±åœ¨ä¸€é˜µçƒŸé›¾ä¸­æ¸æ¸éšå»ã€‚","leave":"$næœ$oç¦»å¼€äº†ã€‚","home":"$nå›å®¶å»äº†ã€‚","destruct":"$nè¢è¢–ä¸€æŒ¥ï¼Œ$oè¢«åŒ–æˆä¸€è‚¡é»‘çƒŸï¼Œå¹æ•£å¼€å»ã€‚","menter":"$nçªç„¶å‡ºç°åœ¨ä¸€é˜µçƒŸé›¾ä¸­ã€‚","vis":"$nçªç„¶å‡ºç°åœ¨ä½ é¢å‰ï¼Œåˆä¼¼ä¹åœ¨è¿™é‡Œå¾ˆä¹…äº†ã€‚","invis":"$nä»ä½ çš„è§†é‡ä¸­çªç„¶æ¶ˆå¤±äº†ã€‚",])
+busy_msg "ä½ ä¸€æ¬¡è¾“å…¥å¤ªå¤šå‘½ä»¤äº†.."
 busy 1310891114
 answer_list ({({"settle","settle",}),({"position","position",}),({"localmeeting","localmeeting",}),({"job","job",}),({"zgxy","zgxy",}),({"wxxy","wxxy",}),({"bfxy","bfxy",}),({"guoshi","guoshi",}),})
 ask_list ([])
@@ -46,12 +46,12 @@ ilog_time 1313670629
 money (["coin":0,"gold":10,"bank":2392000,"silver":42,])
 sg_home ([])
 name "damii"
-invis_name "Ä³Ä³"
-chinese_name "´óÃ×Ò»"
+invis_name "æŸæŸ"
+chinese_name "å¤§ç±³ä¸€"
 response_queue ({})
 reply "xigua"
 channel_list ({"gossip","newbie","weather","rumor","imud_imud_sgz","imud_imud_gossip",})
 saved_items "([\"#inventory#\":({\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/money/m_silver\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/money/m_gold\\\",])\",}),\"#base_name#\":\"/std/race/human\",])"
 ag_day 10
 ag_month 4
-jobs (["spy":(["path":"/a/daixian/","beg_time":0,"status":"over","finish_time":1308647263,"done_time":1308647250,"lasttimes":({1308647263,}),"assignarea":"jingyang","size":20,"spied":({"/a/daixian/dx_nanmenkou","/a/daixian/dx_nanjie2","/a/daixian/dx_yamen","/a/daixian/dx_datang","/a/daixian/dx_liangcang","/a/daixian/dx_laofang","/a/daixian/dx_nanjie1","/a/daixian/dx_zahuopu","/a/daixian/dx_guangchang","/a/daixian/dx_dongjie","/a/daixian/dx_dongchengmen","/a/daixian/dx_jishi","/a/daixian/dx_kezhan","/a/daixian/dx_beijie","/a/daixian/dx_xiaochidian","/a/daixian/dx_yishiting","/a/daixian/dx_xijie","/a/daixian/dx_minfang","/a/daixian/dx_xichengmen","/a/daixian/tmp",}),"catched":0,"area":"daixian","memo":"Õì²ì´úÏØ","count":12,]),"findbody":(["beg_time":0,"memo":"ÕÒÕÔÒ×(hiker)","status":"over","finish_time":1308339703,"count":10,"lasttimes":({1308338864,1308338908,1308338962,1308338998,1308339096,1308339114,1308339475,1308339499,1308339541,1308339703,}),"assignarea":"huayin",]),"askobj":(["obj_id":"test","beg_time":0,"memo":"ÕÒÂ¤Î÷µÄ%^H_CYAN%^²Ìçß%^RESET%^´ß0","status":"over","finish_time":1308344306,"count":20,"lasttimes":({1308337165,1308337487,1308337660,1308337902,1308338032,1308338166,1308338562,1308338646,1308338720,1308338806,1308343495,1308343639,1308343713,1308343787,1308343879,1308343957,1308344043,1308344131,1308344203,1308344306,}),"assignarea":"changan",]),"suggest":(["beg_time":1308431888,"count":1,"lasttimes":({1308431888,}),]),"choppork":(["beg_time":0,"finish_time":1308335906,"count":39,"lasttimes":({1308329380,1308329558,1308329735,1308329909,1308330079,1308330275,1308330415,1308330535,1308330687,1308330797,1308330953,1308331169,1308331366,1308331494,1308331686,1308331890,1308332218,1308332334,1308332486,1308332782,1308332951,1308333273,1308333517,1308333845,1308333973,1308334430,1308334796,1308334996,1308335166,1308335418,1308335602,1308335790,1308335906,}),]),"bugao":(["beg_time":1308338554,"memo":"´úÏØµÄ%^YELLOW%^ÑÃÃÅ%^RESET%^","status":"begin","finish_time":1308338538,"count":7,"lasttimes":({1308337145,1308337475,1308337650,1308337894,1308338024,1308338154,1308338538,}),"assignarea":"huayin",]),])
+jobs (["spy":(["path":"/a/daixian/","beg_time":0,"status":"over","finish_time":1308647263,"done_time":1308647250,"lasttimes":({1308647263,}),"assignarea":"jingyang","size":20,"spied":({"/a/daixian/dx_nanmenkou","/a/daixian/dx_nanjie2","/a/daixian/dx_yamen","/a/daixian/dx_datang","/a/daixian/dx_liangcang","/a/daixian/dx_laofang","/a/daixian/dx_nanjie1","/a/daixian/dx_zahuopu","/a/daixian/dx_guangchang","/a/daixian/dx_dongjie","/a/daixian/dx_dongchengmen","/a/daixian/dx_jishi","/a/daixian/dx_kezhan","/a/daixian/dx_beijie","/a/daixian/dx_xiaochidian","/a/daixian/dx_yishiting","/a/daixian/dx_xijie","/a/daixian/dx_minfang","/a/daixian/dx_xichengmen","/a/daixian/tmp",}),"catched":0,"area":"daixian","memo":"ä¾¦å¯Ÿä»£å¿","count":12,]),"findbody":(["beg_time":0,"memo":"æ‰¾èµµæ˜“(hiker)","status":"over","finish_time":1308339703,"count":10,"lasttimes":({1308338864,1308338908,1308338962,1308338998,1308339096,1308339114,1308339475,1308339499,1308339541,1308339703,}),"assignarea":"huayin",]),"askobj":(["obj_id":"test","beg_time":0,"memo":"æ‰¾é™‡è¥¿çš„%^H_CYAN%^è”¡é‚•%^RESET%^å‚¬0","status":"over","finish_time":1308344306,"count":20,"lasttimes":({1308337165,1308337487,1308337660,1308337902,1308338032,1308338166,1308338562,1308338646,1308338720,1308338806,1308343495,1308343639,1308343713,1308343787,1308343879,1308343957,1308344043,1308344131,1308344203,1308344306,}),"assignarea":"changan",]),"suggest":(["beg_time":1308431888,"count":1,"lasttimes":({1308431888,}),]),"choppork":(["beg_time":0,"finish_time":1308335906,"count":39,"lasttimes":({1308329380,1308329558,1308329735,1308329909,1308330079,1308330275,1308330415,1308330535,1308330687,1308330797,1308330953,1308331169,1308331366,1308331494,1308331686,1308331890,1308332218,1308332334,1308332486,1308332782,1308332951,1308333273,1308333517,1308333845,1308333973,1308334430,1308334796,1308334996,1308335166,1308335418,1308335602,1308335790,1308335906,}),]),"bugao":(["beg_time":1308338554,"memo":"ä»£å¿çš„%^YELLOW%^è¡™é—¨%^RESET%^","status":"begin","finish_time":1308338538,"count":7,"lasttimes":({1308337145,1308337475,1308337650,1308337894,1308338024,1308338154,1308338538,}),"assignarea":"huayin",]),])

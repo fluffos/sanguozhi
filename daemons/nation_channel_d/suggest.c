@@ -6,18 +6,18 @@ inherit __DIR__"tran.c";
 inherit __DIR__"surrender.c";
 inherit __DIR__"friend.c";
 
-static private mapping m_suggest=([]);
+nosave private mapping m_suggest=([]);
 
 private mapping leg_suggest = ([
-	"tran" : 	"µ÷Åä²¿¶ÓºÍÎï×Ê¡£
-¸ñÊ½£ºna $tran <ÆğÊ¼µØ> <Ä¿µÄµØ> <±øÖÖ»òÎï×Ê»ò½ğ> <ÊıÁ¿>
-ÀıÈç£ºna $tran changan huayin footman 1000\n",
+	"tran" : 	"è°ƒé…éƒ¨é˜Ÿå’Œç‰©èµ„ã€‚
+æ ¼å¼ï¼šna $tran <èµ·å§‹åœ°> <ç›®çš„åœ°> <å…µç§æˆ–ç‰©èµ„æˆ–é‡‘> <æ•°é‡>
+ä¾‹å¦‚ï¼šna $tran changan huayin footman 1000\n",
 
-	"nationtax" : 	"µ÷ÕûµØÇø¹ú¼ÒË°ÂÊ£¬Ìá³öÕß£ºµ±µØÌ«ÊØ»ò¹ú¼Ò¹ÙÔ±¡£
-¸ñÊ½£ºna $nationtax [area_id] <Ë°ÂÊ>\n",
+	"nationtax" : 	"è°ƒæ•´åœ°åŒºå›½å®¶ç¨ç‡ï¼Œæå‡ºè€…ï¼šå½“åœ°å¤ªå®ˆæˆ–å›½å®¶å®˜å‘˜ã€‚
+æ ¼å¼ï¼šna $nationtax [area_id] <ç¨ç‡>\n",
 
-	"surrender" : "¾Ù¹úÍ¶½µ¡£¸ñÊ½£ºna $surrender <¹ú¼Òid>\n",
-	"check" : 	"²éÔÄµ±Ç°½¨ÒéÇé¿ö¡£\n",
+	"surrender" : "ä¸¾å›½æŠ•é™ã€‚æ ¼å¼ï¼šna $surrender <å›½å®¶id>\n",
+	"check" : 	"æŸ¥é˜…å½“å‰å»ºè®®æƒ…å†µã€‚\n",
 
 ]);
 
@@ -34,10 +34,10 @@ int query_group_value(string *g)
 }
 void discuss_succ(string n_id) {
 	string msg;
-	msg="ºÃ£¬¼ÈÈ»´ó¶àÊıÈËÎŞÒìÒé£¬½¨ÒéÍ¨¹ı¡£À´ÈË£¬´«Áî£º"+
-		m_suggest[n_id]["str"]+"¡£";
+	msg="å¥½ï¼Œæ—¢ç„¶å¤§å¤šæ•°äººæ— å¼‚è®®ï¼Œå»ºè®®é€šè¿‡ã€‚æ¥äººï¼Œä¼ ä»¤ï¼š"+
+		m_suggest[n_id]["str"]+"ã€‚";
 	CHANNEL_D->deliver_tell("rumor","system",
-		COUNTRY_D->get_country(n_id,"name")+m_suggest[n_id]["str"]+"¡£");  
+		COUNTRY_D->get_country(n_id,"name")+m_suggest[n_id]["str"]+"ã€‚");  
 	if( !function_exists("do_"+m_suggest[n_id]["topic"], this_object()) )
 		SGSYS(m_suggest[n_id]["topic"]+".c has no excuting function!");
 	else call_other(this_object(),"do_"+m_suggest[n_id]["topic"], n_id);
@@ -46,7 +46,7 @@ void discuss_succ(string n_id) {
 }
 void discuss_fail(string n_id) {
 	string msg;
-	msg="¿´À´¹ØÓÚ"+m_suggest[n_id]["str"]+"µÄÎÊÌâ½ñÌìÌÖÂÛ²»³ö½á¹û£¬Õâ¸öÎÊÌâ»ØÍ·ÔÙËµÁË¡£";
+	msg="çœ‹æ¥å…³äº"+m_suggest[n_id]["str"]+"çš„é—®é¢˜ä»Šå¤©è®¨è®ºä¸å‡ºç»“æœï¼Œè¿™ä¸ªé—®é¢˜å›å¤´å†è¯´äº†ã€‚";
 	deliever_tell(n_id,n_id,msg);
 	m_suggest[n_id]=([]);
 }
@@ -61,38 +61,38 @@ mixed deliever_vote(string p_id, string n_id,string vot) {
 
 	if( !mapp(m_suggest[n_id]) ){ 
 		m_suggest[n_id]=([]);
-		return "ÏÖÔÚÃ»ÓĞÊ²Ã´½¨ÒéÖµµÃ±í¾ö¡£\n"; 
+		return "ç°åœ¨æ²¡æœ‰ä»€ä¹ˆå»ºè®®å€¼å¾—è¡¨å†³ã€‚\n"; 
 	}
 	if( !arrayp(m_suggest[n_id]["whole_group"]) )
-		return "ÏÖÔÚÃ»ÓĞÊ²Ã´½¨ÒéÖµµÃ±í¾ö¡£\n"; 
+		return "ç°åœ¨æ²¡æœ‰ä»€ä¹ˆå»ºè®®å€¼å¾—è¡¨å†³ã€‚\n"; 
 	if( member_array(p_id,m_suggest[n_id]["whole_group"])==-1 ) 
-		return "ÌÖÂÛµÄ¶«Î÷ÓëÄãÎŞ¹Ø¡£\n";
+		return "è®¨è®ºçš„ä¸œè¥¿ä¸ä½ æ— å…³ã€‚\n";
 	if( member_array(p_id,m_suggest[n_id]["rest_group"])==-1 )
-		return "ÄãÒÑ¾­±í¹ıÌ¬ÁË¡£\n";
+		return "ä½ å·²ç»è¡¨è¿‡æ€äº†ã€‚\n";
 
 	who = m_suggest[n_id]["who"];
 
 	switch( vot ) {
 		case "agree" :
 			emt = ag_set[random(sizeof(ag_set))];
-			spk = "ÎÒÖ§³Ö"+m_suggest[n_id]["str"]+"¡£";
+			spk = "æˆ‘æ”¯æŒ"+m_suggest[n_id]["str"]+"ã€‚";
 			m_suggest[n_id]["rest_group"]-=({p_id});
 			m_suggest[n_id]["agree_group"]+=({p_id});
 			break;
 		case "disagree" :
 			emt = ds_set[random(sizeof(ds_set))];
-			spk = "ÎÒ·´¶Ô"+m_suggest[n_id]["str"]+"¡£";
+			spk = "æˆ‘åå¯¹"+m_suggest[n_id]["str"]+"ã€‚";
 			m_suggest[n_id]["rest_group"]-=({p_id});
 			m_suggest[n_id]["disagree_group"]+=({p_id});
 			break;
 		case "neutral" :
 			emt = nu_set[random(sizeof(nu_set))];
-			spk = "ÎÒ¶Ô"+m_suggest[n_id]["str"]+"Ã»ÓĞÒâ¼û¡£";
+			spk = "æˆ‘å¯¹"+m_suggest[n_id]["str"]+"æ²¡æœ‰æ„è§ã€‚";
 			m_suggest[n_id]["rest_group"]-=({p_id});
 			m_suggest[n_id]["neutral_group"]+=({p_id});
 			break;
 		default :
-			return "ÇëÃ÷È·±í´ïÄãµÄÒâ¼û¡£\n";		
+			return "è¯·æ˜ç¡®è¡¨è¾¾ä½ çš„æ„è§ã€‚\n";		
 	}
 	if(emt[<1]==' ') emt+=who;
 	deliever_tell( p_id, n_id,spk );
@@ -112,8 +112,8 @@ void npc_char_consider(string n_id, string p_id) {
 		call_other(this_object(),"npc_char_consider_"+m_suggest[n_id]["topic"], n_id, p_id);
 }
 void char_consider(string n_id,string p_id) {
-	if( p_id==n_id ) deliever_tell(n_id,n_id,"ÈÃÎÒÏëÒ»Ïë¡£") ;
-	else deliever_tell(n_id,n_id,"Çë"+CHAR_D->get_char(p_id,"name")+"Ì¸Ì¸Òâ¼û¡£") ;
+	if( p_id==n_id ) deliever_tell(n_id,n_id,"è®©æˆ‘æƒ³ä¸€æƒ³ã€‚") ;
+	else deliever_tell(n_id,n_id,"è¯·"+CHAR_D->get_char(p_id,"name")+"è°ˆè°ˆæ„è§ã€‚") ;
 	if( !objectp(find_body(p_id)) ) npc_char_consider(n_id,p_id);
 }
 void discuss_consider(string n_id){
@@ -165,18 +165,18 @@ void discuss_suggest(string n_id) {
 string check_suggest(string n_id){
 	string ret;
 
-	if( !mapp(m_suggest[n_id]) ) return "Ä¿Ç°Ã»ÓĞÈÎºÎ½¨Òé¡£\n";
+	if( !mapp(m_suggest[n_id]) ) return "ç›®å‰æ²¡æœ‰ä»»ä½•å»ºè®®ã€‚\n";
 	if( (!m_suggest[n_id]["status"])||(m_suggest[n_id]["status"]=="over") )
-		return "Ä¿Ç°Ã»ÓĞÈÎºÎ½¨Òé¡£\n";
-	ret ="Ä¿Ç°ÌÖÂÛÖ÷Ìâ£º"+m_suggest[n_id]["str"]+"\n";
-	ret+="ÌáÒéÕß£º"+CHAR_D->get_char(m_suggest[n_id]["who"],"name")+"¡£\n";
-	ret+="»áÒéÈËÊı£º"+chinese_number(sizeof(m_suggest[n_id]["whole_group"]))+"¡£\n";
-	ret+="Ö§³Öµã£º"+chinese_number(query_group_value(m_suggest[n_id]["agree_group"]));
-	ret+="   ·´¶Ôµã£º"+chinese_number(query_group_value(m_suggest[n_id]["disagree_group"]));
-	ret+="   ÖĞÁ¢µã£º"+chinese_number(query_group_value(m_suggest[n_id]["neutral_group"]));
-	ret+="   Î´±íÌ¬µã£º"+chinese_number(query_group_value(m_suggest[n_id]["rest_group"]));
-	ret+="¡£\n";
-	ret+="ÌÖÂÛÂÖÊı£º"+chinese_number(m_suggest[n_id]["round"])+"¡£\n";
+		return "ç›®å‰æ²¡æœ‰ä»»ä½•å»ºè®®ã€‚\n";
+	ret ="ç›®å‰è®¨è®ºä¸»é¢˜ï¼š"+m_suggest[n_id]["str"]+"\n";
+	ret+="æè®®è€…ï¼š"+CHAR_D->get_char(m_suggest[n_id]["who"],"name")+"ã€‚\n";
+	ret+="ä¼šè®®äººæ•°ï¼š"+chinese_number(sizeof(m_suggest[n_id]["whole_group"]))+"ã€‚\n";
+	ret+="æ”¯æŒç‚¹ï¼š"+chinese_number(query_group_value(m_suggest[n_id]["agree_group"]));
+	ret+="   åå¯¹ç‚¹ï¼š"+chinese_number(query_group_value(m_suggest[n_id]["disagree_group"]));
+	ret+="   ä¸­ç«‹ç‚¹ï¼š"+chinese_number(query_group_value(m_suggest[n_id]["neutral_group"]));
+	ret+="   æœªè¡¨æ€ç‚¹ï¼š"+chinese_number(query_group_value(m_suggest[n_id]["rest_group"]));
+	ret+="ã€‚\n";
+	ret+="è®¨è®ºè½®æ•°ï¼š"+chinese_number(m_suggest[n_id]["round"])+"ã€‚\n";
 	return ret;
 }
 mixed get_suggest(string n_id,string what) {
@@ -191,8 +191,8 @@ mixed set_suggest (string n_id,string what,mixed val) {
 }
 string no_legal_suggest() {
 	string ret;
-	ret="ÄãµÄ½¨ÒéÏµÍ³ÎŞ·¨Àí½â¡£\n";
-	ret+="Ä¿Ç°¿ÉÒÔÀí½âµÄ½¨ÒéÓĞ£º\n";
+	ret="ä½ çš„å»ºè®®ç³»ç»Ÿæ— æ³•ç†è§£ã€‚\n";
+	ret+="ç›®å‰å¯ä»¥ç†è§£çš„å»ºè®®æœ‰ï¼š\n";
 	ret+=implode(keys(leg_suggest),"  ");
 	return ret+"\n";
 }
@@ -233,13 +233,13 @@ void announce_suggest(string n_id) {
 	string p_id;
 	p_id=m_suggest[n_id]["who"];
 	if(p_id==n_id) // this king
-		deliever_tell(p_id, n_id,"ÖîÎ»°®Çä£¬ëŞÒÔÎª"+m_suggest[n_id]["reason"]+
-		"£¬"+"µ±¿É"+m_suggest[n_id]["str"]+"£¬"+
-		"ÖîÎ»°®ÇäÒâÏÂÈçºÎ¡£");
+		deliever_tell(p_id, n_id,"è¯¸ä½çˆ±å¿ï¼Œæœ•ä»¥ä¸º"+m_suggest[n_id]["reason"]+
+		"ï¼Œ"+"å½“å¯"+m_suggest[n_id]["str"]+"ï¼Œ"+
+		"è¯¸ä½çˆ±å¿æ„ä¸‹å¦‚ä½•ã€‚");
 	else
-		deliever_tell(p_id, n_id,"ÎáÍõÍòËêÍòÍòËê£¬³¼ÒÔÎª"+m_suggest[n_id]["reason"]+
-		"£¬"+"µ±¿É"+m_suggest[n_id]["str"]+"£¬"+
-		"±İÏÂÓë¸÷Î»Í¬ÁÅÒâÏÂÈçºÎ¡£");
+		deliever_tell(p_id, n_id,"å¾ç‹ä¸‡å²ä¸‡ä¸‡å²ï¼Œè‡£ä»¥ä¸º"+m_suggest[n_id]["reason"]+
+		"ï¼Œ"+"å½“å¯"+m_suggest[n_id]["str"]+"ï¼Œ"+
+		"é™›ä¸‹ä¸å„ä½åŒåƒšæ„ä¸‹å¦‚ä½•ã€‚");
 }
 mixed deliever_suggest(string p_id,string n_id,string msg) {
 	string *paras;
@@ -248,14 +248,14 @@ mixed deliever_suggest(string p_id,string n_id,string msg) {
 	if( !mapp(m_suggest[n_id]) ) m_suggest[n_id]=([]);
 	if( msg=="check" ) return check_suggest(n_id);
 	if( stringp(m_suggest[n_id]["status"])&&(m_suggest[n_id]["status"]!="over"))
-		return "Ä¿Ç°ÕıÔÚÌÖÂÛÉÏÒ»Ïî½¨Òé¡£\n";
+		return "ç›®å‰æ­£åœ¨è®¨è®ºä¸Šä¸€é¡¹å»ºè®®ã€‚\n";
 
 	if(!sizeof(msg)) return msg="---";
 	paras=explode(msg," ");
 
 	if( !function_exists("do_check_can_"+paras[0], this_object()) ){
         	if( (AREA_D->get_area(CHAR_D->get_char(p_id,"area"),"leader")!=p_id)&&(!CHAR_D->get_char(p_id,"ranknation")) )
-                	return "Ö»ÓĞ¹ú¼Ò¹ÙÔ±ºÍµØÇøÌ«ÊØ²ÅÄÜÌá³ö¹ú¼Ò½¨Òé¡£\n";
+                	return "åªæœ‰å›½å®¶å®˜å‘˜å’Œåœ°åŒºå¤ªå®ˆæ‰èƒ½æå‡ºå›½å®¶å»ºè®®ã€‚\n";
 	} else if( stringp(ret=call_other(this_object(),"do_check_can_"+paras[0], p_id)) ) 
 		return ret;
 	if( !function_exists("do_check_"+paras[0]+"_para", this_object()) )

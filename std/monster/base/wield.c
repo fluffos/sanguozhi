@@ -7,8 +7,8 @@
  * Also handle caching of some data.
  */
 void simple_action(string, object);
-private static object weapon;
-static string weapon_type;
+private nosave object weapon;
+nosave protected string weapon_type;
 string query_weapon_type() {
     return weapon_type;
 }
@@ -31,7 +31,7 @@ void unwield() {
             simple_action(weapon->query_unwield_message(), weapon);
 	}
 	else
-		write("ÄãÃ»×°±¸ÎäÆ÷Ñ½£¡/n");
+		write("ä½ æ²¡è£…å¤‡æ­¦å™¨å‘€ï¼/n");
     wield(this_object());
 }
 //:FUNCTION query_weapon

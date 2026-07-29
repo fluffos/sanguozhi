@@ -11,7 +11,7 @@ mixed direct_study_obj() {
 }
 void study_it() {
     mixed action;
-    this_body()->simple_action("$N专心地研究了一会儿"+short()+"。\n");    
+    this_body()->simple_action("$N涓撳績鍦扮爺绌朵簡涓�浼氬効"+short()+"銆俓n");    
         action = study_action;
     if (stringp(action))
         write(action);

@@ -22,7 +22,7 @@ void get_suggestion(int task_id,string p_who,string p_what,mixed p_para)
 		p_id=AREA_D->get_area(TASK_D->get_task(task_id,"area"),"leader");
                 o_id=CHAR_D->find_char(p_id);
 		if(objectp(o_id))
-                        o_id->simple_action("$NµÀ£º»áÒéÉÏ²»±Ø·´¸´ÌáÏàËÆµÄ½¨Òé¡£\n");
+                        o_id->simple_action("$Né“ï¼šä¼šè®®ä¸Šä¸å¿…åå¤æç›¸ä¼¼çš„å»ºè®®ã€‚\n");
 		return;
 	}
    if(( o->query_job("suggest","count_lasttimes") > 
@@ -34,7 +34,7 @@ void get_suggestion(int task_id,string p_who,string p_what,mixed p_para)
        o_id=CHAR_D->find_char(p_id);
        if(objectp(o_id))
           o_id->targetted_action
-("$NµÀ£º$m½ñÌìÌáµÄ½¨ÒéÒÑ¾­¹»¶àÁË£¬¸ÃÌýÌý±ðÈËµÄÒâ¼ûÁË¡£\n",CHAR_D->find_char(p_who));
+("$Né“ï¼š$mä»Šå¤©æçš„å»ºè®®å·²ç»å¤Ÿå¤šäº†ï¼Œè¯¥å¬å¬åˆ«äººçš„æ„è§äº†ã€‚\n",CHAR_D->find_char(p_who));
        return;
    }
    if(p_what!="train") 
@@ -63,29 +63,29 @@ string get_problem(int task_id)
         switch(p_subject)
         {
         case "localtax":
-             return sprintf("Ë°ÂÊµ÷µ½%d",p_para);
+             return sprintf("ç¨ŽçŽ‡è°ƒåˆ°%d",p_para);
 		case "war":
-			return sprintf("³ö±ø%s",AREA_D->get_area(p_para,"name"));
+			return sprintf("å‡ºå…µ%s",AREA_D->get_area(p_para,"name"));
 		case "recruit":
 			if(!mapp(p_para))
-				return sprintf("Õ÷±ø%d",p_para);
+				return sprintf("å¾å…µ%d",p_para);
 			else
-				return sprintf("²Ã%s%d",WARAI_D->query_type(p_para["type"],"name"),-(p_para["no"]));
+				return sprintf("è£%s%d",WARAI_D->query_type(p_para["type"],"name"),-(p_para["no"]));
 		case "importance":
-                        return sprintf("±¾µØÇø·¢Õ¹²ßÂÔ×ªÎª"+(PCMD+"importance")->get_obj(p_para));
+                        return sprintf("æœ¬åœ°åŒºå‘å±•ç­–ç•¥è½¬ä¸º"+(PCMD+"importance")->get_obj(p_para));
 		case "localbuy":
-			return "¹º½øÒ»Åú"+(EV_MERCHANT)->query_goods(p_para,"name");
+			return "è´­è¿›ä¸€æ‰¹"+(EV_MERCHANT)->query_goods(p_para,"name");
 
 		case "localbuy":
-			return "¹º½øÒ»Åú"+(EV_MERCHANT)->query_goods(p_para,"name");
+			return "è´­è¿›ä¸€æ‰¹"+(EV_MERCHANT)->query_goods(p_para,"name");
 		case "sendfood":
-			return "¿ª²ÖêâÁ¸"+chinese_number(p_para);
+			return "å¼€ä»“èµˆç²®"+chinese_number(p_para);
 		case "build":
-			return "½¨Ôì"+BASE_D->get_base(p_para,"name");
+			return "å»ºé€ "+BASE_D->get_base(p_para,"name");
 		case "update":
-			return "Éý¼¶"+BASE_D->get_base(p_para,"name");
+			return "å‡çº§"+BASE_D->get_base(p_para,"name");
 		case "market":
-			return "¿ª°ì¼¯ÊÐ";
+			return "å¼€åŠžé›†å¸‚";
         }
         return "";
 }
@@ -112,19 +112,19 @@ void show_ask(string p_leader,string b_id)
                 p_tmp=random(5);
                 switch(p_tmp)
                 {       case 0:
-                        p_string="$NµÀ£ºÕâ¸öÎÊÌâ¿´À´ÕæÊÇ²»ºÃ¾ö¶¨¡£\n";
+                        p_string="$Né“ï¼šè¿™ä¸ªé—®é¢˜çœ‹æ¥çœŸæ˜¯ä¸å¥½å†³å®šã€‚\n";
                         break;
                         case 1:
-                        p_string="$N¿ªÊ¼ÈÏÕæ¿¼ÂÇÕâ¸öÎÊÌâ¡£\n";
+                        p_string="$Nå¼€å§‹è®¤çœŸè€ƒè™‘è¿™ä¸ªé—®é¢˜ã€‚\n";
                         break;
                         case 2:
-                        p_string="$N±ß´êÊÖ±ßµÀ£ºÕæÊÇ¸ö¼¬ÊÖµÄÎÊÌâ¡£\n";
+                        p_string="$Nè¾¹æ“æ‰‹è¾¹é“ï¼šçœŸæ˜¯ä¸ªæ£˜æ‰‹çš„é—®é¢˜ã€‚\n";
                         break;
                         case 3:
-                        p_string="$NµÀ£ºÄãÃÇÔõÃ´¶¼²»¿ªÇ»À²£¿\n";
+                        p_string="$Né“ï¼šä½ ä»¬æ€Žä¹ˆéƒ½ä¸å¼€è…”å•¦ï¼Ÿ\n";
                         break;
                         case 4:
-                        p_string="$NµÀ£ºÎÒÃÇµÃ×¥½ôÊ±¼ä¡£\n";
+                        p_string="$Né“ï¼šæˆ‘ä»¬å¾—æŠ“ç´§æ—¶é—´ã€‚\n";
                         break;
                 }
                 o_leader=CHAR_D->find_char(p_leader);
@@ -136,19 +136,19 @@ void show_ask(string p_leader,string b_id)
                 p_tmp=random(5);
                 switch(p_tmp)
                 {       case 0:
-                        p_string="$N¶Ô$TµÀ£º$m$RÒâÏÂÈçºÎ£¿\n";
+                        p_string="$Nå¯¹$Té“ï¼š$m$Ræ„ä¸‹å¦‚ä½•ï¼Ÿ\n";
                         break;
                         case 1:
-                        p_string="$NÖ¸ÁËÖ¸$TµÀ£º$m$RºÃÏñÓÐ»°ÒªËµ¡£\n";
+                        p_string="$NæŒ‡äº†æŒ‡$Té“ï¼š$m$Rå¥½åƒæœ‰è¯è¦è¯´ã€‚\n";
                         break;
                         case 2:
-                        p_string="$N¶Ô$TµÀ£ºËµËµÄãµÄ¿´·¨°É¡£\n";
+                        p_string="$Nå¯¹$Té“ï¼šè¯´è¯´ä½ çš„çœ‹æ³•å§ã€‚\n";
                         break;
                         case 3:
- p_string="$N¶Ô$TÒ»±§È­£¬µÀ£º$m$RÒ»Ïò¼û½â¸ßÃ÷£¬Õâ»ØÒ²¸øÎÒÃÇ²ÎÄ±²ÎÄ±¡£\n";
+ p_string="$Nå¯¹$Tä¸€æŠ±æ‹³ï¼Œé“ï¼š$m$Rä¸€å‘è§è§£é«˜æ˜Žï¼Œè¿™å›žä¹Ÿç»™æˆ‘ä»¬å‚è°‹å‚è°‹ã€‚\n";
                         break;
                         case 4:
-                        p_string="$N¶Ô$TµÀ£º¸ÃÄã·¢»°À²¡£\n";
+                        p_string="$Nå¯¹$Té“ï¼šè¯¥ä½ å‘è¯å•¦ã€‚\n";
                         break;
                 }
                 o_leader=CHAR_D->find_char(p_leader);
@@ -228,7 +228,7 @@ void meet_discuss(int task_id)
                 o_leader=CHAR_D->find_char(p_leader);
                 if(objectp(o_leader))
                         o_leader->simple_action
-("$NµÀ£º¹ØÓÚ"+p_problem+"µÄÎÊÌâ£¬½ñÌì¿´À´ÊÇÌÖÂÛ²»³ö½á¹û£¬ÔÛÃÇ¸ÄÈÕÔÙÌ¸¡£\n"
+("$Né“ï¼šå…³äºŽ"+p_problem+"çš„é—®é¢˜ï¼Œä»Šå¤©çœ‹æ¥æ˜¯è®¨è®ºä¸å‡ºç»“æžœï¼Œå’±ä»¬æ”¹æ—¥å†è°ˆã€‚\n"
 );
                 dis_over(task_id);
         }
@@ -237,7 +237,7 @@ void meet_discuss(int task_id)
                 o_leader=CHAR_D->find_char(p_leader);
                 if(objectp(o_leader))
                         o_leader->simple_action
-("$NµÀ£º¹ØÓÚ"+p_problem+"µÄÎÊÌâ£¬»¹Çë´ó¼Ò¶à¶à·¢±íÒâ¼û¡£\n");
+("$Né“ï¼šå…³äºŽ"+p_problem+"çš„é—®é¢˜ï¼Œè¿˜è¯·å¤§å®¶å¤šå¤šå‘è¡¨æ„è§ã€‚\n");
                 
                 call_out("ask_discuss",2,task_id);
         }

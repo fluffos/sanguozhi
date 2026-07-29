@@ -8,7 +8,7 @@ void main() {
 	p_year=this_body()->query_age();
 	p_month=this_body()->query_ag_month();
 	p_day=this_body()->query_ag_day();
-	printf("ÄãµÄ×¼È·ÄêÁäÊÇ%sËêÁã%sÔÂÁã%sÌì¡£\n",
+	printf("ä½ çš„å‡†ç¡®å¹´é¾„æ˜¯%så²é›¶%sæœˆé›¶%så¤©ã€‚\n",
 		chinese_number(p_year),
 		chinese_number(p_month),
 		chinese_number(p_day));

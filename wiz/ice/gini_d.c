@@ -7,9 +7,9 @@ inherit __DIR__+"gini_d/wiz";
 
 private mapping msg;
 
-private array hints;
+private mixed * hints;
 
-private array faqs;
+private mixed * faqs;
 
 void save_data()
 {
@@ -26,7 +26,7 @@ mixed get_hint(int i) {
 	return hints[random(sizeof(hints))];
     if(i==-1)
 	return hints;
-    if(i>sizeof(hints)) return "×Ü¹²ÓĞ"+sizeof(hints)+"ÌõÌáÊ¾¡£\n";
+    if(i>sizeof(hints)) return "æ€»å…±æœ‰"+sizeof(hints)+"æ¡æç¤ºã€‚\n";
     if(i<0) i=1;
         return hints[i-1];
        
@@ -57,15 +57,15 @@ string remove_hint(int i) {
 
 
 mixed get_msg(string char,string typ,int n) {
-    array tmp;
-    if(!mapp(msg[char])){SGSYS("no gini type of "+char); return "Ã»ÓĞÕâÑùµÄgini¡£\n"; }
+    mixed * tmp;
+    if(!mapp(msg[char])){SGSYS("no gini type of "+char); return "æ²¡æœ‰è¿™æ ·çš„giniã€‚\n"; }
     if(!sizeof(typ))
        return msg[char];
     tmp=msg[char][typ];
     if(!arrayp(tmp)) { SGSYS("no gini act of "+typ+" for gini "+char);
-          return "Ã»ÓĞÕâÑùµÄ¶¯×÷¡£\n"; }
+          return "æ²¡æœ‰è¿™æ ·çš„åŠ¨ä½œã€‚\n"; }
     if(!sizeof(tmp)) { SGSYS("no gini act of "+typ+" for gini "+char);
-        return "$N²»ÖªµÀ¸Ã×öÊ²Ã´ºÃ¡£\n"; }
+        return "$Nä¸çŸ¥é“è¯¥åšä»€ä¹ˆå¥½ã€‚\n"; }
     if(!n)
        return tmp[random(sizeof(tmp))];
     if(n==-1) return tmp;
@@ -102,15 +102,15 @@ mixed add_typ(string gin,string typ) {
 }
 mixed add_new_gini(string gin) {
 	string *ks;
-	if(!sizeof(gin)) return "·Ç·¨giniÀàĞÍ¡£\n";
-	if(mapp(msg[gin])) return "ÕâÖÖginiÀàĞÍÒÑ¾­´æÔÚÁË¡£\n";
+	if(!sizeof(gin)) return "éæ³•giniç±»å‹ã€‚\n";
+	if(mapp(msg[gin])) return "è¿™ç§giniç±»å‹å·²ç»å­˜åœ¨äº†ã€‚\n";
 	msg[gin]=([]);
 	ks=get_n_act();
 	foreach(string k in ks) {
 		msg[gin][k]=({});
 	}
 	save_data();
-	return "ĞÂginiÀàĞÍÔö¼Ó³É¹¦¡£\n";
+	return "æ–°giniç±»å‹å¢åŠ æˆåŠŸã€‚\n";
 }
 void gini_birth(object oo) {
         string p_id,g_type;
@@ -211,7 +211,7 @@ int gini_exist(string g) {
 	return (mapp(msg[g]));
 }
 string gini_list() {
-	string ret="ÀàĞÍ      Ãû³Æ\n";
+	string ret="ç±»å‹      åç§°\n";
 	string *gs;
 	gs=keys(msg);
 	foreach(string g in gs) {
@@ -223,38 +223,38 @@ string gini_list() {
 }
 string what_can_do() {
 return "
-%^H_BLUE%^gini              %^RESET%^          ÕÙ»½ÎÒµÄµ½À´¡£
-%^H_BLUE%^gini do%^H_RED%^ some thing%^RESET%^          ÈÃÎÒ×öÒ»Ğ©ÊÂ¡£
-%^H_BLUE%^gini return       %^RESET%^          ÎÒ¾Í»áÏÈ²ØÆğÀ´¡£
-%^H_BLUE%^gini faq%^H_RED%^  thing%^RESET%^             Ïò¾«ÁéÑ¯ÎÊÓĞ¹ØÖ÷ÌâµÄ°ïÖú¡£
-%^H_BLUE%^gini old          %^RESET%^          ÎÒ¾Í»áÕÒ¸ö¸ßÊÖÀ´°ïÖúÄã¡£
-%^H_BLUE%^gini wiz          %^RESET%^          Î×Ê¦Ö¸Áî¼¯¡£
-%^H_BLUE%^gini help         %^RESET%^          giniÖ¸ÁîµÄÊ¹ÓÃ·½·¨¼ò½é¡£
+%^H_BLUE%^gini              %^RESET%^          å¬å”¤æˆ‘çš„åˆ°æ¥ã€‚
+%^H_BLUE%^gini do%^H_RED%^ some thing%^RESET%^          è®©æˆ‘åšä¸€äº›äº‹ã€‚
+%^H_BLUE%^gini return       %^RESET%^          æˆ‘å°±ä¼šå…ˆè—èµ·æ¥ã€‚
+%^H_BLUE%^gini faq%^H_RED%^  thing%^RESET%^             å‘ç²¾çµè¯¢é—®æœ‰å…³ä¸»é¢˜çš„å¸®åŠ©ã€‚
+%^H_BLUE%^gini old          %^RESET%^          æˆ‘å°±ä¼šæ‰¾ä¸ªé«˜æ‰‹æ¥å¸®åŠ©ä½ ã€‚
+%^H_BLUE%^gini wiz          %^RESET%^          å·«å¸ˆæŒ‡ä»¤é›†ã€‚
+%^H_BLUE%^gini help         %^RESET%^          giniæŒ‡ä»¤çš„ä½¿ç”¨æ–¹æ³•ç®€ä»‹ã€‚
 
-ÀıÈç£º%^H_CYAN%^gini do hi %^RESET%^             ÎÒ¾Í»á¾Ï¹ª¡£
-ÀıÈç£º%^H_CYAN%^gini faq Ç® %^RESET%^            Ïò¾«ÁéÑ¯ÎÊÓĞ¹ØÇ®µÄÖ÷Ìâ
+ä¾‹å¦‚ï¼š%^H_CYAN%^gini do hi %^RESET%^             æˆ‘å°±ä¼šé èº¬ã€‚
+ä¾‹å¦‚ï¼š%^H_CYAN%^gini faq é’± %^RESET%^            å‘ç²¾çµè¯¢é—®æœ‰å…³é’±çš„ä¸»é¢˜
 ";
 }
 string wiz_can_do() {
 return 
 "
--------------------JINI ÉèÖÃÖ¸Áî---------------------------------
-%^H_BLUE%^gini add %^H_RED%^some thing%^RESET%^£º Ôö¼ÓĞÂµÄginiÀàĞÍ¡£
-%^H_BLUE%^gini list         %^RESET%^    ¾«ÁéÀàĞÍÁĞ±í¡£
-%^H_BLUE%^gini change%^H_RED%^ type  %^RESET%^    ¸ü»»¾«ÁéÀàĞÍ
----------------------¶¯×÷¹ÜÀí------------------------------------
-%^H_BLUE%^gini check%^RESET%^£º            gini¶¯×÷²é¿´¡£
-%^H_BLUE%^gini addact%^RESET%^£º           Ôö¼Ó¶¯×÷¡£
-%^H_BLUE%^gini rmact%^RESET%^£º            É¾³ı¶¯×÷¡£
-%^H_BLUE%^gini actrule%^RESET%^£º          ¶¯×÷½âÊÍ¡£
----------------------ÌáÊ¾¹ÜÀí------------------------------------
-%^H_BLUE%^gini hintlist%^RESET%^£º         ÁĞ±íÌáÊ¾¼¯¡£
-%^H_BLUE%^gini addhint%^RESET%^£º          Ôö¼ÓÌáÊ¾¡£
-%^H_BLUE%^gini rmhint%^RESET%^£º           É¾³ıÌáÊ¾¡£
----------------------ÎÊÌâ¹ÜÀí------------------------------------
-%^H_BLUE%^gini qlist%^RESET%^£º            ÁĞ±íÎÊÌâ¼¯¡£
-%^H_BLUE%^gini addq%^RESET%^£º             Ôö¼ÓÎÊÌâ¡£
-%^H_BLUE%^gini rmq%^RESET%^£º              É¾³ıÎÊÌâ¡£
+-------------------JINI è®¾ç½®æŒ‡ä»¤---------------------------------
+%^H_BLUE%^gini add %^H_RED%^some thing%^RESET%^ï¼š å¢åŠ æ–°çš„giniç±»å‹ã€‚
+%^H_BLUE%^gini list         %^RESET%^    ç²¾çµç±»å‹åˆ—è¡¨ã€‚
+%^H_BLUE%^gini change%^H_RED%^ type  %^RESET%^    æ›´æ¢ç²¾çµç±»å‹
+---------------------åŠ¨ä½œç®¡ç†------------------------------------
+%^H_BLUE%^gini check%^RESET%^ï¼š            giniåŠ¨ä½œæŸ¥çœ‹ã€‚
+%^H_BLUE%^gini addact%^RESET%^ï¼š           å¢åŠ åŠ¨ä½œã€‚
+%^H_BLUE%^gini rmact%^RESET%^ï¼š            åˆ é™¤åŠ¨ä½œã€‚
+%^H_BLUE%^gini actrule%^RESET%^ï¼š          åŠ¨ä½œè§£é‡Šã€‚
+---------------------æç¤ºç®¡ç†------------------------------------
+%^H_BLUE%^gini hintlist%^RESET%^ï¼š         åˆ—è¡¨æç¤ºé›†ã€‚
+%^H_BLUE%^gini addhint%^RESET%^ï¼š          å¢åŠ æç¤ºã€‚
+%^H_BLUE%^gini rmhint%^RESET%^ï¼š           åˆ é™¤æç¤ºã€‚
+---------------------é—®é¢˜ç®¡ç†------------------------------------
+%^H_BLUE%^gini qlist%^RESET%^ï¼š            åˆ—è¡¨é—®é¢˜é›†ã€‚
+%^H_BLUE%^gini addq%^RESET%^ï¼š             å¢åŠ é—®é¢˜ã€‚
+%^H_BLUE%^gini rmq%^RESET%^ï¼š              åˆ é™¤é—®é¢˜ã€‚
 
 ";
 }

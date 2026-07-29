@@ -14,7 +14,7 @@ void saltobody(string val) {
 	if(num>1000) return;
 	v=num*10000;
 	if(MONEY_D->sub_salary_money(master,v)==-1) {
-		write("¿â´æÃ»ÓĞÄÇÃ´¶àÇ®¡£\n");
+		write("åº“å­˜æ²¡æœ‰é‚£ä¹ˆå¤šé’±ã€‚\n");
 		return;
 	}
 	MONEY_D->add_poket_money(master,v);
@@ -23,10 +23,10 @@ void saltobody(string val) {
 	modal_pop();
 	call_out("quit_menu_application",5);
 
-	master->targetted_action("$N¶Ô$TµÀ£º¸ø$S´Ó¿âÀïÌá"+chinese_number(num)+
-		"Á½»Æ½ğ¡£\n",slave);
-	DELAY_D->delay_targetted_action(slave,master,"$N¶Ô$TµÀ£ºÃ»ÎÊÌâ¡£\n",2);
-	DELAY_D->delay_targetted_action(master,slave,"$NÂúÒâµØµãµãÍ·¡£\n",4);
+	master->targetted_action("$Nå¯¹$Té“ï¼šç»™$Sä»åº“é‡Œæ"+chinese_number(num)+
+		"ä¸¤é»„é‡‘ã€‚\n",slave);
+	DELAY_D->delay_targetted_action(slave,master,"$Nå¯¹$Té“ï¼šæ²¡é—®é¢˜ã€‚\n",2);
+	DELAY_D->delay_targetted_action(master,slave,"$Næ»¡æ„åœ°ç‚¹ç‚¹å¤´ã€‚\n",4);
 	
 }
 
@@ -38,7 +38,7 @@ void bodytosal(string val) {
 	if(num>1000) return;
 	v=num*10000;
 	if(MONEY_D->sub_poket_money(master,v)==-1) {
-		write("ÄãÉíÉÏÃ»ÓĞÄÇÃ´¶àÇ®¡£\n");
+		write("ä½ èº«ä¸Šæ²¡æœ‰é‚£ä¹ˆå¤šé’±ã€‚\n");
 		return;
 	}
 	MONEY_D->add_salary_money(master,v);
@@ -47,10 +47,10 @@ void bodytosal(string val) {
 	modal_pop();
 	call_out("quit_menu_application",5);
 
-	master->targetted_action("$NÌÍ³ö"+chinese_number(num)+
-		"Á½½ğ×ÓµÖ¸ø$TµÀ£¬°ÑÕâĞ©Ç®´æµ½¿âÀï¡£\n",slave);
-	DELAY_D->delay_targetted_action(slave,master,"$N¶Ô$TµÀ£ºÃ»ÎÊÌâ¡£\n",2);
-	DELAY_D->delay_targetted_action(master,slave,"$NÂúÒâµØµãµãÍ·¡£\n",4);
+	master->targetted_action("$Næå‡º"+chinese_number(num)+
+		"ä¸¤é‡‘å­æŠµç»™$Té“ï¼ŒæŠŠè¿™äº›é’±å­˜åˆ°åº“é‡Œã€‚\n",slave);
+	DELAY_D->delay_targetted_action(slave,master,"$Nå¯¹$Té“ï¼šæ²¡é—®é¢˜ã€‚\n",2);
+	DELAY_D->delay_targetted_action(master,slave,"$Næ»¡æ„åœ°ç‚¹ç‚¹å¤´ã€‚\n",4);
 	
 }
 
@@ -62,7 +62,7 @@ void banktosal(string val) {
 	if(num>1000) return;
 	v=num*10000;
 	if(MONEY_D->sub_bank_money(master,v)==-1) {
-		write("Ç®×¯ÀïÃ»ÓĞÄÇÃ´¶àÇ®¡£\n");
+		write("é’±åº„é‡Œæ²¡æœ‰é‚£ä¹ˆå¤šé’±ã€‚\n");
 		return;
 	}
 	MONEY_D->add_salary_money(master,v);
@@ -71,10 +71,10 @@ void banktosal(string val) {
 	modal_pop();
 	call_out("quit_menu_application",5);
 
-	master->targetted_action("$N¶Ô$TµÀ£ºÈ¥°ÑÇ®×¯ÀïµÄ"+chinese_number(num)+
-		"Á½½ğ×Ó×ªµ½¿âÀï¡£\n",slave);
-	DELAY_D->delay_targetted_action(slave,master,"$N¶Ô$TµÀ£ºÃ»ÎÊÌâ¡£\n",2);
-	DELAY_D->delay_targetted_action(master,slave,"$NÂúÒâµØµãµãÍ·¡£\n",4);
+	master->targetted_action("$Nå¯¹$Té“ï¼šå»æŠŠé’±åº„é‡Œçš„"+chinese_number(num)+
+		"ä¸¤é‡‘å­è½¬åˆ°åº“é‡Œã€‚\n",slave);
+	DELAY_D->delay_targetted_action(slave,master,"$Nå¯¹$Té“ï¼šæ²¡é—®é¢˜ã€‚\n",2);
+	DELAY_D->delay_targetted_action(master,slave,"$Næ»¡æ„åœ°ç‚¹ç‚¹å¤´ã€‚\n",4);
 	
 }
 
@@ -87,11 +87,11 @@ void saltobank(string val) {
 	v=num*10000;
 
         if(MONEY_D->get_bank_money(master)>50000000) {
-                write("Ç®×¯²»ÄÜ´æ¸ü¶àÇ®ÁË¡£\n");
+                write("é’±åº„ä¸èƒ½å­˜æ›´å¤šé’±äº†ã€‚\n");
                 return;
         }
 	if(MONEY_D->sub_salary_money(master,v)==-1) {
-		write("¿âÀïÃ»ÓĞÄÇÃ´¶àÇ®¡£\n");
+		write("åº“é‡Œæ²¡æœ‰é‚£ä¹ˆå¤šé’±ã€‚\n");
 		return;
 	}
 
@@ -102,17 +102,17 @@ void saltobank(string val) {
 	modal_pop();
 	call_out("quit_menu_application",5);
 
-	master->targetted_action("$N¶Ô$TµÀ£ºÈ¥°Ñ¿âÀïµÄ"+chinese_number(num)+
-		"Á½½ğ×Ó×ªµ½Ç®×¯µÄÕÊÉÏ¡£\n",slave);
-	DELAY_D->delay_targetted_action(slave,master,"$N¶Ô$TµÀ£ºÃ»ÎÊÌâ¡£\n",2);
-	DELAY_D->delay_targetted_action(master,slave,"$NÂúÒâµØµãµãÍ·¡£\n",4);
+	master->targetted_action("$Nå¯¹$Té“ï¼šå»æŠŠåº“é‡Œçš„"+chinese_number(num)+
+		"ä¸¤é‡‘å­è½¬åˆ°é’±åº„çš„å¸ä¸Šã€‚\n",slave);
+	DELAY_D->delay_targetted_action(slave,master,"$Nå¯¹$Té“ï¼šæ²¡é—®é¢˜ã€‚\n",2);
+	DELAY_D->delay_targetted_action(master,slave,"$Næ»¡æ„åœ°ç‚¹ç‚¹å¤´ã€‚\n",4);
 	
 }
 void create( )
 {
     set_privilege(1);
-    toplevel = new_menu("\nÇë¶ÔÕÊ·¿ÏÈÉúÏÂ´ïÖ¸Áî£º");
-    quit_item = new_menu_item("ÍËÏÂ", (:quit_old_place:), "q");
+    toplevel = new_menu("\nè¯·å¯¹å¸æˆ¿å…ˆç”Ÿä¸‹è¾¾æŒ‡ä»¤ï¼š");
+    quit_item = new_menu_item("é€€ä¸‹", (:quit_old_place:), "q");
     seperator = new_seperator
     ("----------------------------------------------------------------------");
     space = new_seperator
@@ -120,34 +120,34 @@ void create( )
 
     add_menu_item(toplevel, seperator);
     add_menu_item(toplevel, space);
-    add_menu_item(toplevel, new_menu_item("ÔÚ´Ë¹§ºò",	(: do_stayhere :) ,"1"));
+    add_menu_item(toplevel, new_menu_item("åœ¨æ­¤æ­å€™",	(: do_stayhere :) ,"1"));
 
-    add_menu_item(toplevel, new_menu_item("ÉÍ´ÍÎïÆ·",	(: get_input_then_call,
-		(: do_praise :) ,"ÉÍ´ÍºÎÎï£º" :) ,"2"));
+    add_menu_item(toplevel, new_menu_item("èµèµç‰©å“",	(: get_input_then_call,
+		(: do_praise :) ,"èµèµä½•ç‰©ï¼š" :) ,"2"));
 
-    add_menu_item(toplevel, new_menu_item("Ñ¯ÎÊÇé¿ö",	(: do_getinfo :) ,"3"));
+    add_menu_item(toplevel, new_menu_item("è¯¢é—®æƒ…å†µ",	(: do_getinfo :) ,"3"));
 
-    add_menu_item(toplevel, new_menu_item("¿â´æ->Ç®×¯",	(: get_input_then_call,
-		(: saltobank :) ,"Ç®Êı(½ğ1-1000)£º" :) ,"4"));
+    add_menu_item(toplevel, new_menu_item("åº“å­˜->é’±åº„",	(: get_input_then_call,
+		(: saltobank :) ,"é’±æ•°(é‡‘1-1000)ï¼š" :) ,"4"));
 
-    add_menu_item(toplevel, new_menu_item("Ç®×¯->¿â´æ",	(: get_input_then_call,
-		(: banktosal :) ,"Ç®Êı(½ğ1-1000)£º" :) ,"5"));
+    add_menu_item(toplevel, new_menu_item("é’±åº„->åº“å­˜",	(: get_input_then_call,
+		(: banktosal :) ,"é’±æ•°(é‡‘1-1000)ï¼š" :) ,"5"));
 
-    add_menu_item(toplevel, new_menu_item("ÉíÉÏ->¿â´æ",	(: get_input_then_call,
-		(: bodytosal :) ,"Ç®Êı(½ğ1-1000)£º" :) ,"6"));
-    add_menu_item(toplevel, new_menu_item("¿â´æ->ÉíÉÏ",	(: get_input_then_call,
-		(: saltobody :) ,"Ç®Êı(½ğ1-1000)£º" :) ,"7"));
+    add_menu_item(toplevel, new_menu_item("èº«ä¸Š->åº“å­˜",	(: get_input_then_call,
+		(: bodytosal :) ,"é’±æ•°(é‡‘1-1000)ï¼š" :) ,"6"));
+    add_menu_item(toplevel, new_menu_item("åº“å­˜->èº«ä¸Š",	(: get_input_then_call,
+		(: saltobody :) ,"é’±æ•°(é‡‘1-1000)ï¼š" :) ,"7"));
 
 
-    add_menu_item(toplevel, new_menu_item("¸Ä±äID",	(: get_input_then_call,
-		(: do_changeid :) ,"±äÎªºÎID£º" :) ,"9"));
+    add_menu_item(toplevel, new_menu_item("æ”¹å˜ID",	(: get_input_then_call,
+		(: do_changeid :) ,"å˜ä¸ºä½•IDï¼š" :) ,"9"));
 
-    add_menu_item(toplevel, new_menu_item("³·Ö°", 	(: get_input_then_call,
-	(: do_demote :) ,"È·ÈÏ³·Ö°Âğ(y/n)£¿" :) ,"a"));
+    add_menu_item(toplevel, new_menu_item("æ’¤èŒ", 	(: get_input_then_call,
+	(: do_demote :) ,"ç¡®è®¤æ’¤èŒå—(y/n)ï¼Ÿ" :) ,"a"));
 
     add_menu_item(toplevel, quit_item);
     add_menu_item(toplevel, space);
-    set_menu_prompt (toplevel, "ÊäÈëÖ¸Áî[12345679q]: ");
+    set_menu_prompt (toplevel, "è¾“å…¥æŒ‡ä»¤[12345679q]: ");
 }
 
 void start_menu(object m,object s)

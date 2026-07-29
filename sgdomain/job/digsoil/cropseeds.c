@@ -5,11 +5,11 @@ inherit M_GETTABLE;
 void my_drop();
 void add_hook(string s,function f);
 void setup() {
-    set_id("mai zhong", ""+HIY+"ÂóÖÖ"+NOR+"","seeds");
-    set_unit("°ü");
+    set_id("mai zhong", ""+HIY+"éº¦ç§"+NOR+"","seeds");
+    set_unit("åŒ…");
    set_size(VERY_SMALL);
-    set_in_room_desc(""+HIY+"ÂóÖÖ"+NOR+"(mai zhong)¡£\n");
-    set_long("ÕâÊÇÒ»Ğ¡°ü×÷ÎªÖÖ×ÓµÄÂóÁ££¬¿Å¿Å½ğ»Æ±¥Âú¡£\n");
+    set_in_room_desc(""+HIY+"éº¦ç§"+NOR+"(mai zhong)ã€‚\n");
+    set_long("è¿™æ˜¯ä¸€å°åŒ…ä½œä¸ºç§å­çš„éº¦ç²’ï¼Œé¢—é¢—é‡‘é»„é¥±æ»¡ã€‚\n");
    add_hook("move",(:my_drop:));
 }
 void my_drop()

@@ -10,11 +10,11 @@ void ask_job(object player);
 
 void setup()
 {
-	set_name("yang guan", "ÑòÙÄ");
-	set_in_room_desc("¡¸"+HIY+"Ğ¡·ÅÑò"+NOR+"¡¹"+"ÑòÙÄ(yang guan)");
-	set_long("ÑòÙÄ¶ÔÄãÎûÎûµÄĞ¦ÁË¼¸Éù£¬\n"+
-       		"Òª¹¤×÷¾Íask yang guan about job¡£\n"+
-       		"ÒªÇ®¾Íask yang guan about pay¡£\n");
+	set_name("yang guan", "ç¾Šå€Œ");
+	set_in_room_desc("ã€Œ"+HIY+"å°æ”¾ç¾Š"+NOR+"ã€"+"ç¾Šå€Œ(yang guan)");
+	set_long("ç¾Šå€Œå¯¹ä½ å˜»å˜»çš„ç¬‘äº†å‡ å£°ï¼Œ\n"+
+       		"è¦å·¥ä½œå°±ask yang guan about jobã€‚\n"+
+       		"è¦é’±å°±ask yang guan about payã€‚\n");
    	set_gender(1);
    	set_age( 10+random(10) );
    	set_sg_rongmao(-1);
@@ -37,19 +37,19 @@ void award(object usr)
     	object ob;
 
     	if( usr->query_robot() ){   
-		this_object()->simple_action("$N°µĞ¦µÀ£ºÕæÊÇ¸ö°×³Õ,ºÙºÙ¡£\n");
+		this_object()->simple_action("$Næš—ç¬‘é“ï¼šçœŸæ˜¯ä¸ªç™½ç—´,å˜¿å˜¿ã€‚\n");
         	this_object()->targetted_action(
-         		"$N¶Ô$TµÀ£º$RÕæÊÇÓÖÄÜ¸É£¬ÓÖ´ÏÃ÷£¬ÕâÊÇ½±ÄãÕÅ´óÆ±×Ó¡£\n",usr);
-        	this_object()->targetted_action("$N¸ø$TÒ»ÕÅ°ÙÔ²Ö½Ç®¡£®\n",usr);
-        	usr->simple_action("$N¸ßĞËµØÁ¬³Æ£ººÃ£¡ºÃ£¡Ğ»Ğ»ÉÍ´Í¡£\n");
+         		"$Nå¯¹$Té“ï¼š$RçœŸæ˜¯åˆèƒ½å¹²ï¼Œåˆèªæ˜ï¼Œè¿™æ˜¯å¥–ä½ å¼ å¤§ç¥¨å­ã€‚\n",usr);
+        	this_object()->targetted_action("$Nç»™$Tä¸€å¼ ç™¾åœ†çº¸é’±ã€‚ç”›n",usr);
+        	usr->simple_action("$Né«˜å…´åœ°è¿ç§°ï¼šå¥½ï¼å¥½ï¼è°¢è°¢èµèµã€‚\n");
         	ob = new("/sgdomain/obj/money/fmoney.c");
         	ob->move(usr);
     	} else {
         	CHAR_D->set_char( usr->query_id()[0], "reputation",
 			CHAR_D->get_char(usr->query_id()[0], "reputation")+1 );
-        	tell_user(usr->query_id()[0], "ÄãµÄÉùÍûÌá¸ßÁË¡£\n");
-        	this_object()->simple_action("$NËµµ½£º²»´í£¬²»´í£®\n");
-        	this_object()->targetted_action("$N¸ø$T¶şÊ®Á½Òø×Ó¡£\n",usr);
+        	tell_user(usr->query_id()[0], "ä½ çš„å£°æœ›æé«˜äº†ã€‚\n");
+        	this_object()->simple_action("$Nè¯´åˆ°ï¼šä¸é”™ï¼Œä¸é”™ï¼\n");
+        	this_object()->targetted_action("$Nç»™$TäºŒåä¸¤é“¶å­ã€‚\n",usr);
         	ob=new(M_SILVER);
         	ob->set_m_num(20);
         	ob->move(usr);
@@ -63,11 +63,11 @@ void ask_pay(object usr)
 
     	if( !usr->query_job("feedgoat", "end") ){
         	this_object()->targetted_action(
-            		"$N¶Ô$TµÀ£ºÃ»¸É»î¾ÍÏëÄÃÇ®Ñ½¡£\n",usr);
+            		"$Nå¯¹$Té“ï¼šæ²¡å¹²æ´»å°±æƒ³æ‹¿é’±å‘€ã€‚\n",usr);
        	 	return;
     	};
     	this_object()->targetted_action(
-      		"$N¶Ô$TËµµÀ£º»î¶ù¸ÉµÃ²»´í£¬µ«ÎÒ»¹Òª¸øÄãÒ»µÀÌâ,¿´Äã´ÏÃ÷²»´ÏÃ÷¡£\n",usr);
+      		"$Nå¯¹$Tè¯´é“ï¼šæ´»å„¿å¹²å¾—ä¸é”™ï¼Œä½†æˆ‘è¿˜è¦ç»™ä½ ä¸€é“é¢˜,çœ‹ä½ èªæ˜ä¸èªæ˜ã€‚\n",usr);
     	usr->finish_job("feedgoat");
 	usr->set_job("feedgoat", "end", 0);	
 	ROBOT->robot_test( usr, (:award:) );
@@ -81,19 +81,19 @@ void ask_job(object usr)
     	name = usr->query_id()[0];
     	if( CHAR_D->get_char(name, "nation") ){
        		this_object()->targetted_action(
-         		"$N¶Ô$T¶ÔÂúÁ³¶ÑĞ¦µÀ£º$m$RÕÛÉ±$sÒ²£¬´ËÄËÏÂÈËµÄ»î£¬Ôõ¸ÒÀÍ¶¯$R¡£\n",usr);
+         		"$Nå¯¹$Tå¯¹æ»¡è„¸å †ç¬‘é“ï¼š$m$RæŠ˜æ€$sä¹Ÿï¼Œæ­¤ä¹ƒä¸‹äººçš„æ´»ï¼Œæ€æ•¢åŠ³åŠ¨$Rã€‚\n",usr);
        		return;
     	};
 	if( usr->query_job("feedgoat", "beg_time") > 0	){
 		this_object()->targetted_action( 
-			"$NÆæ¹ÖµÄ´òÁ¿ÁË$T¼¸ÑÛ£¬Äú²»ÕıÔÚ×öÕâ¼şÊÂÂğ£¿\n",
+			"$Nå¥‡æ€ªçš„æ‰“é‡äº†$Tå‡ çœ¼ï¼Œæ‚¨ä¸æ­£åœ¨åšè¿™ä»¶äº‹å—ï¼Ÿ\n",
 usr);
 		return;
 	};
    	if( usr->query_job("feedgoat","count_lasttimes") > 
     		JOB_D->query_job("feedgoat","count_lasttimes") ){
      		this_object()->targetted_action(
-          		"$N¶Ô$TµÀ£ºÄã½ñÌì¸ÉµÄ»î¹»¶àµÄÁË£¬¸ÃĞİÏ¢ĞİÏ¢ÁË¡£\n",usr);
+          		"$Nå¯¹$Té“ï¼šä½ ä»Šå¤©å¹²çš„æ´»å¤Ÿå¤šçš„äº†ï¼Œè¯¥ä¼‘æ¯ä¼‘æ¯äº†ã€‚\n",usr);
         	return;
     	};
 
@@ -102,8 +102,8 @@ usr);
 	goat = new( GOAT );
 	goat->set_owner( usr );
 	goat->move( environment(usr) );
-	this_object()->simple_action("$NÇ£ÁËÒ»Ö»Ğ¡Ñò³öÀ´¡£\n");
+	this_object()->simple_action("$Nç‰µäº†ä¸€åªå°ç¾Šå‡ºæ¥ã€‚\n");
 	goat->responda("follow " + usr->query_id()[0]);
     	this_object()->targetted_action(
-		"$N¶Ô$TµÀ£ºÄÇÃ´£¬ÒªºÃºÃÕÕ¹ËËüàŞ¡£\n", usr);
+		"$Nå¯¹$Té“ï¼šé‚£ä¹ˆï¼Œè¦å¥½å¥½ç…§é¡¾å®ƒå™¢ã€‚\n", usr);
 }

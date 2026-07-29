@@ -14,11 +14,11 @@ private void main(string arg)
     {
         inv =  all_inventory(this_body());
         if( !sizeof(inv) ) {
-            write("Äã£¨"+implode(this_body()->query_id(), ", ")+"£©ÉíÉÏÃ»ÓĞÈÎºÎ¶«Î÷¡£\n");
+            write("ä½ ï¼ˆ"+implode(this_body()->query_id(), ", ")+"ï¼‰èº«ä¸Šæ²¡æœ‰ä»»ä½•ä¸œè¥¿ã€‚\n");
             return;
         }
          
-        printf("Äã£¨"+implode(this_body()->query_id(), ", ")+"£©ÉíÉÏĞ¯´øÎïÆ·µÄ±ğ³ÆÈçÏÂ :\n");
+        printf("ä½ ï¼ˆ"+implode(this_body()->query_id(), ", ")+"ï¼‰èº«ä¸Šæºå¸¦ç‰©å“çš„åˆ«ç§°å¦‚ä¸‹ :\n");
         for( i=0; i < sizeof(inv); i++)
         {
             if( !this_body()->is_visible(inv[i]) ) continue;
@@ -30,10 +30,10 @@ private void main(string arg)
         inv =  all_inventory(environment(this_body()));
 	/* does this case ever happen? */
         if( !sizeof(inv) ) {
-	    write("ÕâÀï£¨"+implode(environment(this_body())->query_id(),", ")+"£©Ã»ÓĞÈÎºÎ¶«Î÷¡£\n");
+	    write("è¿™é‡Œï¼ˆ"+implode(environment(this_body())->query_id(),", ")+"ï¼‰æ²¡æœ‰ä»»ä½•ä¸œè¥¿ã€‚\n");
             return;
         }
-        write("ÔÚÕâ¸ö·¿¼äÖĞ£¨"+implode(environment(this_body())->query_id(),", ")+"£©, \nÉúÎï¼°ÎïÆ·µÄÃû³ÆÈçÏÂ :\n");
+        write("åœ¨è¿™ä¸ªæˆ¿é—´ä¸­ï¼ˆ"+implode(environment(this_body())->query_id(),", ")+"ï¼‰, \nç”Ÿç‰©åŠç‰©å“çš„åç§°å¦‚ä¸‹ :\n");
         for( i=0; i < sizeof(inv); i++)
         {
             if( !this_body()->is_visible(inv[i]) ) continue;
@@ -41,7 +41,7 @@ private void main(string arg)
         }
     }
     else
-        printf("ÓÃ·¨: id, id here\n");
+        printf("ç”¨æ³•: id, id here\n");
 
     return;
 }           

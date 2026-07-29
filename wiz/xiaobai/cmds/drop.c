@@ -9,7 +9,7 @@
 
 inherit VERB_OB;
 
-#define MAX_ITEM_NUM    30  // ����ص��϶�������������
+#define MAX_ITEM_NUM    30  // 房间地地上东西件数的上限
 
 void my_drop_wrd_obj(string amount, object o);
 
@@ -18,11 +18,11 @@ mixed can_drop_str(string str)
 	mixed ret;
 	object* objs=all_inventory(this_body());
 	if(str=="all")
-	{	if(!sizeof(objs)) return "��ûʲô���ӵġ�\n";
+	{	if(!sizeof(objs)) return "你没什么好扔的。\n";
 		return 1;
 	}
 	ret=PARASE_D->retrieve_num_object( str, objs);
-	if(!ret) return "��Ҫ��ʲô��\n";
+	if(!ret) return "你要扔什么？\n";
 	return 1;
 }
 void my_drop(object ob)
@@ -32,7 +32,7 @@ void my_drop(object ob)
     object oEnv;
     int nEnvItemNum = 0;
     
-    if(!tmp) tmp=ob->short()+"�����ӡ�\n";
+    if(!tmp) tmp=ob->short()+"不能扔。\n";
 	
 	if(stringp(tmp))
 	{
@@ -43,11 +43,11 @@ void my_drop(object ob)
     
     if(ob->query_is_money())
     {
-        write("Ǯ����ȥ�ɾ�û���ˡ�\n");
+        write("钱丢出去可就没有了。\n");
         destruct(ob);
         return;
     }
-    if (!tmp) tmp = "�㲻�ܶ�����������\n";
+    if (!tmp) tmp = "你不能丢这样东西。\n";
     if (stringp(tmp)) {
         write(tmp);
         return ;
@@ -60,12 +60,12 @@ void my_drop(object ob)
     {    
         if(ob->is_mergeable())
         {
-            this_body()->simple_action("$N����"+"$o��\n",ob);
+            this_body()->simple_action("$N丢下"+"$o。\n",ob);
             tmp = ob->move( oEnv );
             return;
         }
         
-        // ��黷���е���������Ƿ�̫����
+        // 检查环境中的物件数量是否太多了
         nEnvItemNum = sizeof( all_inventory( oEnv ) );
         
         if ( nEnvItemNum < MAX_ITEM_NUM )               
@@ -75,7 +75,7 @@ void my_drop(object ob)
             if (tmp == MOVE_OK) 
             {
                 if(ob)
-        	      	this_body()->simple_action("$N����һ"+ob->query_unit()+"$o��\n",ob);
+        	      	this_body()->simple_action("$N丢下一"+ob->query_unit()+"$o。\n",ob);
         		else
         			printf("OK\n");
             } 
@@ -84,7 +84,7 @@ void my_drop(object ob)
         }
         else
         {
-            write( "���ﶫ���Ѿ�̫���ˡ�\n" );
+            write( "那里东西已经太多了。\n" );
             return;
         }
         
@@ -121,7 +121,7 @@ void my_drop_wrd_obj(string amount, object o)
        o1=o->split(amount);
        if(o1==-1)
        {
-         printf("��û����ô��%s����ѽ��\n",o->query_chinese_id());
+         printf("你没有那么多%s可扔呀。\n",o->query_chinese_id());
          return;
        }
        if(objectp(o1))
@@ -130,13 +130,13 @@ void my_drop_wrd_obj(string amount, object o)
     }
 	if(o->query_is_money())
 	{
-		write("Ǯ�������ӡ�\n");
+		write("钱不能乱扔。\n");
 		return;
 	}
-	write("��֡�\n");
+	write("奇怪。\n");
 	return;
 }
-array query_verb_info()
+mixed * query_verb_info()
 {
  return ({ ({ "STR" }),({"put"}) });
 }

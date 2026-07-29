@@ -1,5 +1,5 @@
 /* hn_cc.c
-** Coded by ÔÂÉñ@LIMA
+** Coded by æœˆç¥@LIMA
 ** Code generated with RoomMaker v0.9.1 coded by Onyx@RedDragon
 ** Do not remove this header.
 */
@@ -11,10 +11,10 @@ inherit OUTDOOR_ROOM;
 void setup(){
    set_area("hn_area");
     set_light(50);
-    set_brief(YEL+"²Ù³¡"+NOR);
+    set_brief(YEL+"æ“åœº"+NOR);
     set_long(
-"  Ò».¶ş.Ò»¶ş.Ò»........,º°ÉùÕğÌì.ÕâÀï¾ÍÊÇ²Ù³¡,Ò»ÈºÈºµÄÊ¿±ø
-ÕıÔÚ²ÙÁ·.¶¬¶¥±©·çÓê,ÏÄÌıÀ×Õó¹Ä,ÉÏÉ½´òÀÏ»¢,µ±±ø²»ÅÂ¿à"
+"  ä¸€.äºŒ.ä¸€äºŒ.ä¸€........,å–Šå£°éœ‡å¤©.è¿™é‡Œå°±æ˜¯æ“åœº,ä¸€ç¾¤ç¾¤çš„å£«å…µ
+æ­£åœ¨æ“ç»ƒ.å†¬é¡¶æš´é£é›¨,å¤å¬é›·é˜µé¼“,ä¸Šå±±æ‰“è€è™,å½“å…µä¸æ€•è‹¦"
 );
    set_room_state("valid_start");
     set_exits( ([

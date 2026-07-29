@@ -22,27 +22,27 @@
 ** character creation time.  These differentiate starting characters
 ** from one another.
 **
-**      Strength:ëöÁ¦       physical stature, power, brute force
+**      Strength:è†‚åŠ›       physical stature, power, brute force
 **              Weakling vs. strong/powerful
 **
-**      Agility:Éí·¨        body control, speed, flexibility
+**      Agility:èº«æ³•        body control, speed, flexibility
 **              Uncoordinated vs. excellent control
 **
-**      Intelligence:ÎòĞÔ   inherent capability for learning
+**      Intelligence:æ‚Ÿæ€§   inherent capability for learning
 **              Dumb vs. smart/capable
 **
-**      Willpower:ÒâÖ¾      drive, stamina
+**      Willpower:æ„å¿—      drive, stamina
 **              Unmotivated vs. driven/fanatical
 **
 ** A good number of statistics are derived from the base statistics.
 **
-**      Constitution:Ìå¸ñ   physical/mental stamina, sturdiness
+**      Constitution:ä½“æ ¼   physical/mental stamina, sturdiness
 **              Elf vs. dwarf
 **
-**      Wisdom:ÖÇ»Û         collected knowledge
+**      Wisdom:æ™ºæ…§         collected knowledge
 **              Naive vs. wise
 **
-**      Charisma:÷ÈÁ¦       natural attraction, leadership, persuasion
+**      Charisma:é­…åŠ›       natural attraction, leadership, persuasion
 **              Nobody vs. great leader/speaker
 **
 ** 950813, Deathblade: created.
@@ -90,8 +90,8 @@ private int     cur_cha;
 //
 // where there is an implied sum over j
 //
-static private mixed *trans_matrix;
-static private int *constant_vector;
+nosave private mixed *trans_matrix;
+nosave private int *constant_vector;
 
 #define DEFAULT_RANGE   6
 #define BASE_VALUE      20
@@ -297,12 +297,12 @@ nomask void init_stats()
 
     if ( stat_str && !check_previous_privilege(1) )
         //error("* cannot reinitialize statistics\n");
-        error("* ·Ç·¨ÖØĞÂÉè¶¨Ìì¸³\n");
+        error("* éæ³•é‡æ–°è®¾å®šå¤©èµ‹\n");
     mods = query_roll_mods();
     if ( mods->str_adjust + mods->agi_adjust + mods->int_adjust +
          mods->wil_adjust != 0 )
         //error("*illegal stat adjustment values\n");
-        error("* ·Ç·¨µÄÌì¸³µ÷ÕûÖµ\n");
+        error("* éæ³•çš„å¤©èµ‹è°ƒæ•´å€¼\n");
     stat_str = roll_stat(mods->str_adjust, mods->str_range);
     stat_agi = roll_stat(mods->agi_adjust, mods->agi_range);
     stat_int = roll_stat(mods->int_adjust, mods->int_range);

@@ -13,7 +13,7 @@ mixed direct_push_obj(object ob) {
 
 void do_push_obj(object ob) {
     if ( !ob->push() ) {
-        write( useless( "ÍÆ¶¯"+ob->short() ) );
+        write( useless( "æŽ¨åŠ¨"+ob->short() ) );
     }
 }
 
@@ -33,7 +33,7 @@ void do_push_str(string str) {
 	do_push_obj(ob);
 }
 
-array query_verb_info() {
+mixed * query_verb_info() {
     return ({ ({ "STR" }), ({ "yank" }) });
 //    return ({ ({ "OBJ", "OBJ STR", "OBJ with OBJ" }), ({ "yank" }) });
 }

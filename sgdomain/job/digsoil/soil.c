@@ -1,20 +1,20 @@
 // soil by fire :)
-// this is used for the job of ³úµØ
+// this is used for the job of é”„åœ°
 #include <mudlib.h>
 inherit OBJ;
 inherit M_DIGGABLE;
 inherit M_INPUT;
-string *desc = ({"Ò»Æ¬ÍÁµØ£¬Ó¦¸Ã¿ÉÒÔ¸û×÷¡£\n"+
-"¿´À´µØĞèÒª³ú³ú²İ¡£(dig soil with chu tou)\n",
-"ÍÁµØÒÑ¾­ºµÍ¸ÁË£¬¿´À´ĞèÒª½½Ğ©Ë®¡£(turn mu tong)\n",
-"ÍÁµØ¿´ÉÏÈ¥ºÜ·ÊÎÖµÄÑù×Ó£¬ÖÖÉÏ×¯¼ÚÃ÷ÄêÒ»¶¨ÓĞºÃµÄÊÕ³É¡£\n",});
+string *desc = ({"ä¸€ç‰‡åœŸåœ°ï¼Œåº”è¯¥å¯ä»¥è€•ä½œã€‚\n"+
+"çœ‹æ¥åœ°éœ€è¦é”„é”„è‰ã€‚(dig soil with chu tou)\n",
+"åœŸåœ°å·²ç»æ—±é€äº†ï¼Œçœ‹æ¥éœ€è¦æµ‡äº›æ°´ã€‚(turn mu tong)\n",
+"åœŸåœ°çœ‹ä¸Šå»å¾ˆè‚¥æ²ƒçš„æ ·å­ï¼Œç§ä¸Šåº„ç¨¼æ˜å¹´ä¸€å®šæœ‰å¥½çš„æ”¶æˆã€‚\n",});
 int status; // 0-20 weed 21-40 need water 41- good
 int touch;
 void setup()
 {
-        set_id("soil", "Ò»Æ¬ÍÁµØ");
+        set_id("soil", "ä¸€ç‰‡åœŸåœ°");
 	add_id("tu di");
-        set_in_room_desc("Ò»Æ¬ÍÁµØ(soil)");
+        set_in_room_desc("ä¸€ç‰‡åœŸåœ°(soil)");
         status = 0;
         touch=0;
         call_out("decay", 10);
@@ -43,13 +43,13 @@ void decay()
      status=status-2;
      if(status<0)
        status=0;
-     tell_environment(this_object(),"³¤Ê±¼äÎŞÈË´òÀí£¬ÍÁµØ¿ªÊ¼»ÄÎßÁË¡£\n");
+     tell_environment(this_object(),"é•¿æ—¶é—´æ— äººæ‰“ç†ï¼ŒåœŸåœ°å¼€å§‹è’èŠœäº†ã€‚\n");
 }
 void dig(object o)
 {
    if(touch==14)
    {
-      write("µØ¸Õ´òÀí¹ı£¬ÒªÉÔÎ¢µÈÒ»ÏÂ¡£\n");
+      write("åœ°åˆšæ‰“ç†è¿‡ï¼Œè¦ç¨å¾®ç­‰ä¸€ä¸‹ã€‚\n");
       return;
    }
    touch=14;
@@ -58,18 +58,18 @@ void dig(object o)
         int m_hp;
         m_hp=this_body()->query_cur_hp();
         if (m_hp<10)
-        {  write("ÄãÌ«ÀÛÁË£¬ĞİÏ¢Ò»»á¶ù°É¡£\n");
+        {  write("ä½ å¤ªç´¯äº†ï¼Œä¼‘æ¯ä¸€ä¼šå„¿å§ã€‚\n");
            return;
         }
         m_hp-=5;
         this_body()->set_chr_hp(m_hp);
         status=status+random(10)+2;
-        this_body()->simple_action( ({"$NÄÃÆğ³úÍ·³úÁË³ú²İ£¬ÕâÆ¬µØ¿´ÉÏÈ¥ºÃ¶àÁË¡£",
-"$NÒ»³úÍ·³úÁËÏÂÈ¥£¬ÕıÔÒÖĞÒ»¿éÊ¯Í·£¬ÕğµÃË«ÊÖ·¢Âé¡£",
-"$NÒ»³úÍ·³úÁËÏÂÈ¥£¬²»Ğ¡ĞÄÔÒµ½½ÅÉÏ£¬ÌÛµÄ$nà»à»¹Ö½Ğ¡£"}) );
+        this_body()->simple_action( ({"$Næ‹¿èµ·é”„å¤´é”„äº†é”„è‰ï¼Œè¿™ç‰‡åœ°çœ‹ä¸Šå»å¥½å¤šäº†ã€‚",
+"$Nä¸€é”„å¤´é”„äº†ä¸‹å»ï¼Œæ­£ç ¸ä¸­ä¸€å—çŸ³å¤´ï¼Œéœ‡å¾—åŒæ‰‹å‘éº»ã€‚",
+"$Nä¸€é”„å¤´é”„äº†ä¸‹å»ï¼Œä¸å°å¿ƒç ¸åˆ°è„šä¸Šï¼Œç–¼çš„$nå—·å—·æ€ªå«ã€‚"}) );
    }
    else
-      write("ÏÖÔÚÒÑ¾­²»ĞèÒª³úµØÁË¡£\n");
+      write("ç°åœ¨å·²ç»ä¸éœ€è¦é”„åœ°äº†ã€‚\n");
 }
 int is_digable()
 {
@@ -79,18 +79,18 @@ int water()
 {
    if(touch==14)
    {
-      write("µØ¸Õ´òÀí¹ı£¬ÒªÉÔÎ¢µÈÒ»ÏÂ¡£\n");
+      write("åœ°åˆšæ‰“ç†è¿‡ï¼Œè¦ç¨å¾®ç­‰ä¸€ä¸‹ã€‚\n");
       return 0;
    }
    touch=14;
    status=status+random(10)+2;
-        this_body()->simple_action( ({"$N½½ÁËÒ»Í°Ë®£¬ÍÁµØ¿´ÆğÀ´ÈóÔóÁËĞí¶à¡£",
-"$NÒ»Í°Ë®ÆÃ³öÈ¥£¬Ã»Ïëµ½½¦ÁË×Ô¼ºÒ»ÉíÄà¡£"}) );
+        this_body()->simple_action( ({"$Næµ‡äº†ä¸€æ¡¶æ°´ï¼ŒåœŸåœ°çœ‹èµ·æ¥æ¶¦æ³½äº†è®¸å¤šã€‚",
+"$Nä¸€æ¡¶æ°´æ³¼å‡ºå»ï¼Œæ²¡æƒ³åˆ°æº…äº†è‡ªå·±ä¸€èº«æ³¥ã€‚"}) );
     if(status>40) {
         if(this_body()->query_job("digsoil","beg_time"))
         {
            this_body()->set_job("digsoil","status","done");
-                write("µØÒÑ¾­¸ãºÃÁË£¬¿ìÈ¥ÁìÇ®°É¡£\n");
+                write("åœ°å·²ç»æå¥½äº†ï¼Œå¿«å»é¢†é’±å§ã€‚\n");
         }
     }   
    return 1;

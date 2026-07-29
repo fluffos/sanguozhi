@@ -1,42 +1,42 @@
-2 ÎÔÊÒ£ºÄÚÓĞË«ÈË´²(¿ÍÕ»µÄ´²Ò»ÂÉ¸ÄÎªµ¥ÈË£¬Í¬Ê±ÒªÊÕ·Ñ)
-        ÁíÍâ¾«ÉñÖ»ÓĞÍ¨¹ıË¯¾õ»Ö¸´¡£
+2 å§å®¤ï¼šå†…æœ‰åŒäººåºŠ(å®¢æ ˆçš„åºŠä¸€å¾‹æ”¹ä¸ºå•äººï¼ŒåŒæ—¶è¦æ”¶è´¹)
+        å¦å¤–ç²¾ç¥åªæœ‰é€šè¿‡ç¡è§‰æ¢å¤ã€‚
   if it's newbie, will have the same standard as chuniang's,
   if rich enough, need to pay
-3 Ç×±øÊÒ£º¿É×¡50ÃûÇ×±ø(ÊÇ²»ÊÇ¶àÁËµã),Ã»ÓĞ×Ô¼ºµÄ·¿×Ó£¬»ò×Ô¼º
-  µÄ·¿×ÓÖĞÃ»ÓĞÇ×±øÊÒµÄÍæ¼Ò½«ÎŞ·¨ÓµÓĞÇ×±ø¡£Í¬Ê±Ç×±øÒ²¸ºÔğ
-  ·¿×ÓµÄ±£ÎÀ¹¤×÷£¬Ç×±øÊıÁ¿²»¹»£¬·¿ÖĞ²Æ²ú¿ÉÄÜ±»µÁ¡£
+3 äº²å…µå®¤ï¼šå¯ä½50åäº²å…µ(æ˜¯ä¸æ˜¯å¤šäº†ç‚¹),æ²¡æœ‰è‡ªå·±çš„æˆ¿å­ï¼Œæˆ–è‡ªå·±
+  çš„æˆ¿å­ä¸­æ²¡æœ‰äº²å…µå®¤çš„ç©å®¶å°†æ— æ³•æ‹¥æœ‰äº²å…µã€‚åŒæ—¶äº²å…µä¹Ÿè´Ÿè´£
+  æˆ¿å­çš„ä¿å«å·¥ä½œï¼Œäº²å…µæ•°é‡ä¸å¤Ÿï¼Œæˆ¿ä¸­è´¢äº§å¯èƒ½è¢«ç›—ã€‚
   so is that mean no house no myarmy? good.:P
-4 ³ø·¿£ºÃâ·ÑÊ³Îï£¬Ã»ÓĞ³ø·¿£¬Ç×±ø½«ÎŞ·¨´ø¾ÆºÍÈâ¡£ÁíÍâ£¬Íæ¼Ò
-  ¿É½«ÆäËûµØ·½ÂòµÄÊ³Îï½»¸ø³ø·¿µÄ³øÊ¦µ±Ñù×Ó£¬ÕâÑùËû¾Í»á
-  Ñ§»áĞÂµÄ²ËëÈ¡£
+4 å¨æˆ¿ï¼šå…è´¹é£Ÿç‰©ï¼Œæ²¡æœ‰å¨æˆ¿ï¼Œäº²å…µå°†æ— æ³•å¸¦é…’å’Œè‚‰ã€‚å¦å¤–ï¼Œç©å®¶
+  å¯å°†å…¶ä»–åœ°æ–¹ä¹°çš„é£Ÿç‰©äº¤ç»™å¨æˆ¿çš„å¨å¸ˆå½“æ ·å­ï¼Œè¿™æ ·ä»–å°±ä¼š
+  å­¦ä¼šæ–°çš„èœè‚´ã€‚
   need hire a cooker, and the cooker need to be paid.
   there can be different level of cooker, higher level cooker
   knows cook better food and make better drink.  however,
   there maybe a fund for the cooker every month, thus player
   can call myarmy to bring food from his own kitchen.
-5 Âí·¿£¬ÒªÓĞÂí£¬±ØĞèÓĞÂí·¿¡£
+5 é©¬æˆ¿ï¼Œè¦æœ‰é©¬ï¼Œå¿…éœ€æœ‰é©¬æˆ¿ã€‚
   good, mews should have level also, different level horse 
   will require different level mews to live in. it also need
   some maintain cost.
-6 Á¸²Ö£º¿É´æÁ¸10000.
+6 ç²®ä»“ï¼šå¯å­˜ç²®10000.
   private food warehouse can be upgraded, highest level can
   stock 1m bah.
-7 ´¢²ØÊÒ£¬¿É½«×Ô¼º²»ÓÃµÃÎäÆ÷£¬ÒÂ·şµÈÎïÆ·´æÆğÀ´¡£
+7 å‚¨è—å®¤ï¼Œå¯å°†è‡ªå·±ä¸ç”¨å¾—æ­¦å™¨ï¼Œè¡£æœç­‰ç‰©å“å­˜èµ·æ¥ã€‚
   warehouse can stock miscellaneous items, except food and drink,
   all items should have a duration, if stock too long, will
   have some less usage.
-8 Êé·¿£º¿ÉÌá¸ßÖÇÄ±Àà¼¼ÄÜ(ÓĞÊ±¼äÏŞÖÆ)
+8 ä¹¦æˆ¿ï¼šå¯æé«˜æ™ºè°‹ç±»æŠ€èƒ½(æœ‰æ—¶é—´é™åˆ¶)
   no idea yet
-9 Á·ÎäÌü£º¿ÉÌá¸ßÎäÑ§Àà¼¼ÄÜ(ÓĞÊ±¼äÏŞÖÆ)
+9 ç»ƒæ­¦å…ï¼šå¯æé«˜æ­¦å­¦ç±»æŠ€èƒ½(æœ‰æ—¶é—´é™åˆ¶)
   no idea yet
-10 ¿ÍÌü£º¿ÉÌá¸ßÖÎ¹úÀà¼¼ÄÜ(ÓĞÊ±¼äÏŞÖÆ)£¬Í¬Ê±»áÓĞNPC°İ·Ã£¬
-   Ñ§Ï°ÌØÊâ¼¼ÄÜ¡£
+10 å®¢å…ï¼šå¯æé«˜æ²»å›½ç±»æŠ€èƒ½(æœ‰æ—¶é—´é™åˆ¶)ï¼ŒåŒæ—¶ä¼šæœ‰NPCæ‹œè®¿ï¼Œ
+   å­¦ä¹ ç‰¹æ®ŠæŠ€èƒ½ã€‚
   can be different level, when it's more comfortable, there may
   be a higher chance for NPC visiting, and that NPC can only be
   in the same area.
-ĞÂÂòÀ´µÄ·¿×ÓÊÇ¿ÕµÄ£¬×Ô¼º¿ÉÒÔ¸ù¾İĞèÒª½¨Éè·¿¼ä£¬Ã¿½¨ÉèÒ»¸ö
-·¿¼äÒªÓĞÒ»±È»¨Ïû¡£µÈÉı¹ÙÓĞÇ®ÁË£¬¿ÉÒÔ½«·¿×ÓÂôµô£¬Ò²¿ÉÒÔ×ªÈÃ
-ËûÈË(·ÑÓÃÊÇÔ­¼ÛµÄ0.5-2±¶)
+æ–°ä¹°æ¥çš„æˆ¿å­æ˜¯ç©ºçš„ï¼Œè‡ªå·±å¯ä»¥æ ¹æ®éœ€è¦å»ºè®¾æˆ¿é—´ï¼Œæ¯å»ºè®¾ä¸€ä¸ª
+æˆ¿é—´è¦æœ‰ä¸€æ¯”èŠ±æ¶ˆã€‚ç­‰å‡å®˜æœ‰é’±äº†ï¼Œå¯ä»¥å°†æˆ¿å­å–æ‰ï¼Œä¹Ÿå¯ä»¥è½¬è®©
+ä»–äºº(è´¹ç”¨æ˜¯åŸä»·çš„0.5-2å€)
 
 additional note: house cannot be moved easily, once a player changes
 his area, he need to pay a certain cost regarding to his house level,

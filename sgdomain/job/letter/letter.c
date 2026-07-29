@@ -1,6 +1,6 @@
 // the job of send a letter to wise people
 // by group on Mar 1999
-static private string *sug=({});
+nosave private string *sug=({});
 
 void judge_select(mixed obs);
 void input_way(mixed obs,string str);
@@ -19,14 +19,14 @@ mixed job(string m_id,string officer_id)
    mlist=CHAR_D->check_char("type",TYPE_NPC);
    mlist=filter_array(mlist,
 	   (:  (CHAR_D->get_char($1,"nation") ) &&
-          (CHAR_D->get_char($1,"nation")!=$(m_nation)) && //ÔÝÊ±Ôö¼ÓµØÇø¿ª·ÅÅÐ¶Ï
+          (CHAR_D->get_char($1,"nation")!=$(m_nation)) && //æš‚æ—¶å¢žåŠ åœ°åŒºå¼€æ”¾åˆ¤æ–­
 		  (AREA_D->get_area(CHAR_D->get_char($1,"area"),"open")==1)
 	  :) );
    if(!mlist) mlist=({});
    if(!sizeof(mlist)){
 		o->add_job("letter");
 		o->finish_job("letter");
-		return "$N¶Ô$TÒ¡Ò¡Í·£¬µÀ£º×î½üºÃÏóÃ»Ê²Ã´ÈËÐèÒªËÍÐÅµÄ¡£\n";
+		return "$Nå¯¹$Tæ‘‡æ‘‡å¤´ï¼Œé“ï¼šæœ€è¿‘å¥½è±¡æ²¡ä»€ä¹ˆäººéœ€è¦é€ä¿¡çš„ã€‚\n";
 	}
 	target=mlist[random(sizeof(mlist))];   	   
 	o->set_asklist("letter","target",target);
@@ -34,10 +34,10 @@ mixed job(string m_id,string officer_id)
    o->set_asklist("letter","funname","ask_letter");
   o->add_job("letter");
   o->set_job("letter","status","begin");
-o->set_job("letter","memo","ËÍÐÅ"+CHAR_D->get_char(target,"name")+"("+target+")");
-   return "$N¶Ô$TµÀ£ºÇë$R½«´ËÐÅËÍÓë"+
+o->set_job("letter","memo","é€ä¿¡"+CHAR_D->get_char(target,"name")+"("+target+")");
+   return "$Nå¯¹$Té“ï¼šè¯·$Rå°†æ­¤ä¿¡é€ä¸Ž"+
 	  COUNTRY_D->get_country(CHAR_D->get_char(target,"nation"),"name")
-	  +"µÄ"+CHAR_D->get_char(target,"name")+"£¬¼ûÃæ¾ÍËµask "+target+" about letter¡£\n";
+	  +"çš„"+CHAR_D->get_char(target,"name")+"ï¼Œè§é¢å°±è¯´ask "+target+" about letterã€‚\n";
 }
 
 void ask_letter(object me, object target)
@@ -53,12 +53,12 @@ void ask_letter(object me, object target)
         (OFFICER_D->query_area_officer_title(
          AREA_D->get_area(t_area,"level"),0,0))[0]);
 	me->targetted_action(
-      "$N¶Ô$TÐ¦µÀ£º±¾µØ"+m_title+"Óë$s¾ÃÑö$m$R´óÃû£¬½ñÈÕÌØ³ÊÉÏÊéÐÅÒ»·â¡£\n",target);
+      "$Nå¯¹$Tç¬‘é“ï¼šæœ¬åœ°"+m_title+"ä¸Ž$sä¹…ä»°$m$Rå¤§åï¼Œä»Šæ—¥ç‰¹å‘ˆä¸Šä¹¦ä¿¡ä¸€å°ã€‚\n",target);
 //	DELAY_D->delay_targetted_action(
-//		target,me,"$N¾ªÑÈµØ¶Ô$TµÀ£ºàÞ£¿´ýÎÒÒ»¹Û¡£\n",1);
+//		target,me,"$NæƒŠè®¶åœ°å¯¹$Té“ï¼šå™¢ï¼Ÿå¾…æˆ‘ä¸€è§‚ã€‚\n",1);
 // here if use delay will make this sentence display
 // after the result, this may be strage.
-	target->targetted_action("$N¾ªÑÈµØ¶Ô$TµÀ£ºàÞ£¿´ýÎÒÒ»¹Û¡£\n",me);
+	target->targetted_action("$NæƒŠè®¶åœ°å¯¹$Té“ï¼šå™¢ï¼Ÿå¾…æˆ‘ä¸€è§‚ã€‚\n",me);
 	
 	me->clear_asklist("letter");
 	me->set_job("letter","status","done");
@@ -91,23 +91,23 @@ void ask_letter(object me, object target)
 {       case 0:
         case 1:
 	DELAY_D->delay_targetted_action(
-	target,me,"$N¿´ÍêÐÅ£¬¶Ô$TÅ­µÀ£º´ËÊÂ¾ø²»¿ÉÎª£¡Èô²»ÊÇÒò¡¸²»Õ¶ÐÅÊ¹¡¹£¬Îá±ØÕ¶Èê£¡\n",1); 
+	target,me,"$Nçœ‹å®Œä¿¡ï¼Œå¯¹$Tæ€’é“ï¼šæ­¤äº‹ç»ä¸å¯ä¸ºï¼è‹¥ä¸æ˜¯å› ã€Œä¸æ–©ä¿¡ä½¿ã€ï¼Œå¾å¿…æ–©æ±ï¼\n",1); 
         m_loyalty= m_loyalty -5;
         break;
         case 2:
         DELAY_D->delay_targetted_action(
-        target,me,"$N¿´ÍêÐÅ£¬¶Ô$TÐ¡ÉùµÀ£º»°ËäÈç´Ë£¬µ«Ë¡$s²»ÄÜ½ÓÊÜ£¬¶àÐ»´óÈËÃÀÒâ£¬ÇëËÙ»Ø¡£\n",1);
+        target,me,"$Nçœ‹å®Œä¿¡ï¼Œå¯¹$Tå°å£°é“ï¼šè¯è™½å¦‚æ­¤ï¼Œä½†æ•$sä¸èƒ½æŽ¥å—ï¼Œå¤šè°¢å¤§äººç¾Žæ„ï¼Œè¯·é€Ÿå›žã€‚\n",1);
 	m_loyalty= m_loyalty +1;
         break;
         case 3:
         DELAY_D->delay_targetted_action(
-        target,me,"$N¿´ÍêÐÅ£¬¶Ô$TµãÍ·µÀ£ºàÅ£¬ÑÔÖ®ÓÐÀí£¬´ý$s×ÐÏ¸Ë¼Á¿¡£\n",1);
+        target,me,"$Nçœ‹å®Œä¿¡ï¼Œå¯¹$Tç‚¹å¤´é“ï¼šå—¯ï¼Œè¨€ä¹‹æœ‰ç†ï¼Œå¾…$sä»”ç»†æ€é‡ã€‚\n",1);
 	m_loyalty= m_loyalty +5;
         break;
     case 4:
     case 5:
         DELAY_D->delay_targetted_action(
-        target,me,"$N¿´ÍêÐÅ£¬¶Ô$TµãÍ·µÀ£ºÉõºÏÎáÒâ¡£Çë$R»Ø¸´´óÈË£¬Îá×ÔÕÕ°ì¡£\n",1);
+        target,me,"$Nçœ‹å®Œä¿¡ï¼Œå¯¹$Tç‚¹å¤´é“ï¼šç”šåˆå¾æ„ã€‚è¯·$Rå›žå¤å¤§äººï¼Œå¾è‡ªç…§åŠžã€‚\n",1);
 		m_loyalty =m_loyalty +5;
         CHAR_D->set_char_loyalty(t_id,mnation,m_loyalty); 
 
@@ -117,7 +117,7 @@ void ask_letter(object me, object target)
         //CHAR_D->set_char_loyalty(t_id,mnation,m_loyalty); 
    	 me->set_job("letter","loyalty",m_loyalty);
          me->set_job("letter","target",t_id);
-        tell_user(p_id,"%^H_GREEN%^ÈÎÎñÍê³ÉµÃ²»´í£¬¿ìÈ¥Ì«ÊØ´¦ÁìÉÍ°É¡£\n%^RESET%^");
+        tell_user(p_id,"%^H_GREEN%^ä»»åŠ¡å®Œæˆå¾—ä¸é”™ï¼Œå¿«åŽ»å¤ªå®ˆå¤„é¢†èµå§ã€‚\n%^RESET%^");
 
 return;
 
@@ -138,7 +138,7 @@ void big_success(mixed obs)
     if(objectp(tar)) {
            t_id=tar->query_id()[0];
            tar->responda("wave");
-           tar->simple_action("$NÀë¿ªÁË¡£\n");
+           tar->simple_action("$Nç¦»å¼€äº†ã€‚\n");
            CHAR_D->remove_npc_char(t_id);
     }
     (EV_LEAVE)->leave(t_id);     
@@ -153,7 +153,7 @@ void big_success(mixed obs)
         p_area=CHAR_D->get_char(p_id,"area");
         CHAR_D->set_char(t_id,"area",p_area);
         CHANNEL_D->deliver_tell("rumor","system",
-  	sprintf("%sºÃÏóÍ¶±¼%sÈ¥ÁË¡£",CHAR_D->get_char(t_id,"name"),
+  	sprintf("%så¥½è±¡æŠ•å¥”%såŽ»äº†ã€‚",CHAR_D->get_char(t_id,"name"),
  		AREA_D->get_area(p_area,"name")));
 	break;
 	case 1:          
@@ -174,6 +174,6 @@ void big_success(mixed obs)
        break;
 	}*/
 	me->set_job("letter","score",50);
-	tell_user(p_id,"%^H_BLUE%^ÈÎÎñÍêÈ«³É¹¦£¬¿ìÈ¥Ì«ÊØ´¦ÁìÉÍ°É¡£\n%^RESET%^");
+	tell_user(p_id,"%^H_BLUE%^ä»»åŠ¡å®Œå…¨æˆåŠŸï¼Œå¿«åŽ»å¤ªå®ˆå¤„é¢†èµå§ã€‚\n%^RESET%^");
 
 }

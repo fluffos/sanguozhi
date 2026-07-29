@@ -150,9 +150,7 @@
 /wiz/row/npc/soybean.c line 53: Left argument of -> is not a class before the end of line
 /wiz/row/npc/soybean.c line 53: Warning: Expression has no side effects, and the value is unused before the end of line
 /wiz/row/exec.c line 6: parse error before ;}
-/wiz/row/npc/soybean.c line 13: parse error before 	set_in_room_desc("Ò
-/wiz/row/npc/soybean.c line 13: parse error before 	set_in_room_desc("Ò
-/wiz/row/npc/shimo.c line 79: Warning: Unused local variable 'x' before the end of line
+/wiz/row/npc/soybean.c line 13: parse error before 	set_in_room_desc("/wiz/row/npc/soybean.c line 13: parse error before 	set_in_room_desc("/wiz/row/npc/shimo.c line 79: Warning: Unused local variable 'x' before the end of line
 /wiz/row/npc/gfz.c line 114: parse error before the end of line
 /wiz/row/npc/gfz.c line 122: Illegal LHS before the end of line
 /wiz/row/npc/gfz.c line 122: parse error before the end of line
@@ -168,13 +166,7 @@
 /wiz/row/npc/shimo.c line 145: parse error before (this_object(),"%^H_
 /wiz/row/npc/shimo.c line 139: parse error before  1;
 /wiz/row/npc/cruet.c line 50: Warning: Non-void functions must return a value. before the end of line
-/wiz/row/npc/gfz.c line 33: parse error before ","$N¶Ô$TµÀ£º¹ØÊ¦¸µ£
-/wiz/row/npc/gfz.c line 33: $var illegal outside of function pointer. before N¶Ô$TµÀ£º¹ØÊ¦¸µ£¬Õâ¸
-/wiz/row/npc/gfz.c line 33: $var illegal outside of function pointer. before TµÀ£º¹ØÊ¦¸µ£¬Õâ¸ö×ö¶
-/wiz/row/npc/gfz.c line 34: $var illegal outside of function pointer. before N¶Ô$TµÀ£ºÕâÎ»$R£¬ÓÐÊ
-/wiz/row/npc/gfz.c line 34: $var illegal outside of function pointer. before TµÀ£ºÕâÎ»$R£¬ÓÐÊ²Ã´Î
-/wiz/row/npc/gfz.c line 34: $var illegal outside of function pointer. before R£¬ÓÐÊ²Ã´ÎÒ¿ÉÒÔ°ïÃ¦µ
-/wiz/row/npc/gfz.c line 57: Undefined function ask_soybean before ;
+/wiz/row/npc/gfz.c line 33: parse error before ","$Nå¯¹$Té“ï¼šå…³å¸ˆå‚…/wiz/row/npc/gfz.c line 33: $var illegal outside of function pointer. before Nå¯¹$Té“ï¼šå…³å¸ˆå‚…ï¼Œè¿™/wiz/row/npc/gfz.c line 33: $var illegal outside of function pointer. before Té“ï¼šå…³å¸ˆå‚…ï¼Œè¿™ä¸ªåš/wiz/row/npc/gfz.c line 34: $var illegal outside of function pointer. before Nå¯¹$Té“ï¼šè¿™ä½$Rï¼Œæœ‰/wiz/row/npc/gfz.c line 34: $var illegal outside of function pointer. before Té“ï¼šè¿™ä½$Rï¼Œæœ‰ä»€ä¹ˆ/wiz/row/npc/gfz.c line 34: $var illegal outside of function pointer. before Rï¼Œæœ‰ä»€ä¹ˆæˆ‘å¯ä»¥å¸®å¿™/wiz/row/npc/gfz.c line 57: Undefined function ask_soybean before ;
 /wiz/row/npc/gfz.c line 60: Undefined function ask_cruet before ;
 /wiz/row/npc/gfz.c line 212: Warning: Expression has no side effects, and the value is unused before ;
 /wiz/row/npc/gfz.c line 212: parse error before ;
@@ -184,30 +176,22 @@
 /wiz/row/exec.c line 6: Undefined variable 'HOUSE_D' before get_house("castle");
 /wiz/row/exec.c line 6: Undefined variable 'HOUSE_D' before query_house("castle"
 /wiz/row/exec.c line 6: Undefined variable 'HOUSE_D' before check_house("castle"
-/wiz/row/npc/guozi.c line 24: parse error before Ú");
-/wiz/row/npc/guozi.c line 88: $var illegal outside of function pointer. before NÏëÒªÉ¨%^H_YELLOW%^¶
-/wiz/row/npc/guozi.c line 112: $var illegal outside of function pointer. before N³ÔÁ¦µØÌ§Æð´ó¹ø×Ó£¬½
-/wiz/row/npc/guozi.c line 131: End of file in string at the end of the file
-/wiz/row/npc/guozi.c line 25: parse error before Ú");
-/wiz/row/npc/guozi.c line 89: $var illegal outside of function pointer. before NÏëÒªÉ¨%^H_YELLOW%^¶
-/wiz/row/npc/guozi.c line 113: $var illegal outside of function pointer. before N³ÔÁ¦µØÌ§Æð´ó¹ø×Ó£¬½
-/wiz/row/npc/guozi.c line 132: End of file in string at the end of the file
+/wiz/row/npc/guozi.c line 24: parse error before );
+/wiz/row/npc/guozi.c line 88: $var illegal outside of function pointer. before Næƒ³è¦æ‰«%^H_YELLOW%^/wiz/row/npc/guozi.c line 112: $var illegal outside of function pointer. before NåƒåŠ›åœ°æŠ¬èµ·å¤§é”…å­ï¼Œ/wiz/row/npc/guozi.c line 131: End of file in string at the end of the file
+/wiz/row/npc/guozi.c line 25: parse error before );
+/wiz/row/npc/guozi.c line 89: $var illegal outside of function pointer. before Næƒ³è¦æ‰«%^H_YELLOW%^/wiz/row/npc/guozi.c line 113: $var illegal outside of function pointer. before NåƒåŠ›åœ°æŠ¬èµ·å¤§é”…å­ï¼Œ/wiz/row/npc/guozi.c line 132: End of file in string at the end of the file
 /wiz/row/npc/m_waveable.c line 97: Undefined function all_atventory before +all_atventory(envir
 /wiz/row/npc/m_waveable.c line 97: Undefined function all_atventory before +all_inventory(envir
-/wiz/row/npc/fan.c line 15: parse error before »Ãæ´óÉÈ×Ó(fan)£¬±úÉÏ
-/wiz/row/npc/fan.c line 65: $var illegal outside of function pointer. before NÓÃÁ¦ÎÕ×¡Ê¯Ä¥ÉÏµÄÄ¾±
-/wiz/row/npc/fan.c line 66: $var illegal outside of function pointer. before NÇ°ÍÈÇú£¬ºóÍÈÖ±£¬Ñü°
-/wiz/row/npc/fan.c line 67: $var illegal outside of function pointer. before NÊ¹¾¢µØÍÆ×ÅÊ¯Ä¥£¬ÔÚÊ
-/wiz/row/npc/fan.c line 68: $var illegal outside of function pointer. before NÊ¹³ö³ÔÄÌµÄ¾¢ÍÆ×ÅÄ¥£
-/wiz/row/npc/fan.c line 88: End of file in string at the end of the file
+/wiz/row/npc/fan.c line 15: parse error before å¹»å¨²ç¬ŠèŒ¸fan)ï¼ŒæŸ„ä¸Š
+/wiz/row/npc/fan.c line 65: $var illegal outside of function pointer. before Nç”¨åŠ›æ¡ä½çŸ³ç£¨ä¸Šçš„æœ¨/wiz/row/npc/fan.c line 66: $var illegal outside of function pointer. before Nå‰è…¿æ›²ï¼ŒåŽè…¿ç›´ï¼Œè…°/wiz/row/npc/fan.c line 67: $var illegal outside of function pointer. before Nä½¿åŠ²åœ°æŽ¨ç€çŸ³ç£¨ï¼Œåœ¨/wiz/row/npc/fan.c line 68: $var illegal outside of function pointer. before Nä½¿å‡ºåƒå¥¶çš„åŠ²æŽ¨ç€ç£¨/wiz/row/npc/fan.c line 88: End of file in string at the end of the file
 /wiz/row/npc/fan.c line 80: Undefined variable 'isfill' before 1)
 /wiz/row/npc/fan.c line 82: Undefined variable 'status' before 0;
 /wiz/row/npc/fan.c line 82: Illegal lvalue before 0;
 /wiz/row/npc/fan.c line 80: Undefined variable 'isfill' before 1)
 /wiz/row/npc/fan.c line 82: Undefined variable 'status' before 0;
 /wiz/row/npc/fan.c line 82: Illegal lvalue before 0;
-/wiz/row/exec.c line 6: Left argument of -> is not a class before "iori","°ËÉñÆø"});}
-/wiz/row/exec.c line 6: parse error before "iori","°ËÉñÆø"});}
+/wiz/row/exec.c line 6: Left argument of -> is not a class before "iori","å…«ç¥žæ°”"});}
+/wiz/row/exec.c line 6: parse error before "iori","å…«ç¥žæ°”"});}
 /wiz/row/npc/mutong.c line 10: parse error before  do_cold()
 /wiz/row/npc/mutong.c line 11: parse error before  query_status()
 /wiz/row/npc/mutong.c line 12: parse error before  query_isfill()
@@ -221,7 +205,7 @@
 /wiz/row/exec.c line 6: Undefined variable 'SETHERE' before the end of file
 /wiz/row/exec.c line 6: parse error before the end of file
 /wiz/row/exec.c line 6: parse error before :1,"/sgdomain/job/ma
-/wiz/row/exec.c line 6: parse error before 10,"name":"×ö¶¹¸¯","
+/wiz/row/exec.c line 6: parse error before 10,"name":"åšè±†è…","
 /wiz/row/exec.c line 6: parse error before 10);}
 /wiz/row/exec.c line 6: parse error before ;}
 /wiz/row/visitofficer.c line 27: parse error before (!objectp(o)) return
@@ -282,8 +266,7 @@
 /wiz/row/npc/qgl.c line 105: Illegal LHS before the end of line
 /wiz/row/npc/qgl.c line 105: parse error before the end of line
 /wiz/row/npc/qgl.c line 106: Undefined variable 'p1girl' before "pre_div");
-/wiz/row/npc/qgl.c line 8: parse error before »
-/wiz/row/npc/qgl.c line 63: Warning: Unused local variable 'p_age' before the end of line
+/wiz/row/npc/qgl.c line 8: parse error before /wiz/row/npc/qgl.c line 63: Warning: Unused local variable 'p_age' before the end of line
 /wiz/row/npc/qgl.c line 93: Undefined variable 'me' before clear_answer();
 /wiz/row/npc/qgl.c line 118: Undefined variable 'p1girl' before "pre_div");
 /wiz/row/npc/qgl.c line 119: Undefined variable 'p_girl' before "pre_div",0);
@@ -325,13 +308,9 @@
 /wiz/row/exec.c line 7: parse error at the end of the file
 /wiz/row/exec.c line 7: End of file in string at the end of the file
 /wiz/row/exec.c line 7: parse error at the end of the file
-/wiz/row/lmeat.c line 82: parse error before ¦£¬ÕÅÍÀ»§¿Ï¶¨²»»áÒªÕ
-/wiz/row/lmeat.c line 86: $var illegal outside of function pointer. before N¾Ùµ¶ÇÐÁËÏÂÈ¥£¬ÔãÁË£
-/wiz/row/lmeat.c line 86: $var illegal outside of function pointer. before NÒ»»Å£¬²»Ð¡ÐÄ°Ñ¸ÕÇÐÏ
-/wiz/row/lmeat.c line 91: $var illegal outside of function pointer. before NÓÃ²¢²»ÊìÁ·µÄÊÖ·¨²Ù×
-/wiz/row/lmeat.c line 93: $var illegal outside of function pointer. before N×óÊÖ½«%^B_WHITE%^%^
-/wiz/row/lmeat.c line 95: $var illegal outside of function pointer. before NÒ»±ß¿´×ÅÕÅÍÀ»§µÄÊÖÊ
-/wiz/row/score.c line 142: Undefined variable 'p_id' before "salary");
+/wiz/row/lmeat.c line 82: parse error before Î“îƒ°ç£é˜‘Ð­éš™Ãºæ¢åµ‹î€´
+/wiz/row/lmeat.c line 86: $var illegal outside of function pointer. before Nä¸¾åˆ€åˆ‡äº†ä¸‹åŽ»ï¼Œç³Ÿäº†/wiz/row/lmeat.c line 86: $var illegal outside of function pointer. before Nä¸€æ…Œï¼Œä¸å°å¿ƒæŠŠåˆšåˆ‡/wiz/row/lmeat.c line 91: $var illegal outside of function pointer. before Nç”¨å¹¶ä¸ç†Ÿç»ƒçš„æ‰‹æ³•æ“/wiz/row/lmeat.c line 93: $var illegal outside of function pointer. before Nå·¦æ‰‹å°†%^B_WHITE%^%^
+/wiz/row/lmeat.c line 95: $var illegal outside of function pointer. before Nä¸€è¾¹çœ‹ç€å¼ å± æˆ·çš„æ‰‹/wiz/row/score.c line 142: Undefined variable 'p_id' before "salary");
 /wiz/row/score.c line 142: Type mismatch ( unknown vs string ) when initializing tm1 before the end of line
 /wiz/row/score.c line 142: Missing type for global variable declaration before the end of line
 /wiz/row/score.c line 143: Type mismatch ( unknown vs string ) when initializing tm2 before the end of line
@@ -370,13 +349,13 @@
 /wiz/row/ev_annual.c line 28: parse error before (1)};
 /wiz/row/ev_annual.c line 31: Illegal LHS before the end of line
 /wiz/row/law/ev_annual/elect.c line 53: parse error before ,"                  
-/wiz/row/law/ev_annual/elect.c line 53: Bad right argument to '%' : "string " before "%^H_CYAN%^¾ý  %^H_Y
-/wiz/row/law/ev_annual/elect.c line 53: Invalid types to '-' ( string vs int ) before "%^H_CYAN%^¾ý  %^H_Y
-/wiz/row/law/ev_annual/elect.c line 53: parse error before ¬CHAR_D->get_char(o,
-/wiz/row/law/ev_annual/elect.c line 53: Bad left argument to '%' : "string " before s+"%^H_CYAN%^¾ý  %^H
-/wiz/row/law/ev_annual/elect.c line 53: parse error before +"%^H_CYAN%^¾ý  %^H_
-/wiz/row/law/ev_annual/elect.c line 53: parse error before ¬CHAR_D->get_char(o,
-/wiz/row/law/ev_annual/elect.c line 53: parse error before ¬OFFICER_D->query_ra
+/wiz/row/law/ev_annual/elect.c line 53: Bad right argument to '%' : "string " before "%^H_CYAN%^å›  %^H_Y
+/wiz/row/law/ev_annual/elect.c line 53: Invalid types to '-' ( string vs int ) before "%^H_CYAN%^å›  %^H_Y
+/wiz/row/law/ev_annual/elect.c line 53: parse error before ç»HAR_D->get_char(o,
+/wiz/row/law/ev_annual/elect.c line 53: Bad left argument to '%' : "string " before s+"%^H_CYAN%^å›  %^H
+/wiz/row/law/ev_annual/elect.c line 53: parse error before +"%^H_CYAN%^å›  %^H_
+/wiz/row/law/ev_annual/elect.c line 53: parse error before ç»HAR_D->get_char(o,
+/wiz/row/law/ev_annual/elect.c line 53: parse error before çŒFFICER_D->query_ra
 /wiz/row/law/union_channel_d/suggest.c line 187: Undefined variable 'leg_suggest' before ,"  ");
 /wiz/row/exec.c line 6: parse error before }
 /wiz/row/exec.c line 6: parse error before }

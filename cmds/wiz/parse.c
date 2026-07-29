@@ -13,7 +13,7 @@ private void main(string str)
 {
     int flag = 1;
     if (!str) {
-        out("ÓÃ·¨£ºParse <sentence>\n");
+        out("ç”¨æ³•ï¼šParse <sentence>\n");
         return;
     }
 

@@ -6,13 +6,13 @@ inherit FURNITURE;
 inherit M_VALUE;
 void setup()
 {
-  set_id("szbed", BLU+"ËáÖ¦Ä¾´ó´²"+NOR);
-  set_unit("ÕÅ");
+  set_id("szbed", BLU+"é…¸ææœ¨å¤§åºŠ"+NOR);
+  set_unit("å¼ ");
   set_value(10000000);
-  set_in_room_desc("Ò»ÕÅ¼«¾¡Éİ»ªµÄ"+BLU+"ËáÖ¦Ä¾´ó´²¡£"+NOR+"(ztbed)");
+  set_in_room_desc("ä¸€å¼ æå°½å¥¢åçš„"+BLU+"é…¸ææœ¨å¤§åºŠã€‚"+NOR+"(ztbed)");
   set_get_on_msg("");
-  set_get_off_msg("$N´Ó´²ÉÏÕ¾ÆğÀ´¡£\n");
-  set_long("ÕâÊÇÒ»ÕÅËáÖ¦Ä¾´ó´²£¬ÉÏÃæÆÌ×ÅÉÏºÃµÄ½õĞå´²µæ¡£\n");
+  set_get_off_msg("$Nä»åºŠä¸Šç«™èµ·æ¥ã€‚\n");
+  set_long("è¿™æ˜¯ä¸€å¼ é…¸ææœ¨å¤§åºŠï¼Œä¸Šé¢é“ºç€ä¸Šå¥½çš„é”¦ç»£åºŠå«ã€‚\n");
   set_preposition("on");
   set_relations("on","under");
   set_max_capacity(VERY_LARGE*4, "on");
@@ -32,11 +32,11 @@ int mount_it_already()
   string stat;
   if(environment(this_body()) == this_object())
     {
-      write("ÄãÒÑ¾­ÌÉÔÚ´²ÉÏÁË£¬ÏëË¯µ½´²µ×ÏÂÂğ£¿\n");
+      write("ä½ å·²ç»èººåœ¨åºŠä¸Šäº†ï¼Œæƒ³ç¡åˆ°åºŠåº•ä¸‹å—ï¼Ÿ\n");
       return 1;
     }
   this_body()->move(this_object());
-  this_body()->simple_action("$NÍÑÏÂÒÂ·ş£¬ÊæÊæ·ş·şµØÌÉÔÚ"+short()+"ÉÏ¡£\n");
+  this_body()->simple_action("$Nè„±ä¸‹è¡£æœï¼Œèˆ’èˆ’æœæœåœ°èººåœ¨"+short()+"ä¸Šã€‚\n");
   foreach (object ob2 in all_inventory(this_body())) 
   {
 		

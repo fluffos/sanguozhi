@@ -6,8 +6,8 @@
 inherit VERB_OB;
 void bkiss(object liv1, object liv2)
 {
-        liv1->simple_action("$NĞ¦µÀ£ººÃÑ½£¡\n");
-        liv1->simple_action("$NÇáÇáÍĞ×¡°¢ÂåµÄÁ³£¬¸øÁËËûÒ»¸öÉîÇéµÄÎÇ¡£\n",);
+        liv1->simple_action("$Nç¬‘é“ï¼šå¥½å‘€ï¼\n");
+        liv1->simple_action("$Nè½»è½»æ‰˜ä½é˜¿æ´›çš„è„¸ï¼Œç»™äº†ä»–ä¸€ä¸ªæ·±æƒ…çš„å»ã€‚\n",);
 }
 mixed can_ask_liv_about_wrd(object liv, string str) 
 {
@@ -31,7 +31,7 @@ mixed do_ask_liv_about_wrd(object liv, string item)
 		p_act=item;
         p_askstr=liv->query_ask_str(item);
 	if ( this_body() == liv ) {
-		write("ÄãÄÑµÀ×Ô¼º»¹²»ÖªµÀ£¿\n");
+		write("ä½ éš¾é“è‡ªå·±è¿˜ä¸çŸ¥é“ï¼Ÿ\n");
 		return 1;
 	}
         if(stringp(p_askstr))
@@ -41,29 +41,29 @@ mixed do_ask_liv_about_wrd(object liv, string item)
         {
                 case "name":
                     this_body()->targetted_action(
-"$NÏò$tÎÊµÀ£º¸ÒÎÊÏÈÉú×ğĞÕ´óÃû¡£\n",liv);
+"$Nå‘$té—®é“ï¼šæ•¢é—®å…ˆç”Ÿå°Šå§“å¤§åã€‚\n",liv);
                         break;
                 case "here":
                         this_body()->targetted_action(
-"$NÏò$tÎÊµÀ£ºÔÚÏÂ³õµ½¹ó±¦µØ£¬²»ÖªÕâÀïÓĞĞ©Ê²Ã´·çÍÁÈËÇé£¿\n",liv);
+"$Nå‘$té—®é“ï¼šåœ¨ä¸‹åˆåˆ°è´µå®åœ°ï¼Œä¸çŸ¥è¿™é‡Œæœ‰äº›ä»€ä¹ˆé£åœŸäººæƒ…ï¼Ÿ\n",liv);
                         break;
                 case "rumors":
                        this_body()->targetted_action(
-"$NÏò$tÎÊµÀ£º²»Öª×î½üÓĞÃ»ÓĞÌıËµÊ²Ã´ÏûÏ¢£¿\n",liv);
+"$Nå‘$té—®é“ï¼šä¸çŸ¥æœ€è¿‘æœ‰æ²¡æœ‰å¬è¯´ä»€ä¹ˆæ¶ˆæ¯ï¼Ÿ\n",liv);
                         break;
 /*
                 case "bkiss" :
                        this_body()->targetted_action(
-"$NÏò$TÎÊµÀ£º$mĞ¡½ã£¬ÄÜÇ×Ç×ÎÒÂğ£¿\n",liv);
+"$Nå‘$Té—®é“ï¼š$må°å§ï¼Œèƒ½äº²äº²æˆ‘å—ï¼Ÿ\n",liv);
                         call_out((: bkiss , liv, this_object() :), 3);
                         return;
 */
                 case "all" :
                        this_body()->targetted_action(
-"$N¹ªÉí¶Ô$TµÀ£º$sÉúĞÔÓŞÂ³£¬Íû$R²»Áß´Í½Ì¡£\n",liv);
+"$Nèº¬èº«å¯¹$Té“ï¼š$sç”Ÿæ€§æ„šé²ï¼Œæœ›$Rä¸åèµæ•™ã€‚\n",liv);
                        break;
                 default :                                               
-                        this_body()->targetted_action("$NÏò$t´òÌı¹ØÓÚ<"+p_act+">µÄÏûÏ¢¡£\n",liv);
+                        this_body()->targetted_action("$Nå‘$tæ‰“å¬å…³äº<"+p_act+">çš„æ¶ˆæ¯ã€‚\n",liv);
         }
         liv->be_asked(this_body(), item);
      return 1;
@@ -76,7 +76,7 @@ mixed do_ask_str_about_wrd(string str, string item)
 	do_ask_liv_about_wrd(o,item);
 }
 
-array query_verb_info()
+mixed * query_verb_info()
 {
      return ({ ({"STR about WRD" }) });
 }

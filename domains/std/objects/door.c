@@ -30,9 +30,9 @@ void do_on_close()
 void setup(string dir)
 {
     set_id("door");
-    set_long("它大概一丈来高，十分华丽。\n");
+    set_long("瀹冨ぇ姒備竴涓堟潵楂橈紝鍗佸垎鍗庝附銆俓n");
     add_hook( "open", (: do_on_open :));
     add_hook( "close", (: do_on_close :));
     set_closed(1);
-    setup_door("大橡木门", dir); 
+    setup_door("澶ф鏈ㄩ棬", dir); 
 }

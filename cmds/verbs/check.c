@@ -14,13 +14,13 @@ void do_check_str(string str)
 	o=MYENV_OB(str);
 	if(!o) return;
 	this_body()->simple_action(
-		"$N¶Ô×Å"+o->short()+"×ĞÏ¸¶ËÏêÁËÒ»Õó¡£\n");
+		"$Nå¯¹ç€"+o->short()+"ä»”ç»†ç«¯è¯¦äº†ä¸€é˜µã€‚\n");
 
 	if(ret=o->direct_check_obj());
 	if(ret==1)
 	{
 		string disp;
-		write("Äã·¢ÏÖ"+o->short()+"ÊôĞÔ£º\n");
+		write("ä½ å‘ç°"+o->short()+"å±æ€§ï¼š\n");
 		disp=o->check_obj();
 		write(disp);
 		if(wizardp(this_body())) {
@@ -28,7 +28,7 @@ void do_check_str(string str)
 			object env;
 			makers=CHAR_D->check_char("is_maker",1);
 			if(sizeof(makers)) {
-				write("¿ÉÖÆ×÷¹¤½³            ¹¤½³ID  ¿É¶¨  ÎïÖÖÀà  ËùÔÚµØÇø  ËùÔÚ·¿¼ä ¡£\n");
+				write("å¯åˆ¶ä½œå·¥åŒ             å·¥åŒ ID  å¯å®š  ç‰©ç§ç±»  æ‰€åœ¨åœ°åŒº  æ‰€åœ¨æˆ¿é—´ ã€‚\n");
 				foreach(string mk in makers){
 					ls=CHAR_D->get_char(mk,"goods");
 					if(!ls) ls=({});
@@ -46,11 +46,11 @@ void do_check_str(string str)
 							if(!p_area) p_area="no area";
 						}
 						if(p_area=="no area")
-							SGSYS("¹¤½³"+mk+"Ã»ÓĞºÏ·¨µØÇø¡£");
+							SGSYS("å·¥åŒ "+mk+"æ²¡æœ‰åˆæ³•åœ°åŒºã€‚");
 						printf("%10s%18s  %4s  %6d%10s  %s\n",
 							CHAR_D->get_char(mk,"name"),
 							mk,( (CHAR_D->get_char(mk,"just_sell")==1) ?
-							"²»ĞĞ":"¿ÉÒÔ"),	sizeof(ls),p_area,room_name);
+							"ä¸è¡Œ":"å¯ä»¥"),	sizeof(ls),p_area,room_name);
 					}
 				}
 			}
@@ -62,12 +62,12 @@ void do_check_str(string str)
 		write(ret);
 		return;
 	}
-	write("Äã´Ó"+o->short()+"ÉÏ²é²»³öÊ²Ã´¶«Î÷À´¡£\n");
+	write("ä½ ä»"+o->short()+"ä¸ŠæŸ¥ä¸å‡ºä»€ä¹ˆä¸œè¥¿æ¥ã€‚\n");
 	return;
 		
 }
 
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ "STR" }) });
 }

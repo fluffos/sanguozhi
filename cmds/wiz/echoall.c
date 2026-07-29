@@ -16,6 +16,6 @@ void create()
 private void main(string orig_input, mixed * arg)
 {
     string msg = implode(arg[0], " ");
-    out("Äã·¢²¼ÏûÏ¢¸øÕû¸ö MUD £º" + msg + "\n");
+    out("ä½ å‘å¸ƒæ¶ˆæ¯ç»™æ•´ä¸ª MUD ï¼š" + msg + "\n");
     tell(users() - ({ this_user() }), msg + "\n");
 }

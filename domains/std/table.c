@@ -5,10 +5,10 @@ inherit COMPLEX_CONTAINER;
 
 void setup() {
 	
-    set_id("table", "×À×Ó");
-    set_unit("ÕÅ");
-    set_adj("´ó");
-    set_long("Ò»ÕÅ´ó×À×Ó£¬ÏÂÃæºÜ¿í¡£");
+    set_id("table", "æ¡Œå­");
+    set_unit("å¼ ");
+    set_adj("å¤§");
+    set_long("ä¸€å¼ å¤§æ¡Œå­ï¼Œä¸‹é¢å¾ˆå®½ã€‚");
     set_size(LARGE);
 set_relations("on","under");
   set_max_capacity(LARGE, "on");

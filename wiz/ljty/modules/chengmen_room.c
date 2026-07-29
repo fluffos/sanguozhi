@@ -13,7 +13,7 @@ void set_the_direction(string str)
 }
 int can_go_the_direction()
 {
-  if(this_body()->query_door_state(the_direction) == "³ÇÃÅÊÇ¿ªÆôµÄ¡£")
+  if(this_body()->query_door_state(the_direction) == "åŸé—¨æ˜¯å¼€å¯çš„ã€‚")
     return 1;
   else return 0;
 }
@@ -28,10 +28,10 @@ string query_door_state()
     {
       if(member_array("citydoor",ob2->query_id())!=-1)
        {
-         if(ob2->query_locked()) return "³ÇÃÅÒÑ¾­ËøÉÏÁË¡£";
-         if(ob2->query_closed()) return "³ÇÃÅÊÇ¹Ø±ÕµÄ¡£";
-         if(ob2->query_damaged()) return "³ÇÃÅÒÑ¾­±»×²»µÁË¡£";
-         return "³ÇÃÅÊÇ¿ªÆôµÄ¡£";
+         if(ob2->query_locked()) return "åŸé—¨å·²ç»é”ä¸Šäº†ã€‚";
+         if(ob2->query_closed()) return "åŸé—¨æ˜¯å…³é—­çš„ã€‚";
+         if(ob2->query_damaged()) return "åŸé—¨å·²ç»è¢«æ’åäº†ã€‚";
+         return "åŸé—¨æ˜¯å¼€å¯çš„ã€‚";
        }
     }
 }
@@ -43,7 +43,7 @@ int can_go_str(string str)
     {
       str = DIRECTION_D->to_english(str);
     }
-  if( function_exists( "can_go_" + str, env) && (this_body()->query_door_state(the_direction) == "³ÇÃÅÊÇ¿ªÆôµÄ¡£"))
+  if( function_exists( "can_go_" + str, env) && (this_body()->query_door_state(the_direction) == "åŸé—¨æ˜¯å¼€å¯çš„ã€‚"))
     {
       ret = call_other( env, "can_go_" + str );
       if( ret == 1 ) return 1;

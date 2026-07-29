@@ -1,6 +1,6 @@
 // display.c
 // to display the fight message
-static private mapping old_inf=([]);
+nosave private mapping old_inf=([]);
 string get_neighbor_troop_name(int t_id,string direction);
 void create_inf(int t_id)
 {
@@ -14,31 +14,31 @@ string get_dir_name(string dir)
    switch(dir)
    {
         case "e":
-        case "east": return "¶«Ãæ";
+        case "east": return "ä¸œé¢";
         case "s":
-        case "south": return "ÄÏÃæ";
+        case "south": return "å—é¢";
         case "w":
-        case "west": return "Î÷Ãæ";
+        case "west": return "è¥¿é¢";
         case "n":
-        case "north": return "±±Ãæ";
+        case "north": return "åŒ—é¢";
         case "e 2":
-        case "east 2": return "¶«·½";
+        case "east 2": return "ä¸œæ–¹";
         case "s 2":
-        case "south 2": return "ÄÏ·½";
+        case "south 2": return "å—æ–¹";
         case "w 2":
-        case "west 2": return "Î÷·½";
+        case "west 2": return "è¥¿æ–¹";
         case "n 2":
-        case "north 2": return "±±·½";
+        case "north 2": return "åŒ—æ–¹";
         
         case "nw":
-        case "northwest": return "Î÷±±·½";
+        case "northwest": return "è¥¿åŒ—æ–¹";
         case "ne":
-        case "northeast": return "¶«±±·½";
+        case "northeast": return "ä¸œåŒ—æ–¹";
         case "sw":
-        case "southwest": return "Î÷ÄÏ·½";
+        case "southwest": return "è¥¿å—æ–¹";
         case "se":
-        case "sougheast": return "¶«ÄÏ·½";
-        default: return "Î´Öª";
+        case "sougheast": return "ä¸œå—æ–¹";
+        default: return "æœªçŸ¥";
     }
 }
 string get_dir_name_opp(string dir)
@@ -72,7 +72,7 @@ string get_dir_name_opp(string dir)
         case "southwest": p_dir="ne";break;
         case "se":
         case "sougheast": p_dir="nw";break;
-        default: return "Î´Öª";
+        default: return "æœªçŸ¥";
     }
     return get_dir_name(p_dir);
 }
@@ -86,7 +86,7 @@ void war_inf(int t_id,string mess,string side)
    
    switch(side)
    {   case "a" :
-           m_mess="%^H_RED%^¡¾¹¥·½¡¿"+mess+"%^RESET%^";
+           m_mess="%^H_RED%^ã€æ”»æ–¹ã€‘"+mess+"%^RESET%^";
            att=TASK_D->get_task(t_id,"att_party");
            if(sizeof(att))
            {
@@ -97,7 +97,7 @@ void war_inf(int t_id,string mess,string side)
            }
            return;
        case "d" :
-           m_mess="%^H_GREEN%^¡¾ÊØ·½¡¿"+mess+"%^RESET%^";
+           m_mess="%^H_GREEN%^ã€å®ˆæ–¹ã€‘"+mess+"%^RESET%^";
            def=TASK_D->get_task(t_id,"def_party");
            if(sizeof(def))
            {
@@ -114,7 +114,7 @@ void war_inf(int t_id,string mess,string side)
            if((old_inf[t_id][mess])&&(p_time-old_inf[t_id][mess]<60)) 
 		return;
            old_inf[t_id][mess]=p_time;
-           m_mess="%^H_BLUE%^¡¾Õ½Õù¡¿"+mess+"%^RESET%^";
+           m_mess="%^H_BLUE%^ã€æˆ˜äº‰ã€‘"+mess+"%^RESET%^";
            def=TASK_D->get_task(t_id,"def_party");
            if(sizeof(def))
            {
@@ -150,15 +150,15 @@ string get_troops_name(string p_id,int x,int y)
            return ret;
          case 2:
            ret=TROOP_D->find_troop(t[0])->query_id()[1]+
-              "ºÍ"+TROOP_D->find_troop(t[1])->query_id()[1];
+              "å’Œ"+TROOP_D->find_troop(t[1])->query_id()[1];
 	   return ret;
     }
     ret=TROOP_D->find_troop(t[0])->query_id()[1];
     for(i=1;i<sum-1;++i)
     {
-	ret+="¡¢"+TROOP_D->find_troop(t[i])->query_id()[1];
+	ret+="ã€"+TROOP_D->find_troop(t[i])->query_id()[1];
     }
-    ret+="ºÍ"+TROOP_D->find_troop(t[i])->query_id()[1];
+    ret+="å’Œ"+TROOP_D->find_troop(t[i])->query_id()[1];
     return ret;
 }
 string get_generl_infomation(int p_id,string dir)
@@ -166,11 +166,11 @@ string get_generl_infomation(int p_id,string dir)
    string ret;
    string p_dir;
    string p_troop;
-   ret=TROOP_D->find_troop(p_id)->query_id()[1]+"Ïò";
+   ret=TROOP_D->find_troop(p_id)->query_id()[1]+"å‘";
    p_dir=get_dir_name(dir);
-   ret+=p_dir+"µÄ";
+   ret+=p_dir+"çš„";
    p_troop=get_neighbor_troop_name(p_id,dir);
-   ret+=p_troop+"·¢¶¯¹¥»÷¡£";
+   ret+=p_troop+"å‘åŠ¨æ”»å‡»ã€‚";
    return ret;
 }
 void info_troop(int p_id,string mess)
@@ -192,9 +192,9 @@ string get_generl_infomation_b(int p_id,string dir)
    string ret;
    string p_dir;
    string p_troop;
-   ret=TROOP_D->find_troop(p_id)->query_id()[1]+"´Ó";
+   ret=TROOP_D->find_troop(p_id)->query_id()[1]+"ä»";
    p_dir=get_dir_name_opp(dir);
-   ret+=p_dir+"¹¥´ò¹ıÀ´¡£";
+   ret+=p_dir+"æ”»æ‰“è¿‡æ¥ã€‚";
    return ret;
 }
 string get_array_attack_infomation_b(int p_id,string dir)
@@ -202,9 +202,9 @@ string get_array_attack_infomation_b(int p_id,string dir)
    string ret;
    string p_dir;
    string p_troop;
-   ret=TROOP_D->find_troop(p_id)->query_id()[1]+"´Ó";
+   ret=TROOP_D->find_troop(p_id)->query_id()[1]+"ä»";
    p_dir=get_dir_name_opp(dir);
-   ret+=p_dir+"ÉäÀ´ÕóÕó¼ıÓê¡£";
+   ret+=p_dir+"å°„æ¥é˜µé˜µç®­é›¨ã€‚";
    return ret;
 }
 string get_array_attack_infomation(int p_id,string dir)
@@ -212,11 +212,11 @@ string get_array_attack_infomation(int p_id,string dir)
    string ret;
    string p_dir;
    string p_troop;
-   ret=TROOP_D->find_troop(p_id)->query_id()[1]+"Ò»ÕóÂÒ¼ıÏò";
+   ret=TROOP_D->find_troop(p_id)->query_id()[1]+"ä¸€é˜µä¹±ç®­å‘";
    p_dir=get_dir_name(dir);
-   ret+=p_dir+"µÄ";
+   ret+=p_dir+"çš„";
    p_troop=get_neighbor_troop_name(p_id,dir);
-   ret+=p_troop+"ÉäÈ¥¡£";
+   ret+=p_troop+"å°„å»ã€‚";
    return ret;
 }
 string get_horse_attack_infomation_b(int p_id,string dir)
@@ -224,9 +224,9 @@ string get_horse_attack_infomation_b(int p_id,string dir)
    string ret;
    string p_dir;
    string p_troop;
-   ret=TROOP_D->find_troop(p_id)->query_id()[1]+"µÄÆï±ø²¿¶Ó´Ó";
+   ret=TROOP_D->find_troop(p_id)->query_id()[1]+"çš„éª‘å…µéƒ¨é˜Ÿä»";
    p_dir=get_dir_name_opp(dir);
-   ret+=p_dir+"³åÉ±¹ıÀ´¡£";
+   ret+=p_dir+"å†²æ€è¿‡æ¥ã€‚";
    return ret;
 }
 string get_horse_attack_infomation(int p_id,string dir)
@@ -234,11 +234,11 @@ string get_horse_attack_infomation(int p_id,string dir)
    string ret;
    string p_dir;
    string p_troop;
-   ret=TROOP_D->find_troop(p_id)->query_id()[1]+"µÄÆï±ø²¿¶ÓÏò";
+   ret=TROOP_D->find_troop(p_id)->query_id()[1]+"çš„éª‘å…µéƒ¨é˜Ÿå‘";
    p_dir=get_dir_name(dir);
-   ret+=p_dir+"µÄ";
+   ret+=p_dir+"çš„";
    p_troop=get_neighbor_troop_name(p_id,dir);
-   ret+=p_troop+"³åÉ±¹ıÈ¥¡£";
+   ret+=p_troop+"å†²æ€è¿‡å»ã€‚";
    return ret;
 }
 string get_siege_attack_infomation(int p_id,string dir,mixed seg)
@@ -257,11 +257,11 @@ string get_siege_attack_infomation(int p_id,string dir,mixed seg)
    ret=TROOP_D->find_troop(t[0])->query_id()[1];
    for(i=1;i<(sizeof(t)-1);++i)
    {
-      ret+="£¬"+TROOP_D->find_troop(t[i])->query_id()[1];
+      ret+="ï¼Œ"+TROOP_D->find_troop(t[i])->query_id()[1];
    }
-   ret+="ºÍ"+TROOP_D->find_troop(t[i])->query_id()[1];
-   ret+="´Ó"+chinese_number(sizeof(d))+"¸ö·½Ïò¶Ô"+
-   p_troop+"·¢¶¯ÃÍÁÒ¹¥»÷¡£\n";
+   ret+="å’Œ"+TROOP_D->find_troop(t[i])->query_id()[1];
+   ret+="ä»"+chinese_number(sizeof(d))+"ä¸ªæ–¹å‘å¯¹"+
+   p_troop+"å‘åŠ¨çŒ›çƒˆæ”»å‡»ã€‚\n";
    return ret;
 }
 string get_siege_attack_infomation_b(int p_id,string dir,mixed seg)
@@ -278,9 +278,9 @@ string get_siege_attack_infomation_b(int p_id,string dir,mixed seg)
    ret=TROOP_D->find_troop(t[0])->query_id()[1];
    for(i=1;i<(sizeof(t)-1);++i)
    {
-      ret+="£¬"+TROOP_D->find_troop(t[i])->query_id()[1];
+      ret+="ï¼Œ"+TROOP_D->find_troop(t[i])->query_id()[1];
    }
-   ret+="ºÍ"+TROOP_D->find_troop(t[i])->query_id()[1];
-   ret+="´Ó"+chinese_number(sizeof(d))+"¸ö·½Ïò¹¥´ò¹ıÀ´\n";
+   ret+="å’Œ"+TROOP_D->find_troop(t[i])->query_id()[1];
+   ret+="ä»"+chinese_number(sizeof(d))+"ä¸ªæ–¹å‘æ”»æ‰“è¿‡æ¥\n";
    return ret;
 }

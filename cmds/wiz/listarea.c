@@ -5,7 +5,7 @@
 #include <daemons.h>
 inherit CMD;
 inherit M_GLOB;
-string bar="¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş\n";
+string bar="ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“\n";
 private void main(string arg)
 {
     string * list;
@@ -40,7 +40,7 @@ private void main(string arg)
         list = regexp(list, p_f);
         if(!list)
         {
-                printf("Ã»ÓĞÕâÑùµÄµØÇø£®\n");
+                printf("æ²¡æœ‰è¿™æ ·çš„åœ°åŒºï¼\n");
                 return ;
         }
         else
@@ -50,7 +50,7 @@ private void main(string arg)
                 switch (p_sw)
                 {
                         case "/l" :  // just list
-								disp_tmp=sprintf(" µØÇø´úºÅ¡¡¡¡µØÇøÃû³Æ\n");
+								disp_tmp=sprintf(" åœ°åŒºä»£å·ã€€ã€€åœ°åŒºåç§°\n");
 								disp+=disp_tmp;
 								disp_tmp=sprintf(bar);
 								disp+=disp_tmp;
@@ -61,12 +61,12 @@ private void main(string arg)
 								}
 								disp_tmp=sprintf(bar);
 								disp+=disp_tmp;
-                                disp_tmp=sprintf("¹²²éµ½£º%d¸öµØÇø¡£\n",count);
+                                disp_tmp=sprintf("å…±æŸ¥åˆ°ï¼š%dä¸ªåœ°åŒºã€‚\n",count);
 								disp+=disp_tmp;
 								more(disp);
 					            return;
 						case "/s":	// system
-							disp_tmp=sprintf("   ´úºÅ¡¡ ¡¡Ãû³Æ   ±ğ³Æ       µØÍ¼       ÍÁ¶İ     »áÒéÊÒ  Â·¾¶\n");
+							disp_tmp=sprintf("   ä»£å·ã€€ ã€€åç§°   åˆ«ç§°       åœ°å›¾       åœŸé     ä¼šè®®å®¤  è·¯å¾„\n");
 							disp+=disp_tmp;
 							disp_tmp=sprintf(bar);
 							disp+=disp_tmp;
@@ -76,7 +76,7 @@ private void main(string arg)
 								if(stringp(p_f))
 									p_f=p_f[<14..<1];
 								else
-									p_f="©¥©¥";
+									p_f="â”â”";
 								disp_tmp=sprintf("%9s%8s%8s%10s %10s %10s %s\n",list[i],AREA_D->get_area(list[i],"name"),
 									AREA_D->get_area(list[i],"area"),
 									AREA_D->get_area(list[i],"map"),
@@ -87,12 +87,12 @@ private void main(string arg)
 							}
 							disp_tmp=sprintf(bar);
 							disp+=disp_tmp;
-                            disp_tmp=sprintf("¹²²éµ½£º%d¸öµØÇø¡£\n",count);
+                            disp_tmp=sprintf("å…±æŸ¥åˆ°ï¼š%dä¸ªåœ°åŒºã€‚\n",count);
 							disp+=disp_tmp;
 							more(disp);
 							return;
 						case "/1":  // game part 1
-							disp_tmp=sprintf("   ´úºÅ¡¡ ¡¡Ãû³Æ  µÈ¼¶  ÈË¿Ú  °²¶¨ ¹¤Òµ Å©Òµ ÉÌÒµ  Îï×Ê ¡¡ Á¸²İ   ¡¡½ğ\n");
+							disp_tmp=sprintf("   ä»£å·ã€€ ã€€åç§°  ç­‰çº§  äººå£  å®‰å®š å·¥ä¸š å†œä¸š å•†ä¸š  ç‰©èµ„ ã€€ ç²®è‰   ã€€é‡‘\n");
 							disp+=disp_tmp;
 							disp_tmp=sprintf(bar);
 							disp+=disp_tmp;
@@ -112,12 +112,12 @@ private void main(string arg)
 							}
 							disp_tmp=sprintf(bar);
 							disp+=disp_tmp;
-                            disp_tmp=sprintf("¹²²éµ½£º%d¸öµØÇø¡£\n",count);
+                            disp_tmp=sprintf("å…±æŸ¥åˆ°ï¼š%dä¸ªåœ°åŒºã€‚\n",count);
 							disp+=disp_tmp;
 							more(disp);
 							return;
 						case "/2":  // game part 1
-							disp_tmp=sprintf("   ´úºÅ¡¡ ¡¡Ãû³Æ    ¹ú¾ı   Ì«ÊØ    Ê¿±ø ÑµÁ· Ê¿Æø ¹úË° µØË° ÌìÆø ×´Ì¬ ÁÚµØ\n");
+							disp_tmp=sprintf("   ä»£å·ã€€ ã€€åç§°    å›½å›   å¤ªå®ˆ    å£«å…µ è®­ç»ƒ å£«æ°” å›½ç¨ åœ°ç¨ å¤©æ°” çŠ¶æ€ é‚»åœ°\n");
 							disp+=disp_tmp;
 							disp_tmp=sprintf(bar);
 							disp+=disp_tmp;
@@ -138,12 +138,12 @@ private void main(string arg)
 							}
 							disp_tmp=sprintf(bar);
 							disp+=disp_tmp;
-                            disp_tmp=sprintf("¹²²éµ½£º%d¸öµØÇø¡£\n",count);
+                            disp_tmp=sprintf("å…±æŸ¥åˆ°ï¼š%dä¸ªåœ°åŒºã€‚\n",count);
 							disp+=disp_tmp;
 							more(disp);
 							return;
 						case "/3":  // game part 1
-							disp_tmp=sprintf("   ´úºÅ¡¡ ¡¡Ãû³Æ    ½ğÔÂÈë ½ğÔÂ³ö Á¸ÄêÈë Á¸Äê³ö ÎïÔÂÈë ÎïÔÂ³ö ½«Êı ÔÚÒ°\n");
+							disp_tmp=sprintf("   ä»£å·ã€€ ã€€åç§°    é‡‘æœˆå…¥ é‡‘æœˆå‡º ç²®å¹´å…¥ ç²®å¹´å‡º ç‰©æœˆå…¥ ç‰©æœˆå‡º å°†æ•° åœ¨é‡\n");
 							disp+=disp_tmp;
 							disp_tmp=sprintf(bar);
 							disp+=disp_tmp;
@@ -169,13 +169,13 @@ private void main(string arg)
 							}
 							disp_tmp=sprintf(bar);
 							disp+=disp_tmp;
-                            disp_tmp=sprintf("¹²²éµ½£º%d¸öµØÇø¡£\n",count);
+                            disp_tmp=sprintf("å…±æŸ¥åˆ°ï¼š%dä¸ªåœ°åŒºã€‚\n",count);
 							disp+=disp_tmp;
 							more(disp);
 							return;
   case "/4":  // game part 4
    disp_tmp=sprintf(
-"   ´úºÅ¡¡ ¡¡Ãû³Æ    ÂíÆ¥  ¹­¼ı  ·ËÈË \n");
+"   ä»£å·ã€€ ã€€åç§°    é©¬åŒ¹  å¼“ç®­  åŒªäºº \n");
    disp+=disp_tmp;
    disp+=bar;
    for(i=0;i<count;i++)
@@ -188,11 +188,11 @@ private void main(string arg)
       disp+=disp_tmp;
    }
    disp+=sprintf(bar);
-   disp+=sprintf("¹²²éµ½£º%d¸öµØÇø¡£\n",count);
+   disp+=sprintf("å…±æŸ¥åˆ°ï¼š%dä¸ªåœ°åŒºã€‚\n",count);
    more(disp);
    return;
   default:
-  printf("ÓÃ·¨²»¶Ô£¬ÓÃhelp listarea¿´ÏêÏ¸°ïÖú¡£\n");
+  printf("ç”¨æ³•ä¸å¯¹ï¼Œç”¨help listareaçœ‹è¯¦ç»†å¸®åŠ©ã€‚\n");
 							return;
                 }
         }

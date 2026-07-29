@@ -69,18 +69,18 @@ private int next_file()
 private void print_help()
 {
         write(
-          "More µÄ°ïÖúÎÄ¼ş£º\n\n"
-          "    a : ÖØĞÂÏÔÊ¾µ±Ç°Ò³¡£\n"
-          "    / : /<×Ö·û´®>£¬ÕıÏòËÑË÷×Ö·û´®¡£\n"
-          "  h,? : ±¾°ïÖú¡£»ò ?<×Ö·û´®>£¬ÄæÏòËÑË÷×Ö·û´®¡£\n"
-          "    d : ÇĞ»»ÏÔÊ¾·½Ïò¡£(ÕıÏò»òÄæÏò)¡¢\n"
-          "    b : »Øµ½ÎÄ¼ş¿ªÍ·¡£\n"
-          "    e : ÏÔÊ¾ÎÄ¼şÄ©Î²¡£\n"
-          "    n : ÏÔÊ¾ÔÚÏÖĞĞÏÔÊ¾·½ÏòÖĞµÄÏÂÒ»¸öÎÄ¼ş£¬Èç¹ûÓĞµÄ»°¡£\n"
-          "    q : ÍË³ö¡£\n"
-          "    s : s <×Ö·û´®>£¬Éè¶¨»òÈ¡ÏûËÑË÷µÄ×Ö·û´®¡£\n"
+          "More çš„å¸®åŠ©æ–‡ä»¶ï¼š\n\n"
+          "    a : é‡æ–°æ˜¾ç¤ºå½“å‰é¡µã€‚\n"
+          "    / : /<å­—ç¬¦ä¸²>ï¼Œæ­£å‘æœç´¢å­—ç¬¦ä¸²ã€‚\n"
+          "  h,? : æœ¬å¸®åŠ©ã€‚æˆ– ?<å­—ç¬¦ä¸²>ï¼Œé€†å‘æœç´¢å­—ç¬¦ä¸²ã€‚\n"
+          "    d : åˆ‡æ¢æ˜¾ç¤ºæ–¹å‘ã€‚(æ­£å‘æˆ–é€†å‘)ã€\n"
+          "    b : å›åˆ°æ–‡ä»¶å¼€å¤´ã€‚\n"
+          "    e : æ˜¾ç¤ºæ–‡ä»¶æœ«å°¾ã€‚\n"
+          "    n : æ˜¾ç¤ºåœ¨ç°è¡Œæ˜¾ç¤ºæ–¹å‘ä¸­çš„ä¸‹ä¸€ä¸ªæ–‡ä»¶ï¼Œå¦‚æœæœ‰çš„è¯ã€‚\n"
+          "    q : é€€å‡ºã€‚\n"
+          "    s : s <å­—ç¬¦ä¸²>ï¼Œè®¾å®šæˆ–å–æ¶ˆæœç´¢çš„å­—ç¬¦ä¸²ã€‚\n"
           "\n"
-          "»Ø³µ»òÆäËû×Ö·ûÔò½øÈëÏÂÒ»Ò³¡£\n");
+          "å›è½¦æˆ–å…¶ä»–å­—ç¬¦åˆ™è¿›å…¥ä¸‹ä¸€é¡µã€‚\n");
 
 }
 
@@ -123,7 +123,7 @@ private nomask void do_more(mixed arg) {
         break;
         }
         //write("more: illegal syntax, type \"h\" for help.\n");
-        write("ÓÃ·¨´íÎó£¬ÓÃ h À´È¡µÃ°ïÖú¡£\n");
+        write("ç”¨æ³•é”™è¯¯ï¼Œç”¨ h æ¥å–å¾—å¸®åŠ©ã€‚\n");
         return;
     case 'h':
         print_help();
@@ -132,11 +132,11 @@ private nomask void do_more(mixed arg) {
         if (arg != "s") {
         current_search = arg[1..];
         //write("more: search set to \"" + current_search + "\"\n");
-        write("more: Éè¶¨²éÕÒ×Ö·û´®Îª£º" + current_search + "\n");
+        write("more: è®¾å®šæŸ¥æ‰¾å­—ç¬¦ä¸²ä¸ºï¼š" + current_search + "\n");
         } else {
         current_search = 0;
         //write("more: search off\n");
-        write("more: ¹Ø±Õ²éÕÒ¡£\n");
+        write("more: å…³é—­æŸ¥æ‰¾ã€‚\n");
         }
         return;
     case '/':
@@ -159,14 +159,14 @@ private nomask void do_more(mixed arg) {
         break;
         }
         //write("more: illegal syntax, type \"h\" for help.\n");
-        write("ÓÃ·¨´íÎó£¬ÓÃ h À´È¡µÃ°ïÖú¡£\n");
+        write("ç”¨æ³•é”™è¯¯ï¼Œç”¨ h æ¥å–å¾—å¸®åŠ©ã€‚\n");
         return;
     case 'd':                           // Toggle Direction
         direction = -direction;
         write(//"more: now scanning " +
-                  "more: ÏÖÔÚÏÔÊ¾·½ÏòÎª£º" +
+                  "more: ç°åœ¨æ˜¾ç¤ºæ–¹å‘ä¸ºï¼š" +
                   (direction == 1 ? //"forward" : "backward"
-                                    "ÕıÏò" : "ÄæÏò") + "\n");
+                                    "æ­£å‘" : "é€†å‘") + "\n");
         return;
     case 'n':                           // Next file if any
         if (sizeof(file_list) > 1)
@@ -178,9 +178,9 @@ private nomask void do_more(mixed arg) {
             }
         if (file_index < 0 || file_index >= sizeof(file_list)) {
             write(//"more: no more files "
-                      "more: Ã»ÓĞÎÄ¼şÔÚ" +file_list[file_index - 1]
+                      "more: æ²¡æœ‰æ–‡ä»¶åœ¨" +file_list[file_index - 1]
                       + (direction  == 1 ? //"after" : "preceding"
-                      "Ö®ºó" : "Ö®Ç°")
+                      "ä¹‹å" : "ä¹‹å‰")
                         + "\n");
             file_index -= direction;
             return;
@@ -223,7 +223,7 @@ private nomask void do_more(mixed arg) {
         write("filename: "+file_list[file_index]+"\n");
         if (file_size(file_list[file_index]) == -1) {
              write(//"more: no such file "
-                      "more: ÎŞ´ËÎÄ¼ş£º" + file_list[file_index] + "\n");
+                      "more: æ— æ­¤æ–‡ä»¶ï¼š" + file_list[file_index] + "\n");
                 if ( next_file() )
                     break;
         continue;
@@ -231,7 +231,7 @@ private nomask void do_more(mixed arg) {
             contents = read_file(file_list[file_index]);
             if ( !contents || !sizeof(lines = explode(contents, "\n")) )
             {
-             write("more: ÎÄ¼şÎª¿Õ£º" + file_list[file_index]);
+             write("more: æ–‡ä»¶ä¸ºç©ºï¼š" + file_list[file_index]);
                 if ( next_file() )
                     break;
         continue;
@@ -249,8 +249,8 @@ private nomask void do_more(mixed arg) {
             break;
         if (line_index < 0 || line_index >= sizeof(lines)) {
             write("more: " + current_search + //" not found in "
-                      (file_list ? "ÔÚÎÄ¼ş " + file_list[file_index] 
-                        + " ÖĞ" : "")+ "ÕÒ²»µ½¡£\n");
+                      (file_list ? "åœ¨æ–‡ä»¶ " + file_list[file_index] 
+                        + " ä¸­" : "")+ "æ‰¾ä¸åˆ°ã€‚\n");
                 if ( next_file() )
                 {
                     /* oops. not found. back up and get some input. */

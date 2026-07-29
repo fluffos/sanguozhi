@@ -34,31 +34,31 @@ void view_dir(int i)
   switch(i)
   {
 	case 1:
-		p_lx="Ó¢ÓÂÉÆÕ½ĞÍ¡£";
+		p_lx="è‹±å‹‡å–„æˆ˜å‹ã€‚";
 		p_wuli=20;
 		p_zhimou=10;
 		p_meili=10;
 		break;
 	case 2:
-	       	p_lx="×ãÖÇ¶àÄ±ĞÍ¡£";
+	       	p_lx="è¶³æ™ºå¤šè°‹å‹ã€‚";
 		p_wuli=10;
 		p_zhimou=20;
 		p_meili=10;
 		break;
 	case 3:
-		p_lx="Ê¶ÈËÉÆÓÃĞÍ¡£";
+		p_lx="è¯†äººå–„ç”¨å‹ã€‚";
 		p_wuli=10;
 		p_zhimou=10;
 		p_meili=20;
 		break;
 	case 4:
-		p_lx="ÖÇÓÂÈ«²ÅĞÍ¡£";
+		p_lx="æ™ºå‹‡å…¨æ‰å‹ã€‚";
 		p_wuli=14;
 		p_zhimou=14;
 		p_meili=12;		
 		break;
    }
-   m= new_menu("Îä½«Ñ¡ĞÍ:"+p_lx);
+   m= new_menu("æ­¦å°†é€‰å‹:"+p_lx);
    p_pointleft=60-p_wuli-p_zhimou-p_meili;
    while(p_pointleft)
    {
@@ -89,15 +89,15 @@ void view_dir(int i)
 			break;
 	}
     }
-  p_disp=sprintf("                ÎäÁ¦£º%d     ÖÇÄ±£º%d      ÷ÈÁ¦£º%d",p_wuli,p_zhimou,p_meili);
+  p_disp=sprintf("                æ­¦åŠ›ï¼š%d     æ™ºè°‹ï¼š%d      é­…åŠ›ï¼š%d",p_wuli,p_zhimou,p_meili);
 
 	
 
-  item=new_menu_item("½ÓÊÜ´ËÌì¸³¡£",(: accept_gift() :),"r");
+  item=new_menu_item("æ¥å—æ­¤å¤©èµ‹ã€‚",(: accept_gift() :),"r");
 
   add_menu_item(m, main_seperator);
 //  add_menu_item(m, blank_seperator);
-  add_menu_item(m, new_seperator("ÒÔÏÂÌì¸³ÖµÂúÒâÂğ£º"));
+  add_menu_item(m, new_seperator("ä»¥ä¸‹å¤©èµ‹å€¼æ»¡æ„å—ï¼š"));
   add_menu_item(m, new_seperator(p_disp));
   add_menu_item(m, item);
   add_menu_item(m, blank_seperator);
@@ -110,7 +110,7 @@ void view_dir(int i)
 //  add_menu_item (toplevel, main_seperator);
   allow_empty_selection(m);
 //  set_no_match_function(m,(:quit_if_cr:));
-  set_menu_prompt (m, "r¼ü½ÓÊÜ´ËÌì¸³£¬h¼ü°ïÖú£¬m¼ü·µ»ØÉÏ¼¶Ñ¡µ¥£¬q¼üÍË³ö¡£ ");
+  set_menu_prompt (m, "ré”®æ¥å—æ­¤å¤©èµ‹ï¼Œhé”®å¸®åŠ©ï¼Œmé”®è¿”å›ä¸Šçº§é€‰å•ï¼Œqé”®é€€å‡ºã€‚ ");
   previous_menu = current_menu;
   current_menu = m;
 }
@@ -122,12 +122,12 @@ void gift_set_help()
 void create()
 {
 
-  toplevel      = new_menu("¡¶Èı¹úÑİÒå¡·Íæ¼ÒÌì¸³ÉèÖÃ"); 
+  toplevel      = new_menu("ã€Šä¸‰å›½æ¼”ä¹‰ã€‹ç©å®¶å¤©èµ‹è®¾ç½®"); 
 
 
-  quit_item = new_menu_item("ÍË³ö", (:quit_menu_application:), "q");
-  goto_main_menu_item =new_menu_item("»ØÖ÷Ñ¡µ¥", toplevel, "m");
-  help_item = new_menu_item("°ïÖú", (: gift_set_help() :),  "h");
+  quit_item = new_menu_item("é€€å‡º", (:quit_menu_application:), "q");
+  goto_main_menu_item =new_menu_item("å›ä¸»é€‰å•", toplevel, "m");
+  help_item = new_menu_item("å¸®åŠ©", (: gift_set_help() :),  "h");
 
   main_seperator = 
     new_seperator("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
@@ -136,13 +136,13 @@ void create()
 
 
   // Add items to the toplevel (main) menu.  
-  add_menu_item (toplevel, new_seperator("ÇëÑ¡Ôñ½ÇÉ«ÀàĞÍ£º"));
+  add_menu_item (toplevel, new_seperator("è¯·é€‰æ‹©è§’è‰²ç±»å‹ï¼š"));
   add_menu_item (toplevel, main_seperator);
 
-  add_menu_item(toplevel,new_menu_item("Ó¢ÓÂÉÆÕ½ĞÍ¡£",(: view_dir(1) :)));
-  add_menu_item(toplevel,new_menu_item("×ãÖÇ¶àÄ±ĞÍ¡£",(: view_dir(2) :)));
-  add_menu_item(toplevel,new_menu_item("Ê¶ÈËÉÆÓÃĞÍ¡£",(: view_dir(3) :)));
-  add_menu_item(toplevel,new_menu_item("ÖÇÓÂÈ«²ÅĞÍ¡£",(: view_dir(4) :)));
+  add_menu_item(toplevel,new_menu_item("è‹±å‹‡å–„æˆ˜å‹ã€‚",(: view_dir(1) :)));
+  add_menu_item(toplevel,new_menu_item("è¶³æ™ºå¤šè°‹å‹ã€‚",(: view_dir(2) :)));
+  add_menu_item(toplevel,new_menu_item("è¯†äººå–„ç”¨å‹ã€‚",(: view_dir(3) :)));
+  add_menu_item(toplevel,new_menu_item("æ™ºå‹‡å…¨æ‰å‹ã€‚",(: view_dir(4) :)));
 
   add_menu_item(toplevel,blank_seperator);
   add_menu_item (toplevel, main_seperator);
@@ -150,7 +150,7 @@ void create()
   add_menu_item (toplevel, quit_item);
   add_menu_item (toplevel, blank_seperator);
   add_menu_item (toplevel, main_seperator);
-  set_menu_prompt (toplevel, "°´Êı×Ö¼ü½«ÒÔÏàÓ¦µÄÄ£°åÑ¡ÔñÌì¸³£¬h¼ü°ïÖú£¬q¼üÍË³ö¡£ ");
+  set_menu_prompt (toplevel, "æŒ‰æ•°å­—é”®å°†ä»¥ç›¸åº”çš„æ¨¡æ¿é€‰æ‹©å¤©èµ‹ï¼Œhé”®å¸®åŠ©ï¼Œqé”®é€€å‡ºã€‚ ");
   allow_empty_selection(toplevel);
 //  set_no_match_function(toplevel,(:quit_if_cr:));
   }

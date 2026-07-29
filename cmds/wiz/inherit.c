@@ -14,7 +14,7 @@ private void main( string str )
 
     if ( !str )
     {
-//      write("ÓÃ·¨£ºinherit filename\n");
+//      write("ç”¨æ³•ï¼šinherit filename\n");
 	str = shell_ob->get_variable("cwf");
 //      return;
     }
@@ -26,7 +26,7 @@ private void main( string str )
     if ( targets ) {
         files = map_array(targets, (: file_name :));
         l = sizeof(targets);
-        outstr = "ÏÂÁÐ"+chinese_number(l)+"¸öÎï¼þ¼Ì³ÐÎÄ¼þ " + str +":\n";
+        outstr = "ä¸‹åˆ—"+chinese_number(l)+"ä¸ªç‰©ä»¶ç»§æ‰¿æ–‡ä»¶ " + str +":\n";
         while (l--) {
            outstr += files[l]+": "
         +((tempstr=targets[l]->short()) ? "\""+tempstr+"\" " : "[no short]")

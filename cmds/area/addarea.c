@@ -38,8 +38,8 @@ nomask private void main(string str)
     int level =1;
     if (!str||sscanf(str, "%s %s %s %s %s %d", char_id,p_id,p_name,p_zhou,sht,level)!=6)
     {
-        write("ÓÃ·¨£ºaddarea <½¨³ÇÕßID> <µØÇøID> <µØÇøÃû³Æ> <ËùÊôÖİ¿¤> <µØÇø¼ò³ÆID> <µØÇølevel>\n");
-        write("Àı×Ó£ºaddarea hrbl nanyang ÄÏÑô ±±¾£Öİ ny 2\n");
+        write("ç”¨æ³•ï¼šaddarea <å»ºåŸè€…ID> <åœ°åŒºID> <åœ°åŒºåç§°> <æ‰€å±å·éƒ¡> <åœ°åŒºç®€ç§°ID> <åœ°åŒºlevel>\n");
+        write("ä¾‹å­ï¼šaddarea hrbl nanyang å—é˜³ åŒ—è†å· ny 2\n");
         return;
     }
     if (CHAR_D->char_exist(char_id))
@@ -47,24 +47,24 @@ nomask private void main(string str)
     if (CHAR_D->get_char(char_id,"type")==TYPE_PLAYER)
        {CHAR_D->set_char(char_id,"buildcity",p_id);
         if (stringp(BUILDCITY_D->set_city_build_info(p_id,"baseinfo",({char_id,p_name,p_zhou,sht,level}))))
-            write("¸Ã³ÇÒÑ¾­ÔÚ½¨ÉèÖĞ£¬ÎŞ·¨¶ş´ÎÉèÖÃ£¡\n");
+            write("è¯¥åŸå·²ç»åœ¨å»ºè®¾ä¸­ï¼Œæ— æ³•äºŒæ¬¡è®¾ç½®ï¼\n");
         else
         {
          create_city_file(p_id);
          NEWS_D->add_city_group("city."+p_id);
-         write("Äã¸³Óè"+char_id+"ĞŞ½¨"+p_name+"("+p_id+")µÄÈ¨Á¦£¬³ÇÊĞµÈ¼¶Îª"+chinese_number(level)+
-              "£¬Á¥ÊôÓÚ"+p_zhou+"¡£\n");
-         tell(bodies(),YEL+"¡¾ÌìµÀ¡¿"+"ÒòÎª"+CHAR_D->get_char(char_id,"name")+"("+char_id+")"+
-                      "Í³Ò»ÌìÏÂÓĞ¹¦£¬ÌìÉñ¸³ÓèÆäÔÚ"+p_zhou+"Ò»´ø½¨ÔìĞÂ³Ç"+p_name+"("+p_id+")"+
-                      "µÄÈ¨Á¦¡£"+NOR+"\n");
+         write("ä½ èµ‹äºˆ"+char_id+"ä¿®å»º"+p_name+"("+p_id+")çš„æƒåŠ›ï¼ŒåŸå¸‚ç­‰çº§ä¸º"+chinese_number(level)+
+              "ï¼Œéš¶å±äº"+p_zhou+"ã€‚\n");
+         tell(bodies(),YEL+"ã€å¤©é“ã€‘"+"å› ä¸º"+CHAR_D->get_char(char_id,"name")+"("+char_id+")"+
+                      "ç»Ÿä¸€å¤©ä¸‹æœ‰åŠŸï¼Œå¤©ç¥èµ‹äºˆå…¶åœ¨"+p_zhou+"ä¸€å¸¦å»ºé€ æ–°åŸ"+p_name+"("+p_id+")"+
+                      "çš„æƒåŠ›ã€‚"+NOR+"\n");
         }
        }
     else
-      write("»úÆ÷ÈËNPCÔõÃ´½¨³ÇÊĞ£¿\n");
+      write("æœºå™¨äººNPCæ€ä¹ˆå»ºåŸå¸‚ï¼Ÿ\n");
     
     }
     else
-      write("±ØĞëÊÇ¶¨¾ÓµÄÍæ¼Ò½ÇÉ«²ÅÄÜ¾ßÓĞĞŞ½¨ĞÂ³ÇµÄ×Ê¸ñ£¡\n");
+      write("å¿…é¡»æ˜¯å®šå±…çš„ç©å®¶è§’è‰²æ‰èƒ½å…·æœ‰ä¿®å»ºæ–°åŸçš„èµ„æ ¼ï¼\n");
       
     return;
 }

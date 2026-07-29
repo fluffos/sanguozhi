@@ -42,7 +42,7 @@ private void main()
     if ( !check_privilege(1) )
     {
         //out("Sorry, this command is only available to admins.\n");
-        out("对不起，这条命令只能给大神使用。\n");
+        out("瀵逛笉璧凤紝杩欐潯鍛戒护鍙兘缁欏ぇ绁炰娇鐢ㄣ�俓n");
         return;
     }
 

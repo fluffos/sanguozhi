@@ -48,12 +48,12 @@ create() {
 
 
 int stat_me() {
-    write("Çé¸Ğ´Ê»ã×ÜÊı: " + sizeof(emotes) + "\n");
+    write("æƒ…æ„Ÿè¯æ±‡æ€»æ•°: " + sizeof(emotes) + "\n");
     return 1;
 }
 
 int
-add_emote(string verb, mixed rule, string array parts)
+add_emote(string verb, mixed rule, string * parts)
 {
 /*
     if( base_name( previous_object()) != CMD_ADD_EMOTE )
@@ -284,12 +284,12 @@ private string get_completion(string s)
     switch(sizeof(completions))
     {
     case 0:
-    write("ÕÒ²»µ½ÊÊºÏ '" + s + "*' µÄÆ¥Åä¡£\n");
+    write("æ‰¾ä¸åˆ°é€‚åˆ '" + s + "*' çš„åŒ¹é…ã€‚\n");
     return 0;
     case 1:
     return completions[0];
     default:
-    write("²éÑ¯½á¹û²»Ö»Ò»¸ö¡£ÕÒµ½ÁË: \n" + implode(completions, ", ") + "\n");
+    write("æŸ¥è¯¢ç»“æœä¸åªä¸€ä¸ªã€‚æ‰¾åˆ°äº†: \n" + implode(completions, ", ") + "\n");
     return 0;
     }
 }
@@ -330,8 +330,8 @@ void do_verb_rule(string verb, string rule, mixed args...)
     if ( sizeof(soul[0]) == 2 &&
       !immediately_accessible(soul[0][1]))
     {
-        soul[1][0] = "%^B_GREEN%^¡¾Ô¶³Ì¡¿" + soul[1][0];
-        soul[1][1] = "%^B_GREEN%^¡¾Ô¶³Ì¡¿" + soul[1][1];
+        soul[1][0] = "%^B_GREEN%^ã€è¿œç¨‹ã€‘" + soul[1][0];
+        soul[1][1] = "%^B_GREEN%^ã€è¿œç¨‹ã€‘" + soul[1][1];
     soul[1][0]=replace_string( soul[1][0], "%^RESET%^", "%^RESET%^%^B_GREEN%^" );
     soul[1][1]=replace_string( soul[1][1], "%^RESET%^", "%^RESET%^%^B_GREEN%^" );
     inform(soul[0], soul[1], 0);

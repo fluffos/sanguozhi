@@ -11,7 +11,7 @@ inherit M_COMPLETE;
 inherit M_GETOPT;
 inherit M_REGEX;
 
-private static string path;
+private nosave string path;
 int     expand_vars;
 
 void set_expand_vars(int i)
@@ -20,7 +20,7 @@ void set_expand_vars(int i)
 }
 
 int is_variable(string name);
-private mixed check_for_nuggets(string array args);
+private mixed check_for_nuggets(string * args);
 
 private void cmd_rehash()
 {
@@ -126,7 +126,7 @@ private void create()
     arg_to_words_func = (: argument_explode :); 
 }
 
-static void prepare_shell()
+protected void prepare_shell()
 {
     ::prepare_shell(); 
 
@@ -149,7 +149,7 @@ string query_shellname()
     return "wish (Lima wizard shell) v. 0.9";
 }
 
-varargs static void execute_command(string array argv, string original_input) 
+varargs protected void execute_command(string * argv, string original_input) 
 {
     mixed       tmp;
     string      path = query_path();
@@ -161,7 +161,7 @@ varargs static void execute_command(string array argv, string original_input)
     mixed       nugget_info;
     mixed       remaining_implode_info;
     string      virgin_input;
-    string      array implode_info;
+    string * implode_info;
 
     /* BEGINNING OF EXPANSION */
     tmp = evaluate(arg_to_words_func, implode(argv," ")); 
@@ -318,14 +318,14 @@ varargs static void execute_command(string array argv, string original_input)
             write(this_body()->nonsense());
         else
             printf(//"I don't know the verb '%s'.\n", 
-            	"没有 %s 这个命令或动词。\n", argv[0]);
+            	"娌℃湁 %s 杩欎釜鍛戒护鎴栧姩璇嶃�俓n", argv[0]);
             
     } else {
         if (is_file(CMD_DIR_VERBS "/" + argv[0] + ".c"))
             write("Can't use verb with no body.\n");
         else
             printf(//"I don't know the verb '%s'.\n", 
-            	"没有 %s 这个命令或动词。\n", argv[0]);
+            	"娌℃湁 %s 杩欎釜鍛戒护鎴栧姩璇嶃�俓n", argv[0]);
     }
 }
 
@@ -351,21 +351,21 @@ void setup_for_save()
     shellvars::setup_for_save();
 }
 
-static mixed what_prompt()
+protected mixed what_prompt()
 {
     return (: get_prompt :);
 }
 
-static nomask string query_save_path(string userid)
+protected nomask string query_save_path(string userid)
 {
     return WSHELL_PATH(userid);
 }
 
 // Support for IO redirection
-private mixed check_for_nuggets(string array args)
+private mixed check_for_nuggets(string * args)
 {
   int           i,j;
-  string array  stdinstuff = 0;
+  string *  stdinstuff = 0;
 
   i = member_array("<",args);
   if(i != -1)

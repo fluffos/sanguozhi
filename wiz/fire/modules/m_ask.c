@@ -31,13 +31,13 @@ nomask void ans_def_name(object who)
 	m_zi=this_object()->query_sg_zi();
 	if(m_zi)
 	{
-		m_zi="×Ö"+m_zi;
+		m_zi="å­—"+m_zi;
 	}
 	else
 	{
 		m_zi="";
 	}
-this_object()->simple_action("$NĞ¦×ÅËµµ½£º¡°ÎÒÄË"+m_name+m_zi+"£¬Çë¶à¶àÖ¸½Ì£¿\n")
+this_object()->simple_action("$Nç¬‘ç€è¯´åˆ°ï¼šâ€œæˆ‘ä¹ƒ"+m_name+m_zi+"ï¼Œè¯·å¤šå¤šæŒ‡æ•™ï¼Ÿ\n")
 ;
 	return;
 }
@@ -45,13 +45,12 @@ nomask void ans_def_here(object who)
 {
 	string m_name;
 	m_name=environment(this_body())->short();
-this_object()->simple_action("$NĞ¦×ÅËµµ½£º¡°ÕâÀïÊÇ"+m_name+"Ï²»¶Õâ¶ùÂğ£¿¡±\n");
+this_object()->simple_action("$Nç¬‘ç€è¯´åˆ°ï¼šâ€œè¿™é‡Œæ˜¯"+m_name+"å–œæ¬¢è¿™å„¿å—ï¼Ÿâ€\n");
 	return;
 }
 nomask void ans_def_rumors(object who)
 {
-this_object()->simple_action("$NĞ¦×ÅËµµ½£º¡°³¤Ê±¼äÃ»³öÃÅÁË£¬ºÃÏóÒ²Ã»Ìıµ½Ê²Ã´ÓĞÈ
-¤µÄÏûÏ¢¡£¡±\n");
+this_object()->simple_action("$Nç¬‘ç€è¯´åˆ°ï¼šâ€œé•¿æ—¶é—´æ²¡å‡ºé—¨äº†ï¼Œå¥½è±¡ä¹Ÿæ²¡å¬åˆ°ä»€ä¹ˆæœ‰ã•å—î¼â…°ï¼ç›¶n");
 	return;
 }
 nomask void ans_def_dunno(object who)
@@ -62,21 +61,21 @@ nomask void ans_def_dunno(object who)
 	switch(p_tmp)
 	{
 		case 0:
-this_object()->targetted_action("$N¶Ô$tËµµ½£º¡°ÄãËµÊ²Ã´ÎÒÌı²»¶®Ñ½¡£¡±\n",who);
+this_object()->targetted_action("$Nå¯¹$tè¯´åˆ°ï¼šâ€œä½ è¯´ä»€ä¹ˆæˆ‘å¬ä¸æ‡‚å‘€ã€‚â€\n",who);
 			return;
 		case 1:
-this_object()->targetted_action("$N¶Ô$tËµµ½£º¡°ÄãÎÊµÃÊÂÎÒÔõÃ´Ò»µã¸ÅÄî¶¼Ã»ÓĞÑ½¡£
-¡±\n",who);
+this_object()->targetted_action("$Nå¯¹$tè¯´åˆ°ï¼šâ€œä½ é—®å¾—äº‹æˆ‘æ€ä¹ˆä¸€ç‚¹æ¦‚å¿µéƒ½æ²¡æœ‰å‘€ã€‚
+â€\n",who);
 			return;
 		case 2:
-this_object()->targetted_action("$N¶Ô$tËµµ½£º¡°Õâ¸öÎÊÌâ×îºÃÎÊÎÊ±ğÈË¡£¡±\n",who);
+this_object()->targetted_action("$Nå¯¹$tè¯´åˆ°ï¼šâ€œè¿™ä¸ªé—®é¢˜æœ€å¥½é—®é—®åˆ«äººã€‚â€\n",who);
 			return;
 		case 3:
-this_object()->targetted_action("$N¶Ô$tµÉ´óÁËÑÛ¾µ£º¡°àÅ£¿¡±\n",who);
+this_object()->targetted_action("$Nå¯¹$tçªå¤§äº†çœ¼é•œï¼šâ€œå—¯ï¼Ÿâ€\n",who);
 			return;
 		case 4:
-this_object()->targetted_action("$N¶Ô$tËµµ½£º¡°ºÜ±§Ç¸£¬ÕâÒ²ÕıÊÇÎÒÏëÎÊµÄÎÊÌâÑ½¡£
-¡±\n",who);
+this_object()->targetted_action("$Nå¯¹$tè¯´åˆ°ï¼šâ€œå¾ˆæŠ±æ­‰ï¼Œè¿™ä¹Ÿæ­£æ˜¯æˆ‘æƒ³é—®çš„é—®é¢˜å‘€ã€‚
+â€\n",who);
 			return;
 	}
 	return;

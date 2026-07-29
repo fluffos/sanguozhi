@@ -1,4 +1,4 @@
-//  ╨Ст╨
+//  Е░▌И≥╒
 // cl_hy.c by benben
 #include <mudlib.h>
 #include <sanguo.h>
@@ -7,7 +7,7 @@ inherit ROOM;
 void setup(){
     set_area("caolu_area");
     set_light(50);
-    set_brief(""+YEL+"╨Ст╨"+NOR+"");
+    set_brief(""+YEL+"Е░▌И≥╒"+NOR+"");
     set_long("           ____
          _/    `--_ 
         /__/ _-- \\ \\ 
@@ -15,7 +15,7 @@ void setup(){
  wwW wW\\_/_________/ wwWW   WW WW www  wwwWWWw WWW       W
    WwW    (stone)    WwWww wwwWWWWw wWWWWww WWWWwWWWwWWWw WWWWwWw
 
-    ╨Ст╨йгр╩©И©у╣ь,╡щ╣ьиосп©Ий╞м╥║ё\n\n");
+    Е░▌И≥╒Ф≤╞Д╦─Е²≈Г╘╨Е°╟,Х█┴Е°╟Д╦┼Ф°┴Е²≈Г÷ЁЕ╓╢Ц─┌\n\n");
     set_exits( ([
         "south" :  __DIR__+"cl_ht.c",
     ]) );

@@ -1,4 +1,4 @@
-// ’º≤∑
+// Âç†Âçú
 #include <mudlib.h>
 #include <daemons.h>
 #include <ansi.h>
@@ -16,23 +16,23 @@ void main(object ob)
 	p_name=this_body()->query_id()[0];
 	
 	if(!(CHAR_D->get_char(p_name,"skills")))
-       	{       write("ƒ„≤ªª·’º≤∑÷Æ ı°£\n");
+       	{       write("‰Ω†‰∏ç‰ºöÂç†Âçú‰πãÊúØ„ÄÇ\n");
                 return;
        	}
 	
         if(!((p_skill=CHAR_D->get_char(p_name,"skills")["zhanbu"])>40))
-	{	write("ƒ„’º≤∑÷Æ ıµ»º∂Ã´µÕ°£\n");
+	{	write("‰Ω†Âç†Âçú‰πãÊúØÁ≠âÁ∫ßÂ§™‰Ωé„ÄÇ\n");
 		return;
 	}
 	if( !p_id){
-                write("÷ª”–…Ì‘⁄æ¸÷–≤≈ƒ‹ π”√’º≤∑÷Æ ı°£\n");
+                write("Âè™ÊúâË∫´Âú®ÂÜõ‰∏≠ÊâçËÉΩ‰ΩøÁî®Âç†Âçú‰πãÊúØ„ÄÇ\n");
                 return;
         };	
 	// In the furture, We have to consider theplayer's ablility
 	// add the exp of this jimou, reduce mp, etc.
 	where = TROOP_D->get_troop_area(p_id);
 	ob->simple_action(SG_SKILL_D->query_use("zhanbu"));
-	ob->start_busy(10, "ƒ„’˝√¶”⁄ π”√’º≤∑÷Æ ı°£");
+	ob->start_busy(10, "‰Ω†Ê≠£Âøô‰∫é‰ΩøÁî®Âç†Âçú‰πãÊúØ„ÄÇ");
 
 	call_out("show_result", 5+random(5), ob);
 }
@@ -59,9 +59,9 @@ void show_result(object ob)
         rm=bmin(30,rm);
         this_body()->set_sg_rongmao(rm);
 	WARAI_D->war_inf(TROOP_D->get_troops(p_id,"task_id"),
-TROOP_D->find_troop(p_id)->query_id()[1]+" π”√’º≤∑÷Æ ı£¨ π"+
+TROOP_D->find_troop(p_id)->query_id()[1]+"‰ΩøÁî®Âç†Âçú‰πãÊúØÔºå‰Ωø"+
 CHAR_D->get_char(p_name,"name")+
-"‘ˆº”»›√≤÷¡"+chinese_number(rm)+"µ„°£","b");
+"Â¢ûÂä†ÂÆπË≤åËá≥"+chinese_number(rm)+"ÁÇπ„ÄÇ","b");
 		}
 		else 
 		{ ob->simple_action(SG_SKILL_D->query_succ("zhanbu"));
@@ -70,9 +70,9 @@ CHAR_D->get_char(p_name,"name")+
         rm=bmin(30,rm);
         this_body()->set_sg_rongmao(rm);
         WARAI_D->war_inf(TROOP_D->get_troops(p_id,"task_id"),
-TROOP_D->find_troop(p_id)->query_id()[1]+" π”√’º≤∑÷Æ ı£¨ π"+
+TROOP_D->find_troop(p_id)->query_id()[1]+"‰ΩøÁî®Âç†Âçú‰πãÊúØÔºå‰Ωø"+
 CHAR_D->get_char(p_name,"name")+
-"ºıµÕ»›√≤÷¡"+chinese_number(rm)+"µ„°£","b");	
+"Âáè‰ΩéÂÆπË≤åËá≥"+chinese_number(rm)+"ÁÇπ„ÄÇ","b");	
 	}
 } 
 	if (kill ==4)
@@ -81,9 +81,9 @@ CHAR_D->get_char(p_name,"name")+
 	e_id= troops[random(sizeof(troops))];
 	damage= kill * p_skill*30 /20 ;
 	WARAI_D->war_inf(TROOP_D->get_troops(p_id,"task_id"),
-TROOP_D->find_troop(p_id)->query_id()[1]+" π”√’º≤∑÷Æ ı£¨’–¿¥ÃÏª…’…±"+
+TROOP_D->find_troop(p_id)->query_id()[1]+"‰ΩøÁî®Âç†Âçú‰πãÊúØÔºåÊãõÊù•Â§©ÁÅ´ÁÉßÊùÄ"+
 TROOP_D->find_troop(e_id)->query_id()[1]+chinese_number(damage)+
-"»À°£","b");
+"‰∫∫„ÄÇ","b");
 	WARAI_D->kill_troop(e_id,damage);
 	WARAI_D->clear_empty_troop(({e_id}));
 		}
@@ -94,8 +94,8 @@ TROOP_D->find_troop(e_id)->query_id()[1]+chinese_number(damage)+
 	kill = kill * 6;
 "/daemons/condition_d.c"->apply_condition(e_id,"confuse",kill,damage);
         WARAI_D->war_inf(TROOP_D->get_troops(p_id,"task_id"),
-TROOP_D->find_troop(p_id)->query_id()[1]+" π”√’º≤∑÷Æ ı£¨’–¿¥ÃÏ¿◊ π"+
-TROOP_D->find_troop(e_id)->query_id()[1]+"œ›»ÎªÏ¬“°£","b");
+TROOP_D->find_troop(p_id)->query_id()[1]+"‰ΩøÁî®Âç†Âçú‰πãÊúØÔºåÊãõÊù•Â§©Èõ∑‰Ωø"+
+TROOP_D->find_troop(e_id)->query_id()[1]+"Èô∑ÂÖ•Ê∑∑‰π±„ÄÇ","b");
 	}
 	     if (kill == 0 || kill == 1||kill == 5)
 		{
@@ -104,7 +104,7 @@ TROOP_D->find_troop(e_id)->query_id()[1]+"œ›»ÎªÏ¬“°£","b");
 		damage= 10+ random(10);
 "/daemons/condition_d.c"->apply_condition(p_id,"confuse",kill,damage);	
 		WARAI_D->war_inf(TROOP_D->get_troops(p_id,"task_id"),
-TROOP_D->find_troop(p_id)->query_id()[1]+" π”√’º≤∑÷Æ ı ß∞‹£¨œ›»ÎªÏ¬“°£","b");
+TROOP_D->find_troop(p_id)->query_id()[1]+"‰ΩøÁî®Âç†Âçú‰πãÊúØÂ§±Ë¥•ÔºåÈô∑ÂÖ•Ê∑∑‰π±„ÄÇ","b");
 	
 		}
 	if (kill == 8)
@@ -115,9 +115,9 @@ TROOP_D->find_troop(p_id)->query_id()[1]+" π”√’º≤∑÷Æ ı ß∞‹£¨œ›»ÎªÏ¬“°£","b");
 		  sm= sm + sm1;
 		  this_body()->set_shouming(sm);
 	WARAI_D->war_inf(TROOP_D->get_troops(p_id,"task_id"),
-TROOP_D->find_troop(p_id)->query_id()[1]+" π”√’º≤∑÷Æ ı£¨ ‹ÃÏ…Ò◊£∏££¨‘ˆº”"+
+TROOP_D->find_troop(p_id)->query_id()[1]+"‰ΩøÁî®Âç†Âçú‰πãÊúØÔºåÂèóÂ§©Á•ûÁ•ùÁ¶èÔºåÂ¢ûÂä†"+
 CHAR_D->get_char(p_name,"name")+
-" Ÿ√¸"+chinese_number(sm1)+"ƒÍ°£","b");
+"ÂØøÂëΩ"+chinese_number(sm1)+"Âπ¥„ÄÇ","b");
 		}
 		else {
 		sm1 = random(-1) -1;
@@ -125,9 +125,9 @@ CHAR_D->get_char(p_name,"name")+
 		sm1 = 0-sm1;
                   this_body()->set_shouming(sm);
         WARAI_D->war_inf(TROOP_D->get_troops(p_id,"task_id"),
-TROOP_D->find_troop(p_id)->query_id()[1]+" π”√’º≤∑÷Æ ı£¨ ‹∂Òƒß◊Á÷‰£¨ºı…Ÿ"+
+TROOP_D->find_troop(p_id)->query_id()[1]+"‰ΩøÁî®Âç†Âçú‰πãÊúØÔºåÂèóÊÅ∂È≠îËØÖÂííÔºåÂáèÂ∞ë"+
 CHAR_D->get_char(p_name,"name")+
-" Ÿ√¸"+chinese_number(sm1)+"ƒÍ°£","b");
+"ÂØøÂëΩ"+chinese_number(sm1)+"Âπ¥„ÄÇ","b");
 	}
 	}	
 
@@ -138,9 +138,9 @@ CHAR_D->get_char(p_name,"name")+
 	e_id= troops[random(sizeof(troops))];
         damage= kill * p_skill*70 /20 ;
 	WARAI_D->war_inf(TROOP_D->get_troops(p_id,"task_id"),
-TROOP_D->find_troop(p_id)->query_id()[1]+" π”√’º≤∑÷Æ ı£¨’–¿¥ÃÏ¡˙ª˜…±"+
+TROOP_D->find_troop(p_id)->query_id()[1]+"‰ΩøÁî®Âç†Âçú‰πãÊúØÔºåÊãõÊù•Â§©ÈæôÂáªÊùÄ"+
 TROOP_D->find_troop(e_id)->query_id()[1]+chinese_number(damage)+
-"»À°£","b");
+"‰∫∫„ÄÇ","b");
         WARAI_D->kill_troop(e_id,damage);
         WARAI_D->clear_empty_troop(({e_id}));
 	}
@@ -152,16 +152,16 @@ TROOP_D->find_troop(e_id)->query_id()[1]+chinese_number(damage)+
 	if (random(2) >0){	
 	TROOP_D->add_morale(e_id,damage);
 	WARAI_D->war_inf(TROOP_D->get_troops(p_id,"task_id"),
-TROOP_D->find_troop(p_id)->query_id()[1]+" π”√’º≤∑÷Æ ı£¨’–¿¥ÃÏ”• π"+
+TROOP_D->find_troop(p_id)->query_id()[1]+"‰ΩøÁî®Âç†Âçú‰πãÊúØÔºåÊãõÊù•Â§©Èπ∞‰Ωø"+
 TROOP_D->find_troop(e_id)->query_id()[1]+
-" ø∆¯…œ…˝°£","b");		
+"Â£´Ê∞î‰∏äÂçá„ÄÇ","b");		
 	   	}
 	else	{
 	damage = 0 - damage;
 	WARAI_D->war_inf(TROOP_D->get_troops(p_id,"task_id"),
-TROOP_D->find_troop(p_id)->query_id()[1]+" π”√’º≤∑÷Æ ı£¨’–¿¥ÃÏ’ π"+
+TROOP_D->find_troop(p_id)->query_id()[1]+"‰ΩøÁî®Âç†Âçú‰πãÊúØÔºåÊãõÊù•Â§©Èπ´‰Ωø"+
 TROOP_D->find_troop(e_id)->query_id()[1]+
-" ø∆¯œ¬Ωµ°£","b");
+"Â£´Ê∞î‰∏ãÈôç„ÄÇ","b");
 		}	
 	}
 	if (kill == 2)
@@ -171,9 +171,9 @@ TROOP_D->find_troop(e_id)->query_id()[1]+
 		kill= kill *24;
 "/daemons/condition_d.c"->apply_condition(e_id,"poison",kill,damage);
 WARAI_D->war_inf(TROOP_D->get_troops(p_id,"task_id"),
-TROOP_D->find_troop(p_id)->query_id()[1]+" π”√’º≤∑÷Æ ı£¨’–¿¥ÃÏ…ﬂ π"+
+TROOP_D->find_troop(p_id)->query_id()[1]+"‰ΩøÁî®Âç†Âçú‰πãÊúØÔºåÊãõÊù•Â§©Ëõá‰Ωø"+
 TROOP_D->find_troop(e_id)->query_id()[1]+
-"÷–∂æ°£","b");
+"‰∏≠ÊØí„ÄÇ","b");
 
         }
 

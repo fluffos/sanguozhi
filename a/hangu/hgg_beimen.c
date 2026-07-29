@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is »¨¶ù¶ä¶ä
+// driver is èŠ±å„¿æœµæœµ
 // created date is Tue Jun 14 22:15:03 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,7 +7,7 @@ inherit OUTDOOR_ROOM;
 void setup() {
 set_area("hangu");
 set_light(50);
-set_brief("%^YELLOW%^"+"º¯¹È¹Ø±±ÃÅ"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"å‡½è°·å…³åŒ—é—¨"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "north":"/a/hangu/hgg_dalu1.c",

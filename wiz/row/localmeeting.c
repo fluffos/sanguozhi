@@ -31,8 +31,8 @@ void start(string arg)
 	}
 	if(!m_auth)
 	{
-		write("ֻ�еط�����ͱ���Ȩ�ĵط��ٲ����´�����\n");
-		write("��Ҳ������ask <�ط�����> about localmeeting �ķ�ʽ�����ٿ��������顣\n");
+		write("只有地方首领和被授权的地方官才能下达此命令。\n");
+		write("你也可以用ask <地方首领> about localmeeting 的方式申请召开地区会议。\n");
 		return;
 	}
 	p_res=(EV_LOCALMEETING)->can_lmeeting(p_area);
@@ -42,16 +42,16 @@ void start(string arg)
             (EV_LOCALMEETING)->local_meeting(p_area);
             return;
         case LM_OTHERTASK:
-	    write("̫��������æ���أ��ֲ�������\n");
+	    write("太守现在正忙着呢，分不开身。\n");
          return;
         case LM_ALREADYLOCALMEETING:
-	    write("��������æ��Ϳ�ˣ��ⲻ���������鱾����������\n");
+	    write("看来你是忙糊涂了，这不是正在商议本地区事务吗？\n");
          return;
         case LM_NOENOUTHCHAR :
-	    write("�ܹ�û���ˣ���ʲô��ѽ����\n");
+	    write("总共没俩人，开什么会呀？！\n");
          return;
         case LM_TOOMANYABSENT:
-          write("��Ҷ�̫æ����������ֻ�ø����ˡ�\n");
+          write("大家都太忙，看来会议只好改期了。\n");
          return;
         }
 }

@@ -1,4 +1,4 @@
-// ËÙ¹¥
+// é€Ÿæ”»
 #include <mudlib.h>
 #include <daemons.h>
 #include <ansi.h>
@@ -16,16 +16,16 @@ void main(object ob)
 	p_name=this_body()->query_id()[0];
 
 	if( !(CHAR_D->get_char(p_name,"skills")) )
-		write("Äã²»»áËÙ¹¥Ö®¼Æ¡£\n");
+		write("ä½ ä¸ä¼šé€Ÿæ”»ä¹‹è®¡ã€‚\n");
         else if( !p_skill=CHAR_D->get_char(p_name,"skills")["sugong"] )
-		write("Äã²»»áËÙ¹¥Ö®¼Æ¡£\n");
+		write("ä½ ä¸ä¼šé€Ÿæ”»ä¹‹è®¡ã€‚\n");
 	else if( !p_id)
-                write("Ö»ÓÐÉíÔÚ¾üÖÐ²ÅÄÜÊ¹ÓÃËÙ¹¥Ö®¼Æ¡£\n");
+                write("åªæœ‰èº«åœ¨å†›ä¸­æ‰èƒ½ä½¿ç”¨é€Ÿæ”»ä¹‹è®¡ã€‚\n");
 	else {
 		load_object("/daemons/cast_d.c")->reg_player(p_name, "sugong");
 	ob->award_exp(ob->query_sk_level("sk_zhimou")/2+random(20),"sugong");
 		ob->simple_action(SG_SKILL_D->query_use("sugong"));
-		ob->start_busy(10, "ÄãÕýÃ¦ÓÚÊ¹ÓÃËÙ¹¥Ö®¼Æ¡£");
+		ob->start_busy(10, "ä½ æ­£å¿™äºŽä½¿ç”¨é€Ÿæ”»ä¹‹è®¡ã€‚");
 
 		call_out("show_result", 5+random(5), ob, p_skill, p_id);
 	}
@@ -58,7 +58,7 @@ void show_result(object ob, int p_skill, int p_id)
 	   	mora = -(mora * 10);
 		load_object("/daemons/condition_d.c")->apply_condition(p_id,"confuse",mora,damage);
 		WARAI_D->war_inf(TROOP_D->get_troops(p_id,"task_id"),
-	TROOP_D->find_troop(p_id)->query_id()[1]+"Ê¹ÓÃËÙ¹¥Ö®¼ÆÊ§°Ü£¬ÏÝÈë»ìÂÒÖ®ÖÐ¡£","b");
+	TROOP_D->find_troop(p_id)->query_id()[1]+"ä½¿ç”¨é€Ÿæ”»ä¹‹è®¡å¤±è´¥ï¼Œé™·å…¥æ··ä¹±ä¹‹ä¸­ã€‚","b");
 	} else {
 	if ( soldier < 1000 ) soldier = 1000;
         mora = mora*1000/soldier;

@@ -23,13 +23,13 @@ private void main(string arg)
         lamp=present("gini lamp",this_body());
 	if(!arg) arg="";
         if(!objectp(lamp)) {
-            this_body()->other_action("$Nà«à«×ÔÓï£¬ÓÖ±ÄÓÖÌø£¬Ïò·¢ÁË·èÒ»Ñù£¬²»ÖªÔÚ¸ÉÊ²Ã´¡£\n");
-            write("ÄãÃ»ÓĞÉñµÆ£¬ÕÙ²»À´¾«Áé¡£\n");
+            this_body()->other_action("$Nå–ƒå–ƒè‡ªè¯­ï¼Œåˆè¹¦åˆè·³ï¼Œå‘å‘äº†ç–¯ä¸€æ ·ï¼Œä¸çŸ¥åœ¨å¹²ä»€ä¹ˆã€‚\n");
+            write("ä½ æ²¡æœ‰ç¥ç¯ï¼Œå¬ä¸æ¥ç²¾çµã€‚\n");
 	    return;
         }
         if (!can_call_gini())
            {
-           write("ÏÖÔÚÖ»ÓĞÔÚ»ªÒõ´å²ÅÄÜºô»½×Ô¼ºµÄ³èÎï!\n");
+           write("ç°åœ¨åªæœ‰åœ¨åé˜´æ‘æ‰èƒ½å‘¼å”¤è‡ªå·±çš„å® ç‰©!\n");
            return;
            }
 	g_type=this_body()->get_gini();
@@ -75,13 +75,13 @@ private void main(string arg)
 			return;
 		case "old" : //
 			if(DAY_D->get_can_war()) {
-				write("Õ½ÕùÊ±¼äÔİÊ±½ûÖ¹¡£\n");
+				write("æˆ˜äº‰æ—¶é—´æš‚æ—¶ç¦æ­¢ã€‚\n");
 				return;
 			}
 			if(wizardp(this_body())) 
 			   o->my_call_old_player();
 			else
-			   write("¸Ã¹¦ÄÜÔİÊ±²»¶ÔÍæ¼Ò¿ª·Å!\n");
+			   write("è¯¥åŠŸèƒ½æš‚æ—¶ä¸å¯¹ç©å®¶å¼€æ”¾!\n");
 			return;
 			
 			return;
@@ -89,12 +89,12 @@ private void main(string arg)
 			if(wizardp(this_body())) 
 			   o->my_do(para);
 			else
-			   write("¸Ã¹¦ÄÜÔİÊ±²»¶ÔÍæ¼Ò¿ª·Å!\n");
+			   write("è¯¥åŠŸèƒ½æš‚æ—¶ä¸å¯¹ç©å®¶å¼€æ”¾!\n");
 			return;
 		case  "faq" :
 	                if (para=="") {
-				write("¸ñÊ½£ºgini faq <Ö÷Ìâ>\n"+
-				"ÀıÈç£ºgini faq Ç®  [Ö÷ÌâÖĞÓ¢ÎÄ½Ô¿É]\n");
+				write("æ ¼å¼ï¼šgini faq <ä¸»é¢˜>\n"+
+				"ä¾‹å¦‚ï¼šgini faq é’±  [ä¸»é¢˜ä¸­è‹±æ–‡çš†å¯]\n");
 				return;
 				}
 		        o->my_faq(para);
@@ -121,7 +121,7 @@ private void main(string arg)
 		        if(wizardp(this_body())) {
 			  if(!GINI_D->gini_exist(para)) {
 				write(
-                    "Ã»ÓĞÕâÖÖÀàĞÍµÄgini£¬ÓÃ %^H_CYAN%^gini list%^RESET%^ ²éÀàĞÍÇåµ¥¡£\n");
+                    "æ²¡æœ‰è¿™ç§ç±»å‹çš„giniï¼Œç”¨ %^H_CYAN%^gini list%^RESET%^ æŸ¥ç±»å‹æ¸…å•ã€‚\n");
 				return; 
 			}
 			o->my_return();
@@ -156,14 +156,14 @@ private void main(string arg)
 				int num;
 				num=sscanf(para,"%s %s",p_typ,p_act);
 				if(num!=2) {
-					write("¸ñÊ½£ºgini addact <typ> <act>\n"+
-					"ÀıÈç£ºgini addact come GMflya\n");
+					write("æ ¼å¼ï¼šgini addact <typ> <act>\n"+
+					"ä¾‹å¦‚ï¼šgini addact come GMflya\n");
 					return;
 				}
 				ks=GINI_D->get_n_act();
 				if(member_array(p_typ,ks)==-1) {
-					write("Ã»ÓĞÕâÖÖÀàĞÍµÄ¶¯×÷¡£\n"+
-					"ÓÃgini check²é¿´ËùÓĞµÄ¶¯×÷ÀàĞÍ¡£\n");
+					write("æ²¡æœ‰è¿™ç§ç±»å‹çš„åŠ¨ä½œã€‚\n"+
+					"ç”¨gini checkæŸ¥çœ‹æ‰€æœ‰çš„åŠ¨ä½œç±»å‹ã€‚\n");
 					return;
 				}
 				printf("%O\n",GINI_D->add_msg(g_type,p_typ,p_act));
@@ -176,14 +176,14 @@ private void main(string arg)
 				int num,p_index;
 				num=sscanf(para,"%s %d",p_act,p_index);
 				if(num!=2) {
-					write("¸ñÊ½£ºgini rmact <act> <index>\n"+
-					"ÀıÈç£ºgini rmact birth 1\n");
+					write("æ ¼å¼ï¼šgini rmact <act> <index>\n"+
+					"ä¾‹å¦‚ï¼šgini rmact birth 1\n");
 					return;
 				}
 				/*ks=GINI_D->get_n_act();
 				if(member_array(p_typ,ks)==-1) {
-					write("Ã»ÓĞÕâÖÖÀàĞÍµÄ¶¯×÷¡£\n"+
-					"ÓÃgini check²é¿´ËùÓĞµÄ¶¯×÷ÀàĞÍ¡£\n");
+					write("æ²¡æœ‰è¿™ç§ç±»å‹çš„åŠ¨ä½œã€‚\n"+
+					"ç”¨gini checkæŸ¥çœ‹æ‰€æœ‰çš„åŠ¨ä½œç±»å‹ã€‚\n");
 					return;
 				}*/
 				printf("%O\n",GINI_D->rm_msg(g_type,p_act,p_index));
@@ -203,8 +203,8 @@ private void main(string arg)
 				int num;
 				num=sscanf(para,"%s",p_hint);
 				if(num!=1) {
-					write("¸ñÊ½£ºgini addhint <hint>\n"+
-					"ÀıÈç£ºgini addhint Èı¹úÖ»ÓĞ×ö¹Ù»ò´ò¹¤²ÅÄÜÕõÇ®Å¶!\n");
+					write("æ ¼å¼ï¼šgini addhint <hint>\n"+
+					"ä¾‹å¦‚ï¼šgini addhint ä¸‰å›½åªæœ‰åšå®˜æˆ–æ‰“å·¥æ‰èƒ½æŒ£é’±å“¦!\n");
 					return;
 				}
 				printf("%O\n",GINI_D->add_hint(p_hint));
@@ -217,8 +217,8 @@ private void main(string arg)
 				int num,p_hint;
 				num=sscanf(para,"%d",p_hint);
 				if(num!=1) {
-					write("¸ñÊ½£ºgini rmhint <index>\n"+
-					"ÀıÈç£ºgini rmhint 1\n");
+					write("æ ¼å¼ï¼šgini rmhint <index>\n"+
+					"ä¾‹å¦‚ï¼šgini rmhint 1\n");
 					return;
 				}
 				printf("%O\n",GINI_D->remove_hint(p_hint));

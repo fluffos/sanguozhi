@@ -1,4 +1,4 @@
-// sendfood.c  É¢Á¸
+// sendfood.c  æ•£ç²®
 // by fire on Jan 1999
 void start(string arg)
 {
@@ -13,48 +13,48 @@ void start(string arg)
 	p_area1=CHAR_D->get_char(p_id,"area");
     if((!arg)||(arg==""))
     {
-        write("ÓÃ·¨£ºcmd sendfood Á¸Ê³Êı\n");
-        write("Àı×Ó£ºcmd sendfood 10000   É¢Ò»ÍòÁ¸Ê³\n");
-        write("ÓÃ cmd help sendfood ²é¿´ÏêÏ¸°ïÖú¡£\n");
+        write("ç”¨æ³•ï¼šcmd sendfood ç²®é£Ÿæ•°\n");
+        write("ä¾‹å­ï¼šcmd sendfood 10000   æ•£ä¸€ä¸‡ç²®é£Ÿ\n");
+        write("ç”¨ cmd help sendfood æŸ¥çœ‹è¯¦ç»†å¸®åŠ©ã€‚\n");
         return;
     }
     p_send=to_int(arg);
     if(!CHAR_D->get_char(p_id,"nation"))
     {
-            write("µÈÄã»ìÁË¸öÒ»¹Ù°ëÖ°ÒÔºó£¬ÔÙ¿¼ÂÇÉ¢Á¸êâÃñ°É¡£\n");
+            write("ç­‰ä½ æ··äº†ä¸ªä¸€å®˜åŠèŒä»¥åï¼Œå†è€ƒè™‘æ•£ç²®èµˆæ°‘å§ã€‚\n");
             return;
     }
 //        if(CHAR_D->get_char(p_id,"level")<2);
 //        {
-//                write("ÄãµÄ¹ÙÖ°Ì«µÍ£¬²»ÄÜÌáÕâÑùµÄ½¨Òé¡£\n");
+//                write("ä½ çš„å®˜èŒå¤ªä½ï¼Œä¸èƒ½æè¿™æ ·çš„å»ºè®®ã€‚\n");
 //                return;
 //        }
 
     my_task = TASK_D->get_char_task(p_id);
     if(my_task[1]!=TT_LOCALMEETING)
     {
-            write("Õâ¸öÎÊÌâ»¹ÊÇÔÚµØÇø»áÒéÉÏÌ¸°É¡£\n");
+            write("è¿™ä¸ªé—®é¢˜è¿˜æ˜¯åœ¨åœ°åŒºä¼šè®®ä¸Šè°ˆå§ã€‚\n");
             return;
     }
 	if(((file_name(environment(this_body())))!=
 ((AREA_D->get_area(p_area1,"path"))+(AREA_D->get_area(p_area1,"meeting"))))||(p_area1!=
 		environment(this_body())->get_area()))
 	{
-		write("Õâ¸öÎÊÌâ±ØĞëÔÚ»áÒéÖ®ËùÌÖÂÛ¡£\n");
+		write("è¿™ä¸ªé—®é¢˜å¿…é¡»åœ¨ä¼šè®®ä¹‹æ‰€è®¨è®ºã€‚\n");
 		return;
 	}
 
     task_id=my_task[0];
     if(TASK_D->get_task(task_id,"suggestion"))
     {
-            write("ÏÖÔÚÕıÔÚÌÖÂÛÆäËûµÄÒéÌâ£¬ÄãµÄÒâ¼ûµÈ»á¶ùÔÙËµ°É¡£\n");
+            write("ç°åœ¨æ­£åœ¨è®¨è®ºå…¶ä»–çš„è®®é¢˜ï¼Œä½ çš„æ„è§ç­‰ä¼šå„¿å†è¯´å§ã€‚\n");
             return;
     }
     if(((TASK_D->get_task(task_id,"timaim")-
             TASK_D->get_task(task_id,"timer"))<3)&&
             (TASK_D->get_task(task_id,"stage")!=0))
     {
-            write("Ê±¼ä²»¶àÁË£¬»ØÍ·ÔÙÌá°É¡£\n");
+            write("æ—¶é—´ä¸å¤šäº†ï¼Œå›å¤´å†æå§ã€‚\n");
             return;
     }
 	p_area=CHAR_D->get_char(p_id,"area");
@@ -65,29 +65,29 @@ void start(string arg)
 	p_foodout=AREA_D->get_area(p_area,"foodout");
     p_safe=AREA_D->get_area(p_area,"safe");
 	if((p_send*10)<p_population)
-    {   write("Ò»´ÎÉ¢Á¸ÖÁÉÙÊÇ°ÙĞÕÊıÄ¿µÄÊ®·ÖÖ®Ò»¡£\n");
+    {   write("ä¸€æ¬¡æ•£ç²®è‡³å°‘æ˜¯ç™¾å§“æ•°ç›®çš„ååˆ†ä¹‹ä¸€ã€‚\n");
         return;
     }
 	if((p_send)>(10*p_population))
-    {   write("Ò»´ÎÉ¢Á¸ÖÁ¶àÊÇ°ÙĞÕÊıÄ¿µÄÊ®±¶¡£\n");
+    {   write("ä¸€æ¬¡æ•£ç²®è‡³å¤šæ˜¯ç™¾å§“æ•°ç›®çš„åå€ã€‚\n");
         return;
     }
 	if((p_send)>p_food)
-    {   write("±¾µØÇøÃ»ÓĞÕâÃ´Ğí¶àÁ¸Ê³¡£\n");
+    {   write("æœ¬åœ°åŒºæ²¡æœ‰è¿™ä¹ˆè®¸å¤šç²®é£Ÿã€‚\n");
         return;
     }
 	if((p_send+p_month*p_foodout)>p_food)
     {
-        write("É¢ÕâÃ´¶àÁ¸£¬Ê¿±ø¿ÉÄÜÒª°¤¶ö¡£\n");
+        write("æ•£è¿™ä¹ˆå¤šç²®ï¼Œå£«å…µå¯èƒ½è¦æŒ¨é¥¿ã€‚\n");
         return ;
     }
 	if(p_safe>=70)
 	{
-		write("°ÙĞÕ·áÒÂ×ãÊ³£¬ÏÖÔÚ²»ĞèÒªÉ¢Á¸êâÔÖ¡£\n");
+		write("ç™¾å§“ä¸°è¡£è¶³é£Ÿï¼Œç°åœ¨ä¸éœ€è¦æ•£ç²®èµˆç¾ã€‚\n");
 		return;
 	}
-    p_talk=sprintf("$NËµµÀ£º¹úÒÔÃñÎª±¾£¬µ±ÏÂ°ÙĞÕÉú»îÆ¶¿à£¬\n"+
-		"$sÒÔÎªĞèÉ¢Á¸%sÒÔêâÔÖÃñ¡£\n",
+    p_talk=sprintf("$Nè¯´é“ï¼šå›½ä»¥æ°‘ä¸ºæœ¬ï¼Œå½“ä¸‹ç™¾å§“ç”Ÿæ´»è´«è‹¦ï¼Œ\n"+
+		"$sä»¥ä¸ºéœ€æ•£ç²®%sä»¥èµˆç¾æ°‘ã€‚\n",
 		chinese_number(p_send));
     this_body()->simple_action(p_talk);
     (EV_LOCALMEETING)->get_suggestion(task_id,p_id,"sendfood",p_send);

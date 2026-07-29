@@ -39,7 +39,7 @@ void get_input_from_main(string arg)
 	else if( arg == "h" ) show_help();
 	else if( arg == "q" ) quit_warmenu();
 	else if( arg == "m" ) show_map();
-	else write("·Ç·¨ÃüÁî¡£\n");
+	else write("éæ³•å‘½ä»¤ã€‚\n");
 
 	return;
 }	
@@ -55,12 +55,12 @@ void show_troop()
 	result = "";
 
 	if( !troop->is_troop() ){
-		write("ÄãÏÖÔÚ²¢Ã»ÓĞÖ¸»ÓÈÎºÎ²¿¶Ó°¡£¿ \n");
+		write("ä½ ç°åœ¨å¹¶æ²¡æœ‰æŒ‡æŒ¥ä»»ä½•éƒ¨é˜Ÿå•Šï¼Ÿ \n");
 		return;
 	} else {
 		solider = TROOP_D->get_troops( troop->get_id(), "solider" );
 		types = keys( solider );
-		result = result + " ±øÖÖ¡¡  ÊıÁ¿¡¡ ÑµÁ·  Ê¿Æø¡¡»ú¶¯Á¦\n";
+		result = result + " å…µç§ã€€  æ•°é‡ã€€ è®­ç»ƒ  å£«æ°”ã€€æœºåŠ¨åŠ›\n";
 		for( i = 0; i < sizeof(solider); i++){
 			result = result +
 				sprintf(" %s  %6d %s %4d %s %4d %s %4d %s\n",
@@ -88,30 +88,30 @@ void do_move(string str)
 
 	troop = environment( this_body() );
 	if( !troop->is_troop() ){
-                write("ÄãÏÖÔÚ²¢Ã»ÓĞÖ¸»ÓÈÎºÎ²¿¶Ó°¡£¿ \n");
+                write("ä½ ç°åœ¨å¹¶æ²¡æœ‰æŒ‡æŒ¥ä»»ä½•éƒ¨é˜Ÿå•Šï¼Ÿ \n");
                 return;
         };
 	env = environment( troop );
 
 	if( !env->query_exit_value(str) ){
-		write("ËÆºõ²»Ì«¿ÉÄÜ³¯ÄÇ¸ö·½Ïò×ß¡£\n");
+		write("ä¼¼ä¹ä¸å¤ªå¯èƒ½æœé‚£ä¸ªæ–¹å‘èµ°ã€‚\n");
 		return;
 	};
 	result = WARAI_D->check_move( troop, env->query_exit_value(str) );
-	if( result == "ÓĞµĞ±ø£¬²»ÄÜÍ¨ĞĞ¡£\n" ) ATT_CMD->start( str );
+	if( result == "æœ‰æ•Œå…µï¼Œä¸èƒ½é€šè¡Œã€‚\n" ) ATT_CMD->start( str );
 	else this_body()->do_game_command( "go " + str );
 
 	return;
 }
 void show_help()
 {
-	printf("\n¾üÊÂÖ¸Áî\n\n");
-	printf("ewsn	move	Ïò¶ÔÓ¦µÄ·½ÏòÒÆ¶¯£¬\n");
-	printf("		Èç¹ûÄ¿µÄµØÓĞµĞ±ø£¬Ôò¹¥»÷µĞ±ø¡£\n");
-	printf("m       map	ÏÔÊ¾ËùÔÚµØµÄÕ½³¡µØÍ¼¡£\n");
-	printf("t	troop	ÏÔÊ¾ËùÁì¾ü¶ÓµÄÏêÏ¸×ÊÁÏ£¬\n");
-	printf("		Ö±½Ó»Ø³µµÈÍ¬ÓÚ t \n");
-	printf("h	help 	ÏÔÊ¾±¾°ïÖú¡£\n");
-	printf("q	quit	Àë¿ª±¾²Ëµ¥¡£\n\n");		
+	printf("\nå†›äº‹æŒ‡ä»¤\n\n");
+	printf("ewsn	move	å‘å¯¹åº”çš„æ–¹å‘ç§»åŠ¨ï¼Œ\n");
+	printf("		å¦‚æœç›®çš„åœ°æœ‰æ•Œå…µï¼Œåˆ™æ”»å‡»æ•Œå…µã€‚\n");
+	printf("m       map	æ˜¾ç¤ºæ‰€åœ¨åœ°çš„æˆ˜åœºåœ°å›¾ã€‚\n");
+	printf("t	troop	æ˜¾ç¤ºæ‰€é¢†å†›é˜Ÿçš„è¯¦ç»†èµ„æ–™ï¼Œ\n");
+	printf("		ç›´æ¥å›è½¦ç­‰åŒäº t \n");
+	printf("h	help 	æ˜¾ç¤ºæœ¬å¸®åŠ©ã€‚\n");
+	printf("q	quit	ç¦»å¼€æœ¬èœå•ã€‚\n\n");		
 	return;
 }	

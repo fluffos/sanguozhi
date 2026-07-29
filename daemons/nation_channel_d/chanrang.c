@@ -11,7 +11,7 @@ mixed do_check_can_chanrang(string who)
 	if( !wizardp(this_body()) ) 
 		return "for wizard test only!\n";
         if( !mapp(COUNTRY_D->get_country(who)) )
-                return "Ö»ÓÐ¹úÍõ²ÅÓÐÈ¨ÌáÒéìøÈÃ£¡\n";
+                return "åªæœ‰å›½çŽ‹æ‰æœ‰æƒæè®®ç¦…è®©ï¼\n";
         else return 1;
 }
 mixed do_check_chanrang_para(string *para, string who)
@@ -21,25 +21,25 @@ mixed do_check_chanrang_para(string *para, string who)
 	mapping tmp;
 
 	if( !arrayp(para)||!sizeof(para)||sizeof(para)!=2 )
-		return "´íÎóµÄ¸ñÊ½¡£\n";
+		return "é”™è¯¯çš„æ ¼å¼ã€‚\n";
 	if( !(newking=para[1])||!mapp(CHAR_D->get_char(newking,"")) )
-		return "ÄãÒª°ÑÍõÎ»ìøÈÃ¸øË­£¿\n";
+		return "ä½ è¦æŠŠçŽ‹ä½ç¦…è®©ç»™è°ï¼Ÿ\n";
 	if( !objectp(ob=find_body(newking)) )
-		return CHAR_D->get_char(newking,"name")+"ÏÖÔÚ²»ÔÚÏßÉÏ£¬ÎÞ·¨ìøÈÃ¸øËû£¡\n";
+		return CHAR_D->get_char(newking,"name")+"çŽ°åœ¨ä¸åœ¨çº¿ä¸Šï¼Œæ— æ³•ç¦…è®©ç»™ä»–ï¼\n";
 	if( ob->query_literate()<200 )
-		return CHAR_D->get_char(newking,"name")+"ÎÄÑ§ÐÞÑøÌ«µÍ£¬¿ÖÅÂÄÑÒÔµ£µ±´ËÖØÈÎ°¡£¡\n";
+		return CHAR_D->get_char(newking,"name")+"æ–‡å­¦ä¿®å…»å¤ªä½Žï¼Œææ€•éš¾ä»¥æ‹…å½“æ­¤é‡ä»»å•Šï¼\n";
 	if( CHAR_D->get_char(newking, "reputation")<50000 )
-		return CHAR_D->get_char(newking,"name")+"ÉùÍû²»×ã£¬¿ÖÅÂÄÑÒÔ·þÖÚ°¡£¡\n";
+		return CHAR_D->get_char(newking,"name")+"å£°æœ›ä¸è¶³ï¼Œææ€•éš¾ä»¥æœä¼—å•Šï¼\n";
 	if( CHAR_D->get_char_loyalty(newking,who)!=100 )
-		return CHAR_D->get_char(newking,"name")+"²¢·ÇÖÒÐÄ¹¢¹¢Ö®ÈË£¬²»ÄÜ°ÑÄãÎ´ÍêµÄ´óÒµ½»¸øËû£¡\n";
+		return CHAR_D->get_char(newking,"name")+"å¹¶éžå¿ å¿ƒè€¿è€¿ä¹‹äººï¼Œä¸èƒ½æŠŠä½ æœªå®Œçš„å¤§ä¸šäº¤ç»™ä»–ï¼\n";
 	if( !mapp(tmp=CHAR_D->get_char(newking,"nc"))||tmp[who]<2000 )
-		return CHAR_D->get_char(newking,"name")+"²¢Î´ÎªÎÒ¹úÓÐ´ó¹±Ï×£¬²»ÄÜµ£µ±¹ú¾ýÖ®Î»£¡\n";
+		return CHAR_D->get_char(newking,"name")+"å¹¶æœªä¸ºæˆ‘å›½æœ‰å¤§è´¡çŒ®ï¼Œä¸èƒ½æ‹…å½“å›½å›ä¹‹ä½ï¼\n";
 	//Added by suicide for control can't chanrang to npc to avoid punish	
         if (CHAR_D->get_char(newking,"type")==TYPE_NPC)
-            return CHAR_D->get_char(newking,"name")+"ÊÇ¸öNPC£¬ÕâÑù×öÌ«²ÝÂÊÁË°É£¡\n";  
+            return CHAR_D->get_char(newking,"name")+"æ˜¯ä¸ªNPCï¼Œè¿™æ ·åšå¤ªè‰çŽ‡äº†å§ï¼\n";  
         
-	set_suggest(who, "str", "°Ñ¹ú¾ýÖ®Î»ìøÈÃ¸ø"+CHAR_D->get_char(newking,"name"));
-       	set_suggest(who,"reason","µÂ²»·þÖÚ£¬ÇÒ¾ÃÓÐÒþ¹éÌïÔ°Ö®ÐÄ");
+	set_suggest(who, "str", "æŠŠå›½å›ä¹‹ä½ç¦…è®©ç»™"+CHAR_D->get_char(newking,"name"));
+       	set_suggest(who,"reason","å¾·ä¸æœä¼—ï¼Œä¸”ä¹…æœ‰éšå½’ç”°å›­ä¹‹å¿ƒ");
 
 	add_suggest(who,"chanrang", ({newking}) , who, ({ }));
 
@@ -52,7 +52,7 @@ void do_chanrang(string n_id)
 	mapping data;
 
 	cc = get_suggest(n_id,"para")[0];
-	his= CHAR_D->get_char(n_id,"name")+"°Ñ¹ú¾ýÖ®Î»ìøÈÃ¸ø"+CHAR_D->get_char(cc,"name")+"£¡\n";
+	his= CHAR_D->get_char(n_id,"name")+"æŠŠå›½å›ä¹‹ä½ç¦…è®©ç»™"+CHAR_D->get_char(cc,"name")+"ï¼\n";
 	area=CHAR_D->get_char(cc,"area");
 	tell(users(), HIR+his+NOR);
  
@@ -63,8 +63,8 @@ void do_chanrang(string n_id)
         else
           {CHAR_D->set_char(n_id,"reputation",CHAR_D->get_char(n_id,"reputation")/2);
            CHAR_D->set_char(cc,"reputation",CHAR_D->get_char(cc,"reputation")*2);}
-        //added end µÛ¹ú¾ýÖ÷ÈÃÎ»½µ3/4ÉùÍû,ÒòÎªÔÚ¶ÀÁ¢ºÍ³ÆµÛÊ±·­ÁËÁ½·¬,±»ìøÈÃÈË4±¶
-        //          Ò»°ã¾ýÖ÷ÈÃÎ»½µ1/2ÉùÍû,ÒòÎªÔÚ¶ÀÁ¢Ê±·­ÁËÒ»·¬,±»ìøÈÃÈË2±¶.
+        //added end å¸å›½å›ä¸»è®©ä½é™3/4å£°æœ›,å› ä¸ºåœ¨ç‹¬ç«‹å’Œç§°å¸æ—¶ç¿»äº†ä¸¤ç•ª,è¢«ç¦…è®©äºº4å€
+        //          ä¸€èˆ¬å›ä¸»è®©ä½é™1/2å£°æœ›,å› ä¸ºåœ¨ç‹¬ç«‹æ—¶ç¿»äº†ä¸€ç•ª,è¢«ç¦…è®©äºº2å€.
         COUNTRY_D->add_country(cc, area);
 	list = CHAR_D->check_char("nation", n_id);
 	foreach(tmp in list)

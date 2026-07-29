@@ -15,7 +15,7 @@ private void main( mixed *arg, mapping f)
 
     target = arg[0];
     if( f["i"] )
-        output = implode(({sprintf("%s 的函数列表：",file_name(target))})+
+        output = implode(({sprintf("%s 鐨勫嚱鏁板垪琛細",file_name(target))})+
 sort_array(
           map_array( functions( target ), (: sprintf("%-34s: %-34s",
                 (function_exists($1, $(target)) ?
@@ -23,11 +23,11 @@ sort_array(
                 "*STATIC*"), $1 ) :)), 1), "\n");
     else if( f["f"] )
         output =
-        sprintf("%s直接或间接继承以下档案：\n    %s\n", file_name(target),
+        sprintf("%s鐩存帴鎴栭棿鎺ョ户鎵夸互涓嬫。妗堬細\n    %s\n", file_name(target),
                 implode(deep_inherit_list(target), "\n    "));
     else
         output =
-        sprintf("%s的函数列表：\n%-79#s\n",
+        sprintf("%s鐨勫嚱鏁板垪琛細\n%-79#s\n",
           file_name(target), implode(sort_array(functions(target), 1),
 "\n"));
 

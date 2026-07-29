@@ -7,11 +7,11 @@ inherit ROOM;
 void setup(){
     set_area("huayin");
     set_light(50);
-    set_brief("%^H_MAGENTA%^ÎÚ½­Í¤%^RESET%^");
+    set_brief("%^H_MAGENTA%^ä¹Œæ±Ÿäº­%^RESET%^");
     set_long("  
 
-      Ê¤°Ü±ø¼Ò²»¿ÉÆÚ£¬°üĞßÈÌÈèÊÇÄĞ¶ù¡£
-      ½­¶«×ÓµÜ¶à²Å¿¡£¬¾íÍÁÖØÀ´Î´¿ÉÖª¡£ 
+      èƒœè´¥å…µå®¶ä¸å¯æœŸï¼ŒåŒ…ç¾å¿è¾±æ˜¯ç”·å„¿ã€‚
+      æ±Ÿä¸œå­å¼Ÿå¤šæ‰ä¿Šï¼Œå·åœŸé‡æ¥æœªå¯çŸ¥ã€‚ 
 ");
     set_exits( ([
         "out" :  FROOMPATH+"vzhu_lin.c",

@@ -4,12 +4,12 @@ inherit OBJ;
 inherit M_GETTABLE;
 void setup()
 {   
-    set_id("tiezi", "%^YELLOW%^ÕÅ¼ÒÌù%^RESET%^");
+    set_id("tiezi", "%^YELLOW%^å¼ å®¶è´´%^RESET%^");
     add_id("zhan_jishaoxin");
-    set_long("ÕÅ¼ÒÌØÓĞµÄÌû×Ó£¬½±Àø¸ø¸É»îÂôÁ¦µÄ¼Ò¶¡¡£\n");
+    set_long("å¼ å®¶ç‰¹æœ‰çš„å¸–å­ï¼Œå¥–åŠ±ç»™å¹²æ´»å–åŠ›çš„å®¶ä¸ã€‚\n");
     set_size(VERY_SMALL);
     set_gettable(1);
-    set_unit("ÕÅ");
+    set_unit("å¼ ");
     set_can_drop(0);
     set_can_give(0);
     set_is_keeping(1);

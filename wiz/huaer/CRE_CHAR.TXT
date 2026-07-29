@@ -1,4 +1,4 @@
-                            建立角色char
+                            寤虹珛瑙掕壊char
 
 addchar
-chareditor (这个比较好用)
+chareditor (杩欎釜姣旇緝濂界敤)

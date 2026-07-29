@@ -5,7 +5,7 @@
 #include <daemons.h>
 inherit CMD;
 inherit M_GLOB;
-string bar="¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş\n";
+string bar="ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“\n";
 private void main(string arg)
 {
     string * list;
@@ -41,7 +41,7 @@ private void main(string arg)
 		
         if(!list)
         {
-                printf("Ã»ÓĞÕâÑùµÄ¹ú¼Ò£®\n");
+                printf("æ²¡æœ‰è¿™æ ·çš„å›½å®¶ï¼\n");
                 return ;
         }
         else
@@ -51,7 +51,7 @@ private void main(string arg)
                 switch (p_sw)
                 {
                         case "/l" :  // just list
-							disp_tmp=sprintf("   ¹ú¼Ò´úºÅ¡¡¡¡¹ú¼ÒÃû³Æ\n");
+							disp_tmp=sprintf("   å›½å®¶ä»£å·ã€€ã€€å›½å®¶åç§°\n");
 							disp=disp+disp_tmp;
 							disp_tmp=sprintf(bar);
 							disp=disp+disp_tmp;
@@ -62,12 +62,12 @@ private void main(string arg)
 							}
 							disp_tmp=sprintf(bar);
 							disp=disp+disp_tmp;
-                            disp_tmp=sprintf("¹²²éµ½£º%d¸ö¹ú¼Ò¡£\n",count);
+                            disp_tmp=sprintf("å…±æŸ¥åˆ°ï¼š%dä¸ªå›½å®¶ã€‚\n",count);
 							disp=disp+disp_tmp;
 							more(disp);
 							return;
 						case "/1":	// system
-							disp_tmp=sprintf("   ¹ú¼Ò´úºÅ    Ãû³Æ   Ê×¸®  ¹ÙÔ± ÁìµØ ´ó³Ç ³Ç Õò ´å ¹Ø  ×ÜÈË¿Ú  ×Ü±øÁ¦\n");
+							disp_tmp=sprintf("   å›½å®¶ä»£å·    åç§°   é¦–åºœ  å®˜å‘˜ é¢†åœ° å¤§åŸ åŸ é•‡ æ‘ å…³  æ€»äººå£  æ€»å…µåŠ›\n");
 							disp=disp+disp_tmp;
 							disp_tmp=sprintf(bar);
 							disp=disp+disp_tmp;
@@ -94,12 +94,12 @@ private void main(string arg)
 							}
 							disp_tmp=sprintf(bar);
 							disp=disp+disp_tmp;
-                            disp_tmp=sprintf("¹²²éµ½£º%d¸ö¹ú¼Ò¡£\n",count);
+                            disp_tmp=sprintf("å…±æŸ¥åˆ°ï¼š%dä¸ªå›½å®¶ã€‚\n",count);
 							disp=disp+disp_tmp;
 							more(disp);
 							return;
 						case "/2":	
-							disp_tmp=sprintf("   ¹ú¼Ò´úºÅ    Ãû³Æ  ¹ú¿â(½ğ¡¡    Á¸¡¡ Îï)  µØ·½(½ğ        Á¸      Îï)\n");
+							disp_tmp=sprintf("   å›½å®¶ä»£å·    åç§°  å›½åº“(é‡‘ã€€    ç²®ã€€ ç‰©)  åœ°æ–¹(é‡‘        ç²®      ç‰©)\n");
 							disp=disp+disp_tmp;
 							disp_tmp=sprintf(bar);
 							disp=disp+disp_tmp;
@@ -117,7 +117,7 @@ private void main(string arg)
 							}
 							disp_tmp=sprintf(bar);
 							disp=disp+disp_tmp;
-                            disp_tmp=sprintf("¹²²éµ½£º%d¸ö¹ú¼Ò¡£\n",count);
+                            disp_tmp=sprintf("å…±æŸ¥åˆ°ï¼š%dä¸ªå›½å®¶ã€‚\n",count);
 							disp=disp+disp_tmp;
 							more(disp);
 							return;

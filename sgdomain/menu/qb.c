@@ -31,15 +31,15 @@ void do_getwine()
 	{
 		this_body()->add_drink(500);
 		this_body()->targetted_action(
-			"$N¶Ô$TµÀ£º$S¿Ú¿Ê£¬¿ìĞ©ÄÃ¾ÆÀ´¡£\n",o);
-        DELAY_D->delay_simple_action(o,"$NµÀ£º×ñÃü£¡\n",1);
+			"$Nå¯¹$Té“ï¼š$Så£æ¸´ï¼Œå¿«äº›æ‹¿é…’æ¥ã€‚\n",o);
+        DELAY_D->delay_simple_action(o,"$Né“ï¼šéµå‘½ï¼\n",1);
         DELAY_D->delay_targetted_action(o,this_body(),
-			"$N×ªÉí¶ËÀ´Ò»Íë¾Æ¸ø$TµİÉÏ¡£\n",2);
+			"$Nè½¬èº«ç«¯æ¥ä¸€ç¢—é…’ç»™$Té€’ä¸Šã€‚\n",2);
 		DELAY_D->delay_simple_action(this_body(),
-			"$N¶ËÆğ¾Æ¡º¹¾à½¡»Ò»¿ÚÆøºÈ¸ÉÁË¡£\n",3);
+			"$Nç«¯èµ·é…’ã€å’•å˜Ÿã€ä¸€å£æ°”å–å¹²äº†ã€‚\n",3);
 
 		DELAY_D->delay_targetted_action(this_body(),o,
-			"$N°Ñ¿Õ¾ÆÍë»¹¸ø$T¡£\n",4);
+			"$NæŠŠç©ºé…’ç¢—è¿˜ç»™$Tã€‚\n",4);
 	}
 	call_out("quit_menu_application",5);
 }
@@ -52,15 +52,15 @@ void do_getmeat()
 	{
 		this_body()->add_food(500);
 		this_body()->targetted_action(
-			"$N¶Ô$TµÀ£º$S¶öÁË£¬¿ìĞ©ÄÃÈâÀ´¡£\n",o);
-        DELAY_D->delay_simple_action(o,"$NµÀ£º×ñÃü£¡\n",1);
+			"$Nå¯¹$Té“ï¼š$Sé¥¿äº†ï¼Œå¿«äº›æ‹¿è‚‰æ¥ã€‚\n",o);
+        DELAY_D->delay_simple_action(o,"$Né“ï¼šéµå‘½ï¼\n",1);
         DELAY_D->delay_targetted_action(o,this_body(),
-			"$N×ªÉí¶ËÀ´Ò»ÍëÉÕÈâ¸ø$TµİÉÏ¡£\n",2);
+			"$Nè½¬èº«ç«¯æ¥ä¸€ç¢—çƒ§è‚‰ç»™$Té€’ä¸Šã€‚\n",2);
 		DELAY_D->delay_simple_action(this_body(),
-			"$N×¥ÆğÈâÖ»Á½¿Ú±ã³ÔÍêÁË¡£\n",3);
+			"$NæŠ“èµ·è‚‰åªä¸¤å£ä¾¿åƒå®Œäº†ã€‚\n",3);
 
 		DELAY_D->delay_targetted_action(this_body(),o,
-			"$N°Ñ¿ÕÍë»¹¸ø$T¡£\n",4);
+			"$NæŠŠç©ºç¢—è¿˜ç»™$Tã€‚\n",4);
 	}
 	call_out("quit_menu_application",5);
 }
@@ -79,29 +79,29 @@ void do_gethorse()
 	if(objectp(o))
 	{
 		this_body()->targetted_action(
-			"$N¶Ô$TµÀ£º$SÒªÔ¶ĞĞ£¬¿ìĞ©Ç£ÂíÀ´¡£\n",o);
+			"$Nå¯¹$Té“ï¼š$Sè¦è¿œè¡Œï¼Œå¿«äº›ç‰µé©¬æ¥ã€‚\n",o);
 		if(!m_wear["horse"]) {
 	        DELAY_D->delay_targetted_action(o,this_body(),
-				"$N¶Ô$TĞ¡ÉùµÀ£º$RÏë±ØÊÇºúÍ¿ÁË£¬Äú»¹Ã»ÓĞ×øÆïÄØ¡£\n",1);
+				"$Nå¯¹$Tå°å£°é“ï¼š$Ræƒ³å¿…æ˜¯èƒ¡æ¶‚äº†ï¼Œæ‚¨è¿˜æ²¡æœ‰åéª‘å‘¢ã€‚\n",1);
 			DELAY_D->delay_simple_action(this_body(),
-				"$NÒ»Á³Ã£È»¡£\n",2);
+				"$Nä¸€è„¸èŒ«ç„¶ã€‚\n",2);
 			call_out("quit_menu_application",3);
 			return;
 
 		}
 		if(env->is_indoors()){
 	        DELAY_D->delay_targetted_action(o,this_body(),
-				"$N¶Ô$TĞ¡ÉùµÀ£º$RÏë±ØÊÇºúÍ¿ÁË£¬´Ë´¦Ç£Âí¶àÓĞ²»±ã¡£\n",1);
+				"$Nå¯¹$Tå°å£°é“ï¼š$Ræƒ³å¿…æ˜¯èƒ¡æ¶‚äº†ï¼Œæ­¤å¤„ç‰µé©¬å¤šæœ‰ä¸ä¾¿ã€‚\n",1);
 			DELAY_D->delay_simple_action(this_body(),
-				"$NÒ»Á³Ã£È»¡£\n",2);
+				"$Nä¸€è„¸èŒ«ç„¶ã€‚\n",2);
 			call_out("quit_menu_application",3);
 			return;
 		}
 		if(env->is_horse()){
 	        DELAY_D->delay_targetted_action(o,this_body(),
-				"$N¶Ô$TĞ¡ÉùµÀ£º$RÏë±ØÊÇºúÍ¿ÁË£¬ÄúÒÑ¾­ÆïÔÚÂíÉÏÁË¡£\n",1);
+				"$Nå¯¹$Tå°å£°é“ï¼š$Ræƒ³å¿…æ˜¯èƒ¡æ¶‚äº†ï¼Œæ‚¨å·²ç»éª‘åœ¨é©¬ä¸Šäº†ã€‚\n",1);
 			DELAY_D->delay_simple_action(this_body(),
-				"$NÒ»Á³Ã£È»¡£\n",2);
+				"$Nä¸€è„¸èŒ«ç„¶ã€‚\n",2);
 			call_out("quit_menu_application",3);
 			return;
 		}
@@ -113,25 +113,25 @@ void do_gethorse()
 			object *rs,h_env;
 			h_env=environment(o_h);
 			if(objectp(h_env)&&(h_env!=env)) {
-				tell_environment(o_h,o_h->short()+"Ìıµ½Ö÷ÈËµÄÕÙ»½£¬Ò»ÁïÑÌµÄÅÜÁË¡£\n");
+				tell_environment(o_h,o_h->short()+"å¬åˆ°ä¸»äººçš„å¬å”¤ï¼Œä¸€æºœçƒŸçš„è·‘äº†ã€‚\n");
 				rs=o_h->get_riders();
 			
 				if(sizeof(rs)) {
 					foreach(object r in rs) {
 						r->move(h_env);
-						r->simple_action("$Nâ§²»¼°·À£¬Ë¤ÁËÒ»¸ö´óÂíÅ¿¡£\n");
+						r->simple_action("$NçŒä¸åŠé˜²ï¼Œæ‘”äº†ä¸€ä¸ªå¤§é©¬è¶´ã€‚\n");
 					}
 				}
 			}
 		}
 		o_h->set_owner(p_id);
 		o_h->move(env);
-        DELAY_D->delay_simple_action(o,"$NµÀ£º×ñÃü£¡\n",1);
+        DELAY_D->delay_simple_action(o,"$Né“ï¼šéµå‘½ï¼\n",1);
         DELAY_D->delay_targetted_action(o,this_body(),
-			"$N×ªÉíÇ£À´$n1pµÄ"+o_h->short()+
-			"£¬°ÑçÖÉş¸ø$TµİÉÏ¡£\n",2);
+			"$Nè½¬èº«ç‰µæ¥$n1pçš„"+o_h->short()+
+			"ï¼ŒæŠŠç¼°ç»³ç»™$Té€’ä¸Šã€‚\n",2);
 		DELAY_D->delay_simple_action(this_body(),
-			"$NÂúÒâµØµãÁËµãÍ·¡£\n",3);
+			"$Næ»¡æ„åœ°ç‚¹äº†ç‚¹å¤´ã€‚\n",3);
 	}
 	call_out("quit_menu_application",5);
 }
@@ -145,7 +145,7 @@ void do_getmoney(string str)
 	if(p_money<1) p_money=1;
 	if(p_gold<p_money)
 	{
-		write("¿âÀïÃ»ÓĞÄÇÃ´¶àÇ®¡£\n");
+		write("åº“é‡Œæ²¡æœ‰é‚£ä¹ˆå¤šé’±ã€‚\n");
 		return;
 	}
 	poped=0;
@@ -157,15 +157,15 @@ void do_getmoney(string str)
 	if(objectp(o))
 	{
 		this_body()->targetted_action(
-			"$N¶Ô$TµÀ£ºÄÃÇ®ºĞÀ´¡£\n",o);
-        DELAY_D->delay_simple_action(o,"$NµÀ£º×ñÃü£¡\n",1);
+			"$Nå¯¹$Té“ï¼šæ‹¿é’±ç›’æ¥ã€‚\n",o);
+        DELAY_D->delay_simple_action(o,"$Né“ï¼šéµå‘½ï¼\n",1);
         DELAY_D->delay_targetted_action(o,this_body(),
-			"$N×ªÉíÅõÀ´Ò»Ö»×Ï½ğÇ®ºĞ¡£\n",2);
+			"$Nè½¬èº«æ§æ¥ä¸€åªç´«é‡‘é’±ç›’ã€‚\n",2);
 		DELAY_D->delay_simple_action(this_body(),
-			"$N´ÓÇ®ºĞÀïÄÃ³ö"+chinese_number(p_money)+"Á½½ğ×Ó¡£\n",3);
+			"$Nä»é’±ç›’é‡Œæ‹¿å‡º"+chinese_number(p_money)+"ä¸¤é‡‘å­ã€‚\n",3);
 
 		DELAY_D->delay_targetted_action(this_body(),o,
-			"$N°ÑÇ®ºĞ»¹¸ø$T£¬Öö¸ÀµÀ£ºĞ¡ĞÄÊÕºÃÁË¡£\n",4);
+			"$NæŠŠé’±ç›’è¿˜ç»™$Tï¼Œå˜±å’é“ï¼šå°å¿ƒæ”¶å¥½äº†ã€‚\n",4);
 	}
 	call_out("quit_menu_application",5);
 }
@@ -177,15 +177,15 @@ void do_praise(string str)
     mixed m_wear;
     o_obj=present(str,master) ;
     if(!objectp(o_obj)) {
-	write("ÄãÉíÉÏÃ»ÓĞ"+str+"¡£\n");
+	write("ä½ èº«ä¸Šæ²¡æœ‰"+str+"ã€‚\n");
 	return;
     }
     call_out("quit_menu_application",5);
 
-    this_body()->targetted_action("$N¶Ô$TµÀ£ºĞÖµÜÃÇºÜĞÁ¿àÁË£¬Õâ$O¾ÍÉÍ¸øĞÖµÜÃÇ°É¡£\n",o,o_obj);
-    this_body()->targetted_action("$N½«$Oµİ¸ø$T¡£\n",o,o_obj);
+    this_body()->targetted_action("$Nå¯¹$Té“ï¼šå…„å¼Ÿä»¬å¾ˆè¾›è‹¦äº†ï¼Œè¿™$Oå°±èµç»™å…„å¼Ÿä»¬å§ã€‚\n",o,o_obj);
+    this_body()->targetted_action("$Nå°†$Oé€’ç»™$Tã€‚\n",o,o_obj);
 
-    DELAY_D->delay_simple_action(o,"$N¸ßĞËµØÌøÁËÆğÀ´¡£\n",1);
+    DELAY_D->delay_simple_action(o,"$Né«˜å…´åœ°è·³äº†èµ·æ¥ã€‚\n",1);
 
     destruct(o_obj);
     o_obj=present(str,master) ;
@@ -213,8 +213,8 @@ void do_nonsense()
 	if(objectp(o))
 	{
 		this_body()->targetted_action(
-			"$N¶Ô$TàÖàÖ¹¾¹¾²»ÖªËµÁËĞ©Ê²Ã´¡£\n",o);
-        DELAY_D->delay_simple_action(o,"$NÒ»Á³Ã£È»²»ÖªËùÔÆ¡£\n",1);
+			"$Nå¯¹$Tå˜€å˜€å’•å’•ä¸çŸ¥è¯´äº†äº›ä»€ä¹ˆã€‚\n",o);
+        DELAY_D->delay_simple_action(o,"$Nä¸€è„¸èŒ«ç„¶ä¸çŸ¥æ‰€äº‘ã€‚\n",1);
 	}
 	call_out("quit_menu_application",2);
 }
@@ -222,25 +222,25 @@ void do_nonsense()
 void create()
 {
     set_privilege(1);
-    toplevel = new_menu("\nÇë¶ÔÇ×±øÏÂ´ïÖ¸Áî£º");
-    quit_item = new_menu_item("ÍËÏÂ", (:quit_menu_application:), "q");
+    toplevel = new_menu("\nè¯·å¯¹äº²å…µä¸‹è¾¾æŒ‡ä»¤ï¼š");
+    quit_item = new_menu_item("é€€ä¸‹", (:quit_menu_application:), "q");
     seperator = new_seperator
-    ("¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş");
+    ("ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“");
     add_menu_item(toplevel, seperator);
-    add_menu_item(toplevel, new_menu_item("¿ìÄÃ¾ÆÀ´",	(: do_getwine :) ,"1"));
-    add_menu_item(toplevel, new_menu_item("¿ìÄÃÈâÀ´",	(: do_getmeat :) ,"2"));
-    add_menu_item(toplevel, new_menu_item("¿ìÇ£ÂíÀ´",	(: do_gethorse :) ,"3"));
-    add_menu_item(toplevel, new_menu_item("¿ìÄÃÇ®À´",	(: get_input_then_call,
-		(: do_getmoney :) ,"ÄÃ¶àÉÙÇ®[1]£º" :) ,"4"));
-    add_menu_item(toplevel, new_menu_item("ÉÍ´ÍÎïÆ·",	(: get_input_then_call,
-		(: do_praise :) ,"ÉÍ´ÍºÎÎï£º" :) ,"5"));
-    add_menu_item(toplevel, new_menu_item("È¥ÕÒÈË",	(: do_nonsense :) ,"6"));
-    add_menu_item(toplevel, new_menu_item("×¼±¸²ÃÈË",	(: get_input_then_call, 
-		(: do_cut :), "²Ã¼õÈËÊı£º" :), "0"));
+    add_menu_item(toplevel, new_menu_item("å¿«æ‹¿é…’æ¥",	(: do_getwine :) ,"1"));
+    add_menu_item(toplevel, new_menu_item("å¿«æ‹¿è‚‰æ¥",	(: do_getmeat :) ,"2"));
+    add_menu_item(toplevel, new_menu_item("å¿«ç‰µé©¬æ¥",	(: do_gethorse :) ,"3"));
+    add_menu_item(toplevel, new_menu_item("å¿«æ‹¿é’±æ¥",	(: get_input_then_call,
+		(: do_getmoney :) ,"æ‹¿å¤šå°‘é’±[1]ï¼š" :) ,"4"));
+    add_menu_item(toplevel, new_menu_item("èµèµç‰©å“",	(: get_input_then_call,
+		(: do_praise :) ,"èµèµä½•ç‰©ï¼š" :) ,"5"));
+    add_menu_item(toplevel, new_menu_item("å»æ‰¾äºº",	(: do_nonsense :) ,"6"));
+    add_menu_item(toplevel, new_menu_item("å‡†å¤‡è£äºº",	(: get_input_then_call, 
+		(: do_cut :), "è£å‡äººæ•°ï¼š" :), "0"));
 
         add_menu_item(toplevel, quit_item);
         add_menu_item(toplevel, seperator);
-        set_menu_prompt (toplevel, "ÊäÈëÖ¸Áî[12340q]: ");
+        set_menu_prompt (toplevel, "è¾“å…¥æŒ‡ä»¤[12340q]: ");
 }
 
 void start_menu()
@@ -260,14 +260,14 @@ void do_cut(string str)
 	mixed myarmy;
 	if(!p_qb)
 	{
-		write("ºÜºÃ£¬²»ÒªËæ±ã²ÃÈË¡£\n");
+		write("å¾ˆå¥½ï¼Œä¸è¦éšä¾¿è£äººã€‚\n");
 		return;
 	}
 	myarmy=CHAR_D->get_char(p_id,"myarmy");
 	p_realqb=myarmy["qbnum"];
 	if(p_realqb<p_qb)
 	{
-		write("ÄãÃ»ÓĞÄÇÃ´¶àÇ×±ø¡£\n");
+		write("ä½ æ²¡æœ‰é‚£ä¹ˆå¤šäº²å…µã€‚\n");
 		return;
 	}
 
@@ -277,13 +277,13 @@ void do_cut(string str)
 	if(objectp(o))
 	{
 		this_body()->targetted_action(
-			"$N¶Ô$TµÀ£ºĞÖµÜÃÇ¸ú±¾¹ÙÒÑ¾Ã£¬Ò²¸Ã»Ø¼Ò¿´Íû¿´ÍûÁË£¬\n"+
-			"´«ÎÒ»°£¬ÈÃ"+chinese_number(p_qb)+"¸öĞÖµÜ»Ø¼Ò°É¡£\n",o);
-        DELAY_D->delay_simple_action(o,"$NµÀ£º×ñÃü£¡\n",1);
+			"$Nå¯¹$Té“ï¼šå…„å¼Ÿä»¬è·Ÿæœ¬å®˜å·²ä¹…ï¼Œä¹Ÿè¯¥å›å®¶çœ‹æœ›çœ‹æœ›äº†ï¼Œ\n"+
+			"ä¼ æˆ‘è¯ï¼Œè®©"+chinese_number(p_qb)+"ä¸ªå…„å¼Ÿå›å®¶å§ã€‚\n",o);
+        DELAY_D->delay_simple_action(o,"$Né“ï¼šéµå‘½ï¼\n",1);
         DELAY_D->delay_targetted_action(o,this_body(),
-			"$NÒ»½ÅÌßÔÚ$TµÄÆ¨Æ¨ÉÏ£¬Ó¡³öÒ»¸öÇå³şµÄĞ¬Ó¡¡£\n",2);
+			"$Nä¸€è„šè¸¢åœ¨$Tçš„å±å±ä¸Šï¼Œå°å‡ºä¸€ä¸ªæ¸…æ¥šçš„é‹å°ã€‚\n",2);
 		DELAY_D->delay_simple_action(this_body(),
-			"$NÌÛµÃà»à»Ö±½Ğ¡£\n",3);
+			"$Nç–¼å¾—å—·å—·ç›´å«ã€‚\n",3);
 	}
 	call_out("quit_menu_application",4);
 
@@ -301,21 +301,21 @@ void quit_menu_application()
 		{
 			CHAR_D->set_char(p_id,"gold",p_gold-1);
 			this_body()->targetted_action(
-				"$N¶Ô$TµÀ£º´Ó¿âÀïÌáÒ»Á½½ğ×Ó£¬¸øµÜĞÖÃÇÂò¾ÆÈ¥°É¡£\n",o);
+				"$Nå¯¹$Té“ï¼šä»åº“é‡Œæä¸€ä¸¤é‡‘å­ï¼Œç»™å¼Ÿå…„ä»¬ä¹°é…’å»å§ã€‚\n",o);
 	        DELAY_D->delay_targetted_action(o,this_body(),
-				"$N¸ßĞËµØÌøÁËÆğÀ´£¬Á¬Á¬³ÆĞ»$TµÄÉÍ´Í¡£\n",1);
+				"$Né«˜å…´åœ°è·³äº†èµ·æ¥ï¼Œè¿è¿ç§°è°¢$Tçš„èµèµã€‚\n",1);
 	        DELAY_D->delay_simple_action(this_body(),
-				"$N½Ó×ÅµÀ£ºÏÖÔÚÃ»ÊÂÁË£¬ÏÈÍËÏÂ°É¡£\n",2);
+				"$Næ¥ç€é“ï¼šç°åœ¨æ²¡äº‹äº†ï¼Œå…ˆé€€ä¸‹å§ã€‚\n",2);
 			DELAY_D->delay_simple_action(o,
-				"$NµÀ£º×ñÃü£¡\n",3);
+				"$Né“ï¼šéµå‘½ï¼\n",3);
 			call_out("real_quit",4);
 		}
 		else
 		{
 			this_body()->targetted_action(
-				"$N¶Ô$TµÀ£ºÏÖÔÚÃ»ÊÂÁË£¬ÏÈÍËÏÂ°É¡£\n",o);
+				"$Nå¯¹$Té“ï¼šç°åœ¨æ²¡äº‹äº†ï¼Œå…ˆé€€ä¸‹å§ã€‚\n",o);
 			DELAY_D->delay_simple_action(o,
-				"$NµÀ£º×ñÃü£¡\n",1);
+				"$Né“ï¼šéµå‘½ï¼\n",1);
 			call_out("real_quit",2);
 		}
 	}

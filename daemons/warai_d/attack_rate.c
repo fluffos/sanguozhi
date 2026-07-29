@@ -28,12 +28,12 @@ string get_soldier_name(string p_type)
 {
         switch (p_type)
         {
-                case "infantry": return "%^H_RED%^步兵";
-                case "cavalry" : return "%^H_GREEN%^骑兵";
-                case "bowman"  : return "%^H_BLUE%^弓兵";
-                case "commando"  : return "%^H_CYAN%^民兵";
-		case "footman"  : return "%^H_CYAN%^新兵";
-                default: return "%^H_YELLOW%^未知";
+                case "infantry": return "%^H_RED%^姝ュ叺";
+                case "cavalry" : return "%^H_GREEN%^楠戝叺";
+                case "bowman"  : return "%^H_BLUE%^寮撳叺";
+                case "commando"  : return "%^H_CYAN%^姘戝叺";
+		case "footman"  : return "%^H_CYAN%^鏂板叺";
+                default: return "%^H_YELLOW%^鏈煡";
         }
                 
 }               
@@ -49,7 +49,7 @@ mixed get_soldier(string p_type,string p_what)
         return 0;
 }
 
-// 兵种进攻能力
+// 鍏电杩涙敾鑳藉姏
 int get_bz_attack_rate(string bz,string type)
 {
 	switch(type) {
@@ -63,7 +63,7 @@ int get_bz_attack_rate(string bz,string type)
 	}
 	return 0;
 }
-// 兵种防御能力
+// 鍏电闃插尽鑳藉姏
 int get_bz_defence_rate(string bz,string type)
 {
 	switch(type) {

@@ -8,12 +8,12 @@ inherit CMD;
 
 nomask private void main(string str) {
     if (!str) {
-        out("ÓÃ·¨£ºtargetemote verb\n");
+        out("ç”¨æ³•ï¼štargetemote verb\n");
         return;
     }
-    SOUL_D->add_emote(str, "", "$N"+str+"¡£", 0);
+    SOUL_D->add_emote(str, "", "$N"+str+"ã€‚", 0);
     SOUL_D->add_emote(str, "STR", "$N"+str+"$o.", 0);
-    SOUL_D->add_emote(str, "OBJ", "$N"+"¶Ô$o"+str+"¡£", 0);
-    SOUL_D->add_emote(str, "LIV", "$N"+"¶Ô$t"+str+"¡£", 0);
+    SOUL_D->add_emote(str, "OBJ", "$N"+"å¯¹$o"+str+"ã€‚", 0);
+    SOUL_D->add_emote(str, "LIV", "$N"+"å¯¹$t"+str+"ã€‚", 0);
     out("Added.\n");
 }

@@ -27,11 +27,11 @@ class auth_data
 ** time we issue a session key and the time when a connection attempt is
 ** made.
 */
-static private mapping auth_info = ([ ]);
+nosave private mapping auth_info = ([ ]);
 
 void auth_cleanup();
-static private function auth_cleanup_func = (: auth_cleanup :);
-static private int auth_cleanup_running;
+nosave private function auth_cleanup_func = (: auth_cleanup :);
+nosave private int auth_cleanup_running;
 
 //### driver can't remove a func ptr callout. need a string
 #define auth_cleanup_func "auth_cleanup"

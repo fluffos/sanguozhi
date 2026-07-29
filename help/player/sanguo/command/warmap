@@ -1,5 +1,5 @@
 warmap:
-ÄÚÈÝ£º²éÔÄÄ³µØÇøÕ½³¡µØÐÎÍ¼¡£
-²ÎÊý£º%^H_YELLOW%^<µØÇø´úºÅ>%^RESET%^ »ò %^H_YELLOW%^here%^RESET%^
-Àý×Ó£º%^H_CYAN%^cmd warmap here%^RESET%^  £¨±íÊ¾²éÔÄµ±µØÕ½³¡µØÐÎÍ¼£©
-      %^H_CYAN%^cmd warmap changan%^RESET%^  £¨±íÊ¾²éÔÄ³¤°²µØÇøÕ½³¡µØÐÎÍ¼£©
+å†…å®¹ï¼šæŸ¥é˜…æŸåœ°åŒºæˆ˜åœºåœ°å½¢å›¾ã€‚
+å‚æ•°ï¼š%^H_YELLOW%^<åœ°åŒºä»£å·>%^RESET%^ æˆ– %^H_YELLOW%^here%^RESET%^
+ä¾‹å­ï¼š%^H_CYAN%^cmd warmap here%^RESET%^  ï¼ˆè¡¨ç¤ºæŸ¥é˜…å½“åœ°æˆ˜åœºåœ°å½¢å›¾ï¼‰
+      %^H_CYAN%^cmd warmap changan%^RESET%^  ï¼ˆè¡¨ç¤ºæŸ¥é˜…é•¿å®‰åœ°åŒºæˆ˜åœºåœ°å½¢å›¾ï¼‰

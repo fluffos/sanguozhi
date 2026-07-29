@@ -31,7 +31,7 @@ void setup(string a_id,string fd,string rid)
 	set_age(m_head["age"]);
 	set_sg_rongmao(m_head["rongmao"]);
 
-	add_ask_str("order","$N¶Ô$T¿´ÁËÒ»ÑÛ\n");
+	add_ask_str("order","$Nå¯¹$Tçœ‹äº†ä¸€çœ¼\n");
 	add_question("order","order" );
 	m_busy=0;	
 }
@@ -47,11 +47,11 @@ void special_answer(object who, string matt)
 		{
 			if(m_busy) {
 				this_object()->targetted_action(
-					"$NÁ¬Ã¦¹ªÉíµÀ£º$RÇëÉÔµÈ¡£\n",who);
+					"$Nè¿å¿™èº¬èº«é“ï¼š$Rè¯·ç¨ç­‰ã€‚\n",who);
 				return;
 			}
 			this_object()->targetted_action(
-				"$NÁ¬Ã¦¹ªÉíµÀ£º$m$RÕæÊÇÕÛÉ±Ğ¡ÈËÁË£¬$RÓĞºÍ·Ô¸À¡£\n",who);
+				"$Nè¿å¿™èº¬èº«é“ï¼š$m$RçœŸæ˜¯æŠ˜æ€å°äººäº†ï¼Œ$Ræœ‰å’Œå©å’ã€‚\n",who);
 			new (__DIR__+"farm_head_menu")->start_head_menu(who,this_object(),p_area,f_id,r_id);
 			set_busy(1);
 		}

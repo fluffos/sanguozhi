@@ -19,10 +19,10 @@ int need_to_see() {
 
 mixed do_curse()
 {
-    write("这样的话应该用更礼貌更正式的方式来说。\n");
+    write("杩欐牱鐨勮瘽搴旇鐢ㄦ洿绀艰矊鏇存寮忕殑鏂瑰紡鏉ヨ銆俓n");
 }
 
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ "" }), ({ "fuck","damn","shit","bitch"}) });
 }

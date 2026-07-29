@@ -2,14 +2,14 @@
 inherit LIVING;
 void ppp(object me,object who,string item)
 {
-        me->targetted_action("$N¶Ô×Å$T¹ş¹ş´óĞ¦",who);
+        me->targetted_action("$Nå¯¹ç€$Tå“ˆå“ˆå¤§ç¬‘",who);
 }
 void setup()
 {
-    set_name("smuffette", "À¶ÃÃÃÃ");
+    set_name("smuffette", "è“å¦¹å¦¹");
     set_gender(2);
-    set_proper_name("½¿ÇÎµÄÀ¶ÃÃÃÃ");
-    set_in_room_desc("%^H_BLUE%^À¶ÃÃÃÃ%^RESET%^(smuffette)¿´×ÅÄãÕÅ×ÅĞ¡×ì°ëÌì²»Ëµ»° :%^RED%^0%^RESET%^");
-    set_long("%^H_BLUE%^À¶ÃÃÃÃ%^RESET%^Ìø¹ıÀ´Â§×ÅÄãµÄ²±×ÓËµ£ºÇ×°®µÄÄ°ÉúÈË£¬´øÎÒÈ¥ÌøÎè°É¡£¡£¡£");
+    set_proper_name("å¨‡ä¿çš„è“å¦¹å¦¹");
+    set_in_room_desc("%^H_BLUE%^è“å¦¹å¦¹%^RESET%^(smuffette)çœ‹ç€ä½ å¼ ç€å°å˜´åŠå¤©ä¸è¯´è¯ :%^RED%^0%^RESET%^");
+    set_long("%^H_BLUE%^è“å¦¹å¦¹%^RESET%^è·³è¿‡æ¥æ‚ç€ä½ çš„è„–å­è¯´ï¼šäº²çˆ±çš„é™Œç”Ÿäººï¼Œå¸¦æˆ‘å»è·³èˆå§ã€‚ã€‚ã€‚");
     set_answer("net", (: ppp :)) ;
 }

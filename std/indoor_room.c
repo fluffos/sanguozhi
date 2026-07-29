@@ -12,6 +12,6 @@ void mudlib_setup()
 {
     ::mudlib_setup();
     add_id("room");
-    add_chinese_id("¿Õ·¿¼ä");
-	set("no_fight","ÊÒÄÚ±ÈÎäÌ«²»·½±ãÁË£¬Òª´ò¾ÍÍâÃæ´òÈ¥°É¡£\n");
+    add_chinese_id("ç©ºæˆ¿é—´");
+	set("no_fight","å®¤å†…æ¯”æ­¦å¤ªä¸æ–¹ä¾¿äº†ï¼Œè¦æ‰“å°±å¤–é¢æ‰“å»å§ã€‚\n");
 }

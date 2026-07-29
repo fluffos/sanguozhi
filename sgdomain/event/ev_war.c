@@ -21,8 +21,8 @@ inherit __DIR__+"war/train_question";
 inherit __DIR__+"war/train_def";
 inherit __DIR__+"war/train_over";
 void cancel_att_task(string area);
-array make_unique(array inp) {
-	array tmp=({});
+mixed * make_unique(mixed *inp) {
+	mixed * tmp=({});
 	foreach (mixed x in inp) {
 		tmp-=({x});
 		tmp+=({x});
@@ -45,7 +45,7 @@ void war(string att_area,string def_area)
         else
                 att_name=COUNTRY_D->get_country(att_id,"name");
         CHANNEL_D->deliver_tell("rumor","system",
-        att_name+"ÕýÔÚ¼Æ»®½ø¹¥"+AREA_D->get_area(def_area,"name")+"¡£");
+        att_name+"æ­£åœ¨è®¡åˆ’è¿›æ”»"+AREA_D->get_area(def_area,"name")+"ã€‚");
         t_num=TASK_D->add_task(TT_WAR);
         TASK_D->set_task(t_num,"def_area",def_area);
         TASK_D->set_task(t_num,"area",def_area);
@@ -56,7 +56,7 @@ void war(string att_area,string def_area)
         s_room=AREA_D->get_area(def_area,"path")+
                 AREA_D->get_area(def_area,"meeting");
         TASK_D->set_task(t_num,"def_room",s_room);
-        //Èç¹ûÊÇNPC¹ú¼Ò£¬ÔòÊÇÈ«¹úµÄNPC½«¾ü¶¼ÓÐ¿ÉÄÜ²Î¼Ó×÷Õ½ suicide 2001.4.19
+        //å¦‚æžœæ˜¯NPCå›½å®¶ï¼Œåˆ™æ˜¯å…¨å›½çš„NPCå°†å†›éƒ½æœ‰å¯èƒ½å‚åŠ ä½œæˆ˜ suicide 2001.4.19
         if (CHAR_D->get_char(AREA_D->get_area(def_area,"nation"),"type")==TYPE_NPC)
             u_list=CHAR_D->check_char_nation("type",TYPE_NPC,AREA_D->get_area(def_area,"nation"));
         else //end
@@ -210,9 +210,9 @@ void new_area_war(string att_leader,string att_area,string def_area){
 		call_out("att_collect",10,t_num);
 		MAP_D->add_city(def_area);
 		call_out("def_meeting",2,t_num);
-	msg=DAY_D->query_chinese_day()+"£¬"+att_name+"µÄ"+CHAR_D->get_char(att_leader,"name")
-		+"´Ó"+AREA_D->get_area(att_area,"name")+"·¢±ø¹¥´ò"+
-		COUNTRY_D->get_country(AREA_D->get_area(def_area,"nation"),"name")+"µÄ"+AREA_D->get_area(def_area,"name")+"¡£";
+	msg=DAY_D->query_chinese_day()+"ï¼Œ"+att_name+"çš„"+CHAR_D->get_char(att_leader,"name")
+		+"ä»Ž"+AREA_D->get_area(att_area,"name")+"å‘å…µæ”»æ‰“"+
+		COUNTRY_D->get_country(AREA_D->get_area(def_area,"nation"),"name")+"çš„"+AREA_D->get_area(def_area,"name")+"ã€‚";
 	TASK_D->set_task(t_num,"msg_title",msg);
 
 	if(AREA_D->get_area(att_area,"leader")==att_leader) {
@@ -223,9 +223,9 @@ void new_area_war(string att_leader,string att_area,string def_area){
 }
 void add_area_war(string att_leader,string att_area,string def_area)
 {
-	tell_user(att_leader,"ÄãËùÒª¹¥´òµÄµØ·½ÕýÔÚ½øÐÐÕ½Õù£¬\n"+
-		"Ä¿Ç°ÔöÔ®¹¦ÄÜÉÐÎ´Íê³É¡£\n"+
-		"Òò´Ë´Ë´Î³ö±ø¼Æ»®È¡Ïû¡£\n");
+	tell_user(att_leader,"ä½ æ‰€è¦æ”»æ‰“çš„åœ°æ–¹æ­£åœ¨è¿›è¡Œæˆ˜äº‰ï¼Œ\n"+
+		"ç›®å‰å¢žæ´åŠŸèƒ½å°šæœªå®Œæˆã€‚\n"+
+		"å› æ­¤æ­¤æ¬¡å‡ºå…µè®¡åˆ’å–æ¶ˆã€‚\n");
 	return;
 }
 // this is begin a war
@@ -264,7 +264,7 @@ void urgent_terminate_meeting(int task_id) {
 	o_leader=CHAR_D->find_char(p_leader);
 	if(objectp(o_leader)) {
 		o_leader->simple_action(
-			"$N±íÇéÑÏËàµØµÀ£ºÊÂÌ¬½ô¼±£¬½ñÈÕµÄ»á¾Íµ½´Ë½áÊø¡£\n");
+			"$Nè¡¨æƒ…ä¸¥è‚ƒåœ°é“ï¼šäº‹æ€ç´§æ€¥ï¼Œä»Šæ—¥çš„ä¼šå°±åˆ°æ­¤ç»“æŸã€‚\n");
 	}
 	TASK_D->remove_task(task_id);
 }
@@ -276,7 +276,7 @@ void urgent_terminate_train(int task_id)
 	{
 		ids=keys(ids);
 		foreach(string id in ids) {
-			tell_user(id,"ÊÂÌ¬½ô¼±£¬ÑµÁ·ÖÐÖ¹¡£\n");
+			tell_user(id,"äº‹æ€ç´§æ€¥ï¼Œè®­ç»ƒä¸­æ­¢ã€‚\n");
 		}
 	}
 	release_army(task_id);
@@ -312,7 +312,7 @@ void cancel_att_task(string area) {
 	att_leader=TASK_D->get_task(task_id,"att_leader");
 	o=find_body(att_leader);
 	if(objectp(o)) 
-		o->simple_action("$NµÀ£ºÇé¿öÓÐ±ä£¬´Ë´Î³ö±ø¼Æ»®È¡Ïû¡£");
+		o->simple_action("$Né“ï¼šæƒ…å†µæœ‰å˜ï¼Œæ­¤æ¬¡å‡ºå…µè®¡åˆ’å–æ¶ˆã€‚");
 	o=find_user(att_leader);
 	if(objectp(o))
 		o->modal_pop();

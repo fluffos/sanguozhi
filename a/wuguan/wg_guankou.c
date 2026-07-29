@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is »¨¶ù¶ä¶ä
+// driver is èŠ±å„¿æœµæœµ
 // created date is Fri May  6 22:02:27 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,12 +7,12 @@ inherit OUTDOOR_ROOM;
 void setup() {
 set_area("wuguan");
 set_light(50);
-set_brief("%^YELLOW%^"+"Îä¹Ø¹Ø¿Ú"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"æ­¦å…³å…³å£"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "east":"/a/wuguan/wg_dalu.c",
 
 "west":"/a/wuguan/wg_dadao.c",
  ]));
-set_objects(([M_BOARD : ({ 1,"¹Ù±ø°ÑÊØ×ÅÎä¹ØµÄ³ÇÃÅ¿Ú¡£\n\n³ÇÇ½ÉÏ¹Ò×Å"+"%^MAGENTA%^"+"Îä¹ØÁôÑÔÅÆ"+"%^RESET%^", "city.wuguan" }) ]) );
+set_objects(([M_BOARD : ({ 1,"å®˜å…µæŠŠå®ˆç€æ­¦å…³çš„åŸé—¨å£ã€‚\n\nåŸå¢™ä¸ŠæŒ‚ç€"+"%^MAGENTA%^"+"æ­¦å…³ç•™è¨€ç‰Œ"+"%^RESET%^", "city.wuguan" }) ]) );
 }

@@ -7,7 +7,7 @@
 ** 950501, Deathblade: Created.
 */
 
-private static object   input_user;
+private nosave object   input_user;
 
 varargs nomask void modal_push(function input_func,
                                mixed prompt_func,
@@ -17,7 +17,7 @@ varargs nomask void modal_push(function input_func,
 {
     if ( input_user && this_user() != input_user )
         //error("user mismatch -- already assigned to a user\n");
-        error("用户不对 -- 已经赋与另一个用户了\n");
+        error("鐢ㄦ埛涓嶅 -- 宸茬粡璧嬩笌鍙︿竴涓敤鎴蜂簡\n");
     input_user = this_user();
     input_user->modal_push(input_func, prompt_func, secure,
 return_to_func);

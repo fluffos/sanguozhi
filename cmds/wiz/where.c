@@ -15,7 +15,7 @@ private void main( mixed * arg )
     else
         targets = arg[0];
 
-    outf("%-13s%-30s%-s\n","名字","文件","房间");
+    outf("%-13s%-30s%-s\n","鍚嶅瓧","鏂囦欢","鎴块棿");
     out("---------------------------------------------------------------\n");
 
     targets = filter(targets->query_body(), (: objectp($1) ? environment($1) : 0 :));

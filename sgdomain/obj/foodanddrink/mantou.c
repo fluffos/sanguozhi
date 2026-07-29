@@ -1,20 +1,20 @@
-// mantou.c ÎÑÍ·£¬cheap food
+// mantou.c çªå¤´ï¼Œcheap food
 // by fire on Jan 1999
 inherit OBJ;
 inherit M_GETTABLE;
 inherit M_EDIBLE;
 inherit M_VALUE;
 void setup()
-{   set_id("mantou", "ÂøÍ·");
-    set_long("ÏãÅçÅçµÄ´ó°×ÃæÂøÍ·£¬¿´ÆğÀ´¾ÍºÃ³Ô¡£");
+{   set_id("mantou", "é¦’å¤´");
+    set_long("é¦™å–·å–·çš„å¤§ç™½é¢é¦’å¤´ï¼Œçœ‹èµ·æ¥å°±å¥½åƒã€‚");
 	set_eat_val(8);
     set_size(SMALL);
     set_gettable(1);
     set_num_eats(20);
-    set_unit("Ã¶");
+    set_unit("æš");
 	set_currency_type("silver");
     set_value(1);
-	set_eat_action("$NÒ§ÁËÒ»¿ÚÂøÍ·£¬ÕæºÃ³Ô¡£\n");
-    set_last_eat_action("$N°ÑÊ£ÏÂµÄÂøÍ·Ò»°ÑÈû½ø×ìÀï£¬½À¶¼Ã»¸Ò½À¾ÍÑÊÁËÏÂÈ¥¡£\n");
-	set_can_sell("³ÔµÄ¶«Î÷²»ÄÜµ±µô¡£\n");
+	set_eat_action("$Nå’¬äº†ä¸€å£é¦’å¤´ï¼ŒçœŸå¥½åƒã€‚\n");
+    set_last_eat_action("$NæŠŠå‰©ä¸‹çš„é¦’å¤´ä¸€æŠŠå¡è¿›å˜´é‡Œï¼Œåš¼éƒ½æ²¡æ•¢åš¼å°±å’½äº†ä¸‹å»ã€‚\n");
+	set_can_sell("åƒçš„ä¸œè¥¿ä¸èƒ½å½“æ‰ã€‚\n");
 }

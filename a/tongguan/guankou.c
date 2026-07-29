@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is »¨¶ù¶ä¶ä
+// driver is èŠ±å„¿æœµæœµ
 // created date is Sun May  1 23:03:38 2011
 #include <mudlib.h>
 #include <ansi.h>
@@ -7,7 +7,7 @@ inherit OUTDOOR_ROOM;
 void setup() {
 set_area("tongguan");
 set_light(50);
-set_brief("%^YELLOW%^"+"¹Ø¿Ú"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"å…³å£"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "west":"/a/tongguan/dalu_left.c",

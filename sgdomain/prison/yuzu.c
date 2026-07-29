@@ -51,19 +51,19 @@ private mixed handle_blocks( string dir )
 }
 void setup()
 {
-    	set_name("yu zu", "Óü×ä");
+    	set_name("yu zu", "ç‹±å’");
     	set_gender(1);
-    	set_proper_name("Óü×ä");
-    	set_in_room_desc(""HIB"Óü×ä"NOR"(yu zu)");
+    	set_proper_name("ç‹±å’");
+    	set_in_room_desc(""HIB"ç‹±å’"NOR"(yu zu)");
     	set_age(35);
 	set_sg_rongmao(15);
-    	set_long("ËûÊÇ×¨ÃÅ¸ºÔð¿´¹Ü¼àÓüµÄ£¬Èç¹ûÇô·¸Ïë³öÓüµÄ»°±ØÐëÏÈÎÊ¹ýËû¡£\n(ask yu zu about out)\n");
+    	set_long("ä»–æ˜¯ä¸“é—¨è´Ÿè´£çœ‹ç®¡ç›‘ç‹±çš„ï¼Œå¦‚æžœå›šçŠ¯æƒ³å‡ºç‹±çš„è¯å¿…é¡»å…ˆé—®è¿‡ä»–ã€‚\n(ask yu zu about out)\n");
 	add_question("here","here");
 	add_question("out","out");
-	add_ask_str("out","$N¿ÉÁ¯°Í°ÍµØÎÊ$TµÀ£ºÎÒÊ²Ã´Ê±ºî²Å¿ÉÒÔ³öÈ¥Ñ½£¿\n");
+	add_ask_str("out","$Nå¯æ€œå·´å·´åœ°é—®$Té“ï¼šæˆ‘ä»€ä¹ˆæ—¶ä¾¯æ‰å¯ä»¥å‡ºåŽ»å‘€ï¼Ÿ\n");
         call_out("add_out",random(10)+1);
     	add_block("out");
-    	set_block_action( "$NÒ»ÕÆ½«$TÍÆÁË¸öôóôò£º¸ÉÊ²Ã´£¿£¡ÏëÔ½ÓüÑ½£¿Ïë³öÈ¥ÏÈµÃÎÊ¹ýÎÒ¡£\n");
+    	set_block_action( "$Nä¸€æŽŒå°†$TæŽ¨äº†ä¸ªè¶”è¶„ï¼šå¹²ä»€ä¹ˆï¼Ÿï¼æƒ³è¶Šç‹±å‘€ï¼Ÿæƒ³å‡ºåŽ»å…ˆå¾—é—®è¿‡æˆ‘ã€‚\n");
 }
 void special_answer(object who, string matt)
 {
@@ -78,21 +78,21 @@ void special_answer(object who, string matt)
 	switch(matt)
 	{
 		case "here" :
-			this_object()->simple_action("$NÒõÐ¦Ò»Éù£¬µÀ£ºÕâ¶ùÊÇ¼àÓü£¬Ï²»¶Âð£¿Ï²»¶¾Í³£À´°É¡£\n",who);
+			this_object()->simple_action("$Né˜´ç¬‘ä¸€å£°ï¼Œé“ï¼šè¿™å„¿æ˜¯ç›‘ç‹±ï¼Œå–œæ¬¢å—ï¼Ÿå–œæ¬¢å°±å¸¸æ¥å§ã€‚\n",who);
  			return;
 		case "out" :
 			if ((CHAR_D->get_char(p_id,"in_prison"))==0){
-				this_object()->targetted_action("$N²»ÄÍ·³µØµÀ£º$m£¬Äã²»ÊÇÇô·¸£¬¿ÉÒÔ³öÈ¥À²£¬±ðÔÚÕâ¶ù°­ÎÒµÄÑÛ¡£\n",who);
+				this_object()->targetted_action("$Nä¸è€çƒ¦åœ°é“ï¼š$mï¼Œä½ ä¸æ˜¯å›šçŠ¯ï¼Œå¯ä»¥å‡ºåŽ»å•¦ï¼Œåˆ«åœ¨è¿™å„¿ç¢æˆ‘çš„çœ¼ã€‚\n",who);
 				return;
 			}
 			if( (last_login>be_caught) ){
 				if( time<(last_login+in_prison) ){
 					min=(in_prison+last_login-time)/60;
 					sec=in_prison+last_login-time-(min*60);
-					this_object()->targetted_action("$NÀäÐ¦µÀ£º$m£¬¼±Ê²Ã´£¿£¡Äã»¹µÃÔÙ×ø"+chinese_number(min)+"·Ö"+chinese_number(sec)+"ÃëµÄÀÎ£¬ÀÏÊµ´ô×Å°É£¡\n", who);
+					this_object()->targetted_action("$Nå†·ç¬‘é“ï¼š$mï¼Œæ€¥ä»€ä¹ˆï¼Ÿï¼ä½ è¿˜å¾—å†å"+chinese_number(min)+"åˆ†"+chinese_number(sec)+"ç§’çš„ç‰¢ï¼Œè€å®žå‘†ç€å§ï¼\n", who);
 					return;
 				}
-				this_object()->targetted_action("$NµãµãÍ·£¬µÀ£º$m£¬Äã¼àÆÚÒÑÂú£¬¿ÉÒÔ³öÈ¥ÁË¡£\n",who);
+				this_object()->targetted_action("$Nç‚¹ç‚¹å¤´ï¼Œé“ï¼š$mï¼Œä½ ç›‘æœŸå·²æ»¡ï¼Œå¯ä»¥å‡ºåŽ»äº†ã€‚\n",who);
 				CHAR_D->set_char(p_id,"in_prison",0);
 				CHAR_D->set_char(p_id,"be_caught",0);
 				CHAR_D->set_char(p_id,"caught_area",0);
@@ -101,10 +101,10 @@ void special_answer(object who, string matt)
 				if( time<(be_caught+in_prison) ){
 					min=(in_prison+be_caught-time)/60;
 					sec=in_prison+be_caught-time-(min*60);
-					this_object()->targetted_action("$NÀäÐ¦µÀ£º$m£¬¼±Ê²Ã´£¿£¡Äã»¹µÃÔÙ×ø"+chinese_number(min)+"·Ö"+chinese_number(sec)+"ÃëµÄÀÎ£¬ÀÏÊµ´ô×Å°É£¡\n", who);
+					this_object()->targetted_action("$Nå†·ç¬‘é“ï¼š$mï¼Œæ€¥ä»€ä¹ˆï¼Ÿï¼ä½ è¿˜å¾—å†å"+chinese_number(min)+"åˆ†"+chinese_number(sec)+"ç§’çš„ç‰¢ï¼Œè€å®žå‘†ç€å§ï¼\n", who);
 					return;
 				}
-				this_object()->targetted_action("$NµãµãÍ·£¬µÀ£º$m£¬Äã¼àÆÚÒÑÂú£¬¿ÉÒÔ³öÈ¥ÁË¡£\n",who);
+				this_object()->targetted_action("$Nç‚¹ç‚¹å¤´ï¼Œé“ï¼š$mï¼Œä½ ç›‘æœŸå·²æ»¡ï¼Œå¯ä»¥å‡ºåŽ»äº†ã€‚\n",who);
 				CHAR_D->set_char(p_id,"in_prison",0);
 				CHAR_D->set_char(p_id,"be_caught",0);
 				CHAR_D->set_char(p_id,"caught_area",0);

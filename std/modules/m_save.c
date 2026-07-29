@@ -15,15 +15,15 @@
 //:MODULE
 //This module implements persistence
 
-private static int save_recurse;
-private static mixed *saved = ({});
+private nosave int save_recurse;
+private mixed *saved = ({});
 
 //###These filenames can legally be remapped to other objects (these moved)
-private static string * old_fnames = ({ "/obj/shells/wish", "/obj/pshell" });
+private string * old_fnames = ({ "/obj/shells/wish", "/obj/pshell" });
 
 //:FUNCTION add_save
 //Mark a variable as one that gets saved.
-static void add_save(mixed *vars) {
+protected void add_save(mixed *vars) {
     saved += vars;
     //  saved = clean_array(saved + vars);
 }
@@ -36,7 +36,7 @@ string *get_saved() { return saved; }
 
 //:FUNCTION set_save_recurse
 //sets whether or not a save is recursive.
-static void set_save_recurse(int flag) {  save_recurse = flag; }
+protected void set_save_recurse(int flag) {  save_recurse = flag; }
 
 //:FUNCTION save_to_string
 //saves an object into a string representation.

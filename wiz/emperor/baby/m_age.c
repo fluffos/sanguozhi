@@ -1,11 +1,11 @@
-// emperor¼ÓÁË¶ÔconditionµÄ¿ØÖÆ¡£2000.2.20
+// emperoråŠ äº†å¯¹conditionçš„æ§åˆ¶ã€‚2000.2.20
 // write by fire on Dce 30 1997
 // m_age.c 
 #include <ansi.h>
 #include <sanguo.h>
 inherit __DIR__"m_age/condition";//emperor add
 
-private static int is_grav;//emperor add ,·ÀÖ¹²úÉúBUG
+private nosave int is_grav;//emperor add ,é˜²æ­¢äº§ç”ŸBUG
 private int ag_day,ag_month;
 
 void set_ag_day(int i)
@@ -44,17 +44,17 @@ void age_beat()
 		HP_D->set_max_mp(this_object());
 
 		this_object()->set_age(p_year);
-		tell(this_object(),"¹§Ï²Äã£¬ÓÖ³¤ÁËÒ»Ëê¡£\n");
+		tell(this_object(),"æ­å–œä½ ï¼Œåˆé•¿äº†ä¸€å²ã€‚\n");
 
 		p_shouming=this_body()->query_shouming();
 		if(p_year>=p_shouming)
 		{
-			write(HIR+"ÄãÑôÊÙÒÑ¾¡£¬¸Ï¿ì×¼±¸ºóÊÂ°É¡£+NOR\n");
+			write(HIR+"ä½ é˜³å¯¿å·²å°½ï¼Œèµ¶å¿«å‡†å¤‡åäº‹å§ã€‚+NOR\n");
 		}
 	}
 
 /* emperor add */
-/*Ä¿Ç°Ö»ÓÃÓÚÅ®½ÇÉ«»³ÔĞ¿ØÖÆ£¬»¹¿ÉÓÃÓÚÆäËû·½ÃæµÄ¿ØÖÆ*/
+/*ç›®å‰åªç”¨äºå¥³è§’è‰²æ€€å­•æ§åˆ¶ï¼Œè¿˜å¯ç”¨äºå…¶ä»–æ–¹é¢çš„æ§åˆ¶*/
 	if (is_grav)
 		if(this_object()->query_gravidity()){
 			update_condition();
@@ -66,7 +66,7 @@ void age_beat()
 	if(random(2)) {	
 		this_object()->put_m_all_money();  // add by fire on Dec 13, 1997
 		this_object()->save_me();
-		tell(this_object(),"´æ´¢Íê±Ï¡£\n");
+		tell(this_object(),"å­˜å‚¨å®Œæ¯•ã€‚\n");
 	}
 	"/sgdomain/home/funs/funs"->main(this_body()->query_primary_id());
 }

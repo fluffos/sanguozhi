@@ -1,6 +1,6 @@
 // m_charaction.c by fire on Dec 1998
 // this is used to handle npc chars auto action
-static string *emotes;
+nosave protected string *emotes;
 private int m_heartworking=1;
 private int m_life=0;
 void add_hook(string, function);
@@ -76,7 +76,7 @@ int valid_check()
     object env;
     env=environment(this_object());
     if(!objectp(env)) {
-        SGSYS(this_object()->short()+"Ã»ÓÐ»·¾³¡£");
+        SGSYS(this_object()->short()+"æ²¡æœ‰çŽ¯å¢ƒã€‚");
         return 0;       
     }
     return 1;

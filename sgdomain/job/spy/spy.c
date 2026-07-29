@@ -21,7 +21,7 @@ mixed job(string m_id,string officer_id)
    if(!sizeof(mlist)){
    		o->add_job("spy");
 	   o->finish_job("spy");
-		return "$N¶Ô$TµÀ£ºÏÖÔÚÃ»Ê²Ã´µØ·½ºÃÕì²ìÑ½¡£\n";
+		return "$Nå¯¹$Té“ï¼šç°åœ¨æ²¡ä»€ä¹ˆåœ°æ–¹å¥½ä¾¦å¯Ÿå‘€ã€‚\n";
    }
    a_d=AREA_D->get_all_distance(m_area);
    mlist=sort_array(mlist,(: $(a_d)[$1] > $(a_d)[$2] ? 1 : -1 :));
@@ -49,9 +49,9 @@ mixed job(string m_id,string officer_id)
    } */
    o->set_job("spy","size",sizeof(mlist));
   
-   o->set_job("spy","memo","Õì²ì"+AREA_D->get_area(target,"name"));
+   o->set_job("spy","memo","ä¾¦å¯Ÿ"+AREA_D->get_area(target,"name"));
    
-   return "$N¶Ô$TµÀ£ºÄÇ¾ÍÂé·³$RÈ¥°ïÕì²ìÒ»ÏÂ"+
+   return "$Nå¯¹$Té“ï¼šé‚£å°±éº»çƒ¦$Rå»å¸®ä¾¦å¯Ÿä¸€ä¸‹"+
 	   AREA_D->get_area(target,"name")+
-	   "£¬\nÓĞÀ§ÄÑ¾ÍÓÃ help spy¡£\n";
+	   "ï¼Œ\næœ‰å›°éš¾å°±ç”¨ help spyã€‚\n";
 }

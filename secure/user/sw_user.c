@@ -67,12 +67,12 @@ private nomask int do_su(string old_userid, string new_userid, string new_body)
         if (old_name) 
             tell_environment(environment(body),
                       sprintf(//"%s has polymorphed into %s.\n",
-                      "%s Ò¡ÉíÒ»±ä£¬±ä³ÉÁË %s¡£\n",
+                      "%s æ‘‡èº«ä¸€å˜ï¼Œå˜æˆäº† %sã€‚\n",
                        old_name, new_name), 0,
                        ({ body }) );
     }
     tell(this_object(), sprintf(//"Done. You are now %s.\n",
-                                       "³É¹¦£¬ÄãÏÖÔÚÊÇ %s¡£\n",
+                                       "æˆåŠŸï¼Œä½ ç°åœ¨æ˜¯ %sã€‚\n",
                                            new_name));
 
 }
@@ -91,7 +91,7 @@ private nomask void confirm_valid_su(string old_userid,
     if ( (crypt(arg, arg) != pwd) && (oldcrypt(arg, arg) != pwd) )
     {
     //write("\nWrong password.\n");
-    write("\nÃÜÂë´íÎó¡£\n");
+    write("\nå¯†ç é”™è¯¯ã€‚\n");
     register_failure(sprintf("(su to %s)", new_userid));
     return;
     }
@@ -112,7 +112,7 @@ nomask void switch_user(string str, string new_body)
     if ( !SECURE_D->valid_name(new_userid) )
     {
     //printf("'%s' is an invalid name.\n", str);
-    printf("'%s' ²»ÊÇÒ»¸öºÏ·¨µÄÃû×Ö¡£\n", str);
+    printf("'%s' ä¸æ˜¯ä¸€ä¸ªåˆæ³•çš„åå­—ã€‚\n", str);
     return;
     }
 
@@ -123,7 +123,7 @@ nomask void switch_user(string str, string new_body)
     if( unguarded(1, (: file_size($(linkpath)) :)) <= 0 )
     {
         //write("No such user.\n");
-        write("Ã»ÓĞÕâ¸öÍæ¼Ò¡£\n");
+        write("æ²¡æœ‰è¿™ä¸ªç©å®¶ã€‚\n");
         return;
     }
     }
@@ -135,9 +135,9 @@ nomask void switch_user(string str, string new_body)
     }
 
     //printf("switching to: '%s'\n", new_userid);
-    printf("ÇĞ»»µ½£º'%s'\n", new_userid);
+    printf("åˆ‡æ¢åˆ°ï¼š'%s'\n", new_userid);
 
     //write("Password: ");
-    write("ÇëÊäÈëÃÜÂë£º");
+    write("è¯·è¾“å…¥å¯†ç ï¼š");
     modal_simple((: confirm_valid_su, old_userid, new_userid, new_body :), 1);
 }

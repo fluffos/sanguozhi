@@ -1,6 +1,6 @@
 // notell.c
 /* Do not remove the headers from this file! see /USAGE for more info. */
-// ¼Ó¼õ²»ÄÜÓÃ tell ºÍÄãÁªÏµµÄÍæ¼Ò id, »òÉèÖÃÄã¶Ô·½ÊÔÍ¼ tell Ê±¿´µ½µÄĞÅÏ¢
+// åŠ å‡ä¸èƒ½ç”¨ tell å’Œä½ è”ç³»çš„ç©å®¶ id, æˆ–è®¾ç½®ä½ å¯¹æ–¹è¯•å›¾ tell æ—¶çœ‹åˆ°çš„ä¿¡æ¯
 // by xiaobai, Sep. 2001
 
 #include <mudlib.h>
@@ -61,17 +61,17 @@ private void main( string arg )
             {
                 if ( sizeof( strNotellIds ) >= MAX_NOTELL )
                 {
-                    outf( "×î¶àÖ»ÄÜÉèÖÃ%d¸öÍæ¼Ò¡£\n", MAX_NOTELL );
+                    outf( "æœ€å¤šåªèƒ½è®¾ç½®%dä¸ªç©å®¶ã€‚\n", MAX_NOTELL );
                 }
                 else if ( member_array( strSetting, strNotellIds ) != -1 )
                 {
-                    outf( "Íæ¼Ò%sÒÑ¾­ÔÚÃûµ¥ÀïÁË¡£\n", strSetting );
+                    outf( "ç©å®¶%så·²ç»åœ¨åå•é‡Œäº†ã€‚\n", strSetting );
                 }                
                 else
                 {
                     // add an id to the list
                     strNotellIds += ({strSetting});
-                    out( "Íê³É¡£\n" );
+                    out( "å®Œæˆã€‚\n" );
                 }               
             }
         }
@@ -91,7 +91,7 @@ private void main( string arg )
                 // remove an id from the id list
                 {
                     strNotellIds -= ({strSetting});
-                    out( "Íê³É¡£\n" );                    
+                    out( "å®Œæˆã€‚\n" );                    
                 }
             }
         }
@@ -104,13 +104,13 @@ private void main( string arg )
     {
         strMessage = arg;    
         this_body()->set_notell( strMessage );
-        out( "Íê³É¡£\n" );
+        out( "å®Œæˆã€‚\n" );
     }
     
     if ( !strMessage || strMessage == "" )
     // if the notell message is not set, set a default message
     {
-        strMessage = "¶Ô·½²»ÏëÀíÄã¡£\n";
+        strMessage = "å¯¹æ–¹ä¸æƒ³ç†ä½ ã€‚\n";
         this_body()->set_notell( strMessage );
     }
     
@@ -123,18 +123,18 @@ private void show_message()
     string strIds = "";
     string* strArr = ({});
     
-    out("notell µÄÓÃ·¨: \n\tµ±Äã²»Ô¸ÔÙÌıµ½Ä³ÈË¿©àÂÄã£ºnotell +<user>\n");
-    out("\tµ±ÄãÏëÄîÒ»¸öÔø¾­ÁîÄã¾õµÃºÜ·³µÄÈË£ºnotell -<user>\n");
-    out("\tµ±ÄãÖØĞÂ¾õµÃËùÓĞÈË¶¼ÓĞĞ©¿É°®£ºnotell -$all\n");
-    out("\tµ±ÄãÏë»»Ò»ÖÖ¾Ü¾øÈËµÄ½è¿Ú£ºnotell <message>\n");
-    out("\tÀıÈç£ºnotell Ğ¡°×ÏÖÔÚÃ»ÓĞ¿Õ\n");
+    out("notell çš„ç”¨æ³•: \n\tå½“ä½ ä¸æ„¿å†å¬åˆ°æŸäººå’¯å—¦ä½ ï¼šnotell +<user>\n");
+    out("\tå½“ä½ æƒ³å¿µä¸€ä¸ªæ›¾ç»ä»¤ä½ è§‰å¾—å¾ˆçƒ¦çš„äººï¼šnotell -<user>\n");
+    out("\tå½“ä½ é‡æ–°è§‰å¾—æ‰€æœ‰äººéƒ½æœ‰äº›å¯çˆ±ï¼šnotell -$all\n");
+    out("\tå½“ä½ æƒ³æ¢ä¸€ç§æ‹’ç»äººçš„å€Ÿå£ï¼šnotell <message>\n");
+    out("\tä¾‹å¦‚ï¼šnotell å°ç™½ç°åœ¨æ²¡æœ‰ç©º\n");
 
-    // ÏÔÊ¾µ±Ç°µÄÉèÖÃ
+    // æ˜¾ç¤ºå½“å‰çš„è®¾ç½®
     out( "\n" );
-    out( "Ä¿Ç°µÄ notell ¿ÚĞÅ£º\n" );
+    out( "ç›®å‰çš„ notell å£ä¿¡ï¼š\n" );
     outf( "\t%s\n", this_body()->query_notell() );
-    out( "Ä¿Ç°Äã²»ÏëÀí»áµÄÈË £º\n" );
-    // ÈÚºÏËùÓĞ id ÎªÒ»¸ö×Ö·û´®
+    out( "ç›®å‰ä½ ä¸æƒ³ç†ä¼šçš„äºº ï¼š\n" );
+    // èåˆæ‰€æœ‰ id ä¸ºä¸€ä¸ªå­—ç¬¦ä¸²
     strArr = this_body()->query("notell_ids");
     if ( !strArr )
         strArr = ({});
@@ -146,12 +146,12 @@ private void show_message()
 // check whether an id is a player
 private int is_player( string par_strId )
 {
-/* Õâ¸ö·½·¨²»ºÃ 
+/* è¿™ä¸ªæ–¹æ³•ä¸å¥½ 
     object obj = find_body( par_strId );
         
     if ( !obj )
     {
-        write( sprintf( "%s²»ÊÇÔÚÏßÍæ¼Ò£¬²»¿ÉÄÜÉ§ÈÅÄã¡£\n", par_strId ) );
+        write( sprintf( "%sä¸æ˜¯åœ¨çº¿ç©å®¶ï¼Œä¸å¯èƒ½éªšæ‰°ä½ ã€‚\n", par_strId ) );
         show_message();
         return 0;
     }    

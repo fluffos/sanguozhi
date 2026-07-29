@@ -15,7 +15,7 @@ private nomask void handle_piping(string arg)
 {
     if( arg == "**" || arg == ".")
     {
-        write("Íê³É¡£\n");
+        write("å®Œæˆã€‚\n");
         modal_pop();
         destruct();
         return;
@@ -27,7 +27,7 @@ private nomask void handle_piping(string arg)
 nomask void start_cmd()
 {
     if(!clonep() || (base_name(previous_object()) != base_name()))  {
-        write("ÊÔÍ¼ÂÒÓÃÃüÁî¡£\n");
+        write("è¯•å›¾ä¹±ç”¨å‘½ä»¤ã€‚\n");
         destruct();
         return;
     }
@@ -45,7 +45,7 @@ nomask void start_cmd()
 nomask private void main()
 {
     if(!clonep())  {
-        out("½øÈë½»Ì¸×´Ì¬¡£ÓÃ '**' »ò '.' À´ÍË³ö¡£\n");
+        out("è¿›å…¥äº¤è°ˆçŠ¶æ€ã€‚ç”¨ '**' æˆ– '.' æ¥é€€å‡ºã€‚\n");
         out("-------------------------------------------------\n");
         new(base_name())->start_cmd();
         return;

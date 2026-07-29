@@ -1,5 +1,5 @@
 /* home.c
-** Coded by ÀÏ´ó@Èı¹úÖ¾
+** Coded by è€å¤§@ä¸‰å›½å¿—
 ** Code generated with RoomMaker v0.9.1 coded by Onyx@RedDragon
 ** Do not remove this header.
 */
@@ -9,9 +9,9 @@ inherit OUTDOOR_ROOM;
 
 void setup(){
     set_light(10000);
-    set_brief("ÀÏ´óµÄÎÑ");
+    set_brief("è€å¤§çš„çª");
     set_long(
-"ÕâÀïÊÇÀÏ´óµÄÎÑ£¬Çë½øÇë½ø£¬ºÙºÙ£¡"
+"è¿™é‡Œæ˜¯è€å¤§çš„çªï¼Œè¯·è¿›è¯·è¿›ï¼Œå˜¿å˜¿ï¼"
 );
     set_exits( ([
 "out" :  "/wiz/laoda/workroom"

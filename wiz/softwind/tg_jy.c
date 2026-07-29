@@ -1,5 +1,5 @@
 /* tg_jy.c
-** Coded by ºÍ·ç@Èı¹úÖ¾
+** Coded by å’Œé£@ä¸‰å›½å¿—
 ** Code generated with RoomMaker v0.9.1 coded by Onyx@RedDragon
 ** Do not remove this header.
 */
@@ -12,9 +12,9 @@ inherit ROOM;
 
 void setup(){
     set_light(1);
-    set_brief(YEL+"¾üÓª"+NOR);
+    set_brief(YEL+"å†›è¥"+NOR);
     set_long(
-"    ÕâÀïÊÇäü¹ØÊØ¹Ø¹Ù±ø×¡ËŞ²ÙÁ·µÄµØ·½¡£\n"
+"    è¿™é‡Œæ˜¯æ½¼å…³å®ˆå…³å®˜å…µä½å®¿æ“ç»ƒçš„åœ°æ–¹ã€‚\n"
 );
     set_exits( ([
 HIG+"north"+NOR :  "tg_c2.c"

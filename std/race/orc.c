@@ -9,7 +9,7 @@ string query_race() {
 
 string short_description() {
     return //"Orcs get bonuses to constitution.  Their strength is very high, their agility is slightly above average, their intelligence is very low, and thier willpower is below average.  If this had been a real race instead of an example, this would have been much more interesting to read.\n";
-           "野兽有较高的体力，它们的膂力很高，身法也偏高，悟性很低，毅力也是偏低。\n";              
+           "閲庡吔鏈夎緝楂樼殑浣撳姏锛屽畠浠殑鑶傚姏寰堥珮锛岃韩娉曚篃鍋忛珮锛屾偀鎬у緢浣庯紝姣呭姏涔熸槸鍋忎綆銆俓n";              
 }
 
 int racial_con_bonus() {

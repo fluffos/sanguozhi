@@ -1,7 +1,7 @@
 #include <ansi.h>
 
-static string *title = ({"Ø©Ïà","Ì«Î¾","´óË¾¿Õ","Ì«ÆÍÇä","Ì«³£Çä",
-                                "ºèëÍÇä","Í¢Î¾Çä","ÎÀÎ¾Çä","×ÚÕıÇä","Ë¾Å©Çä" });
+nosave protected string *title = ({"ä¸ç›¸","å¤ªå°‰","å¤§å¸ç©º","å¤ªä»†å¿","å¤ªå¸¸å¿",
+                                "é¸¿èƒªå¿","å»·å°‰å¿","å«å°‰å¿","å®—æ­£å¿","å¸å†œå¿" });
 
 void announce_elect_result(string *ss, int turn);
 void call_for_meeting(string *ss);
@@ -17,29 +17,29 @@ void call_for_judge();
 
 void announce_elect_result(string *ss, int turn)
 {    
-    string str  = "%^H_YELLOW%^¡¾¶«ºº¹¬Í¢¡¿%^H_RED%^¹ú¾Ë%^H_CYAN%^¶­³Ğ£º\n";
-    string *msg = ({ 	"%^H_RED%^¹ú¾Ë%^H_CYAN%^¶­³Ğ£ºÎá»ÊÍòËêÍòÍòËê£¬³¼ÓĞÒ»±¾£¬Æô×à±İÏÂ¡£%^RESET%^\n",
-			"%^H_CYAN%^ººÏ×µÛ£ºÄî¡£%^RESET%^\n",
-			"%^H_RED%^¹ú¾Ë%^H_CYAN%^¶­³Ğ£ºÊÇ¡£%^RESET%^\n",
-			"%^H_RED%^¹ú¾Ë%^H_CYAN%^¶­³Ğ£ºĞ¢Áé»ÊµÛ£¬ÔçÆú³¼Ãñ£¬»ÊµÛ³ĞËÃ£¬º£ÄÚÑöÍû¡£¶øµÛÄêÉÙ£¬ÍşÒÇ\n                      ²»ã¡£¬ÄÑÃâ¾ÓÉ¥Âı¶è¡£ÒËÔñÁ¼³¼£¬ÎªÆä½õÄÒ£¬¸¨×ô³¯¸Ù£¬Ó¦Ìì\n                      Ë³ÈË£¬ÒÔÎ¿ÉúÁéÖ®Íû¡£%^RESET%^\n",
-			"%^H_CYAN%^ººÏ×µÛĞßµÃÂúÁ³Í¨ºì£¬ºŞ²»µÃÕÒ¸öµØ·ì×ê½øÈ¥¡£%^RESET%^\n",
-			"%^H_CYAN%^ººÏ×µÛ£ºÉÆ£¬Èç´Ë¹ÑÈË±ã½µÒ»Ú¯£¬¹ú¾Ë´úÎªĞû¶Á°Õ¡£%^RESET%^\n",
-			"%^H_CYAN%^Æ¬¿Ìºó¡£¡£¡£%^RESET%^\n\n",
-			"%^H_RED%^¹ú¾Ë%^H_CYAN%^¶­³Ğ£º·îÌì³ĞÔË£¬»ÊµÛÚ¯Ô»¡£¹ÑÈËË³Ó¦ÌìÃü£¬ÔñÁ¼³¼¶øÎªëÅ¹É£¬ÖÚÇä\n"+"                      Ìı·â£º%^RESET%^\n\n", });
+    string str  = "%^H_YELLOW%^ã€ä¸œæ±‰å®«å»·ã€‘%^H_RED%^å›½èˆ…%^H_CYAN%^è‘£æ‰¿ï¼š\n";
+    string *msg = ({ 	"%^H_RED%^å›½èˆ…%^H_CYAN%^è‘£æ‰¿ï¼šå¾çš‡ä¸‡å²ä¸‡ä¸‡å²ï¼Œè‡£æœ‰ä¸€æœ¬ï¼Œå¯å¥é™›ä¸‹ã€‚%^RESET%^\n",
+			"%^H_CYAN%^æ±‰çŒ®å¸ï¼šå¿µã€‚%^RESET%^\n",
+			"%^H_RED%^å›½èˆ…%^H_CYAN%^è‘£æ‰¿ï¼šæ˜¯ã€‚%^RESET%^\n",
+			"%^H_RED%^å›½èˆ…%^H_CYAN%^è‘£æ‰¿ï¼šå­çµçš‡å¸ï¼Œæ—©å¼ƒè‡£æ°‘ï¼Œçš‡å¸æ‰¿å—£ï¼Œæµ·å†…ä»°æœ›ã€‚è€Œå¸å¹´å°‘ï¼Œå¨ä»ª\n                      ä¸æªï¼Œéš¾å…å±…ä¸§æ…¢æƒ°ã€‚å®œæ‹©è‰¯è‡£ï¼Œä¸ºå…¶é”¦å›Šï¼Œè¾…ä½æœçº²ï¼Œåº”å¤©\n                      é¡ºäººï¼Œä»¥æ…°ç”Ÿçµä¹‹æœ›ã€‚%^RESET%^\n",
+			"%^H_CYAN%^æ±‰çŒ®å¸ç¾å¾—æ»¡è„¸é€šçº¢ï¼Œæ¨ä¸å¾—æ‰¾ä¸ªåœ°ç¼é’»è¿›å»ã€‚%^RESET%^\n",
+			"%^H_CYAN%^æ±‰çŒ®å¸ï¼šå–„ï¼Œå¦‚æ­¤å¯¡äººä¾¿é™ä¸€è¯ï¼Œå›½èˆ…ä»£ä¸ºå®£è¯»ç½¢ã€‚%^RESET%^\n",
+			"%^H_CYAN%^ç‰‡åˆ»åã€‚ã€‚ã€‚%^RESET%^\n\n",
+			"%^H_RED%^å›½èˆ…%^H_CYAN%^è‘£æ‰¿ï¼šå¥‰å¤©æ‰¿è¿ï¼Œçš‡å¸è¯æ›°ã€‚å¯¡äººé¡ºåº”å¤©å‘½ï¼Œæ‹©è‰¯è‡£è€Œä¸ºè‚±è‚¡ï¼Œä¼—å¿\n"+"                      å¬å°ï¼š%^RESET%^\n\n", });
     if ( !turn||!intp(turn) ) turn = 0;
     if ( turn>=sizeof(msg) ) {
           foreach ( string s in ss ) {
-              str +=    HIC+"                      ´Í  "+HIG+
+              str +=    HIC+"                      èµ  "+HIG+
 			COUNTRY_D->get_country(CHAR_D->get_char(s, "nation"), "name")+
 			AREA_D->get_area(CHAR_D->get_char(s, "area"),"name")+
-			OFFICER_D->get_officer(CHAR_D->get_char(s, "ranklocal"),"name")+"£¬"+ 
-			CHENGHU_D->query_char_jun(s)+"£¬"+NOR+
-			CHAR_D->get_char(s, "name")+HIC+"¾ı  "+HIY+
-			title[CHAR_D->get_char(s,"rankroyal")]+HIC+"Ò»Ö°£»"+NOR+"\n";
+			OFFICER_D->get_officer(CHAR_D->get_char(s, "ranklocal"),"name")+"ï¼Œ"+ 
+			CHENGHU_D->query_char_jun(s)+"ï¼Œ"+NOR+
+			CHAR_D->get_char(s, "name")+HIC+"å›  "+HIY+
+			title[CHAR_D->get_char(s,"rankroyal")]+HIC+"ä¸€èŒï¼›"+NOR+"\n";
           }
 	tell( users(), str+"%^RESET%^\n");
     } else {
-    	tell( users(), "%^H_YELLOW%^¡¾¶«ºº¹¬Í¢¡¿"+msg[turn] );
+    	tell( users(), "%^H_YELLOW%^ã€ä¸œæ±‰å®«å»·ã€‘"+msg[turn] );
 	turn ++;
 	remove_call_out("announce_elect_result");
         call_out("announce_elect_result", 2, ss, turn);
@@ -49,14 +49,14 @@ void announce_elect_result(string *ss, int turn)
 void call_for_meeting(string *ss)
 {
     int i;
-    string str  = "%^H_YELLOW%^¡¾¶«ºº¹¬Í¢¡¿%^H_RED%^¹ú¾Ë%^H_CYAN%^¶­³Ğ£º·îÌì³ĞÔË£¬»ÊµÛÚ¯Ô»: Ôğ\n                      ";
+    string str  = "%^H_YELLOW%^ã€ä¸œæ±‰å®«å»·ã€‘%^H_RED%^å›½èˆ…%^H_CYAN%^è‘£æ‰¿ï¼šå¥‰å¤©æ‰¿è¿ï¼Œçš‡å¸è¯æ›°: è´£\n                      ";
     foreach ( string s in ss ) {
-	str += HIW+title[CHAR_D->get_char(s,"rankroyal")]+NOR+CHAR_D->get_char(s,"name")+"£¬";
+	str += HIW+title[CHAR_D->get_char(s,"rankroyal")]+NOR+CHAR_D->get_char(s,"name")+"ï¼Œ";
         i++;
         if ( i == 3 ) {
      	    i = 0;
 	    str += "\n                      ";
 	}
     }
-    tell(users(), str[0..sizeof(str)-2]+"ËÙÀ´½ú¼û£¡" );
+    tell(users(), str[0..sizeof(str)-2]+"é€Ÿæ¥æ™‹è§ï¼" );
 }

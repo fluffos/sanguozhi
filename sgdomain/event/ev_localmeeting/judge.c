@@ -49,12 +49,12 @@ void begin_judge(int task_id)
                 TASK_D->get_task(task_id,"area"),"leader");
         if(p_score[0]>(p_score[1]+p_score[2]+p_score[3]))
                 p_disp=sprintf
-("$NµÀ£ºÏÖÔÚÊÇ%dµãÖ§³Ö£¬%dµã·´¶Ô£¬%dµãÖÐÁ¢£»ÁíÍâ»¹ÓÐ%dµãÃ»ÓÐ±íÌ¬¡£",
+("$Né“ï¼šçŽ°åœ¨æ˜¯%dç‚¹æ”¯æŒï¼Œ%dç‚¹åå¯¹ï¼Œ%dç‚¹ä¸­ç«‹ï¼›å¦å¤–è¿˜æœ‰%dç‚¹æ²¡æœ‰è¡¨æ€ã€‚",
 p_score[1],p_score[2],p_score[3],p_score[0]-(p_score[1]+p_score[2]+p_score
 [3]));
         else
                 p_disp=sprintf
-("$NµÀ£ºÏÖÔÚÊÇ%dµãÖ§³Ö£¬%dµã·´¶Ô£¬%dµãÖÐÁ¢¡£",p_score[1],p_score[2],p_score[3]);
+("$Né“ï¼šçŽ°åœ¨æ˜¯%dç‚¹æ”¯æŒï¼Œ%dç‚¹åå¯¹ï¼Œ%dç‚¹ä¸­ç«‹ã€‚",p_score[1],p_score[2],p_score[3]);
         o_leader=CHAR_D->find_char(p_leader);
         if(objectp(o_leader))
                 o_leader->simple_action(p_disp);
@@ -69,7 +69,7 @@ p_score[1],p_score[2],p_score[3],p_score[0]-(p_score[1]+p_score[2]+p_score
 	{
               if(objectp(p_leader))
               o_leader->simple_action
-("$NµÀ£º¹ØÓÚ"+get_problem(task_id)+"µÄÎÊÌâ£¬½ñÌì¿´À´ÎÞ·¨¶àÊýÍ¨¹ý£¬ÔÛÃÇ¸ÄÈÕÔÙÌ¸¡£\n");
+("$Né“ï¼šå…³äºŽ"+get_problem(task_id)+"çš„é—®é¢˜ï¼Œä»Šå¤©çœ‹æ¥æ— æ³•å¤šæ•°é€šè¿‡ï¼Œå’±ä»¬æ”¹æ—¥å†è°ˆã€‚\n");
 		{
 			string my_id;
 			object my_ob;
@@ -89,7 +89,7 @@ p_score[1],p_score[2],p_score[3],p_score[0]-(p_score[1]+p_score[2]+p_score
 			my_ob=CHAR_D->find_char(my_id);
 			if(objectp(my_ob))
 				my_ob->simple_action
-("$NµÄ½¨ÒéÃ»ÓÐ±»Í¨¹ý£¬$NµÄÉùÍûºÍÖÒ³ÏÏÂ½µÁË¡£\n");
+("$Nçš„å»ºè®®æ²¡æœ‰è¢«é€šè¿‡ï¼Œ$Nçš„å£°æœ›å’Œå¿ è¯šä¸‹é™äº†ã€‚\n");
 	
 		}
                 dis_over(task_id);

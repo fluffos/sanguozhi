@@ -12,28 +12,28 @@ string main(string arg) {
 	string con;
     class news_msg msg;
 	string ret;
-	if((!arg)||(arg=="")) return empty_page("Èı¹úÁôÑÔ°å");
-	if(sscanf(arg,"%s,%d",group,id)!=2) return empty_page("Èı¹úÁôÑÔ°å");
-	if(!WEB_D->valid_group(group)) return empty_page("Ã»ÓĞÕâÌõĞÂÎÅ");
+	if((!arg)||(arg=="")) return empty_page("ä¸‰å›½ç•™è¨€æ¿");
+	if(sscanf(arg,"%s,%d",group,id)!=2) return empty_page("ä¸‰å›½ç•™è¨€æ¿");
+	if(!WEB_D->valid_group(group)) return empty_page("æ²¡æœ‰è¿™æ¡æ–°é—»");
 	msg=NEWS_D->get_message(group,id);
-	if(!msg || !msg->body) return empty_page("Ã»ÓĞÕâÌõĞÂÎÅ");
+	if(!msg || !msg->body) return empty_page("æ²¡æœ‰è¿™æ¡æ–°é—»");
 	
 	con=msg->body;
 	if((arg[0..6]=="nation.")&&(con[0]=='*'))
-		return empty_page("¹ú¼Ò»úÃÜ£¬²»µÃÔÄ¶Á¡£");
+		return empty_page("å›½å®¶æœºå¯†ï¼Œä¸å¾—é˜…è¯»ã€‚");
 	ret="
 		<html>
 		<head>
 		<title>News Groups</title>
 		<meta http-equiv='Content-Type' content='text/html; charset=gb2312'>\n";
 	ret+="<table width=90% align='center'>\n";
-	ret+="<tr><td align='left' width=150 ><b>Õ¾µã£º</b></td><td align='left' width=900>"+
+	ret+="<tr><td align='left' width=150 ><b>ç«™ç‚¹ï¼š</b></td><td align='left' width=900>"+
 		mud_name()+"</td></tr>\n";
-	ret+="<tr><td align='left' width=150 ><b>×÷Õß£º</b></td><td align='left' width=900>"+
+	ret+="<tr><td align='left' width=150 ><b>ä½œè€…ï¼š</b></td><td align='left' width=900>"+
 		msg->poster+"</td></tr>\n";
-	ret+="<tr><td align='left' width=150 ><b>ÈÕÆÚ£º</b></td><td align='left' width=900>"+
+	ret+="<tr><td align='left' width=150 ><b>æ—¥æœŸï¼š</b></td><td align='left' width=900>"+
 		(intp(msg->time) ? ctime(msg->time)[4..9] : msg->time)+"</td></tr>\n";
-	ret+="<tr><td align='left' width=150 ><b>±êÌâ£º</b></td><td align='left' width=900>"+
+	ret+="<tr><td align='left' width=150 ><b>æ ‡é¢˜ï¼š</b></td><td align='left' width=900>"+
 
 		msg->subject+"</td></tr>\n";
 	ret+="</table>";

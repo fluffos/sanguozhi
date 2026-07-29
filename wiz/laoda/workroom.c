@@ -1,5 +1,5 @@
 /* workroom.c
-** Coded by ÀÏ´ó@Èı¹úÖ¾
+** Coded by è€å¤§@ä¸‰å›½å¿—
 ** Code generated with RoomMaker v0.9.1 coded by Onyx@RedDragon
 ** Do not remove this header.
 */
@@ -9,11 +9,11 @@ inherit ROOM;
 
 void setup(){
     set_light(10000);
-    set_brief("ÀÏ´óµÄ»á¿ÍÌü");
+    set_brief("è€å¤§çš„ä¼šå®¢å…");
     set_long(
-"ºÃÏóÊ²Ã´Ò²Ã»ÓĞ¡£¿Õ¿Õµ´µ´µÄ¡£"
+"å¥½è±¡ä»€ä¹ˆä¹Ÿæ²¡æœ‰ã€‚ç©ºç©ºè¡è¡çš„ã€‚"
 );
-    add_item("paper" , "Ò»ÕÅĞ¡Ö½Æ¬¡£");
+    add_item("paper" , "ä¸€å¼ å°çº¸ç‰‡ã€‚");
     set_exits( ([
 "enter" :  "/wiz/laoda/rooms/home",
 "dgc"   :  "/wiz/fire/room/vdagu_chang",

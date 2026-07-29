@@ -15,7 +15,7 @@ inherit M_ENTERABLE;
 void setup()
 {
     set_adj("red");
-    set_id("camaro", "¿¨ÂóÂŞ", "car");
+    set_id("camaro", "å¡éº¦ç½—", "car");
     set_preposition("in");
     set_long("This is a very cool, dark red Camaro Z28.");
     set_max_capacity(VERY_LARGE*4);

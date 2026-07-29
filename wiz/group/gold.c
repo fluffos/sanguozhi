@@ -1,8 +1,8 @@
 #include <sanguo.h> 
 inherit M_MONEY;
 void setup() {
-    set_id("gold", "½ğ×Ó");
-    set_unit("Á½");
+    set_id("gold", "é‡‘å­");
+    set_unit("ä¸¤");
     add_id("money");
     set_m_rate(10000);
     set_m_num(100);

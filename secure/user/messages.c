@@ -1,7 +1,7 @@
 /* Do not remove the headers from this file! see /USAGE for more info. */
 
 /* %^RESET%^ gets used early in the login sequence by tell() */
-private static mapping translations = (["RESET" : ""]);
+private mapping translations = (["RESET" : ""]);
 #ifdef CONFIGURABLE_COLOUR
 private mapping colours;
 #endif
@@ -58,7 +58,7 @@ void update_translations() {
 #ifdef CONFIGURABLE_COLOUR
     translations = copy(translations);
     foreach (string code, string value in colours) {
-        string array parts = map(explode(value, ","), (: upper_case :));
+        string * parts = map(explode(value, ","), (: upper_case :));
         string val = "";
         
         foreach (string item in parts) {
@@ -81,7 +81,7 @@ void query_colour(string which) {
     return colours[which];
 }
 
-array query_colours() {
+mixed * query_colours() {
     return keys(colours);
 }
 

@@ -1,4 +1,4 @@
-// p_tuotuo.c "ÃÀÀöµÄĞ¡ÇÌ"
+// p_tuotuo.c "ç¾ä¸½çš„å°ç¿˜"
 #include <mudlib.h>
 #include <sanguo.h>
 inherit LIVING;
@@ -16,30 +16,30 @@ string *query_channel_list() {
 void setup()
 {
    object jia;
-    set_name("girl", "Ğ¡ÇÌ");
+    set_name("girl", "å°ç¿˜");
     add_id("tuotuo");
     set_gender(2);
-    set_proper_name("ÃÀÀöµÄĞ¡ÇÌ");
-    set_in_room_desc("ÃÀÀö¶¯ÈËµÄÉÙÅ®£ºĞ¡ÇÌ(girl)");
-    set_long("Ğ¡ÇÌÌ§Í·ÍûÁËÄãÒ»ÑÛ£¬Ì¾ÁËÒ»¿ÚÆø£º
-¡°°¦. . .Äã²»ÊÇÎÒÒªÕÒµÄÈË. . .¡±");
+    set_proper_name("ç¾ä¸½çš„å°ç¿˜");
+    set_in_room_desc("ç¾ä¸½åŠ¨äººçš„å°‘å¥³ï¼šå°ç¿˜(girl)");
+    set_long("å°ç¿˜æŠ¬å¤´æœ›äº†ä½ ä¸€çœ¼ï¼Œå¹äº†ä¸€å£æ°”ï¼š
+â€œå”‰. . .ä½ ä¸æ˜¯æˆ‘è¦æ‰¾çš„äºº. . .â€");
     jia=new("/wiz/fire/obj/wear/skirt.c");
     jia->move(this_object());
     jia->do_wear();
      set_sg_rongmao(35);
-     add_pattern("%sÉîÉîµØÌ¾ÁË¿ÚÆø¡£",function(){ 
-	if ($1=="ÁÒ»ğ")
+     add_pattern("%sæ·±æ·±åœ°å¹äº†å£æ°”ã€‚",function(){ 
+	if ($1=="çƒˆç«")
 	{
         	respond("comfort fire");
-		respond("say ÓĞÎÒÔÚ£¬Äã»¹²»¸ßĞËÂğ£¿");
+		respond("say æœ‰æˆ‘åœ¨ï¼Œä½ è¿˜ä¸é«˜å…´å—ï¼Ÿ");
 	}
 	else
 	{
 		respond("en");
 	}
 	});
-     add_pattern("%sÇáÇáÍĞ×¡ÄãµÄÁ³£¬¸øÄãÒ»¸öÉîÇéµÄÎÇ¡£",function(){ 
-	if ($1=="ÁÒ»ğ")
+     add_pattern("%sè½»è½»æ‰˜ä½ä½ çš„è„¸ï¼Œç»™ä½ ä¸€ä¸ªæ·±æƒ…çš„å»ã€‚",function(){ 
+	if ($1=="çƒˆç«")
 	{
         	respond("blush");
 		respond("giggle");
@@ -47,11 +47,11 @@ void setup()
 	else
 	{
 		respond("angry");
-		respond("say ±ğÅöÎÒ\n");
+		respond("say åˆ«ç¢°æˆ‘\n");
 	}
 	});
-     add_pattern("%s½«ÄãÇáÇáµØÂ§ÔÚ»³Àï¡£",function(){ 
-	if ($1=="ÁÒ»ğ")
+     add_pattern("%så°†ä½ è½»è½»åœ°æ‚åœ¨æ€€é‡Œã€‚",function(){ 
+	if ($1=="çƒˆç«")
 	{
         	respond("shame fire");
 		respond("lsj fire");
@@ -59,77 +59,77 @@ void setup()
 	else
 	{
 		respond("angry");
-		respond("say ±ğÅöÎÒ\n");
+		respond("say åˆ«ç¢°æˆ‘\n");
 	}
 	});
-     add_pattern("%sÉîÇéµØÍû×ÅÑÛÇ°µÄÄã£¬²»½û³ÕÁË¡£",function(){ 
-	if ($1=="ÁÒ»ğ")
+     add_pattern("%sæ·±æƒ…åœ°æœ›ç€çœ¼å‰çš„ä½ ï¼Œä¸ç¦ç—´äº†ã€‚",function(){ 
+	if ($1=="çƒˆç«")
 	{
 		respond("llook");
 	}
 	else
 	{
 		respond("angry");
-		respond("say ÌÖÑá\n");
+		respond("say è®¨åŒ\n");
 	}
 	});
-     add_pattern("%s°ÑÄã½ô½ôµØ±§ÔÚ»³Àï¡£",function(){ 
-	if ($1=="ÁÒ»ğ")
+     add_pattern("%sæŠŠä½ ç´§ç´§åœ°æŠ±åœ¨æ€€é‡Œã€‚",function(){ 
+	if ($1=="çƒˆç«")
 	{
 		respond("lbao");
 	}
 	else
 	{
 		respond("angry");
-		respond("say ±ğÅöÎÒ\n");
+		respond("say åˆ«ç¢°æˆ‘\n");
 	}
 	});
-     add_pattern("%sÔÚÄãµÄ¶ú±ßÇáÇá´µ¿ÚÆø£¬Ïë°ÑÄã»½ĞÑ¡£",function(){ 
-	if ($1=="ÁÒ»ğ")
+     add_pattern("%såœ¨ä½ çš„è€³è¾¹è½»è½»å¹å£æ°”ï¼Œæƒ³æŠŠä½ å”¤é†’ã€‚",function(){ 
+	if ($1=="çƒˆç«")
 	{
 		respond("lwake");
 	}
 	else
 	{
 		respond("angry");
-		respond("say ±ğÅöÎÒ\n");
+		respond("say åˆ«ç¢°æˆ‘\n");
 	}
 	});
-     add_pattern("%s±§×¡ÄãµÄÑü£¬ÇáÉùËµ£º¡°¶¼ÊÇÎÒ²»ºÃ£¬½ñºóÔÙÒ²²»ÈÇÄãÉúÆøÁË¡£¡±",function(){ 
-	if ($1=="ÁÒ»ğ")
+     add_pattern("%sæŠ±ä½ä½ çš„è…°ï¼Œè½»å£°è¯´ï¼šâ€œéƒ½æ˜¯æˆ‘ä¸å¥½ï¼Œä»Šåå†ä¹Ÿä¸æƒ¹ä½ ç”Ÿæ°”äº†ã€‚â€",function(){ 
+	if ($1=="çƒˆç«")
 	{
 		respond("lhong");
 	}
 	else
 	{
 		respond("angry");
-		respond("say ±ğÅöÎÒ\n");
+		respond("say åˆ«ç¢°æˆ‘\n");
 	}
 	});
-     add_pattern("%sÂ§×ÅÄã£¬ÔÚÄãµÄ¶ú±ßÇÄÉùµÀ£ºÏàË¼ÖªºÎÈÕ£¬´ËÒ¹ÄÑÎªÇé¡£",function(){ 
-	if ($1=="ÁÒ»ğ")
+     add_pattern("%sæ‚ç€ä½ ï¼Œåœ¨ä½ çš„è€³è¾¹æ‚„å£°é“ï¼šç›¸æ€çŸ¥ä½•æ—¥ï¼Œæ­¤å¤œéš¾ä¸ºæƒ…ã€‚",function(){ 
+	if ($1=="çƒˆç«")
 	{
 		respond("lkao");
 	}
 	else
 	{
 		respond("angry");
-		respond("say ±ğÅöÎÒ\n");
+		respond("say åˆ«ç¢°æˆ‘\n");
 	}
 	});
-     add_pattern("%sÇá¸§ÄãµÄĞã·¢Ì¾µ½£º¡°µÃÆŞÈô´Ë£¬´ËÉúºÎº¶£¿¡±",function(){ 
-	if ($1=="ÁÒ»ğ")
+     add_pattern("%sè½»æŠšä½ çš„ç§€å‘å¹åˆ°ï¼šâ€œå¾—å¦»è‹¥æ­¤ï¼Œæ­¤ç”Ÿä½•æ†¾ï¼Ÿâ€",function(){ 
+	if ($1=="çƒˆç«")
 	{
 		respond("lwife");
 	}
 	else
 	{
 		respond("angry");
-		respond("say ºúËµĞ©Ê²Ã´£¬±ğÅöÎÒ\n");
+		respond("say èƒ¡è¯´äº›ä»€ä¹ˆï¼Œåˆ«ç¢°æˆ‘\n");
 	}
 	});
-     add_pattern("%sÇáÇáµØÃşÖøÄãµÄÁ³£¬ÎŞÏŞÉîÇéµÄËµ£º¡°ÎÒºÃÏ²»¶ÄãÅ¶£®£®£®¡±",function(){ 
-	if ($1=="ÁÒ»ğ")
+     add_pattern("%sè½»è½»åœ°æ‘¸è‘—ä½ çš„è„¸ï¼Œæ— é™æ·±æƒ…çš„è¯´ï¼šâ€œæˆ‘å¥½å–œæ¬¢ä½ å“¦ï¼ï¼ï¼â€",function(){ 
+	if ($1=="çƒˆç«")
 	{
 		respond("giggle");
 		respond("kiss fire");
@@ -137,15 +137,15 @@ void setup()
 	else
 	{
 		respond("angry");
-		respond("say ºúËµĞ©Ê²Ã´£¬±ğÅöÎÒ\n");
+		respond("say èƒ¡è¯´äº›ä»€ä¹ˆï¼Œåˆ«ç¢°æˆ‘\n");
 	}
 	});
-     add_pattern("%s¶ÔÄã·¢³öÕóÕóÒùĞ¦¡£",function(){ 
+     add_pattern("%så¯¹ä½ å‘å‡ºé˜µé˜µæ·«ç¬‘ã€‚",function(){ 
 		respond("angry");
-		respond("say Çë·Å×ğÖØÒ»µã\n");
+		respond("say è¯·æ”¾å°Šé‡ä¸€ç‚¹\n");
 	});
-     add_pattern("%s¶ÔÄãËµµÀ£ºËÍ¾ıÇ§Àï£¬ÖÕÓĞÒ»±ğ£¬ÔÛÃÇ¾Í´Ë±ğ¹ı£¡",function(){ 
-	if ($1=="ÁÒ»ğ")
+     add_pattern("%så¯¹ä½ è¯´é“ï¼šé€å›åƒé‡Œï¼Œç»ˆæœ‰ä¸€åˆ«ï¼Œå’±ä»¬å°±æ­¤åˆ«è¿‡ï¼",function(){ 
+	if ($1=="çƒˆç«")
 	{	respond("cry fire");
 		respond("kiss fire");
 		respond("lwait fire");
@@ -157,7 +157,7 @@ void setup()
 		respond("wave");
 	}
 	});
-     add_pattern("ÁÒ»ğ×ßÁË%s",function(){ 
+     add_pattern("çƒˆç«èµ°äº†%s",function(){ 
 		respond("jump fire");
 		respond("lsj fire");
 		

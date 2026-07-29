@@ -53,8 +53,8 @@ private void main(string arg)
 	fname=map_list[fname];
     if(!stringp(fname))
     {
-	    printf("没有此路径\n");return;
+	    printf("娌℃湁姝よ矾寰刓n");return;
     }
     this_body()->query_shell_ob()->set_pwd(fname);
-    printf("当前目录: %s\n",fname);
+    printf("褰撳墠鐩綍: %s\n",fname);
 }

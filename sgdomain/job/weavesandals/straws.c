@@ -1,22 +1,22 @@
 // straws by row
-// this is used for the job of ±à²İĞ¬µ×
+// this is used for the job of ç¼–è‰é‹åº•
 #include <mudlib.h>
 #include <ansi.h>
 #define JOBID "weavesandals"
 inherit OBJ;
 inherit M_INPUT;
 
-string *desc = ({"ÔÓÆßÔÓ°ËµÄ"+YEL+"Ã©²İ´Ô"+NOR+"¡£\n"+
-"·ç´µ²İ¶¯£¬·¢³ö¡ºà§à§¡»µÄÉùÒô£¬Äã¿ÉÒÔÊÔ×Å°ÎÒ»µãÏÂÀ´(pull straws)¡£\n",
-"¿´ÉÏÈ¥¸ßµÍ²»Æ½£¬ºÃÏó±»ÈË°Î¹ı(pull straws)¡£\n",
-"·ÅÑÛÍûÈ¥£¬´ó¶àÖ»Ê£ÏÂ¸ù¾¥ÁË(pull straws)¡£\n",});
+string *desc = ({"æ‚ä¸ƒæ‚å…«çš„"+YEL+"èŒ…è‰ä¸›"+NOR+"ã€‚\n"+
+"é£å¹è‰åŠ¨ï¼Œå‘å‡ºã€å”°å”°ã€çš„å£°éŸ³ï¼Œä½ å¯ä»¥è¯•ç€æ‹”ä¸€ç‚¹ä¸‹æ¥(pull straws)ã€‚\n",
+"çœ‹ä¸Šå»é«˜ä½ä¸å¹³ï¼Œå¥½è±¡è¢«äººæ‹”è¿‡(pull straws)ã€‚\n",
+"æ”¾çœ¼æœ›å»ï¼Œå¤§å¤šåªå‰©ä¸‹æ ¹èŒäº†(pull straws)ã€‚\n",});
 
 private int status;
 private int pulled;
 void setup()
 {
-	set_id("straws", YEL+"Ã©²İ´Ô"+NOR);
-	set_in_room_desc("Â·±ß·º»ÆµÄ"+YEL+"Ã©²İ´Ô"+NOR+"(straws)¡£");
+	set_id("straws", YEL+"èŒ…è‰ä¸›"+NOR);
+	set_in_room_desc("è·¯è¾¹æ³›é»„çš„"+YEL+"èŒ…è‰ä¸›"+NOR+"(straws)ã€‚");
 	status=0;
 	pulled=0;
 	call_out("grow", 15);
@@ -50,13 +50,13 @@ int pull()
 	int m_hp;
 	m_hp=this_body()->query_cur_hp();
 	if (m_hp<10)
-	{write("ÄãÊ¡Ê¡°É¡£\n");
+	{write("ä½ çœçœå§ã€‚\n");
 	return 1;
 	}
 	m_hp-=15;
 	this_body()->set_cur_hp(m_hp);
 	this_body()->simple_action(
-	"$N×¥×¡¼¸¸ùÃ©²İÒ»ÓÃÁ¦£¬½á¹ûÊÖÕÆ±»»®ÁË¼¸¸ö¿Ú×Ó¡£\n");
+	"$NæŠ“ä½å‡ æ ¹èŒ…è‰ä¸€ç”¨åŠ›ï¼Œç»“æœæ‰‹æŒè¢«åˆ’äº†å‡ ä¸ªå£å­ã€‚\n");
 	return 1;
 	}
 	if (status<41)
@@ -64,19 +64,19 @@ int pull()
 	int m_hp;
 	m_hp=this_body()->query_cur_hp();
 	if (m_hp<10)
-	{write("ÄãÌ«ÀÛÁË£¬ĞİÏ¢Ò»»á¶ù°É¡£\n");
+	{write("ä½ å¤ªç´¯äº†ï¼Œä¼‘æ¯ä¸€ä¼šå„¿å§ã€‚\n");
 	return 1;
 	}
 	m_hp-=15;
 	this_body()->set_cur_hp(m_hp);
 	status=status+random(5);
 	this_body()->simple_action(
-	"$NÓÖÀ­ÓÖ×§´ó·ÑÖÜÕÛ£¬×ÜËã³¶ÏÂÒ»°Ñ·º»ÆµÄ"+YEL+"Ã©²İ"+NOR+"¡£\n",);
+	"$Nåˆæ‹‰åˆæ‹½å¤§è´¹å‘¨æŠ˜ï¼Œæ€»ç®—æ‰¯ä¸‹ä¸€æŠŠæ³›é»„çš„"+YEL+"èŒ…è‰"+NOR+"ã€‚\n",);
 	ob=new(__DIR__"mcao");
 	ob->move(this_body());
 	return 1;
 	}
 	else
-	write("Ã©²İ±»°Î¹âÁË¡£\n");
+	write("èŒ…è‰è¢«æ‹”å…‰äº†ã€‚\n");
 	return 1;
 }

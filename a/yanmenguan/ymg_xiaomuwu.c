@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is °ÍÉ½Ò¹Óê
+// driver is å·´å±±å¤œé›¨
 // created date is Wed Jun 15 22:18:28 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,7 +7,7 @@ inherit INDOOR_ROOM;
 void setup() {
 set_area("yanmenguan");
 set_light(50);
-set_brief("%^YELLOW%^"+"Ğ¡Ä¾Îİ"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"å°æœ¨å±‹"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "south":"/a/yanmenguan/ymg_banshanyao.c",

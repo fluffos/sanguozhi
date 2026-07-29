@@ -17,39 +17,39 @@ private void main(string arg)
 	p_id=this_body()->query_primary_id();
 	home=CHAR_D->get_char(p_id,"h");
 	if(!mapp(home)) {
-		write("Äã»¹Ã»¼ÒÄØ¡£\n");
+		write("ä½ è¿˜æ²¡å®¶å‘¢ã€‚\n");
 		return;
 	}
 	if(home["st"]=="building") {
-		write("ÄãµÄ¼Ò»¹Ã»½¨ºÃ¡£\n");
+		write("ä½ çš„å®¶è¿˜æ²¡å»ºå¥½ã€‚\n");
 		return;
 	}
 	if(home["st"]=="updating") {
-		write("ÄãµÄ¼ÒÕıÔÚÉı¼¶¡£\n");
+		write("ä½ çš„å®¶æ­£åœ¨å‡çº§ã€‚\n");
 		return;
 	}
 
 	if(home["st"]=="moving") {
-		write("ÄãµÄ¼Ò»¹Ã»°áµ½ÄØ¡£\n");
+		write("ä½ çš„å®¶è¿˜æ²¡æ¬åˆ°å‘¢ã€‚\n");
 		return;
 	}
 	if(CHAR_D->get_char(p_id,"task")) {
-		write("ÄãÏÖÔÚÓĞ¹¤×÷£¬²»ÄÜ»Ø¼Ò¡£\n");
+		write("ä½ ç°åœ¨æœ‰å·¥ä½œï¼Œä¸èƒ½å›å®¶ã€‚\n");
 		return;
 	}
 	if(CHAR_D->get_char(p_id,"in_prison")){
-		write("ÄãÏÖÔÚÕıÔÚ·şĞÌ£¬²»ÄÜ»Ø¼Ò¡£\n");
+		write("ä½ ç°åœ¨æ­£åœ¨æœåˆ‘ï¼Œä¸èƒ½å›å®¶ã€‚\n");
 		return;
 	}
 	p_area=this_body()->query_room()->get_area();
 	if(p_area!=home["a"]) {
-		write("ÄãµÄ¼ÒÔÚ"+AREA_D->get_area(home["a"],"name")+"£¬²»ÔÚÕâ¸öµØÇø¡£\n");
+		write("ä½ çš„å®¶åœ¨"+AREA_D->get_area(home["a"],"name")+"ï¼Œä¸åœ¨è¿™ä¸ªåœ°åŒºã€‚\n");
 		return;
 	}
 
 	msgs = this_body()->get_player_message("home");
         if (environment(this_body()))
-                this_body()->my_action( "Äã»Ø¼Òà¶¡£\n");
+                this_body()->my_action( "ä½ å›å®¶å–½ã€‚\n");
         this_body()->other_action( msgs[1]);
 
         ob = load_object(HOME_SERVER+p_id+"/front");
@@ -62,7 +62,7 @@ private void main(string arg)
 
 //        if ( !(this_body()->test_flag(F_BRIEF)) )
             this_body()->do_game_command("look");
-	this_body()->start_busy(2,"ÄãÕıÃ¦×Å»Ø¼ÒÄØ¡£\n");
+	this_body()->start_busy(2,"ä½ æ­£å¿™ç€å›å®¶å‘¢ã€‚\n");
         return;
     }
     p_id=arg;
@@ -70,42 +70,42 @@ private void main(string arg)
 
     home=CHAR_D->get_char(p_id,"h");
 	if(!mapp(home)) {
-		write("ÄãÒª·ÃÎÊµÄÈË»¹Ã»¼ÒÄØ¡£\n");
+		write("ä½ è¦è®¿é—®çš„äººè¿˜æ²¡å®¶å‘¢ã€‚\n");
 		return;
 	}
 	if(home["st"]!="new") {
-		write("ÄãÒª·ÃÎÊµÄÈËµÄ¼ÒÏÖÔÚ»¹²»ÄÜ°İ·Ã¡£\n");
+		write("ä½ è¦è®¿é—®çš„äººçš„å®¶ç°åœ¨è¿˜ä¸èƒ½æ‹œè®¿ã€‚\n");
 		return;
 	}
 	if(CHAR_D->get_char(this_body()->query_primary_id(),"task")) {
-		write("ÄãÏÖÔÚÓĞ¹¤×÷£¬²»ÄÜµ½´¦´®ÃÅ¡£\n");
+		write("ä½ ç°åœ¨æœ‰å·¥ä½œï¼Œä¸èƒ½åˆ°å¤„ä¸²é—¨ã€‚\n");
 		return;
 	}
 	if(CHAR_D->get_char(p_id,"in_prison")){
-		write("ÄãÏÖÔÚÕıÔÚ·şĞÌ£¬²»ÄÜ°İ·ÃËûÈË¡£\n");
+		write("ä½ ç°åœ¨æ­£åœ¨æœåˆ‘ï¼Œä¸èƒ½æ‹œè®¿ä»–äººã€‚\n");
 		return;
 	}
 	p_area=this_body()->query_room()->get_area();
 	if(p_area!=home["a"]) {
-		write("ÄãÒª·ÃÎÊµÄÈËµÄ¼ÒÔÚ"+AREA_D->get_area(home["a"],"name")+"£¬²»ÔÚÕâ¸öµØÇø¡£\n");
+		write("ä½ è¦è®¿é—®çš„äººçš„å®¶åœ¨"+AREA_D->get_area(home["a"],"name")+"ï¼Œä¸åœ¨è¿™ä¸ªåœ°åŒºã€‚\n");
 		return;
 	}
 
-    this_body()->simple_action("$NÇ°Íù " + CHAR_D->get_char(p_id,"name") +
-      " µÄ¼ÒÀïÕÒÈËÁÄÌìÈ¥ÁË¡£");
+    this_body()->simple_action("$Nå‰å¾€ " + CHAR_D->get_char(p_id,"name") +
+      " çš„å®¶é‡Œæ‰¾äººèŠå¤©å»äº†ã€‚");
 
         ob = load_object(HOME_SERVER+p_id+"/front");
 
         this_body()->move(ob);
 
     tell_environment(this_body(), this_body()->query_name() +
-      "¿´Ñù×ÓÊÇÀ´ " + CHAR_D->get_char(p_id,"name") + " ¼Ò»ì·¹ÁË¡£\n",
+      "çœ‹æ ·å­æ˜¯æ¥ " + CHAR_D->get_char(p_id,"name") + " å®¶æ··é¥­äº†ã€‚\n",
       0, ({ this_body() }));
 
 
 //    if(!(this_body()->test_flag(F_BRIEF)))
         this_body()->do_game_command("look");
-    this_body()->start_busy(2,"ÄãÕıÃ¦×Å¸ÏÂ·ÄØ¡£\n");
+    this_body()->start_busy(2,"ä½ æ­£å¿™ç€èµ¶è·¯å‘¢ã€‚\n");
 
     return;
 }

@@ -18,11 +18,11 @@ private void main()
 
     ulist = users();
     if (sizeof(ulist) <= 0) {
-        out(sprintf("Ã»ÓÐÈËÔÚÏßÉÏ!!!   (ÉõÖÁ²»°üÀ¨Äã£¡)\n"));
+        out(sprintf("æ²¡æœ‰äººåœ¨çº¿ä¸Š!!!   (ç”šè‡³ä¸åŒ…æ‹¬ä½ ï¼)\n"));
         return;
     }
     if ((sizeof(ulist)==1) && (ulist[0]==this_user())) {
-        out(sprintf("ÄãÊÇÎ¨Ò»µÄÒ»Î»ÔÚÏßÈËÊ¿¡£\n"));
+        out(sprintf("ä½ æ˜¯å”¯ä¸€çš„ä¸€ä½åœ¨çº¿äººå£«ã€‚\n"));
         return;
     }
     if(end_of_pipeline())

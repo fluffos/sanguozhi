@@ -12,22 +12,22 @@ private void copy_one(string src, string dst, int force)
     if ( is_file(dst) && !force )
     {
         outf(//"%s already exists.  Copy failed.\n", 
-             "%s ÔçÒÑ´æÔÚ£¬¿½±´Ê§°Ü¡£\n", dst);
+             "%s æ—©å·²å­˜åœ¨ï¼Œæ‹·è´å¤±è´¥ã€‚\n", dst);
     }
     else if ( !(contents = read_file(src)) )
     {
         outf(//"Could not read %s.  Copy failed.\n"
-             "ÎŞ·¨¶ÁÈ¡ÎÄ¼ş %s£¬¿½±´Ê§°Ü¡£\n", src);
+             "æ— æ³•è¯»å–æ–‡ä»¶ %sï¼Œæ‹·è´å¤±è´¥ã€‚\n", src);
     }
     else if ( !write_file(dst, contents, 1) )
     {
         outf(//"%s could not be written to.  Copy failed.\n"
-             "%s ²»ÄÜ±»Ğ´£¬¿½±´Ê§°Ü¡£\n", dst);
+             "%s ä¸èƒ½è¢«å†™ï¼Œæ‹·è´å¤±è´¥ã€‚\n", dst);
     }
     else
     {
         outf(//"%s copied to %s.\n"
-             "%s ¿½±´µ½ %s¡£\n", src, dst);
+             "%s æ‹·è´åˆ° %sã€‚\n", src, dst);
     }
 }
 
@@ -39,7 +39,7 @@ private void main(mixed argv, mapping flags)
     if(sizeof(argv[0]) > 1 && !is_directory(argv[1]))
     {
         //outf("cp: files dir not files file\n");
-        outf("ÓÃ·¨£ºcp <ÎÄ¼şÈº> <Ä¿Â¼> ¶ø²»ÊÇ cp <ÎÄ¼şÈº> <ÎÄ¼ş>\n");
+        outf("ç”¨æ³•ï¼šcp <æ–‡ä»¶ç¾¤> <ç›®å½•> è€Œä¸æ˜¯ cp <æ–‡ä»¶ç¾¤> <æ–‡ä»¶>\n");
         return;
     }
     if(sizeof(argv[0]) > 1)

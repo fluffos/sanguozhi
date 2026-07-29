@@ -40,32 +40,32 @@ void create()
 {
     who	= this_body()->query_primary_id();
     auto= 0;
-    toplevel = new_menu("\n" + mud_name() + "Í¶Ëß/°¸¼ş²Ëµ¥");
-    quit_item = new_menu_item("ÍË³ö", (:quit_menu_application:), "q");
-    seperator = new_seperator("\n¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş\n");
+    toplevel = new_menu("\n" + mud_name() + "æŠ•è¯‰/æ¡ˆä»¶èœå•");
+    quit_item = new_menu_item("é€€å‡º", (:quit_menu_application:), "q");
+    seperator = new_seperator("\nã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“\n");
 
     add_menu_item(toplevel, seperator);
-    add_menu_item(toplevel, new_menu_item("ĞÂµÄÍ¶Ëß", (: do_add :), "a"));
-    add_menu_item(toplevel, new_menu_item("°¸¼şÀàĞÍ", (: do_type :), "t"));
-    add_menu_item(toplevel, new_menu_item("Í¶ËßË­£¿",
-        (: get_input_then_call, (: do_whom :), "ÇëÊäÈëÄãÒªÍ¶ËßÈËµÄid£º" :), "w"));
-    add_menu_item(toplevel, new_menu_item("Ìá¹©Ö¤ÈË",
-        (: get_input_then_call, (: do_ev :),  "ÇëÊäÈëÄãµÄÖ¤ÈËµÄid£º" :), "e"));
-    add_menu_item(toplevel, new_menu_item("³ÂÊöÀíÓÉ", (: do_reason :), "r"));
-    add_menu_item(toplevel, new_menu_item("½¨Òé²Ã¾ö", (: do_suggest :), "s"));
-    add_menu_item(toplevel, new_menu_item("°¸¼şÁĞ±í", (: do_list :), "l"));
-    add_menu_item(toplevel, new_menu_item("°¸¼şÉ¾³ı", 
-	(: get_input_then_call, (: do_delete :), "ÇëÊäÈëÒªÉ¾³ıµÄ°¸¼şid£º" :), "d"));
-    add_menu_item(toplevel, new_menu_item("²éÑ¯Ï¸½Ú",
-        (: get_input_then_call, (: do_view :), "ÇëÊäÈëÒª²éÑ¯µÄ°¸¼şid£º" :), "v"));
-    add_menu_item(toplevel, new_menu_item("Îª°¸¼ş×÷Ö¤",
-        (: get_input_then_call, (: do_prove :), "ÇëÊäÈëÒª×÷Ö¤µÄ°¸¼şid£º" :), "p"));
-    add_menu_item(toplevel, new_menu_item("·¢±íÒâ¼û",
-        (: get_input_then_call, (: do_comment :), "ÇëÊäÈëÒª·¢±íÒâ¼ûµÄ°¸¼şid£º" :), "c"));
+    add_menu_item(toplevel, new_menu_item("æ–°çš„æŠ•è¯‰", (: do_add :), "a"));
+    add_menu_item(toplevel, new_menu_item("æ¡ˆä»¶ç±»å‹", (: do_type :), "t"));
+    add_menu_item(toplevel, new_menu_item("æŠ•è¯‰è°ï¼Ÿ",
+        (: get_input_then_call, (: do_whom :), "è¯·è¾“å…¥ä½ è¦æŠ•è¯‰äººçš„idï¼š" :), "w"));
+    add_menu_item(toplevel, new_menu_item("æä¾›è¯äºº",
+        (: get_input_then_call, (: do_ev :),  "è¯·è¾“å…¥ä½ çš„è¯äººçš„idï¼š" :), "e"));
+    add_menu_item(toplevel, new_menu_item("é™ˆè¿°ç†ç”±", (: do_reason :), "r"));
+    add_menu_item(toplevel, new_menu_item("å»ºè®®è£å†³", (: do_suggest :), "s"));
+    add_menu_item(toplevel, new_menu_item("æ¡ˆä»¶åˆ—è¡¨", (: do_list :), "l"));
+    add_menu_item(toplevel, new_menu_item("æ¡ˆä»¶åˆ é™¤", 
+	(: get_input_then_call, (: do_delete :), "è¯·è¾“å…¥è¦åˆ é™¤çš„æ¡ˆä»¶idï¼š" :), "d"));
+    add_menu_item(toplevel, new_menu_item("æŸ¥è¯¢ç»†èŠ‚",
+        (: get_input_then_call, (: do_view :), "è¯·è¾“å…¥è¦æŸ¥è¯¢çš„æ¡ˆä»¶idï¼š" :), "v"));
+    add_menu_item(toplevel, new_menu_item("ä¸ºæ¡ˆä»¶ä½œè¯",
+        (: get_input_then_call, (: do_prove :), "è¯·è¾“å…¥è¦ä½œè¯çš„æ¡ˆä»¶idï¼š" :), "p"));
+    add_menu_item(toplevel, new_menu_item("å‘è¡¨æ„è§",
+        (: get_input_then_call, (: do_comment :), "è¯·è¾“å…¥è¦å‘è¡¨æ„è§çš„æ¡ˆä»¶idï¼š" :), "c"));
     add_menu_item(toplevel, quit_item);
     add_menu_item(toplevel, seperator);
 
-    set_menu_prompt (toplevel, "ÊäÈëÖ¸Áî[aedlstw|cpv|q]:~> ");
+    set_menu_prompt (toplevel, "è¾“å…¥æŒ‡ä»¤[aedlstw|cpv|q]:~> ");
 }
 void start_menu(){
     init_menu_application( toplevel );
@@ -73,18 +73,18 @@ void start_menu(){
 void do_add()
 {
     if ( UNION_D->add_case(who)==1 ) {
-        write("ÄãÒÑ¾­ÓĞ¹ıÒ»´ÎÍ¶Ëß¼ÇÂ¼ÔÚ°¸ÁË¡£\n");
+        write("ä½ å·²ç»æœ‰è¿‡ä¸€æ¬¡æŠ•è¯‰è®°å½•åœ¨æ¡ˆäº†ã€‚\n");
         return;
     }
-    write("ºÃ£¬½ÓÊÜÄãµÄÍ¶Ëß£¬ÇëÈÏÕæÌîĞ´±¾±í¸ñ¡£\n");
+    write("å¥½ï¼Œæ¥å—ä½ çš„æŠ•è¯‰ï¼Œè¯·è®¤çœŸå¡«å†™æœ¬è¡¨æ ¼ã€‚\n");
     UNION_D->add_case(who, "");
-    write("Èç¹ûÄã²»ÊìÏ¤±¾ÏµÍ³£¬ÇëÊäÈëyes½øÈëÒıµ¼Ä£Ê½¡£\n");
-    get_input_then_call((: select_mode :), "ÇëÊäÈëyes»òÕßno:");
+    write("å¦‚æœä½ ä¸ç†Ÿæ‚‰æœ¬ç³»ç»Ÿï¼Œè¯·è¾“å…¥yesè¿›å…¥å¼•å¯¼æ¨¡å¼ã€‚\n");
+    get_input_then_call((: select_mode :), "è¯·è¾“å…¥yesæˆ–è€…no:");
 }
 void select_mode(string str)
 {
     if ( str&&str=="yes" ) {
-	write("½øÈëÒıµ¼Ä£Ê½¡£\n");
+	write("è¿›å…¥å¼•å¯¼æ¨¡å¼ã€‚\n");
         auto = 1;
 	do_type();
     }
@@ -96,12 +96,12 @@ void do_reason()
         original = explode(UNION_D->query_case(who, "reason"), "\n");
     else
         original = ({ });
-    if ( auto == 1 ) write("ÇëÊäÈëÄãµÄÀíÓÉ£¬²»µÃ³¤ÓÚÊ®ĞĞ£¡\n");
+    if ( auto == 1 ) write("è¯·è¾“å…¥ä½ çš„ç†ç”±ï¼Œä¸å¾—é•¿äºåè¡Œï¼\n");
     new(EDIT_OB, EDIT_TEXT, original, (: get_reason :) );
 }
 void get_reason(string *reason)
 {
-    write("×Ô³ÂÒÑ±»¼ÇÂ¼¡£\n");
+    write("è‡ªé™ˆå·²è¢«è®°å½•ã€‚\n");
     if ( sizeof(reason)>10 ) reason = reason[0..10];
     UNION_D->set_case(who, "reason", implode(reason, "\n") );
     if ( auto == 1 ) do_suggest();
@@ -114,46 +114,46 @@ void do_type()
     mapping types;
 
     if ( stringp(UNION_D->query_case(who, "type"))&&UNION_D->query_case(who, "type")!="" ) {
-	write("²»¿ÉÒÔËæ±ã¸ü¸Ä°¸¼şÀàĞÍ£¡\n");
+	write("ä¸å¯ä»¥éšä¾¿æ›´æ”¹æ¡ˆä»¶ç±»å‹ï¼\n");
 	return;
     }
     types = UNION_D->query_types();
     for( i=0; i<sizeof(types); i++ )
         str += (i+1)+") " + values(types)[i] + "\n";
     write(str);
-    get_input_then_call( (: get_type, types :), "ÇëÑ¡ÔñÄãµÄ°¸¼şÀàĞÍ£º");
+    get_input_then_call( (: get_type, types :), "è¯·é€‰æ‹©ä½ çš„æ¡ˆä»¶ç±»å‹ï¼š");
 }
 void get_type(mapping types, string choice)
 {
     int i;
 
     if ( !choice ) {
-        write("·Ç·¨Ñ¡Ôñ¡£\n");
+        write("éæ³•é€‰æ‹©ã€‚\n");
         return;
     }
     i = to_int(choice)-1;
     if ( i<0||i>sizeof(types)-1 ) {
-        write("Ñ¡Ôñ³¬³ö·¶Î§¡£\n");
+        write("é€‰æ‹©è¶…å‡ºèŒƒå›´ã€‚\n");
     } else {
     	UNION_D->set_case(who, "type", keys(types)[i]);
-    	write("ÒÑ±»¼ÇÂ¼¡£\n");
+    	write("å·²è¢«è®°å½•ã€‚\n");
     }
     if ( auto == 1 ) 
-	get_input_then_call( (: do_whom :), "ÇëÊäÈëÄãÒªÍ¶ËßÈËµÄid£º");
+	get_input_then_call( (: do_whom :), "è¯·è¾“å…¥ä½ è¦æŠ•è¯‰äººçš„idï¼š");
     else  prompt_then_return();
 }
 void do_whom(string str)
 {
     if ( UNION_D->query_case(who, "whom")!=""&&stringp(UNION_D->query_case(who, "whom")) )
-        write("²»¿ÉÒÔËæ±ã¸ü¸Ä±»Í¶ËßÈË\n");
+        write("ä¸å¯ä»¥éšä¾¿æ›´æ”¹è¢«æŠ•è¯‰äºº\n");
     else if ( !CHAR_D->char_exist(str) ) 
-        write("±¾ÓÎÏ·ÖĞ²¢ÎŞ´Ë½ÇÉ«£¡\n");
+        write("æœ¬æ¸¸æˆä¸­å¹¶æ— æ­¤è§’è‰²ï¼\n");
     else {
 	UNION_D->set_case(who, "whom", str);
-	write("ÒÑ±»¼ÇÂ¼¡£\n");
+	write("å·²è¢«è®°å½•ã€‚\n");
     }
     if ( auto == 1 ) 
-	get_input_then_call((: do_ev :),"ÇëÊäÈëÄãµÄÖ¤ÈËµÄid£º" );
+	get_input_then_call((: do_ev :),"è¯·è¾“å…¥ä½ çš„è¯äººçš„idï¼š" );
     else    prompt_then_return();
 }
 void do_suggest()
@@ -163,17 +163,17 @@ void do_suggest()
    	original = explode(UNION_D->query_case(who, "solution"), "\n");
     else
 	original = ({ });
-    if ( auto == 1 ) write("ÇëÊäÈëÄãËùÆÚ´ıµÄ´¦ÖÃ£¬²»µÃ³¤ÓÚÊ®ĞĞ£¡\n");
+    if ( auto == 1 ) write("è¯·è¾“å…¥ä½ æ‰€æœŸå¾…çš„å¤„ç½®ï¼Œä¸å¾—é•¿äºåè¡Œï¼\n");
     new(EDIT_OB, EDIT_TEXT, original, (: get_suggest :) );
 }
 void get_suggest(string *reason)
 {
-    write("ÒÑ±»¼ÇÂ¼¡£\n");
+    write("å·²è¢«è®°å½•ã€‚\n");
     if ( sizeof(reason)>10 ) reason = reason[0..10];
     UNION_D->set_case(who, "solution", implode(reason, "\n") );
     if ( auto == 1 ) {
-	write("%^H_CYAN%^ÄãÒÑ¾­Íê³ÉÁË±¾±í¸ñ£¬ÇëÄÍĞÄµÈ´ıÉóÀí£¬\n");
-	write("ÔÙ´Î¸ĞĞ»ÄúµÄºÏ×÷£¡%^RESET%^\n");
+	write("%^H_CYAN%^ä½ å·²ç»å®Œæˆäº†æœ¬è¡¨æ ¼ï¼Œè¯·è€å¿ƒç­‰å¾…å®¡ç†ï¼Œ\n");
+	write("å†æ¬¡æ„Ÿè°¢æ‚¨çš„åˆä½œï¼%^RESET%^\n");
         auto = 0;
     }
     prompt_then_return();
@@ -185,7 +185,7 @@ void do_ev(string str)
    
     m = UNION_D->query_case(who, "ev");
     if( mapp(m)&&sizeof(m) ) 
-	write("ÔÚ°¸¼şÉóÀí¹ı³ÌÖĞ²»¿ÉÒÔ¸ü»»Ö¤ÈË£¡\n");
+	write("åœ¨æ¡ˆä»¶å®¡ç†è¿‡ç¨‹ä¸­ä¸å¯ä»¥æ›´æ¢è¯äººï¼\n");
     else {
 	m = ([ ]);
     	if ( stringp(str)&&str!="" ) {
@@ -195,7 +195,7 @@ void do_ev(string str)
             	m[s] = -1;
         }
     	UNION_D->set_case(who, "ev", m );
-    	write("ÒÑ±»¼ÇÂ¼¡£\n");
+    	write("å·²è¢«è®°å½•ã€‚\n");
     }
     if ( auto == 1 ) do_reason();
     else prompt_then_return();
@@ -209,9 +209,9 @@ void do_delete(string str)
 {
     string ret;
 
-    if ( !wizardp(who) ) ret = "Ö»ÓĞÎ×Ê¦²Å¿ÉÒÔÉ¾³ıÍ¶Ëß£¡\n";
-    else if ( UNION_D->remove_case(str)==1 ) ret = "´ËÈËÃ»ÓĞÍ¶ËßÔÚ°¸£¡\n";
-    else ret = "Ïà¹ØµÄ¼ÇÂ¼ÒÑ¾­³·ÏûÁË¡£\n";
+    if ( !wizardp(who) ) ret = "åªæœ‰å·«å¸ˆæ‰å¯ä»¥åˆ é™¤æŠ•è¯‰ï¼\n";
+    else if ( UNION_D->remove_case(str)==1 ) ret = "æ­¤äººæ²¡æœ‰æŠ•è¯‰åœ¨æ¡ˆï¼\n";
+    else ret = "ç›¸å…³çš„è®°å½•å·²ç»æ’¤æ¶ˆäº†ã€‚\n";
     write( ret );
     prompt_then_return();
 }
@@ -221,17 +221,17 @@ void do_prove(string str)
   
     cases = UNION_D->query_case( str );
     if ( !mapp(cases)||!sizeof(cases) )
-	write("´ËÈËÃ»ÓĞÍ¶ËßÔÚ°¸£¡\n");
+	write("æ­¤äººæ²¡æœ‰æŠ•è¯‰åœ¨æ¡ˆï¼\n");
     else if ( !mapp(ev=cases["ev"])||!sizeof(ev) )
-	write("´Ë°¸Ã»ÓĞ´«ÕÙÖ¤ÈË£¡\n");
+	write("æ­¤æ¡ˆæ²¡æœ‰ä¼ å¬è¯äººï¼\n");
     else if ( member_array(who, keys(ev))==-1 )
-        write("Í¶ËßÈË²¢Î´ÒªÇóÄã×÷Ö¤£¡\n");
+        write("æŠ•è¯‰äººå¹¶æœªè¦æ±‚ä½ ä½œè¯ï¼\n");
     else if ( ev[who] != -1 )
-	write("ÄãÒÑ¾­×÷¹ıÖ¤ÁË£¬ÔÙ´Î¸ĞĞ»£¡\n");
+	write("ä½ å·²ç»ä½œè¿‡è¯äº†ï¼Œå†æ¬¡æ„Ÿè°¢ï¼\n");
     else {
-	write("%^H_RED%^ÄãµÄÖ¤´Ê¿ÉÄÜ³ÉÎªÖ´·¨µÄÒÀ¾İ£¬ÇëÉ÷ÖØ£¡%^RESET%^\n");
-        write("-2±íÊ¾·´¶Ô£¬0±íÊ¾ÖĞÁ¢£¬1±íÊ¾ÔŞÍ¬¡£\n");
-        get_input_then_call( (: get_prove, str :), "ÇëÊäÈëÄãµÄÒâ¼û£º");
+	write("%^H_RED%^ä½ çš„è¯è¯å¯èƒ½æˆä¸ºæ‰§æ³•çš„ä¾æ®ï¼Œè¯·æ…é‡ï¼%^RESET%^\n");
+        write("-2è¡¨ç¤ºåå¯¹ï¼Œ0è¡¨ç¤ºä¸­ç«‹ï¼Œ1è¡¨ç¤ºèµåŒã€‚\n");
+        get_input_then_call( (: get_prove, str :), "è¯·è¾“å…¥ä½ çš„æ„è§ï¼š");
     }
     return;
 }
@@ -245,7 +245,7 @@ void get_prove(string ppl, string str)
     i = to_int(str);
     ev[who] = i;
     UNION_D->set_case(ppl, "ev", ev);
-    write("¸ĞĞ»ÄúÎª±¾°¸×÷Ö¤£¡\n");
+    write("æ„Ÿè°¢æ‚¨ä¸ºæœ¬æ¡ˆä½œè¯ï¼\n");
     prompt_then_return();
 }
 void do_comment(string str)
@@ -254,12 +254,12 @@ void do_comment(string str)
 
     cases = UNION_D->query_case( str );
     if ( !mapp(cases)||!sizeof(cases) ){
-        write("´ËÈËÃ»ÓĞÍ¶ËßÔÚ°¸£¡\n");
+        write("æ­¤äººæ²¡æœ‰æŠ•è¯‰åœ¨æ¡ˆï¼\n");
 	return;
     }
     if ( !mapp(cc=cases["comment"]) ) cc = ([ ]);
     if ( stringp(cc[who]) ){
-	write("ÄãÒÑ¾­·¢±í¹ıÒâ¼ûÁË£¬ÔÙ´Î¸ĞĞ»£¡\n");
+	write("ä½ å·²ç»å‘è¡¨è¿‡æ„è§äº†ï¼Œå†æ¬¡æ„Ÿè°¢ï¼\n");
 	return;
     }
     new(EDIT_OB, EDIT_TEXT, 0, (: get_comment, str :) );
@@ -268,7 +268,7 @@ void get_comment(string ppl, string *reason)
 {
     mapping cc;
 
-    write("¸ĞĞ»Äã·¢±íµÄÒâ¼û£¡\n");
+    write("æ„Ÿè°¢ä½ å‘è¡¨çš„æ„è§ï¼\n");
     cc = UNION_D->query_case(ppl, "comment");
     if ( !mapp(cc) ) cc = ([ ]);  
     if ( sizeof(reason)>4 ) reason = reason[0..3];
@@ -282,7 +282,7 @@ void do_view(string str)
     mapping m;
 
     if ( !mapp(m=UNION_D->query_case(str)) ){
-	write("´ËÈËÃ»ÓĞÍ¶ËßÔÚ°¸£¡\n");
+	write("æ­¤äººæ²¡æœ‰æŠ•è¯‰åœ¨æ¡ˆï¼\n");
 	return;
     };
     if ( wizardp(who) ) i = 1;

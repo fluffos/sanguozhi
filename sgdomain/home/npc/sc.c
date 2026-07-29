@@ -8,10 +8,10 @@ string get_type() {
 	return "sc";
 }
 string get_type_name() {
-	return "%^H_GREEN%^Ëæ´Ó%^RESET%^";
+	return "%^H_GREEN%^éšä»Ž%^RESET%^";
 }
 void extra_init() {
-	add_ask_str("order","$N¶Ô$TÕÐÁËÕÐÊÖ¡£\n");
+	add_ask_str("order","$Nå¯¹$Tæ‹›äº†æ‹›æ‰‹ã€‚\n");
 	add_question("order","order" );
 }
 void special_answer(object who, string matt)
@@ -27,12 +27,12 @@ void special_answer(object who, string matt)
 				is_busy=1;
 
 			        this_object()->targetted_action(
-				"$NÉÏÇ°Ò»²½¾Ï¹ªµÀ£º$sÔÚ´Ë£¬$RÇë·Ô¸À¡£\n",who);
+				"$Nä¸Šå‰ä¸€æ­¥éž èº¬é“ï¼š$såœ¨æ­¤ï¼Œ$Rè¯·å©å’ã€‚\n",who);
 				new(__DIR__+"sc_menu")->start_menu(who,this_object());
 				return;
 			}
 		        this_object()->targetted_action(
-				"$NµÉÁË$TÒ»ÑÛ¡£\n",who);
+				"$Nçžªäº†$Tä¸€çœ¼ã€‚\n",who);
 				return;
         }
 }

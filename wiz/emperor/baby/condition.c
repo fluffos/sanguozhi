@@ -45,8 +45,8 @@ nomask int update_condition()
 			}
 		}
 
-		// We assume since the condition daemon is loaded successfully, the//Èç¹ûÃ»ÓĞ´íÎó£¬Ëü½«µ÷ÓÃ×Ô
-                                                                                 //¼ºµÄupdate_condition()º¯Êı.
+		// We assume since the condition daemon is loaded successfully, the//å¦‚æœæ²¡æœ‰é”™è¯¯ï¼Œå®ƒå°†è°ƒç”¨è‡ª
+                                                                                 //å·±çš„update_condition()å‡½æ•°.
 		// calling on its update_condition() should success as well. Because
 		// catch() is somewhat costly, so we don't attempt to catch possible
 		// error from the call_other. It is condition daemon's reponsibility
@@ -55,7 +55,7 @@ nomask int update_condition()
 		// we can just assume the condition expired and remove it.
 		
 		flag = call_other(cnd_d, "update_condition", this_object(), conditions[cnd[i]]);
-//Ïàµ±ÓÚcnd_d->update_condition(this_object(),conditions[cnd[i]]),¼û/kungfu/condition/ÏÂµÄ¸÷ÎÄ¼ş¡£
+//ç›¸å½“äºcnd_d->update_condition(this_object(),conditions[cnd[i]]),è§/kungfu/condition/ä¸‹çš„å„æ–‡ä»¶ã€‚
 		if( !( flag & CND_CONTINUE ) ) map_delete(conditions, cnd[i]);
 		update_flag |= flag;
 	}

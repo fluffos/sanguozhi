@@ -15,12 +15,12 @@ private void end_describe()
 {
     if(!sizeof(descrip))
     {
-        write("ÃèÊöÃ»ÓÐ¸Ä±ä¡£\n");
+        write("æè¿°æ²¡æœ‰æ”¹å˜ã€‚\n");
     }
     else
     {
         this_body()->set_description(implode(descrip, "\n") + "\n");
-        write("ÃèÊö½áÊø¡£\n");
+        write("æè¿°ç»“æŸã€‚\n");
     }
 
     destruct();
@@ -37,7 +37,7 @@ private void receive_line(string input)
     }
     if(input == "~q")
     {
-        write("·ÅÆú¡£\n");
+        write("æ”¾å¼ƒã€‚\n");
         modal_pop();
         destruct();
         return;
@@ -45,7 +45,7 @@ private void receive_line(string input)
     descrip += ({input});
     if(sizeof(descrip) == MAX_DESCRIP_SIZE)
     {
-        write("´ïµ½×î´óÔÊÐíµÄÐÐÊý£¬ÊäÈë½áÊø¡£\n");
+        write("è¾¾åˆ°æœ€å¤§å…è®¸çš„è¡Œæ•°ï¼Œè¾“å…¥ç»“æŸã€‚\n");
         modal_pop();
         end_describe();
     }
@@ -54,7 +54,7 @@ private void receive_line(string input)
 nomask void begin_describing()
 {
     if ( previous_object() != find_object(CMD_OB_DESCRIBE) )
-        error("ÊÔÍ¼·Ç·¨Ê¹ÓÃ describe.c\n");
+        error("è¯•å›¾éžæ³•ä½¿ç”¨ describe.c\n");
 
     modal_push((: receive_line :), "");
 }
@@ -75,9 +75,9 @@ private void main(string s)
         return;
     }
 
-    out("ÇëÔÚ "+ MAX_DESCRIP_SIZE+" ÐÐÖ®ÄÚ¶ÔÄã×Ô¼º½øÐÐÒ»·¬ÃèÊö¡£\n"
-          "ÓÃ '.' ½áÊø±à¼­¡£\n"
-          "ÓÃ '~q' ·ÅÆú±à¼­¡£ \n"
+    out("è¯·åœ¨ "+ MAX_DESCRIP_SIZE+" è¡Œä¹‹å†…å¯¹ä½ è‡ªå·±è¿›è¡Œä¸€ç•ªæè¿°ã€‚\n"
+          "ç”¨ '.' ç»“æŸç¼–è¾‘ã€‚\n"
+          "ç”¨ '~q' æ”¾å¼ƒç¼–è¾‘ã€‚ \n"
           "-----------------------------------------\n");
 
     new(CMD_OB_DESCRIBE)->begin_describing();

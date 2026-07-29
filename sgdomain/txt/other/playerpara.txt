@@ -1,4 +1,4 @@
-±à³ÌÉÏÃæÍæ¼ÒµÄ²ÎÊı
+ç¼–ç¨‹ä¸Šé¢ç©å®¶çš„å‚æ•°
 
 by fire on June 1998
 in /std/base_obj.c nothing
@@ -17,27 +17,27 @@ private mapping sg_skills = ([]);
 in /sgdomain/modules/m_ask.c
 private string *answer_list = ({}); // list for answers
 in /sgdomain/modules/m_sggift.c  // need seperate to several files
-private int sg_wuli;  // ÎäÁ¦ from 10 to 30 with special weapon can be higher
-private int sg_zhimou;  // ÖÇÄ± as above this are orignal one, can't changed
-private int sg_meili; // ÷ÈÁ¦
+private int sg_wuli;  // æ­¦åŠ› from 10 to 30 with special weapon can be higher
+private int sg_zhimou;  // æ™ºè°‹ as above this are orignal one, can't changed
+private int sg_meili; // é­…åŠ›
 private int sg_exp; // this will increase during fight and . . .
-private int sg_shengwang; // ÉùÍû ; very important to judge player's level
-private int sg_age; // ÄêÁä;
-private int sg_shouming; // ÊÙÃü = max age over than that will die
-private int sg_rongmao; // ÈİÃ² from 10 to 30;
+private int sg_shengwang; // å£°æœ› ; very important to judge player's level
+private int sg_age; // å¹´é¾„;
+private int sg_shouming; // å¯¿å‘½ = max age over than that will die
+private int sg_rongmao; // å®¹è²Œ from 10 to 30;
 private int sg_cur_hp; //  if one is
 private int sg_cur_max_hp; // from 100 and increase every year; before 30
                         // decrease after 50
 private int sg_max_hp;  // the real max hp
-private int sg_food;  // Á¸²İ
-private int sg_junzi; // ¾ü×Ê
-private int sg_bing_number;  // Ê¿±øÊı
-private int sg_bing_max ;   //×î´ó´ø±øÊı  µ¼³öÖµ
-private int sg_bing_shiqi;  // Ê¿Æø
-private int sg_bing_type;  // ±øÖÖ  0 ²½±ø 1 Æï±ø 2 ¹­±ø
-private int sg_fight_value;  // Õ½¶·Á¦
-private int sg_rank; // ¹ÙÖ°
-private string sg_zi;   // ×Ö
+private int sg_food;  // ç²®è‰
+private int sg_junzi; // å†›èµ„
+private int sg_bing_number;  // å£«å…µæ•°
+private int sg_bing_max ;   //æœ€å¤§å¸¦å…µæ•°  å¯¼å‡ºå€¼
+private int sg_bing_shiqi;  // å£«æ°”
+private int sg_bing_type;  // å…µç§  0 æ­¥å…µ 1 éª‘å…µ 2 å¼“å…µ
+private int sg_fight_value;  // æˆ˜æ–—åŠ›
+private int sg_rank; // å®˜èŒ
+private string sg_zi;   // å­—
 static int is_hp_heal;  // 1 when auto heal needed 0 on need
 in /sgdomain/modules/arrange_money.c
 nothing 
@@ -141,7 +141,7 @@ private   mapping money;  // money on body maybe can be deleted later ?
 in /std/body/start.c 
 private string start_location; // start location when player login
 in /std/body/naming.c;  // some may be deleted
-private string name = "ÉñÃØ¹ıÂ·¿Í";
+private string name = "ç¥ç§˜è¿‡è·¯å®¢";
 private string describe;
 private string invis_name;
 private string nickname;

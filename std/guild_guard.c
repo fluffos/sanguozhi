@@ -21,9 +21,9 @@ private mixed handle_blocks( string dir )
 void mudlib_setup( string guild )
 {
     ::mudlib_setup();
-    set_id( "guard" , "ÎÀ±ø" );
-    set_in_room_desc( "ÕâÀïÓĞÒ»¸öÎÀ±ø¡£" );
+    set_id( "guard" , "å«å…µ" );
+    set_in_room_desc( "è¿™é‡Œæœ‰ä¸€ä¸ªå«å…µã€‚" );
     set_gender( 1 );     // default male.
 //    add_guild( guild, 1 );
-    set_block_action( "$nÉìÊÖ°Ñ$tÍÆ¿ª£º\"Äã²»ÊÇ±¾°ïÅÉµÄÈË¡£\"\n");
+    set_block_action( "$nä¼¸æ‰‹æŠŠ$tæ¨å¼€ï¼š\"ä½ ä¸æ˜¯æœ¬å¸®æ´¾çš„äººã€‚\"\n");
 }

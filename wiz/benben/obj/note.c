@@ -1,12 +1,12 @@
-// ÁôÑÔÌõ note.c by benben
+// ç•™è¨€æ¡ note.c by benben
 #include <mudlib.h>
 #include <sanguo.h>
 inherit OBJ;
 inherit M_READABLE;
 void setup() {
-    set_unit("ÕÅ");
-    set_id("note","ÁôÑÔÌõ");
-    set_long("Ìõ×ÓÉÏĞ´×Å£ºÎÒ²»ÔÚ¼Ò£¬ÕâÁ½ÌìÉÏÅàÑµ¿ÎÈ¥ÁË£¬ĞÇÆÚÈı¾Í»ØÀ´¡£
- ÓĞÊÂĞ´email¸øÎÒ¡£\n");
-    set_in_room_desc("ÃÅÉÏ¶¤×ÅÒ»ÕÅÁôÑÔÌõ(note)\n");
+    set_unit("å¼ ");
+    set_id("note","ç•™è¨€æ¡");
+    set_long("æ¡å­ä¸Šå†™ç€ï¼šæˆ‘ä¸åœ¨å®¶ï¼Œè¿™ä¸¤å¤©ä¸ŠåŸ¹è®­è¯¾å»äº†ï¼Œæ˜ŸæœŸä¸‰å°±å›æ¥ã€‚
+ æœ‰äº‹å†™emailç»™æˆ‘ã€‚\n");
+    set_in_room_desc("é—¨ä¸Šé’‰ç€ä¸€å¼ ç•™è¨€æ¡(note)\n");
 }

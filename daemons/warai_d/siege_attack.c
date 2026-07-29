@@ -17,13 +17,13 @@ mixed get_siege_attack(int p_id,string direction)
 {
      int e_id=get_neighbor_troops(p_id,direction)[0];
      string e_side=TROOP_D->get_troops(e_id,"side");
-     array dir=({"e","w","s","n"});
-     array bdir=({"w","e","n","s"});
+     mixed * dir=({"e","w","s","n"});
+     mixed * bdir=({"w","e","n","s"});
      mixed ret=([]);
      int i;
      for(i=0;i<4;++i)
      {
-         array t=get_neighbor_troops(e_id,dir[i]);
+         mixed * t=get_neighbor_troops(e_id,dir[i]);
          if(!sizeof(t)) continue;
          if((TROOP_D->get_troops(t[0],"side"))==e_side)
 	    continue;
@@ -64,10 +64,10 @@ mixed can_siege_attack(int p_id,string direction)
 	tmp=can_general_attack( p_id, direction);
         if(tmp!=1) return tmp;
 	tmp=get_siege_attack( p_id, direction);
-        if(sizeof(tmp)<=1) return "Ã»ÓÐ×ã¹»µÄ²¿¶ÓÎ§¹¥µÐ·½¡£\n";
+        if(sizeof(tmp)<=1) return "æ²¡æœ‰è¶³å¤Ÿçš„éƒ¨é˜Ÿå›´æ”»æ•Œæ–¹ã€‚\n";
         if (TROOP_D->get_troops(p_id, "conds"))
         { if (TROOP_D->get_troops(p_id, "conds")["confuse"])
-        return "»ìÂÒÖÐ£¬ÎÞ·¨¹¥»÷¡£\n";
+        return "æ··ä¹±ä¸­ï¼Œæ— æ³•æ”»å‡»ã€‚\n";
         }
 	return 1;
 }
@@ -101,13 +101,13 @@ mixed do_siege_attack(int p_id,string dir)
     for(i=0;i<p_dir;++i)
     {
       info_troop(seg[p_dirs[i]]["troop"][0],gernal_inf);
-      info_troop(seg[p_dirs[i]]["troop"][0],"%^H_GREEN%^¼ßÃðµÐ¾ü"+
-      CHINESE_D->chinese_number(p_kill)+"ÈË£®%^RESET%^\n");
+      info_troop(seg[p_dirs[i]]["troop"][0],"%^H_GREEN%^æ­¼ç­æ•Œå†›"+
+      CHINESE_D->chinese_number(p_kill)+"äººï¼Ž%^RESET%^\n");
     }
     gernal_inf=get_siege_attack_infomation(p_id,dir,seg);
     info_troop(t[0],gernal_inf);
-    info_troop(t[0],"%^H_RED%^ÎÒ·½ËðÊ§"+
-      CHINESE_D->chinese_number(p_kill)+"ÈË£®%^RESET%^\n");
+    info_troop(t[0],"%^H_RED%^æˆ‘æ–¹æŸå¤±"+
+      CHINESE_D->chinese_number(p_kill)+"äººï¼Ž%^RESET%^\n");
     clear_empty_troop(t);
 	general_attack_kill_back(p_id,dir);
 }

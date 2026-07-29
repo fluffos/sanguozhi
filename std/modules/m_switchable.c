@@ -6,9 +6,9 @@
 
 private int             is_on;
 private string          switch_on_msg = //"$N $vswitch a $o on.\n";
-                                        "$N°Ñ$o´ò¿ª¡£";
+                                        "$NæŠŠ$oæ‰“å¼€ã€‚";
 private string          switch_off_msg = //"$N $vswitch a $o off.\n";
-                                         "$N°Ñ$o¹ØÉÏ¡£";
+                                         "$NæŠŠ$oå…³ä¸Šã€‚";
 
 void hook_state(string, string, int);
 void add_hook(string, mixed);
@@ -18,7 +18,7 @@ void create() {
     // make abstract version work
     if (file_name() + ".c" == __FILE__) return;
     add_hook("direct_flip", //"Flip it on or off?\n"
-                            "´ò¿ª»¹ÊÇ¹ØÉÏ£¿\n");
+                            "æ‰“å¼€è¿˜æ˜¯å…³ä¸Šï¼Ÿ\n");
                                 
 }
 
@@ -66,7 +66,7 @@ void set_switch_off_msg(string x) {
 void turn_on() {
     string tmp = set_is_on(1);
     if (!tmp) tmp = //"You can't seem to turn it on.\n";
-                    "ÄãÎŞ·¨½«Ëü´ò¿ª¡£\n";    
+                    "ä½ æ— æ³•å°†å®ƒæ‰“å¼€ã€‚\n";    
     if (stringp(tmp)) write(tmp);
     else this_body()->simple_action(switch_on_msg, this_object());
 }
@@ -74,7 +74,7 @@ void turn_on() {
 void turn_off() {
     string tmp = set_is_on(0);
     if (!tmp) tmp = //"You can't seem to turn it off.\n";
-                    "ÄãÎŞ·¨½«Ëü¹ØÉÏ¡£\n";    
+                    "ä½ æ— æ³•å°†å®ƒå…³ä¸Šã€‚\n";    
     if (stringp(tmp)) write(tmp);         
     else this_body()->simple_action(switch_off_msg, this_object());
 }
@@ -83,24 +83,24 @@ void turn_off() {
 
 mixed direct_flip_off_obj(object ob) {
     if (!is_on) return //"It isn't turned on!\n";
-                        "Ëü±¾À´¾ÍÊÇ¹Ø×ÅµÄ¡£\n";
+                        "å®ƒæœ¬æ¥å°±æ˜¯å…³ç€çš„ã€‚\n";
     return 1;
 }
 
 mixed direct_flip_on_obj(object ob) {
     if (is_on) return //"It is already on!\n";
-                      "Ëü±¾À´¾ÍÊÇ¿ª×ÅµÄ¡£\n";  
+                      "å®ƒæœ¬æ¥å°±æ˜¯å¼€ç€çš„ã€‚\n";  
     return 1;
 }
 
 mixed direct_flip_obj_on(object ob) {
     if (is_on) return //"It is already on!\n";
-                      "Ëü±¾À´¾ÍÊÇ¿ª×ÅµÄ¡£\n";  
+                      "å®ƒæœ¬æ¥å°±æ˜¯å¼€ç€çš„ã€‚\n";  
     return 1;
 }
 
 mixed direct_flip_obj_off(object ob) {
     if (!is_on) return //"It isn't turned on!\n";
-                       "Ëü±¾À´¾ÍÊÇ¹Ø×ÅµÄ¡£\n"; 
+                       "å®ƒæœ¬æ¥å°±æ˜¯å…³ç€çš„ã€‚\n"; 
     return 1;
 }

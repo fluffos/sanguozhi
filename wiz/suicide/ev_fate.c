@@ -1,10 +1,10 @@
 #define LOG  "/wiz/suicide/fate.log"
 inherit M_ACCESS;
 void start()
-{ array tz_info;
+{ mixed * tz_info;
   string filename,season,msg;
   int adjust;
-  array p_date;
+  mixed * p_date;
   p_date = DAY_D->query_date(); 
 if (p_date[3]!=FATE_D->get_create_year())
 FATE_D->create_tz_table(p_date[3]);
@@ -34,20 +34,20 @@ FATE_D->create_tz_table(p_date[3]);
    
     
   tz_info = ("/wiz/suicide/fate_d")->query_tz_info(season);
-  if (!sizeof(tz_info)) SGSYS("ÌìÔÖĞÅÏ¢ÒÅÊ§!\n");
-  foreach(array info in tz_info){
+  if (!sizeof(tz_info)) SGSYS("å¤©ç¾ä¿¡æ¯é—å¤±!\n");
+  foreach(mixed *info in tz_info){
         filename = "/wiz/suicide/ev_fate/ev_"+info[1];
         //SGSYS(filename);
         
         if (adjust=(filename)->can_do_fate(info[0]))
           {
            (filename)->do_fate(info[0],adjust);
-            msg = sprintf("%s ·¢Éú %s at %s\n",info[0],info[1],ctime(time()));
+            msg = sprintf("%s å‘ç”Ÿ %s at %s\n",info[0],info[1],ctime(time()));
             unguarded(1, (: write_file, LOG,msg:));
           }
         else
-           {SGSYS(sprintf("%s¶ã¹ıÁË%sµÄfate\n",info[0],info[1]));
-            msg = sprintf("%s ·¢Éú %s at %s\n",info[0],info[1],ctime(time()));
+           {SGSYS(sprintf("%sèº²è¿‡äº†%sçš„fate\n",info[0],info[1]));
+            msg = sprintf("%s å‘ç”Ÿ %s at %s\n",info[0],info[1],ctime(time()));
             unguarded(1, (: write_file, LOG,msg:));
             }
  }   

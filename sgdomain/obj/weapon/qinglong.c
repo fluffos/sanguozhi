@@ -5,15 +5,15 @@ inherit M_WEAPON;
 inherit M_VALUE;
 void setup()
 {
-set_unit("±ú");
-set_id("qinglongyanyue dao", HIC+"ÇàÁúÙÈÔÂµ¶"+NOR);
+set_unit("æŸ„");
+set_id("qinglongyanyue dao", HIC+"é’é¾™åƒæœˆåˆ€"+NOR);
 add_id("qinglong");
 add_id("qinglongyanyue dao");
 add_id("blade");
 add_id("dao");
-set_in_room_desc(HIC+"ÇàÁúÙÈÔÂµ¶"+NOR+"(qinglongyanyue dao)");
-set_long("¡¸ÎäÊ¥¡¹¹ØÓğÖ®¶ÀÃÅ±øÆ÷£¬³¤Ô¼Ò»ÕÉÆß³ß£¬ÖØ´ïÁùÊ®¶ş½ï£¬
-µ¶±³ÉÏµñÓĞÇàÁúÍ¼°¸¡£\n");
+set_in_room_desc(HIC+"é’é¾™åƒæœˆåˆ€"+NOR+"(qinglongyanyue dao)");
+set_long("ã€Œæ­¦åœ£ã€å…³ç¾½ä¹‹ç‹¬é—¨å…µå™¨ï¼Œé•¿çº¦ä¸€ä¸ˆä¸ƒå°ºï¼Œé‡è¾¾å…­åäºŒæ–¤ï¼Œ
+åˆ€èƒŒä¸Šé›•æœ‰é’é¾™å›¾æ¡ˆã€‚\n");
 set_size(MEDIUM);
 set_value(-1);
 set_currency_type("gold");
@@ -21,8 +21,8 @@ set_attack_ablity(180);
 set_attack_power(140);
 set_defence_ablity(180);
 set_combat_messages("combat-blade");
-set_wield_message("Ö»ÌıµÃÒ»Éù»¢ºğ£¬»ĞÈôÅùö¨£¬ÌìµØ¼äËÆÓĞÇàÁúÔÙÏÖ£¬
-$N·ÜÆğË«±Û£¬½«$o¸ß¸ß¾ÙÆğ¡£\n");
-set_unwield_message("$NË«±Û×óÓÒÒ»°Ú£¬½«$o
-²å»ØàÎÍ·£¬ÌìµØÒ»°µ£¬ÇàÁúÏûÊÅ¡£\n");
+set_wield_message("åªå¬å¾—ä¸€å£°è™å¼ï¼Œæè‹¥éœ¹é›³ï¼Œå¤©åœ°é—´ä¼¼æœ‰é’é¾™å†ç°ï¼Œ
+$Nå¥‹èµ·åŒè‡‚ï¼Œå°†$oé«˜é«˜ä¸¾èµ·ã€‚\n");
+set_unwield_message("$NåŒè‡‚å·¦å³ä¸€æ‘†ï¼Œå°†$o
+æ’å›è¾”å¤´ï¼Œå¤©åœ°ä¸€æš—ï¼Œé’é¾™æ¶ˆé€ã€‚\n");
 }

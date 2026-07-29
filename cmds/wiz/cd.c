@@ -14,10 +14,10 @@ private void main(mixed *arg)
    if(!is_directory(fname))
    {
 
-printf("%s: 没有这个文件或目录。\n",fname);
+printf("%s: 娌℃湁杩欎釜鏂囦欢鎴栫洰褰曘�俓n",fname);
     return;
 }
 */
     this_body()->query_shell_ob()->set_pwd(fname);
-    outf("当前目录: %s\n", fname);
+    outf("褰撳墠鐩綍: %s\n", fname);
 }

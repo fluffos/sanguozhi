@@ -1,4 +1,4 @@
-// Ç£ÖÆ,Ğ§¹û£ºÁî¶Ô·½Ê¿Æø½µµÍ
+// ç‰µåˆ¶,æ•ˆæœï¼šä»¤å¯¹æ–¹å£«æ°”é™ä½
 #include <mudlib.h>
 #include <daemons.h>
 #include <ansi.h>
@@ -22,17 +22,17 @@ void main(object ob, string who)
 	p_name=CHAR_D->get_char(ob->query_primary_id(),"name");
 	where = TROOP_D->get_troop_area(p_id);
 	if( !p_id){
-                write("Ö»ÓĞÉíÔÚ¾üÖĞ²ÅÄÜÇ£ÖÆµĞ·½Ê¿Æø¡£\n");
+                write("åªæœ‰èº«åœ¨å†›ä¸­æ‰èƒ½ç‰µåˆ¶æ•Œæ–¹å£«æ°”ã€‚\n");
                 return;
         }	
 	// In the furture, We have to consider theplayer's ablility
 	// add the exp of this jimou, reduce mp, etc.
 	if ( !e_id || TROOP_D->get_troop_area(e_id)!=where)
-		{ write("¶Ô·½²»ÔÚ´ËÕ½³¡ÉÏ¡£\n");
+		{ write("å¯¹æ–¹ä¸åœ¨æ­¤æˆ˜åœºä¸Šã€‚\n");
 			return;
 		}
         if (TROOP_D->get_troop_side(e_id) ==TROOP_D->get_troop_side(p_id))
-                {write ("²»¿ÉÏò¼º·½²¿¶ÓÊ©ÓÃ´Ë¼Æ¡£\n");
+                {write ("ä¸å¯å‘å·±æ–¹éƒ¨é˜Ÿæ–½ç”¨æ­¤è®¡ã€‚\n");
                         return;
                 }
 	x =TROOP_D->get_troop_position(p_id)[0];
@@ -42,16 +42,16 @@ void main(object ob, string who)
                 y2 = TROOP_D->get_troop_position(e_id)[1];
 
                 if( (x-x2)*(x-x2)+(y-y2)*(y-y2) > 9 ){
-			write("ÄãÀëµĞÈËÌ«Ô¶ÎŞ·¨Ê©¼Æ¡£\n");
+			write("ä½ ç¦»æ•Œäººå¤ªè¿œæ— æ³•æ–½è®¡ã€‚\n");
 			return;}
                 tell(deep_inventory(TROOP_D->find_troop(e_id)),
-	"Ê¿±øÒ»ÕóĞú»©£¬Ô­À´ÊÇ"+p_name+"¶ÔÄãµÄ²¿¶ÓÊ¹ÓÃÇ£ÖÆÖ®¼Æ¡£\n",
+	"å£«å…µä¸€é˜µå–§å“—ï¼ŒåŸæ¥æ˜¯"+p_name+"å¯¹ä½ çš„éƒ¨é˜Ÿä½¿ç”¨ç‰µåˆ¶ä¹‹è®¡ã€‚\n",
                         MSG_INDENT);
                 // In future, we have to consider effects of the
                 // ablility of general, zhenxing, dixing, etc.
                 // Now the damage depends only on the No of bowman
 	ob->simple_action(SG_SKILL_D->query_use("jiaoma"));
-	ob->start_busy(10, "ÄãÕıÃ¦ÓÚÇ£ÖÆµĞ·½Ê¿ÆøÄØ¡£");
+	ob->start_busy(10, "ä½ æ­£å¿™äºç‰µåˆ¶æ•Œæ–¹å£«æ°”å‘¢ã€‚");
 	load_object("/daemons/cast_d.c")->reg_player(ob->query_primary_id(),"jiaoma");
         ob->award_exp(ob->query_sk_level("sk_zhimou")/2+random(20), "jiaoma");
 	call_out("show_result", 5+random(5), ob, who, p_id, e_id);
@@ -75,7 +75,7 @@ void show_result(object ob, string who, int p_id, int e_id)
 		
 	mora = ( myJiaoma - itJiaoma / 4 ) / 4 + random(10) - 5;  // range: -12 -- 30
 
-	// µĞ¾üÊ¿ÆøÒÑ¾­ºÜµÍµÄÊ±ºò, Ğ§¹û½µµÍ, ËÀÖí²»ÅÂ¿ªË®ÌÌµÄÒâË¼
+	// æ•Œå†›å£«æ°”å·²ç»å¾ˆä½çš„æ—¶å€™, æ•ˆæœé™ä½, æ­»çŒªä¸æ€•å¼€æ°´çƒ«çš„æ„æ€
 	if ( mora > 0)
 	{
 		sol=TROOP_D->get_troops(e_id, "soldier");
@@ -94,49 +94,49 @@ void show_result(object ob, string who, int p_id, int e_id)
 	}
 //EDCBUG(sprintf("MORALE DROP : %d \n", mora));
 //EDCBUG(sprintf("the troop: %O \n", sol));
-    SGSYS( sprintf("%s¶Ô%sÊ¹ÓÃ jiaoma , Ğ§¹û£º´Ó%d¼õÉÙÁË%d\n", strMyId, who, oldMorale, mora ) );
+    SGSYS( sprintf("%så¯¹%sä½¿ç”¨ jiaoma , æ•ˆæœï¼šä»%då‡å°‘äº†%d\n", strMyId, who, oldMorale, mora ) );
 #ifdef _DEBUG_ID
-    TELL_BUG( _DEBUG_ID, sprintf("%s¶Ô%sÊ¹ÓÃ jiaoma , Ğ§¹û£º´Ó%d¼õÉÙÁË%d\n", strMyId, who, oldMorale, mora ) );
+    TELL_BUG( _DEBUG_ID, sprintf("%så¯¹%sä½¿ç”¨ jiaoma , æ•ˆæœï¼šä»%då‡å°‘äº†%d\n", strMyId, who, oldMorale, mora ) );
 #endif  // _DEBUG_ID
 
 	if( mora > 24 )
 	{	tell(deep_inventory(TROOP_D->find_troop(e_id)),
-                	"Ê¿±øÒ»Æ¬»ìÂÒ£¬Ê¿Æø¿ñµø¡£\n",
+                	"å£«å…µä¸€ç‰‡æ··ä¹±ï¼Œå£«æ°”ç‹‚è·Œã€‚\n",
                         MSG_INDENT);
 		mora1 = random (6) +2;
 		tell(deep_inventory(TROOP_D->find_troop(p_id)),
-                	"¼Æ²ßÍêÈ«³É¹¦£¬µĞÈËÊ¿ÆøÃÍ½µ¡£\n",
+                	"è®¡ç­–å®Œå…¨æˆåŠŸï¼Œæ•Œäººå£«æ°”çŒ›é™ã€‚\n",
                         MSG_INDENT);
 	} 
 	else if( mora > 10 )
 	{
 		tell(deep_inventory(TROOP_D->find_troop(e_id)),
-        		"Ê¿±øÒ»Æ¬ÍÇÌÆ£¬Ê¿Æø´ó½µ¡£\n",
+        		"å£«å…µä¸€ç‰‡é¢“å”ï¼Œå£«æ°”å¤§é™ã€‚\n",
                         MSG_INDENT);	
 		mora1 = random (3) + 1;
 		tell(deep_inventory(TROOP_D->find_troop(p_id)),
-                	"¼Æ²ß´ó³É¹¦£¬µĞ·½Ê¿Æø´ó½µ¡£\n",
+                	"è®¡ç­–å¤§æˆåŠŸï¼Œæ•Œæ–¹å£«æ°”å¤§é™ã€‚\n",
                         MSG_INDENT);	
 	}
 	else if( mora > 0)
 	{
 		tell(deep_inventory(TROOP_D->find_troop(e_id)),
-        		"Ê¿±øÃæÂ¶Ã£È»Ö®É«£¬Ê¿Æø½µµÍ¡£\n",
+        		"å£«å…µé¢éœ²èŒ«ç„¶ä¹‹è‰²ï¼Œå£«æ°”é™ä½ã€‚\n",
                         MSG_INDENT);
 		mora1 = 1;
 		ob->simple_action(SG_SKILL_D->query_succ("jiaoma"));
 		tell(deep_inventory(TROOP_D->find_troop(p_id)),
-                "¼Æ²ß³É¹¦£¬µĞÈËÊ¿Æø½µµÍ¡£\n",
+                "è®¡ç­–æˆåŠŸï¼Œæ•Œäººå£«æ°”é™ä½ã€‚\n",
                         MSG_INDENT);
 	}	
 	else 
 	{
 		tell(deep_inventory(TROOP_D->find_troop(e_id)),
-        		"Ê¿±øÊ¶ÆÆµĞÈË¼Æ²ß£¬Ê¿ÆøÉÏÉı¡£\n",
+        		"å£«å…µè¯†ç ´æ•Œäººè®¡ç­–ï¼Œå£«æ°”ä¸Šå‡ã€‚\n",
                         MSG_INDENT);
 		ob->simple_action(SG_SKILL_D->query_fail("fenfa"));
 		tell(deep_inventory(TROOP_D->find_troop(p_id)),
-                	"¼Æ²ßÊ§°Ü£¬µĞÈËÊ¿ÆøÉÏÉı£¬¼º·½Ê¿ÆøÏÂ½µ¡£\n",
+                	"è®¡ç­–å¤±è´¥ï¼Œæ•Œäººå£«æ°”ä¸Šå‡ï¼Œå·±æ–¹å£«æ°”ä¸‹é™ã€‚\n",
                         MSG_INDENT);
 
 	}
@@ -153,48 +153,48 @@ void show_result(object ob, string who, int p_id, int e_id)
 	ob->stop_busy();
 	if( rep>100000)
 	{	tell(deep_inventory(TROOP_D->find_troop(e_id)),
-                "Ê¿±øÒ»Æ¬»ìÂÒ£¬Ê¿Æø¿ñµø¡£\n",
+                "å£«å…µä¸€ç‰‡æ··ä¹±ï¼Œå£«æ°”ç‹‚è·Œã€‚\n",
                         MSG_INDENT);
 		mora = random (-20) -10 - rep/50000;
 		mora1 = random (6) +2;
 		tell(deep_inventory(TROOP_D->find_troop(p_id)),
-                "¼Æ²ßÍêÈ«³É¹¦£¬µĞÈËÊ¿ÆøÃÍ½µ¡£\n",
+                "è®¡ç­–å®Œå…¨æˆåŠŸï¼Œæ•Œäººå£«æ°”çŒ›é™ã€‚\n",
                         MSG_INDENT);
 	} 
 	else
 	{     if(rep>10000)
 		{
 	tell(deep_inventory(TROOP_D->find_troop(e_id)),
-        	"Ê¿±øÒ»Æ¬ÍÇÌÆ£¬Ê¿Æø´ó½µ¡£\n",
+        	"å£«å…µä¸€ç‰‡é¢“å”ï¼Œå£«æ°”å¤§é™ã€‚\n",
                         MSG_INDENT);	
 		mora = random (-10) - 5- rep/10000;
 		mora1 = random (3) + 1;
 	tell(deep_inventory(TROOP_D->find_troop(p_id)),
-                "¼Æ²ß´ó³É¹¦£¬µĞ·½Ê¿Æø´ó½µ¡£\n",
+                "è®¡ç­–å¤§æˆåŠŸï¼Œæ•Œæ–¹å£«æ°”å¤§é™ã€‚\n",
                         MSG_INDENT);	
 		}
 	      else if( rep>1000)
 		{
 		tell(deep_inventory(TROOP_D->find_troop(e_id)),
-        	"Ê¿±øÃæÂ¶Ã£È»Ö®É«£¬Ê¿Æø½µµÍ¡£\n",
+        	"å£«å…µé¢éœ²èŒ«ç„¶ä¹‹è‰²ï¼Œå£«æ°”é™ä½ã€‚\n",
                         MSG_INDENT);
 		mora = random(-5) - 1;
 		mora1 = 1;
 		ob->simple_action(SG_SKILL_D->query_succ("jiaoma"));
 		tell(deep_inventory(TROOP_D->find_troop(p_id)),
-                "¼Æ²ß³É¹¦£¬µĞÈËÊ¿Æø½µµÍ¡£\n",
+                "è®¡ç­–æˆåŠŸï¼Œæ•Œäººå£«æ°”é™ä½ã€‚\n",
                         MSG_INDENT);
 		}	
 	      else 
 		{
 		tell(deep_inventory(TROOP_D->find_troop(e_id)),
-        	"Ê¿±øÊ¶ÆÆµĞÈË¼Æ²ß£¬Ê¿ÆøÉÏÉı¡£\n",
+        	"å£«å…µè¯†ç ´æ•Œäººè®¡ç­–ï¼Œå£«æ°”ä¸Šå‡ã€‚\n",
                         MSG_INDENT);
 		mora = random(8) + 3;
 mora1 = random(-10)-5;
 		ob->simple_action(SG_SKILL_D->query_fail("fenfa"));
 		tell(deep_inventory(TROOP_D->find_troop(p_id)),
-                "¼Æ²ßÊ§°Ü£¬µĞÈËÊ¿ÆøÉÏÉı£¬¼º·½Ê¿ÆøÏÂ½µ¡£\n",
+                "è®¡ç­–å¤±è´¥ï¼Œæ•Œäººå£«æ°”ä¸Šå‡ï¼Œå·±æ–¹å£«æ°”ä¸‹é™ã€‚\n",
                         MSG_INDENT);
 		}
 	}
@@ -205,7 +205,7 @@ mora1 = random(-10)-5;
 */
 ////
 	WARAI_D->war_inf(TROOP_D->get_troops(p_id,"task_id"),
-	TROOP_D->find_troop(p_id)->query_id()[1]+"Ê¹ÓÃ½ĞÂîÖ®¼Æ¡£","b");
+	TROOP_D->find_troop(p_id)->query_id()[1]+"ä½¿ç”¨å«éª‚ä¹‹è®¡ã€‚","b");
 	TROOP_D->add_morale(p_id,mora1);
 	if(p_id!=e_id){
 		TROOP_D->add_morale(e_id,-mora);

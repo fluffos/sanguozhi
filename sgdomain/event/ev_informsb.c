@@ -15,19 +15,19 @@ void inform_sb(string p_id,string p_mess)
         p_room=file_name(env);
         p_soldier=p_id+" bing";
         CHAR_D->add_char(p_soldier);
-        CHAR_D->set_char(p_soldier,"name","´«Áî±ø");
+        CHAR_D->set_char(p_soldier,"name","ä¼ ä»¤å…µ");
 	CHAR_D->set_char(p_soldier,"is_tmp",1);
         CHAR_D->put_char(p_soldier,p_room);
         o_soldier=CHAR_D->find_char(p_soldier);
         if(objectp(o_soldier))
-                o_soldier->simple_action("$NÉÁÉí½øÈë¡£\n");
+                o_soldier->simple_action("$Né—ªèº«è¿›å…¥ã€‚\n");
 	if(p_mess[<1]!='\n')
 		p_mess+="\n";
         if(objectp(o_id)&&objectp(o_soldier))
-                o_soldier->targetted_action("$N¶Ô$TµÀ£º"+p_mess,o_id);
+                o_soldier->targetted_action("$Nå¯¹$Té“ï¼š"+p_mess,o_id);
         if(objectp(o_soldier))
         {
-                o_soldier->simple_action("$N×ªÉíÍË³öÁË¡£\n");
+                o_soldier->simple_action("$Nè½¬èº«é€€å‡ºäº†ã€‚\n");
         }
         CHAR_D->remove_npc_char(p_soldier);
         CHAR_D->remove_char(p_soldier);

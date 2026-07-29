@@ -17,7 +17,7 @@ int this_look_is_forced;
 
 int stat_me() {
     printf(//"Location: %s [ %s ]\n\n",
-           "Î»ÖÃ£º%s [ %s ]\n\n",
+           "ä½ç½®ï¼š%s [ %s ]\n\n",
       short(), implode(query_exit_directions(1), ", "));
     complex_container::stat_me();
     return 1;
@@ -43,15 +43,15 @@ void mudlib_setup()
     ::mudlib_setup();
     set_light(DEFAULT_LIGHT_LEVEL);
     set_max_capacity(VERY_LARGE+LARGE);
-    add_id("here", "ÕâÀï");
+    add_id("here", "è¿™é‡Œ");
     set_preposition("on");
     if(!sizeof(get_relations()))
     {
     set_relations("on");
     }
     set_default_exit((: //"You're not going anywhere until you get out of the "
-                        "ÄãÄÄÀïÒ²²»ÄÜÈ¥£¬ÒªÏÈ³öÈ¥"
-              + short() + "²ÅÐÐ¡£\n" :));
+                        "ä½ å“ªé‡Œä¹Ÿä¸èƒ½åŽ»ï¼Œè¦å…ˆå‡ºåŽ»"
+              + short() + "æ‰è¡Œã€‚\n" :));
 }
 
 
@@ -88,7 +88,7 @@ void do_looking(int forced_look)
 
     if ( environment(this_object())->query_light() < 1 )
     {
-    write("ÕâÀïºÜºÚ£¬Ê²Ã´Ò²¿´²»Çå³þ¡£\n");
+    write("è¿™é‡Œå¾ˆé»‘ï¼Œä»€ä¹ˆä¹Ÿçœ‹ä¸æ¸…æ¥šã€‚\n");
     }
     else
     {

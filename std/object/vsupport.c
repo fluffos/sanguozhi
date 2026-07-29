@@ -16,7 +16,7 @@ mixed check_permission(string what) {
 
     if (!who || who->allow(what))
         return 1;
-    return "²»Ïò´óÉñÉêÇë¾ÍÕâÑù×ö£¬Ì«²»ÀñÃ²ÁË°É£¿\n";//"#Rather impolite to do that without asking, don't you think?\n";
+    return "ä¸å‘å¤§ç¥žç”³è¯·å°±è¿™æ ·åšï¼Œå¤ªä¸ç¤¼è²Œäº†å§ï¼Ÿ\n";//"#Rather impolite to do that without asking, don't you think?\n";
 }
 
 //:FUNCTION direct_get_obj
@@ -29,11 +29,11 @@ mixed direct_get_obj(object ob)
     if(who->is_corpse())
         return 1;
     if ( environment() == this_body() )
-        return "#ËüÔÚÄãµÄÉíÉÏ£¡\n"; //"#You already have it!\n";
+        return "#å®ƒåœ¨ä½ çš„èº«ä¸Šï¼\n"; //"#You already have it!\n";
     if ( who && who != this_body() && !wizardp(this_body()) )
-        return "#¿ÉÏ§Äã²»ÊÇ¸öÖ°Òµ°ÇÊÖ..:)\n"; //"#Too bad you're not a skilled pickpocket.\n";
+        return "#å¯æƒœä½ ä¸æ˜¯ä¸ªèŒä¸šæ‰’æ‰‹..:)\n"; //"#Too bad you're not a skilled pickpocket.\n";
     if ( this_object() == this_body() )
-        return "Äã¶Ô×Ô¼ºÒªÔõÑùÄØ£¿\n"; //"#You make an advance on yourself.\n";
+        return "ä½ å¯¹è‡ªå·±è¦æ€Žæ ·å‘¢ï¼Ÿ\n"; //"#You make an advance on yourself.\n";
 
     //:HOOK prevent_get
     //A yes/no/error hook called by direct_get_obj() if the standard conditions
@@ -49,7 +49,7 @@ mixed direct_get_obj(object ob)
 mixed need_to_have() {
     mixed res = direct_get_obj(this_object());
 
-    if (res == "#ËüÔÚÄãµÄÉíÉÏ£¡\n")
+    if (res == "#å®ƒåœ¨ä½ çš„èº«ä¸Šï¼\n")
         return 1;
     return res;
 }
@@ -91,8 +91,8 @@ mixed direct_give_obj_to_liv()
 //:FUNCTION direct_eat_obj
 //Handle parser checks for "eat OBJ" rule.
 mixed direct_eat_obj(object ob) {
-    return "¹À¼Æ" + this_object()->short() + 
-           "²»»áÍ¬ÒâÄãÕâÑù×ö¡£\n";
+    return "ä¼°è®¡" + this_object()->short() + 
+           "ä¸ä¼šåŒæ„ä½ è¿™æ ·åšã€‚\n";
 }
 
 //### shouldn't these to only be in coins?
@@ -109,7 +109,7 @@ mixed indirect_give_wrd_str_to_liv()
 
 mixed direct_look_str_obj(string prep, object ob) {
     return //"There is nothing " + prep + " " + this_object()->short() + ".\n";
-           "Ã»ÓÐ¶«Î÷ÔÚ"+ prep_calc(prep, this_object()->short())+"¡£\n";
+           "æ²¡æœ‰ä¸œè¥¿åœ¨"+ prep_calc(prep, this_object()->short())+"ã€‚\n";
 }
 
 //:FUNCTION direct_put_obj_wrd_obj
@@ -162,7 +162,7 @@ mixed direct_sell_obj_to_liv(object ob, object liv, mixed foo) {
 //Handle parser checks for "buy OBJ from LIV"
 mixed direct_buy_obj_from_liv(object ob, object liv) {
     if (owner(ob) != liv)
-        return liv->query_possessive() + "Ã»ÓÐÕâÖÖ¶«Î÷Âô¡£\n"; //"doesn't have that!\n";
+        return liv->query_possessive() + "æ²¡æœ‰è¿™ç§ä¸œè¥¿å–ã€‚\n"; //"doesn't have that!\n";
     return 1;
 }
 
@@ -171,7 +171,7 @@ mixed direct_buy_obj_from_liv(object ob, object liv) {
 mixed direct_drop_obj(object ob)
 {
     if ( environment() != this_body() )
-        return "#ÄãÃ»ÓÐÕâ¶«Î÷¡£\n"; //"#You don't have it!\n";
+        return "#ä½ æ²¡æœ‰è¿™ä¸œè¥¿ã€‚\n"; //"#You don't have it!\n";
 
     //:HOOK prevent_drop
     //A yes/no/error hook called by direct_drop_obj() if the standard conditions
@@ -188,7 +188,7 @@ mixed direct_flip_obj(object ob) {
     //useless message will be used.
 
     return call_hooks("direct_flip", HOOK_YES_NO_ERROR,
-      M_PARSING->useless("ÂÒ¶¯" + ob->short()));
+      M_PARSING->useless("ä¹±åŠ¨" + ob->short()));
 }
 
 //:FUNCTION direct_throw_obj

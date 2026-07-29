@@ -17,7 +17,7 @@ object create_museum_room(int x,int y,int f) {
 	if(stringp(MUSEUM_D->get_room(r_id,"b")))
 		o_rom->set_brief("%^H_GREEN%^"+MUSEUM_D->get_room(r_id,"b")+"%^RESET%^");
 	else
-		o_rom->set_brief("%^H_GREEN%^×ßÀÈ%^RESET%^");
+		o_rom->set_brief("%^H_GREEN%^èµ°å»Š%^RESET%^");
 	o_rom->set_long("");
 
 	c=MUSEUM_D->get_connect_type (x,y,f,"e");
@@ -57,7 +57,7 @@ object virtual_create(string arg)
 	return room;
 }
 // Disappear if no longer needed
-static void clean_up() {
+protected void clean_up() {
 	return 0; // don't want it is destroyed
 }
 

@@ -7,13 +7,13 @@ inherit M_GETTABLE;
 
 void setup()
 {
-    set_adj("Ğ¡", "ÉÁÁÁµÄ");
-    set_unit("°Ñ");
-    set_id("key", "Ô¿³×");
-    set_in_room_desc("Ò»¸öÁÁ¾§¾§µÄ±£ÏÕ¹ñÔ¿³×¡£");
+    set_adj("å°", "é—ªäº®çš„");
+    set_unit("æŠŠ");
+    set_id("key", "é’¥åŒ™");
+    set_in_room_desc("ä¸€ä¸ªäº®æ™¶æ™¶çš„ä¿é™©æŸœé’¥åŒ™ã€‚");
 
     set_gettable(1);
-    set_long("ÕâÊÇÒ»°ÑÓÃÀ´¿ª±£ÏÕ¹ñµÄÔ¿³×¡£\n");
+    set_long("è¿™æ˜¯ä¸€æŠŠç”¨æ¥å¼€ä¿é™©æŸœçš„é’¥åŒ™ã€‚\n");
 }
 
 mixed key_type()

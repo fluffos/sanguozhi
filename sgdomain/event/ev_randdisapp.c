@@ -22,7 +22,7 @@ void disappear(string p_id) {
             case 3:  o->responda("xixi");break;
             case 4:  o->responda("hehe");break;
         }
-        o->simple_action("$N�뿪�ˡ�\n");  
+        o->simple_action("$N离开了。\n");  
         CHAR_D->remove_npc_char(p_id);
         return;
 }
@@ -53,7 +53,7 @@ void ran_disappear() // this is used for the leader to come every day
                    case 3:  o->responda("xixi");break;
                    case 4:  o->responda("hehe");break;
 	       }
-               o->simple_action("$N�뿪�ˡ�\n");  
+               o->simple_action("$N离开了。\n");  
             }
 	    CHAR_D->remove_npc_char(p_id);
 	    list-=({p_id});

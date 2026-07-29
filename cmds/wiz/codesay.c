@@ -14,7 +14,7 @@ void create()
 
 private void main(string s) {
     if (!s || s == "") {
-        write("ÓÃ·¨£ºcodesay <code>\n");
+        write("ç”¨æ³•ï¼šcodesay <code>\n");
         return;
     }
 
@@ -31,5 +31,5 @@ private void main(string s) {
     // fix the fact that indentation uses tabs
     s = "\n\t" + replace_string(s, "\n", "\n\t");
     
-    this_body()->simple_action("$NËµµÀ£º$o", punctuate(s));
+    this_body()->simple_action("$Nè¯´é“ï¼š$o", punctuate(s));
 }

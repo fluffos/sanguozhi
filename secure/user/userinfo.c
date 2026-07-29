@@ -36,9 +36,9 @@ private string  url;
 
 
 //temporary new user vars
-static private int n_gen = -1;
+nosave private int n_gen = -1;
 
-static private int b5;
+nosave private int b5;
 nomask int query_encoding() {
     return b5;
 }
@@ -48,7 +48,7 @@ nomask void set_b5(int e) {
 }
 
 //### wah! get rid of this. need by sw_body.c; should move to NEW_USER_D
-static nomask int query_n_gen() { return n_gen; }
+protected nomask int query_n_gen() { return n_gen; }
 
 
 nomask void set_ed_setup(int code)
@@ -72,7 +72,7 @@ nomask void set_email(string new_email)
 {
     if ( this_body() != query_body() )
     //error("illegal attempt to set email address\n");
-    error("ÆóÍ¼·Ç·¨Éè¶¨µç×ÓÓÊ¼şµØÖ·\n");
+    error("ä¼å›¾éæ³•è®¾å®šç”µå­é‚®ä»¶åœ°å€\n");
     email = new_email;
     save_me();
 }
@@ -81,7 +81,7 @@ nomask void set_url(string new_url)
 {
     if ( this_body() != query_body() )
     //error("illegal attempt to set URL\n");
-    error("ÆóÍ¼·Ç·¨Éè¶¨ URL\n");
+    error("ä¼å›¾éæ³•è®¾å®š URL\n");
     url = new_url;
     save_me();
 }
@@ -127,7 +127,7 @@ private nomask void rcv_real_name(string str)
 {
     real_name = str;
     modal_func((: rcv_url :), //"Your home page address (if any): ");
-                              "ÄãµÄ¸öÈËÍøÒ³µØÖ· (Èç¹ûÓĞµÄ»°) : ");
+                              "ä½ çš„ä¸ªäººç½‘é¡µåœ°å€ (å¦‚æœæœ‰çš„è¯) : ");
 }
 
 
@@ -136,7 +136,7 @@ private nomask void rcv_email_address(string str)
     email = str;
 
     modal_func((: rcv_real_name :), //"Your real name: ");
-                                    "ÄãµÄÕæÊµĞÕÃû£º");
+                                    "ä½ çš„çœŸå®å§“åï¼š");
 }
 
 private nomask void rcv_gender(string arg)
@@ -145,13 +145,13 @@ private nomask void rcv_gender(string arg)
     if (arg == "y" || arg == "yes")
     {
     //write("Ha, ha, ha. Which one are you?\n");
-    write("ºÙºÙ... Äãµ½µØÊÇÄÄÒ»ÖÖ£¿\n");
+    write("å˜¿å˜¿... ä½ åˆ°åœ°æ˜¯å“ªä¸€ç§ï¼Ÿ\n");
     return;
     }
     if (arg == "n" || arg == "no")
     {
     //write("Well, which one would you have liked to be, then?\n");
-    write("ºÃ°É... ÄÇÄãÏë×öÄÄÒ»ÖÖ£¿\n");
+    write("å¥½å§... é‚£ä½ æƒ³åšå“ªä¸€ç§ï¼Ÿ\n");
     return;
     }
     if ( arg == "f" || arg == "female")
@@ -159,7 +159,7 @@ private nomask void rcv_gender(string arg)
     else if (arg != "m" && arg != "male")
     {
     //write("I've never heard of that gender.  Please try again.\n");
-    write("ÎÒ¿É´ÓÃ»ÌıËµ¹ıÕâÖÖĞÔ±ğ£¬ÇëÖØĞÂÊäÈë¡£\n");
+    write("æˆ‘å¯ä»æ²¡å¬è¯´è¿‡è¿™ç§æ€§åˆ«ï¼Œè¯·é‡æ–°è¾“å…¥ã€‚\n");
     return;
     }
     else
@@ -173,14 +173,14 @@ private nomask void rcv_gender(string arg)
       "You cannot gain wizard status without valid responses to these questions:\n"
     );
 */
-    write("Èç¹ûÄãÔÚÒÔÏÂ»Ø´ğµÄÇ°Ãæ¼ÓÒ»¸ö #£¬ÕâĞ©ĞÅÏ¢½«²»»á±»ÆäËûÍæ¼Ò¿´µ½¡£\n");
-    write("Èç¹ûÄãÒª×öÎ×Ê¦µÄ»°£¬ÇëÎñ±Ø»Ø´ğ¡£\n");
+    write("å¦‚æœä½ åœ¨ä»¥ä¸‹å›ç­”çš„å‰é¢åŠ ä¸€ä¸ª #ï¼Œè¿™äº›ä¿¡æ¯å°†ä¸ä¼šè¢«å…¶ä»–ç©å®¶çœ‹åˆ°ã€‚\n");
+    write("å¦‚æœä½ è¦åšå·«å¸ˆçš„è¯ï¼Œè¯·åŠ¡å¿…å›ç­”ã€‚\n");
     modal_func((: rcv_email_address :), //"Your email address: ");
-                                        "ÄãµÄµç×ÓÓÊ¼şµØÖ·£º");
+                                        "ä½ çš„ç”µå­é‚®ä»¶åœ°å€ï¼š");
 }
 
-static nomask void begin_info_collection()
+protected nomask void begin_info_collection()
 {
     modal_push((: rcv_gender :), //"Are you male or female? ");
-                                 "ÄãÊÇÄĞĞÔ(m)»¹ÊÇÅ®ĞÔ(f)£¿");
+                                 "ä½ æ˜¯ç”·æ€§(m)è¿˜æ˜¯å¥³æ€§(f)ï¼Ÿ");
 }

@@ -41,21 +41,21 @@ private nomask void write_group_menu()
           "\n"
           );
 */
-    write("¹ÜÀí¹¤¾ß£º×éÈº¹ÜÀí\n"
+    write("ç®¡ç†å·¥å…·ï¼šç»„ç¾¤ç®¡ç†\n"
           "\n"
-          "    l                - ×éÈºÁĞ±í\n"  
-          "    s [×éÈº]         - ×éÈº³ÉÔ±ÁĞ±í\n"
+          "    l                - ç»„ç¾¤åˆ—è¡¨\n"  
+          "    s [ç»„ç¾¤]         - ç»„ç¾¤æˆå‘˜åˆ—è¡¨\n"
           "\n"
-          "    c [×éÈº]         - ½¨Á¢×éÈº\n"
-          "    d [×éÈº]         - É¾³ı×éÈº\n"
+          "    c [ç»„ç¾¤]         - å»ºç«‹ç»„ç¾¤\n"
+          "    d [ç»„ç¾¤]         - åˆ é™¤ç»„ç¾¤\n"
           "\n"
-          "    u [ÓÃ»§]         - ÏÔÊ¾ÓÃ»§ËùÊôµÄ×éÈº\n"
-          "    a [ÓÃ»§] [×éÈº]  - °ÑÓÃ»§¼ÓÈË×éÈº\n"
-          "    r [ÓÃ»§] [×éÈº]  - ´Ó×éÈºÖĞÉ¾³ıÓÃ»§\n"
+          "    u [ç”¨æˆ·]         - æ˜¾ç¤ºç”¨æˆ·æ‰€å±çš„ç»„ç¾¤\n"
+          "    a [ç”¨æˆ·] [ç»„ç¾¤]  - æŠŠç”¨æˆ·åŠ äººç»„ç¾¤\n"
+          "    r [ç”¨æˆ·] [ç»„ç¾¤]  - ä»ç»„ç¾¤ä¸­åˆ é™¤ç”¨æˆ·\n"
           "\n"
-          "    m        - Ö÷Ñ¡µ¥\n"
-          "    q        - ÍË³ö\n"
-          "    ?        - °ïÖú\n"
+          "    m        - ä¸»é€‰å•\n"
+          "    q        - é€€å‡º\n"
+          "    ?        - å¸®åŠ©\n"
           "\n"            
           ); 
 }
@@ -68,12 +68,12 @@ private nomask void list_groups()
     if ( !sizeof(groups) )
     {
         //write("There are no groups.\n");
-        write("Ã»ÓĞ×éÈº´æÔÚ¡£\n");
+        write("æ²¡æœ‰ç»„ç¾¤å­˜åœ¨ã€‚\n");
     }
     else
     {
         printf(//"The following groups exist:\n%-#78s\n",
-               "´æÔÚÏÂÁĞ×éÈº£º\n%-#78s\n",
+               "å­˜åœ¨ä¸‹åˆ—ç»„ç¾¤ï¼š\n%-#78s\n",
                implode(sort_array(groups, 1), "\n") + "\n");
     }
 }
@@ -87,29 +87,29 @@ int i;
     if ( !members )
     {
         printf(//"There is no group named '%s'.\n",
-               "Ã»ÓĞÒÔ %s ÎªÃûµÄ×éÈº¡£\n", group);
+               "æ²¡æœ‰ä»¥ %s ä¸ºåçš„ç»„ç¾¤ã€‚\n", group);
     }
     else
     {
         printf(//"Group %s:\n"
-               "×éÈº %s £º\n", group);
+               "ç»„ç¾¤ %s ï¼š\n", group);
         
 
         switch ( sizeof(members) )
         {
         case 0:
             //write("Members: (none)\n");
-            write("³ÉÔ±£º       (ÎŞ)\n");
+            write("æˆå‘˜ï¼š       (æ— )\n");
             break;
 
         case 1:
             printf(//"Member:  %s\n"
-                   "³ÉÔ±£º      %s\n", members[0]);
+                   "æˆå‘˜ï¼š      %s\n", members[0]);
             break;
 
         default:
             printf(//"Members: %s\n"
-                   "³ÉÔ±£º      %s\n", implode(members, ", "));
+                   "æˆå‘˜ï¼š      %s\n", implode(members, ", "));
             break;
         }
     }
@@ -122,7 +122,7 @@ private nomask void create_group(string group)
     GROUP_D->add_group(group);
 
     printf(//"Group %s created.\n"
-           "×éÈº %s ½¨³É¡£\n", group);
+           "ç»„ç¾¤ %s å»ºæˆã€‚\n", group);
 }
 
 private nomask void delete_group(string group)
@@ -132,7 +132,7 @@ private nomask void delete_group(string group)
     GROUP_D->remove_group(group);
 
     printf(//"Group %s deleted.\n"
-           "×éÈº %s É¾³ı¡£\n", group);
+           "ç»„ç¾¤ %s åˆ é™¤ã€‚\n", group);
 }
 
 private nomask void show_users_groups(string user)
@@ -145,10 +145,10 @@ private nomask void show_users_groups(string user)
 
     if ( !sizeof(groups) )
         printf(//"%s doesn't belong to any groups.\n"
-               "ÓÃ»§ %s ²»ÊôÓÚÈÎºÎ×éÈº¡£\n", user);
+               "ç”¨æˆ· %s ä¸å±äºä»»ä½•ç»„ç¾¤ã€‚\n", user);
     else
         printf(//"%s belongs to: %s.\n",
-               "ÓÃ»§ %s ÊôÓÚ×éÈº£º%s¡£\n", user,
+               "ç”¨æˆ· %s å±äºç»„ç¾¤ï¼š%sã€‚\n", user,
                implode(sort_array(keys(groups), 1), ", "));
 }
 
@@ -160,14 +160,14 @@ private nomask void add_user_to_group(string user, string group)
     if ( !GROUP_D->get_group_data()[group] )
     {
         printf(//"There is no group named '%s'.\n"
-               "Ã»ÓĞÒÔ %s ÎªÃûµÄ×éÈº¡£\n", group);
+               "æ²¡æœ‰ä»¥ %s ä¸ºåçš„ç»„ç¾¤ã€‚\n", group);
     }
     else
     {
         GROUP_D->add_group_member(group, user);
 
         printf(//"Added %s to group %s.\n"
-               "°Ñ %s ¼ÓÈë×éÈº %s¡£\n", user, group);
+               "æŠŠ %s åŠ å…¥ç»„ç¾¤ %sã€‚\n", user, group);
     }
 }
 
@@ -179,7 +179,7 @@ private nomask void remove_user_from_group(string user, string group)
     GROUP_D->remove_group_member(group, user);
 
     printf(//"Removed %s from group %s.\n"
-           "°Ñ %s ´Ó×éÈº %s ÖĞÉ¾³ı¡£\n", user, group);
+           "æŠŠ %s ä»ç»„ç¾¤ %s ä¸­åˆ é™¤ã€‚\n", user, group);
 }
 
 private nomask void receive_group_input(string str)
@@ -191,7 +191,7 @@ private nomask void receive_group_input(string str)
         if ( sscanf(str, "%s %s", str, arg) != 2 )
         {
             //write("** Format is: <option> <argument>\n");
-            write("** ¸ñÊ½£º<option> <argument>\n");
+            write("** æ ¼å¼ï¼š<option> <argument>\n");
             write_group_menu();
             return;
         }
@@ -202,34 +202,34 @@ private nomask void receive_group_input(string str)
     case "l":
         if ( arg )
             //write("** No argument is required.\n");
-            write("** ÎŞĞè²ÎÊı¡£\n");
+            write("** æ— éœ€å‚æ•°ã€‚\n");
         list_groups();
         break;
 
     case "s":
         do_one_arg(//"Show members of which group? ",
-                   "ÏÔÊ¾ÄÄÒ»¸ö×éÈºµÄ³ÉÔ±£¿",     
+                   "æ˜¾ç¤ºå“ªä¸€ä¸ªç»„ç¾¤çš„æˆå‘˜ï¼Ÿ",     
                    (: show_group_members :),
                    arg);
         break;
 
     case "c":
         do_one_arg(//"Name for the new group? ",
-                   "ĞÂ×éÈºµÄÃû³Æ£¿",    
+                   "æ–°ç»„ç¾¤çš„åç§°ï¼Ÿ",    
                    (: create_group :),
                    arg);
         break;
 
     case "d":
         do_one_arg(//"Delete which group? ",
-                   "É¾³ıÄÄÒ»¸ö×éÈº£¿",     
+                   "åˆ é™¤å“ªä¸€ä¸ªç»„ç¾¤ï¼Ÿ",     
                    (: delete_group :),
                    arg);
         break;
 
     case "u":
         do_one_arg(//"Show groups for which user? ",
-                   "ÏÔÊ¾ÄÄÒ»¸öÓÃ»§µÄ×éÈº£¿",     
+                   "æ˜¾ç¤ºå“ªä¸€ä¸ªç”¨æˆ·çš„ç»„ç¾¤ï¼Ÿ",     
                    (: show_users_groups :),
                    arg);
         break;
@@ -237,8 +237,8 @@ private nomask void receive_group_input(string str)
     case "a":
         do_two_args(//"Add which user? ",
                     //"Add '%s' to which group? ",
-                    "Ôö¼ÓÄÄ¸öÓÃ»§£¿",    
-                    "Ôö¼Ó %s µ½ÄÄ¸ö×éÈº£¿",        
+                    "å¢åŠ å“ªä¸ªç”¨æˆ·ï¼Ÿ",    
+                    "å¢åŠ  %s åˆ°å“ªä¸ªç»„ç¾¤ï¼Ÿ",        
                     (: add_user_to_group :),
                     arg);
         break;
@@ -246,8 +246,8 @@ private nomask void receive_group_input(string str)
     case "r":
         do_two_args(//"Remove which user? ",
                     //"Remove '%s' from which group? ",
-                    "É¾³ıÄÄ¸öÓÃ»§£¿",
-                    "°Ñ %s ´ÓÄÄ¸ö×éÈºÖĞÉ¾³ı£¿",
+                    "åˆ é™¤å“ªä¸ªç”¨æˆ·ï¼Ÿ",
+                    "æŠŠ %s ä»å“ªä¸ªç»„ç¾¤ä¸­åˆ é™¤ï¼Ÿ",
                     (: remove_user_from_group :),
                     arg);
         break;
@@ -262,7 +262,7 @@ private nomask void receive_group_input(string str)
     }
 }
 
-static nomask void begin_group_menu()
+protected nomask void begin_group_menu()
 {
     modal_func((: receive_group_input :), PROMPT_GROUP);
     write_group_menu();

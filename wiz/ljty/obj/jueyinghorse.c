@@ -6,13 +6,13 @@ inherit M_HORSE;
 inherit M_VALUE;
 void setup()
 {
-  set_id("jueyinghorse", HIW+"¾øÓ°Âí"+NOR);
+  set_id("jueyinghorse", HIW+"ç»å½±é©¬"+NOR);
   add_id("jueying");
   add_id("horse");
   add_id("ma");
   set_relations("on");
-  set_unit("Æ¥");
-  set_long("ÕâÊÇºº´óØ©Ïà²Ü²ÙµÄĞÄ°®±¦Âí£¬ÆäËÙ¶ÈÖ®¿ì¿°³Æ¾øÓ°");
+  set_unit("åŒ¹");
+  set_long("è¿™æ˜¯æ±‰å¤§ä¸ç›¸æ›¹æ“çš„å¿ƒçˆ±å®é©¬ï¼Œå…¶é€Ÿåº¦ä¹‹å¿«å ªç§°ç»å½±");
   set_size(MEDIUM);
   set_value(-1);
   set_currency_type("gold");
@@ -23,16 +23,16 @@ void setup()
   set_max_capacity(VERY_LARGE*2);
   // So people will see: Sitting on the horse you see Rust...
     set_preposition("on");
-  set_in_room_desc(HIW+"¾øÓ°Âí"+NOR+"(jueyinghorse)");
-set_get_on_msg("$N·­ÉíÔ¾ÉÏ"HIW+"¾øÓ°Âí"+NOR+"£¬"HIW+"¾øÓ°Âí"+NOR+"ËÄÍÈÅÙµØ£¬ÃÍµÄÁ¢Æğ£¬¾ÍÒªÏòÇ°³å³ö¡£\n");
-set_get_off_msg("$NÒ»À­çÖÉş£¬"HIW+"¾øÓ°Âí"+NOR+"ÉíÌåÇ°Ùë£¬$NÇáÇáÔ¾ÏÂ"HIW+"¾øÓ°Âí"+NOR+"¡£\n");
+  set_in_room_desc(HIW+"ç»å½±é©¬"+NOR+"(jueyinghorse)");
+set_get_on_msg("$Nç¿»èº«è·ƒä¸Š"HIW+"ç»å½±é©¬"+NOR+"ï¼Œ"HIW+"ç»å½±é©¬"+NOR+"å››è…¿åˆ¨åœ°ï¼ŒçŒ›çš„ç«‹èµ·ï¼Œå°±è¦å‘å‰å†²å‡ºã€‚\n");
+set_get_off_msg("$Nä¸€æ‹‰ç¼°ç»³ï¼Œ"HIW+"ç»å½±é©¬"+NOR+"èº«ä½“å‰åŒï¼Œ$Nè½»è½»è·ƒä¸‹"HIW+"ç»å½±é©¬"+NOR+"ã€‚\n");
 }
 string get_arrival_msg()
 {
-  return get_riders_as_string()+"Æï×Å"HIW+"¾øÓ°Âí"+NOR+"£¬Èç·ÉËÆµÄÅÜÁË¹ıÀ´¡£\n";
+  return get_riders_as_string()+"éª‘ç€"HIW+"ç»å½±é©¬"+NOR+"ï¼Œå¦‚é£ä¼¼çš„è·‘äº†è¿‡æ¥ã€‚\n";
 }
 string get_departure_msg()
 {
   return get_riders_as_string()+
-"Á½ÍÈÒ»¼Ğ"HIW+"¾øÓ°Âí"+NOR+"£¬Ö»¼û"HIW+"¾øÓ°Âí"+NOR+"Ë¢µÄÒ»ÉùÏòÇ°Ô¾È¥£¬×ªÑÛ±ãÃ»ÁË×ÙÓ°¡£\n";
+"ä¸¤è…¿ä¸€å¤¹"HIW+"ç»å½±é©¬"+NOR+"ï¼Œåªè§"HIW+"ç»å½±é©¬"+NOR+"åˆ·çš„ä¸€å£°å‘å‰è·ƒå»ï¼Œè½¬çœ¼ä¾¿æ²¡äº†è¸ªå½±ã€‚\n";
 }

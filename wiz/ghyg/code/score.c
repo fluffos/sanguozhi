@@ -4,12 +4,12 @@
 // last modified by tset Feb 7 1998
 // last modified by row June 1999
 #include <ansi.h>
-#define p_sep "%^H_YELLOW%^¡ò%^H_CYAN%^£½£½£½£½£½£½£½£½%^B_RED%^%^H_YELLOW%^¡¼¸ö  ÈË  µµ  °¸¡½%^RESET%^%^H_CYAN%^£½£½£½£½£½£½£½£½%^H_YELLOW%^¡ò%^RESET%^"
+#define p_sep "%^H_YELLOW%^â—%^H_CYAN%^ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼%^B_RED%^%^H_YELLOW%^ã€–ä¸ª  äºº  æ¡£  æ¡ˆã€—%^RESET%^%^H_CYAN%^ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼%^H_YELLOW%^â—%^RESET%^"
 inherit VERB_OB;
 inherit M_OUT;
 inherit CHINESE_DA;
 inherit M_ANSI;
-string bar="%^H_CYAN%^¡¬%^RESET%^",space="                                      ";
+string bar="%^H_CYAN%^â€–%^RESET%^",space="                                      ";
 int N1=24 , N2=24;
 
 mixed can_score_liv(object liv)
@@ -36,22 +36,22 @@ private void score_print(object who)
                 p_name=who->query_in_room_desc();
         printf("\n");
         printf("%s\n",p_sep);
-        printf("%%^H_CYAN%%^¡¬                                                  ¡¬\n");
+        printf("%%^H_CYAN%%^â€–                                                  â€–\n");
         
         p_age=who->query_age();
         p_gender=who->query_gender();
 
 // row, all you need just follow the style of the following three lines
 // very simple, addoil :)
-        tm1="%^H_CYAN%^¡¾ÖĞÎÄĞÕÃû¡¿£º"+who->query_name();
+        tm1="%^H_CYAN%^ã€ä¸­æ–‡å§“åã€‘ï¼š"+who->query_name();
         printf("%s%s%s%s\n",bar,tm1,space[0..1+N2+N1-colour_strlen(tm1)],bar);
-        tm1="%^H_CYAN%^¡¾Ó¢ÎÄ´úºÅ¡¿£º"+p_id;
+        tm1="%^H_CYAN%^ã€è‹±æ–‡ä»£å·ã€‘ï¼š"+p_id;
         printf("%s%s%s%s\n",bar,tm1,space[0..1+N2+N1-colour_strlen(tm1)],bar);
 //        printf("%s%s%s%s%s%s\n",bar,tm1,space[0..N1-colour_strlen(tm1)],
 //        tm2,space[0..N2-colour_strlen(tm2)],bar);
 
-        tm1="%^H_GREEN%^¡¾Äê    Áä¡¿£º"+chinese_number(p_age);
-        tm2="%^H_GREEN%^¡¾ĞÔ    ±ğ¡¿£º"+( p_gender==1 ? "ÄĞ" : "Å®")+"%^RESET%^";
+        tm1="%^H_GREEN%^ã€å¹´    é¾„ã€‘ï¼š"+chinese_number(p_age);
+        tm2="%^H_GREEN%^ã€æ€§    åˆ«ã€‘ï¼š"+( p_gender==1 ? "ç”·" : "å¥³")+"%^RESET%^";
         printf("%s%s%s%s%s%s\n",bar,tm1,space[0..N1-colour_strlen(tm1)],
            tm2,space[0..N2-colour_strlen(tm2)],bar);
 
@@ -59,33 +59,33 @@ private void score_print(object who)
         p_zhimou=who->query_zhimou_pure();
         p_meili=who->query_meili_pure();
         p_rongmao=who->query_sg_rongmao();
-        tm1="%^H_YELLOW%^¡¾Èİ    Ã²¡¿£º"+p_rongmao;
-        tm2="%^H_RED%^¡¾µ¥ÌôÎä¹¦¡¿£º"+FIGHT_D->get_pure_att_abi(who)+"[+"+FIGHT_D->get_add_att_abi(who)+"]";
+        tm1="%^H_YELLOW%^ã€å®¹    è²Œã€‘ï¼š"+p_rongmao;
+        tm2="%^H_RED%^ã€å•æŒ‘æ­¦åŠŸã€‘ï¼š"+FIGHT_D->get_pure_att_abi(who)+"[+"+FIGHT_D->get_add_att_abi(who)+"]";
         printf("%s%s%s%s%s%s\n",bar,tm1,space[0..N1-colour_strlen(tm1)],
 
         tm2,space[0..N2-colour_strlen(tm2)],bar);
         
-        tm1="%^H_YELLOW%^¡¾Îä    Á¦¡¿£º"+p_wuli;
-        tm2="%^H_RED%^¡¾É± ÉË Á¦¡¿£º"+FIGHT_D->get_pure_att_pow(who)+"[+"+FIGHT_D->get_add_att_pow(who)+"]";
+        tm1="%^H_YELLOW%^ã€æ­¦    åŠ›ã€‘ï¼š"+p_wuli;
+        tm2="%^H_RED%^ã€æ€ ä¼¤ åŠ›ã€‘ï¼š"+FIGHT_D->get_pure_att_pow(who)+"[+"+FIGHT_D->get_add_att_pow(who)+"]";
         printf("%s%s%s%s%s%s\n",bar,tm1,space[0..N1-colour_strlen(tm1)],
         tm2,space[0..N2-colour_strlen(tm2)],bar);
         
-        tm1="%^H_YELLOW%^¡¾ÖÇ    Ä±¡¿£º"+p_zhimou;
-        tm2="%^H_RED%^¡¾µÖ ¿¹ Á¦¡¿£º"+FIGHT_D->get_pure_def_pow(who)+"[+"+FIGHT_D->get_add_def_pow(who)+"]";
+        tm1="%^H_YELLOW%^ã€æ™º    è°‹ã€‘ï¼š"+p_zhimou;
+        tm2="%^H_RED%^ã€æŠµ æŠ— åŠ›ã€‘ï¼š"+FIGHT_D->get_pure_def_pow(who)+"[+"+FIGHT_D->get_add_def_pow(who)+"]";
         printf("%s%s%s%s%s%s\n",bar,tm1,space[0..N1-colour_strlen(tm1)],
         tm2,space[0..N2-colour_strlen(tm2)],bar);
         
-        tm1="%^H_YELLOW%^¡¾÷È    Á¦¡¿£º"+p_meili;
+        tm1="%^H_YELLOW%^ã€é­…    åŠ›ã€‘ï¼š"+p_meili;
         printf("%s%s%s%s\n",bar,tm1,space[0..1+N2+N1-colour_strlen(tm1)],bar);
 	
 	  p_hd=CHAR_D->get_char(p_id,"mar");
 	  p_hd=CHAR_D->get_char(p_hd,"name");
-	  if(!stringp(p_hd)) p_hd="%^H_MAGENTA%^ÎŞ%^RESET%^";
+	  if(!stringp(p_hd)) p_hd="%^H_MAGENTA%^æ— %^RESET%^";
 
 /* jie yi xiongdi*/
         p_jyxd = CHAR_D->get_char(p_id,"jy");
         if(!sizeof(p_jyxd))
-        p_jy= "ÎŞ";
+        p_jy= "æ— ";
         else 
         {
 		string *j_ids;
@@ -95,7 +95,7 @@ private void score_print(object who)
 			j_ids-=({j_id});
 		}
 		if(!sizeof(j_ids)) {
-			p_jy="ÎŞ";
+			p_jy="æ— ";
 		}
 		else
 		{
@@ -103,7 +103,7 @@ private void score_print(object who)
 			if(sizeof(j_ids)>1) {
 				int js;
 				for(js=1;js<sizeof(j_ids);++js) {
-                                        p_jy+="¡¢";
+                                        p_jy+="ã€";
 					p_jy+=CHAR_D->get_char(j_ids[js],"name");
 				}
 			}
@@ -111,55 +111,55 @@ private void score_print(object who)
         }
         if(p_gender==1)        
 	{
-	tm1="%^H_MAGENTA%^¡¾½áÒåĞÖµÜ¡¿£º"+p_jy+"%^RESET%^";
+	tm1="%^H_MAGENTA%^ã€ç»“ä¹‰å…„å¼Ÿã€‘ï¼š"+p_jy+"%^RESET%^";
         printf("%s%s%s%s\n",bar,tm1,space[0..1+N2+N1-colour_strlen(tm1)],bar);
-	tm1="%^H_MAGENTA%^¡¾½á·¢ÆŞ×Ó¡¿£º"+p_hd;
+	tm1="%^H_MAGENTA%^ã€ç»“å‘å¦»å­ã€‘ï¼š"+p_hd;
         printf("%s%s%s%s\n",bar,tm1,space[0..1+N2+N1-colour_strlen(tm1)],bar);
 	}
 	else
 	{
-	tm1="%^H_MAGENTA%^¡¾½ğÀ¼½ãÃÃ¡¿£º"+p_jy+"%^RESET%^";
+	tm1="%^H_MAGENTA%^ã€é‡‘å…°å§å¦¹ã€‘ï¼š"+p_jy+"%^RESET%^";
         printf("%s%s%s%s\n",bar,tm1,space[0..1+N2+N1-colour_strlen(tm1)],bar);
-	tm1="%^H_MAGENTA%^¡¾½á·¢ÕÉ·ò¡¿£º"+p_hd;
+	tm1="%^H_MAGENTA%^ã€ç»“å‘ä¸ˆå¤«ã€‘ï¼š"+p_hd;
         printf("%s%s%s%s\n",bar,tm1,space[0..1+N2+N1-colour_strlen(tm1)],bar);
 	}
-//        printf("%%^H_CYAN%%^¡¬%%^H_MAGENTA%%^¡¾½áÒåĞÖµÜ¡¿£ºÎŞ         ¡¾½á·¢ÆŞ×Ó¡¿£º%-10s %%^H_CYAN%%^¡¬%%^RESET%%^\n",p_hd);
+//        printf("%%^H_CYAN%%^â€–%%^H_MAGENTA%%^ã€ç»“ä¹‰å…„å¼Ÿã€‘ï¼šæ—          ã€ç»“å‘å¦»å­ã€‘ï¼š%-10s %%^H_CYAN%%^â€–%%^RESET%%^\n",p_hd);
 //        }
 //        else
 //        {
-//        printf("%%^H_CYAN%%^¡¬%%^H_MAGENTA%%^¡¾½ğÀ¼½ãÃÃ¡¿£ºÎŞ         ¡¾½á·¢ÕÉ·ò¡¿£º%-10s %%^H_CYAN%%^¡¬%%^RESET%%^\n",p_hd);
+//        printf("%%^H_CYAN%%^â€–%%^H_MAGENTA%%^ã€é‡‘å…°å§å¦¹ã€‘ï¼šæ—          ã€ç»“å‘ä¸ˆå¤«ã€‘ï¼š%-10s %%^H_CYAN%%^â€–%%^RESET%%^\n",p_hd);
 //        }
 
-        tm1="%^H_BLUE%^¡¾Ëù Êô ¹ú¡¿£º"+(sizeof(COUNTRY_D->get_country(CHAR_D->get_char(p_id,"nation"),"name")) ? COUNTRY_D->get_country(CHAR_D->get_char(p_id,"nation"),"name"): "©¥©¥%^RESET%^");
-        tm2="%^H_BLUE%^¡¾¶¨ ¾Ó µØ¡¿£º"+(sizeof(AREA_D->get_area(CHAR_D->get_char(p_id,"area"),"name")) ? AREA_D->get_area(CHAR_D->get_char(p_id,"area"),"name") : "©¥©¥%^RESET%^");
+        tm1="%^H_BLUE%^ã€æ‰€ å± å›½ã€‘ï¼š"+(sizeof(COUNTRY_D->get_country(CHAR_D->get_char(p_id,"nation"),"name")) ? COUNTRY_D->get_country(CHAR_D->get_char(p_id,"nation"),"name"): "â”â”%^RESET%^");
+        tm2="%^H_BLUE%^ã€å®š å±… åœ°ã€‘ï¼š"+(sizeof(AREA_D->get_area(CHAR_D->get_char(p_id,"area"),"name")) ? AREA_D->get_area(CHAR_D->get_char(p_id,"area"),"name") : "â”â”%^RESET%^");
         printf("%s%s%s%s%s%s\n",bar,tm1,space[0..N1-colour_strlen(tm1)],
         tm2,space[0..N2-colour_strlen(tm2)],bar);
 
-        tm1="%^H_GREEN%^¡¾¹ú¼Ò¹ÙÖ°¡¿£º"+OFFICER_D->query_rank_name(CHAR_D->get_char(p_id,"ranknation"));
-        tm2="%^H_GREEN%^¡¾µØ·½¹ÙÖ°¡¿£º"+(sizeof(AREA_D->get_area(CHAR_D->get_char(p_id,"area"),"name")) ? AREA_D->get_area(CHAR_D->get_char(p_id,"area"),"name") : "©¥©¥")
+        tm1="%^H_GREEN%^ã€å›½å®¶å®˜èŒã€‘ï¼š"+OFFICER_D->query_rank_name(CHAR_D->get_char(p_id,"ranknation"));
+        tm2="%^H_GREEN%^ã€åœ°æ–¹å®˜èŒã€‘ï¼š"+(sizeof(AREA_D->get_area(CHAR_D->get_char(p_id,"area"),"name")) ? AREA_D->get_area(CHAR_D->get_char(p_id,"area"),"name") : "â”â”")
         +OFFICER_D->query_rank_name(CHAR_D->get_char(p_id,"ranklocal"));
         printf("%s%s%s%s%s%s\n",bar,tm1,space[0..N1-colour_strlen(tm1)],
         tm2,space[0..N2-colour_strlen(tm2)],bar);
 
-        tm1="%^H_GREEN%^¡¾¹¬Í¢¹ÙÖ°¡¿£º"+(sizeof(OFFICER_D->query_rank_name(CHAR_D->get_char(p_id,"royalrank"))) ?OFFICER_D->query_rank_name(CHAR_D->get_char(p_id,"royalrank")) :"©¥©¥"+"%^RESET%^");
+        tm1="%^H_GREEN%^ã€å®«å»·å®˜èŒã€‘ï¼š"+(sizeof(OFFICER_D->query_rank_name(CHAR_D->get_char(p_id,"royalrank"))) ?OFFICER_D->query_rank_name(CHAR_D->get_char(p_id,"royalrank")) :"â”â”"+"%^RESET%^");
         printf("%s%s%s%s\n",bar,tm1,space[0..1+N2+N1-colour_strlen(tm1)],bar);
 
-tm1="%^H_RED%^¡¾¾ô    Î»¡¿£º%^RESET%^"+(sizeof(CHENGHU_D->query_char_jun(p_id)) ?CHENGHU_D->query_char_jun(p_id) :"©¥©¥"+"");
+tm1="%^H_RED%^ã€çˆµ    ä½ã€‘ï¼š%^RESET%^"+(sizeof(CHENGHU_D->query_char_jun(p_id)) ?CHENGHU_D->query_char_jun(p_id) :"â”â”"+"");
           printf("%s%s%s%s\n",bar,tm1,space[0..1+N2+N1-colour_strlen(tm1)],bar);
-        tm1="%^H_YELLOW%^¡¾Ùº    Â»¡¿£º"+CHAR_D->get_char(p_id,"salary");
-        tm2="%^H_YELLOW%^¡¾ÖÒ    ³Ï¡¿£º"+CHAR_D->get_char(p_id,"loyalty");
+        tm1="%^H_YELLOW%^ã€ä¿¸    ç¦„ã€‘ï¼š"+CHAR_D->get_char(p_id,"salary");
+        tm2="%^H_YELLOW%^ã€å¿     è¯šã€‘ï¼š"+CHAR_D->get_char(p_id,"loyalty");
         printf("%s%s%s%s%s%s\n",bar,tm1,space[0..N1-colour_strlen(tm1)],
         tm2,space[0..N2-colour_strlen(tm2)],bar);
         
-        tm1="%^H_WHITE%^¡¾Éù    Íû¡¿£º"+(sizeof(CHAR_D->get_char(p_id,"reputationstr")) ? CHAR_D->get_char(p_id,"reputationstr") :"%^H_WHITE%^Ä¬Ä¬ÎŞÎÅ%^RESET%^")+"%^H_WHITE%^("+
+        tm1="%^H_WHITE%^ã€å£°    æœ›ã€‘ï¼š"+(sizeof(CHAR_D->get_char(p_id,"reputationstr")) ? CHAR_D->get_char(p_id,"reputationstr") :"%^H_WHITE%^é»˜é»˜æ— é—»%^RESET%^")+"%^H_WHITE%^("+
         CHAR_D->get_char(p_id,"reputation")+")";
         printf("%s%s%s%s\n",bar,tm1,space[0..1+N2+N1-colour_strlen(tm1)],bar);
 
-        tm1="%^H_WHITE%^¡¾ÎÄÑ§ĞŞÑø¡¿£º"+(sizeof(who->query_literate_str()) ? who->query_literate_str() : "%^H_RED%^Ä¿²»Ê¶¶¡%^RESET%^")+"%^H_WHITE%^("+who->query_literate()+")";
+        tm1="%^H_WHITE%^ã€æ–‡å­¦ä¿®å…»ã€‘ï¼š"+(sizeof(who->query_literate_str()) ? who->query_literate_str() : "%^H_RED%^ç›®ä¸è¯†ä¸%^RESET%^")+"%^H_WHITE%^("+who->query_literate()+")";
         printf("%s%s%s%s\n",bar,tm1,space[0..1+N2+N1-colour_strlen(tm1)],bar);
 
-        printf("%%^H_CYAN%%^¡¬                                                  ¡¬\n");
-        printf("%%^H_YELLOW%%^¡ò%%^H_CYAN%%^£½£½£½£½£½£½£½£½£½%%^B_MAGENTA%%^¡¶Èı  ¹ú  Ö¾¡·%%^RESET%%^%%^H_CYAN%%^£½£½£½£½£½£½£½£½£½%%^H_YELLOW%%^¡ò%%^RESET%%^\n");
+        printf("%%^H_CYAN%%^â€–                                                  â€–\n");
+        printf("%%^H_YELLOW%%^â—%%^H_CYAN%%^ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼%%^B_MAGENTA%%^ã€Šä¸‰  å›½  å¿—ã€‹%%^RESET%%^%%^H_CYAN%%^ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼%%^H_YELLOW%%^â—%%^RESET%%^\n");
         return;
 }
 void do_score()
@@ -173,7 +173,7 @@ void do_score_str(string liv)
         object ob;
         if(!(wizardp(this_body()->query_userid())))
         {
-                printf("Ö»ÓĞÎ×Ê¦²Å¿ÉÒÔÍ¸ÊÓ±ğÈËµÄ×´¿ö¡£\n");
+                printf("åªæœ‰å·«å¸ˆæ‰å¯ä»¥é€è§†åˆ«äººçš„çŠ¶å†µã€‚\n");
                 return;
         }
         else
@@ -181,17 +181,17 @@ void do_score_str(string liv)
                 ob = present(liv, environment(this_body()));
                 if (!ob) ob = find_body(liv);
                 if (!ob) {
-                        write("ÄãÒª²ì¿´Ë­µÄ×´¿ö£¿\n"); 
+                        write("ä½ è¦å¯Ÿçœ‹è°çš„çŠ¶å†µï¼Ÿ\n"); 
                         return;
                 }
                 if (!ob->is_living()) {
-                        write("²ì¿´Îï¼şµÄ³É¼¨£¿\n"); 
+                        write("å¯Ÿçœ‹ç‰©ä»¶çš„æˆç»©ï¼Ÿ\n"); 
                         return;
                 }
                 score_print(ob);
         }
 }
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ "", "STR", }), ({  }) });
 }

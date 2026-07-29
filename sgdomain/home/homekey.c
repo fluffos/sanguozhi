@@ -1,4 +1,4 @@
-// by fire on Dec 11 1997 m_silver.c Ç®
+// by fire on Dec 11 1997 m_silver.c é’±
 // m_homekey.c
 #include <sanguo.h> 
 inherit OBJ;
@@ -7,10 +7,10 @@ inherit M_GETTABLE;
 private string m_owner;
 void setup()
 {
-    set_adj("Ð¡", "ÉÁÁÁµÄ");
-    set_unit("°Ñ");
-    set_id("key", "Ô¿³×");
-    set_in_room_desc("Ò»¸öÁÁ¾§¾§µÄÔ¿³×¡£");
+    set_adj("å°", "é—ªäº®çš„");
+    set_unit("æŠŠ");
+    set_id("key", "é’¥åŒ™");
+    set_in_room_desc("ä¸€ä¸ªäº®æ™¶æ™¶çš„é’¥åŒ™ã€‚");
     set_size(VERY_SMALL);
     set_gettable(1);
     set_is_keeping(1);
@@ -20,7 +20,7 @@ void set_owner(string owner) {
     m_owner=owner;
 }
 string long() {
-	return "ÕâÊÇÒ»°ÑÓÃÀ´¿ª"+CHAR_D->get_char(m_owner,"name")+"¼ÒµÄÔ¿³×¡£\n";
+	return "è¿™æ˜¯ä¸€æŠŠç”¨æ¥å¼€"+CHAR_D->get_char(m_owner,"name")+"å®¶çš„é’¥åŒ™ã€‚\n";
 }
 mixed key_type()
 {

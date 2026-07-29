@@ -16,7 +16,7 @@ mixed char_swap(object me,object cop) {
 	obs=all_inventory(me);
 	wep=me->query_weapon();
 	
-	me->simple_action("$NÒ»±§È­£ºÒª»»°àÁË¡£\n");
+	me->simple_action("$Nä¸€æŠ±æ‹³ï¼šè¦æ¢ç­äº†ã€‚\n");
 	me->move(load_object(VOID_ROOM));
 
 	if(sizeof(obs))

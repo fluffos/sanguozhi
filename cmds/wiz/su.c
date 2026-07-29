@@ -25,7 +25,7 @@ private void main(string arg)
     }
 
     if (race) {
-        string array dirs = ({ DIR_RACES });
+        string * dirs = ({ DIR_RACES });
         dirs = map(dirs, (: $1[<1] == '/' ? $1 : $1 + "/" :));
         while (sizeof(dirs)) {
             foreach (string file in get_dir(dirs[0])) {
@@ -36,7 +36,7 @@ private void main(string arg)
             dirs = dirs[1..];
         }
         if (race[<2..] != ".c") {
-            out("没有这个种族。\n");
+            out("娌℃湁杩欎釜绉嶆棌銆俓n");
             return;
         }
     }

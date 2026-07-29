@@ -6,15 +6,15 @@ inherit OBJ;
 inherit M_GETTABLE;
 
 void setup() {
-	set_adj("����������");
-	set_long("����һ����ѡ��%^H_YELLOW%^�ƶ�%^RESET%^����������������ò������ˡ�\n");
-	set_id("soy bean", "%^H_YELLOW%^�ƶ�%^RESET%^","soybean");
-	set_unit("��");
-	set_in_room_desc("һ������������%^H_YELLOW%^�ƶ�%^RESET%^(soy bean)��\n");
+	set_adj("颗粒饱满的");
+	set_long("这是一袋上选的%^H_YELLOW%^黄豆%^RESET%^，用来做豆腐是最好不过的了。\n");
+	set_id("soy bean", "%^H_YELLOW%^黄豆%^RESET%^","soybean");
+	set_unit("袋");
+	set_in_room_desc("一袋颗粒饱满的%^H_YELLOW%^黄豆%^RESET%^(soy bean)。\n");
 	set_can_give(0);
 	set_is_keeping(1);
 	set_can_drop(0);
-	set_can_drop("�ѻƶ����˾��ò�����Ǯ�ˡ�\n");
+	set_can_drop("把黄豆丢了就拿不到工钱了。\n");
 	set_size(SMALL);
 	call_out("dest",600);
 }
@@ -35,21 +35,21 @@ int turn()
 	if(this_body()->query_job("makedoufu","beg_time")==0)
 	{
 	this_body()->simple_action(
-	"$Nһ����æ���ң���%^H_YELLOW%^�ƶ�%^RESET%^����һ�ء�\n");
+	"$N一阵手忙脚乱，将%^H_YELLOW%^黄豆%^RESET%^洒了一地。\n");
 	destruct(soy);
 	return 1;
 	}
 	if( !shimo = present("shimo", room) )
 	{
-	write("�����%^H_YELLOW%^�ƶ�%^RESET%^����ʲô�ط���\n");
+	write("你想把%^H_YELLOW%^黄豆%^RESET%^倒到什么地方？\n");
 	return 1;
 	}
 	stat=shimo->query_isfill();
 	if(stat==1) {
-	write("ʯĥ���Ѿ�װ��%^H_YELLOW%^�ƶ�%^RESET%^�ˡ�\n");
+	write("石磨里已经装满%^H_YELLOW%^黄豆%^RESET%^了。\n");
 	return 1;
 	}
-      this_body()->simple_action("$N������ף�������һ�ڴ�%^H_YELLOW%^�ƶ�%^RESET%^ȫ������ʯĥ�\n");
+      this_body()->simple_action("$N提起袋底，将满满一口袋%^H_YELLOW%^黄豆%^RESET%^全倒入了石磨里。\n");
 	shimo->set_isfill();
 	destruct(soy);
 	return 1;
@@ -58,6 +58,6 @@ void dest()
 {
 	string p_id;
 	p_id=this_body()->query_primary_id();
-	tell_user(p_id,"���ڳ�ʱ�䲻�ã��ڴ���ĥ��һ������%^H_YELLOW%^�ƶ�%^RESET%^ȫ©���ˡ�\n");
+	tell_user(p_id,"由于长时间不用，口袋被磨了一个洞，%^H_YELLOW%^黄豆%^RESET%^全漏光了。\n");
 	destruct(this_object());
 }

@@ -1,16 +1,16 @@
 // the job of whisper a certain wise general
 // by group on Mar 1999
-static private string *sug=({
-"$N¶Ô$TµÀ£º$m$RÓĞÇ§¾ü²»µ²Ö®ÓÂ£¬Ö»¿ÉÏ§¹¦¸ßÄÑÃâÕğÖ÷°¡£¡",
-"$N¶Ô$TµÀ£º$m$RµÄÖÇ»ÛÈç´óº£Ò»°ãÉî²»¿É²â£¬¾Í¸Ã¿´³ö´ËµØ²»ÊÇ¿É¾ÓÖ®µØ¡£",
-"$N¶Ô$TµÀ£º$m$RÓĞ´ó½«·ç·¶£¬Ö»ÊÇÄã¾ıÉÏÈ´²»ÊÇÓÃ²ÅÖ®ÈËÄÄ£¡",
-"$N¶Ô$TµÀ£º$m$Rµ­²´ÃûÀû£¬ÁîÈËÇÕÅå£¬Ö»ÊÇÕâĞ©ÒøÁ½»¹Íü$RĞ¦ÄÉ¡£",
-"$N¶Ô$TµÀ£º±¾Óû´øĞ©±¦ÎïÀ´£¬Ö»ÊÇÏÖÔÚ»¹Ã»ÓĞ. . . ",
-"$N¶Ô$TµÀ£ºÒÔ$m$RÖ®´ó²Ä£¬ÈçÄ±Ëû¹úÊËÍ¾Ö®Â·£¬±ØÓĞ´ó³É¡£",
-"$N¶Ô$TµÀ£º$m$RÈç²»ÔçÔç»ØÍ·£¬ËûÈÕÖ»¿ÖÉíÊ×Ò×´¦Ñ½£¡",
-"$N¶Ô$TµÀ£ºÎÒ¹ú±øÇ¿Âí×³£¬¹úÁ¦¸»×ã£¬ËüÈÕ±Ø¿ÉÒ»Í³ÌìÏÂ¡£",
-"$N¶Ô$TµÀ£ºĞ¡µØ¹ÙÃñ¶Ô$m$R¾´ÑöÒÑ¾Ã£¬ºÎ²»Á¼ÇİÔñÄ¾¶øÆÜ£¬ÒÔ³É´óÒµ¡£",
-"$N¶Ô$TµÀ£¬½ñÈÕµÃ¼û$RÒ»Ãæ£¬¹ûÈ»Ãû²»Ğé´«¡£Ê±³½²»Ôç£¬$sÏÈĞĞ¸æ´Ç¡£",
+nosave private string *sug=({
+"$Nå¯¹$Té“ï¼š$m$Ræœ‰åƒå†›ä¸æŒ¡ä¹‹å‹‡ï¼Œåªå¯æƒœåŠŸé«˜éš¾å…éœ‡ä¸»å•Šï¼",
+"$Nå¯¹$Té“ï¼š$m$Rçš„æ™ºæ…§å¦‚å¤§æµ·ä¸€èˆ¬æ·±ä¸å¯æµ‹ï¼Œå°±è¯¥çœ‹å‡ºæ­¤åœ°ä¸æ˜¯å¯å±…ä¹‹åœ°ã€‚",
+"$Nå¯¹$Té“ï¼š$m$Ræœ‰å¤§å°†é£èŒƒï¼Œåªæ˜¯ä½ å›ä¸Šå´ä¸æ˜¯ç”¨æ‰ä¹‹äººå“ªï¼",
+"$Nå¯¹$Té“ï¼š$m$Ræ·¡æ³Šååˆ©ï¼Œä»¤äººé’¦ä½©ï¼Œåªæ˜¯è¿™äº›é“¶ä¸¤è¿˜å¿˜$Rç¬‘çº³ã€‚",
+"$Nå¯¹$Té“ï¼šæœ¬æ¬²å¸¦äº›å®ç‰©æ¥ï¼Œåªæ˜¯ç°åœ¨è¿˜æ²¡æœ‰. . . ",
+"$Nå¯¹$Té“ï¼šä»¥$m$Rä¹‹å¤§æï¼Œå¦‚è°‹ä»–å›½ä»•é€”ä¹‹è·¯ï¼Œå¿…æœ‰å¤§æˆã€‚",
+"$Nå¯¹$Té“ï¼š$m$Rå¦‚ä¸æ—©æ—©å›å¤´ï¼Œä»–æ—¥åªæèº«é¦–æ˜“å¤„å‘€ï¼",
+"$Nå¯¹$Té“ï¼šæˆ‘å›½å…µå¼ºé©¬å£®ï¼Œå›½åŠ›å¯Œè¶³ï¼Œå®ƒæ—¥å¿…å¯ä¸€ç»Ÿå¤©ä¸‹ã€‚",
+"$Nå¯¹$Té“ï¼šå°åœ°å®˜æ°‘å¯¹$m$Ræ•¬ä»°å·²ä¹…ï¼Œä½•ä¸è‰¯ç¦½æ‹©æœ¨è€Œæ –ï¼Œä»¥æˆå¤§ä¸šã€‚",
+"$Nå¯¹$Té“ï¼Œä»Šæ—¥å¾—è§$Rä¸€é¢ï¼Œæœç„¶åä¸è™šä¼ ã€‚æ—¶è¾°ä¸æ—©ï¼Œ$så…ˆè¡Œå‘Šè¾ã€‚",
 });
 void judge_select(mixed obs);
 void input_way(mixed obs,string str);
@@ -34,7 +34,7 @@ mixed job(string m_id,string officer_id)
 (CHAR_D->get_char($1,"nation")!=$(m_nation))) :) );
    if(!mlist) mlist=({});
    if(!sizeof(mlist))
-		return "$N¶Ô$TµÀ£º×î½üÃ»Ê²Ã´ÈËºÃ²ß·´µÄ\n";
+		return "$Nå¯¹$Té“ï¼šæœ€è¿‘æ²¡ä»€ä¹ˆäººå¥½ç­–åçš„\n";
   
    target=mlist[random(sizeof(mlist))];   	   
 o->set_asklist("whisper","target",target);
@@ -44,11 +44,11 @@ o->set_asklist("whisper","target",target);
   o->add_job("whisper");
   o->set_job("whisper","status","begin");
 
-o->set_job("whisper","memo","²ß·´"+CHAR_D->get_char(target,"area")+CHAR_D->get_char(target,"name")+"("+target+")");
+o->set_job("whisper","memo","ç­–å"+CHAR_D->get_char(target,"area")+CHAR_D->get_char(target,"name")+"("+target+")");
    
-   return "$N¶Ô$TµÀ£º×î½üÌıËµ"+CHAR_D->get_char(target,"area")+"ÓĞÒ»´óÏÍÃûÔ»"+CHAR_D->get_char(target,"name")+"("+target+")¡£\n"+
-	   "¾ÍÂé·³$RÈ¥Ì½·ÃÒ»ÏÂ£¬¼ûÃæ¾ÍËµask "+target+" about whisper¡£\n"+
-	   "Èç¹û¿ÉÄÜ£¬×îºÃÄÜÇëÀ´µ±¹Ù¡£\n";
+   return "$Nå¯¹$Té“ï¼šæœ€è¿‘å¬è¯´"+CHAR_D->get_char(target,"area")+"æœ‰ä¸€å¤§è´¤åæ›°"+CHAR_D->get_char(target,"name")+"("+target+")ã€‚\n"+
+	   "å°±éº»çƒ¦$Rå»æ¢è®¿ä¸€ä¸‹ï¼Œè§é¢å°±è¯´ask "+target+" about whisperã€‚\n"+
+	   "å¦‚æœå¯èƒ½ï¼Œæœ€å¥½èƒ½è¯·æ¥å½“å®˜ã€‚\n";
 }
 
 void ask_whisper(object me, object target)
@@ -61,10 +61,10 @@ void ask_whisper(object me, object target)
         (OFFICER_D->query_area_officer_title(
          AREA_D->get_area(t_area,"level"),0,0))[0]);
 	me->targetted_action(
-      "$N¶Ô$TĞ¦×ÅËµµÀ£º±¾µØ"+m_title+"Óë$s¾ÃÑö$m$R´óÃû£¬\n"
-	  +"½ñÈÕÓĞĞÒÄÜÇóÒ»¼û¡£\n",target);
+      "$Nå¯¹$Tç¬‘ç€è¯´é“ï¼šæœ¬åœ°"+m_title+"ä¸$sä¹…ä»°$m$Rå¤§åï¼Œ\n"
+	  +"ä»Šæ—¥æœ‰å¹¸èƒ½æ±‚ä¸€è§ã€‚\n",target);
 	DELAY_D->delay_targetted_action(
-		target,me,"$N¶Ô$TµÀ£ºÄãÎÒ¸÷ÎªÆäÖ÷£¬²»±Ø¿ÍÆø\n",1);
+		target,me,"$Nå¯¹$Té“ï¼šä½ æˆ‘å„ä¸ºå…¶ä¸»ï¼Œä¸å¿…å®¢æ°”\n",1);
 	me->clear_asklist("whisper");
 	me->set_job("whisper","status","done");
 	target->special_heart(600); // will now go around or do semote
@@ -95,93 +95,93 @@ void judge_select(mixed obs)
     switch(p_select)
     {    case 1:
          if(random(30)>gift["wuli"])  {
-            tar->simple_action("$NµÀ£ºÄãºÃÏñÔÚĞÅ¿Ú¿ªºÓ\n");
+            tar->simple_action("$Né“ï¼šä½ å¥½åƒåœ¨ä¿¡å£å¼€æ²³\n");
 			tar->responda("heng"); score-=1;
          }
          else { if(random(loyalty)<30){ 
-          tar->simple_action("$N×ÔÑÔ×ÔÓïµÀ£º¡±´Ë»°ÓĞÀí¡£¡±\n");
+          tar->simple_action("$Nè‡ªè¨€è‡ªè¯­é“ï¼šâ€æ­¤è¯æœ‰ç†ã€‚â€\n");
 			score+=2; loyalty-=3;}
          }
          break;
        case 2:
          if(random(30)>gift["zhimou"])  {
-            tar->simple_action("$NµÀ£ºÄãºÃÏñÔÚĞÅ¿Ú¿ªºÓ\n");
+            tar->simple_action("$Né“ï¼šä½ å¥½åƒåœ¨ä¿¡å£å¼€æ²³\n");
 			tar->responda("angry"); score-=1;
          }
          else {  if(random(60)>loyalty){
-	tar->simple_action("$N×ÔÑÔ×ÔÓïµÀ£º¡±´Ë»°ÓĞÀí¡£¡±\n");
+	tar->simple_action("$Nè‡ªè¨€è‡ªè¯­é“ï¼šâ€æ­¤è¯æœ‰ç†ã€‚â€\n");
 			score+=2; loyalty-=2;
          }}
          break;
        case 3:
          if(random(30)>gift["meili"])  {
-            tar->simple_action("$NµÀ£ºÄãºÃÏñÔÚĞÅ¿Ú¿ªºÓ\n");
+            tar->simple_action("$Né“ï¼šä½ å¥½åƒåœ¨ä¿¡å£å¼€æ²³\n");
 			tar->responda("puke"); score-=1;
          }
          else {if(random(loyalty)<30){  
-	tar->simple_action("$N×ÔÑÔ×ÔÓïµÀ£º¡±´Ë»°ÓĞÀí¡£¡±\n");
+	tar->simple_action("$Nè‡ªè¨€è‡ªè¯­é“ï¼šâ€æ­¤è¯æœ‰ç†ã€‚â€\n");
 			score+=2; loyalty-=2;
          }}
          break;
 	   case 4:
          if(me->query_all_con_money()<10000) {
-			tell_user(p_id,"ÄãÉíÉÏÃ»´ø¹»Ç®¡£\n");
-			 tar->simple_action("$NµÀ£ºÕæÊÇºúÄÖ¡£\n");
+			tell_user(p_id,"ä½ èº«ä¸Šæ²¡å¸¦å¤Ÿé’±ã€‚\n");
+			 tar->simple_action("$Né“ï¼šçœŸæ˜¯èƒ¡é—¹ã€‚\n");
 			tar->responda("angry"); score-=2;
          }
          else
          {  me->set_all_con_money( me->query_all_con_money() -10000 );
-			me->targetted_action("$NÈû¸ø$TÒ»Á½½ğ×Ó¡£\n",tar);
-		    tar->simple_action("$NÒ»±ßËµ²»ÄÜÒª£¬²»ÄÜÒª£¬Ò»±ßÇÄÇÄ°Ñ½ğ×Ó´§µ½»³Àï¡£\n");
+			me->targetted_action("$Nå¡ç»™$Tä¸€ä¸¤é‡‘å­ã€‚\n",tar);
+		    tar->simple_action("$Nä¸€è¾¹è¯´ä¸èƒ½è¦ï¼Œä¸èƒ½è¦ï¼Œä¸€è¾¹æ‚„æ‚„æŠŠé‡‘å­æ£åˆ°æ€€é‡Œã€‚\n");
 			score+=4; loyalty-=1;
          }
          break;
 	   case 5:
-		    tar->simple_action("$NµÀ£º±¦Îï¼ÈÈ»»¹Ã»ÓĞºÃ£¬ÄÇ¾Í»ØÍ·ÔÙËµ°É¡£\n");
+		    tar->simple_action("$Né“ï¼šå®ç‰©æ—¢ç„¶è¿˜æ²¡æœ‰å¥½ï¼Œé‚£å°±å›å¤´å†è¯´å§ã€‚\n");
 		 break;
 	   case 6:
 		   if(random(60)>loyalty) {
-tar->simple_action("$N×ÔÑÔ×ÔÓïµÀ£º¡±´Ë»°ÓĞÀí¡£¡±\n");
+tar->simple_action("$Nè‡ªè¨€è‡ªè¯­é“ï¼šâ€æ­¤è¯æœ‰ç†ã€‚â€\n");
 			   score+=2;loyalty-=3;
 		   }
 		   else {
-tar->simple_action("$NµÀ£º$sÆ½Éú²»Ï²ÃûÀû£¬Ö»Îª±¨Öª¼ºÖ®¶÷¡£\n");
+tar->simple_action("$Né“ï¼š$så¹³ç”Ÿä¸å–œååˆ©ï¼Œåªä¸ºæŠ¥çŸ¥å·±ä¹‹æ©ã€‚\n");
 			   score--;loyalty+=2;
 		   }
 		   break;
 	   case 7:
 		   if(random(60)>loyalty) {
-tar->simple_action("$N×ÔÑÔ×ÔÓïµÀ£º¡±´Ë»°ÓĞÀí¡£¡±\n");
+tar->simple_action("$Nè‡ªè¨€è‡ªè¯­é“ï¼šâ€æ­¤è¯æœ‰ç†ã€‚â€\n");
 			   score+=2;loyalty-=2;
 		   }
 		   else {
-tar->simple_action("$NµÀ£º$sÂí¸ï¹üÊ¬£¬ËÀ¶øºóÒÑ¡£\n");
+tar->simple_action("$Né“ï¼š$sé©¬é©è£¹å°¸ï¼Œæ­»è€Œåå·²ã€‚\n");
 			   score--;loyalty+=2;
 		   }
 		   break;
 	   case 8:
 		   if(random(60)>loyalty) {
-tar->simple_action("$NÒ¡Í·µÀ£ºÎáÒâÒÑ¾ö£¬ÎğĞë¶àÑÔ¡£\n");
+tar->simple_action("$Næ‘‡å¤´é“ï¼šå¾æ„å·²å†³ï¼Œå‹¿é¡»å¤šè¨€ã€‚\n");
 			   score--;loyalty+=2;
 		   }
 		   else {
-			   tar->simple_action("$NµÀ£ºÓĞµÀÀí£¬ÓĞµÀÀí¡£\n");
+			   tar->simple_action("$Né“ï¼šæœ‰é“ç†ï¼Œæœ‰é“ç†ã€‚\n");
 			   score+=2;loyalty-=2;
 		   }
 		   break;
 	   case 9:
 		   if(random(50)+50>loyalty) {
-tar->targetted_action("$NµÀ£ºÎáÒâÒÑ¾ö£¬$RÇë¼ûÁÂ¡£\n",me);
+tar->targetted_action("$Né“ï¼šå¾æ„å·²å†³ï¼Œ$Rè¯·è§è°…ã€‚\n",me);
 		   }
 		   else
-{tar->targetted_action("$NµÀ£º¹ûÊÇÈç´Ë£¿Ëµ°Õ°µ×ÔË¼Á¿\n");
+{tar->targetted_action("$Né“ï¼šæœæ˜¯å¦‚æ­¤ï¼Ÿè¯´ç½¢æš—è‡ªæ€é‡\n");
 		score+=2; loyalty-=3;
 
 			   }
 		   
 		   break;
 	   case 10:
-		   tar->simple_action("$NµÀ£ºË¡²»Ô¶ËÍ£¬¸æ´Ç¡£\n");
+		   tar->simple_action("$Né“ï¼šæ•ä¸è¿œé€ï¼Œå‘Šè¾ã€‚\n");
 		   talk_over(obs);
 	   default:
 			return;
@@ -207,7 +207,7 @@ void input_way(mixed obs,string str)
     if((p_select<1)||(p_select>10)) return;
  	topics=me->query_job("whisper","topics");
     if(member_array(p_select,topics)!=-1)
-    {  tell_user(p_id,"Õâ¸ö»°ÌâÒÑ¾­Ì¸¹ıÁË£¬µÃ»»Ò»¸ö»°Ìâ¡£\n");
+    {  tell_user(p_id,"è¿™ä¸ªè¯é¢˜å·²ç»è°ˆè¿‡äº†ï¼Œå¾—æ¢ä¸€ä¸ªè¯é¢˜ã€‚\n");
        call_out("no_answer_way",30,obs);
        return;
     }
@@ -235,15 +235,15 @@ void select_way(mixed obs)
    p_id=me->query_id()[0];
    usr=find_user(p_id);
    if(!objectp(usr)) return;
-   tell_user(p_id,"ÄãµÄÄ¿µÄ¾ÍÊÇ¾¡Á¿ºåËû¸ßĞË¡£\n"+
-"¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş\n"+
-" 1 ¹§Î¬ÓÂÃÍ  2 ¹§Î¬ÖÇ»Û  3 ¹§Î¬÷ÈÁ¦  4 ÔùËÍÒøÁ½  5 ÔùËÍ±¦Îï \n"+
-" 6 ¸ß¹ÙÓÕ»ó  7 ËÀÍöÍşĞ²  8 ×Ô¿ä¹úÁ¦  9 Á¼ÑÔÏàÈ° 10 ¸æ´Ç     \n"+
-"¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş\n"+
-"ÇëÊäÈëÄãµÄ»°Ìâ(1--10)£º\n");
+   tell_user(p_id,"ä½ çš„ç›®çš„å°±æ˜¯å°½é‡å“„ä»–é«˜å…´ã€‚\n"+
+"ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“\n"+
+" 1 æ­ç»´å‹‡çŒ›  2 æ­ç»´æ™ºæ…§  3 æ­ç»´é­…åŠ›  4 èµ é€é“¶ä¸¤  5 èµ é€å®ç‰© \n"+
+" 6 é«˜å®˜è¯±æƒ‘  7 æ­»äº¡å¨èƒ  8 è‡ªå¤¸å›½åŠ›  9 è‰¯è¨€ç›¸åŠ 10 å‘Šè¾     \n"+
+"ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“\n"+
+"è¯·è¾“å…¥ä½ çš„è¯é¢˜(1--10)ï¼š\n");
    call_out("no_answer_way",30,obs);
    usr->modal_push((: input_way,obs:),
-        "ÇëÊäÈëÄãµÄ»°Ìâ(1--10)£º");
+        "è¯·è¾“å…¥ä½ çš„è¯é¢˜(1--10)ï¼š");
 
 }
 void big_success(mixed obs,mixed vac)
@@ -257,10 +257,10 @@ void big_success(mixed obs,mixed vac)
 	if(objectp(tar)) {
 		t_id=tar->query_id()[0];
 		tar->responda("wave");
-		tar->simple_action("$NÀë¿ªÁË¡£\n");
+		tar->simple_action("$Nç¦»å¼€äº†ã€‚\n");
 		CHAR_D->remove_npc_char(t_id);
 	}
-	tell_user(p_id,"%^H_BLUE%^ÈÎÎñ³É¹¦£¬¿ìÈ¥Ì«ÊØ´¦ÁìÉÍ°É¡£\n%^RESET%^");
+	tell_user(p_id,"%^H_BLUE%^ä»»åŠ¡æˆåŠŸï¼Œå¿«å»å¤ªå®ˆå¤„é¢†èµå§ã€‚\n%^RESET%^");
 }
 void talk_over(mixed obs)
 {
@@ -272,8 +272,8 @@ void talk_over(mixed obs)
 	if(objectp(tar)) {
 		t_id=tar->query_id()[0];
 		tar->responda("wave");
-		tar->simple_action("$NÀë¿ªÁË¡£\n");
+		tar->simple_action("$Nç¦»å¼€äº†ã€‚\n");
 		CHAR_D->remove_npc_char(t_id);
 	}
-	tell_user(p_id,"%^H_GREEN%^ÈÎÎñÍê³É²»´í£¬¿ìÈ¥Ì«ÊØ´¦ÁìÉÍ°É¡£\n%^RESET%^");
+	tell_user(p_id,"%^H_GREEN%^ä»»åŠ¡å®Œæˆä¸é”™ï¼Œå¿«å»å¤ªå®ˆå¤„é¢†èµå§ã€‚\n%^RESET%^");
 }

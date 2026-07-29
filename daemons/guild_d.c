@@ -15,11 +15,11 @@ class guild_defn
     string        guild_prospectus; /* info about the guild */
     int           guild_begone;     /* what to do upon leaving guild */
     int           guild_suspend_level;  /* suspend level upon suspension */
-    string array  guild_attributes; /* the guild's attributes */
-    string array  guild_exclusive;  /* exclusive attributes */
-    string array  guild_allies;     /* allied guilds */
-    string array  guild_prereq;     /* prerequisite guilds */
-    string array  guild_banned;     /* exclusive guilds */
+    string *  guild_attributes; /* the guild's attributes */
+    string *  guild_exclusive;  /* exclusive attributes */
+    string *  guild_allies;     /* allied guilds */
+    string *  guild_prereq;     /* prerequisite guilds */
+    string *  guild_banned;     /* exclusive guilds */
     string        guild_title;      /* formal title of this guild */
     int           guild_sees_secret;    /* can see other guilds' attrs */
     int           guild_is_secret;  /* attrs are (generally) secret */
@@ -36,11 +36,11 @@ private mapping guilds = ([ ]);
 
 
 void set_guild_title( string name, string title );
-void set_guild_banned( string name, string array banned );
-void set_guild_prereq( string name, string array prereq );
-void set_guild_allies( string name, string array allies );
-void set_guild_exclusive( string name, string array exclusive );
-void set_guild_attributes( string name, string array attributes );
+void set_guild_banned( string name, string * banned );
+void set_guild_prereq( string name, string * prereq );
+void set_guild_allies( string name, string * allies );
+void set_guild_exclusive( string name, string * exclusive );
+void set_guild_attributes( string name, string * attributes );
 void set_guild_begone( string name, int begone );
 void set_guild_suspend_level( string name, int suspend_level );
 void set_guild_prospectus( string name, string prospectus );
@@ -50,11 +50,11 @@ void set_guild_need_all( string name, int need_all );
 
 
 string query_guild_title( string name );
-string array query_guild_banned( string name );
-string array query_guild_prereq( string name );
-string array query_guild_allies( string name );
-string array query_guild_exclusive( string name );
-string array query_guild_attributes( string name );
+string * query_guild_banned( string name );
+string * query_guild_prereq( string name );
+string * query_guild_allies( string name );
+string * query_guild_exclusive( string name );
+string * query_guild_attributes( string name );
 int query_guild_begone( string name );
 int query_guild_suspend_level( string name );
 string query_guild_prospectus( string name );
@@ -70,8 +70,8 @@ void guild_add( string name )
     error("insufficient privilege");
 
     gi = new( class guild_defn );
-    gi->guild_title = "ÎŞÌâ";
-    gi->guild_prospectus = "ÎÒÃÇÊ²Ã´Ò²Ã»ÓĞ";
+    gi->guild_title = "æ— é¢˜";
+    gi->guild_prospectus = "æˆ‘ä»¬ä»€ä¹ˆä¹Ÿæ²¡æœ‰";
     gi->guild_suspend_level = 1;
     guilds[ name ] = gi;
     save_me();
@@ -91,11 +91,11 @@ void remove_all_guilds()
 {
 if(!check_previous_privilege( PRIV_NEEDED))
     error( //"Insufficient priv to remove all guilds.");
-           "Ã»ÓĞ×ã¹»µÄÈ¨ÏŞÇå³ıËùÓĞµÄ°ïÅÉ¡£"); 
+           "æ²¡æœ‰è¶³å¤Ÿçš„æƒé™æ¸…é™¤æ‰€æœ‰çš„å¸®æ´¾ã€‚"); 
     guilds = ([]);
     save_me();
     write( //"Guilds Wiped.\n");
-           "ËùÓĞ°ïÅÉÇå³ıÁË¡£\n");
+           "æ‰€æœ‰å¸®æ´¾æ¸…é™¤äº†ã€‚\n");
 }
 
 void guild_check(string name)
@@ -118,7 +118,7 @@ void set_guild_title( string name, string title )
 }
 
 
-void set_guild_banned( string name, string array banned... )
+void set_guild_banned( string name, string * banned... )
 {
     if ( !check_previous_privilege(PRIV_NEEDED) )
     error("insufficient privilege");
@@ -129,7 +129,7 @@ void set_guild_banned( string name, string array banned... )
 }
 
 
-void set_guild_prereq( string name, string array prereq... )
+void set_guild_prereq( string name, string * prereq... )
 {
     if ( !check_previous_privilege(PRIV_NEEDED) )
     error("insufficient privilege");
@@ -140,7 +140,7 @@ void set_guild_prereq( string name, string array prereq... )
 }
 
 
-void set_guild_allies( string name, string array allies... )
+void set_guild_allies( string name, string * allies... )
 {
     if ( !check_previous_privilege(PRIV_NEEDED) )
     error("insufficient privilege");
@@ -151,7 +151,7 @@ void set_guild_allies( string name, string array allies... )
 }
 
 
-void set_guild_exclusive( string name, string array exclusive... )
+void set_guild_exclusive( string name, string * exclusive... )
 {
     if ( !check_previous_privilege(PRIV_NEEDED) )
     error("insufficient privilege");
@@ -162,7 +162,7 @@ void set_guild_exclusive( string name, string array exclusive... )
 }
 
 
-void set_guild_attributes( string name, string array attributes... )
+void set_guild_attributes( string name, string * attributes... )
 {
     if ( !check_previous_privilege(PRIV_NEEDED) )
     error("insufficient privilege");
@@ -246,35 +246,35 @@ string query_guild_title( string name )
 }
 
 
-string array query_guild_banned( string name )
+string * query_guild_banned( string name )
 {
     guild_check(name);
     return DEFN(name)->guild_banned;
 }
 
 
-string array query_guild_prereq( string name )
+string * query_guild_prereq( string name )
 {
     guild_check(name);
     return DEFN(name)->guild_prereq;
 }
 
 
-string array query_guild_allies( string name )
+string * query_guild_allies( string name )
 {
     guild_check(name);
     return DEFN(name)->guild_exclusive;
 }
 
 
-string array query_guild_exclusive( string name )
+string * query_guild_exclusive( string name )
 {
     guild_check(name);
     return DEFN(name)->guild_exclusive;
 }
 
 
-string array query_guild_attributes( string name )
+string * query_guild_attributes( string name )
 {
     guild_check(name);
     return DEFN(name)->guild_attributes;
@@ -324,11 +324,11 @@ int query_guild_need_all( string name )
 
 
 /* given the player's current guilds, can they join the new one? */
-mixed guild_is_ok( string name, string array player_guilds )
+mixed guild_is_ok( string name, string * player_guilds )
 {
-    string array prereq;
-    string array banned;
-    string array exclusive;
+    string * prereq;
+    string * banned;
+    string * exclusive;
     int sees_secret;
 
     guild_check(name);
@@ -337,7 +337,7 @@ mixed guild_is_ok( string name, string array player_guilds )
     prereq = DEFN(name)->guild_prereq;
     if ( prereq )
     {
-    string array common = prereq & player_guilds;
+    string * common = prereq & player_guilds;
 
     /* do we have to have ALL the prereqs? or just one? */
     if ( DEFN(name)->guild_need_all )
@@ -347,14 +347,14 @@ mixed guild_is_ok( string name, string array player_guilds )
 //### should return the missing prereqs
 //### missing = prereq - common
         return //"not all prerequisites have been filled";
-               "ÏÈ¾öÌõ¼ş»¹Î´Âú×ã";
+               "å…ˆå†³æ¡ä»¶è¿˜æœªæ»¡è¶³";
         }
     }
     else if ( !sizeof(common) )
     {
 //### should return the list of prereqs
         return //"need to fill one of the prerequisites";
-               "ÒªÏÈÂú×ãÏÈ¾öÌõ¼ş";
+               "è¦å…ˆæ»¡è¶³å…ˆå†³æ¡ä»¶";
     }
     }
     else
@@ -373,7 +373,7 @@ mixed guild_is_ok( string name, string array player_guilds )
      sizeof(player_guilds - prereq) )
     {
     return //"cannot join while a member of other guilds";
-           "×÷ÎªÆäËü°ïÅÉµÄ³ÉÔ±Äã²»ÄÜ¼ÓÈëÕâ¸ö°ïÅÉ";
+           "ä½œä¸ºå…¶å®ƒå¸®æ´¾çš„æˆå‘˜ä½ ä¸èƒ½åŠ å…¥è¿™ä¸ªå¸®æ´¾";
     }
 
     exclusive = DEFN(name)->guild_exclusive;
@@ -431,7 +431,7 @@ void define_from_file(string fname)
     if ( attr == "name" )
     {
         //write("Defining '" + value + "'...\n");
-        write("¶¨Òå '" + value + "' ... \n");
+        write("å®šä¹‰ '" + value + "' ... \n");
         guild_add(value);
         which_guild = value;
         continue;
@@ -439,7 +439,7 @@ void define_from_file(string fname)
 
     if ( !which_guild )
         //error("attribute specified before guild name\n");
-        error("ÊôĞÔ³öÏÖÔÚ°ïÅÉÃû³ÆÖ®Ç°ÁË\n");
+        error("å±æ€§å‡ºç°åœ¨å¸®æ´¾åç§°ä¹‹å‰äº†\n");
 
     switch ( attr )
     {

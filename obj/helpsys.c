@@ -20,13 +20,13 @@ inherit M_ACCESS;
 inherit M_INPUT;
 
 
-private static string * topic_files;
-private static string * lines;
-private static int      cur_line;
-private static mapping  directives;
+private nosave string * topic_files;
+private nosave string * lines;
+private nosave int      cur_line;
+private nosave mapping  directives;
 
 /* hack. */
-private static int      i;
+private nosave int      i;
 
 nomask void display_topics(mixed);
 private nomask void receive_choice(string arg);
@@ -38,18 +38,18 @@ private nomask string query_prompt()
     if ( topic_files )
     {
         return sprintf(//"\nWhich topic to display? [1-%d,?]: ",
-                       "\nÏÔÊ¾ÄÄ¸ö±êÌâ£¿[1-%d,?]£º",
+                       "\næ˜¾ç¤ºå“ªä¸ªæ ‡é¢˜ï¼Ÿ[1-%d,?]ï¼š",
                        sizeof(topic_files));
     }
 
     if ( cur_line )
     {
         return sprintf(//"--More--(%d%%) [?]: "
-                       "--ÏÂÃæ»¹ÓĞ--(%d%%) [?]: " , 100 * cur_line / sizeof(lines));
+                       "--ä¸‹é¢è¿˜æœ‰--(%d%%) [?]: " , 100 * cur_line / sizeof(lines));
     }
 
     return //"\nHelp topic? [?]: ";
-           "\n¹ØÓÚÊ²Ã´±êÌâ£¿[?]: ";
+           "\nå…³äºä»€ä¹ˆæ ‡é¢˜ï¼Ÿ[?]: ";
 }
 
 private nomask void quit_help()
@@ -87,7 +87,7 @@ private nomask string last_component(string fname) {
 
 private nomask void parse_directory(string fname) 
 {
-    string array files = get_dir(fname + "*") - ({ ".", ".." });
+    string * files = get_dir(fname + "*") - ({ ".", ".." });
     string topic = last_component(fname);
     
     cur_line = 0;
@@ -109,7 +109,7 @@ private nomask void parse_file(string fname)
     {
 //### make this a bit more "in-your-face" ??
         lines += ({ "", //"See also: "
-                        "²Î¼û£º" + directives["see"] });
+                        "å‚è§ï¼š" + directives["see"] });
     }
 }
 
@@ -139,7 +139,7 @@ private nomask void present_topic(string fname)
 {
     switch (file_size(fname)) {
     case -1:
-        lines = ({ "Õâ¸ö°ïÖúÎÄ¼şÒÑ¾­²»´æÔÚÁË¡£", "ËüµÄË÷ÒıÔÚÏÂ´Î help_d ¸üĞÂÊ±¾Í»áÏûÊ§¡£" });
+        lines = ({ "è¿™ä¸ªå¸®åŠ©æ–‡ä»¶å·²ç»ä¸å­˜åœ¨äº†ã€‚", "å®ƒçš„ç´¢å¼•åœ¨ä¸‹æ¬¡ help_d æ›´æ–°æ—¶å°±ä¼šæ¶ˆå¤±ã€‚" });
         break;
     case -2:
         parse_directory(fname);
@@ -174,7 +174,7 @@ private nomask void lookup_topic(string topic)
     if ( sizeof(files) == 0 )
     {
         //write("\nSorry, there is no help on that topic (try: topics)\n\n");
-        write("\n¶Ô²»Æğ£¬Ã»ÓĞ¹ØÓÚÄÇ¸ö±êÌâµÄ°ïÖú(ÓÃ topics À´»ñÈ¡Õâ·½ÃæµÄĞÅÏ¢)\n\n");
+        write("\nå¯¹ä¸èµ·ï¼Œæ²¡æœ‰å…³äºé‚£ä¸ªæ ‡é¢˜çš„å¸®åŠ©(ç”¨ topics æ¥è·å–è¿™æ–¹é¢çš„ä¿¡æ¯)\n\n");
         LOG_D->log(LOG_HELP_MISS,
                    sprintf("%s: %s\n", this_user()->query_userid(), topic));
     }
@@ -195,7 +195,7 @@ private nomask void lookup_topic(string topic)
 
         write(//"There are multiple help files for \"" + topic + "\"\n" +
               //"Please choose one:\n\n" +
-              "ÓĞ¶à¸ö¹ØÓÚ " + topic + " µÄ°ïÖúÎÄ¼ş£¬ÇëÑ¡ÔñÒ»¸ö£º\n\n" +
+              "æœ‰å¤šä¸ªå…³äº " + topic + " çš„å¸®åŠ©æ–‡ä»¶ï¼Œè¯·é€‰æ‹©ä¸€ä¸ªï¼š\n\n" +
               implode(map_array(files, (: format_choice :)),
                       "\n") + "\n");
               
@@ -224,10 +224,10 @@ private nomask void receive_choice(mixed arg)
               "  <topic name> : will display help for the new topic.\n\n"
               );
       */
-      write("\nÓĞÏÂÁĞÃüÁî¹©Ê¹ÓÃ£º\n\n"
-            "           q : ÍË³ö°ïÖúÏµÍ³¡£\n"
-            "           ? : ±¾°ïÖú¡£\n\n"
-            "      <±êÌâ> : ÏÔÊ¾¹ØÓÚÖ¸¶¨±êÌâµÄ°ïÖú¡£\n\n"
+      write("\næœ‰ä¸‹åˆ—å‘½ä»¤ä¾›ä½¿ç”¨ï¼š\n\n"
+            "           q : é€€å‡ºå¸®åŠ©ç³»ç»Ÿã€‚\n"
+            "           ? : æœ¬å¸®åŠ©ã€‚\n\n"
+            "      <æ ‡é¢˜> : æ˜¾ç¤ºå…³äºæŒ‡å®šæ ‡é¢˜çš„å¸®åŠ©ã€‚\n\n"
             );
     }
     else if ( to_int(arg) > 0 )
@@ -238,7 +238,7 @@ private nomask void receive_choice(mixed arg)
         if ( which >= sizeof(topic_files) )
         {
             printf(//"\nPlease type a number between 1 and %d.\n",
-                   "\nÇëÔÚ 1 µ½ %d Ö®¼äÑ¡ÔñÒ»¸öÊı×Ö¡£\n",
+                   "\nè¯·åœ¨ 1 åˆ° %d ä¹‹é—´é€‰æ‹©ä¸€ä¸ªæ•°å­—ã€‚\n",
                    sizeof(topic_files));
         }
         else
@@ -274,11 +274,11 @@ private nomask void receive_more(mixed arg)
               "  <topic name> : will display help for the new topic.\n\n"
               );
      */
-      write("\nÓĞÏÂÁĞÃüÁî¹©Ê¹ÓÃ£º\n\n"
-            "           q : ÍË³ö°ïÖúÏµÍ³¡£\n"
-            "           ? : ±¾°ïÖú¡£\n\n"
-            "      <»Ø³µ> : ÏÔÊ¾¸ü¶àµÄĞÅÏ¢¡£\n" 
-            "      <±êÌâ> : ÏÔÊ¾¹ØÓÚÖ¸¶¨±êÌâµÄ°ïÖú¡£\n\n"
+      write("\næœ‰ä¸‹åˆ—å‘½ä»¤ä¾›ä½¿ç”¨ï¼š\n\n"
+            "           q : é€€å‡ºå¸®åŠ©ç³»ç»Ÿã€‚\n"
+            "           ? : æœ¬å¸®åŠ©ã€‚\n\n"
+            "      <å›è½¦> : æ˜¾ç¤ºæ›´å¤šçš„ä¿¡æ¯ã€‚\n" 
+            "      <æ ‡é¢˜> : æ˜¾ç¤ºå…³äºæŒ‡å®šæ ‡é¢˜çš„å¸®åŠ©ã€‚\n\n"
             );
     }
 //    else if ( arg == "topics" )
@@ -362,8 +362,8 @@ nomask void display_topics(string *arr)
                              (: stat($1)[1] <= $(this_body())->query_help_topic($1) :));
 
     new_stuff = arr - old_stuff;
-    if (sizeof(new_stuff)) display_topic_columns(new_stuff, "Î´¶Á¹ıµÄ±êÌâ");//"Unread topics:");
-    if (sizeof(old_stuff)) display_topic_columns(old_stuff, "ÒÑ¶Á¹ıµÄ±êÌâ");//"Topics already read:");
+    if (sizeof(new_stuff)) display_topic_columns(new_stuff, "æœªè¯»è¿‡çš„æ ‡é¢˜");//"Unread topics:");
+    if (sizeof(old_stuff)) display_topic_columns(old_stuff, "å·²è¯»è¿‡çš„æ ‡é¢˜");//"Topics already read:");
 }
 
 private create() {

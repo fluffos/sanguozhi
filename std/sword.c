@@ -7,6 +7,6 @@ void mudlib_setup()
 {
     ::mudlib_setup();
     //set_combat_messages("combat-sword");
-   // set_combat_messages("±¦½£");
+   // set_combat_messages("å®å‰‘");
     set_wield_type("blade");
 }

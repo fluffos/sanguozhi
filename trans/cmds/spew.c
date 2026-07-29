@@ -27,7 +27,7 @@ private void main(mixed* arg) {
     if(!buf = (numlines ? read_file(file, startln, numlines) :
         read_file(file, startln))){
         //write("Couldn't find your file.\n");
-        write("ÕÒ²»µ½ÄãµÄÎÄ¼ş¡£\n");
+        write("æ‰¾ä¸åˆ°ä½ çš„æ–‡ä»¶ã€‚\n");
         return;
     }
     pipe = "say";
@@ -48,7 +48,7 @@ int help(){
       "would send the contents of this file over the wiz line.\n"
       "\n");
 */
-      write("ÓÃ·¨£ºspew <ÎÄ¼ş> [ÆğÊ¼ĞĞºÅ] [ĞĞÊı] [| <ÃüÁî>]\n"
-            "ËµÃ÷£º°ÑÎÄ¼şÖĞµÄÄÚÈİÏÔÊ¾µ½ÆÁÄ»ÉÏ£¬×÷ÎªÊ¹ÓÃÕßËµ(say)µÄ»°¡£\n"
-            "      Èç¹ûÊ¹ÓÃ pipe£¬¾Í°ÑÎÄ¼şÖĞµÄÃ¿ĞĞ×÷Îª pipe ÃüÁîµÄ²ÎÊı¡£\n");
+      write("ç”¨æ³•ï¼šspew <æ–‡ä»¶> [èµ·å§‹è¡Œå·] [è¡Œæ•°] [| <å‘½ä»¤>]\n"
+            "è¯´æ˜ï¼šæŠŠæ–‡ä»¶ä¸­çš„å†…å®¹æ˜¾ç¤ºåˆ°å±å¹•ä¸Šï¼Œä½œä¸ºä½¿ç”¨è€…è¯´(say)çš„è¯ã€‚\n"
+            "      å¦‚æœä½¿ç”¨ pipeï¼Œå°±æŠŠæ–‡ä»¶ä¸­çš„æ¯è¡Œä½œä¸º pipe å‘½ä»¤çš„å‚æ•°ã€‚\n");
 }

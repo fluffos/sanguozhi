@@ -1,4 +1,4 @@
-//mcao.c Ã©²İ by row
+//mcao.c èŒ…è‰ by row
 #include <sanguo.h>
 #include <ansi.h>
 #include <mudlib.h>
@@ -10,11 +10,11 @@ inherit "/std/modules/m_weaveable";
 void setup()
 {
 merge_setup();
-set_unit("°Ñ");
-set_id("mao cao", YEL+"Ã©²İ"+NOR,);
+set_unit("æŠŠ");
+set_id("mao cao", YEL+"èŒ…è‰"+NOR,);
 add_id("cao");
-set_in_room_desc(YEL+"Ã©²İ"+NOR+"(mao cao)");
-set_long("¸Õ´ÓÂ·±ß°ÎÏÂÀ´µÄÃ©²İ£¬ÓÖ³¤ÓÖ½áÊµ£¬Ñ°³£µÄÅ©¼Ò³£ÓÃËüÀ´±àĞ©¶«Î÷¡£");
+set_in_room_desc(YEL+"èŒ…è‰"+NOR+"(mao cao)");
+set_long("åˆšä»è·¯è¾¹æ‹”ä¸‹æ¥çš„èŒ…è‰ï¼Œåˆé•¿åˆç»“å®ï¼Œå¯»å¸¸çš„å†œå®¶å¸¸ç”¨å®ƒæ¥ç¼–äº›ä¸œè¥¿ã€‚");
 set_gettable(1);
 set_is_keeping(1);
 set_size(SMALL);
@@ -31,30 +31,30 @@ mixed weave()
 	ob=present("cao",usr);
 	if(!objectp(ob))
 	{
-	write("ÄãÉíÉÏÃ»ÓĞÕâÑù¶«Î÷¡£\n");
+	write("ä½ èº«ä¸Šæ²¡æœ‰è¿™æ ·ä¸œè¥¿ã€‚\n");
 	return 1;
 	}
 	if(this_body()->query_job(JOBID,"beg_time")==0)
 	{
 	this_body()->simple_action(
-	"Í»È»Ò»Õó´ó·ç£¬½«$NÊÖÖĞµÄ"+YEL+"Ã©²İ"+NOR+"¹ÎµÃ²»ÖªÈ¥Ïò¡£\n");
+	"çªç„¶ä¸€é˜µå¤§é£ï¼Œå°†$Næ‰‹ä¸­çš„"+YEL+"èŒ…è‰"+NOR+"åˆ®å¾—ä¸çŸ¥å»å‘ã€‚\n");
 	destruct(ob);
 	return 1;
 	}
 	if (m_hp<10)
-	{write("ÄãÌ«ÀÛÁË£¬ĞİÏ¢Ò»»á¶ù°É¡£\n");
+	{write("ä½ å¤ªç´¯äº†ï¼Œä¼‘æ¯ä¸€ä¼šå„¿å§ã€‚\n");
 	return 1;
 	}
 	if(ob->query_count()<2)
 	{
-	write("ÖÁÉÙĞèÒªÁ½°Ñ"+YEL+"Ã©²İ"+NOR+"À´±àÖ¯¡£\n");
+	write("è‡³å°‘éœ€è¦ä¸¤æŠŠ"+YEL+"èŒ…è‰"+NOR+"æ¥ç¼–ç»‡ã€‚\n");
 	return 1;
 	}
 	m_hp-=5;
 	this_body()->set_cur_hp(m_hp);
 	usr->simple_action(
-	"$NĞ¡ĞÄµØ½«Á½°Ñ"+YEL+"Ã©²İ"+NOR+"ÂıÂı´êÔÚÒ»Æğ¡£\n");
-	usr->start_busy(10,"ÄãÕıÃ¦×Å±à²İÉşÄØ¡£\n");
+	"$Nå°å¿ƒåœ°å°†ä¸¤æŠŠ"+YEL+"èŒ…è‰"+NOR+"æ…¢æ…¢æ“åœ¨ä¸€èµ·ã€‚\n");
+	usr->start_busy(10,"ä½ æ­£å¿™ç€ç¼–è‰ç»³å‘¢ã€‚\n");
 	call_out("done",10);
 }
 void done(object ob)
@@ -66,13 +66,13 @@ void done(object ob)
 	num=mcao->query_count();
 	if(num==2)
 	{
-	write("³É¹¦ÁË£¡ÄãµÃµ½Ò»¶Î"+YEL+"Ã©²İÉş"+NOR+"¡£\n");
+	write("æˆåŠŸäº†ï¼ä½ å¾—åˆ°ä¸€æ®µ"+YEL+"èŒ…è‰ç»³"+NOR+"ã€‚\n");
 	ob=new(__DIR__+"mrope");
 	ob->move(this_body());
 	destruct(mcao);
 	return;
 	}
-	write("³É¹¦ÁË£¡ÄãµÃµ½Ò»¶Î"+YEL+"Ã©²İÉş"+NOR+"¡£\n");
+	write("æˆåŠŸäº†ï¼ä½ å¾—åˆ°ä¸€æ®µ"+YEL+"èŒ…è‰ç»³"+NOR+"ã€‚\n");
 	ob=new(__DIR__+"mrope");
 	ob->move(this_body());
 	mcao->set_count(num-2);

@@ -8,6 +8,6 @@ inherit CMD;
 private void main(string arg)
 {
     string skill;
-    skill=arg;  // ÎäÑ§ÐÞÑø
+    skill=arg;  // æ­¦å­¦ä¿®å…»
     SG_SKILL_D->remove_skill(skill);
 }

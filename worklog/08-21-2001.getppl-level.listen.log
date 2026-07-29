@@ -1,6 +1,6 @@
 08/21/2001 listen
 Update  /sgdomain/base/npc/farm_head_menu.d
-        Ö»ÔÊĞíÈı¼¶»òÒÔÉÏµÄ¹ÙÔ±×ögetpplµÄ¹¤×÷
+        åªå…è®¸ä¸‰çº§æˆ–ä»¥ä¸Šçš„å®˜å‘˜åšgetpplçš„å·¥ä½œ
         
 update /sgdomain/modules/m_charnpc/guy/guy_thought.c
-        Ôö¼ÓÁËcheck getpplµÃµ½¹¤×÷µÄµØÇøºÍÏÖÔÚËùÔÚµØÇøÊÇ·ñÒ»ÖÂ 
+        å¢åŠ äº†check getpplå¾—åˆ°å·¥ä½œçš„åœ°åŒºå’Œç°åœ¨æ‰€åœ¨åœ°åŒºæ˜¯å¦ä¸€è‡´ 

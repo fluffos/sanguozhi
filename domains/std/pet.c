@@ -101,7 +101,7 @@ void setup() {
     
     this_body()->add_hook("move", (: move(environment(master->query_body())) :));
 
-    name = m["name"] || master->query_name() + "µÄ³èÎï";
+    name = m["name"] || master->query_name() + "çš„å® ç‰©";
 
     set_name("pet", name);
     set_gender(m["gender"]);

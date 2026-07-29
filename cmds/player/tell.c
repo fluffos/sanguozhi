@@ -39,7 +39,7 @@ private void main(string arg)
     
     if(!arg)
     {
-        out("ÓÃ·¨: tell <user> <message>\n");
+        out("ç”¨æ³•: tell <user> <message>\n");
         return;
     }
 
@@ -69,7 +69,7 @@ private void main(string arg)
         {
             if(sizeof(previous_matches) > 1)
             {
-                out("MUD Ãû³Æ²»Çå£¬¿ÉÄÜÊÇ: " 
+                out("MUD åç§°ä¸æ¸…ï¼Œå¯èƒ½æ˜¯: " 
                   + implode(previous_matches, ", ") + "\n");
                 return;
             }                
@@ -90,7 +90,7 @@ private void main(string arg)
                 soul_ret = SOUL_D->parse_imud_soul(arg);
                 if(!soul_ret)  {
                     IMUD_D->do_emoteto(host, user, arg);
-                    outf("Äã¶Ô %s@%s ×ö±íÇé: %s%s\n", user, host, this_body()->query_name(), arg);
+                    outf("ä½ å¯¹ %s@%s åšè¡¨æƒ…: %s%s\n", user, host, this_body()->query_name(), arg);
                     return;
                 }
                 IMUD_D->do_emoteto(host,user,soul_ret[1][<1]);
@@ -98,13 +98,13 @@ private void main(string arg)
                 return;
             }
             IMUD_D->do_tell(host, user, arg);
-            outf("Äã¸æËß %s@%s: %s\n", user, host, arg);
+            outf("ä½ å‘Šè¯‰ %s@%s: %s\n", user, host, arg);
             return;
         }
     }
     if(sscanf(arg, "%s %s", user, arg) != 2)
     {
-        out("ÓÃ·¨: tell <user> <message>\n");
+        out("ç”¨æ³•: tell <user> <message>\n");
         return;
     }
 	if (user[0]=='~')
@@ -119,23 +119,23 @@ private void main(string arg)
 
     if(!who)
     {
-        outf("Ã»ÓÐ %s.\n", user);
+        outf("æ²¡æœ‰ %s.\n", user);
         return;
     }
 
     if (who->query_invis() && !adminp(this_user()) )
     {
-        outf("ÕÒ²»µ½ %s.\n", user);
+        outf("æ‰¾ä¸åˆ° %s.\n", user);
         return;
     }
     if (!who->query_link() || !interactive(who->query_link()))
     {
-        outf("%s ÏÖÔÚ¶ÏÏßÖÐ¡£\n", who->query_name());
+        outf("%s çŽ°åœ¨æ–­çº¿ä¸­ã€‚\n", who->query_name());
         return;
     }
 //// modified by xiaobai, on 5 Sep. 2001
     if ( who->query( "notell_ids" )&&(!p_res) )
-    // ºÙºÙ£¬Õâ¸ö id ÔÚ¶Ô·½µÄºÚÃûµ¥Àï
+    // å˜¿å˜¿ï¼Œè¿™ä¸ª id åœ¨å¯¹æ–¹çš„é»‘åå•é‡Œ
     {
         strNotellIds = who->query( "notell_ids" );
 
@@ -161,7 +161,7 @@ private void main(string arg)
         arg = arg[1..];
         soul_ret = SOUL_D->parse_soul(arg);
         if(!soul_ret)  {
-            mystring = sprintf("Äã¶Ô%s×ö±íÇé: %s%s\n", who == this_body() ? "Äã×Ô¼º" : who->query_name(), this_body()->query_name(),arg);
+            mystring = sprintf("ä½ å¯¹%såšè¡¨æƒ…: %s%s\n", who == this_body() ? "ä½ è‡ªå·±" : who->query_name(), this_body()->query_name(),arg);
             deststring = sprintf("*%s %s\n", this_body()->query_name(), arg);
         }
         else
@@ -182,14 +182,14 @@ private void main(string arg)
 
     if(!p_res)
     {
-        mystring = sprintf("Äã¸æËß%s£º%s\n", who == this_body() ? "Äã×Ô¼º" :
+        mystring = sprintf("ä½ å‘Šè¯‰%sï¼š%s\n", who == this_body() ? "ä½ è‡ªå·±" :
                     who->query_name(), arg);
-        deststring = this_body()->query_who_name() + "¸æËßÄã£º" + arg;
+        deststring = this_body()->query_who_name() + "å‘Šè¯‰ä½ ï¼š" + arg;
     }
     else
     {
-        mystring = sprintf("Äã»Ø´ð%s£º%s\n", who == this_body() ? "Äã×Ô¼º" : who->query_name(), arg);
-        deststring = this_body()->query_who_name() + "»Ø´ðÄã£º" + arg;
+        mystring = sprintf("ä½ å›žç­”%sï¼š%s\n", who == this_body() ? "ä½ è‡ªå·±" : who->query_name(), arg);
+        deststring = this_body()->query_who_name() + "å›žç­”ä½ ï¼š" + arg;
 	
     }
     out(mystring);

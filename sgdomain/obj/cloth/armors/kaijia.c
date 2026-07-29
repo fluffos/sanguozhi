@@ -8,15 +8,15 @@ inherit M_VALUE;
 void setup()
 {
     ::mudlib_setup();
-    set_unit("¼ş");
-    set_id("kaijia", "Ï¸îø¼×");
+    set_unit("ä»¶");
+    set_id("kaijia", "ç»†é“ ç”²");
     add_id("armor", "jia");
-    set_in_room_desc("Ï¸îø¼×(kaijia)");
-    set_long("Ò»¼şÏ¸îø¼×£¬¼á¹Ìµ«ÇáÇÉ£¬´©ÔÚÒÂ·şÀïÒ²¿´²»³ö£¬ÓÃÓÚ·ÀÉí×îºÃ¡£");
+    set_in_room_desc("ç»†é“ ç”²(kaijia)");
+    set_long("ä¸€ä»¶ç»†é“ ç”²ï¼Œåšå›ºä½†è½»å·§ï¼Œç©¿åœ¨è¡£æœé‡Œä¹Ÿçœ‹ä¸å‡ºï¼Œç”¨äºé˜²èº«æœ€å¥½ã€‚");
     set_gettable(1);
     set_slot(ARMORS);
-    set_wearmsg("$N´©ÉÏ$o£¬Í×Í×ÌùÌù £¬ÕıºÃºÏÉí¡£\n");
-    set_removemsg("$NÍÑÏÂÒ»¼ş$o¡£\n");
+    set_wearmsg("$Nç©¿ä¸Š$oï¼Œå¦¥å¦¥è´´è´´ ï¼Œæ­£å¥½åˆèº«ã€‚\n");
+    set_removemsg("$Nè„±ä¸‹ä¸€ä»¶$oã€‚\n");
     set_attack_ability(-4);
     set_defence_power(20);
     set_defence_ability(-2);

@@ -22,7 +22,7 @@ mixed job(string m_id,string officer_id)
    if(!sizeof(mlist)){
 	   o->add_job("bugao");
 		o->finish_job("bugao");
-		return "$N¶Ô$TµÀ£ºÏÖÔÚÃ»Ê²Ã´µØ·½ºÃÕÅÌù²¼¸æµÄ¡£\n";
+		return "$Nå¯¹$Té“ï¼šçŽ°åœ¨æ²¡ä»€ä¹ˆåœ°æ–¹å¥½å¼ è´´å¸ƒå‘Šçš„ã€‚\n";
    }
    a_d=AREA_D->get_all_distance(m_area);
    mlist=sort_array(mlist,(: $(a_d)[$1] > $(a_d)[$2] ? 1 : -1 :));
@@ -34,8 +34,8 @@ mixed job(string m_id,string officer_id)
 
 	p_path=AREA_D->get_area(target,"path");
 	mlist=AREA(target)->get_room("list");
-	tell_user("huaer",sprintf("ÔÚ²¼¸æÈÎÎñbugao.cÖÐtarget = %s\n",target));
-	//rmnam=AREA(target)->get_room(mlist[random(sizeof(mlist))],"b"); 	ÎªÁË¼ò»¯city.o,È¥µôÔ­´úÂëÖÐ"b"×Ö¶Î.
+	tell_user("huaer",sprintf("åœ¨å¸ƒå‘Šä»»åŠ¡bugao.cä¸­target = %s\n",target));
+	//rmnam=AREA(target)->get_room(mlist[random(sizeof(mlist))],"b"); 	ä¸ºäº†ç®€åŒ–city.o,åŽ»æŽ‰åŽŸä»£ç ä¸­"b"å­—æ®µ.
 	rmnam=mlist[random(sizeof(mlist))];
 	rmnam = (AREA_D->get_area(target,"path") + rmnam)->short();
 	tell_user("huaer",sprintf("rmnam = %s\n",rmnam));
@@ -47,16 +47,16 @@ mixed job(string m_id,string officer_id)
 
    if((obg->move(o))!=MOVE_OK) {
 	destruct(obg);
-      return "$N¶Ô$TµÀ£ºÄãÉíÉÏ¶«Î÷Ì«¶àÁË£¬ÄÃ²»ÁËÕâÐ©²¼¸æ¡£\n";
+      return "$Nå¯¹$Té“ï¼šä½ èº«ä¸Šä¸œè¥¿å¤ªå¤šäº†ï¼Œæ‹¿ä¸äº†è¿™äº›å¸ƒå‘Šã€‚\n";
    }
 
    o->add_job("bugao");
    o->set_job("bugao","status","begin");
-   o->set_job("bugao","memo",AREA_D->get_area(target,"name")+"µÄ"+rmnam);
+   o->set_job("bugao","memo",AREA_D->get_area(target,"name")+"çš„"+rmnam);
    
-   return "$NºÙºÙÒ»Ð¦£¬¶Ô$TµÀ£ºÄÇ¾ÍÂé·³$R°ÑÕâÕÅ²¼¸æÌùµ½"+AREA_D->get_area(target,"name")+
-	   "µÄ"+rmnam+"¡£"
-	   "\nµ½ÄÇÀïºóÓÃ %^H_BLUE%^drop bugao%^RESET%^¾ÍÐÐÁË¡£\n";
+   return "$Nå˜¿å˜¿ä¸€ç¬‘ï¼Œå¯¹$Té“ï¼šé‚£å°±éº»çƒ¦$RæŠŠè¿™å¼ å¸ƒå‘Šè´´åˆ°"+AREA_D->get_area(target,"name")+
+	   "çš„"+rmnam+"ã€‚"
+	   "\nåˆ°é‚£é‡ŒåŽç”¨ %^H_BLUE%^drop bugao%^RESET%^å°±è¡Œäº†ã€‚\n";
 }
 
 void bugao_catch(string o_id,string p_id,object o_bugao)
@@ -68,19 +68,19 @@ void bugao_catch(string o_id,string p_id,object o_bugao)
 		return;
 
         o_o->targetted_action(
-                "$N¶Ô$T´óºÈÒ»Éù£º´óµ¨$r£¬¾¹È»ÔÚ´ËÕÅÌù²¼¸æ£¬¿ì¸øÎÒÄÃÏÂ£¡\n",o_p);
+                "$Nå¯¹$Tå¤§å–ä¸€å£°ï¼šå¤§èƒ†$rï¼Œç«Ÿç„¶åœ¨æ­¤å¼ è´´å¸ƒå‘Šï¼Œå¿«ç»™æˆ‘æ‹¿ä¸‹ï¼\n",o_p);
         o_p->simple_action(
-                "ÖÚ¹Ù±øÒ»Óµ¶øÉÏ£¬°Ñ$NÀ¦µÃ½á½áÊµÊµ¡£\n");
+                "ä¼—å®˜å…µä¸€æ‹¥è€Œä¸Šï¼ŒæŠŠ$Næ†å¾—ç»“ç»“å®žå®žã€‚\n");
         o_o->simple_action(
-                "$NÒ»»ÓÊÖµÀ£º¸øÎÒ´ø×ß¡£\n");
+                "$Nä¸€æŒ¥æ‰‹é“ï¼šç»™æˆ‘å¸¦èµ°ã€‚\n");
         o_p->simple_action(
-                "ÖÚ¹Ù±ø°Ñ$NÑºÁËÏÂÈ¥¡£\n");
+                "ä¼—å®˜å…µæŠŠ$NæŠ¼äº†ä¸‹åŽ»ã€‚\n");
 
         CHANNEL_D->deliver_tell("rumor","system",
                 CHAR_D->get_char(p_id,"name")+
-                "ÔÚ"+AREA_D->get_area(CHAR_D->get_char(o_id,"area"),"name")+
-                "ÕÅÌù²¼¸æ£¬±»ÕýÔÚÑ²ÂßµÄ"+CHAR_D->get_char(o_id,"name")+
-                "µ±³¡×¥»ñ¡£");
+                "åœ¨"+AREA_D->get_area(CHAR_D->get_char(o_id,"area"),"name")+
+                "å¼ è´´å¸ƒå‘Šï¼Œè¢«æ­£åœ¨å·¡é€»çš„"+CHAR_D->get_char(o_id,"name")+
+                "å½“åœºæŠ“èŽ·ã€‚");
         (PCMD+"catch")->catch_award(o_id,p_id);
 	if(objectp(o_bugao)) destruct(o_bugao);
 }

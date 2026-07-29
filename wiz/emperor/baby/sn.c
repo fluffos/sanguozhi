@@ -6,10 +6,10 @@ string get_type() {
 	return "sn";
 }
 string get_type_name() {
-	return "%^H_GREEN%^ÊÌÅ®%^RESET%^";
+	return "%^H_GREEN%^ä¾å¥³%^RESET%^";
 }
 void extra_init() {
-	add_ask_str("order","$N¶Ô$TÊÇÁË¸öÑÛÉ«¡£\n");
+	add_ask_str("order","$Nå¯¹$Tæ˜¯äº†ä¸ªçœ¼è‰²ã€‚\n");
 	add_question("order","order" );
 }
 
@@ -22,13 +22,13 @@ void special_answer(object who, string matt)
                 case "order" :
 			if(p_id==master||p_id=CHAR_D->get_char(master,"mar")) {
 			        this_object()->targetted_action(
-				"$NÃ¦ÉÏÇ°¾Ï¹ªµÀ£º$RÓÐºÎ·Ô¸À£¿\n",who);
+				"$Nå¿™ä¸Šå‰éž èº¬é“ï¼š$Ræœ‰ä½•å©å’ï¼Ÿ\n",who);
 				is_busy=1;
 				new(__DIR__+"sn_menu")->start_menu(who,this_object());
 				return;
 			}
 		        this_object()->targetted_action(
-				"$NµÉÁË$TÒ»ÑÛ¡£\n",who);
+				"$Nçžªäº†$Tä¸€çœ¼ã€‚\n",who);
 				return;
         }
 }

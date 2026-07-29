@@ -37,11 +37,11 @@ void do_my_thing() {
     do_game_command(comm);
 }
 void setup() {
-    set_name("Barney","°ÍÀ×");
+    set_name("Barney","å·´é›·");
     set_gender(1);
-    set_proper_name("Ð¡¿ÖÁú°ÍÀ×");
-    set_in_room_desc("Ð¡¿ÖÁú°ÍÀ×(barney)");
-    set_long("Ëû¾ÍÊÇÈË¼ûÈË°®µÄ×ÏÉ«Ð¡¿ÖÁú¡£");
+    set_proper_name("å°æé¾™å·´é›·");
+    set_in_room_desc("å°æé¾™å·´é›·(barney)");
+    set_long("ä»–å°±æ˜¯äººè§äººçˆ±çš„ç´«è‰²å°æé¾™ã€‚");
     emotes = SOUL_D->list_emotes();
     adverbs = SOUL_D->get_adverbs();
     call_out( (: do_my_thing :), 5);

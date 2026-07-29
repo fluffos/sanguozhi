@@ -55,13 +55,13 @@ else
     sscanf(file, "%s.c", file);
     if (file_size(file+".c")==-1) {
         //outf("update: no such file.\n");
-        outf("update: 没有这个文件。\n");
+        outf("update: 娌℃湁杩欎釜鏂囦欢銆俓n");
         return 0;
     }
     if(file_size(file) == -2 && file_size(file+".c") < 0 )
     {
         //outf("update: file is a directory.\n");
-        outf("update: 无法 update 目录文件。\n");
+        outf("update: 鏃犳硶 update 鐩綍鏂囦欢銆俓n");
         return 0;
     }
     if(file_size(file+".c"))  this_body()->query_shell_ob()->set_cwf(file+".c");
@@ -81,7 +81,7 @@ else
     if (file[<2..<1] != ".c") file += ".c";
     if (do_update(file,deep_up) < time())
         out(file + //": No update necessary.\n");
-                   ": 没有更新的必要。\n");
+                   ": 娌℃湁鏇存柊鐨勫繀瑕併�俓n");
 
     for (n=0; n<sizeof(obs); n++) {
         if (obs[n]) obs[n]->move(file);
@@ -125,6 +125,6 @@ int do_update(string file, int deep)
     load_object(file);
     if (file[0] != '/') file = "/" + file; // bug in inherit_list()
     out(file +//": Updated and loaded.\n");
-              ": 更新并载入。\n");
+              ": 鏇存柊骞惰浇鍏ャ�俓n");
     return time();
 }

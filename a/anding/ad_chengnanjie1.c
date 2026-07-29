@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is °ÍÉ½Ò¹Óê
+// driver is å·´å±±å¤œé›¨
 // created date is Fri May 27 19:49:23 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,7 +7,7 @@ inherit OUTDOOR_ROOM;
 void setup() {
 set_area("anding");
 set_light(50);
-set_brief("%^YELLOW%^"+"³ÇÄÏ½Ö"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"åŸå—è¡—"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "south":"/a/anding/ad_chengnanjie2.c",

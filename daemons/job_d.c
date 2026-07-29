@@ -8,7 +8,7 @@
 inherit M_ACCESS;
 
 private mapping jobs;
-static int save_time;
+nosave protected int save_time;
 void save_data()
 {
 	unguarded(1, (: save_object, SAVE_FILE, 1 :));

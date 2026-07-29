@@ -1,4 +1,4 @@
-// condition confuse.c »ìÂÒ
+// condition confuse.c æ··ä¹±
 // group@sgz August 23, 1999
 #include <ansi.h>
 #include <mudlib.h>
@@ -20,13 +20,13 @@ void execute_con(int tid, int damage, int duration)
 	
 	if (duration <=1)
 	tell(all_inventory(tt),
-        HIG"»ìÂÒÂýÂýÆ½¸´ÁË¡£"+NOR+"\n");
+        HIG"æ··ä¹±æ…¢æ…¢å¹³å¤äº†ã€‚"+NOR+"\n");
 	else {
 	tell(all_inventory(tt),
-	HIR"Ö»¼ûÊ¿±øÃÇÒ»Æ¬»ìÂÒ£¬Ê¿Æø½µµÍ¡£"+NOR+"\n");
+	HIR"åªè§å£«å…µä»¬ä¸€ç‰‡æ··ä¹±ï¼Œå£«æ°”é™ä½Žã€‚"+NOR+"\n");
 	WARAI_D->kill_troop(tid,damage);	
 	WARAI_D->war_inf(TROOP_D->get_troops(tid,"task_id"),
-	tt->query_id()[1]+"ÊÜ»ìÂÒÀ§ÈÅ£¬ÌÓÅÜ"+chinese_number(damage)+"ÈË¡£","b");
+	tt->query_id()[1]+"å—æ··ä¹±å›°æ‰°ï¼Œé€ƒè·‘"+chinese_number(damage)+"äººã€‚","b");
 	WARAI_D->clear_empty_troop(({tid}));
 	}	
 return;

@@ -33,16 +33,16 @@ private nomask void write_quest_menu()
           "\n"
           );
 */
-    write("¹ÜÀí¹¤¾ß£ºQUEST ¹ÜÀí\n"
+    write("ç®¡ç†å·¥å…·ï¼šQUEST ç®¡ç†\n"
           "\n"
-          "    l        - ÁĞ³öËùÓĞÄÃ·Öµã\n"
-          "    L        - ÁĞ³öËùÓĞ QUESTs\n"
-          "    a <Ãû³Æ> - ÎªÄ¿±êÔö¼ÓÄÃ·Öµã\n"
-          "    r <Ãû³Æ> - ÎªÄ¿±êÉ¾³ıÄÃ·Öµã\n"
+          "    l        - åˆ—å‡ºæ‰€æœ‰æ‹¿åˆ†ç‚¹\n"
+          "    L        - åˆ—å‡ºæ‰€æœ‰ QUESTs\n"
+          "    a <åç§°> - ä¸ºç›®æ ‡å¢åŠ æ‹¿åˆ†ç‚¹\n"
+          "    r <åç§°> - ä¸ºç›®æ ‡åˆ é™¤æ‹¿åˆ†ç‚¹\n"
           "\n"
-          "    m        - Ö÷Ñ¡µ¥\n"
-          "    q        - ÍË³ö\n"
-          "    ?        - °ïÖú\n"
+          "    m        - ä¸»é€‰å•\n"
+          "    q        - é€€å‡º\n"
+          "    ?        - å¸®åŠ©\n"
           "\n"  
           );        
 }
@@ -65,7 +65,7 @@ private nomask void get_milestone(string s)
     }
   QUEST_D->add_quest(new_quest_name, value, master_file, s);
 
-  printf("Quest %s Ôö¼ÓÁË¡£\n", new_quest_name);
+  printf("Quest %s å¢åŠ äº†ã€‚\n", new_quest_name);
   modal_func((: receive_quest_input :), PROMPT_QUEST);
 }
 
@@ -75,11 +75,11 @@ private nomask void get_master(string master)
      !is_file(master_file+".c"))
     {
       //write("That file doesn't exist.\n");
-      write("Õâ¸öÎÄ¼ş²»´æÔÚ¡£\n");
+      write("è¿™ä¸ªæ–‡ä»¶ä¸å­˜åœ¨ã€‚\n");
       return;
     }
   modal_func((:get_milestone:), //"If this is a quest endpoint, give a one line description of the quest for \nplayers, or else hit enter (and nothing else!):  "
-                                "Èç¹ıÕâÊÇÒ»¸ö quest µÄÖÕµã£¬Çë¸ø³öÒ»ĞĞ quest µÄÃèÊö£¬·ñÔò»Ø³µ£º\n");
+                                "å¦‚è¿‡è¿™æ˜¯ä¸€ä¸ª quest çš„ç»ˆç‚¹ï¼Œè¯·ç»™å‡ºä¸€è¡Œ quest çš„æè¿°ï¼Œå¦åˆ™å›è½¦ï¼š\n");
              
 }
 
@@ -88,9 +88,9 @@ private nomask void get_value(string pts_as_string)
 {
   value = to_int(pts_as_string);
   printf(//"Quest %s' value is set at %d points.\n"
-         "Quest %s µÄÖµÉèÎª %d ·Ö¡£\n", new_quest_name, value);
+         "Quest %s çš„å€¼è®¾ä¸º %d åˆ†ã€‚\n", new_quest_name, value);
   modal_func((:get_master:), //"What file can dole out these points? "
-                             "ÄÄ¸öÎÄ¼ş¸ø³öÕâĞ©·ÖÄØ£¿");
+                             "å“ªä¸ªæ–‡ä»¶ç»™å‡ºè¿™äº›åˆ†å‘¢ï¼Ÿ");
 }
 
 private nomask void add_quest(string name)
@@ -98,18 +98,18 @@ private nomask void add_quest(string name)
   if(!stringp(name) || !strlen(name))
     {
       //write("Not a valid quest name.\n");
-      write("·Ç·¨ quest µÄÃû×Ö¡£\n");
+      write("éæ³• quest çš„åå­—ã€‚\n");
       return;
     }
   if(QUEST_D->quest_exists(name))
     {
       //write("That quest already exists.\n");
-      write("Õâ¸ö quest Ôç¾Í´æÔÚÁË¡£\n");
+      write("è¿™ä¸ª quest æ—©å°±å­˜åœ¨äº†ã€‚\n");
       return;
     }
   new_quest_name = name;
   modal_func((:get_value:), //"How many points is this quest item worth? "
-                            "Õâ¸ö quest Öµ¶àÉÙ·ÖÄØ£¿");
+                            "è¿™ä¸ª quest å€¼å¤šå°‘åˆ†å‘¢ï¼Ÿ");
   
 }
 
@@ -119,13 +119,13 @@ private nomask void remove_quest(string name)
   if(!QUEST_D->delete_quest(name))
     {
       //write("No such quest.\n");
-      write("Ã»ÓĞÕâ¸ö quest¡£\n");
+      write("æ²¡æœ‰è¿™ä¸ª questã€‚\n");
       return;
     }
   else
     {
       //write("Deleted.\n");
-      write("É¾³ıÁË¡£\n");
+      write("åˆ é™¤äº†ã€‚\n");
     }
 }
 
@@ -174,7 +174,7 @@ private nomask void receive_quest_input(string str)
     }
 }
 
-static nomask void begin_quest_menu()
+protected nomask void begin_quest_menu()
 {
     modal_func((: receive_quest_input :), PROMPT_QUEST);
     write_quest_menu();

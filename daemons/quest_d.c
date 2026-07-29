@@ -8,7 +8,7 @@ inherit M_DAEMON_DATA;
 
 
 mapping quests = ([]);
-static int total_points;
+nosave protected int total_points;
 
 private
 void
@@ -34,12 +34,12 @@ add_quest( string quest, int value, string base, string major_milestone )
     if(quests[quest])
     {
     //write("D'oh, that quest already exists.\n");
-    write("OOPS! Õâ¸ö QUEST ÔçÓĞÁË¡£\n");
+    write("OOPS! è¿™ä¸ª QUEST æ—©æœ‰äº†ã€‚\n");
     return 0;
     }
     LOG_D->log(LOG_QUEST,
       sprintf(//"%-30s worth %d pts, added by %s.\n",
-              "%-30s Öµ %d ¸öµãÊı£¬ÊÇ %s Ôö¼ÓµÄ¡£\n",
+              "%-30s å€¼ %d ä¸ªç‚¹æ•°ï¼Œæ˜¯ %s å¢åŠ çš„ã€‚\n",
                 base, value,
     this_body()->query_name()));
 
@@ -80,7 +80,7 @@ grant_points( object solver, string quest )
     return 0;
     quests[quest][2]++;
     tell( solver, sprintf(//"Your score has gone up by %d points.\n",
-                                 "ÄãµÄ·ÖÊıÔö¼ÓÁË %d ¸öµãÊı¡£\n",
+                                 "ä½ çš„åˆ†æ•°å¢åŠ äº† %d ä¸ªç‚¹æ•°ã€‚\n",
     quests[quest][1]) );
     save_me();
 
@@ -91,7 +91,7 @@ grant_points( object solver, string quest )
 }
 
 
-string array get_goals_for_quests_cmd()
+string * get_goals_for_quests_cmd()
 {
     return map(filter(keys(quests), (: quests[$1][3] :)),
       (: sprintf("%s (%s)", $1, quests[$1][3]) :));
@@ -115,7 +115,7 @@ string dump_final_goals()
     if(quests[keys[i]][3])
     {
         output += sprintf(//"%-17s-> %-2d pts, %d solves (%s)\n",
-                          "%-17s-> %-2d ¸öµãÊı£¬%d ½â¾öÁË (%s)\n",
+                          "%-17s-> %-2d ä¸ªç‚¹æ•°ï¼Œ%d è§£å†³äº† (%s)\n",
           keys[i], quests[keys[i]][1], quests[keys[i]][2], quests[keys[i]][0]);
         total1 += quests[keys[i]][1];
     }
@@ -123,7 +123,7 @@ string dump_final_goals()
     }
 
     output += sprintf(//"\nTotal points: %d in main goals, %d total\n",
-                      "\nÖ÷ÒªÄ¿µÄµãÊı£º%d£¬×Ü¹²ÓĞ %d µã¡£\n",
+                      "\nä¸»è¦ç›®çš„ç‚¹æ•°ï¼š%dï¼Œæ€»å…±æœ‰ %d ç‚¹ã€‚\n",
                         total1, total2);
 
     return output;
@@ -146,13 +146,13 @@ string quest_dump(string fname)
     while( i-- )
     {
     output += sprintf(//"%-17s-> %-2d pts, %d solves (%s)\n",
-                      "%-17s-> %-2d ¸öµãÊı£¬%d ½â¾öÁË (%s)\n",
+                      "%-17s-> %-2d ä¸ªç‚¹æ•°ï¼Œ%d è§£å†³äº† (%s)\n",
       keys[i], quests[keys[i]][1], quests[keys[i]][2], quests[keys[i]][0]);
     total += quests[keys[i]][1];
     }
 
     output += //sprintf("\nTotal points: %d\n",total);
-              sprintf("\n×ÜµãÊı£º%d\n", total);
+              sprintf("\næ€»ç‚¹æ•°ï¼š%d\n", total);
 
     if ( fname )
     write_file(fname, output, 1);
@@ -165,11 +165,11 @@ show_quest( string quest )
 {
     if( !quests[quest] )
     return sprintf(//"%s: no such quest milestone.\n",
-                   "%s: Ã»ÓĞÕâÖÖ QUEST Àï³Ì±®¡£\n",
+                   "%s: æ²¡æœ‰è¿™ç§ QUEST é‡Œç¨‹ç¢‘ã€‚\n",
                      quest);
 
     return sprintf("%-20s-> %-2d points, %d solves, home: %O",
-                   "%-20s-> %-2d ¸öµãÊı£¬%d ½â¾öÁË£¬£è£ï£í£å£º%O",
+                   "%-20s-> %-2d ä¸ªç‚¹æ•°ï¼Œ%d è§£å†³äº†ï¼Œï½ˆï½ï½ï½…ï¼š%O",
                     quest, quests[quest][1],
       quests[quest][2], quests[quest][0]);
 }

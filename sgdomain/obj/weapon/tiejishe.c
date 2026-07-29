@@ -5,14 +5,14 @@ inherit M_WEAPON;
 inherit M_VALUE;
 void setup()
 {
-set_unit("¸Ë");
-set_id("tiejishe mao", WHT+"Ìú¼¹ÉßÃ¬"+NOR);
+set_unit("æ†");
+set_id("tiejishe mao", WHT+"é“è„Šè›‡çŸ›"+NOR);
 add_id("tiejishe mao");
 add_id("tiejishe");
 add_id("mao");
-set_in_room_desc(WHT+"Ìú¼¹ÉßÃ¬"+NOR+"(tiejishe mao)");
-set_long("Îâ¹úÃû½«³ÌÆÕÖ®¶ÀÃÅ±øÆ÷£¬È«³¤Ò»ÕÉÁù³ß£¬Ã¬ÉíÓÉÉú
-ÌúÖı³É£¬ÍäÇú³ÊÉß×´¡£\n");
+set_in_room_desc(WHT+"é“è„Šè›‡çŸ›"+NOR+"(tiejishe mao)");
+set_long("å´å›½åå°†ç¨‹æ™®ä¹‹ç‹¬é—¨å…µå™¨ï¼Œå…¨é•¿ä¸€ä¸ˆå…­å°ºï¼ŒçŸ›èº«ç”±ç”Ÿ
+é“é“¸æˆï¼Œå¼¯æ›²å‘ˆè›‡çŠ¶ã€‚\n");
 set_size(MEDIUM);
 set_value(-1);
 set_currency_type("gold");
@@ -20,6 +20,6 @@ set_attack_ablity(140);
 set_attack_power(115);
 set_defence_ablity(140);
 set_combat_messages("combat-ji");
-set_wield_message("$NË«ÊÖÒ»°Ú£¬³é³ö$o£¬ºáÔÚÉíÇ°£¬Æø¶ÈÆÈÈË¡£\n");
-set_unwield_message("$NÓÒÊÖÒ»Ì§£¬ÔçÒÑ½«ÕÆÖĞ$o²å»ØàÎÍ·¡£\n");
+set_wield_message("$NåŒæ‰‹ä¸€æ‘†ï¼ŒæŠ½å‡º$oï¼Œæ¨ªåœ¨èº«å‰ï¼Œæ°”åº¦è¿«äººã€‚\n");
+set_unwield_message("$Nå³æ‰‹ä¸€æŠ¬ï¼Œæ—©å·²å°†æŒä¸­$oæ’å›è¾”å¤´ã€‚\n");
 }

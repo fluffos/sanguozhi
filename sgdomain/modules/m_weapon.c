@@ -5,9 +5,9 @@ inherit OBJ;
 inherit M_WIELDABLE;
 inherit M_GETTABLE;
 inherit M_MESSAGES;
-private static int m_defence_ability=0;
-private static int m_attack_ability=0;
-private static int m_attack_power=0;
+private nosave int m_defence_ability=0;
+private nosave int m_attack_ability=0;
+private nosave int m_attack_power=0;
 void set_defence_ability(int p_tmp)
 {
 	m_defence_ability=p_tmp;

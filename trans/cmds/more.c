@@ -14,10 +14,10 @@ inherit CMD;
 
 private void main(mixed *arg, mapping flags, string stdin)
 {
-    array files = arg[0];
+    mixed * files = arg[0];
     if (!files) {
         if (!stdin) {
-            out("参数不足。\n用法: more file(s)\n");
+            out("鍙傛暟涓嶈冻銆俓n鐢ㄦ硶: more file(s)\n");
         } else
             more(stdin, 0, 0, NO_ANSI);
         return;
@@ -27,7 +27,7 @@ private void main(mixed *arg, mapping flags, string stdin)
                    function(string file) {
                        if (!stringp(file)) return 0;
                        if (is_directory(file)) {
-                           out(file + ": 是目录。\n");
+                           out(file + ": 鏄洰褰曘�俓n");
                            return 0;
                        }
                        return 1;

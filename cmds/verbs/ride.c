@@ -20,7 +20,7 @@ void do_xia_obj(object what)
     if(what != environment(this_body()))
 
     {
-        write("Äã²»ÔÚËüÉÏÃæ¡£\n");
+        write("ä½ ä¸åœ¨å®ƒä¸Šé¢ã€‚\n");
         return;
     }
     if(s = what->unride())
@@ -30,8 +30,8 @@ void do_xia_obj(object what)
             if(stringp(s))
                 this_body()->simple_action(s);
             else
-                this_body()->simple_action("$N´Ó" + what->short()+
-                  "ÉÏÏÂÀ´¡£");
+                this_body()->simple_action("$Nä»Ž" + what->short()+
+                  "ä¸Šä¸‹æ¥ã€‚");
         }
         else
         {
@@ -41,7 +41,7 @@ void do_xia_obj(object what)
     }
     else
     {
-        write("ÄãÒÑ¾­Õ¾ÔÚµØÉÏÁË¡£\n");
+        write("ä½ å·²ç»ç«™åœ¨åœ°ä¸Šäº†ã€‚\n");
     }
 }
 void do_unride_obj(object what)
@@ -58,7 +58,7 @@ int do_unride()
     "/cmds/verbs/stand"->do_stand();
 }
 
-array query_verb_info()
+mixed * query_verb_info()
 {
       return ({ ({ "OBJ"}) });
 }

@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is »¨¶ù¶ä¶ä
+// driver is èŠ±å„¿æœµæœµ
 // created date is Wed Jun 15 16:45:38 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -8,7 +8,7 @@ inherit M_BANK;
 void setup() {
 set_area("shangdang");
 set_light(50);
-set_brief("%^YELLOW%^"+"±øÆ÷ÆÌ"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"å…µå™¨é“º"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "north":"/a/shangdang/sd_xidajie.c",

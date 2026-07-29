@@ -1,4 +1,4 @@
-//  医所 by benben
+//  鍖绘墍 by benben
 // xy_ysh.c 
 #include <mudlib.h>
 #include "/wiz/fire/fire.h"
@@ -7,8 +7,8 @@ inherit ROOM;
 void setup(){
     set_area("xianyang");
     set_light(50);
-    set_brief(""+YEL+"医所"+NOR+"");
-    set_long("    描述。\n");
+    set_brief(""+YEL+"鍖绘墍"+NOR+"");
+    set_long("    鎻忚堪銆俓n");
     set_exits( ([
         "east" :  __DIR__+"xy_nst2.c",
     ]) );

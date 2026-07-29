@@ -12,7 +12,7 @@ string portal_destination;
 void do_enter()
 {
   this_body()->move_to (portal_destination, //"through " + short ());
-                                            "´©¹ý" + short ());
+                                            "ç©¿è¿‡" + short ());
 }
 
 //:FUNC set_destination

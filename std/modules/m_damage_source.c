@@ -15,7 +15,7 @@ private int wield_bonus;
 private string wield_type = "blow";
 private object wielded_by;
 
-static mapping def_combat_messages;
+nosave protected mapping def_combat_messages;
 mapping combat_messages = ([]);
 
 mixed adjust_my_result(mixed result)

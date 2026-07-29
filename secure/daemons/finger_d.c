@@ -38,7 +38,7 @@ mixed * get_raw_data(string who)
 
     if (sizeof(info) > 1)
       email = info[1];
-    else email = "(²»Ïê)";
+    else email = "(ä¸è¯¦)";
     if(email[0] == '#')
 info[1] = 0;
 
@@ -84,8 +84,8 @@ string show_brief_finger() {
     int pn = nullp(p) ? 0 : sizeof(p);
     int wn = nullp(w) ? 0 : sizeof(w);
      
-    return "Ä¿Ç°ÓĞ " + pn + " Î»Íæ¼Ò¡¢" + wn +
-           " Î»Î×Ê¦ÔÚÓÎÏ·ÖĞ" + (ln? "£¬»¹ÓĞ " + ln + " Î»ÕıÔÚÁ¬Ïß¡£" : "¡£");
+    return "ç›®å‰æœ‰ " + pn + " ä½ç©å®¶ã€" + wn +
+           " ä½å·«å¸ˆåœ¨æ¸¸æˆä¸­" + (ln? "ï¼Œè¿˜æœ‰ " + ln + " ä½æ­£åœ¨è¿çº¿ã€‚" : "ã€‚");
 }
 
 string show_big_finger(int htmlize)
@@ -101,7 +101,7 @@ string show_big_finger(int htmlize)
                    get_idle($2),
                   ( wizardp(this_body()) ? query_ip_name($2) : "0.0.0.0" )) :),
            sprintf(//"\n[%s] %d user%s presently connected (%s)\n%79'-'s\n",
-                   "\n[%s] %d Î»Íæ¼ÒÄ¿Ç°ÕıÔÚÓÎÏ·ÖĞ¡£(%s)\n%s\n",
+                   "\n[%s] %d ä½ç©å®¶ç›®å‰æ­£åœ¨æ¸¸æˆä¸­ã€‚(%s)\n%s\n",
                mud_name(),
                sizeof(u),
                //sizeof(u) == 1 ? "" : "s",
@@ -111,7 +111,7 @@ string show_big_finger(int htmlize)
       {
     retval = sprintf("<META HTTP-EQUIV=\"Refresh\" CONTENT=30><center><TABLE BORDER=5><caption><font size=+2>%s</font></caption>"
              //"<TR><TH>Name</TH><TH>Position</TH><TH>Idle</TH><TH>On From</TH></TR>",
-             "<TR><TH>ĞÕÃû</TH><TH>Ö°Î»</TH><TH>·¢´ô</TH><TH>À´×Ô</TH></TR>",
+             "<TR><TH>å§“å</TH><TH>èŒä½</TH><TH>å‘å‘†</TH><TH>æ¥è‡ª</TH></TR>",
              mud_name());
     foreach (object user in u)
       {
@@ -181,9 +181,9 @@ varargs string get_finger(string who, int htmlize)
     {
 //### maybe return 0?
     return htmlize ? sprintf(//"<h2><em>%s</em>: No such player.\n</h2>",
-                             "<h2><em>%s</em>: Ã»ÓĞÕâ¸öÍæ¼Ò¡£\n</h2>",
+                             "<h2><em>%s</em>: æ²¡æœ‰è¿™ä¸ªç©å®¶ã€‚\n</h2>",
                  who) : //"No such player.\n";
-                        "Ã»ÓĞÕâ¸öÍæ¼Ò¡£\n";
+                        "æ²¡æœ‰è¿™ä¸ªç©å®¶ã€‚\n";
     }
 
     if(wizardp(this_body())){
@@ -207,7 +207,7 @@ varargs string get_finger(string who, int htmlize)
     position = "(none)";
 #ifdef USE_WIZ_POSITION
     //position = "Position: " + position;
-    position = "Ö°Î»£º" + position;
+    position = "èŒä½ï¼š" + position;
 #else
     position = "";
 #endif
@@ -247,8 +247,8 @@ varargs string get_finger(string who, int htmlize)
     /* use the following line... */
 #endif
     first_line = "-----------------------------------------------------------\n"+
-"ID£º"+who +"      ĞÕÃû£º"+chinese_id+"       ×Ö£º"+zi+
-"       µÈ¼¶£º"+get_level(who);
+"IDï¼š"+who +"      å§“åï¼š"+chinese_id+"       å­—ï¼š"+zi+
+"       ç­‰çº§ï¼š"+get_level(who);
 
     if (htmlize)
       first_line = "<em><font size=+2>" + first_line + "</font></em>";
@@ -258,15 +258,15 @@ varargs string get_finger(string who, int htmlize)
     ucount = mbox->query_unread_count();
     if ( !mcount )
     mailstring = who+//" has no mail.";
-                                 "Ã»ÓĞĞÅ¼ş¡£";
+                                 "æ²¡æœ‰ä¿¡ä»¶ã€‚";
     else
     {
         mailstring = sprintf(//"%s has %s.",
-                            "%sÓĞ%3d ·âĞÅ¼ş¡£",
+                            "%sæœ‰%3d å°ä¿¡ä»¶ã€‚",
                             who, mcount);
     if ( ucount )
         mailstring[<1..] = sprintf(//", %d of which %s unread.",
-                                   "£¬%3d ·âÎ´¶Á¡£",
+                                   "ï¼Œ%3d å°æœªè¯»ã€‚",
                        ucount ); //, ucount > 1 ? "are" : "is");
     }
 
@@ -276,29 +276,29 @@ varargs string get_finger(string who, int htmlize)
     idle = "";
     else if ( !interactive(user) )
     //idle = " (linkdead)";
-    idle = " (¶ÏÏß) ";
+    idle = " (æ–­çº¿) ";
     else
     {
     idle = get_idle(user);
     if ( idle != "" )
         idle = //" (idle "
-               " (·¢´ô "
+               " (å‘å‘† "
                 + idle + ") ";
     }
 
     if ( wizardp(this_user()) )
     connect_from = //" from "
-                   " À´×Ô " + (last ? last[1] : "<unknown>");
+                   " æ¥è‡ª " + (last ? last[1] : "<unknown>");
 
     else
     connect_from = "";
 
     retval = sprintf("%s\n"
-             "´ÂºÅ£º%-29s %s\n"
+             "ç»°å·ï¼š%-29s %s\n"
              //"In real life: %-25s %s%s\n"
-             "ÕæÊµÉú»îÖĞ£º%-25s %s%s\n"
+             "çœŸå®ç”Ÿæ´»ä¸­ï¼š%-25s %s%s\n"
              //"%s %s%s%s\n%s\nEmail Address: %s\n%s",
-             "%s %s%s%s\n%s\nµç×ÓÓÊ¼şµØÖ·£º%s\n%s",
+             "%s %s%s%s\n%s\nç”µå­é‚®ä»¶åœ°å€ï¼š%s\n%s",
              first_line,
              title,
              htmlize ? "\n" : "",
@@ -306,7 +306,7 @@ varargs string get_finger(string who, int htmlize)
              htmlize ? "\n" : "",
              position,
              user ? //"On since" : "Left at",
-                    "ÉÏÏßÊ±¼ä" : "Àë¿ªÊ±¼ä",
+                    "ä¸Šçº¿æ—¶é—´" : "ç¦»å¼€æ—¶é—´",
              last ? ctime(last[0]) : "<unknown>",
              idle,
              connect_from,
@@ -316,15 +316,15 @@ varargs string get_finger(string who, int htmlize)
 
     if ( is_file(WIZ_DIR + "/" + who + "/.plan") )
     retval += //"Plan:\n"
-              "¼Æ»®£º\n" + read_file(WIZ_DIR + "/" + who + "/.plan");
+              "è®¡åˆ’ï¼š\n" + read_file(WIZ_DIR + "/" + who + "/.plan");
 
 #ifdef EVERYONE_HAS_A_PLAN
     else if ( info[<3] )
     retval += //"Plan:\n" + info[<3] + "\n";
-              "¼Æ»®£º\n" + info[<3] + "\n";
+              "è®¡åˆ’ï¼š\n" + info[<3] + "\n";
     else
     retval += //"No plan.\n";
-              "Ã»ÓĞ¼Æ»®¡£\n";
+              "æ²¡æœ‰è®¡åˆ’ã€‚\n";
 #endif
 
     return htmlize ? replace_string (retval, "\n", "<br>\n") : retval;

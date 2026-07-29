@@ -11,7 +11,7 @@ private void main()
 {
     object ob = this_body()->query_shell_ob();
 
-    outf("当前目录:  %s\n当前文件: %s\n",
+    outf("褰撳墠鐩綍:  %s\n褰撳墠鏂囦欢: %s\n",
            ob->get_variable("pwd") || "NONE",
            ob->get_variable("cwf") || "NONE");
 }

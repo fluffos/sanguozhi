@@ -25,8 +25,8 @@ MENU rm_annotations;
 MENU_ITEM quit_item;
 MENU_ITEM goto_main_menu_item;
 MENU_ITEM seperator;
-private static object annotation_target;
-private static class annotation new_annotation;
+private nosave object annotation_target;
+private nosave class annotation new_annotation;
 private void remove_annotation();
 
 
@@ -49,15 +49,15 @@ private void rcv_can_ed(string y_or_n)
     }
   ANNOTATION_D->add_annotation(annotation_target, new_annotation);
   //write("**Annotation added**\n\n");
-  write("** ×¢½â¼ÓÈëÁË **\n\n");
+  write("** æ³¨è§£åŠ å…¥äº† **\n\n");
   goto_menu_silently(toplevel);
 }
 
-private void end_edit(string array annotation)
+private void end_edit(string * annotation)
 {
   new_annotation->text = implode(annotation,"\n");
   get_input_then_call((: rcv_can_ed :), //"Allow anyone to remove this annotation? "
-                                        "ÔÊĞíÈÎºÎÈËÉ¾³ıÕâ¸ö×¢½âÂğ£¿");
+                                        "å…è®¸ä»»ä½•äººåˆ é™¤è¿™ä¸ªæ³¨è§£å—ï¼Ÿ");
 }
 
 private void rcv_title(string title)
@@ -78,19 +78,19 @@ private void rm_it(int a)
   if(ANNOTATION_D->remove_annotation(annotation_target,a) != 1)
     {
       write(//"**You don't have permission to remove that annotation.**\n"
-            "ÄãÃ»ÓĞÉ¾³ıÕâ¸ö×¢½âµÄÈ¨Àû¡£\n");
+            "ä½ æ²¡æœ‰åˆ é™¤è¿™ä¸ªæ³¨è§£çš„æƒåˆ©ã€‚\n");
     }
   else
     {
       //write("**Removed.**\n");
-      write("** É¾³ı³É¹¦ **\n");
+      write("** åˆ é™¤æˆåŠŸ **\n");
     }
   remove_annotation();
 }
 
 private void remove_annotation()
 {
-  class annotation array ann;
+  class annotation * ann;
   class annotation a;
 
 
@@ -98,11 +98,11 @@ private void remove_annotation()
   if(!ann)
     {
       //write("**No Annotations to remove.**\n\n");
-      write("** Ã»ÓĞ×¢½â±»É¾³ı **\n\n");
+      write("** æ²¡æœ‰æ³¨è§£è¢«åˆ é™¤ **\n\n");
       return;
     }
   rm_annotations = new_menu(//"Remove Annotations"
-                            "É¾³ı×¢½â");
+                            "åˆ é™¤æ³¨è§£");
   for(int i = 0; i < sizeof(ann); i++)
     {
       a = ann[i];
@@ -133,10 +133,10 @@ private void see_it(int index)
   if(!a)
     {
       //write("**No annotations to view.**\n");
-      write("** Ã»ÓĞ×¢½â¹©ÏÔÊ¾ **\n");
+      write("** æ²¡æœ‰æ³¨è§£ä¾›æ˜¾ç¤º **\n");
       return;
     }
-  output = sprintf("ÌâÄ¿: %s\n×÷Õß: %s\n ÈÕÆÚ: %s\n"
+  output = sprintf("é¢˜ç›®: %s\nä½œè€…: %s\n æ—¥æœŸ: %s\n"
            "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n%s\n",
                    a->title, a->author, a->date, a->text);
 
@@ -145,17 +145,17 @@ private void see_it(int index)
 
 private void see_annotations()
 {
-  class annotation array ann;
+  class annotation * ann;
   class annotation a;
 
   ann = ANNOTATION_D->retrieve_annotations(annotation_target);
   if(!ann)
     {
       //write("**No Annotations to view.**\n\n");
-      write("** Ã»ÓĞ×¢½â¹©ÏÔÊ¾ **\n");
+      write("** æ²¡æœ‰æ³¨è§£ä¾›æ˜¾ç¤º **\n");
       return;
     }
-  view_annotations = new_menu("ÏÔÊ¾×¢½â -- ÏÔÊ¾ÄÄÒ»¸ö£¿");
+  view_annotations = new_menu("æ˜¾ç¤ºæ³¨è§£ -- æ˜¾ç¤ºå“ªä¸€ä¸ªï¼Ÿ");
   for(int i = 0; i < sizeof(ann); i++)
     {
       a = ann[i];
@@ -177,20 +177,20 @@ void create(object o)
 
   annotation_target = o;
 
-  toplevel      = new_menu(mud_name()+"×¢½âÑ¡µ¥");
+  toplevel      = new_menu(mud_name()+"æ³¨è§£é€‰å•");
 
   quit_item = new_menu_item("Quit", (:quit_menu_application:), "q");
-  goto_main_menu_item =new_menu_item("»Øµ½Ö÷Ñ¡µ¥", 
+  goto_main_menu_item =new_menu_item("å›åˆ°ä¸»é€‰å•", 
                                          toplevel, "m");
   seperator = 
     new_seperator("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
 
   // Add items to the toplevel (main) menu.  
-  add_menu_item (toplevel, new_menu_item("Ôö¼Ó×¢½â", (:add_annotation:),
+  add_menu_item (toplevel, new_menu_item("å¢åŠ æ³¨è§£", (:add_annotation:),
                                          "a"));
-  add_menu_item (toplevel, new_menu_item("ÏÔÊ¾×¢½â", 
+  add_menu_item (toplevel, new_menu_item("æ˜¾ç¤ºæ³¨è§£", 
                                          (:see_annotations:), "v"));
-  add_menu_item (toplevel, new_menu_item("É¾³ı×¢½â",
+  add_menu_item (toplevel, new_menu_item("åˆ é™¤æ³¨è§£",
                                          (:remove_annotation:), "r"));
   add_menu_item (toplevel, quit_item);
 

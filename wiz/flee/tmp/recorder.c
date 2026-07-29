@@ -26,14 +26,14 @@ void setup()
     cloth->move(this_object());
     cloth->do_wear();
 
-    set_name("shuji guan", "书记");
+    set_name("shuji guan", "涔﹁");
     add_id("recorder");
     add_id("guan");
     add_id("shuji");
     set_gender(1);
     set_age(20);
-    set_proper_name(HIY+"书记"+NOR+"(shuji guan)");
-    set_in_room_desc(HIY+"书记"+NOR+"(shuji guan)");
+    set_proper_name(HIY+"涔﹁"+NOR+"(shuji guan)");
+    set_in_room_desc(HIY+"涔﹁"+NOR+"(shuji guan)");
 
     add_question("case", "case");
     add_ask_str("case", "i want to add a case\n");

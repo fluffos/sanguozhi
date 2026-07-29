@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is 巴山夜雨
+// driver is 宸村北澶滈洦
 // created date is Sun May 29 17:09:24 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,7 +7,7 @@ inherit OUTDOOR_ROOM;
 void setup() {
 set_area("qiao");
 set_light(50);
-set_brief("%^YELLOW%^"+"集市"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"闆嗗競"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "north":"/a/qiao/q_caishikou.c",

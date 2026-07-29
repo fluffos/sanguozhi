@@ -53,8 +53,8 @@ void setup()
 
    	add_question("followme","followme");
 	
-	add_ask_str("followme","$N¶Ô$TÒ»¹°ÊÖµÀ£º$RÔÚ¼ÒÏĞÕß¶àÃ»ÒâË¼£¬\n"+
-"µ½ÎÒ¼ÒÈ¥×öÊÂ°É£¬ÓĞ³ÔÓĞºÈÓĞÇ®¾ö²»»á¿÷´ıÄãµÄ¡£\n");
+	add_ask_str("followme","$Nå¯¹$Tä¸€æ‹±æ‰‹é“ï¼š$Råœ¨å®¶é—²è€…å¤šæ²¡æ„æ€ï¼Œ\n"+
+"åˆ°æˆ‘å®¶å»åšäº‹å§ï¼Œæœ‰åƒæœ‰å–æœ‰é’±å†³ä¸ä¼šäºå¾…ä½ çš„ã€‚\n");
 	
 }
 
@@ -68,11 +68,11 @@ mixed can_ask_followme(object who) {
 	object o_h;
 	o_h=SGHOME(m_id);
 	if(!objectp(o_h)) 
-		return "$N¶Ô$TµÀ£ºÄã×Ô¼º¶¼Ã»¼Ò¿É»Ø£¬»¹ÈÃÎÒÈ¥Äã¼Ò£¬´µÅ£¡£\n";
+		return "$Nå¯¹$Té“ï¼šä½ è‡ªå·±éƒ½æ²¡å®¶å¯å›ï¼Œè¿˜è®©æˆ‘å»ä½ å®¶ï¼Œå¹ç‰›ã€‚\n";
 	r_num=o_h->get_room("size");
 	n_num=o_h->get_npc("size");
 	if(n_num>r_num)
-		return "$N¶Ô$TµÀ£ºÄã¼ÒµØ·½Ì«Ğ¡£¬ÈËÌ«¶à£¬ÎÒ²»ÏëÈ¥¡£\n";
+		return "$Nå¯¹$Té“ï¼šä½ å®¶åœ°æ–¹å¤ªå°ï¼Œäººå¤ªå¤šï¼Œæˆ‘ä¸æƒ³å»ã€‚\n";
 	return 1;
 }
 
@@ -80,28 +80,28 @@ void answer_yes(object me, object who,string ans) {
 	object o_h;
 	if(ans!="yes") {
 		me->targetted_action(
-		"$N²»ÂúµØ¶Ô$TËµµÀ£ºÒ»Á½½ğ×Ó¶¼²»¿Ï¸ø£¬$rÒ²Ì«Ğ¡ÆøÁË¡£\n",who);
-		me->simple_action("$N×ªÉíÀë¿ªÁË¡£\n");
+		"$Nä¸æ»¡åœ°å¯¹$Tè¯´é“ï¼šä¸€ä¸¤é‡‘å­éƒ½ä¸è‚¯ç»™ï¼Œ$rä¹Ÿå¤ªå°æ°”äº†ã€‚\n",who);
+		me->simple_action("$Nè½¬èº«ç¦»å¼€äº†ã€‚\n");
 		destruct(me);
 		return;
 	}
 	if(MONEY_D->sub_poket_money(who,10000)!=1) {
 		who->targetted_action(
-			"$NÒ»Ä£¿Ú´ü£¬Á³Ò»ºì£¬¶Ô$T²»ºÃÒâË¼µØËµ£¬¶Ô²»Æğ£¬ÉíÉÏÃ»ÓĞ´úÇ®¡£\n",me);
+			"$Nä¸€æ¨¡å£è¢‹ï¼Œè„¸ä¸€çº¢ï¼Œå¯¹$Tä¸å¥½æ„æ€åœ°è¯´ï¼Œå¯¹ä¸èµ·ï¼Œèº«ä¸Šæ²¡æœ‰ä»£é’±ã€‚\n",me);
 		me->targetted_action(
-		"$N²»ÂúµØ¶Ô$TËµµÀ£ºÉíÉÏÁ¬Ò»Á½½ğ×Ó¶¼Ã»ÓĞ£¬$rÒ²Ì«Ğ¡ÆøÁË¡£\n",who);
-		me->simple_action("$N×ªÉíÀë¿ªÁË¡£\n");
+		"$Nä¸æ»¡åœ°å¯¹$Tè¯´é“ï¼šèº«ä¸Šè¿ä¸€ä¸¤é‡‘å­éƒ½æ²¡æœ‰ï¼Œ$rä¹Ÿå¤ªå°æ°”äº†ã€‚\n",who);
+		me->simple_action("$Nè½¬èº«ç¦»å¼€äº†ã€‚\n");
 		destruct(me);
 		return;
 	}
 	who->targetted_action(
-		"$N¸ø$TÒ»Á½½ğ×Ó¡£\n",me);
+		"$Nç»™$Tä¸€ä¸¤é‡‘å­ã€‚\n",me);
 	me->responda("rich");
 	me->targetted_action(
-		"$N¶Ô$TËµµÀ£ºÎÒ×¼±¸Ò»ÏÂ£¬Ëæºó¾Íµ½$R¼ÒÖĞÈ¥¡£\n",who);
+		"$Nå¯¹$Tè¯´é“ï¼šæˆ‘å‡†å¤‡ä¸€ä¸‹ï¼Œéšåå°±åˆ°$Rå®¶ä¸­å»ã€‚\n",who);
 	o_h=SGHOME(who->query_primary_id());
 	o_h->add_npc(me);
-	me->simple_action("$N×ªÉíÀë¿ªÁË¡£\n");
+	me->simple_action("$Nè½¬èº«ç¦»å¼€äº†ã€‚\n");
 	destruct(me);
 }
 
@@ -111,17 +111,17 @@ void answer_salary(object me, object who,string ans) {
 	me->clear_answer();
 	if(m_salary<=p_salary) {
 		me->targetted_action(
-		"$N²»ÂúµØ¶Ô$TËµµÀ£ºÒ»ÔÂ²Å"+CHINESE_D->chinese_value(m_salary*100)+
-		"£¬$rÒ²Ì«Ğ¡ÆøÁË¡£\n",who);
-		me->simple_action("$N×ªÉíÀë¿ªÁË¡£\n");
+		"$Nä¸æ»¡åœ°å¯¹$Tè¯´é“ï¼šä¸€æœˆæ‰"+CHINESE_D->chinese_value(m_salary*100)+
+		"ï¼Œ$rä¹Ÿå¤ªå°æ°”äº†ã€‚\n",who);
+		me->simple_action("$Nè½¬èº«ç¦»å¼€äº†ã€‚\n");
 		destruct(me);
 		return;
 	}
 	p_salary=m_salary;
 	me->responda("jump");
 	me->targetted_action(
-		"$N¶Ô$TµÀ£º$RÕæÊÇÌ«ºÃÁË£¬²»¹ıÎÒ»¹ĞèÒªÒ»Á½½ğ×ÓµÄ¶¨½ğ£¬¿ÉÒÔ¸øÎÒÂğ£¿\n",who);
-	tell(who,"ÓÃ answer yes to "+p_id+" ±íÊ¾Í¬Òâ¡£\n");
+		"$Nå¯¹$Té“ï¼š$RçœŸæ˜¯å¤ªå¥½äº†ï¼Œä¸è¿‡æˆ‘è¿˜éœ€è¦ä¸€ä¸¤é‡‘å­çš„å®šé‡‘ï¼Œå¯ä»¥ç»™æˆ‘å—ï¼Ÿ\n",who);
+	tell(who,"ç”¨ answer yes to "+p_id+" è¡¨ç¤ºåŒæ„ã€‚\n");
 
 	me->set_answer(who->query_primary_id(), (:answer_yes:) ); 
 
@@ -141,8 +141,8 @@ void special_answer(object who, string matt)
 		}
 		this_object()->responda("consider");
 		this_object()->targetted_action(
-			"$N¶Ô$TµÀ£ºÄã¸øÎÒ¶àÉÙÔÂÇ®Ñ½£¿\n",who);
-		tell(who,"ÓÃ answer <Êı×Ö> to "+p_id+" À´»Ø´ğ <Êı×Ö> ´ú±íÃ¿ÔÂ¶àÉÙÁ½Òø×Ó¡£\n");
+			"$Nå¯¹$Té“ï¼šä½ ç»™æˆ‘å¤šå°‘æœˆé’±å‘€ï¼Ÿ\n",who);
+		tell(who,"ç”¨ answer <æ•°å­—> to "+p_id+" æ¥å›ç­” <æ•°å­—> ä»£è¡¨æ¯æœˆå¤šå°‘ä¸¤é“¶å­ã€‚\n");
 		this_object()->set_answer(who->query_primary_id(), (:answer_salary:) );
        	        return;
   	}

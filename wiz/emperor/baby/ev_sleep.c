@@ -20,17 +20,17 @@ void ask_sleep(object who, object parter)
 	p_gender=parter->query_gender();
 	if(CHAR_D->get_char(p_id,"mar")==w_id) {
 		if(who->query_gravidity()){
-			parter->targetted_action("$N¶Ô$tËµµÀ£º¡°$cÒÑÓĞÉíÔĞ£¬²»ÄÜĞĞ·¿¡£¡±\n",who);
+			parter->targetted_action("$Nå¯¹$tè¯´é“ï¼šâ€œ$cå·²æœ‰èº«å­•ï¼Œä¸èƒ½è¡Œæˆ¿ã€‚â€\n",who);
 			return;
 		}
 		if(parter->query_gravidity()){
-			parter->targetted_action("$N¶Ô$tËµµÀ£º¡°$c, ¼úæªÒÑÓĞÉíÔĞ£¬²»ÄÜĞĞ·¿¡£¡±\n",who);
+			parter->targetted_action("$Nå¯¹$tè¯´é“ï¼šâ€œ$c, è´±å¦¾å·²æœ‰èº«å­•ï¼Œä¸èƒ½è¡Œæˆ¿ã€‚â€\n",who);
 			return;
 		}
 		env=environment(parter);
 /*
 		if(env->query_bedroom_master()!=w_id||env->query_bedroom_master()!=p_id){
-			parter->targetted_action("$N¶Ô$tËµµÀ£º¡°$c, µ½Ë¯·¿ÀïÔÙËµ°É¡£¡±\n",who);
+			parter->targetted_action("$Nå¯¹$tè¯´é“ï¼šâ€œ$c, åˆ°ç¡æˆ¿é‡Œå†è¯´å§ã€‚â€\n",who);
 			return;
 		}
 */
@@ -39,19 +39,19 @@ void ask_sleep(object who, object parter)
 		p_food=parter->query_sg_food();
 		p_drink=parter->query_sg_drink();
 		if(!w_food){
-			parter->targetted_action("$N¶Ô$tËµµÀ£º¡°$c, ÄãÏÖÔÚºÜ¶ö£¬ÄãÏÈ³ÔĞ©¶«Î÷°É¡£¡±\n",who);
+			parter->targetted_action("$Nå¯¹$tè¯´é“ï¼šâ€œ$c, ä½ ç°åœ¨å¾ˆé¥¿ï¼Œä½ å…ˆåƒäº›ä¸œè¥¿å§ã€‚â€\n",who);
 			return;
 		}
 		if(!w_drink){
-			parter->targetted_action("$N¶Ô$tËµµÀ£º¡°$c, ÄãÏÖÔÚºÜ¿Ê£¬ÄãÏÈºÈĞ©¶«Î÷°É¡£¡±\n",who);
+			parter->targetted_action("$Nå¯¹$tè¯´é“ï¼šâ€œ$c, ä½ ç°åœ¨å¾ˆæ¸´ï¼Œä½ å…ˆå–äº›ä¸œè¥¿å§ã€‚â€\n",who);
 			return;
 		}
 		if(!p_food){
-			parter->targetted_action("$N¶Ô$tËµµÀ£º¡°$c, ÎÒÏÖÔÚºÜ¶ö£¬µÈÎÒ³ÔĞ©¶«Î÷ÔÙËµ°É¡£¡±\n",who);
+			parter->targetted_action("$Nå¯¹$tè¯´é“ï¼šâ€œ$c, æˆ‘ç°åœ¨å¾ˆé¥¿ï¼Œç­‰æˆ‘åƒäº›ä¸œè¥¿å†è¯´å§ã€‚â€\n",who);
 			return;
 		}
 		if(!p_drink){
-			parter->targetted_action("$N¶Ô$tËµµÀ£º¡°$c, ÎÒÏÖÔÚºÜ¿Ê£¬µÈÎÒºÈĞ©¶«Î÷ÔÙËµ°É¡£¡±\n",who);
+			parter->targetted_action("$Nå¯¹$tè¯´é“ï¼šâ€œ$c, æˆ‘ç°åœ¨å¾ˆæ¸´ï¼Œç­‰æˆ‘å–äº›ä¸œè¥¿å†è¯´å§ã€‚â€\n",who);
 			return;
 		}
 
@@ -59,20 +59,20 @@ void ask_sleep(object who, object parter)
 		p_hp=parter->query_cur_hp();
 		if((w_hp*100<who->query_cur_max_hp()*90)
 			||(who->query_cur_mp()*100<who->query_cur_max_mp()*90)){
-			parter->targetted_action("$N¶Ô$tËµµÀ£º¡°$c, ÄãÏÖÔÚÌåÁ¦²»³äÅæ£¬ÏÈĞİÏ¢Ò»ÏÂ°É¡£¡±\n",who);
+			parter->targetted_action("$Nå¯¹$tè¯´é“ï¼šâ€œ$c, ä½ ç°åœ¨ä½“åŠ›ä¸å……æ²›ï¼Œå…ˆä¼‘æ¯ä¸€ä¸‹å§ã€‚â€\n",who);
 			return;
 		}
 		if((p_hp*100<parter->query_cur_max_hp()*90)
 			||(parter->query_cur_mp()*100<parter->query_cur_max_mp()*90)){
-			parter->targetted_action("$N¶Ô$tËµµÀ£º¡°$c, ÎÒÏÖÔÚÌåÁ¦²»³äÅæ£¬µÈ»á¶ùÔÙËµ°É¡£¡±\n",who);
+			parter->targetted_action("$Nå¯¹$tè¯´é“ï¼šâ€œ$c, æˆ‘ç°åœ¨ä½“åŠ›ä¸å……æ²›ï¼Œç­‰ä¼šå„¿å†è¯´å§ã€‚â€\n",who);
 			return;
 		}
 		conform_sleep(who,parter);
 	}else	if(w_gender==p_gender)
-		parter->targetted_action("$N¶Ô$tºÈµÀ£º$r,ÄãÄÔ×ÓÓĞ²¡°¡£¡\n",who);
+		parter->targetted_action("$Nå¯¹$tå–é“ï¼š$r,ä½ è„‘å­æœ‰ç—…å•Šï¼\n",who);
 	else if (w_gender==1)
-		parter->targetted_action("$NÉ«ÃÔÃÔµØ¶Ô$tĞ¦µÀ£ºÎÒºÃÏëÄã£¡\n",who);
-	else parter->targetted_action("$NÀ÷Éù¶Ô$tºÈµÀ£ºÁ÷Ã¥£¬ÀëÎÒÔ¶µã£¡\n",who);
+		parter->targetted_action("$Nè‰²è¿·è¿·åœ°å¯¹$tç¬‘é“ï¼šæˆ‘å¥½æƒ³ä½ ï¼\n",who);
+	else parter->targetted_action("$Nå‰å£°å¯¹$tå–é“ï¼šæµæ°“ï¼Œç¦»æˆ‘è¿œç‚¹ï¼\n",who);
 	return;
 }
 
@@ -81,7 +81,7 @@ void conform_sleep(object who,object parter){
 	w_id=who->query_primary_id();
 	p_id=parter->query_primary_id();
 	who->set_answer(p_id,  (:sleep:) );
-	tell_user(p_id,"ÄãÔ¸Òâ¾ÍÇëÊäÈë answer yes to "+w_id+"¡£\n");
+	tell_user(p_id,"ä½ æ„¿æ„å°±è¯·è¾“å…¥ answer yes to "+w_id+"ã€‚\n");
 }
 
 void sleep(object parter,object who,string ans){
@@ -89,12 +89,12 @@ void sleep(object parter,object who,string ans){
 	{
 		case "yes":
 		case "y":
-//			who->targetted_action("$NÎÂÈáµØ¶Ô$TµÀ£º$c,ºÃ°É¡£\n",parter);
+//			who->targetted_action("$Næ¸©æŸ”åœ°å¯¹$Té“ï¼š$c,å¥½å§ã€‚\n",parter);
 			run_sleep(who,parter);
 			who->clear_answer();
 			return;
 		default:
-//			who->targetted_action("$NÒÅº¶µØ¶Ô$TµÀ£º$c£¬ÏÖÔÚ²»ĞĞ¡£\n",parter);
+//			who->targetted_action("$Né—æ†¾åœ°å¯¹$Té“ï¼š$cï¼Œç°åœ¨ä¸è¡Œã€‚\n",parter);
 			who->clear_answer();
 		return;
 	}
@@ -114,12 +114,12 @@ void run_sleep(object who, object parter){
 	who->responda("sit on bed");
 	parter->responda("sit on bed");
 	if(p_gender==1) { // male
-		parter->targetted_action("$NÆÈ²»¼°´ıµØ±§×¡$t³àÂãÂãµÄÉíÌå¡£¡£¡£\n",who);
+		parter->targetted_action("$Nè¿«ä¸åŠå¾…åœ°æŠ±ä½$tèµ¤è£¸è£¸çš„èº«ä½“ã€‚ã€‚ã€‚\n",who);
 	}else{
-		who->targetted_action("$NÆÈ²»¼°´ıµØ±§×¡$t³àÂãÂãµÄÉíÌå¡£¡£¡£\n",parter);
+		who->targetted_action("$Nè¿«ä¸åŠå¾…åœ°æŠ±ä½$tèµ¤è£¸è£¸çš„èº«ä½“ã€‚ã€‚ã€‚\n",parter);
 	}
-	parter->start_busy(sleeptime, "ÄãÕıÔÚĞĞ·¿ÖĞ¡£\n");
-	who->start_busy(sleeptime, "ÄãÕıÔÚĞĞ·¿ÖĞ¡£\n");
+	parter->start_busy(sleeptime, "ä½ æ­£åœ¨è¡Œæˆ¿ä¸­ã€‚\n");
+	who->start_busy(sleeptime, "ä½ æ­£åœ¨è¡Œæˆ¿ä¸­ã€‚\n");
 	parter->set_cur_hp(0);
 	who->set_cur_hp(0);
 	parter->set_cur_mp(0);
@@ -132,7 +132,7 @@ void the_end1(string id){
 	object o=find_body(id);
 	if(!objectp(o))
 		return;
-	o->simple_action("$NÀÛµÄÒ»µã¾¢¶¼Ã»ÁË¡£\n");
+	o->simple_action("$Nç´¯çš„ä¸€ç‚¹åŠ²éƒ½æ²¡äº†ã€‚\n");
 	if(o->query_gender()!=1)
 		if(random(40)==1) o->set_gravidity();
 	return;
@@ -142,7 +142,7 @@ void the_end2(string id){
 	object o=find_body(id);
 	if(!objectp(o))
 		return;
-	o->simple_action("$NÀÛµÄÒ»µã¾¢¶¼Ã»ÁË¡£\n");
+	o->simple_action("$Nç´¯çš„ä¸€ç‚¹åŠ²éƒ½æ²¡äº†ã€‚\n");
 	if(o->query_gender()!=1)
 		if(random(40)==1) o->set_gravidity();
 	return;

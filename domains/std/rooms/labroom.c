@@ -4,7 +4,7 @@
 inherit INDOOR_ROOM;
 
 void setup(int x, int y, int north, int east, int south, int west) {
-    string array dirs = ({ });
+    string * dirs = ({ });
     
 
     printf("[%c%c%c%c]\n", north, east, south, west);
@@ -25,8 +25,8 @@ void setup(int x, int y, int north, int east, int south, int west) {
         add_exit("west", __DIR__ + "labyrinth/" + (x-1) + "," + y);
         dirs += ({ "west" });
     }
-    set_brief("迷宫");
-    set_long("你走在一道阴暗的走廊里，它通往" + format_list(dirs)+"的方向。\n");
+    set_brief("杩峰");
+    set_long("浣犺蛋鍦ㄤ竴閬撻槾鏆楃殑璧板粖閲岋紝瀹冮�氬線" + format_list(dirs)+"鐨勬柟鍚戙�俓n");
 }
      
             

@@ -3,7 +3,7 @@ Purpose: change the formular of transfer goods
 
 Here is the list of files that are modified:
 /daemons/nation_channel_d/tran.c
-ĞŞ¸ÄÁËÕâ¸öÎÄ¼şµÄ¼ÆËã¹«Ê½£¬¶¨ÒåÁËÔËÊäµÄÈı¸ö²ã´ÎµÄËğÊ§¡£
+ä¿®æ”¹äº†è¿™ä¸ªæ–‡ä»¶çš„è®¡ç®—å…¬å¼ï¼Œå®šä¹‰äº†è¿è¾“çš„ä¸‰ä¸ªå±‚æ¬¡çš„æŸå¤±ã€‚
 
 /help/player/sanguo/meeting/transfer
-ĞŞ¸ÄÁËÕâ¸ö°ïÖúÎÄ¼ş£¬ÒÔ·ûºÏtran.c µÄĞŞ¸Ä¡£
+ä¿®æ”¹äº†è¿™ä¸ªå¸®åŠ©æ–‡ä»¶ï¼Œä»¥ç¬¦åˆtran.c çš„ä¿®æ”¹ã€‚

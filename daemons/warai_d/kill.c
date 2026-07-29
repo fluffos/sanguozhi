@@ -27,7 +27,7 @@ void clear_empty_troop(int* t)
             task_id=TROOP_D->get_troops(t[i],"task_id");	
             war_inf(task_id,
 	      TROOP_D->find_troop(t[i])->query_id()[1]+
-	       "±»»÷À£ÁË£®","b");
+	       "è¢«å‡»æºƒäº†ï¼","b");
             {
                mixed army;
                if(TROOP_D->get_troops(t[i],"side")=="a")
@@ -114,10 +114,10 @@ void general_attack_kill(int p_id, string dir)
 	p_kill=TROOP_D->attack_troops(t,p_kill,"general");
     mess=get_generl_infomation(p_id,dir);
     info_troop(p_id,mess);
-    info_troop(p_id,"%^H_GREEN%^¼ßÃğµĞ¾ü"+CHINESE_D->chinese_number(p_kill)+"ÈË£®%^RESET%^\n");
+    info_troop(p_id,"%^H_GREEN%^æ­¼ç­æ•Œå†›"+CHINESE_D->chinese_number(p_kill)+"äººï¼%^RESET%^\n");
     mess=get_generl_infomation_b(p_id,dir);
     info_troop(t[0],mess);
-    info_troop(t[0],"%^H_RED%^ÎÒ·½ËğÊ§"+CHINESE_D->chinese_number(p_kill)+"ÈË£®%^RESET%^\n");
+    info_troop(t[0],"%^H_RED%^æˆ‘æ–¹æŸå¤±"+CHINESE_D->chinese_number(p_kill)+"äººï¼%^RESET%^\n");
     clear_empty_troop(t);
 }
 
@@ -137,12 +137,12 @@ void general_attack_kill_back(int p_id,string dir)
     p_kill=p_kill/2;
 	p_kill=TROOP_D->attack_troops(({p_id}),p_kill,"general");
 
-    info_troop(t[0],"ÎÒ·½½«Ê¿·ÜÆğ»¹»÷£®");
-    info_troop(t[0],"%^H_GREEN%^¼ßÃğµĞ¾ü"+TROOP_D->find_troop(p_id)->query_id()[1]+
-        CHINESE_D->chinese_number(p_kill)+"ÈË£®%^RESET%^\n");
-    info_troop(p_id,"µĞ¾ü·è¿ñ·´ÆË£®");
-    info_troop(p_id,"%^H_RED%^ÎÒ·½"+TROOP_D->find_troop(p_id)->query_id()[1]+
-       "ËğÊ§"+CHINESE_D->chinese_number(p_kill)+"ÈË£®%^RESET%^\n");
+    info_troop(t[0],"æˆ‘æ–¹å°†å£«å¥‹èµ·è¿˜å‡»ï¼");
+    info_troop(t[0],"%^H_GREEN%^æ­¼ç­æ•Œå†›"+TROOP_D->find_troop(p_id)->query_id()[1]+
+        CHINESE_D->chinese_number(p_kill)+"äººï¼%^RESET%^\n");
+    info_troop(p_id,"æ•Œå†›ç–¯ç‹‚åæ‰‘ï¼");
+    info_troop(p_id,"%^H_RED%^æˆ‘æ–¹"+TROOP_D->find_troop(p_id)->query_id()[1]+
+       "æŸå¤±"+CHINESE_D->chinese_number(p_kill)+"äººï¼%^RESET%^\n");
     clear_empty_troop(({p_id}));
 }
 #endif 
@@ -151,15 +151,15 @@ void general_attack_kill_back( int p_id,string dir )
 {
     int p_kill;
     int *t,i,sum;
-    string* p_strlstTrpLeader;  // ½«Áì id ¼¯
+    string* p_strlstTrpLeader;  // å°†é¢† id é›†
     string p_strId;
     int p_nLeaderNum = 0;
-    string* p_strlstTrpType;  // ²¿¶Ó±øÖÖ¼¯
+    string* p_strlstTrpType;  // éƒ¨é˜Ÿå…µç§é›†
     string p_strType;
-    mixed p_soldiers;  // ²¿¶ÓÖĞ¸÷±øÖÖ·Ö¶Ó  
+    mixed p_soldiers;  // éƒ¨é˜Ÿä¸­å„å…µç§åˆ†é˜Ÿ  
     int is_npc = 1;
     
-    // xiaobai: ²¿¶ÓÏÖÔÚ¶¼ÊÇµ¥Ò»±øÖÖ£¬¿´ p_id ²¿¶ÓµÄ±øÖÖ, Ö»¿´µÚÒ»·Ö¶Ó
+    // xiaobai: éƒ¨é˜Ÿç°åœ¨éƒ½æ˜¯å•ä¸€å…µç§ï¼Œçœ‹ p_id éƒ¨é˜Ÿçš„å…µç§, åªçœ‹ç¬¬ä¸€åˆ†é˜Ÿ
     p_soldiers = TROOP_D->get_troops(p_id,"soldier");
     p_strlstTrpType = keys(p_soldiers);
     p_strType = p_strlstTrpType[0];
@@ -180,7 +180,7 @@ void general_attack_kill_back( int p_id,string dir )
                 foreach( p_strId in p_strlstTrpLeader )
                 {
 #ifdef _DEBUG_ID
-        tell_user( _DEBUG_ID, sprintf( "½«Áì %s ÊÇ npc : %d ¡£", p_strId, ( CHAR_D->get_char_status( p_strId ) != STATUS_ONLINE ) ) );        
+        tell_user( _DEBUG_ID, sprintf( "å°†é¢† %s æ˜¯ npc : %d ã€‚", p_strId, ( CHAR_D->get_char_status( p_strId ) != STATUS_ONLINE ) ) );        
 #endif
                     if ( CHAR_D->get_char_status( p_strId ) == STATUS_ONLINE )
                     {
@@ -193,11 +193,11 @@ void general_attack_kill_back( int p_id,string dir )
                 
                 if ( is_npc )
                 {
-                    // xiaobai: ¶Ô¹­±øµÄ·´»÷£¬Éè¶¨ÎªÆÕÍ¨µÄÒ»°ë                
+                    // xiaobai: å¯¹å¼“å…µçš„åå‡»ï¼Œè®¾å®šä¸ºæ™®é€šçš„ä¸€åŠ                
                     p_kill += TROOP_D->get_attack_rate(t[i],"general")/2;
                     
-                    info_troop( t[i], "·¢ÏÖµĞ¾ü¹­±øÕóµØ, ÊØÎÀ²¿¶Ó¹öÄ¾ÀŞÊ¯×¼±¸¾ÍĞ÷£®");
-    	            info_troop( p_id, "¹­±øÕóµØ±»µĞ¾ü·¢ÏÖ, µĞ¾ü´óÓª³öÏÖ¹öÄ¾ÀŞÊ¯£®");
+                    info_troop( t[i], "å‘ç°æ•Œå†›å¼“å…µé˜µåœ°, å®ˆå«éƒ¨é˜Ÿæ»šæœ¨æ“‚çŸ³å‡†å¤‡å°±ç»ªï¼");
+    	            info_troop( p_id, "å¼“å…µé˜µåœ°è¢«æ•Œå†›å‘ç°, æ•Œå†›å¤§è¥å‡ºç°æ»šæœ¨æ“‚çŸ³ï¼");
                  }
                  break;
 
@@ -214,16 +214,16 @@ void general_attack_kill_back( int p_id,string dir )
         p_kill=p_kill/2;
     	p_kill=TROOP_D->attack_troops(({p_id}),p_kill,"general");
     
-        info_troop(t[0],"ÎÒ·½½«Ê¿·ÜÆğ»¹»÷£®");
-        info_troop(t[0],"%^H_GREEN%^¼ßÃğµĞ¾ü"+TROOP_D->find_troop(p_id)->query_id()[1]+
-            CHINESE_D->chinese_number(p_kill)+"ÈË£®%^RESET%^\n");
-        info_troop(p_id, "µĞ¾ü·è¿ñ·´ÆË£®");
-        info_troop(p_id,"%^H_RED%^ÎÒ·½"+TROOP_D->find_troop(p_id)->query_id()[1]+
-           "ËğÊ§"+CHINESE_D->chinese_number(p_kill)+"ÈË£®%^RESET%^\n");
+        info_troop(t[0],"æˆ‘æ–¹å°†å£«å¥‹èµ·è¿˜å‡»ï¼");
+        info_troop(t[0],"%^H_GREEN%^æ­¼ç­æ•Œå†›"+TROOP_D->find_troop(p_id)->query_id()[1]+
+            CHINESE_D->chinese_number(p_kill)+"äººï¼%^RESET%^\n");
+        info_troop(p_id, "æ•Œå†›ç–¯ç‹‚åæ‰‘ï¼");
+        info_troop(p_id,"%^H_RED%^æˆ‘æ–¹"+TROOP_D->find_troop(p_id)->query_id()[1]+
+           "æŸå¤±"+CHINESE_D->chinese_number(p_kill)+"äººï¼%^RESET%^\n");
         clear_empty_troop(({p_id}));
 
 #ifdef _DEBUG_ID
-        tell_user( _DEBUG_ID, sprintf( "\n¶Ô±øÖÖ %s ½øĞĞ·´»÷£¬É±ÉË %d ÈË¡£\n", p_strType, p_kill ) );        
+        tell_user( _DEBUG_ID, sprintf( "\nå¯¹å…µç§ %s è¿›è¡Œåå‡»ï¼Œæ€ä¼¤ %d äººã€‚\n", p_strType, p_kill ) );        
 #endif
         
     }

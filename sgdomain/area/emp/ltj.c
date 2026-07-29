@@ -6,60 +6,60 @@ inherit LIVING;
 inherit M_BLOCKEXITS;
 
 private mapping m_list=([
-"cz1" : (["name" : "¡¶ÈýÂÔ¡¤³Á×ÅÆª¡·", "skill" : "chenzhuo" , "lev" : 30,"vol" : 1]),
-"cz2" : (["name" : "¡¶ÈýÂÔ¡¤³Á×ÅÆª¡·", "skill" : "chenzhuo" , "lev" : 60,"vol" : 2]),
-"cz3" : (["name" : "¡¶ÈýÂÔ¡¤³Á×ÅÆª¡·", "skill" : "chenzhuo" , "lev" : 90,"vol" : 3]),
-"fire1" : (["name" : "¡¶Ëï×Ó±ø·¨¡¤»ð¹¥Æª¡·", "skill" : "jbhj" , "lev" : 30,"vol" : 1]),
-"fire2" : (["name" : "¡¶Ëï×Ó±ø·¨¡¤»ð¹¥Æª¡·", "skill" : "jbhj" , "lev" : 60,"vol" : 2]),
-"fire3" : (["name" : "¡¶Ëï×Ó±ø·¨¡¤»ð¹¥Æª¡·", "skill" : "jbhj" , "lev" : 90,"vol" : 3]),
-"water1" : (["name" : "¡¶Îâ×Ó±ø·¨¡¤Ë®¹¥Æª¡·", "skill" : "jbsj" , "lev" : 30,"vol" : 1]),
-"water2" : (["name" : "¡¶Îâ×Ó±ø·¨¡¤Ë®¹¥Æª¡·", "skill" : "jbsj" , "lev" : 60,"vol" : 2]),
-"water3" : (["name" : "¡¶Îâ×Ó±ø·¨¡¤Ë®¹¥Æª¡·", "skill" : "jbsj" , "lev" : 90,"vol" : 3]),
-"hl1" : (["name" : "¡¶Áùèº¡¤»ìÂÒÆª¡·", "skill" : "hunluan" , "lev" : 30,"vol" : 1]),
-"hl2" : (["name" : "¡¶Áùèº¡¤»ìÂÒÆª¡·", "skill" : "hunluan" , "lev" : 60,"vol" : 2]),
-"hl3" : (["name" : "¡¶Áùèº¡¤»ìÂÒÆª¡·", "skill" : "hunluan" , "lev" : 90,"vol" : 3]),
-"sq1" : (["name" : "¡¶ÃÏµÂÐÂÊé¡¤Ê¿ÆøÆª¡·", "skill" : "guwu" , "lev" : 30,"vol" : 1]),
-"sq2" : (["name" : "¡¶ÃÏµÂÐÂÊé¡¤Ê¿ÆøÆª¡·", "skill" : "guwu" , "lev" : 60,"vol" : 2]),
-"sq3" : (["name" : "¡¶ÃÏµÂÐÂÊé¡¤Ê¿ÆøÆª¡·", "skill" : "guwu" , "lev" : 90,"vol" : 3]),
-"jm1" : (["name" : "¡¶±ø·¨¶þÊ®ËÄ±à¡¤½ÐÂîÆª¡·", "skill" : "jiaoma" , "lev" : 30,"vol" : 1]),
-"jm2" : (["name" : "¡¶±ø·¨¶þÊ®ËÄ±à¡¤½ÐÂîÆª¡·", "skill" : "jiaoma" , "lev" : 60,"vol" : 2]),
-"jm3" : (["name" : "¡¶±ø·¨¶þÊ®ËÄ±à¡¤½ÐÂîÆª¡·", "skill" : "jiaoma" , "lev" : 90,"vol" : 3]),
-"qb1" : (["name" : "¡¶¹í¹È×Ó¡¤Ææ±øÆª¡·", "skill" : "qibing" , "lev" : 30,"vol" : 1]),
-"qb2" : (["name" : "¡¶¹í¹È×Ó¡¤Ææ±øÆª¡·", "skill" : "qibing" , "lev" : 60,"vol" : 2]),
-"qb3" : (["name" : "¡¶¹í¹È×Ó¡¤Ææ±øÆª¡·", "skill" : "qibing" , "lev" : 90,"vol" : 3]),
-"hb1" : (["name" : "¡¶¹í¹È×Ó¡¤ÒÉ±øÆª¡·", "skill" : "huangbao" , "lev" : 30,"vol" : 1]),
-"hb2" : (["name" : "¡¶¹í¹È×Ó¡¤ÒÉ±øÆª¡·", "skill" : "huangbao" , "lev" : 60,"vol" : 2]),
-"hb3" : (["name" : "¡¶¹í¹È×Ó¡¤ÒÉ±øÆª¡·", "skill" : "huangbao" , "lev" : 90,"vol" : 3]),
-"jcml1" : (["name" : "¡¶Ëï×Ó±ø·¨¡¤¹îµÀÆª¡·", "skill" : "fakeorder" , "lev" : 30,"vol" : 1]),
-"jcml2" : (["name" : "¡¶Ëï×Ó±ø·¨¡¤¹îµÀÆª¡·", "skill" : "fakeorder" , "lev" : 60,"vol" : 2]),
-"jcml3" : (["name" : "¡¶Ëï×Ó±ø·¨¡¤¹îµÀÆª¡·", "skill" : "fakeorder" , "lev" : 90,"vol" : 3]),
-"nh1" : (["name" : "¡¶±ø·¨¶þÊ®ËÄ±à¡¤ÓÃ¼äÆª¡·", "skill" : "neihong" , "lev" : 30,"vol" : 1]),
-"nh2" : (["name" : "¡¶±ø·¨¶þÊ®ËÄ±à¡¤ÓÃ¼äÆª¡·", "skill" : "neihong" , "lev" : 60,"vol" : 2]),
-"nh3" : (["name" : "¡¶±ø·¨¶þÊ®ËÄ±à¡¤ÓÃ¼äÆª¡·", "skill" : "neihong" , "lev" : 90,"vol" : 3]),
-"ss1" : (["name" : "¡¶ÈýÂÔ¡¤ÊÕÊ°Æª¡·", "skill" : "shoushi" , "lev" : 30,"vol" : 1]),
-"ss2" : (["name" : "¡¶ÈýÂÔ¡¤ÊÕÊ°Æª¡·", "skill" : "shoushi" , "lev" : 60,"vol" : 2]),
-"ss3" : (["name" : "¡¶ÈýÂÔ¡¤ÊÕÊ°Æª¡·", "skill" : "shoushi" , "lev" : 90,"vol" : 3]),
-"mf1" : (["name" : "¡¶¹í¹È×Ó¡¤·ü±øÆª¡·", "skill" : "maifu" , "lev" : 30,"vol" : 1]),
-"mf2" : (["name" : "¡¶¹í¹È×Ó¡¤·ü±øÆª¡·", "skill" : "maifu" , "lev" : 60,"vol" : 2]),
-"mf3" : (["name" : "¡¶¹í¹È×Ó¡¤·ü±øÆª¡·", "skill" : "maifu" , "lev" : 90,"vol" : 3]),
-"ff1" : (["name" : "¡¶ÃÏµÂÐÂÊé¡¤·Ü·¢Æª¡·", "skill" : "fenfa" , "lev" : 30,"vol" : 1]),
-"ff2" : (["name" : "¡¶ÃÏµÂÐÂÊé¡¤·Ü·¢Æª¡·", "skill" : "fenfa" , "lev" : 60,"vol" : 2]),
-"ff3" : (["name" : "¡¶ÃÏµÂÐÂÊé¡¤·Ü·¢Æª¡·", "skill" : "fenfa" , "lev" : 90,"vol" : 3]),
-"mh1" : (["name" : "¡¶Îâ×Ó±ø·¨¡¤Ãð»ðÆª¡·", "skill" : "miehuo" , "lev" : 30,"vol" : 1]),
-"mh2" : (["name" : "¡¶Îâ×Ó±ø·¨¡¤Ãð»ðÆª¡·", "skill" : "miehuo" , "lev" : 60,"vol" : 2]),
-"mh3" : (["name" : "¡¶Îâ×Ó±ø·¨¡¤Ãð»ðÆª¡·", "skill" : "miehuo" , "lev" : 90,"vol" : 3]),
-"ls1" : (["name" : "¡¶Áùèº¡¤ÂäÊ¯Æª¡·", "skill" : "luoshi" , "lev" : 30,"vol" : 1]),
-"ls2" : (["name" : "¡¶Áùèº¡¤ÂäÊ¯Æª¡·", "skill" : "luoshi" , "lev" : 60,"vol" : 2]),
-"ls3" : (["name" : "¡¶Áùèº¡¤ÂäÊ¯Æª¡·", "skill" : "luoshi" , "lev" : 90,"vol" : 3]),
-"rs1" : (["name" : "¡¶Ëï×Ó±ø·¨¡¤¾øµØÆª¡·", "skill" : "luanshe" , "lev" : 30,"vol" : 1]),
-"rs2" : (["name" : "¡¶Ëï×Ó±ø·¨¡¤¾øµØÆª¡·", "skill" : "luanshe" , "lev" : 60,"vol" : 2]),
-"rs3" : (["name" : "¡¶Ëï×Ó±ø·¨¡¤¾øµØÆª¡·", "skill" : "luanshe" , "lev" : 90,"vol" : 3]),
-"zc1" : (["name" : "¡¶¹í¹È×Ó¡¤Õì²ìÆª¡·", "skill" : "scout" , "lev" : 30,"vol" : 1]),
-"zc2" : (["name" : "¡¶¹í¹È×Ó¡¤Õì²ìÆª¡·", "skill" : "scout" , "lev" : 60,"vol" : 2]),
-"zc3" : (["name" : "¡¶¹í¹È×Ó¡¤Õì²ìÆª¡·", "skill" : "scout" , "lev" : 90,"vol" : 3]),
-"sg1" : (["name" : "¡¶¹í¹È×Ó¡¤ËÙ¹¥Æª¡·", "skill" : "sugong" , "lev" : 30,"vol" : 1]),
-"sg2" : (["name" : "¡¶¹í¹È×Ó¡¤ËÙ¹¥Æª¡·", "skill" : "sugong" , "lev" : 60,"vol" : 2]),
-"sg3" : (["name" : "¡¶¹í¹È×Ó¡¤ËÙ¹¥Æª¡·", "skill" : "sugong" , "lev" : 90,"vol" : 3]),
+"cz1" : (["name" : "ã€Šä¸‰ç•¥Â·æ²‰ç€ç¯‡ã€‹", "skill" : "chenzhuo" , "lev" : 30,"vol" : 1]),
+"cz2" : (["name" : "ã€Šä¸‰ç•¥Â·æ²‰ç€ç¯‡ã€‹", "skill" : "chenzhuo" , "lev" : 60,"vol" : 2]),
+"cz3" : (["name" : "ã€Šä¸‰ç•¥Â·æ²‰ç€ç¯‡ã€‹", "skill" : "chenzhuo" , "lev" : 90,"vol" : 3]),
+"fire1" : (["name" : "ã€Šå­™å­å…µæ³•Â·ç«æ”»ç¯‡ã€‹", "skill" : "jbhj" , "lev" : 30,"vol" : 1]),
+"fire2" : (["name" : "ã€Šå­™å­å…µæ³•Â·ç«æ”»ç¯‡ã€‹", "skill" : "jbhj" , "lev" : 60,"vol" : 2]),
+"fire3" : (["name" : "ã€Šå­™å­å…µæ³•Â·ç«æ”»ç¯‡ã€‹", "skill" : "jbhj" , "lev" : 90,"vol" : 3]),
+"water1" : (["name" : "ã€Šå´å­å…µæ³•Â·æ°´æ”»ç¯‡ã€‹", "skill" : "jbsj" , "lev" : 30,"vol" : 1]),
+"water2" : (["name" : "ã€Šå´å­å…µæ³•Â·æ°´æ”»ç¯‡ã€‹", "skill" : "jbsj" , "lev" : 60,"vol" : 2]),
+"water3" : (["name" : "ã€Šå´å­å…µæ³•Â·æ°´æ”»ç¯‡ã€‹", "skill" : "jbsj" , "lev" : 90,"vol" : 3]),
+"hl1" : (["name" : "ã€Šå…­éŸ¬Â·æ··ä¹±ç¯‡ã€‹", "skill" : "hunluan" , "lev" : 30,"vol" : 1]),
+"hl2" : (["name" : "ã€Šå…­éŸ¬Â·æ··ä¹±ç¯‡ã€‹", "skill" : "hunluan" , "lev" : 60,"vol" : 2]),
+"hl3" : (["name" : "ã€Šå…­éŸ¬Â·æ··ä¹±ç¯‡ã€‹", "skill" : "hunluan" , "lev" : 90,"vol" : 3]),
+"sq1" : (["name" : "ã€Šå­Ÿå¾·æ–°ä¹¦Â·å£«æ°”ç¯‡ã€‹", "skill" : "guwu" , "lev" : 30,"vol" : 1]),
+"sq2" : (["name" : "ã€Šå­Ÿå¾·æ–°ä¹¦Â·å£«æ°”ç¯‡ã€‹", "skill" : "guwu" , "lev" : 60,"vol" : 2]),
+"sq3" : (["name" : "ã€Šå­Ÿå¾·æ–°ä¹¦Â·å£«æ°”ç¯‡ã€‹", "skill" : "guwu" , "lev" : 90,"vol" : 3]),
+"jm1" : (["name" : "ã€Šå…µæ³•äºŒåå››ç¼–Â·å«éª‚ç¯‡ã€‹", "skill" : "jiaoma" , "lev" : 30,"vol" : 1]),
+"jm2" : (["name" : "ã€Šå…µæ³•äºŒåå››ç¼–Â·å«éª‚ç¯‡ã€‹", "skill" : "jiaoma" , "lev" : 60,"vol" : 2]),
+"jm3" : (["name" : "ã€Šå…µæ³•äºŒåå››ç¼–Â·å«éª‚ç¯‡ã€‹", "skill" : "jiaoma" , "lev" : 90,"vol" : 3]),
+"qb1" : (["name" : "ã€Šé¬¼è°·å­Â·å¥‡å…µç¯‡ã€‹", "skill" : "qibing" , "lev" : 30,"vol" : 1]),
+"qb2" : (["name" : "ã€Šé¬¼è°·å­Â·å¥‡å…µç¯‡ã€‹", "skill" : "qibing" , "lev" : 60,"vol" : 2]),
+"qb3" : (["name" : "ã€Šé¬¼è°·å­Â·å¥‡å…µç¯‡ã€‹", "skill" : "qibing" , "lev" : 90,"vol" : 3]),
+"hb1" : (["name" : "ã€Šé¬¼è°·å­Â·ç–‘å…µç¯‡ã€‹", "skill" : "huangbao" , "lev" : 30,"vol" : 1]),
+"hb2" : (["name" : "ã€Šé¬¼è°·å­Â·ç–‘å…µç¯‡ã€‹", "skill" : "huangbao" , "lev" : 60,"vol" : 2]),
+"hb3" : (["name" : "ã€Šé¬¼è°·å­Â·ç–‘å…µç¯‡ã€‹", "skill" : "huangbao" , "lev" : 90,"vol" : 3]),
+"jcml1" : (["name" : "ã€Šå­™å­å…µæ³•Â·è¯¡é“ç¯‡ã€‹", "skill" : "fakeorder" , "lev" : 30,"vol" : 1]),
+"jcml2" : (["name" : "ã€Šå­™å­å…µæ³•Â·è¯¡é“ç¯‡ã€‹", "skill" : "fakeorder" , "lev" : 60,"vol" : 2]),
+"jcml3" : (["name" : "ã€Šå­™å­å…µæ³•Â·è¯¡é“ç¯‡ã€‹", "skill" : "fakeorder" , "lev" : 90,"vol" : 3]),
+"nh1" : (["name" : "ã€Šå…µæ³•äºŒåå››ç¼–Â·ç”¨é—´ç¯‡ã€‹", "skill" : "neihong" , "lev" : 30,"vol" : 1]),
+"nh2" : (["name" : "ã€Šå…µæ³•äºŒåå››ç¼–Â·ç”¨é—´ç¯‡ã€‹", "skill" : "neihong" , "lev" : 60,"vol" : 2]),
+"nh3" : (["name" : "ã€Šå…µæ³•äºŒåå››ç¼–Â·ç”¨é—´ç¯‡ã€‹", "skill" : "neihong" , "lev" : 90,"vol" : 3]),
+"ss1" : (["name" : "ã€Šä¸‰ç•¥Â·æ”¶æ‹¾ç¯‡ã€‹", "skill" : "shoushi" , "lev" : 30,"vol" : 1]),
+"ss2" : (["name" : "ã€Šä¸‰ç•¥Â·æ”¶æ‹¾ç¯‡ã€‹", "skill" : "shoushi" , "lev" : 60,"vol" : 2]),
+"ss3" : (["name" : "ã€Šä¸‰ç•¥Â·æ”¶æ‹¾ç¯‡ã€‹", "skill" : "shoushi" , "lev" : 90,"vol" : 3]),
+"mf1" : (["name" : "ã€Šé¬¼è°·å­Â·ä¼å…µç¯‡ã€‹", "skill" : "maifu" , "lev" : 30,"vol" : 1]),
+"mf2" : (["name" : "ã€Šé¬¼è°·å­Â·ä¼å…µç¯‡ã€‹", "skill" : "maifu" , "lev" : 60,"vol" : 2]),
+"mf3" : (["name" : "ã€Šé¬¼è°·å­Â·ä¼å…µç¯‡ã€‹", "skill" : "maifu" , "lev" : 90,"vol" : 3]),
+"ff1" : (["name" : "ã€Šå­Ÿå¾·æ–°ä¹¦Â·å¥‹å‘ç¯‡ã€‹", "skill" : "fenfa" , "lev" : 30,"vol" : 1]),
+"ff2" : (["name" : "ã€Šå­Ÿå¾·æ–°ä¹¦Â·å¥‹å‘ç¯‡ã€‹", "skill" : "fenfa" , "lev" : 60,"vol" : 2]),
+"ff3" : (["name" : "ã€Šå­Ÿå¾·æ–°ä¹¦Â·å¥‹å‘ç¯‡ã€‹", "skill" : "fenfa" , "lev" : 90,"vol" : 3]),
+"mh1" : (["name" : "ã€Šå´å­å…µæ³•Â·ç­ç«ç¯‡ã€‹", "skill" : "miehuo" , "lev" : 30,"vol" : 1]),
+"mh2" : (["name" : "ã€Šå´å­å…µæ³•Â·ç­ç«ç¯‡ã€‹", "skill" : "miehuo" , "lev" : 60,"vol" : 2]),
+"mh3" : (["name" : "ã€Šå´å­å…µæ³•Â·ç­ç«ç¯‡ã€‹", "skill" : "miehuo" , "lev" : 90,"vol" : 3]),
+"ls1" : (["name" : "ã€Šå…­éŸ¬Â·è½çŸ³ç¯‡ã€‹", "skill" : "luoshi" , "lev" : 30,"vol" : 1]),
+"ls2" : (["name" : "ã€Šå…­éŸ¬Â·è½çŸ³ç¯‡ã€‹", "skill" : "luoshi" , "lev" : 60,"vol" : 2]),
+"ls3" : (["name" : "ã€Šå…­éŸ¬Â·è½çŸ³ç¯‡ã€‹", "skill" : "luoshi" , "lev" : 90,"vol" : 3]),
+"rs1" : (["name" : "ã€Šå­™å­å…µæ³•Â·ç»åœ°ç¯‡ã€‹", "skill" : "luanshe" , "lev" : 30,"vol" : 1]),
+"rs2" : (["name" : "ã€Šå­™å­å…µæ³•Â·ç»åœ°ç¯‡ã€‹", "skill" : "luanshe" , "lev" : 60,"vol" : 2]),
+"rs3" : (["name" : "ã€Šå­™å­å…µæ³•Â·ç»åœ°ç¯‡ã€‹", "skill" : "luanshe" , "lev" : 90,"vol" : 3]),
+"zc1" : (["name" : "ã€Šé¬¼è°·å­Â·ä¾¦å¯Ÿç¯‡ã€‹", "skill" : "scout" , "lev" : 30,"vol" : 1]),
+"zc2" : (["name" : "ã€Šé¬¼è°·å­Â·ä¾¦å¯Ÿç¯‡ã€‹", "skill" : "scout" , "lev" : 60,"vol" : 2]),
+"zc3" : (["name" : "ã€Šé¬¼è°·å­Â·ä¾¦å¯Ÿç¯‡ã€‹", "skill" : "scout" , "lev" : 90,"vol" : 3]),
+"sg1" : (["name" : "ã€Šé¬¼è°·å­Â·é€Ÿæ”»ç¯‡ã€‹", "skill" : "sugong" , "lev" : 30,"vol" : 1]),
+"sg2" : (["name" : "ã€Šé¬¼è°·å­Â·é€Ÿæ”»ç¯‡ã€‹", "skill" : "sugong" , "lev" : 60,"vol" : 2]),
+"sg3" : (["name" : "ã€Šé¬¼è°·å­Â·é€Ÿæ”»ç¯‡ã€‹", "skill" : "sugong" , "lev" : 90,"vol" : 3]),
 ]);
 
 private mixed handle_blocks( string dir )
@@ -68,7 +68,7 @@ private mixed handle_blocks( string dir )
         o=present("cang shu",this_body());
 	if(objectp(o)) {
 		this_body()->targetted_action(
-"$N°Ñ$O½»¸øÁË$T¡£\n",this_object(),o);
+"$NæŠŠ$Oäº¤ç»™äº†$Tã€‚\n",this_object(),o);
 		o->remove();
 	}
 	return 0;
@@ -76,24 +76,24 @@ private mixed handle_blocks( string dir )
 
 void setup()
 {
-        set_name("lao taijian", "ÀÏÌ«¼à");
+        set_name("lao taijian", "è€å¤ªç›‘");
         set_gender(0);
-        set_in_room_desc("ÀÏÌ«¼à(lao taijian)");
+        set_in_room_desc("è€å¤ªç›‘(lao taijian)");
         set_age(60);
     add_id("taijian");
         add_question("book","book");
-        add_ask_str("book","$N¶Ô$TµÀ£ºÃÉÊ¥ÉÏ¶÷×¼£¬ÌØÀ´ÓùÊé·¿½è±øÊéÒ»¶Á¡£ÓÐÀÍ¹«¹«ÁË¡£\n");
+        add_ask_str("book","$Nå¯¹$Té“ï¼šè’™åœ£ä¸Šæ©å‡†ï¼Œç‰¹æ¥å¾¡ä¹¦æˆ¿å€Ÿå…µä¹¦ä¸€è¯»ã€‚æœ‰åŠ³å…¬å…¬äº†ã€‚\n");
         add_question("list1","list1");
-        add_ask_str("list1","$N¶Ô$TµÀ£ºÇëÎÊ¹«¹«¶¼ÓÐÐ©Ê²Ã´±øÊéÑ½¡£\n");
+        add_ask_str("list1","$Nå¯¹$Té“ï¼šè¯·é—®å…¬å…¬éƒ½æœ‰äº›ä»€ä¹ˆå…µä¹¦å‘€ã€‚\n");
         add_question("list2","list2");
-        add_ask_str("list2","$N¶Ô$TµÀ£ºÇëÎÊ¹«¹«¶¼ÓÐÐ©Ê²Ã´±øÊéÑ½¡£\n");
+        add_ask_str("list2","$Nå¯¹$Té“ï¼šè¯·é—®å…¬å…¬éƒ½æœ‰äº›ä»€ä¹ˆå…µä¹¦å‘€ã€‚\n");
         add_question("list3","list3");
-        add_ask_str("list3","$N¶Ô$TµÀ£ºÇëÎÊ¹«¹«¶¼ÓÐÐ©Ê²Ã´±øÊéÑ½¡£\n");
+        add_ask_str("list3","$Nå¯¹$Té“ï¼šè¯·é—®å…¬å…¬éƒ½æœ‰äº›ä»€ä¹ˆå…µä¹¦å‘€ã€‚\n");
         add_block("south");
 
 }
 string long() {
-        return "Ò»¸ö´ÈÃ¼ÉÆÄ¿µÄÀÏÌ«¼à£¬ÊÖÖ´·÷³¾£¬¶Ô×ÅÄãÎ¢Î¢Ò»Ð¦¡£\n";
+        return "ä¸€ä¸ªæ…ˆçœ‰å–„ç›®çš„è€å¤ªç›‘ï¼Œæ‰‹æ‰§æ‹‚å°˜ï¼Œå¯¹ç€ä½ å¾®å¾®ä¸€ç¬‘ã€‚\n";
 }
 void input_book(object who, string str) {
 	object u,bk,shoyu;
@@ -107,7 +107,7 @@ void input_book(object who, string str) {
 	list=keys(m_list);
 	if(member_array(str,list)==-1) {
 		this_object()->targetted_action(
-"$N¶Ô$TµÀ£º$RËùÐè±øÊé£¬ÎÒÔõÃ´´ÓÃ»ÌýËµ¹ýÑ½¡£\n",who);
+"$Nå¯¹$Té“ï¼š$Ræ‰€éœ€å…µä¹¦ï¼Œæˆ‘æ€Žä¹ˆä»Žæ²¡å¬è¯´è¿‡å‘€ã€‚\n",who);
 		return;
 	}
 	 shoyu=present("ysf pass",who);
@@ -119,11 +119,11 @@ void input_book(object who, string str) {
                 shoyu->remove();
 		}
 	bk=new(BOOK_FILE);
-	bk->add_id(m_list[str]["name"]+"µÚ"+chinese_number(m_list[str]["vol"])+"¾í");
+	bk->add_id(m_list[str]["name"]+"ç¬¬"+chinese_number(m_list[str]["vol"])+"å·");
 	bk->set_skill(m_list[str]["skill"]);
 	bk->set_lev(m_list[str]["lev"]);
-	who->targetted_action("$N¶Ô$TËµÁËÐ©Ê²Ã´¡£\n",this_object());
-	this_object()->targetted_action("$N½»¸ø$T$O¡£\n",who,bk);
+	who->targetted_action("$Nå¯¹$Tè¯´äº†äº›ä»€ä¹ˆã€‚\n",this_object());
+	this_object()->targetted_action("$Näº¤ç»™$T$Oã€‚\n",who,bk);
 	bk->move(who);
 }
 void ask_book(object who) {
@@ -133,15 +133,15 @@ void ask_book(object who) {
 	shoyu=present("ysf pass",who);
 	if(!objectp(shoyu)) {
 		this_object()->targetted_action(
-"$N¶Ô$TµÀ£ºÃ»ÓÐÊ¥ÉÏµÄÊÖÚÍ£¬ÀÏÅ«²ÅÆñ¸ÒÉÃ×Ô½èÊé¡£\n",who);
+"$Nå¯¹$Té“ï¼šæ²¡æœ‰åœ£ä¸Šçš„æ‰‹è°•ï¼Œè€å¥´æ‰å²‚æ•¢æ“…è‡ªå€Ÿä¹¦ã€‚\n",who);
 		return ;
 	}
 	shoyu->remove();
 	this_object()->targetted_action(
-"$N¶Ô$TµÀ£ººÃËµ£¬ºÃËµ£¬²»Öª$RÒª¶ÁÄÄ²¿±øÊé¡£\n",who);
+"$Nå¯¹$Té“ï¼šå¥½è¯´ï¼Œå¥½è¯´ï¼Œä¸çŸ¥$Rè¦è¯»å“ªéƒ¨å…µä¹¦ã€‚\n",who);
 	u=who->query_link();
 	if(!objectp(u)) return;
-	u->modal_push((: input_book, who :),"ÇëÊäÈëÊé´úºÅ¡£\n");
+	u->modal_push((: input_book, who :),"è¯·è¾“å…¥ä¹¦ä»£å·ã€‚\n");
 }
 
 void ask_list1(object who, int v) {
@@ -149,13 +149,13 @@ void ask_list1(object who, int v) {
 	string *list;
 
 	this_object()->targetted_action(
-"$N¶Ô$TµÀ£ºÕâÀïÊéÊÇ²»ÉÙ£¬±øÊéÈ´²»¶à£¬ÏÖÔÚÓÐÒÔÏÂ¼¸±¾¡£\n",who);
-        msg="id               ÊéÃû\n";
+"$Nå¯¹$Té“ï¼šè¿™é‡Œä¹¦æ˜¯ä¸å°‘ï¼Œå…µä¹¦å´ä¸å¤šï¼ŒçŽ°åœ¨æœ‰ä»¥ä¸‹å‡ æœ¬ã€‚\n",who);
+        msg="id               ä¹¦å\n";
 	list=keys(m_list);
 	foreach(string l in list) {
 		if(m_list[l]["vol"]!=v) continue;
-		msg+=sprintf("%-7s  %-24s %s\n",l,m_list[l]["name"],"µÚ"+
-			chinese_number(m_list[l]["vol"])+"¾í");
+		msg+=sprintf("%-7s  %-24s %s\n",l,m_list[l]["name"],"ç¬¬"+
+			chinese_number(m_list[l]["vol"])+"å·");
 	}
 	tell_user(who->query_primary_id(),msg);
 	return ;

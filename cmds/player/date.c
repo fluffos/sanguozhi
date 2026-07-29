@@ -11,7 +11,7 @@ private void main(string notused)
 	int p_year,p_month,p_day,p_hour,p_w;
 	string s_year,s_month,s_day,s_hour,s_w, w_w;
   
-	array p_date;
+	mixed * p_date;
 	object env;
 	
 	p_date=DAY_D->query_date();
@@ -23,8 +23,8 @@ private void main(string notused)
 	s_month=CHINESE_DA->chinese_number(p_month);
 	s_day=DAY_D->query_string_day();
 	s_hour=DAY_D->query_string_hour();
-	out("£Í£Õ£ÄÊ±¼ä£ºÈı¹úÖ¾"+s_year+"Äê"+s_month+"ÔÂ"+s_day+"£®\n");
-	out("µ±Ç°Ê±³½£º"+s_hour+"£®\n");
+	out("ï¼­ï¼µï¼¤æ—¶é—´ï¼šä¸‰å›½å¿—"+s_year+"å¹´"+s_month+"æœˆ"+s_day+"ï¼\n");
+	out("å½“å‰æ—¶è¾°ï¼š"+s_hour+"ï¼\n");
 	env=environment(this_body());
     if(objectp(env))
     {
@@ -43,6 +43,6 @@ private void main(string notused)
 		p_w=AREA_D->get_area(area_name,"wind");
 		w_w=DAY_D->get_wind_short(p_w);
 	}
-	out("µ±µØÌìÆø£º"+s_w+"£®\n");
-	out("µ±µØ·çÏò£º"+w_w+"£®\n");
+	out("å½“åœ°å¤©æ°”ï¼š"+s_w+"ï¼\n");
+	out("å½“åœ°é£å‘ï¼š"+w_w+"ï¼\n");
 }

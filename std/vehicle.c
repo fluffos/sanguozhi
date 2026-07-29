@@ -14,31 +14,31 @@ inherit NON_ROOM;
 inherit M_SMARTMOVE;
 inherit M_MESSAGES;
 
-private static string arrival_msg;
-private static string departure_msg;
+private nosave string arrival_msg;
+private nosave string departure_msg;
 // Something like: sitting, standing, for: sitting on the horse you see...
 // This is really a gerundive, but we'll call it a verb so as not to confuse
 // people.
-private static string primary_verb;
-private static int notify_all = 1;
+private nosave string primary_verb;
+private nosave int notify_all = 1;
 
 
-static void set_move_notification(int a)
+protected void set_move_notification(int a)
 {
     notify_all = a;
 }
 
-static void set_arrival_msg(string s)
+protected void set_arrival_msg(string s)
 {
   arrival_msg = s;
 }
 
-static void set_departure_msg(string s)
+protected void set_departure_msg(string s)
 {
   departure_msg = s;
 }
 
-static void set_primary_verb(string s)
+protected void set_primary_verb(string s)
 {
   primary_verb = s;
 }
@@ -65,12 +65,12 @@ string *get_player_message(string message, mixed arg) {
     if ( message == "leave" )
       {
     mess = get_arrival_msg() ||  //"The $N $vleave $o.\n";
-                                 "$NÀë¿ªÁË$o¡£\n";
+                                 "$Nç¦»å¼€äº†$oã€‚\n";
       }
     else if ( message == "enter" )
       {
     mess = get_departure_msg() || //"The $N $venter.\n";
-                                  "$N×ßÁË½øÀ´¡£\n";
+                                  "$Nèµ°äº†è¿›æ¥ã€‚\n";
       }
 
     return action( ({ this_object() }), mess, arg);
@@ -92,7 +92,7 @@ int can_travel()
   return 1;
 }
 
-object array get_riders()
+object * get_riders()
 {
   return filter(all_inventory(this_object()), (:$1->is_living():));
 }
@@ -108,9 +108,9 @@ string show_contents()
 string get_riders_as_string()
 {
   // Get the inventory of the horse.
-  object array inv = all_inventory(this_object());
+  object * inv = all_inventory(this_object());
   // Filter out anything that isn't living.
-  object array riders = filter(inv, (: $1->is_living() :));
+  object * riders = filter(inv, (: $1->is_living() :));
 
   if(!sizeof(riders))
     {
@@ -140,7 +140,7 @@ string query_in_room_desc()
     {
       return wrap((base_desc ? base_desc + "\n" : "") +
             (verb ? verb + " " : "") +
-            prep_calc(query_prep(), short() + "Äã¿´µ½£º" +
+            prep_calc(query_prep(), short() + "ä½ çœ‹åˆ°ï¼š" +
             get_riders_as_string()+"."));
     }
 }

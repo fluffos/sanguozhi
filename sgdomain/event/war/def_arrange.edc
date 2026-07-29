@@ -17,14 +17,14 @@ int pre_def_troop_num(int g_num,int arrange_type)
  case 7..9 :    tmp =4;break;
  default   :    tmp = (g_num-1)/3+1;
  }
- //if ((tmp>1)&&(arrange_type ==1)) //±øÉÙ½«¶àµÄÇé¿ö
+ //if ((tmp>1)&&(arrange_type ==1)) //å…µå°‘å°†å¤šçš„æƒ…å†µ
  //   tmp --;
  return tmp;
           
 }
 
 int pre_def_generals_per_troop(int g_num,int t_num)
-{  if (t_num<=0) return 1;  //Íæ¼Ò´´½¨µÄ²¿¶Ó±ÈÔ¤²âµÄ²¿¶Ó¶àÊ±,t_num<=0
+{  if (t_num<=0) return 1;  //ç©å®¶åˆ›å»ºçš„éƒ¨é˜Ÿæ¯”é¢„æµ‹çš„éƒ¨é˜Ÿå¤šæ—¶,t_num<=0
    if (g_num == t_num) return 1;
    else if ((g_num/t_num)<=2)    return 2;
    else return 3; 
@@ -37,18 +37,18 @@ int get_arrange_type(int task_id)
  capatity = WARAI_D->get_max_soldier(TASK_D->get_task(task_id,"def_general_left"))+
             WARAI_D->get_max_soldier(TASK_D->get_task(task_id,"def_leader"));
  TASK_D->set_task(task_id,"capatity",capatity);
- if (max_commando==0) return 1;  //ÑµÁ·Ê±Ã»ÓĞÃñ±ø.Ö±½Ó·µ»Ø1
- if (max_soldier==0) return 1;   //Ã»ÓĞfootmanµÄÇé¿ö,Ö±½Ó·µ»Ø1
+ if (max_commando==0) return 1;  //è®­ç»ƒæ—¶æ²¡æœ‰æ°‘å…µ.ç›´æ¥è¿”å›1
+ if (max_soldier==0) return 1;   //æ²¡æœ‰footmançš„æƒ…å†µ,ç›´æ¥è¿”å›1
  if (capatity >= (max_soldier + max_commando))
-    return 1;  // means ±øÉÙ½«¶à ,±øÁ¦·ÖÅäÊ±°´±ÈÀı·ÖÅä.
- else   //±ø¶à½«ÉÙµÄÇé¿ö, Ã¿¸ö²¿¶ÓµÄÃñ±øºÍĞÂ±ø±ÈÀı±ê×¼Îª1:4
+    return 1;  // means å…µå°‘å°†å¤š ,å…µåŠ›åˆ†é…æ—¶æŒ‰æ¯”ä¾‹åˆ†é….
+ else   //å…µå¤šå°†å°‘çš„æƒ…å†µ, æ¯ä¸ªéƒ¨é˜Ÿçš„æ°‘å…µå’Œæ–°å…µæ¯”ä¾‹æ ‡å‡†ä¸º1:4
  if ((capatity/max_commando)>5)
-    return 2;  //Ãñ±øÊıÁ¿ÉÙ²»µ½1/5µÄË®Æ½,Æ½¾ù·ÖÅäÍêËùÓĞÃñ±ø,È»ºóÊ£ÓàÈ«²¿ÊÇĞÂ±ø.
+    return 2;  //æ°‘å…µæ•°é‡å°‘ä¸åˆ°1/5çš„æ°´å¹³,å¹³å‡åˆ†é…å®Œæ‰€æœ‰æ°‘å…µ,ç„¶åå‰©ä½™å…¨éƒ¨æ˜¯æ–°å…µ.
  else
  if ((max_soldier*5/capatity)<4)
-    return 3;  //Ãñ±øÊıÁ¿³¬1/5µÄË®Æ½,ĞÂ±øÊıÁ¿²»µ½4/5,ÕâÊ±ÏÈ·ÖÅäÍêËùÓĞĞÂ±ø,ÔÙ·ÖÅäÃñ±ø.
+    return 3;  //æ°‘å…µæ•°é‡è¶…1/5çš„æ°´å¹³,æ–°å…µæ•°é‡ä¸åˆ°4/5,è¿™æ—¶å…ˆåˆ†é…å®Œæ‰€æœ‰æ–°å…µ,å†åˆ†é…æ°‘å…µ.
  else
-    return 4;  //Ãñ±øÊıÁ¿³¬1/5Ë®Æ½,ĞÂ±øÒ²³¬4/5,ÕâÊÇÃñĞÂ¸÷°´1/5,4/5µÄ±ÈÀı·ÖÅä.   
+    return 4;  //æ°‘å…µæ•°é‡è¶…1/5æ°´å¹³,æ–°å…µä¹Ÿè¶…4/5,è¿™æ˜¯æ°‘æ–°å„æŒ‰1/5,4/5çš„æ¯”ä¾‹åˆ†é….   
 }
 
 
@@ -65,8 +65,8 @@ void def_arrange_left(int task_id)
    	o_leader = CHAR_D->find_char(p_leader);
 
    	if( objectp(o_leader) ){
-		o_leader->simple_action("$NºÈµÀ£ºÈ«Ìå½«Ê¿¶¨Òª·ÜÓÂÉ±µĞ£¬$s×ÔÓĞÖØÉÍ£¡\n");
-       		o_leader->simple_action("$NÁì½«Ê¿½øÈëÕ½³¡¡£\n");
+		o_leader->simple_action("$Nå–é“ï¼šå…¨ä½“å°†å£«å®šè¦å¥‹å‹‡æ€æ•Œï¼Œ$sè‡ªæœ‰é‡èµï¼\n");
+       		o_leader->simple_action("$Né¢†å°†å£«è¿›å…¥æˆ˜åœºã€‚\n");
    	}
 	TASK_D->set_task(task_id,"start_war","yes");
 
@@ -84,8 +84,8 @@ void def_arrange_left(int task_id)
 	AREA_D->set_area(p_area, "troop", troop);
 
 	TASK_D->set_task(task_id,"msg_total_def_soldiers",
-		"·ÀÊØ·½Ö÷Ë§£º"+CHAR_D->get_char(p_leader,"name")+
-		"¡£·ÀÊØ·½×Ü±øÁ¦£º"+chinese_number(TASK_D->get_task(task_id,"def_total_number")));
+		"é˜²å®ˆæ–¹ä¸»å¸…ï¼š"+CHAR_D->get_char(p_leader,"name")+
+		"ã€‚é˜²å®ˆæ–¹æ€»å…µåŠ›ï¼š"+chinese_number(TASK_D->get_task(task_id,"def_total_number")));
 
 }
 void put_def_troop(int task_id)
@@ -112,14 +112,14 @@ void put_def_troop(int task_id)
 
    	if( (objectp(o_leader))&&(objectp(o_general)) ){
 		if( p_leader == p_general )
-			o_leader->simple_action("$NºÈµÀ£º$sÇ××Ô´ø"+CHINESE_D->chinese_number(total_soldier)+"±øÂí³öÕ½£¡\n");
+			o_leader->simple_action("$Nå–é“ï¼š$säº²è‡ªå¸¦"+CHINESE_D->chinese_number(total_soldier)+"å…µé©¬å‡ºæˆ˜ï¼\n");
 		else {
-       			o_leader->targetted_action("$NºÈµÀ£º$TºÎÔÚ£¿\n",o_general);
-       			o_general->simple_action("$N´ğµÀ£º$sÔÚ£¡\n");
-       			o_leader->targetted_action("$N¶Ô$TµÀ£ºËÙµã"+
-       				CHINESE_D->chinese_number(total_soldier)+"±øÂí³ö±ø£¡\n",o_general);
-       			o_general->simple_action("$N´ğµÀ£ºµÃÁî£¡\n");
-       			o_general->simple_action("$NÁì±ø³ö·¢ÁË¡£\n");
+       			o_leader->targetted_action("$Nå–é“ï¼š$Tä½•åœ¨ï¼Ÿ\n",o_general);
+       			o_general->simple_action("$Nç­”é“ï¼š$såœ¨ï¼\n");
+       			o_leader->targetted_action("$Nå¯¹$Té“ï¼šé€Ÿç‚¹"+
+       				CHINESE_D->chinese_number(total_soldier)+"å…µé©¬å‡ºå…µï¼\n",o_general);
+       			o_general->simple_action("$Nç­”é“ï¼šå¾—ä»¤ï¼\n");
+       			o_general->simple_action("$Né¢†å…µå‡ºå‘äº†ã€‚\n");
 		}
    	}
 
@@ -211,7 +211,7 @@ mixed get_def_val(int task_id)
         		{  //leader troop
         		t_num = pre_def_troop_num(g_num,TASK_D->get_task(task_id,"arrange_type"));
         		if (!t_num) 
-        		   {SGSYS("×Ô¶¯·Ö±ø¾ö²ß¾üÍÅÊı´í!");
+        		   {SGSYS("è‡ªåŠ¨åˆ†å…µå†³ç­–å†›å›¢æ•°é”™!");
         		    t_num = 1;}
 			TASK_D->set_task(task_id,"pre_def_troop_num",t_num);
 		        }
@@ -290,7 +290,7 @@ void def_pre_arrange(int task_id,string def_area)
 	int p_soldier, p_safe, p_people;
         mapping troop;
 	string def_n=AREA_D->get_area(def_area,"nation");
-        //2001.4.19   NPC¹úÔâ¹¥»÷Ê¿±øÊ¿ÆøºÍÑµÁ·¶Èºã¶¨ÔÚ180
+        //2001.4.19   NPCå›½é­æ”»å‡»å£«å…µå£«æ°”å’Œè®­ç»ƒåº¦æ’å®šåœ¨180
 	if (CHAR_D->get_char(def_n,"type")==TYPE_NPC)
 	  {
 	   AREA_D->set_area(def_area,"train",200);
@@ -305,7 +305,7 @@ void def_pre_arrange(int task_id,string def_area)
 		p_people = AREA_D->get_area(def_area, "population");
 		p_people /=10;
 		p_safe=AREA_D->get_area(def_area,"safe");
-		//2001.4.19   NPC¹úÔâ¹¥»÷°²¶¨ºã¶¨Îª200
+		//2001.4.19   NPCå›½é­æ”»å‡»å®‰å®šæ’å®šä¸º200
 		if (CHAR_D->get_char(def_n,"type")==TYPE_NPC)
 		  {
 		   p_safe=200;
@@ -353,17 +353,17 @@ void def_arrange(int task_id)
    	p_short = load_object(p_flyroom)->short();
 
    	if( objectp(o_char )){ 
-		o_char->simple_action("$NµÀ£ºÖîÎ»½«¾ü¡¢´óÈË£¬ËÙµ½"+p_short+"µã½«³ö±ø£¬Î¥ÁîÕß£¬Õ¶£¡£¡\n");
-      		o_char->simple_action("$N´Ò´ÒÀë¿ªÁË¡£\n");
+		o_char->simple_action("$Né“ï¼šè¯¸ä½å°†å†›ã€å¤§äººï¼Œé€Ÿåˆ°"+p_short+"ç‚¹å°†å‡ºå…µï¼Œè¿ä»¤è€…ï¼Œæ–©ï¼ï¼\n");
+      		o_char->simple_action("$NåŒ†åŒ†ç¦»å¼€äº†ã€‚\n");
       		CHAR_D->put_char(def_leader,p_flyroom);
-    		o_char->simple_action("$NÀ´µ½ÁË"+p_short+"¡£\n");
+    		o_char->simple_action("$Næ¥åˆ°äº†"+p_short+"ã€‚\n");
    	}
    	CHAR_D->put_char(def_leader,p_flyroom);
 
    	def_party = TASK_D->get_task(task_id,"def_party");
    	def_general_left = ({ });
-        //2001.4.19 NPC¹ú,²»´øÍæ¼ÒÉÏÕ½³¡
-	if (CHAR_D->get_char(AREA_D->get_area(def_area,"nation"),"type")==TYPE_NPC)  //NPC¹ú¼Ò
+        //2001.4.19 NPCå›½,ä¸å¸¦ç©å®¶ä¸Šæˆ˜åœº
+	if (CHAR_D->get_char(AREA_D->get_area(def_area,"nation"),"type")==TYPE_NPC)  //NPCå›½å®¶
 	   {
 	       def_party = filter_array(def_party,(: CHAR_D->get_char($1,"type")==TYPE_NPC :));
            }
@@ -372,9 +372,9 @@ void def_arrange(int task_id)
       		if( (p_id!=def_leader)&&(p_id!=p_leader) ){
          		o_char = CHAR_D->find_char(p_id);
          		if(objectp(o_char)){
-           			o_char->simple_action("$N´Ò´ÒÀë¿ªÁË¡£\n");
+           			o_char->simple_action("$NåŒ†åŒ†ç¦»å¼€äº†ã€‚\n");
            			CHAR_D->put_char(p_id,p_flyroom);
-           			o_char->simple_action("$NÀ´µ½ÁË"+p_short+"¡£\n");
+           			o_char->simple_action("$Næ¥åˆ°äº†"+p_short+"ã€‚\n");
          				   }
                       	CHAR_D->put_char(p_id,p_flyroom);
          		def_general_left+=({p_id});

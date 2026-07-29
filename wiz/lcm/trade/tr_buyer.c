@@ -28,7 +28,7 @@ void wantGood(object seller, object buyer, string good)
     if (tid == -1)
     {
       seller->targetted_action
-      ("$N¶Ô$TÃÔ»óµÄËµµÀ£ºÄãÓĞ¸úÎÒ×öÉúÒâÂğ£¿\n", buyer);
+      ("$Nå¯¹$Tè¿·æƒ‘çš„è¯´é“ï¼šä½ æœ‰è·Ÿæˆ‘åšç”Ÿæ„å—ï¼Ÿ\n", buyer);
       return;
     }
     seller->clear_answer();
@@ -49,8 +49,8 @@ void requestGood(int tid)
     buyerid = (buyer->query_id())[0];
     sellerid = (seller->query_id())[0];
     seller->targetted_action
-      ("$N¶Ô$TĞ¦×ÅËµµÀ£ºÄãÏë½»»»Ê²Ã´£¿
-ÏëºÃÁË¾ÍÇëÊäÈë answer <ÎïÆ·> to "+sellerid+"\n", buyer);
+      ("$Nå¯¹$Tç¬‘ç€è¯´é“ï¼šä½ æƒ³äº¤æ¢ä»€ä¹ˆï¼Ÿ
+æƒ³å¥½äº†å°±è¯·è¾“å…¥ answer <ç‰©å“> to "+sellerid+"\n", buyer);
     seller->set_answer(buyerid, (:wantGood:) );
 }
 
@@ -66,7 +66,7 @@ void negotiate(object seller, object buyer, string good)
     if (tid == -1)
     {
       seller->targetted_action
-      ("$N¶Ô$TÃÔ»óµÄËµµÀ£ºÄãÓĞ¸úÎÒ×öÉúÒâÂğ£¿\n", buyer);
+      ("$Nå¯¹$Tè¿·æƒ‘çš„è¯´é“ï¼šä½ æœ‰è·Ÿæˆ‘åšç”Ÿæ„å—ï¼Ÿ\n", buyer);
       return;
     }
     seller->clear_answer();
@@ -89,10 +89,10 @@ void response(int tid)
     buyerid = (buyer->query_id())[0];
     sellerid = (seller->query_id())[0];
     seller->targetted_action
-      ("$N¶Ô$TĞ¦×ÅËµµÀ£ºÓÃ"+egood+"À´½»»»£¬¿ÉÒÔÂğ£¿\n
-¿ÉÒÔ¾ÍÇëÊäÈë answer accept to "+sellerid+"\n
-ÏëÒªÖÕÖ¹½»Ò×µÄ»°ÇëÊäÈë answer abort to "+sellerid+"\n
-²»È»Äã¿ÉÒÔÊäÈëÄã¿ÉÒÔ½»»»µÄÎïÆ·\n
-ÏëºÃÁË¾ÍÇëÊäÈë answer <ÎïÆ·> to "+sellerid+"\n", buyer);
+      ("$Nå¯¹$Tç¬‘ç€è¯´é“ï¼šç”¨"+egood+"æ¥äº¤æ¢ï¼Œå¯ä»¥å—ï¼Ÿ\n
+å¯ä»¥å°±è¯·è¾“å…¥ answer accept to "+sellerid+"\n
+æƒ³è¦ç»ˆæ­¢äº¤æ˜“çš„è¯è¯·è¾“å…¥ answer abort to "+sellerid+"\n
+ä¸ç„¶ä½ å¯ä»¥è¾“å…¥ä½ å¯ä»¥äº¤æ¢çš„ç‰©å“\n
+æƒ³å¥½äº†å°±è¯·è¾“å…¥ answer <ç‰©å“> to "+sellerid+"\n", buyer);
     seller->set_answer(buyerid, (:negotiate:) );
 }

@@ -95,7 +95,7 @@
 /wiz/emperor/te.c line 2: parse error before  setup(){
 /wiz/emperor/te.c line 2: parse error before  setup(){
 /wiz/emperor/te.c line 2: parse error before  setup(){
-/wiz/emperor/te.c line 5: Undefined variable 'YEL' before "青青的小木屋"+NOR+"
+/wiz/emperor/te.c line 5: Undefined variable 'YEL' before "闈掗潚鐨勫皬鏈ㄥ眿"+NOR+"
 /wiz/emperor/te.c line 5: Undefined variable 'NOR' before "");
 /wiz/emperor/mm.c line 5: Undefined variable 'FLUBS' before ;  j = 0;  for(i=0, 
 /wiz/emperor/mm.c line 11: parse error before ?    if(j == xishu )
@@ -109,7 +109,7 @@
 /wiz/emperor/speak.c line 48: Undefined variable 'TALK_LOCAL' before  str, lang);
 /wiz/emperor/speak.c line 64: Undefined variable 'TALK_LOCAL' before  str, l);
 /wiz/emperor/speak.c line 75: Undefined function do_speak_in_str_about_str before ;
-/wiz/emperor/speak.c line 94: Undefined variable 'TALK_LOCAL' before  str, "说道", l);
+/wiz/emperor/speak.c line 94: Undefined variable 'TALK_LOCAL' before  str, "璇撮亾", l);
 /wiz/emperor/speak.c line 12: Cannot #include include/speak.h before #include <verb.h>
 /wiz/emperor/speak.c line 14: Cannot #include /c/include/talk_type.h before inherit VERB_OB;
 /wiz/emperor/speak.c line 75: Undefined function do_speak_in_str_about_str before ;

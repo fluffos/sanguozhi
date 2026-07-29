@@ -80,22 +80,22 @@ mixed check_move(object troop, mixed target)
         mixed p_soldier;
         mixed t_here;
         t_id=troop->get_id();
-        if(!stringp(target)) return "Ç°ÃæÃ»Â·¡£\n";
+        if(!stringp(target)) return "å‰é¢æ²¡è·¯ã€‚\n";
         if(!target->is_gridroom())
-                return "²¿¶ÓÖ»ÄÜÔÚÕ½³¡ÉÏ×ß£®\n";
+                return "éƒ¨é˜Ÿåªèƒ½åœ¨æˆ˜åœºä¸Šèµ°ï¼Ž\n";
         env=target;
         pos=env->query_pos();
         a_id=env->query_aid();
         m_here=MAP_D->get_map_cell(a_id, pos[1],pos[0],"m");
-        if(m_here=="¡ù")
-                return "ÌìÏÕ£¬¾ü¶ÓÎÞ·¨½øÈë£®\n";        
+        if(m_here=="â€»")
+                return "å¤©é™©ï¼Œå†›é˜Ÿæ— æ³•è¿›å…¥ï¼Ž\n";        
         t_here=MAP_D->get_map_cell(a_id,pos[1],pos[0],"t");
         if(sizeof(t_here))
         {
            string m_side;
            m_side=TROOP_D->get_troops(t_id,"side");
            if(m_side!=(TROOP_D->get_troops(t_here[0],"side")))
-                return "ÓÐµÐ±ø£¬²»ÄÜÍ¨ÐÐ¡£\n";
+                return "æœ‰æ•Œå…µï¼Œä¸èƒ½é€šè¡Œã€‚\n";
         }
         env=environment(troop);  // other check should be before this
         pos=env->query_pos();
@@ -116,14 +116,14 @@ mixed check_move(object troop, mixed target)
                        ++i;
                 } 
                 if(too_tired)
-                        return "²¿¶ÓÌ«ÀÛÁË£¬ÎÞ·¨ÐÐ¾ü£®\n";
+                        return "éƒ¨é˜Ÿå¤ªç´¯äº†ï¼Œæ— æ³•è¡Œå†›ï¼Ž\n";
                 for(i=0;i<sum;++i)
                 {
                         p_soldier[s_typ[i]]["energy"]-=p_reng;
                 } 
                 TROOP_D->set_troops(t_id,"soldier",p_soldier);
         }
-		troop_busy(t_id,MOV_BUSY_TIME,"²¿¶ÓÕýÐÐ¾üÄØ¡£\n");
+		troop_busy(t_id,MOV_BUSY_TIME,"éƒ¨é˜Ÿæ­£è¡Œå†›å‘¢ã€‚\n");
         return 1;
 }
 int recover_eng(mixed soldier)
@@ -149,7 +149,7 @@ int recover_eng(mixed soldier)
 void troop_busy(int t_id,int p_time,string msg) {
 	string *chars;
 	object o;
-	if(!msg) msg="ÄãµÄ²¿¶ÓÕýÃ¦ÄØ¡£\n";
+	if(!msg) msg="ä½ çš„éƒ¨é˜Ÿæ­£å¿™å‘¢ã€‚\n";
 	chars=TROOP_D->get_troops(t_id,"chars");
 	if(!sizeof(chars)) return;
 	foreach(string ch in chars) {

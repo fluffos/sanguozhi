@@ -14,7 +14,7 @@ varargs string print_tree(string file, string func, int indent) {
     
     if( !file )
     {
-        return "ÄãÒªÖ¸¶¨Ò»¸öÎÄ¼ş¡£\n";
+        return "ä½ è¦æŒ‡å®šä¸€ä¸ªæ–‡ä»¶ã€‚\n";
     }
     
     ob = find_object( file );
@@ -22,7 +22,7 @@ varargs string print_tree(string file, string func, int indent) {
         file = "/" + file;
     
     if (!ob) {
-        return repeat_string("  ", indent) + "ÕÒ²»µ½ÎÄ¼ş: " + file + "\n";
+        return repeat_string("  ", indent) + "æ‰¾ä¸åˆ°æ–‡ä»¶: " + file + "\n";
     }
     result = repeat_string("  ", indent) + file + ":\n";
     if (func && (function_exists(func, ob) + ".c") == file) {
@@ -49,7 +49,7 @@ private void main(mixed *arg) {
     if (arg[1]) {
         file = arg[1];
         func = arg[0];
-        out("×·×Ùº¯Êı " + func + " µÄ¶¨Òå£¬ÎÄ¼ş£º" + file + "\n");
+        out("è¿½è¸ªå‡½æ•° " + func + " çš„å®šä¹‰ï¼Œæ–‡ä»¶ï¼š" + file + "\n");
     } else {
         file = arg[0];
         func = 0;

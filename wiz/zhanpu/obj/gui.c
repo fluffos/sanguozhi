@@ -7,10 +7,10 @@ inherit M_LOCKABLE;
 inherit M_OPENABLE;
 void setup(){
   object ob;
-  set_in_room_desc("Ê³Æ·¹ñ(foodgui)¡£");
-  set_id( "foodgui","Ê³Æ·¹ñ", );
+  set_in_room_desc("é£Ÿå“æŸœ(foodgui)ã€‚");
+  set_id( "foodgui","é£Ÿå“æŸœ", );
   add_id("gui");
-  set_long("\nÕâÊÇÒ»¸ö´ó´óµÄÊ³Æ·¹ñ£¬ÀïÃæÒ»¶¨ÓĞĞí¶àºÃ³ÔµÄ¡£¸Ï¿ì´ò¿ª°É¡£\n");
+  set_long("\nè¿™æ˜¯ä¸€ä¸ªå¤§å¤§çš„é£Ÿå“æŸœï¼Œé‡Œé¢ä¸€å®šæœ‰è®¸å¤šå¥½åƒçš„ã€‚èµ¶å¿«æ‰“å¼€å§ã€‚\n");
   set_relations("in");
   set_max_capacity(SMALL*2);
   ob=new("/wiz/ljty/obj/ljtycandy.c");

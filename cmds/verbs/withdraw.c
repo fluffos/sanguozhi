@@ -20,7 +20,7 @@ void do_withdraw_str(string str)
             {
                 if ((number>200000)||(number<0))
                 {
-                        write("你在本庄没有存这么多钱。！\n");
+                        write("浣犲湪鏈簞娌℃湁瀛樿繖涔堝閽便�傦紒\n");
                         return;
                 }
                 ss=environment(this_body())->withdraw(sentence[1],number);
@@ -39,8 +39,8 @@ void do_withdraw_str(string str)
 	}
     }
         if(!ss)
-        write("只有在钱庄才能取钱。\n");
+        write("鍙湁鍦ㄩ挶搴勬墠鑳藉彇閽便�俓n");
 }
-array query_verb_info() {
+mixed * query_verb_info() {
     return ({ ({ "STR" }) , ({ "qu"}) });
 }

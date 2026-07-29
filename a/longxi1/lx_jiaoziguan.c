@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is »¨¶ù¶ä¶ä
+// driver is èŠ±å„¿æœµæœµ
 // created date is Sat May  7 14:35:05 2011
 #include <mudlib.h>
 #include <ansi.h>
@@ -8,7 +8,7 @@ inherit STORE;
 void setup() {
 set_area("longxi");
 set_light(50);
-set_brief("%^YELLOW%^"+"½È×Ó¹İ"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"é¥ºå­é¦†"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "west":"/a/longxi/lx_beichenjie1.c",

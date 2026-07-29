@@ -1,9 +1,9 @@
 /wiz/ice/exec.c line 6: Undefined variable 'HOUSE_D' before check_house("jzt");}
 /wiz/ice/exec.c line 6: Undefined variable 'HOUSE_D' before get_house("jzt");}
-/wiz/ice/exec.c line 6: parse error before óÎÝ");}
+/wiz/ice/exec.c line 6: parse error before ç¬ª);}
 /wiz/ice/exec.c line 7: End of file in string at the end of the file
 /wiz/ice/exec.c line 6: parse error before daemons/house_d->get
-/wiz/ice/exec.c line 6: parse error before ¬·Æ¶ûÌúËþ");}
+/wiz/ice/exec.c line 6: parse error before îƒ’è´«î¹îŒš);}
 /wiz/ice/exec.c line 7: End of file in string at the end of the file
 /wiz/ice/exec.c line 6: parse error before bingo->set_sg_skill(
 /wiz/ice/exec.c line 6: parse error before bingo->set_sg_skill(
@@ -40,10 +40,10 @@
 /wiz/ice/exec.c line 7: parse error at the end of the file
 /wiz/ice/exec.c line 6: parse error before ;}
 /wiz/ice/exec.c line 6: parse error before }
-/wiz/ice/exec.c line 6: parse error before ¶;}
+/wiz/ice/exec.c line 6: parse error before }
 /wiz/ice/exec.c line 7: End of file in string at the end of the file
 /wiz/ice/exec.c line 7: parse error at the end of the file
-/wiz/ice/exec.c line 6: parse error before æ;}
+/wiz/ice/exec.c line 6: parse error before }
 /wiz/ice/exec.c line 6: parse error before ;}
 /wiz/ice/exec.c line 6: parse error before );}
 /wiz/ice/exec.c line 6: parse error before  ([      "north" : "
@@ -77,9 +77,9 @@
 /wiz/ice/exec.c line 7: parse error at the end of the file
 /wiz/ice/obj/guard.c line 9: Undefined function set_wear before ;
 /wiz/ice/obj/guard.c line 9: Undefined function set_wear before ;
-/wiz/ice/obj/jiading.c line 15: parse error before þ±ù¼Ò  ¼Ò¶¡(jia ding
+/wiz/ice/obj/jiading.c line 15: parse error before î‘¸îŠ­ å®¶ä¸(jia ding
 /wiz/ice/obj/jiading.c line 27: End of file in string at the end of the file
-/wiz/ice/obj/jiading.c line 15: parse error before þ±ù¼Ò  ¼Ò¶¡(jia ding
+/wiz/ice/obj/jiading.c line 15: parse error before î‘¸îŠ­ å®¶ä¸(jia ding
 /wiz/ice/obj/jiading.c line 27: End of file in string at the end of the file
 /wiz/ice/exec.c line 6: Undefined variable 'master' before start(3,1,"changan")
 /wiz/ice/exec.c line 6: Undefined variable 'EV_BWDH' before ->start(3,1,"luoyang
@@ -99,9 +99,9 @@
 /wiz/ice/exec.c line 7: Unexpected end of file at the end of the file
 /wiz/ice/exec.c line 6: Wrong number of macro arguments before ;}
 /wiz/ice/exec.c line 6: Undefined variable 'GETHERE' before }
-/wiz/ice/ex_room.c line 12: Undefined variable 'YEL' before "Õ¹ÀÀÌü"+NOR+"");
+/wiz/ice/ex_room.c line 12: Undefined variable 'YEL' before "å±•è§ˆåŽ…"+NOR+"");
 /wiz/ice/ex_room.c line 12: Undefined variable 'NOR' before "");
-/wiz/ice/ex_room.c line 12: Undefined variable 'YEL' before "Õ¹ÀÀÌü"+NOR+"");
+/wiz/ice/ex_room.c line 12: Undefined variable 'YEL' before "å±•è§ˆåŽ…"+NOR+"");
 /wiz/ice/ex_room.c line 12: Undefined variable 'NOR' before "");
 /wiz/ice/obj/furniture/xm_bed.c line 6: Illegal to redefine 'nomask' function "set_proper_name" before the end of line
 /wiz/ice/obj/furniture/xm_bed.c line 6: Illegal to redefine 'nomask' function "parse_command_adjectiv_id_list" before the end of line
@@ -169,13 +169,8 @@
 /wiz/ice/exec.c line 6: parse error before "/daemons/npc_ai.c"-
 /wiz/ice/exec.c line 6: Undefined variable 'HERE' before }
 /wiz/ice/exec.c line 6: Undefined variable 'here' before }
-/wiz/ice/exec.c line 6: parse error before »¿éÂúÊÇ¼ÉÁ®µÄÉúÈÕµ°¸
-/wiz/ice/obj/furniture/ztbed.c line 12: parse error before ("Ò»ÕÅºÀ»ªµÄ"+MAG+"×
-/wiz/ice/obj/furniture/ztbed.c line 12: parse error before ("Ò»ÕÅºÀ»ªµÄ"+MAG+"×
-/wiz/ice/obj/furniture/ztbed.c line 12: parse error before ("Ò»ÕÅºÀ»ªµÄ"+MAG+"×
-/wiz/ice/obj/furniture/ztbed.c line 12: parse error before ("Ò»ÕÅºÀ»ªµÄ"+MAG+"×
-/wiz/ice/obj/furniture/ztbed.c line 12: parse error before ("Ò»ÕÅºÀ»ªµÄ"+MAG+"×
-/wiz/ice/npc/xiaosi.c line 47: Reserved type name unexpected. before =OBJ_D->clone_obj(p_
+/wiz/ice/exec.c line 6: parse error before è±¢æ§îŒ™ç¾Œé—ªî†Œçº³îŒ—ç›æ¡ˆ
+/wiz/ice/obj/furniture/ztbed.c line 12: parse error before ("ä¸€å¼ è±ªåŽçš„"+MAG+"/wiz/ice/obj/furniture/ztbed.c line 12: parse error before ("ä¸€å¼ è±ªåŽçš„"+MAG+"/wiz/ice/obj/furniture/ztbed.c line 12: parse error before ("ä¸€å¼ è±ªåŽçš„"+MAG+"/wiz/ice/obj/furniture/ztbed.c line 12: parse error before ("ä¸€å¼ è±ªåŽçš„"+MAG+"/wiz/ice/obj/furniture/ztbed.c line 12: parse error before ("ä¸€å¼ è±ªåŽçš„"+MAG+"/wiz/ice/npc/xiaosi.c line 47: Reserved type name unexpected. before =OBJ_D->clone_obj(p_
 /wiz/ice/npc/xiaosi.c line 47: parse error before =OBJ_D->clone_obj(p_
 /wiz/ice/npc/xiaosi.c line 47: Undefined variable 'p_obj' before ;
 /wiz/ice/npc/xiaosi.c line 47: Illegal LHS before the end of line

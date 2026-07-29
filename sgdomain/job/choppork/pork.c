@@ -5,13 +5,13 @@ inherit M_GETTABLE;
 inherit M_MERGEABLE;
 void setup() {
 merge_setup();
-    set_id("pork", "%^B_WHITE%^%^H_RED%^ÖíÀßÅÅ%^RESET%^","zhuleipai");
-    set_unit("¿é");
-    set_in_room_desc("Ò»¿éÇĞµÄÕûÕûÆëÆëµÄ%^B_WHITE%^%^H_RED%^ÖíÀßÅÅ%^RESET%^(pork)¡£\n");
-    set_long("ÕâÊÇÒ»¿é¸Õ¸ÕÇĞÏÂÀ´µÄ%^B_WHITE%^%^H_RED%^ÖíÀßÅÅ%^RESET%^£¬ÕûÕûÆëÆë£¬É«ÖÊ¾ã¼Ñ¡£\n");
+    set_id("pork", "%^B_WHITE%^%^H_RED%^çŒªè‚‹æ’%^RESET%^","zhuleipai");
+    set_unit("å—");
+    set_in_room_desc("ä¸€å—åˆ‡çš„æ•´æ•´é½é½çš„%^B_WHITE%^%^H_RED%^çŒªè‚‹æ’%^RESET%^(pork)ã€‚\n");
+    set_long("è¿™æ˜¯ä¸€å—åˆšåˆšåˆ‡ä¸‹æ¥çš„%^B_WHITE%^%^H_RED%^çŒªè‚‹æ’%^RESET%^ï¼Œæ•´æ•´é½é½ï¼Œè‰²è´¨ä¿±ä½³ã€‚\n");
     set_size(VERY_SMALL);
 	set_ori_size(VERY_SMALL);
      set_can_drop(0);
-     set_can_drop("Î¹£¬ÄãÕâÑù×öÕÅÍÀ»§ÒªÉúÆøµÄ£¬Ğ¡ĞÄËûµÄµ¶°¡¡£\n");
+     set_can_drop("å–‚ï¼Œä½ è¿™æ ·åšå¼ å± æˆ·è¦ç”Ÿæ°”çš„ï¼Œå°å¿ƒä»–çš„åˆ€å•Šã€‚\n");
      set_can_give(0);
 }

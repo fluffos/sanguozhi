@@ -6,18 +6,18 @@ identity_translations (["YELLOW":"%^YELLOW%^","B_BLACK":"%^B_BLACK%^","ORANGE":"
 space "                                        "
 chars 
 ([
-"²â ÊÔ":(["gift":(["wuli":18,"meili":18,"zhimou":16,"rongmao":24,]),"state":0,"type":0,"age":33,"skills":(["sk_meili":67,"sk_zhimou":65,"sk_wuli":70,]),"gender":1,"reputation":5,]),
+"æµ‹ è¯•":(["gift":(["wuli":18,"meili":18,"zhimou":16,"rongmao":24,]),"state":0,"type":0,"age":33,"skills":(["sk_meili":67,"sk_zhimou":65,"sk_wuli":70,]),"gender":1,"reputation":5,]),
 "baima girl":(["type":0,"skills":(["sk_meili":72,"sk_zhimou":55,"sk_wuli":69,]),"gift":(["wuli":15,"meili":18,"zhimou":12,"rongmao":15,]),"state":0,"nation":"","is_tmp":1,"age":22,"reputation":4,"myarmy":([]),"area":"baima",]),
-"cai mao":(["type":0,"skills":(["sk_meili":63,"sk_zhimou":67,"sk_wuli":150,]),"name":"²Ìè£","zi":"µÂ¹ç","gift":(["wuli":56,"meili":16,"zhimou":15,"rongmao":29,]),"state":0,"age":34,"gender":1,"myarmy":([]),"lo":(["dong zhuo":35,"he jin":43,"liu zhang":13,"liu du":25,"tao qian":41,"sun jian":56,"han sui":52,"ma teng":59,"yuan shao":38,"liu you":37,"yuan shu":19,"cao cao":20,"zhang lu":32,"gongsun zan":22,"liu biao":28,"liu bei":20,]),]),
-"bei yan":(["type":0,"skills":(["sk_meili":66,"sk_zhimou":70,"sk_wuli":64,]),"name":"±°ÑÜ","gift":(["wuli":14,"meili":17,"zhimou":18,"rongmao":23,]),"state":0,"age":27,"gender":1,"reputation":2,"myarmy":([]),]),
-"cai yong":(["type":0,"skills":(["sk_meili":95,"sk_zhimou":92,"sk_wuli":78,]),"name":"²Ìçß","gift":(["wuli":78,"meili":95,"zhimou":92,"rongmao":20,]),"state":0,"age":40,"gender":1,"reputation":2,"myarmy":([]),]),
-"cao ang":(["type":0,"skills":(["sk_meili":62,"sk_zhimou":65,"sk_wuli":88,]),"name":"²Ü°º","zi":"×ÓĞŞ","gift":(["wuli":88,"meili":62,"zhimou":65,"rongmao":27,]),"state":0,"age":23,"gender":1,"reputation":2,"myarmy":([]),]),
-"cao bao":(["type":0,"skills":(["sk_meili":41,"sk_zhimou":40,"sk_wuli":55,]),"name":"²Ü±ª","gift":(["wuli":55,"meili":41,"zhimou":40,"rongmao":24,]),"state":0,"age":50,"gender":1,"reputation":2,"myarmy":([]),]),
-"cao biao":(["type":0,"skills":(["sk_meili":74,"sk_zhimou":63,"sk_wuli":66,]),"name":"²Ü±ë","zi":"Öì»¢","gift":(["wuli":66,"meili":74,"zhimou":63,"rongmao":16,]),"state":0,"age":24,"gender":1,"reputation":2,"myarmy":([]),]),
-"cao cao":(["type":0,"skills":(["sk_meili":98,"sk_zhimou":96,"sk_wuli":86,]),"name":"²Ü²Ù","zi":"ÃÏµÂ","gift":(["wuli":86,"meili":98,"zhimou":96,"rongmao":24,]),"state":0,"age":45,"gender":1,"reputation":100,"myarmy":([]),]),
-"cao chun":(["type":0,"skills":(["sk_meili":60,"sk_zhimou":64,"sk_wuli":64,]),"name":"²Ü´¿","zi":"×ÓºÍ","gift":(["wuli":64,"meili":60,"zhimou":64,"rongmao":19,]),"state":0,"age":29,"gender":1,"reputation":2,"myarmy":([]),]),
-"cao fang":(["type":0,"skills":(["sk_meili":60,"sk_zhimou":56,"sk_wuli":42,]),"name":"²Ü·¼","gift":(["wuli":42,"meili":60,"zhimou":56,"rongmao":25,]),"state":0,"age":17,"gender":1,"reputation":2,"myarmy":([]),]),
-"cao hong":(["type":0,"skills":(["sk_meili":58,"sk_zhimou":72,"sk_wuli":80,]),"name":"²Üºé","zi":"×ÓÁ®","gift":(["wuli":80,"meili":58,"zhimou":72,"rongmao":10,]),"state":0,"age":34,"gender":1,"reputation":2,"myarmy":([]),]),
+"cai mao":(["type":0,"skills":(["sk_meili":63,"sk_zhimou":67,"sk_wuli":150,]),"name":"è”¡ç‘","zi":"å¾·åœ­","gift":(["wuli":56,"meili":16,"zhimou":15,"rongmao":29,]),"state":0,"age":34,"gender":1,"myarmy":([]),"lo":(["dong zhuo":35,"he jin":43,"liu zhang":13,"liu du":25,"tao qian":41,"sun jian":56,"han sui":52,"ma teng":59,"yuan shao":38,"liu you":37,"yuan shu":19,"cao cao":20,"zhang lu":32,"gongsun zan":22,"liu biao":28,"liu bei":20,]),]),
+"bei yan":(["type":0,"skills":(["sk_meili":66,"sk_zhimou":70,"sk_wuli":64,]),"name":"å‘è¡","gift":(["wuli":14,"meili":17,"zhimou":18,"rongmao":23,]),"state":0,"age":27,"gender":1,"reputation":2,"myarmy":([]),]),
+"cai yong":(["type":0,"skills":(["sk_meili":95,"sk_zhimou":92,"sk_wuli":78,]),"name":"è”¡é‚•","gift":(["wuli":78,"meili":95,"zhimou":92,"rongmao":20,]),"state":0,"age":40,"gender":1,"reputation":2,"myarmy":([]),]),
+"cao ang":(["type":0,"skills":(["sk_meili":62,"sk_zhimou":65,"sk_wuli":88,]),"name":"æ›¹æ˜‚","zi":"å­ä¿®","gift":(["wuli":88,"meili":62,"zhimou":65,"rongmao":27,]),"state":0,"age":23,"gender":1,"reputation":2,"myarmy":([]),]),
+"cao bao":(["type":0,"skills":(["sk_meili":41,"sk_zhimou":40,"sk_wuli":55,]),"name":"æ›¹è±¹","gift":(["wuli":55,"meili":41,"zhimou":40,"rongmao":24,]),"state":0,"age":50,"gender":1,"reputation":2,"myarmy":([]),]),
+"cao biao":(["type":0,"skills":(["sk_meili":74,"sk_zhimou":63,"sk_wuli":66,]),"name":"æ›¹å½ª","zi":"æœ±è™","gift":(["wuli":66,"meili":74,"zhimou":63,"rongmao":16,]),"state":0,"age":24,"gender":1,"reputation":2,"myarmy":([]),]),
+"cao cao":(["type":0,"skills":(["sk_meili":98,"sk_zhimou":96,"sk_wuli":86,]),"name":"æ›¹æ“","zi":"å­Ÿå¾·","gift":(["wuli":86,"meili":98,"zhimou":96,"rongmao":24,]),"state":0,"age":45,"gender":1,"reputation":100,"myarmy":([]),]),
+"cao chun":(["type":0,"skills":(["sk_meili":60,"sk_zhimou":64,"sk_wuli":64,]),"name":"æ›¹çº¯","zi":"å­å’Œ","gift":(["wuli":64,"meili":60,"zhimou":64,"rongmao":19,]),"state":0,"age":29,"gender":1,"reputation":2,"myarmy":([]),]),
+"cao fang":(["type":0,"skills":(["sk_meili":60,"sk_zhimou":56,"sk_wuli":42,]),"name":"æ›¹èŠ³","gift":(["wuli":42,"meili":60,"zhimou":56,"rongmao":25,]),"state":0,"age":17,"gender":1,"reputation":2,"myarmy":([]),]),
+"cao hong":(["type":0,"skills":(["sk_meili":58,"sk_zhimou":72,"sk_wuli":80,]),"name":"æ›¹æ´ª","zi":"å­å»‰","gift":(["wuli":80,"meili":58,"zhimou":72,"rongmao":10,]),"state":0,"age":34,"gender":1,"reputation":2,"myarmy":([]),]),
 
 ]),
 

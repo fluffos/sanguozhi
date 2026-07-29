@@ -49,7 +49,7 @@ void show_mapa(string file,string area)
         string *ps;
 
     mapinfo=read_file(file);
-   if(!stringp(mapinfo)) { write("´ËµØµØÍ¼»¹Ã»ºÃ\n"); return;}
+   if(!stringp(mapinfo)) { write("æ­¤åœ°åœ°å›¾è¿˜æ²¡å¥½\n"); return;}
         mapinfo="/daemons/cmap_d"->add_color(mapinfo,file);
 
         o=this_body();
@@ -63,11 +63,11 @@ void show_mapa(string file,string area)
                 p_room=colour_truncate(p_room,50);
                 ps=explode(mapinfo,p_room);
                 if(sizeof(ps)<2) {
-//                        SGSYS(area+"µØÇøµØÍ¼ÉÏÃ»ÓĞ·¿¼ä£º"+p_room);
+//                        SGSYS(area+"åœ°åŒºåœ°å›¾ä¸Šæ²¡æœ‰æˆ¿é—´ï¼š"+p_room);
                 }
                 else {
  //                       if(sizeof(ps)>2)
-//                                SGSYS(area+"µØÇøµØÍ¼ÉÏÓĞ¶à¸ö·¿¼ä£º"+p_room);
+//                                SGSYS(area+"åœ°åŒºåœ°å›¾ä¸Šæœ‰å¤šä¸ªæˆ¿é—´ï¼š"+p_room);
                         mapinfo=implode(ps,"%^ORANGE%^"+p_room+"%^RESET%^");
                 }
         }
@@ -111,7 +111,7 @@ void main(string arg)
                                 ret=AREA_D->check_area("area",arg);
                                 if(sizeof(ret)==0)
                                 {
-                        write("Ã»ÓĞ´Ë´¦µÄµØÍ¼£¬ÓÃmap²éÔÄÄ¿Ç°ÒÑÓĞµÄµØÍ¼¡£\n");
+                        write("æ²¡æœ‰æ­¤å¤„çš„åœ°å›¾ï¼Œç”¨mapæŸ¥é˜…ç›®å‰å·²æœ‰çš„åœ°å›¾ã€‚\n");
                             return;
                                 }
                                 arg=ret[0];
@@ -122,7 +122,7 @@ void main(string arg)
                         arg=AREA_D->get_area(arg,"map");
                         if(!stringp(arg))
                         {
-                                write("Ã»ÓĞ´Ë´¦µÄµØÍ¼£¬ÓÃmap²éÔÄÄ¿Ç°ÒÑÓĞµÄµØÍ¼¡£\n");
+                                write("æ²¡æœ‰æ­¤å¤„çš„åœ°å›¾ï¼Œç”¨mapæŸ¥é˜…ç›®å‰å·²æœ‰çš„åœ°å›¾ã€‚\n");
                                 return;
                         }
                         p_map=PMAP+arg+".map";

@@ -11,7 +11,7 @@ void start(string arg)
         p_cmdfile=PCMD+arg+".c";
         if(file_size(p_cmdfile)==-1)
         {
-                write("没有这条指令，用 cmd list 查找所有命令。\n");
+                write("娌℃湁杩欐潯鎸囦护锛岀敤 cmd list 鏌ユ壘鎵�鏈夊懡浠ゃ�俓n");
                 return;
         }
         p_helpfile=PHELP+"command/"+arg;
@@ -19,7 +19,7 @@ void start(string arg)
             p_helpfile=PHELP+"cmds/"+"sep_cmds";
         if(file_size(p_helpfile)==-1)
         {
-                write("抱歉，此条指令的帮助尚未完成。\n");
+                write("鎶辨瓑锛屾鏉℃寚浠ょ殑甯姪灏氭湭瀹屾垚銆俓n");
                 return;
         }
         help_info=read_file(p_helpfile);

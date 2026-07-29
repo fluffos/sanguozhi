@@ -1,4 +1,4 @@
-// jiading.c "¼Ò¶¡"
+// jiading.c "å®¶ä¸"
 #include <mudlib.h>
 #include <ansi.h>
 inherit LIVING;
@@ -17,19 +17,19 @@ string *query_channel_list() {
 object jia;
 void setup() 
 {
-    add_id("jia ding","ding","¼Ò¶¡");
+    add_id("jia ding","ding","å®¶ä¸");
     set_gender(1);
-    set_proper_name("¼Ò¶¡");
-    set_in_room_desc("¶¼Í¤¸®  ¼Ò¶¡(jia ding)");
+    set_proper_name("å®¶ä¸");
+    set_in_room_desc("éƒ½äº­åºœ  å®¶ä¸(jia ding)");
     set_wander_area("nono_home"); 
-set_long("Ò»¸ö¼Ò¶¡£¬Éí×Å³¤ÅÛ¡£ÕıÔÚÃ¦Âµ´òÉ¨ÖÜÎ§¡£\n");
+set_long("ä¸€ä¸ªå®¶ä¸ï¼Œèº«ç€é•¿è¢ã€‚æ­£åœ¨å¿™ç¢Œæ‰“æ‰«å‘¨å›´ã€‚\n");
     jia=new("/wiz/nono/obj/changpao.c");
     jia->move(this_object());
     jia->do_wear();
     set_sg_rongmao(25);
- add_pattern("Å©Å©×ßÁË%s",function(string left, string right){
+ add_pattern("å†œå†œèµ°äº†%s",function(string left, string right){
                  
-                respond("say Ğ¡ÈË¸ø·òÈËÇë°²¡£");
+                respond("say å°äººç»™å¤«äººè¯·å®‰ã€‚");
 });
 
 }

@@ -48,7 +48,7 @@ void age_beat()
 		p_shouming=this_body()->query_shouming();
 		if(p_year>=p_shouming)
 		{
-			write(HIR+"�������Ѿ����Ͽ�׼�����°ɡ�+NOR\n");
+			write(HIR+"你阳寿已尽，赶快准备后事吧。+NOR\n");
 		}
 	}
 		

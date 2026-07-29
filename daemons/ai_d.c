@@ -15,10 +15,10 @@
 #define BASE_WORK 301
 #define GETTOP 302
 #define AUTOCONSUME 303
-#define M_LOCAL_INCOME "¡¾·¢âÃ¡¿"+HIG+"·¢âÃµÄÈÕ×Óµ½ÁË£¬¹Ù±ø¶¼ĞË¸ß²ÉÁÒµØÁìâÃÒøÈ¥ÁË¡£"+NOR+"\n"
-#define M_HARVEST "¡¾ÊÕ»ñ¡¿"+HIG+"ÊÕ»ñµÄ¼¾½Úµ½ÁË£¬ÌïµØÀïÒ»Æ¬·±Ã¦µÄ¾°Ïó¡£"+NOR+"\n"
+#define M_LOCAL_INCOME "ã€å‘é¥·ã€‘"+HIG+"å‘é¥·çš„æ—¥å­åˆ°äº†ï¼Œå®˜å…µéƒ½å…´é«˜é‡‡çƒˆåœ°é¢†é¥·é“¶å»äº†ã€‚"+NOR+"\n"
+#define M_HARVEST "ã€æ”¶è·ã€‘"+HIG+"æ”¶è·çš„å­£èŠ‚åˆ°äº†ï¼Œç”°åœ°é‡Œä¸€ç‰‡ç¹å¿™çš„æ™¯è±¡ã€‚"+NOR+"\n"
 void event_creater();
-static private int p_month,p_day,p_hour,p_year;
+nosave private int p_month,p_day,p_hour,p_year;
 void launch(int p_what);
 void create()
 {
@@ -29,7 +29,7 @@ void create()
 }
 void start()
 {
-        array p_date;
+        mixed * p_date;
         p_date=DAY_D->query_date();
         p_hour=p_date[0];
         p_day=p_date[1];

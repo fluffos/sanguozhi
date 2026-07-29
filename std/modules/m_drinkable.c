@@ -39,7 +39,7 @@ void set_max_drinks(int num)
 }
 mixed direct_drink_obj() {
 //    if (!num_drinks)
-//       return short() + "ºÈ¹âÁË¡£\n";
+//       return short() + "å–å…‰äº†ã€‚\n";
     return 1;
 }
 void drink_it() {
@@ -68,8 +68,8 @@ mixed direct_fill_obj()
 void fill_with(object with)
 {
    if(num_drinks)
-		this_body()->simple_action("$N½«"+con+"´Ó"+query_chinese_id()+"Àïµ¹µô¡£\n");
-   this_body()->simple_action("$N½«"+query_chinese_id()+"×°ÂúÁËÇåË®¡£\n");
-   con="ÇåË®";
+		this_body()->simple_action("$Nå°†"+con+"ä»Ž"+query_chinese_id()+"é‡Œå€’æŽ‰ã€‚\n");
+   this_body()->simple_action("$Nå°†"+query_chinese_id()+"è£…æ»¡äº†æ¸…æ°´ã€‚\n");
+   con="æ¸…æ°´";
    num_drinks=max_drinks;
 }

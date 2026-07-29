@@ -5,7 +5,7 @@
 inherit CMD;
 
 void do_print(string which) {
-    string array colours;
+    string * colours;
     
     if (which)
         colours = ({ which });
@@ -14,7 +14,7 @@ void do_print(string which) {
 
     if (!colours) {                                                                        
         //write("No colours set.\n");
-        write("Ã»ÓÐÑÕÉ«Éè¶¨.\n");
+        write("æ²¡æœ‰é¢œè‰²è®¾å®š.\n");
         return;
     }
     
@@ -49,12 +49,12 @@ nomask private void main(string str) {
     if (which == "remove") {
         this_user()->remove_colour(what);
         printf(//"Setting for '%s' removed.\n", 
-               "½â³ýÁË %s µÄÉè¶¨¡£\n", what);
+               "è§£é™¤äº† %s çš„è®¾å®šã€‚\n", what);
         return;
     }
     
     this_user()->set_colour(which, what);
-    printf("'%s' Éè¶¨Îª '%%^%s%%^%s%%^RESET%%^'.\n",
+    printf("'%s' è®¾å®šä¸º '%%^%s%%^%s%%^RESET%%^'.\n",
            which, upper_case(which), what);
 }
 

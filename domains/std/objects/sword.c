@@ -5,9 +5,9 @@ inherit SWORD;
 inherit M_VALUABLE;
 
 void setup() {
-    set_adj("¶Û");
-    set_unit("°Ñ");
-    set_id("sword", "Ìú½£");
+    set_adj("é’");
+    set_unit("æŠŠ");
+    set_id("sword", "é“å‰‘");
     set_weapon_class(15);
     set_size(MEDIUM);
     set_value(1000);

@@ -25,28 +25,28 @@ string stat_me() {
 	string *ks,*as,k,a;
 	string ret;
 	int i,sum,j,sum2;
-	ret="ÖØĞÂÆô¶¯ºóÊÆÁ¦·Ö²¼£º\n";
+	ret="é‡æ–°å¯åŠ¨ååŠ¿åŠ›åˆ†å¸ƒï¼š\n";
 	ret+="======================================================\n";
-	ret+="Íæ¼Ò¹ú£»ÓÉÏÂÁĞµØÇøÌ«ÊØµ£ÈÎ£¬Ä¿Ç°µÄ·ÖÅäÊÇ£º\n";
+	ret+="ç©å®¶å›½ï¼›ç”±ä¸‹åˆ—åœ°åŒºå¤ªå®ˆæ‹…ä»»ï¼Œç›®å‰çš„åˆ†é…æ˜¯ï¼š\n";
 	i=0;
 	foreach(string aaa in wj_area) {
 		i++;
 		if(i==6) ret+="\n";
-		ret+=AREA_D->get_area(aaa,"name")+"£º"+
+		ret+=AREA_D->get_area(aaa,"name")+"ï¼š"+
 			CHAR_D->get_char(AREA_D->get_area(aaa,"leader"),"name")+"  ";
 	}
 	ret+="\n=================================================\n";
 	ks=keys(ct_list);
 	sum=sizeof(ks);
-	ret+="NPC¹ú£ºÊ×¶¼Îª¹ú¾ıËùÔÚµØ¡£\n";
+	ret+="NPCå›½ï¼šé¦–éƒ½ä¸ºå›½å›æ‰€åœ¨åœ°ã€‚\n";
 	for(i=0;i<sum;++i) {
 		k=ks[i];
-		ret+="¹ú¾ı£º"+CHAR_D->get_char(k,"name")+"      ÁìµØºÍ¹ÙÔ±£º\n";
+		ret+="å›½å›ï¼š"+CHAR_D->get_char(k,"name")+"      é¢†åœ°å’Œå®˜å‘˜ï¼š\n";
 		as=keys(ct_list[k]);
 		sum2=sizeof(as);
 		for(j=0;j<sum2;++j) {
 			a=as[j];
-			ret+="     "+AREA_D->get_area(a,"name")+"£º";
+			ret+="     "+AREA_D->get_area(a,"name")+"ï¼š";
 			foreach(string c in ct_list[k][a]) {
 				ret+=CHAR_D->get_char(c,"name")+" ";
 			}
@@ -71,9 +71,9 @@ mixed area_init1() {
 	if(sizeof(cl)) {
 		foreach(string cc in cl) 
 			{string msg;
-			 msg = "%^H_GREEN%^¡¾ÖØĞÂÆô¶¯¡¿"+
+			 msg = "%^H_GREEN%^ã€é‡æ–°å¯åŠ¨ã€‘"+
 			       COUNTRY_D->get_country(cc,"name")+
-			       "Íõ³¯ÔÚÍ³Ò»ÌìÏÂºó£¬¾­ÀúÁË¶ÌÔİµÄºÍÆ½£¬ÓÖÍÁ±ÀÍß½âÁË¡£\n";
+			       "ç‹æœåœ¨ç»Ÿä¸€å¤©ä¸‹åï¼Œç»å†äº†çŸ­æš‚çš„å’Œå¹³ï¼ŒåˆåœŸå´©ç“¦è§£äº†ã€‚\n";
 			 tell(users(),msg);
 			 HIS(msg);
 			COUNTRY_D->remove_country(cc);
@@ -134,8 +134,8 @@ mixed get_player_leader() {
 	foreach(string a in wj_area) {
 		ld=AREA_D->get_area(a,"leader");
 		if(!CHAR_D->char_exist(ld)) {
-			tell(users(),"%^H_GREEN%^¡¾ÖØĞÂÆô¶¯¡¿"+AREA_D->get_area(a,"name")+
-				"Ã»ÓĞÌ«ÊØ¡£ÖØĞÂÆô¶¯ÖÕÖ¹¡£\n");
+			tell(users(),"%^H_GREEN%^ã€é‡æ–°å¯åŠ¨ã€‘"+AREA_D->get_area(a,"name")+
+				"æ²¡æœ‰å¤ªå®ˆã€‚é‡æ–°å¯åŠ¨ç»ˆæ­¢ã€‚\n");
 			error("stop");
 			pl_leader[a]=ld;
 		}
@@ -168,7 +168,7 @@ void init_char1() {
 		CHAR_D->set_char(c,"ranknation",0);
 //		CHAR_D->set_char(c,"localcontribution",0);
 		CHAR_D->set_char(c,"ps",0);
-		CHAR_D->set_char(c,"grant",0); //É¾³ıÁÙÊ±Ì«ÊØĞÅÏ¢
+		CHAR_D->set_char(c,"grant",0); //åˆ é™¤ä¸´æ—¶å¤ªå®ˆä¿¡æ¯
 		CHAR_D->set_char(c,"hon",0);
 	}
 
@@ -192,8 +192,8 @@ void build_npc_country(string k) {
 		AREA_D->set_area(a,"population",
 			AREA_D->get_area(a,"population")*20);
 		AREA_D->set_area(a,"safe",80);
-if (!AREA_D->get_area(a,"leader")) //¶ÔÃ»ÓĞÌ«ÊØµÄ³ÇÊĞ
-   AREA_D->auto_head(a);           //×Ô¶¯ÌôÑ¡NPCÌ«ÊØ
+if (!AREA_D->get_area(a,"leader")) //å¯¹æ²¡æœ‰å¤ªå®ˆçš„åŸå¸‚
+   AREA_D->auto_head(a);           //è‡ªåŠ¨æŒ‘é€‰NPCå¤ªå®ˆ
 
 	}
 
@@ -245,27 +245,27 @@ void build_random_country_all() {
 
 
 void restart() {
-//	write("ÏÖÔÚ²»ÒªÆô¶¯À²¡£\n");
+//	write("ç°åœ¨ä¸è¦å¯åŠ¨å•¦ã€‚\n");
 //	return;
-	tell(users(),"%^H_GREEN%^¡¾ÖØĞÂÆô¶¯¡¿Èı¹ú¿ªÊ¼ÖØĞÂÆô¶¯¡£\n");
+	tell(users(),"%^H_GREEN%^ã€é‡æ–°å¯åŠ¨ã€‘ä¸‰å›½å¼€å§‹é‡æ–°å¯åŠ¨ã€‚\n");
 	area_init1();
-	tell(users(),"%^H_GREEN%^¡¾ÖØĞÂÆô¶¯¡¿µØÇøÈË¿Ú£¬°²¶¨³õÊ¼»¯Íê±Ï¡£\n");
+	tell(users(),"%^H_GREEN%^ã€é‡æ–°å¯åŠ¨ã€‘åœ°åŒºäººå£ï¼Œå®‰å®šåˆå§‹åŒ–å®Œæ¯•ã€‚\n");
 	area_init2();
-	tell(users(),"%^H_GREEN%^¡¾ÖØĞÂÆô¶¯¡¿µØÇø»Æ½ğ£¬Á¸²İ³õÊ¼»¯Íê±Ï¡£\n");
+	tell(users(),"%^H_GREEN%^ã€é‡æ–°å¯åŠ¨ã€‘åœ°åŒºé»„é‡‘ï¼Œç²®è‰åˆå§‹åŒ–å®Œæ¯•ã€‚\n");
 	area_init3();
-	tell(users(),"%^H_GREEN%^¡¾ÖØĞÂÆô¶¯¡¿µØÇø²¿¶Ó£¬Ê¿Æø£¬ÑµÁ·³õÊ¼»¯Íê±Ï¡£\n");
+	tell(users(),"%^H_GREEN%^ã€é‡æ–°å¯åŠ¨ã€‘åœ°åŒºéƒ¨é˜Ÿï¼Œå£«æ°”ï¼Œè®­ç»ƒåˆå§‹åŒ–å®Œæ¯•ã€‚\n");
 	area_init4();
-	tell(users(),"%^H_GREEN%^¡¾ÖØĞÂÆô¶¯¡¿µØÇø¹¤£¬Å©£¬ÉÌ£¬Ë°£¬ÖØµã£¬»ùµØ£¬ºÚÃûµ¥³õÊ¼»¯Íê±Ï¡£\n");
+	tell(users(),"%^H_GREEN%^ã€é‡æ–°å¯åŠ¨ã€‘åœ°åŒºå·¥ï¼Œå†œï¼Œå•†ï¼Œç¨ï¼Œé‡ç‚¹ï¼ŒåŸºåœ°ï¼Œé»‘åå•åˆå§‹åŒ–å®Œæ¯•ã€‚\n");
 
 
 //	no player countries this time
 //	get_player_leader();
-//	tell(users(),"%^H_GREEN%^¡¾ÖØĞÂÆô¶¯¡¿Íæ¼Ò¹úÍõÑ¡ÔñÍê±Ï¡£\n");
+//	tell(users(),"%^H_GREEN%^ã€é‡æ–°å¯åŠ¨ã€‘ç©å®¶å›½ç‹é€‰æ‹©å®Œæ¯•ã€‚\n");
 
 
 	chars=CHAR_D->list_chars();
 	init_char1();
-	tell(users(),"%^H_GREEN%^¡¾ÖØĞÂÆô¶¯¡¿½ÇÉ«µØÇø¹±Ï×£¬¹ú¼Ò¹±Ï×£¬ÖÒ³Ï£¬Ö°ÎñÇå³ıÍê±Ï¡£\n");
+	tell(users(),"%^H_GREEN%^ã€é‡æ–°å¯åŠ¨ã€‘è§’è‰²åœ°åŒºè´¡çŒ®ï¼Œå›½å®¶è´¡çŒ®ï¼Œå¿ è¯šï¼ŒèŒåŠ¡æ¸…é™¤å®Œæ¯•ã€‚\n");
 
 //	build_char_country_all();  // no player countries
 

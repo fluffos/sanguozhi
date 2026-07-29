@@ -13,88 +13,88 @@ void def_skill(string skill)
 	switch(skill)
 	{
 		case "sk_wuli" :
-		    p_sk->sk_name=HIR+"ÎäÑ§ĞŞÑø"+NOR; // the chinese name for a skill
+		    p_sk->sk_name=HIR+"æ­¦å­¦ä¿®å…»"+NOR; // the chinese name for a skill
     		    p_sk->sk_type=SK_NOR;
                     p_sk->sk_get=
-"$NÒ»ÎüÆø£¬¸Ğµ½È«ÉíÒ»ÕóÇáËÉ£¬Ë«±ÛËÆºõ³äÂúÁËÎŞÇîµÄÁ¦Á¿¡£\n"+
-HIG+"$NµÄ"+HIR+"ÎäÑ§ĞŞÑø"+HIG+"Ìá¸ßÁË¡£"+NOR+"\n";
+"$Nä¸€å¸æ°”ï¼Œæ„Ÿåˆ°å…¨èº«ä¸€é˜µè½»æ¾ï¼ŒåŒè‡‚ä¼¼ä¹å……æ»¡äº†æ— ç©·çš„åŠ›é‡ã€‚\n"+
+HIG+"$Nçš„"+HIR+"æ­¦å­¦ä¿®å…»"+HIG+"æé«˜äº†ã€‚"+NOR+"\n";
                     p_sk->sk_use=""; // when this skill used what will display
     		    p_sk->sk_succ=""; // when this skill succedd what will display
     		    p_sk->sk_fail=""; // when this skill fail what will display
 		    break;
 		case "jbsj" :
-		    p_sk->sk_name=NOR+"»ù±¾Ë®¼Æ"+NOR; // the chinese name for a skill
+		    p_sk->sk_name=NOR+"åŸºæœ¬æ°´è®¡"+NOR; // the chinese name for a skill
     		    p_sk->sk_type=SK_JI;
                     p_sk->sk_get=
-"$NÒ»ÄıÉñ£¬·Â·ğÌıµ½ÁË¹ö¹öºéË®ÅØÏø¶øÖÁÉùÒô¡£\n"+
-HIG+"$NµÄ"+NOR+"»ù±¾Ë®¼Æ"+HIG+"Ìá¸ßÁË¡£"+NOR+"\n";
+"$Nä¸€å‡ç¥ï¼Œä»¿ä½›å¬åˆ°äº†æ»šæ»šæ´ªæ°´å’†å“®è€Œè‡³å£°éŸ³ã€‚\n"+
+HIG+"$Nçš„"+NOR+"åŸºæœ¬æ°´è®¡"+HIG+"æé«˜äº†ã€‚"+NOR+"\n";
                     p_sk->sk_use=
-HIG+"$NÊÖ³ÖÁîÅÆ£¬ºÈµÀ£º¡°ÖÚ½«Ê¿ÌıÁî£¬¿ªÕ¢·ÅË®£¡£¡£¡¡±"+NOR;
+HIG+"$Næ‰‹æŒä»¤ç‰Œï¼Œå–é“ï¼šâ€œä¼—å°†å£«å¬ä»¤ï¼Œå¼€é—¸æ”¾æ°´ï¼ï¼ï¼â€"+NOR;
     		    p_sk->sk_succ=
-HIG+"Ö»ÌıÒ»ÉùÁîÏÂ£¬¹ö¹öºéÁ÷³åÏòµĞÓª¡£$NÑöÌì´óĞ¦¡°¹ş¡¢¹ş¡¢¹ş¡¢¹ş . . .¡±\n";
-    		    p_sk->sk_fail=RED+"Ö»ÌıÒ»ÉùÁîÏÂ£¬´óË®ÔõÃ´³å¹ıÀ´ÁË¡£$N´ó½Ğ¡°ÌÓÃüÑ½¡£¡±\n"+NOR; 
+HIG+"åªå¬ä¸€å£°ä»¤ä¸‹ï¼Œæ»šæ»šæ´ªæµå†²å‘æ•Œè¥ã€‚$Nä»°å¤©å¤§ç¬‘â€œå“ˆã€å“ˆã€å“ˆã€å“ˆ . . .â€\n";
+    		    p_sk->sk_fail=RED+"åªå¬ä¸€å£°ä»¤ä¸‹ï¼Œå¤§æ°´æ€ä¹ˆå†²è¿‡æ¥äº†ã€‚$Nå¤§å«â€œé€ƒå‘½å‘€ã€‚â€\n"+NOR; 
 		    break;
 		case "jbhj" :
-		    p_sk->sk_name=NOR+"»ù±¾»ğ¼Æ"+NOR; // the chinese name for a skill
+		    p_sk->sk_name=NOR+"åŸºæœ¬ç«è®¡"+NOR; // the chinese name for a skill
     		    p_sk->sk_type=SK_JI;
                     p_sk->sk_get=
-"$NÒ»Ì§Í·£¬ºÃÏó¿´µ½ÁËÕ½³¡ÉÏÎŞ±ßµÄ"+RED+"»ğº£"+NOR+"¡£\n"+
-HIG+"$NµÄ"+NOR+"»ù±¾»ğ¼Æ"+HIG+"Ìá¸ßÁË¡£"+NOR+"\n";
+"$Nä¸€æŠ¬å¤´ï¼Œå¥½è±¡çœ‹åˆ°äº†æˆ˜åœºä¸Šæ— è¾¹çš„"+RED+"ç«æµ·"+NOR+"ã€‚\n"+
+HIG+"$Nçš„"+NOR+"åŸºæœ¬ç«è®¡"+HIG+"æé«˜äº†ã€‚"+NOR+"\n";
                     p_sk->sk_use=
-HIG+"$NÊÖ³ÖÁîÅÆ£¬ºÈµÀ£º¡°ÖÚ½«Ê¿ÌıÁî£¬µã»ğ£¡£¡£¡¡±"+NOR;
+HIG+"$Næ‰‹æŒä»¤ç‰Œï¼Œå–é“ï¼šâ€œä¼—å°†å£«å¬ä»¤ï¼Œç‚¹ç«ï¼ï¼ï¼â€"+NOR;
     		    p_sk->sk_succ=
-HIG+"Ö»ÌıÒ»ÉùÁîÏÂ£¬ËÄ´¦"+HIR+"»ğ"+HIG+"Æğ¡£$NÑöÌì´óĞ¦¡°¹ş¡¢¹ş¡¢¹ş¡¢¹ş . . .¡±\n";
-    		    p_sk->sk_fail=RED+"Ö»ÌıÒ»ÉùÁîÏÂ£¬ËÄ´¦Ã°ÆğÒ»ÕóÇàÑÌ¡£$NÆæ¹ÖµØ¡°ß×¡±ÁËÒ»Éù¡£\n"+NOR; 
+HIG+"åªå¬ä¸€å£°ä»¤ä¸‹ï¼Œå››å¤„"+HIR+"ç«"+HIG+"èµ·ã€‚$Nä»°å¤©å¤§ç¬‘â€œå“ˆã€å“ˆã€å“ˆã€å“ˆ . . .â€\n";
+    		    p_sk->sk_fail=RED+"åªå¬ä¸€å£°ä»¤ä¸‹ï¼Œå››å¤„å†’èµ·ä¸€é˜µé’çƒŸã€‚$Nå¥‡æ€ªåœ°â€œå’¦â€äº†ä¸€å£°ã€‚\n"+NOR; 
 		    break;
 			
 		case "sk_zhimou" :
-		    p_sk->sk_name=HIC+"±ø·¨ĞŞÑø"+NOR; // the chinese name for a skill
+		    p_sk->sk_name=HIC+"å…µæ³•ä¿®å…»"+NOR; // the chinese name for a skill
     		    p_sk->sk_type=SK_NOR;
                     p_sk->sk_get=
-"$NÍ»È»ĞÑÎò£¬Ò»Ê±¼äËÆºõÍòÎï°ÂÃîÈ«²¿ÁËÈ»ÓÚĞØ¡£\n"+
-HIG+"$NµÄ"+HIC+"±ø·¨ĞŞÑø"+HIG+"Ìá¸ßÁË¡£"+NOR+"\n";
+"$Nçªç„¶é†’æ‚Ÿï¼Œä¸€æ—¶é—´ä¼¼ä¹ä¸‡ç‰©å¥¥å¦™å…¨éƒ¨äº†ç„¶äºèƒ¸ã€‚\n"+
+HIG+"$Nçš„"+HIC+"å…µæ³•ä¿®å…»"+HIG+"æé«˜äº†ã€‚"+NOR+"\n";
                     p_sk->sk_use=""; // when this skill used what will display
     		    p_sk->sk_succ=""; // when this skill succedd what will display
     		    p_sk->sk_fail=""; // when this skill fail what will display
 		    break;
 		case "sk_meili" :
-		    p_sk->sk_name=HIY+"ÖÎ¹úĞŞÑø"+NOR; // the chinese name for a skill
+		    p_sk->sk_name=HIY+"æ²»å›½ä¿®å…»"+NOR; // the chinese name for a skill
     		    p_sk->sk_type=SK_NOR;
                     p_sk->sk_get=
-"$N¾ÙÊ×Ô¶Ì÷£¬·ÅÑÛ´óºÃ½­É½ËÆÓĞËùÎò¡£\n"+
-HIG+"$NµÄ"+HIY+"ÖÎ¹úĞŞÑø"+HIG+"Ìá¸ßÁË¡£"+NOR+"\n";
+"$Nä¸¾é¦–è¿œçœºï¼Œæ”¾çœ¼å¤§å¥½æ±Ÿå±±ä¼¼æœ‰æ‰€æ‚Ÿã€‚\n"+
+HIG+"$Nçš„"+HIY+"æ²»å›½ä¿®å…»"+HIG+"æé«˜äº†ã€‚"+NOR+"\n";
                     p_sk->sk_use=""; // when this skill used what will display
     		    p_sk->sk_succ=""; // when this skill succedd what will display
     		    p_sk->sk_fail=""; // when this skill fail what will display
 		    break;
 		case "fyzf" :
-		    p_sk->sk_name="·½Ô²Õó·¨"; // the chinese name for a skill
+		    p_sk->sk_name="æ–¹åœ†é˜µæ³•"; // the chinese name for a skill
     		    p_sk->sk_type=SK_ZHENG;
                     p_sk->sk_get=
-"$Nµ×Í·î¨Ë¼£¬¶úÅÔËÆºõÏìÆğÁËÕ½³¡µÄØËÉ±Éù¡£\n"+
-HIG+"$NµÄ"+NOR+"·½Ô²Õó·¨"+HIG+"Ìá¸ßÁË¡£"+NOR+"\n";
+"$Nåº•å¤´ç‘æ€ï¼Œè€³æ—ä¼¼ä¹å“èµ·äº†æˆ˜åœºçš„å®æ€å£°ã€‚\n"+
+HIG+"$Nçš„"+NOR+"æ–¹åœ†é˜µæ³•"+HIG+"æé«˜äº†ã€‚"+NOR+"\n";
                     p_sk->sk_use=
-HIG+"$NÊÖ¾ÙºìÆì£¬¶«ÄÏÎ÷±±¸÷»ÓÒ»ÏÂ£¬ºÈµÀ£º\n"+
-"¡°ÖÚ½«Ê¿ÌıÁî£¬°Ú"+NOR+"·½Ô²Õó"+HIG+"¡£¡±"+NOR;
+HIG+"$Næ‰‹ä¸¾çº¢æ——ï¼Œä¸œå—è¥¿åŒ—å„æŒ¥ä¸€ä¸‹ï¼Œå–é“ï¼š\n"+
+"â€œä¼—å°†å£«å¬ä»¤ï¼Œæ‘†"+NOR+"æ–¹åœ†é˜µ"+HIG+"ã€‚â€"+NOR;
     		    p_sk->sk_succ=
-HIC+"Ö»Ìı¾üÖĞÒ»ÉùºÅÁî£¬Õ½¹ÄÆëÃù£¬º°É±¾ªÌì£¬ÁĞ¶ÓÕûÆë£¬\n"+
-"¾üÊ¿ËÄÃæ²¼¿ª£¬ĞÎ³É·ÀÊØÎÈ¹ÌµÄ·½Ô²´óÕó¡£\n"+NOR; 
-    		    p_sk->sk_fail=RED+"Ö»Ìı¾üÖĞÒ»ÉùºÅÁî£¬Õ½¹ÄÆëÃù£¬º°É±¾ªÌì£¬ÁĞ¶Ó»ìÂÒ²»Æë£¬\n"+
-"¾üÊ¿²»ÖªËù´ë£¬ÍêÈ«ÂÒÁËÕó½Å£¬·½Ô²ÕóÊ§°Ü¡£\n"+NOR; 
+HIC+"åªå¬å†›ä¸­ä¸€å£°å·ä»¤ï¼Œæˆ˜é¼“é½é¸£ï¼Œå–Šæ€æƒŠå¤©ï¼Œåˆ—é˜Ÿæ•´é½ï¼Œ\n"+
+"å†›å£«å››é¢å¸ƒå¼€ï¼Œå½¢æˆé˜²å®ˆç¨³å›ºçš„æ–¹åœ†å¤§é˜µã€‚\n"+NOR; 
+    		    p_sk->sk_fail=RED+"åªå¬å†›ä¸­ä¸€å£°å·ä»¤ï¼Œæˆ˜é¼“é½é¸£ï¼Œå–Šæ€æƒŠå¤©ï¼Œåˆ—é˜Ÿæ··ä¹±ä¸é½ï¼Œ\n"+
+"å†›å£«ä¸çŸ¥æ‰€æªï¼Œå®Œå…¨ä¹±äº†é˜µè„šï¼Œæ–¹åœ†é˜µå¤±è´¥ã€‚\n"+NOR; 
 		    break;
 		case "zmyj" :
-		    p_sk->sk_name=HIR+"ÖÂÃüÒ»»÷"+NOR; // the chinese name for a skill
+		    p_sk->sk_name=HIR+"è‡´å‘½ä¸€å‡»"+NOR; // the chinese name for a skill
     		    p_sk->sk_type=SK_FIGHT;
                     p_sk->sk_get=
-"$NÇ±ÔËÄÚÁ¦£¬Ö»¾õÈ«ÉíÆøÁ¦¶¼¼¯ÓÚË«±Û¡£\n"+
-HIG+"$NµÄ"+HIR+"ÖÂÃüÒ»»÷"+HIG+"Ìá¸ßÁË¡£"+NOR+"\n";
+"$Næ½œè¿å†…åŠ›ï¼Œåªè§‰å…¨èº«æ°”åŠ›éƒ½é›†äºåŒè‡‚ã€‚\n"+
+HIG+"$Nçš„"+HIR+"è‡´å‘½ä¸€å‡»"+HIG+"æé«˜äº†ã€‚"+NOR+"\n";
                     p_sk->sk_use=
-HIG+"$NÇ±ÔËÄÚÁ¦£¬Ò»Éù±©ºÈ£¬Ê¹³ö±ØÉ±¼¼£º"+HIR+"¡°ÖÂÃüÒ»»÷¡±"+NOR;
+HIG+"$Næ½œè¿å†…åŠ›ï¼Œä¸€å£°æš´å–ï¼Œä½¿å‡ºå¿…æ€æŠ€ï¼š"+HIR+"â€œè‡´å‘½ä¸€å‡»â€"+NOR;
     		    p_sk->sk_succ=
-RED+"$NÒ»Ê±»ÅÁËÊÖ½Å£¬²»ÖªÈçºÎÕĞ¼Ü£¬Ö»Ìı¡°àÛ¡±µÄÒ»ÉùÒÑ¾­»÷ÖĞ¡£\n"+
-"$N¿ñÍÂÒ»¿ÚÏÊÑª . . .\n"+NOR; 
-    		    p_sk->sk_fail=HIG+"$NÎ¢Î¢Ò»Ğ¦£¬Ò»ÉÁÉí¶ã¹ıÕâÖÂÃüÒ»ÕĞ¡£"+
-"Ë³ÊÆ¸ø³öÓĞÁ¦µÄ»Ø»÷¡£\n"+NOR; 
+RED+"$Nä¸€æ—¶æ…Œäº†æ‰‹è„šï¼Œä¸çŸ¥å¦‚ä½•æ‹›æ¶ï¼Œåªå¬â€œå™—â€çš„ä¸€å£°å·²ç»å‡»ä¸­ã€‚\n"+
+"$Nç‹‚åä¸€å£é²œè¡€ . . .\n"+NOR; 
+    		    p_sk->sk_fail=HIG+"$Nå¾®å¾®ä¸€ç¬‘ï¼Œä¸€é—ªèº«èº²è¿‡è¿™è‡´å‘½ä¸€æ‹›ã€‚"+
+"é¡ºåŠ¿ç»™å‡ºæœ‰åŠ›çš„å›å‡»ã€‚\n"+NOR; 
 		    break;
 			
 		default :
@@ -106,13 +106,13 @@ RED+"$NÒ»Ê±»ÅÁËÊÖ½Å£¬²»ÖªÈçºÎÕĞ¼Ü£¬Ö»Ìı¡°àÛ¡±µÄÒ»ÉùÒÑ¾­»÷ÖĞ¡£\n"+
 }
 			
 // SK_NOR normal skills such as the wuli weili and zhimou 1
-// SK_FIGHT skills used in fight such as »ØÂíÇ¹ 2
-// SK_ZHENG skills for Õó·¨ 3
-// SK_JI skills of ¼Æ 
+// SK_FIGHT skills used in fight such as å›é©¬æª 2
+// SK_ZHENG skills for é˜µæ³• 3
+// SK_JI skills of è®¡ 
 private void main(string arg)
 {
     string skill;
-    skill=arg;  // ÎäÑ§ĞŞÑø
+    skill=arg;  // æ­¦å­¦ä¿®å…»
     p_sk=new(class sg_skill_reg, 
 		    sk_name : "",
     		    sk_type : 0,

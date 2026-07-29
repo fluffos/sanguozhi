@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is »¨¶ù¶ä¶ä
+// driver is èŠ±å„¿æœµæœµ
 // created date is Tue May  3 19:52:01 2011
 #include <mudlib.h>
 #include <ansi.h>
@@ -8,11 +8,11 @@ inherit M_BANK;
 void setup() {
 set_area("changan");
 set_light(50);
-set_brief("%^YELLOW%^"+"Ç®×¯"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"é’±åº„"+"%^RESET%^");
 set_long("
-    ÕâÀïÊÇ³¤°²³ÇµÄÇ®×¯£¬ÃÅ¿ÚĞ´×ÅÒ»¸öÕĞÅÆ¡°±¦·áÂ¡¡±£¬Ç®×¯ÀÏ°å
-Õı¶Ô×ÅÕÊ±¾´ò×ÅËãÅÌ¡£ÔÚÕâ¿ÉÒÔ¶Ò»»½ğÒø´æÇ®È¡Ç®¡£ÃÅ¿ÚÌù×ÅÒ»ÕÅ
-Ç®×¯µÄ¸æÊ¾(sign)\n\n");
+    è¿™é‡Œæ˜¯é•¿å®‰åŸçš„é’±åº„ï¼Œé—¨å£å†™ç€ä¸€ä¸ªæ‹›ç‰Œâ€œå®ä¸°éš†â€ï¼Œé’±åº„è€æ¿
+æ­£å¯¹ç€å¸æœ¬æ‰“ç€ç®—ç›˜ã€‚åœ¨è¿™å¯ä»¥å…‘æ¢é‡‘é“¶å­˜é’±å–é’±ã€‚é—¨å£è´´ç€ä¸€å¼ 
+é’±åº„çš„å‘Šç¤º(sign)\n\n");
 set_exits( ([
 "west":"/a/changan/ca_yongchangjie3.c",
  ]));

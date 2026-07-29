@@ -8,10 +8,10 @@ string get_type() {
 	return "zfxs";
 }
 string get_type_name() {
-	return "%^H_RED%^ÕÊ·¿ÏÈÉú%^RESET%^";
+	return "%^H_RED%^å¸æˆ¿å…ˆç”Ÿ%^RESET%^";
 }
 void extra_init() {
-	add_ask_str("order","$N¶Ô$TµãÁËµãÍ·£¬$SÒª²é²éÕÊÄ¿¡£\n");
+	add_ask_str("order","$Nå¯¹$Tç‚¹äº†ç‚¹å¤´ï¼Œ$Sè¦æŸ¥æŸ¥å¸ç›®ã€‚\n");
 	add_question("order","order" );
 }
 void special_answer(object who, string matt)
@@ -28,7 +28,7 @@ void special_answer(object who, string matt)
 
 				if(rom->get_type()!="zhangfang") {
 				        this_object()->targetted_action(
-						"$NÒ»Ä£ºú×ÓµÀ£º²éÕÊÒªÈ¥ÕÊ·¿²ÅÐÐ¡£\n",who);
+						"$Nä¸€æ¨¡èƒ¡å­é“ï¼šæŸ¥å¸è¦åŽ»å¸æˆ¿æ‰è¡Œã€‚\n",who);
 					new(__DIR__+"free_menu")->start_menu(who,this_object());
 
 					return;
@@ -36,18 +36,18 @@ void special_answer(object who, string matt)
 				}
 				if(rom->get_status()<50) {
 				        this_object()->targetted_action(
-						"$NÒ»Ä£ºú×ÓµÀ£ºÕÊ·¿ÔçÒÑÆÆÀÃ²»¿°£¬ÕÊ¸ù±¾Ã»·¨¼Ç¡£\n",who);
+						"$Nä¸€æ¨¡èƒ¡å­é“ï¼šå¸æˆ¿æ—©å·²ç ´çƒ‚ä¸å ªï¼Œå¸æ ¹æœ¬æ²¡æ³•è®°ã€‚\n",who);
 					new(__DIR__+"free_menu")->start_menu(who,this_object());
 
 					return;
 				}
 			        this_object()->targetted_action(
-				"$N±§³öÒ»ÞûÕÊ±¾£º$RÇë¹ýÄ¿¡£\n",who);
+				"$NæŠ±å‡ºä¸€æ‘žå¸æœ¬ï¼š$Rè¯·è¿‡ç›®ã€‚\n",who);
 				new(__DIR__+"zfxs_menu")->start_menu(who,this_object());
 				return;
 			}
 		        this_object()->targetted_action(
-				"$NµÉÁË$TÒ»ÑÛ¡£\n",who);
+				"$Nçžªäº†$Tä¸€çœ¼ã€‚\n",who);
 				return;
         }
 }

@@ -5,9 +5,9 @@
 inherit INF_SUPPLY;
 
 void setup() {
-    set_id("box", "ºĞ×Ó");
-    set_adj("Ä§·¨");
-    set_long("Ä§·¨ºĞ×ÓÓÀ²»¿İ½ß£¡");
+    set_id("box", "ç›’å­");
+    set_adj("é­”æ³•");
+    set_long("é­”æ³•ç›’å­æ°¸ä¸æ¯ç«­ï¼");
     set_max_capacity(VERY_LARGE);
     set_objects( ([
         "/domains/std/objects/platemail" : -1,

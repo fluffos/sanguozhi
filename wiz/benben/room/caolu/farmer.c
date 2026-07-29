@@ -1,27 +1,27 @@
 //**********************************************
-// write by benben 29/12/97 benben.c Ğ¡¶«Î÷
+// write by benben 29/12/97 benben.c å°ä¸œè¥¿
 #include <mudlib.h>
 inherit LIVING;
 inherit M_ACTIONS;
 inherit M_TRIGGERS;
 void setup() 
 {
-    set_name("farmer", "Å©·ò");
-    add_id("farmer","Å©·ò");
+    set_name("farmer", "å†œå¤«");
+    add_id("farmer","å†œå¤«");
     set_gender(1);
-    set_proper_name("Å©·ò");
-    set_in_room_desc("Å©·ò(farmer)");
+    set_proper_name("å†œå¤«");
+    set_in_room_desc("å†œå¤«(farmer)");
     set_wander_area("caolu_area"); 
-    set_long("Ò»¸öÅ©·ò£¬ºÉ³ú¸û×÷ÓÚÌï¼ä¡£\n\n");
-	add_question("zhuge","kongming","Öî¸ğÁÁ","¿×Ã÷");
+    set_long("ä¸€ä¸ªå†œå¤«ï¼Œè·é”„è€•ä½œäºç”°é—´ã€‚\n\n");
+	add_question("zhuge","kongming","è¯¸è‘›äº®","å­”æ˜");
 }
 void special_answer(object who, string matt)
 {
 	switch(matt)
 	{
 		case "zhuge" :
-			this_object()->simple_action("Å©·òËµµÀ£º¡°×Ô´ËÉ½Ö®ÄÏ£¬Ò»´ø¸ß¸Ô£¬ÄËÎÔÁú¸ÔÒ²¡£¸ÔÇ°ÊèÁÖÄÚÃ©Â®
-ÖĞ£¬¼´Öî¸ğÏÈÉú¸ßÎÔÖ®µØ¡£¡±\n");
+			this_object()->simple_action("å†œå¤«è¯´é“ï¼šâ€œè‡ªæ­¤å±±ä¹‹å—ï¼Œä¸€å¸¦é«˜å†ˆï¼Œä¹ƒå§é¾™å†ˆä¹Ÿã€‚å†ˆå‰ç–æ—å†…èŒ…åº
+ä¸­ï¼Œå³è¯¸è‘›å…ˆç”Ÿé«˜å§ä¹‹åœ°ã€‚â€\n");
 			return;
 	}
 }

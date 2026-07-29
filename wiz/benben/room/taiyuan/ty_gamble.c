@@ -1,4 +1,4 @@
-// ¶Ä³¡  by Benben
+// èµŒåœº  by Benben
 // ty_gamble.c 
 #include <mudlib.h>
 #include "/wiz/fire/fire.h"
@@ -7,8 +7,8 @@ inherit ROOM;
 void setup(){
     set_area("ty_area");
     set_light(50);
-    set_brief(""+YEL+"¶Ä³¡"+NOR+"");
-    set_long("    ÃèÊö¡£\n");
+    set_brief(""+YEL+"èµŒåœº"+NOR+"");
+    set_long("    æè¿°ã€‚\n");
     set_exits( ([
         "south" :  __DIR__+"ty_wst1.c",
     ]) );

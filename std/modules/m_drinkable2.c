@@ -2,8 +2,8 @@
 // can't re-fill
 // by fire on April 4, 1999
 private int num_drinks=10,max_drinks=10;
-private mixed drink_action="$N����$o��ཹ�ེ��˼��ڡ�\n";
-private mixed last_drink_action="$Nһ�ڰ�$o�����ˡ�\n";
+private mixed drink_action="$N端起$o咕嘟咕嘟喝了几口。\n";
+private mixed last_drink_action="$N一口把$o喝完了。\n";
 private int drink_val,eat_val;
 
 
@@ -37,7 +37,7 @@ void set_max_drinks(int num)
 }
 mixed direct_drink_obj() {
 //    if (!num_drinks)
-//       return short() + "�ȹ��ˡ�\n";
+//       return short() + "喝光了。\n";
     return 1;
 }
 void drink_it() {

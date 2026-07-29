@@ -13,7 +13,7 @@ nomask int query_level(){ return level; }
 nomask void set_level(int to){
  if(!check_previous_privilege(1)){
    //error("You can not modify that.");
-   error("你无权修改它");
+   error("浣犳棤鏉冧慨鏀瑰畠");
   }
   level = to;
   save_me();  

@@ -10,19 +10,19 @@ inherit M_DRINKABLE;
 
 create() {
   ::create();
-  set_proper_name("Ë®");
-  set_in_room_desc("ÕâÀïÓĞÒ»Ì²Ë®¡£");
+  set_proper_name("æ°´");
+  set_in_room_desc("è¿™é‡Œæœ‰ä¸€æ»©æ°´ã€‚");
 //  set_weight(4);
-  set_adj( "Ò»Ğ©", "Ò»Æ¬", "Ò»Ì²" );
+  set_adj( "ä¸€äº›", "ä¸€ç‰‡", "ä¸€æ»©" );
   set_id( "water", "liquid", "h2o" );
-  set_long("ÕâË®¿´ÆğÀ´Ã»Ê²Ã´ÌØ±ğµÄ¡£\n");
-  set_gettable("ÄãÊÔÊÔ·Åµã¶ùÊ²Ã´½øÈ¥...\n");
-  set_droppable("ÊÔÊÔ°ÑËüµ¹ÔÚÊ²Ã´ÈİÆ÷Àï...\n");
+  set_long("è¿™æ°´çœ‹èµ·æ¥æ²¡ä»€ä¹ˆç‰¹åˆ«çš„ã€‚\n");
+  set_gettable("ä½ è¯•è¯•æ”¾ç‚¹å„¿ä»€ä¹ˆè¿›å»...\n");
+  set_droppable("è¯•è¯•æŠŠå®ƒå€’åœ¨ä»€ä¹ˆå®¹å™¨é‡Œ...\n");
 }
 
 int move_water(object target) {
     if (present("water", target)) {
-        write(target->short()+"ÀïÃæÊÇÂúÂúµÄË®¡£\n");
+        write(target->short()+"é‡Œé¢æ˜¯æ»¡æ»¡çš„æ°´ã€‚\n");
         return 0;
     }
     move(target);

@@ -12,7 +12,7 @@ private nomask void handle_piping(string verb, string arg)
     if( arg == "**" || arg == "." )
     {
         //write("Done.\n");
-        write("完成。\n");
+        write("瀹屾垚銆俓n");
         modal_pop();
         destruct();
         return;
@@ -26,12 +26,12 @@ nomask void start_cmd(mixed * arg)
 {
     if(!clonep() || (base_name(previous_object()) != base_name()))  {
         //write("Illegal attempt to spoof command.\n");
-        write("试图非法玩弄命令。\n");
+        write("璇曞浘闈炴硶鐜╁紕鍛戒护銆俓n");
         destruct();
         return;
     }
     //write("Entering pipe mode. Type '**' to quit.\n");
-    write("进入 pipe 模式。用 '**' 退出。\n");
+    write("杩涘叆 pipe 妯″紡銆傜敤 '**' 閫�鍑恒�俓n");
     modal_push((: handle_piping, arg[0] :), "*\b"); 
 }
 

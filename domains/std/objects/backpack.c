@@ -13,9 +13,9 @@ inherit M_GETTABLE;
 void
 setup() {
     
-    set_id("backpack", "±³°ü", "pack");
-    set_unit("¸ö");
-    set_long("ËüÊÇÒ»¸öÆ¤ÖÆµÄ±³°ü£¬ÓĞ¿ÉÒÔ¿ÛÉÏµÄ´ø×Ó¡£");
+    set_id("backpack", "èƒŒåŒ…", "pack");
+    set_unit("ä¸ª");
+    set_long("å®ƒæ˜¯ä¸€ä¸ªçš®åˆ¶çš„èƒŒåŒ…ï¼Œæœ‰å¯ä»¥æ‰£ä¸Šçš„å¸¦å­ã€‚");
     set_gettable(1);
     set_objects( ([
                    ]) );

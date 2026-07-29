@@ -32,7 +32,7 @@ void delay_look()
 }
 void delay_fly()
 {
-this_body()->simple_action(YEL+"$NµÄÉíÓ°Í»È»³öÏÖÔÚÒ»Õó³¾ÍÁÖĞ¡£"+NOR+"\n\n");
+this_body()->simple_action(YEL+"$Nçš„èº«å½±çªç„¶å‡ºç°åœ¨ä¸€é˜µå°˜åœŸä¸­ã€‚"+NOR+"\n\n");
 	delay_look();
 //        call_out((: delay_look :),0);
 }
@@ -44,18 +44,18 @@ void fly_map(string file)
         p_level=this_body()->query_sk_level("qmdj");
         if (p_level<10)
         {
-                this_body()->other_action("$NÄîÁË°ëÌì¿Ú¾÷£¬¿ÉÊ²Ã´ÊÂÒ²Ã»·¢Éú¡£\n");
-                write("ÄãµÄÆæÃÅ¶İ¼×Ö®Êõ»¹²»ĞĞÑ½¡£\n");
+                this_body()->other_action("$Nå¿µäº†åŠå¤©å£è¯€ï¼Œå¯ä»€ä¹ˆäº‹ä¹Ÿæ²¡å‘ç”Ÿã€‚\n");
+                write("ä½ çš„å¥‡é—¨éç”²ä¹‹æœ¯è¿˜ä¸è¡Œå‘€ã€‚\n");
                 return;
         }
         p_hp=this_body()->query_cur_hp();
         if (p_hp<30)
         {
-                this_body()->other_action("$NÄî×Å¿Ú¾÷£¬Ò»Í·ÏòµØÏÂ×êÈ¥£¬½á¹ûÍ·ÉÏÅöÁË¸ö´ó°û¡£\n");
-                write("ÌåÁ¦²»×ã£¬»á±»±ïËÀµÄ¡£\n");
+                this_body()->other_action("$Nå¿µç€å£è¯€ï¼Œä¸€å¤´å‘åœ°ä¸‹é’»å»ï¼Œç»“æœå¤´ä¸Šç¢°äº†ä¸ªå¤§èƒã€‚\n");
+                write("ä½“åŠ›ä¸è¶³ï¼Œä¼šè¢«æ†‹æ­»çš„ã€‚\n");
                 return;
         }
-        this_body()->simple_action(HIG+"$NÄî×Å¿Ú¾÷£¬Ò»Í·ÏòµØÏÂ×êÈ¥£¬×ªÑÛ¾Í²»¼ûÁË¡£"+NOR+"\n\n");
+        this_body()->simple_action(HIG+"$Nå¿µç€å£è¯€ï¼Œä¸€å¤´å‘åœ°ä¸‹é’»å»ï¼Œè½¬çœ¼å°±ä¸è§äº†ã€‚"+NOR+"\n\n");
         this_body()->move(file);
 	delay_fly();
 //        call_out((: delay_fly : ),0);
@@ -66,7 +66,7 @@ void main(string arg)
 	string m_mark="";
         if(!wizardp(this_body()))
         {
-                write("ÈËÔõÃ´»á·É£¿»¹ÊÇ×øÂí³µÍ×µ±Ğ©¡£(help yizhan)\n");
+                write("äººæ€ä¹ˆä¼šé£ï¼Ÿè¿˜æ˜¯åé©¬è½¦å¦¥å½“äº›ã€‚(help yizhan)\n");
  		return;
 	}
 	if(arg)
@@ -82,7 +82,7 @@ void main(string arg)
         }
         if(!stringp(p_path)||!stringp(p_name))
         {
-                write("Ã»·¨ÍÁ¶İµ½ÄÇ£¬ÓÃfly²éÔÄ¿ÉÍÁ¶İµ½µÄµØÇø¡£\n");
+                write("æ²¡æ³•åœŸéåˆ°é‚£ï¼Œç”¨flyæŸ¥é˜…å¯åœŸéåˆ°çš„åœ°åŒºã€‚\n");
                 return;
         }
         fly_map(p_path+p_name); 

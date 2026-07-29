@@ -5,19 +5,19 @@ inherit LIVING;
 
 void setup()
 {
-    set_name("jiaohang laoban", "½ÎĞĞÀÏ°å");
+    set_name("jiaohang laoban", "è½¿è¡Œè€æ¿");
     set_gender(1);
-    set_in_room_desc("É«ÃÔÃÔµÄ%^YELLOW%^½ÎĞĞÀÏ°å%^RESET%^(jiaohang laoban)");
+    set_in_room_desc("è‰²è¿·è¿·çš„%^YELLOW%^è½¿è¡Œè€æ¿%^RESET%^(jiaohang laoban)");
     add_id("laoban");
     set_age(40);
 
-    add_ask_str("jiaozi","$N¶Ô$TµÀ£ºÀÏ°å£¬ÎÒĞèÒªÒ»¶¥»¨½Î¡£\n");
+    add_ask_str("jiaozi","$Nå¯¹$Té“ï¼šè€æ¿ï¼Œæˆ‘éœ€è¦ä¸€é¡¶èŠ±è½¿ã€‚\n");
     add_question("jiaozi","jiaozi" );
 
 }
 string long() {
 	return
-"Ò»¸öÉ«ÃÔÃÔµÄ%^YELLOW%^½ÎĞĞÀÏ°å%^RESET%^¡£\n";
+"ä¸€ä¸ªè‰²è¿·è¿·çš„%^YELLOW%^è½¿è¡Œè€æ¿%^RESET%^ã€‚\n";
 }
 
 mixed ask_jiaozi(object who) {
@@ -27,18 +27,18 @@ mixed ask_jiaozi(object who) {
 	p_boy=who->query_primary_id();
 
 	p_gender=who->query_gender();
-	if(p_gender==2) return "$N¶Ô$T¿´ÁËÒ»ÑÛ£¬É«ÃÔÃÔµØËµµÀ£ºĞ¡ÃÃÃÃÒªÊ²Ã´»¨½Î£¬\n"+
-		"ÔÚÎÒÕâ¶ù×¡ÏÂÁË£¬ÌìÌì¸øÄã×ö»¨½Î¡£\n";
+	if(p_gender==2) return "$Nå¯¹$Tçœ‹äº†ä¸€çœ¼ï¼Œè‰²è¿·è¿·åœ°è¯´é“ï¼šå°å¦¹å¦¹è¦ä»€ä¹ˆèŠ±è½¿ï¼Œ\n"+
+		"åœ¨æˆ‘è¿™å„¿ä½ä¸‹äº†ï¼Œå¤©å¤©ç»™ä½ åšèŠ±è½¿ã€‚\n";
 	p_girl=CHAR_D->get_char(p_boy,"pri_mar");
 	if(!p_girl) 
-		return "$N¶Ô$TĞ¦µ½£ºÒªÇë»¨½Î±§ÃÃÃÃ£¬ÏÈÈ¥ÇÇÀÏÒ¯ÄÇÀïµÇ¼ÇÒ»ÏÂ°É¡£\n";
+		return "$Nå¯¹$Tç¬‘åˆ°ï¼šè¦è¯·èŠ±è½¿æŠ±å¦¹å¦¹ï¼Œå…ˆå»ä¹”è€çˆ·é‚£é‡Œç™»è®°ä¸€ä¸‹å§ã€‚\n";
 	if(p_boy!=CHAR_D->get_char(p_girl,"pri_mar"))
-		return "$N¶Ô$TĞ¦µ½£ºÄãÃÇ¹ØÏµ²»Ã÷²»°×£¬ÒªÇë»¨½Î±§ÃÃÃÃ£¬È¥ÇÇÀÏÒ¯ÄÇÀï´ÓĞÂµÇ¼ÇÒ»ÏÂ°É¡£\n";
+		return "$Nå¯¹$Tç¬‘åˆ°ï¼šä½ ä»¬å…³ç³»ä¸æ˜ä¸ç™½ï¼Œè¦è¯·èŠ±è½¿æŠ±å¦¹å¦¹ï¼Œå»ä¹”è€çˆ·é‚£é‡Œä»æ–°ç™»è®°ä¸€ä¸‹å§ã€‚\n";
 		
 	if(objectp(CHAR_D->find_char("jiaofu tou"))) 
-		return "$N¶Ô$TĞ¦µ½£º½Î×Ó¶¼×â³öÈ¥ÁË£¬µÈÒ»ÏÂÔÙÀ´°É¡£\n";
+		return "$Nå¯¹$Tç¬‘åˆ°ï¼šè½¿å­éƒ½ç§Ÿå‡ºå»äº†ï¼Œç­‰ä¸€ä¸‹å†æ¥å§ã€‚\n";
 	if(objectp(CHAR_D->find_char("li guan"))) 
-		return "$N¶Ô$TĞ¦µ½£ºÏÖÔÚÓĞÈËÕıÔÚ¾ÙĞĞ»éÀñ£¬ÄãÃÇÔÙµÈµÈ°É¡£\n";
+		return "$Nå¯¹$Tç¬‘åˆ°ï¼šç°åœ¨æœ‰äººæ­£åœ¨ä¸¾è¡Œå©šç¤¼ï¼Œä½ ä»¬å†ç­‰ç­‰å§ã€‚\n";
 
 	return 1;
 }
@@ -49,28 +49,28 @@ void pay(string p_boy,int price) {
 	p_girl=CHAR_D->get_char(p_boy,"pri_mar");
 	o_boy=find_body(p_boy);
 	if(!objectp(o_boy)) return;
-	o_boy->simple_action("$NµÀ£ººÃËµ£¬ºÃËµ£¬Õâ¾Í¸øÇ®¡£\n");
+	o_boy->simple_action("$Né“ï¼šå¥½è¯´ï¼Œå¥½è¯´ï¼Œè¿™å°±ç»™é’±ã€‚\n");
 	p_money=o_boy->query_all_con_money();
 	price*=10000;
 	if(p_money<price) {
-		o_boy->simple_action("$NÍ»È»Á³Ò»ºìµÀ£º°¡£¬°¡£¬Ç®Ã»´ø¹»¡£\n");
+		o_boy->simple_action("$Nçªç„¶è„¸ä¸€çº¢é“ï¼šå•Šï¼Œå•Šï¼Œé’±æ²¡å¸¦å¤Ÿã€‚\n");
 		this_object()->responda("admit "+p_boy);
 		return;
 	}
 	
 	o_boy->set_all_con_money(p_money-price);
 	price/=10000;
-	o_boy->targetted_action("$N¸øÁË$T"+chinese_number(price)+"Á½½ğ×Ó¡£\n",this_object());
-	DELAY_D->delay_simple_action(this_object(),"$NÂúÒâµØµãÁËµãÊÖÖĞµÄÇ®¡£\n",2);
-	DELAY_D->delay_targetted_action(this_object(),o_boy,"$N¶Ô$TµÀ£º»¨½ÎÒÑ¾­×¼±¸ºÃÁË£¬¾ÍÔÚ%^YELLOW%^ºçÇÅ%^RESET%^£¬¿ìÈ¥°Ñ¡£\n",2);
+	o_boy->targetted_action("$Nç»™äº†$T"+chinese_number(price)+"ä¸¤é‡‘å­ã€‚\n",this_object());
+	DELAY_D->delay_simple_action(this_object(),"$Næ»¡æ„åœ°ç‚¹äº†ç‚¹æ‰‹ä¸­çš„é’±ã€‚\n",2);
+	DELAY_D->delay_targetted_action(this_object(),o_boy,"$Nå¯¹$Té“ï¼šèŠ±è½¿å·²ç»å‡†å¤‡å¥½äº†ï¼Œå°±åœ¨%^YELLOW%^è™¹æ¡¥%^RESET%^ï¼Œå¿«å»æŠŠã€‚\n",2);
 	CHAR_D->add_char("jiaofu tou");
 	CHAR_D->set_char("jiaofu tou","body","marriage/cgs");
 	CHAR_D->set_char("jiaofu tou","is_tmp",1);
-	CHAR_D->appear("jiaofu tou","wujun","wj_hq","$NÁì×ÅÒ»¸öËÍÇ×¶ÓÎé¿ªÁË¹ıÀ´¡£\n");
+	CHAR_D->appear("jiaofu tou","wujun","wj_hq","$Né¢†ç€ä¸€ä¸ªé€äº²é˜Ÿä¼å¼€äº†è¿‡æ¥ã€‚\n");
 	CHAR_D->find_char("jiaofu tou")->set_boygirl(p_boy,p_girl);
 	CHAR_D->remove_char_d("jiaofu tou");
-	tell(users(),"%^H_RED%^¡¾»éÀñ¡¿½ÎĞĞÀÏ°åÉ«ÃÔÃÔµØË¼Á¿×Å£º½ñÍí"+
-	CHAR_D->get_char(p_boy,"name")+"¾ÍÒªºÍ"+CHAR_D->get_char(p_girl,"name")+"ĞĞ·¿£¬ÓĞºÃÏ·¿´ÁË¡£ºÙºÙ. . . \n");
+	tell(users(),"%^H_RED%^ã€å©šç¤¼ã€‘è½¿è¡Œè€æ¿è‰²è¿·è¿·åœ°æ€é‡ç€ï¼šä»Šæ™š"+
+	CHAR_D->get_char(p_boy,"name")+"å°±è¦å’Œ"+CHAR_D->get_char(p_girl,"name")+"è¡Œæˆ¿ï¼Œæœ‰å¥½æˆçœ‹äº†ã€‚å˜¿å˜¿. . . \n");
 }
 void before_check(object who) {
 	string p_boy,p_girl;
@@ -83,34 +83,34 @@ void before_check(object who) {
 	p_girl=CHAR_D->get_char(p_boy,"pri_mar");
 	o_girl=CHAR_D->find_char(p_girl);
 	if((!objectp(o_girl))||(o_girl->query_room()!=this_object()->query_room())) {
-		this_object()->targetted_action("$N¶Ô$TµÀ£ºĞ¡ÃÃÃÃÔÚÄÄÀïÑ½£¬ÒªÕÒÀ´¿´¿´²ÅºÃ±¸½Î¡£\n",o_boy);
+		this_object()->targetted_action("$Nå¯¹$Té“ï¼šå°å¦¹å¦¹åœ¨å“ªé‡Œå‘€ï¼Œè¦æ‰¾æ¥çœ‹çœ‹æ‰å¥½å¤‡è½¿ã€‚\n",o_boy);
 		return;
 	}
 	p_rongmao=CHAR_D->get_char(p_girl,"gift")["rongmao"];
-	this_object()->targetted_action("$NÃÔ×ÅÉ«ÑÛ£¬°Ñ$T´ÓÉÏµ¹ÏÂ×Ğ×ĞÏ¸Ï¸µØ¿´ÁËÒ»±ß¡£\n",o_girl);
+	this_object()->targetted_action("$Nè¿·ç€è‰²çœ¼ï¼ŒæŠŠ$Tä»ä¸Šå€’ä¸‹ä»”ä»”ç»†ç»†åœ°çœ‹äº†ä¸€è¾¹ã€‚\n",o_girl);
 	this_object()->respanda("look "+p_girl);
 	if(p_rongmao>25) {
-		msg="$N¶Ô$TÑ½µÄÒ»Éù£¬²»µÃÁË£¬²»µÃÁË£¬"+CHAR_D->get_char(p_boy,"name")+"´ÓÄÄÀïÕÒµ½ÕâµÈÓÈÎï£¬ÎÒÊÜ²»ÁËÁË¡£\n"+
-			"Ò»¶¨Òª×øÍ·µÈ»¨½Î£¬Ëµ×Å¿ÚË®¶¼Á÷ÁË³öÀ´¡£\n";
+		msg="$Nå¯¹$Tå‘€çš„ä¸€å£°ï¼Œä¸å¾—äº†ï¼Œä¸å¾—äº†ï¼Œ"+CHAR_D->get_char(p_boy,"name")+"ä»å“ªé‡Œæ‰¾åˆ°è¿™ç­‰å°¤ç‰©ï¼Œæˆ‘å—ä¸äº†äº†ã€‚\n"+
+			"ä¸€å®šè¦åå¤´ç­‰èŠ±è½¿ï¼Œè¯´ç€å£æ°´éƒ½æµäº†å‡ºæ¥ã€‚\n";
 		price=100;
 	}
 	else if(p_rongmao>20) {
-		msg="$N¶Ô$TµÀ£¬Ğ¡ÃÃÃÃ³¤µÃ²»´íÑ½£¬Òª°²ÅÅÉÏµÈ»¨½Î£¬ËµÕâÔÚ$tµÄÁ³µ°ÉÏÆşÁËÒ»°Ñ¡£\n";
+		msg="$Nå¯¹$Té“ï¼Œå°å¦¹å¦¹é•¿å¾—ä¸é”™å‘€ï¼Œè¦å®‰æ’ä¸Šç­‰èŠ±è½¿ï¼Œè¯´è¿™åœ¨$tçš„è„¸è›‹ä¸Šæäº†ä¸€æŠŠã€‚\n";
 		price=50;
 	}
 	else if(p_rongmao>15) {
-		msg="$N¶Ô$oµÀ£ºÄãµÄÀÏÆÅ»¹¿ÉÒÔ£¬³¤µÃ²»ÊÇÌ«ºÃ£¬¾Í°²ÅÅ¸öÆÕÍ¨½Î×Ó°É¡£\n";
+		msg="$Nå¯¹$oé“ï¼šä½ çš„è€å©†è¿˜å¯ä»¥ï¼Œé•¿å¾—ä¸æ˜¯å¤ªå¥½ï¼Œå°±å®‰æ’ä¸ªæ™®é€šè½¿å­å§ã€‚\n";
 		price=20;
 	}
 	else {
-		msg="$N¶Ô$TÑ½ÁËÒ»Éù£¬ÕâÃ´³óµÄÑ¾Í·£¬²»Öª"+CHAR_D->get_char(p_boy,"name")+"´ÓÄÄÀïÕÒµ½µÄ£¬ÕæÊÜ²»ÁËÁË¡£\n"+
-			"ËãÎÒ¿ªÑÛËÍÄãÃÇ¸ö±ãÒË½Î×Ó°É¡£\n";
+		msg="$Nå¯¹$Tå‘€äº†ä¸€å£°ï¼Œè¿™ä¹ˆä¸‘çš„ä¸«å¤´ï¼Œä¸çŸ¥"+CHAR_D->get_char(p_boy,"name")+"ä»å“ªé‡Œæ‰¾åˆ°çš„ï¼ŒçœŸå—ä¸äº†äº†ã€‚\n"+
+			"ç®—æˆ‘å¼€çœ¼é€ä½ ä»¬ä¸ªä¾¿å®œè½¿å­å§ã€‚\n";
 		price=10;
 	}
 	this_object()->targetted_action(msg,o_girl,o_boy);
 
-	DELAY_D->delay_targetted_action(this_object(),o_boy,"$N¶Ô$TµÀ£º·ÑÓÃ"+chinese_number(price)+
-		"Á½½ğ×Ó£¬$R¾ÍÇëÏÈ½»Ç®°É¡£\n",3);
+	DELAY_D->delay_targetted_action(this_object(),o_boy,"$Nå¯¹$Té“ï¼šè´¹ç”¨"+chinese_number(price)+
+		"ä¸¤é‡‘å­ï¼Œ$Rå°±è¯·å…ˆäº¤é’±å§ã€‚\n",3);
 	call_out("pay",6,p_boy,price);
 }
 void special_answer(object who, string matt)

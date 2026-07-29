@@ -1,10 +1,10 @@
-// well.c Ò»¿Ú¿İ¾® by benben
+// well.c ä¸€å£æ¯äº• by benben
 
 inherit CONTAINER;
 inherit M_CLIMBABLE;
 inherit M_ENTERABLE;
 void setup() {
-    set_id("well", "¿İ¾®");
-    set_long("    Ò»¿Ú·ÏÆúÒÑ¾ÃµÄ¿İ¾®£¬¾®Àï¶Ñ»ı×Å¿İÖ¦ÀÃÒ¶¡£");
+    set_id("well", "æ¯äº•");
+    set_long("    ä¸€å£åºŸå¼ƒå·²ä¹…çš„æ¯äº•ï¼Œäº•é‡Œå †ç§¯ç€æ¯æçƒ‚å¶ã€‚");
     set_down_destination("/wiz/benben/obj/well_bottom.c");
 }                                  

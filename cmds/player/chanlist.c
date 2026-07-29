@@ -19,12 +19,12 @@ private nomask string fmt_imud_channel(string channel_name,
                                        mixed * channel_data)
 {
     string owner = channel_data[0];
-    string type = ({ "ÎŞÏŞÖÆ",
-                     "ÏŞÖÆ",
-                     "¹ıÂË" })[channel_data[1]];
+    string type = ({ "æ— é™åˆ¶",
+                     "é™åˆ¶",
+                     "è¿‡æ»¤" })[channel_data[1]];
 
     if ( owner == "*" )
-        owner = "ÎŞÖ÷×´Ì¬";
+        owner = "æ— ä¸»çŠ¶æ€";
 
     return sprintf("%-19s Intermud: %s, %s\n",
                    channel_name, owner, type);
@@ -35,22 +35,22 @@ private void main(string arg)
     string s;
     mapping chanlist = IMUD_D->query_chanlist();
 
-    s = "ÏÖÓĞÆµµÀÁĞ±í£º\n-----------------------------\n"
-        "gossip              ±¾µØ\n"
-        "newbie              ±¾µØ\n"
-        "news                ±¾µØ\n"
+    s = "ç°æœ‰é¢‘é“åˆ—è¡¨ï¼š\n-----------------------------\n"
+        "gossip              æœ¬åœ°\n"
+        "newbie              æœ¬åœ°\n"
+        "news                æœ¬åœ°\n"
         ;
 
     if ( wizardp(this_user()) )
         s +=
-            "wiz                 Î×Ê¦×¨ÓÃ\n"
-            "announce            Î×Ê¦×¨ÓÃ\n"
-            "errors              Î×Ê¦×¨ÓÃ\n"
+            "wiz                 å·«å¸ˆä¸“ç”¨\n"
+            "announce            å·«å¸ˆä¸“ç”¨\n"
+            "errors              å·«å¸ˆä¸“ç”¨\n"
             ;
 
     if ( adminp(this_user()) )
         s +=
-            "admin               ´óÉñ×¨ÓÃ\n"
+            "admin               å¤§ç¥ä¸“ç”¨\n"
             ;
 
     if (wizardp(this_user()) )

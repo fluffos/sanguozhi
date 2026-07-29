@@ -231,34 +231,34 @@ mixed can_build(string p_area,string f_id) {
 	if(objectp(bs)) {
 		bslev=bs->get_level();
 	}
-	if(bslev==4) return "»ùµØÒÑ¾­²»ÄÜÔÙÉı¼¶ÁË¡£\n";
+	if(bslev==4) return "åŸºåœ°å·²ç»ä¸èƒ½å†å‡çº§äº†ã€‚\n";
 	lev=AREA_D->get_area(p_area,"level");
-	if(lev==1) return "¹Ø¿Ú²»ÄÜ½¨ÉèÉú²ú»ùµØ¡£";
+	if(lev==1) return "å…³å£ä¸èƒ½å»ºè®¾ç”Ÿäº§åŸºåœ°ã€‚";
 	if(!base_exist(f_id)) 
-		return "Ã»ÓĞ"+f_id+"ÕâÀàÉú²ú»ùµØ¡£";
+		return "æ²¡æœ‰"+f_id+"è¿™ç±»ç”Ÿäº§åŸºåœ°ã€‚";
 	nam=get_base(f_id,"name");
 	if(!can_build_in_this_area(f_id,p_area))
-		return "±¾µØÇø²»ÊÊÒË½¨Éè"+nam+"ÕâÀàÉú²ú»ùµØ¡£";
+		return "æœ¬åœ°åŒºä¸é€‚å®œå»ºè®¾"+nam+"è¿™ç±»ç”Ÿäº§åŸºåœ°ã€‚";
 	if(AREA_D->get_area(p_area,"safe")<
 		(get_base(f_id,"safe")+bslev*20))
-		return "±¾µØÇø°²¶¨²»¹»¡£";
+		return "æœ¬åœ°åŒºå®‰å®šä¸å¤Ÿã€‚";
 	if(AREA_D->get_area(p_area,"population")<
 		get_base(f_id,"pop")*(bslev+1))
-		return "±¾µØÇøÈË¿Ú²»¹»¡£";
+		return "æœ¬åœ°åŒºäººå£ä¸å¤Ÿã€‚";
 
 	if(AREA_D->get_area(p_area,"gold")<
 		get_base(f_id,"gold"))
-		return "±¾µØÇø½ğ²»¹»¡£";
+		return "æœ¬åœ°åŒºé‡‘ä¸å¤Ÿã€‚";
 	bases=AREA_D->get_area(p_area,"base");
 	if(bslev==0) return 1;
 	if((bs->get_room("size")-1)<bslev*2)
-		return "±¾µØÇø"+nam+"»¹¿ÉÒÔÔÙÔö¼ÓĞÂµÄ"+get_base(f_id,"roomname")+
-			"£¬ËùÒÔ²»ÄÜÉı¼¶¡£";
+		return "æœ¬åœ°åŒº"+nam+"è¿˜å¯ä»¥å†å¢åŠ æ–°çš„"+get_base(f_id,"roomname")+
+			"ï¼Œæ‰€ä»¥ä¸èƒ½å‡çº§ã€‚";
 	rs=bs->get_room("list");
 	foreach(string r in rs) {
 		if(bs->can_have_more_ppl(r)==1)
-			return "±¾µØÇø"+nam+"ÓĞĞ©"+get_base(f_id,"roomname")+
-			"µÄ"+get_base(f_id,"workername")+"»¹Ã»ÂúÔ±£¬²»ÄÜÉı¼¶¡£";
+			return "æœ¬åœ°åŒº"+nam+"æœ‰äº›"+get_base(f_id,"roomname")+
+			"çš„"+get_base(f_id,"workername")+"è¿˜æ²¡æ»¡å‘˜ï¼Œä¸èƒ½å‡çº§ã€‚";
 	}
 		return 2; // update
 }

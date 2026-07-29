@@ -8,9 +8,9 @@ void switch_to(object);
 void attack();
 object get_target();
 
-private static int      attack_time = time();
+private int      attack_time = time();
 private int             attack_speed = 5;
-static int              attacking;
+nosave protected int              attacking;
 
 void remove() {
     remove_call_out();
@@ -63,6 +63,6 @@ varargs void attacked_by(object who, int take_a_swing) {
 string continue_fight() {
     if (!get_target())
         return //"You aren't attacking anyone.\n";
-               "你没有攻击对象。\n";
+               "浣犳病鏈夋敾鍑诲璞°�俓n";
     do_something();
 }

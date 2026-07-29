@@ -5,14 +5,14 @@ inherit M_WEAPON;
 inherit M_VALUE;
 void setup()
 {
-set_unit("¶Ô");
-set_id("tiejili guduo", HIW+"ÌúİğŞ¼¹Ç¶ä"+NOR);
+set_unit("å¯¹");
+set_id("tiejili guduo", HIW+"é“è’ºè—œéª¨æœµ"+NOR);
 add_id("tiejili guduo");
 add_id("tiejili");
 add_id("guduo");
-set_in_room_desc(HIW+"ÌúİğŞ¼¹Ç¶ä"+NOR+"(tiejili guduo)");
-set_long("·¬ÍõËùÓÃµÄ¶À¼Ò±øÆ÷£¬Ã²ËÆÌú´¸£¬µ«´¸ÉíÉúÓĞÎŞÊı
-¼â´Ì£¬ÁîÈËÉúÎ·¡£\n");
+set_in_room_desc(HIW+"é“è’ºè—œéª¨æœµ"+NOR+"(tiejili guduo)");
+set_long("ç•ªç‹æ‰€ç”¨çš„ç‹¬å®¶å…µå™¨ï¼Œè²Œä¼¼é“é”¤ï¼Œä½†é”¤èº«ç”Ÿæœ‰æ— æ•°
+å°–åˆºï¼Œä»¤äººç”Ÿç•ã€‚\n");
 set_size(MEDIUM);
 set_value(-1);
 set_currency_type("gold");
@@ -20,6 +20,6 @@ set_attack_ability(150);
 set_attack_power(115);
 set_defence_ability(150);
 set_combat_messages("combat-hammer");
-set_wield_message("$NË«ÊÖÒ»·Ö£¬½«$oÇæÔÚÕÆÖĞ£¬°ÔÆøÊ®×ã¡£\n");
-set_unwield_message("$NË«ÊÖÒ»ºÏ£¬ÒÑ½«$oÊÕÆğ¡£\n");
+set_wield_message("$NåŒæ‰‹ä¸€åˆ†ï¼Œå°†$oæ“åœ¨æŒä¸­ï¼Œéœ¸æ°”åè¶³ã€‚\n");
+set_unwield_message("$NåŒæ‰‹ä¸€åˆï¼Œå·²å°†$oæ”¶èµ·ã€‚\n");
 }

@@ -16,7 +16,7 @@ void show_help() {
 void set_con(string p_id,string d,int type) {
 	string ret;
 	if((d!="e")&&(d!="w")&&(d!="s")&&(d!="n"))
-	{write( "���� e, s, w, n ��ʾ����������\n"); return ;}
+	{write( "请用 e, s, w, n 表示东南西北。\n"); return ;}
 	ret=MUSEUM_D->set_room(p_id,d,type);
 	write(ret+"\n");
 	return;
@@ -29,7 +29,7 @@ void set_label(string p_id,string layer,string arg) {
 		return;
 	}
 	if(colour_strlen(arg)>4) {
-		write("̫���ˣ�����������֡�\n");
+		write("太长了，最多两个汉字。\n");
 		return;
 	}
 	arg=replace_string(arg,"+"," ");
@@ -58,7 +58,7 @@ void set_brief(string p_id,string arg) {
 		return;
 	}
 	if(colour_strlen(arg)>20) {
-		write("̫���ˣ����ʮ�����֡�\n");
+		write("太长了，最多十个汉字。\n");
 		return;
 	}
 	ret=MUSEUM_D->set_room(p_id,"b",arg);
@@ -85,7 +85,7 @@ private void main( string arg )
 
     env=this_body()->query_room();
 	if(!env->is_in_museum()) {
-		write("ֻ���ڲ�����ڲſ���ʹ�ô˹��ߡ�\n");
+		write("只有在博物馆内才可以使用此工具。\n");
 		return;
 	}
 	id=env->get_id();

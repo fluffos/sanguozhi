@@ -7,8 +7,8 @@ int can_do_fate(string city)
 void do_fate(string city,int r)
 {
  string msg;
- array objname=({"ÓñÅå","Óñ»·","Óñçå","Í­õú","Í­È¸",
- "Í­¶¦","Òø±­","½ğÓ¡","ºÍÊÏèµ","Óñçô"}) ;
+ mixed * objname=({"ç‰ä½©","ç‰ç¯","ç‰ç","é“œæ–›","é“œé›€",
+ "é“œé¼","é“¶æ¯","é‡‘å°","å’Œæ°ç’§","ç‰çº"}) ;
  mapping effect = ([
                     "agriculture":10,
                     "industry"   :10,
@@ -16,9 +16,9 @@ void do_fate(string city,int r)
                     "population" :20
                    ]);
 FATE_D->area_effect(city,effect,r);
-  msg = "%^B_MAGENTA%^%^H_CYAN%^¡¾Ò¥ÑÔ¡¿Ä³ÈË£º"+AREA_D->get_area(city,"name")+
- "°ÙĞÕÍÚ³öÇ°³¯µÄ"+ chinese_number(r)+"¼¶±¦Îï"+objname[r-1]+
-        "·×·×ÊÓÎªÏéÈğ£¬Òò´ËÊµÁ¦´óÕÇ\n%^RESET%^";
+  msg = "%^B_MAGENTA%^%^H_CYAN%^ã€è°£è¨€ã€‘æŸäººï¼š"+AREA_D->get_area(city,"name")+
+ "ç™¾å§“æŒ–å‡ºå‰æœçš„"+ chinese_number(r)+"çº§å®ç‰©"+objname[r-1]+
+        "çº·çº·è§†ä¸ºç¥¥ç‘ï¼Œå› æ­¤å®åŠ›å¤§æ¶¨\n%^RESET%^";
  tell(users(),msg);
  //SGSYS(msg);
 }

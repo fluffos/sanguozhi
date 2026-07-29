@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is ∞Õ…Ω“π”Í
+// driver is Â∑¥Â±±Â§úÈõ®
 // created date is Thu Jun  2 20:55:00 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,7 +7,7 @@ inherit OUTDOOR_ROOM;
 void setup() {
 set_area("poyang");
 set_light(50);
-set_brief("%^YELLOW%^"+"–°œÔ"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"Â∞èÂ∑∑"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "east":"/a/poyang/py_guanzhai.c",

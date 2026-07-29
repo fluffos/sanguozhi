@@ -8,8 +8,8 @@ inherit ROOM;
 void setup()
 {
     set_area("pirate");
-    set_brief("±±µØµÀ");
-    set_long("ÕâÌõµØÏÂÍ¨µÀ´ÓÑÒ¶´Ò»Ö±Ïò±±£¬Í¨ÏòÔ¶´¦¡£");
+    set_brief("åŒ—åœ°é“");
+    set_long("è¿™æ¡åœ°ä¸‹é€šé“ä»å²©æ´ä¸€ç›´å‘åŒ—ï¼Œé€šå‘è¿œå¤„ã€‚");
 
     set_objects( (["/domains/std/objects/gate.c":  ({ "south" }) ]) );
 
@@ -17,6 +17,6 @@ void setup()
         "south" : "/domains/std/rooms/caves/north_cave.c"
         ]) );
 
-    set_state_description("gate_open_off", "ÄÏÃæÊÇÒ»µÀÉúĞâÁËµÄÌúÃÅ£¬ËüÕı¹Ø×Å¡£");
-    set_state_description("gate_open_on", " \nÄÏÃæÊÇÒ»µÀÉúĞâÁËµÄÌúÃÅ£¬ÃÅÕıĞ±¿ª×Å¡£");
+    set_state_description("gate_open_off", "å—é¢æ˜¯ä¸€é“ç”Ÿé”ˆäº†çš„é“é—¨ï¼Œå®ƒæ­£å…³ç€ã€‚");
+    set_state_description("gate_open_on", " \nå—é¢æ˜¯ä¸€é“ç”Ÿé”ˆäº†çš„é“é—¨ï¼Œé—¨æ­£æ–œå¼€ç€ã€‚");
 }

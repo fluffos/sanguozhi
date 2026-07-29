@@ -7,7 +7,7 @@
 // inherit M_ACCESS;
 inherit CMD;
 inherit M_GLOB;
-string bar="¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş\n";
+string bar="ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“\n";
 private void main(string arg)
 {
     mixed list;
@@ -20,7 +20,7 @@ private void main(string arg)
     string disp="";
     string disp_tmp;
 	mixed para;
-	array id_list=({});
+	mixed * id_list=({});
 	mixed us=([]);
 	mixed m_unknow;
     set_privilege(1);
@@ -124,10 +124,10 @@ p_name=FINGER_D->get_chinese_id(list[i][1]);
 		
 	if(!id_list)
     {
-        printf("Ã»ÓĞÕâÑùµÄÓÃ»§£®\n");
+        printf("æ²¡æœ‰è¿™æ ·çš„ç”¨æˆ·ï¼\n");
         return ;
     }
-    disp_tmp=sprintf("£É£Ä¡¡    ĞÕÃû¡¡    Éí·Ö¡¡ÁªÀëÏßÊ±¼ä¡¡          £É£Ğ\n");
+    disp_tmp=sprintf("ï¼©ï¼¤ã€€    å§“åã€€    èº«åˆ†ã€€è”ç¦»çº¿æ—¶é—´ã€€          ï¼©ï¼°\n");
     disp+=disp_tmp;
     disp_tmp=sprintf(bar);
     disp+=disp_tmp;
@@ -137,13 +137,13 @@ p_name=FINGER_D->get_chinese_id(list[i][1]);
         disp_tmp=sprintf("%-8s  %-8s  %4s  %6s%-16s %s\n",
 			id_list[i],
 			us[id_list[i]][0],
-			(us[id_list[i]][1]=="p" ? "Íæ¼Ò": 
-			us[id_list[i]][1]=="w" ? "Î×Ê¦" : "´óÉñ"),
-			(us[id_list[i]][2] ? "ÁªÏß£º" : "ÀëÏß£º"),
+			(us[id_list[i]][1]=="p" ? "ç©å®¶": 
+			us[id_list[i]][1]=="w" ? "å·«å¸ˆ" : "å¤§ç¥"),
+			(us[id_list[i]][2] ? "è”çº¿ï¼š" : "ç¦»çº¿ï¼š"),
 			CHINESE_D->chinese_period(us[id_list[i]][3]),
 			us[id_list[i]][4]);
 			disp+=disp_tmp;
 	}
-	disp+=sprintf("¹²²éµ½%dÃûÓÃ»§£®\n",count);
+	disp+=sprintf("å…±æŸ¥åˆ°%dåç”¨æˆ·ï¼\n",count);
 	more(disp);
 }

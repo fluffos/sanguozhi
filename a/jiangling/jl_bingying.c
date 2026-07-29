@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is »¨¶ù¶ä¶ä
+// driver is èŠ±å„¿æœµæœµ
 // created date is Mon May  9 09:19:58 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,14 +7,14 @@ inherit OUTDOOR_ROOM;
 void setup() {
 set_area("jiangling");
 set_light(50);
-set_brief("%^YELLOW%^"+"±øÓª"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"å…µè¥"+"%^RESET%^");
 set_long("
-    ÕâÊÇ½­Áê¾üÓª,ÀïÃæÓĞÈı¶ş¸öĞ¡±ø¶Ä²©ÁÄÌì,¶«ÃÅÊÇ
-ÈğÆ½Â·,Î÷ÃæÊÇË§ÕÊ.ÓĞºÜ¶àÈËÎ§ÔÚÌùÓĞ°ñÎÄµÄµØ·½¸ßÌ¸À«ÂÛ¡£\n\n");
+    è¿™æ˜¯æ±Ÿé™µå†›è¥,é‡Œé¢æœ‰ä¸‰äºŒä¸ªå°å…µèµŒåšèŠå¤©,ä¸œé—¨æ˜¯
+ç‘å¹³è·¯,è¥¿é¢æ˜¯å¸…å¸.æœ‰å¾ˆå¤šäººå›´åœ¨è´´æœ‰æ¦œæ–‡çš„åœ°æ–¹é«˜è°ˆé˜”è®ºã€‚\n\n");
 set_exits( ([
 "west":"/a/jiangling/jl_shuaizhang.c",
 
 "east":"/a/jiangling/jl_ruipinglu2.c",
  ]));
-set_objects(([M_BOARD : ({ 1,"Ò»¸ö¾«ÖÂµÄ"+"%^MAGENTA%^"+"½­ÁêÁôÑÔ°ñ"+"%^RESET%^", "city.jiangling" }) ]) );
+set_objects(([M_BOARD : ({ 1,"ä¸€ä¸ªç²¾è‡´çš„"+"%^MAGENTA%^"+"æ±Ÿé™µç•™è¨€æ¦œ"+"%^RESET%^", "city.jiangling" }) ]) );
 }

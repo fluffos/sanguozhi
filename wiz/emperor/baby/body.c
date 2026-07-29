@@ -74,13 +74,13 @@ inherit __DIR__ "body/guilds";
 nomask void apply_condition(string cnd, mixed info);
 // Global variables --
 private string reply;
-private string array channel_list = ({ });
+private string * channel_list = ({ });
 private string plan;
-private static object link;
-private static int chat_time;// Emperor add for chat limit.
-private static string last_chat_msg;// Emperor add for chat limit.
+private nosave object link;
+private nosave int chat_time;// Emperor add for chat limit.
+private nosave string last_chat_msg;// Emperor add for chat limit.
 private int is_gravidity;// Emperor add for female char's gravidity limit.
-private static int catching_scrollback;
+private nosave int catching_scrollback;
 private mixed saved_items;
 
 // interfaces for other objects to manipulate our global variables
@@ -112,10 +112,10 @@ string query_last_chat_msg(){
 void set_gravidity(){
 	if(!is_gravidity) {
 		is_gravidity=time();
-		write("��θ��һ�ᣬֻ��Ż�¡�\n");
+		write("你胃中一酸，只想呕吐。\n");
 		apply_condition("gravidity",1680);
 	}
-	else write("���ѻ��У������ٴλ��У���֪ͨWIZ��\n");
+	else write("你已怀孕，不能再次怀孕，请通知WIZ！\n");
 }
 
 mixed query_gravidity(){
@@ -140,7 +140,7 @@ nomask void set_plan(string new_plan)
 {
     if ( this_body() != this_object() )
         error(//"illegal attempt to set plan\n");
-              "��ͼ�Ƿ��趨�ƻ�\n");
+              "试图非法设定计划\n");
 
     plan = new_plan;
     save_me();
@@ -167,7 +167,7 @@ private nomask void init_cmd_hook()
     else
     {
         mailbox->set_message_index(idx);
-        write("\n>>�������ʼ���<<\n");
+        write("\n>>你有新邮件！<<\n");
     }
 
 write( "\n" );
@@ -201,7 +201,7 @@ private nomask void finish_enter_game()
 {
 
     CHANNEL_D->deliver_emote("announce", query_name(),
-      sprintf("��%s����%s��",query_ip_name(this_object()), mud_name()));
+      sprintf("从%s进入%s。",query_ip_name(this_object()), mud_name()));
      this_body()->get_m_all_money(); // add by fire on Dec 14, 1997
      this_body()->start_age();
 
@@ -212,14 +212,14 @@ the simple_action */
 
 	if ( !move_to_start() )
 	{
-			write("������������翼䣬�Ķ�Ҳȥ���ˡ�\n");
+			write("你身在虚无缥缈间，哪儿也去不了。\n");
 			return;
 	}
 
 	/* we don't want other people to get the extra newlines */
 	write("\n");
 	if(is_visible())
-		simple_action("$N����"+mud_name()+"��");
+		simple_action("$N进入"+mud_name()+"。");
 	write("\n");
 
 	if(!query_wuli_pure())
@@ -242,10 +242,10 @@ nomask void su_enter_game(object where)
 
 // this should go away once we torch the corresponding leave msg for 'su'
     CHANNEL_D->deliver_emote("announce", query_name(),
-      sprintf("����%s��", mud_name()));
+      sprintf("进入%s。", mud_name()));
 
     if ( is_visible() )
-        simple_action("$N��"+query_ip_name(this_object())+"����"+mud_name()+"��");
+        simple_action("$N从"+query_ip_name(this_object())+"进入"+mud_name()+"。");
 
     CHANNEL_D->register_channels(channel_list);
 
@@ -258,7 +258,7 @@ void enter_game(int is_new)
     if ( is_new && wizardp(link) )
     {
         write(
-          "\n��ã�����ʦ������Ϊ��򿪱��ͣգ���ҪƵ����\n"
+          "\n你好，新巫师！现在为你打开本ＭＵＤ重要频道。\n"
           "Doing: wiz /on\n"
           "Doing: chan news /on   (you'll see when new news is posted.)\n"
           "Doing: gossip /on\n"
@@ -280,10 +280,10 @@ this_user()->update_translations();
     else if ( is_new )
     {
       write("\n"
-          "������Ƶ����(newbie /on)\n"
-          "������Ƶ����(chat /on)\n"
-          "������Ƶ����(weather /on)\n"
-          "��ҥ��Ƶ����(rumor /on)\n"
+          "打开新手频道。(newbie /on)\n"
+          "打开闲聊频道。(chat /on)\n"
+          "打开天气频道。(weather /on)\n"
+          "打开谣言频道。(rumor /on)\n"
           "\n");
 
         /* these will be registered later */
@@ -299,7 +299,7 @@ set_ilog_time(time());
     {
         DID_D->dump_did_info(query_ilog_time(),
           ({ "",
-            "�Դ����ϴ����������ĸĶ�",
+            "自从你上次连线以来的改动",
             "********************************",
             "" }),
           0,
@@ -366,10 +366,10 @@ void quit()
     }
 
     if (is_visible())
-        simple_action("$N�뿪��"+mud_name()+"��");
+        simple_action("$N离开了"+mud_name()+"。");
 
     CHANNEL_D->deliver_emote("announce", query_name(),
-      sprintf("�뿪��%s��", mud_name()));
+      sprintf("离开了%s。", mud_name()));
     CHANNEL_D->unregister_channels();
 
 #ifdef PLAYERS_START_WHERE_THEY_QUIT
@@ -409,8 +409,8 @@ void net_dead()
 {
     //### add security here?
 
-    if(is_visible()) simple_action("$N�����ˡ�");
-    CHANNEL_D->deliver_emote("announce", query_name(), sprintf("�����ˡ�"));
+    if(is_visible()) simple_action("$N断线了。");
+    CHANNEL_D->deliver_emote("announce", query_name(), sprintf("断线了。"));
     if ( link && link->query_shell_ob()->get_variable("save_scrollback") )
         catching_scrollback = 1;
     quit();
@@ -424,10 +424,10 @@ void reconnect(object new_link)
 
     link = new_link;
     if(is_visible())
-        simple_action("$N�������߽��롣\n");
+        simple_action("$N重新连线进入。\n");
 
     CHANNEL_D->deliver_emote("announce", query_name(),
-      sprintf("�������߽��롣", mud_name()));
+      sprintf("重新连线进入。", mud_name()));
 
     catching_scrollback = 0;
     if ( link->query_shell_ob() )
@@ -441,14 +441,14 @@ void die()
     if ( wizardp(link) )
     {
         if(is_visible())
-            simple_action("Ҫ����$n�ǲ��������������ˡ�\n");
+            simple_action("要不是$n是不死身，就早死了。\n");
         stop_fight();
         return;
     }
 
     if(is_visible())
-        simple_action("$N���������ǣ���������ȥ��\n");
-    receive_private_msg("\n\n  **** ������  ****\n\n",0,0);
+        simple_action("$N脱离了躯壳，向天上升去。\n");
+    receive_private_msg("\n\n  **** 你死了  ****\n\n",0,0);
 //    rack_up_a_death();
 
 #ifdef DEATH_MESSAGES
@@ -502,7 +502,7 @@ varargs private void create(string userid, string chinese_name)
 
     if ( base_name(previous_object()) != USER_OB )
         //error("security violation: illegal attempt to change name\n");
-        error("��ȫΥ������ͼ�Ƿ��ı�����\n");
+        error("安全违例：企图非法改变姓名\n");
         
     messages = ([]);
 
@@ -563,7 +563,7 @@ void channel_rcv_string(string channel_name, string message)
     receive_private_msg(message);
 }
 
-void channel_rcv_soul(string channel_name, array data)
+void channel_rcv_soul(string channel_name, mixed *data)
 {
     string msg;
 
@@ -603,7 +603,7 @@ nomask object query_shell_ob()
     return link && link->query_shell_ob();
 }
 
-nomask array query_failures()
+nomask mixed * query_failures()
 {
     return link->query_failures();
 }
@@ -631,7 +631,7 @@ int go_somewhere(string arg)
 
 string inventory_header()
 {
-    return query_name() + "���ϴ��ţ�\n";
+    return query_name() + "身上带着：\n";
 }
 
 int ob_state() 
@@ -675,15 +675,15 @@ void move_or_destruct(object suggested_dest)
               throw("Being destructed.\n");
         };
     if (destination && !err) {
-            receive_private_msg(dested_env->short() + "���ݻ��ˣ�һ��ʱ��
-ת�ƽ����͵�" + destination->short() + "��\n");
+            receive_private_msg(dested_env->short() + "被摧毁了，一阵时空
+转移将你送到" + destination->short() + "。\n");
             return;
         } else {
             if (destination)
-                receive_private_msg("����ת�Ƶ�" + destination->short() +"��" + err);
+                receive_private_msg("不能转移到" + destination->short() +"：" + err);
         }
     }
-    receive_private_msg("��... Ŷ... ���Ķ�Ҳȥ���ˣ��ټ��ɡ�\n");
+    receive_private_msg("噢... 哦... 你哪儿也去不了，再见吧。\n");
     (this_object()->query_link())->remove();
 }
 

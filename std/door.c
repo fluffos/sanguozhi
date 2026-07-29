@@ -38,7 +38,7 @@ object cached_sibling;
 private int block(string dir, object who) {
     if (query_closed()) {
     who->simple_action(//"$N $vtry to go $o, but the $o1 is closed.\n",
-                       "$NÏë³¯$o×ß£¬µ«$o1¹ØÉÏÁË¡£\n",
+                       "$Næƒ³æœ$oèµ°ï¼Œä½†$o1å…³ä¸Šäº†ã€‚\n",
                DIRECTION_D->cdir(dir), this_object());
     return 0;
     }
@@ -133,19 +133,19 @@ void knock_knock(string s)
   if(is_open())
     {
       //write("There is no need, the door is already open.\n");
-      write("Ã»ÓĞÕâ¸ö±ØÒª£¬ÃÅÒÑ¾­ÊÇ¿ª×ÅµÄ¡£\n");
+      write("æ²¡æœ‰è¿™ä¸ªå¿…è¦ï¼Œé—¨å·²ç»æ˜¯å¼€ç€çš„ã€‚\n");
       return;
     }
   sibling = get_sibling();
   if(sibling)
     {
       tell_room(environment(sibling), //"There is a knock at the door.\n");
-                                      "ÃÅ¿Ú´«À´Ò»ÕóÇÃÃÅÉù¡£\n");
+                                      "é—¨å£ä¼ æ¥ä¸€é˜µæ•²é—¨å£°ã€‚\n");
     }
   ::knock_knock(s);
 }
 
 mixed direct_get_obj( object obj )
 {
-    return "°ÑËü´ò¿ªÎª¸üÈİÒ×Ò»Ğ©¡£\n";
+    return "æŠŠå®ƒæ‰“å¼€ä¸ºæ›´å®¹æ˜“ä¸€äº›ã€‚\n";
 }

@@ -1,6 +1,6 @@
 #/std/race/human.c
 primary_id "bmw"
-chinese_id "±¦Âí"
+chinese_id "å®é©¬"
 persist_flags ([2:64,0:0,])
 can_drop 1
 can_sell 1
@@ -13,8 +13,8 @@ main_prep "in"
 contained_light_added 1
 gender 1
 messages ([])
-def_messages (["menter":"$nÍ»È»³öÏÖÔÚÒ»ÕóÑÌÎíÖĞ¡£","invis":"$n´ÓÄãµÄÊÓÒ°ÖĞÍ»È»ÏûÊ§ÁË¡£","mleave":"$nµÄÉíÓ°ÔÚÒ»ÕóÑÌÎíÖĞ½¥½¥ÒşÈ¥¡£","vis":"$nÍ»È»³öÏÖÔÚÄãÃæÇ°£¬ÓÖËÆºõÔÚÕâÀïºÜ¾ÃÁË¡£","clone":"$nÉìÊÖÁè¿ÕÒ»Ö¸£¬±ä³öÁË$o¡£","enter":"$n×ßÁË¹ıÀ´¡£","destruct":"$nÅÛĞäÒ»»Ó£¬$o±»»¯³ÉÒ»¹ÉºÚÑÌ£¬´µÉ¢¿ªÈ¥¡£","home":"$n»Ø¼ÒÈ¥ÁË¡£","leave":"$n³¯$oÀë¿ªÁË¡£",])
-busy_msg "ÄãÏÖÔÚÕıÃ¦×Å£¡"
+def_messages (["menter":"$nçªç„¶å‡ºç°åœ¨ä¸€é˜µçƒŸé›¾ä¸­ã€‚","invis":"$nä»ä½ çš„è§†é‡ä¸­çªç„¶æ¶ˆå¤±äº†ã€‚","mleave":"$nçš„èº«å½±åœ¨ä¸€é˜µçƒŸé›¾ä¸­æ¸æ¸éšå»ã€‚","vis":"$nçªç„¶å‡ºç°åœ¨ä½ é¢å‰ï¼Œåˆä¼¼ä¹åœ¨è¿™é‡Œå¾ˆä¹…äº†ã€‚","clone":"$nä¼¸æ‰‹å‡Œç©ºä¸€æŒ‡ï¼Œå˜å‡ºäº†$oã€‚","enter":"$nèµ°äº†è¿‡æ¥ã€‚","destruct":"$nè¢è¢–ä¸€æŒ¥ï¼Œ$oè¢«åŒ–æˆä¸€è‚¡é»‘çƒŸï¼Œå¹æ•£å¼€å»ã€‚","home":"$nå›å®¶å»äº†ã€‚","leave":"$næœ$oç¦»å¼€äº†ã€‚",])
+busy_msg "ä½ ç°åœ¨æ­£å¿™ç€ï¼"
 busy 1311411945
 answer_list ({({"settle","settle",}),({"position","position",}),({"localmeeting","localmeeting",}),({"job","job",}),({"zgxy","zgxy",}),({"wxxy","wxxy",}),({"bfxy","bfxy",}),({"guoshi","guoshi",}),})
 ask_list ([])
@@ -49,12 +49,12 @@ ilog_time 1312842603
 money (["gold":13,"silver":95,"coin":0,"bank":4062000,])
 sg_home ([])
 name "bmw"
-invis_name "Ä³Ä³"
-chinese_name "±¦Âí"
+invis_name "æŸæŸ"
+chinese_name "å®é©¬"
 response_queue ({})
 reply "colone"
 channel_list ({"gossip","newbie","weather","rumor","imud_imud_sgz",})
 saved_items "([\"#inventory#\":({\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/money/m_gold\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/money/m_silver\\\",])\",}),\"#base_name#\":\"/std/race/human\",])"
 ag_day 26
 ag_month 6
-jobs (["choppork":(["lasttimes":({}),"finish_time":1307203335,"count":37,"beg_time":1307203351,]),"spy":(["area":"huayin","size":30,"memo":"Õì²ì»ªÒõ","path":"/a/huayin/","beg_time":0,"status":"over","catched":0,"lasttimes":({1311362088,1311362218,1311362540,1311362766,1311363042,1311363246,1311363573,1311363747,1311365700,1311365922,1311366150,1311366478,1311366662,1311366881,1311367083,1311367421,1311367675,1311368021,1311368177,1311368354,1311368508,1311368802,1311369150,1311369340,1311369764,1311370035,}),"finish_time":1311370035,"done_time":1311370018,"assignarea":"jingyang","count":742,"spied":({"/a/huayin/nongtian","/a/huayin/laohuaishu","/a/huayin/citang","/a/huayin/cunzhangjia","/a/huayin/laofang","/a/huayin/lukou","/a/huayin/mofang","/a/huayin/daguchang","/a/huayin/dangpu","/a/huayin/qianzhuang","/a/huayin/zhulin","/a/huayin/muwu","/a/huayin/cunzhongxin","/a/huayin/vhall","/a/huayin/xiaolu","/a/huayin/tiejiangpu","/a/huayin/xiaodian","/a/huayin/shulin","/a/huayin/xiaoxiang","/a/huayin/sishu","/a/huayin/qianyuan","/a/huayin/qianting","/a/huayin/chufang","/a/huayin/zhangfang","/a/huayin/houtang","/a/huayin/guifang","/a/huayin/nancunkou","/a/huayin/kedian","/a/huayin/muqiao","/a/huayin/tmp",}),]),"visitpeople":(["memo":"Ì½·ÃãşÑôÏĞÈË","topics":({1,2,3,6,7,8,9,10,}),"select":10,"beg_time":0,"status":"over","lasttimes":({}),"finish_time":1311101382,"assignarea":"jingyang","score":26,"count":44,]),"train":(["lasttimes":({1308596363,1308597873,1308599173,1308601008,1308602788,1308603923,}),"finish_time":1308603923,"count":51,"beg_time":0,]),"askobj":(["memo":"ÕÒ½­ÁêµÄ%^H_CYAN%^²Ìçß%^RESET%^´ß0","beg_time":0,"status":"over","lasttimes":({}),"finish_time":1307218295,"assignarea":"changan","count":10,"obj_id":"test",]),"findbody":(["memo":"ÕÒ%^H_CYAN%^²Üî£%^RESET%^(cao rui)","beg_time":0,"status":"over","lasttimes":({}),"finish_time":1307218271,"assignarea":"changan","count":10,]),"suggest":(["lasttimes":({1308594823,1308596516,1308597953,1308599282,1308601109,1308602874,}),"count":49,"beg_time":1308602874,]),])
+jobs (["choppork":(["lasttimes":({}),"finish_time":1307203335,"count":37,"beg_time":1307203351,]),"spy":(["area":"huayin","size":30,"memo":"ä¾¦å¯Ÿåé˜´","path":"/a/huayin/","beg_time":0,"status":"over","catched":0,"lasttimes":({1311362088,1311362218,1311362540,1311362766,1311363042,1311363246,1311363573,1311363747,1311365700,1311365922,1311366150,1311366478,1311366662,1311366881,1311367083,1311367421,1311367675,1311368021,1311368177,1311368354,1311368508,1311368802,1311369150,1311369340,1311369764,1311370035,}),"finish_time":1311370035,"done_time":1311370018,"assignarea":"jingyang","count":742,"spied":({"/a/huayin/nongtian","/a/huayin/laohuaishu","/a/huayin/citang","/a/huayin/cunzhangjia","/a/huayin/laofang","/a/huayin/lukou","/a/huayin/mofang","/a/huayin/daguchang","/a/huayin/dangpu","/a/huayin/qianzhuang","/a/huayin/zhulin","/a/huayin/muwu","/a/huayin/cunzhongxin","/a/huayin/vhall","/a/huayin/xiaolu","/a/huayin/tiejiangpu","/a/huayin/xiaodian","/a/huayin/shulin","/a/huayin/xiaoxiang","/a/huayin/sishu","/a/huayin/qianyuan","/a/huayin/qianting","/a/huayin/chufang","/a/huayin/zhangfang","/a/huayin/houtang","/a/huayin/guifang","/a/huayin/nancunkou","/a/huayin/kedian","/a/huayin/muqiao","/a/huayin/tmp",}),]),"visitpeople":(["memo":"æ¢è®¿æ³¾é˜³é—²äºº","topics":({1,2,3,6,7,8,9,10,}),"select":10,"beg_time":0,"status":"over","lasttimes":({}),"finish_time":1311101382,"assignarea":"jingyang","score":26,"count":44,]),"train":(["lasttimes":({1308596363,1308597873,1308599173,1308601008,1308602788,1308603923,}),"finish_time":1308603923,"count":51,"beg_time":0,]),"askobj":(["memo":"æ‰¾æ±Ÿé™µçš„%^H_CYAN%^è”¡é‚•%^RESET%^å‚¬0","beg_time":0,"status":"over","lasttimes":({}),"finish_time":1307218295,"assignarea":"changan","count":10,"obj_id":"test",]),"findbody":(["memo":"æ‰¾%^H_CYAN%^æ›¹ç¿%^RESET%^(cao rui)","beg_time":0,"status":"over","lasttimes":({}),"finish_time":1307218271,"assignarea":"changan","count":10,]),"suggest":(["lasttimes":({1308594823,1308596516,1308597953,1308599282,1308601109,1308602874,}),"count":49,"beg_time":1308602874,]),])

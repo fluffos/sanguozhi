@@ -5,78 +5,78 @@ mixed get_train_question()
 {
    mixed question;
    question=({
-(["mess":"µĞ¾üÔÚÄãµÄ¶«Ãæ£¬Òª½øĞĞ³£¹æ¹¥»÷ÓÃÊ²Ã´Ö¸Áî£¿",
+(["mess":"æ•Œå†›åœ¨ä½ çš„ä¸œé¢ï¼Œè¦è¿›è¡Œå¸¸è§„æ”»å‡»ç”¨ä»€ä¹ˆæŒ‡ä»¤ï¼Ÿ",
 "ans":({"cmd attack e","cmd attack east"}),
 "help":"/help/player/sanguo/command/attack"]),
-(["mess":"µĞ¾üÔÚÄãµÄÄÏÃæ£¬Òª½øĞĞ³£¹æ¹¥»÷ÓÃÊ²Ã´Ö¸Áî£¿",
+(["mess":"æ•Œå†›åœ¨ä½ çš„å—é¢ï¼Œè¦è¿›è¡Œå¸¸è§„æ”»å‡»ç”¨ä»€ä¹ˆæŒ‡ä»¤ï¼Ÿ",
 "ans":({"cmd attack s","cmd attack south"}),
 "help":"/help/player/sanguo/command/attack"]),
-(["mess":"µĞ¾üÔÚÄãµÄÎ÷Ãæ£¬Òª½øĞĞ³£¹æ¹¥»÷ÓÃÊ²Ã´Ö¸Áî£¿",
+(["mess":"æ•Œå†›åœ¨ä½ çš„è¥¿é¢ï¼Œè¦è¿›è¡Œå¸¸è§„æ”»å‡»ç”¨ä»€ä¹ˆæŒ‡ä»¤ï¼Ÿ",
 "ans":({"cmd attack w","cmd attack west"}),
 "help":"/help/player/sanguo/command/attack"]),
-(["mess":"µĞ¾üÔÚÄãµÄ±±Ãæ£¬Òª½øĞĞ³£¹æ¹¥»÷ÓÃÊ²Ã´Ö¸Áî£¿",
+(["mess":"æ•Œå†›åœ¨ä½ çš„åŒ—é¢ï¼Œè¦è¿›è¡Œå¸¸è§„æ”»å‡»ç”¨ä»€ä¹ˆæŒ‡ä»¤ï¼Ÿ",
 "ans":({"cmd attack n","cmd attack north"}),
 "help":"/help/player/sanguo/command/attack"]),
-(["mess":"µĞ¾üÔÚÄãµÄ¶«Ãæ£¬Òª½øĞĞ³å·æ¹¥»÷ÓÃÊ²Ã´Ö¸Áî£¿",
+(["mess":"æ•Œå†›åœ¨ä½ çš„ä¸œé¢ï¼Œè¦è¿›è¡Œå†²é”‹æ”»å‡»ç”¨ä»€ä¹ˆæŒ‡ä»¤ï¼Ÿ",
 "ans":({"cmd horse e","cmd horse east"}),
 "help":"/help/player/sanguo/command/horse"]),
-(["mess":"µĞ¾üÔÚÄãµÄÄÏÃæ£¬Òª½øĞĞ³å·æ¹¥»÷ÓÃÊ²Ã´Ö¸Áî£¿",
+(["mess":"æ•Œå†›åœ¨ä½ çš„å—é¢ï¼Œè¦è¿›è¡Œå†²é”‹æ”»å‡»ç”¨ä»€ä¹ˆæŒ‡ä»¤ï¼Ÿ",
 "ans":({"cmd horse s","cmd horse south"}),
 "help":"/help/player/sanguo/command/horse"]),
-(["mess":"µĞ¾üÔÚÄãµÄÎ÷Ãæ£¬Òª½øĞĞ³å·æ¹¥»÷ÓÃÊ²Ã´Ö¸Áî£¿",
+(["mess":"æ•Œå†›åœ¨ä½ çš„è¥¿é¢ï¼Œè¦è¿›è¡Œå†²é”‹æ”»å‡»ç”¨ä»€ä¹ˆæŒ‡ä»¤ï¼Ÿ",
 "ans":({"cmd horse w","cmd horse west"}),
 "help":"/help/player/sanguo/command/horse"]),
-(["mess":"µĞ¾üÔÚÄãµÄ±±Ãæ£¬Òª½øĞĞ³å·æ¹¥»÷ÓÃÊ²Ã´Ö¸Áî£¿",
+(["mess":"æ•Œå†›åœ¨ä½ çš„åŒ—é¢ï¼Œè¦è¿›è¡Œå†²é”‹æ”»å‡»ç”¨ä»€ä¹ˆæŒ‡ä»¤ï¼Ÿ",
 "ans":({"cmd horse n","cmd horse north"}),
 "help":"/help/player/sanguo/command/horse"]),
-(["mess":"µĞ¾üÔÚÄãµÄ¶«Ãæ£¬Òª½øĞĞÎ§¹¥ÓÃÊ²Ã´Ö¸Áî£¿",
+(["mess":"æ•Œå†›åœ¨ä½ çš„ä¸œé¢ï¼Œè¦è¿›è¡Œå›´æ”»ç”¨ä»€ä¹ˆæŒ‡ä»¤ï¼Ÿ",
 "ans":({"cmd siege e","cmd siege east"}),
 "help":"/help/player/sanguo/command/siege"]),
-(["mess":"µĞ¾üÔÚÄãµÄÄÏÃæ£¬Òª½øĞĞÎ§¹¥ÓÃÊ²Ã´Ö¸Áî£¿",
+(["mess":"æ•Œå†›åœ¨ä½ çš„å—é¢ï¼Œè¦è¿›è¡Œå›´æ”»ç”¨ä»€ä¹ˆæŒ‡ä»¤ï¼Ÿ",
 "ans":({"cmd siege s","cmd siege south"}),
 "help":"/help/player/sanguo/command/siege"]),
-(["mess":"µĞ¾üÔÚÄãµÄÎ÷Ãæ£¬Òª½øĞĞÎ§¹¥ÓÃÊ²Ã´Ö¸Áî£¿",
+(["mess":"æ•Œå†›åœ¨ä½ çš„è¥¿é¢ï¼Œè¦è¿›è¡Œå›´æ”»ç”¨ä»€ä¹ˆæŒ‡ä»¤ï¼Ÿ",
 "ans":({"cmd siege w","cmd siege west"}),
 "help":"/help/player/sanguo/command/siege"]),
-(["mess":"µĞ¾üÔÚÄãµÄ±±Ãæ£¬Òª½øĞĞÎ§¹¥ÓÃÊ²Ã´Ö¸Áî£¿",
+(["mess":"æ•Œå†›åœ¨ä½ çš„åŒ—é¢ï¼Œè¦è¿›è¡Œå›´æ”»ç”¨ä»€ä¹ˆæŒ‡ä»¤ï¼Ÿ",
 "ans":({"cmd siege n","cmd siege north"}),
 "help":"/help/player/sanguo/command/siege"]),
 // edc 08/04/2001  cancel bowman directly array
-/*(["mess":"µĞ¾üÔÚÄãµÄ¶«Ãæ£¬Òª½øĞĞ¹­¼ı¹¥»÷ÓÃÊ²Ã´Ö¸Áî£¿",
-"ans":({"cmd array e","cmd array east"}),
+/*(["mess":"æ•Œå†›åœ¨ä½ çš„ä¸œé¢ï¼Œè¦è¿›è¡Œå¼“ç®­æ”»å‡»ç”¨ä»€ä¹ˆæŒ‡ä»¤ï¼Ÿ",
+"ans":({"cmd mixed * e","cmd mixed * east"}),
 "help":"/help/player/sanguo/command/array"]),
-(["mess":"µĞ¾üÔÚÄãµÄÄÏÃæ£¬Òª½øĞĞ¹­¼ı¹¥»÷ÓÃÊ²Ã´Ö¸Áî£¿",
-"ans":({"cmd array s","cmd array south"}),
+(["mess":"æ•Œå†›åœ¨ä½ çš„å—é¢ï¼Œè¦è¿›è¡Œå¼“ç®­æ”»å‡»ç”¨ä»€ä¹ˆæŒ‡ä»¤ï¼Ÿ",
+"ans":({"cmd mixed * s","cmd mixed * south"}),
 "help":"/help/player/sanguo/command/array"]),
-(["mess":"µĞ¾üÔÚÄãµÄÎ÷Ãæ£¬Òª½øĞĞ¹­¼ı¹¥»÷ÓÃÊ²Ã´Ö¸Áî£¿",
-"ans":({"cmd array w","cmd array west"}),
+(["mess":"æ•Œå†›åœ¨ä½ çš„è¥¿é¢ï¼Œè¦è¿›è¡Œå¼“ç®­æ”»å‡»ç”¨ä»€ä¹ˆæŒ‡ä»¤ï¼Ÿ",
+"ans":({"cmd mixed * w","cmd mixed * west"}),
 "help":"/help/player/sanguo/command/array"]),
-(["mess":"µĞ¾üÔÚÄãµÄ±±Ãæ£¬Òª½øĞĞ¹­¼ı¹¥»÷ÓÃÊ²Ã´Ö¸Áî£¿",
-"ans":({"cmd array n","cmd array north"}),
+(["mess":"æ•Œå†›åœ¨ä½ çš„åŒ—é¢ï¼Œè¦è¿›è¡Œå¼“ç®­æ”»å‡»ç”¨ä»€ä¹ˆæŒ‡ä»¤ï¼Ÿ",
+"ans":({"cmd mixed * n","cmd mixed * north"}),
 "help":"/help/player/sanguo/command/array"]), */
-(["mess":"µĞ¾üÔÚÄãµÄ¶«Ãæ¸ôÒ»¸ñµØ·½£¬Òª½øĞĞ¹­¼ı¹¥»÷ÓÃÊ²Ã´Ö¸Áî£¿",
-"ans":({"cmd array e 2","cmd array east 2"}),
+(["mess":"æ•Œå†›åœ¨ä½ çš„ä¸œé¢éš”ä¸€æ ¼åœ°æ–¹ï¼Œè¦è¿›è¡Œå¼“ç®­æ”»å‡»ç”¨ä»€ä¹ˆæŒ‡ä»¤ï¼Ÿ",
+"ans":({"cmd mixed * e 2","cmd mixed * east 2"}),
 "help":"/help/player/sanguo/command/array"]),
-(["mess":"µĞ¾üÔÚÄãµÄÄÏÃæ¸ôÒ»¸ñµØ·½£¬Òª½øĞĞ¹­¼ı¹¥»÷ÓÃÊ²Ã´Ö¸Áî£¿",
-"ans":({"cmd array s 2","cmd array south 2"}),
+(["mess":"æ•Œå†›åœ¨ä½ çš„å—é¢éš”ä¸€æ ¼åœ°æ–¹ï¼Œè¦è¿›è¡Œå¼“ç®­æ”»å‡»ç”¨ä»€ä¹ˆæŒ‡ä»¤ï¼Ÿ",
+"ans":({"cmd mixed * s 2","cmd mixed * south 2"}),
 "help":"/help/player/sanguo/command/array"]),
-(["mess":"µĞ¾üÔÚÄãµÄÎ÷Ãæ¸ôÒ»¸ñµØ·½£¬Òª½øĞĞ¹­¼ı¹¥»÷ÓÃÊ²Ã´Ö¸Áî£¿",
-"ans":({"cmd array w 2","cmd array west 2"}),
+(["mess":"æ•Œå†›åœ¨ä½ çš„è¥¿é¢éš”ä¸€æ ¼åœ°æ–¹ï¼Œè¦è¿›è¡Œå¼“ç®­æ”»å‡»ç”¨ä»€ä¹ˆæŒ‡ä»¤ï¼Ÿ",
+"ans":({"cmd mixed * w 2","cmd mixed * west 2"}),
 "help":"/help/player/sanguo/command/array"]),
-(["mess":"µĞ¾üÔÚÄãµÄ±±Ãæ¸ôÒ»¸ñµØ·½£¬Òª½øĞĞ¹­¼ı¹¥»÷ÓÃÊ²Ã´Ö¸Áî£¿",
-"ans":({"cmd array n 2","cmd array north 2"}),
+(["mess":"æ•Œå†›åœ¨ä½ çš„åŒ—é¢éš”ä¸€æ ¼åœ°æ–¹ï¼Œè¦è¿›è¡Œå¼“ç®­æ”»å‡»ç”¨ä»€ä¹ˆæŒ‡ä»¤ï¼Ÿ",
+"ans":({"cmd mixed * n 2","cmd mixed * north 2"}),
 "help":"/help/player/sanguo/command/array"]),
-(["mess":"µĞ¾üÔÚÄãµÄ¶«ÄÏ£¬Òª½øĞĞ¹­¼ı¹¥»÷ÓÃÊ²Ã´Ö¸Áî£¿",
-"ans":({"cmd array se","cmd array southeast"}),
+(["mess":"æ•Œå†›åœ¨ä½ çš„ä¸œå—ï¼Œè¦è¿›è¡Œå¼“ç®­æ”»å‡»ç”¨ä»€ä¹ˆæŒ‡ä»¤ï¼Ÿ",
+"ans":({"cmd mixed * se","cmd mixed * southeast"}),
 "help":"/help/player/sanguo/command/array"]),
-(["mess":"µĞ¾üÔÚÄãµÄ¶«±±£¬Òª½øĞĞ¹­¼ı¹¥»÷ÓÃÊ²Ã´Ö¸Áî£¿",
-"ans":({"cmd array ne","cmd array northeast"}),
+(["mess":"æ•Œå†›åœ¨ä½ çš„ä¸œåŒ—ï¼Œè¦è¿›è¡Œå¼“ç®­æ”»å‡»ç”¨ä»€ä¹ˆæŒ‡ä»¤ï¼Ÿ",
+"ans":({"cmd mixed * ne","cmd mixed * northeast"}),
 "help":"/help/player/sanguo/command/array"]),
-(["mess":"µĞ¾üÔÚÄãµÄÎ÷ÄÏ£¬Òª½øĞĞ¹­¼ı¹¥»÷ÓÃÊ²Ã´Ö¸Áî£¿",
-"ans":({"cmd array sw","cmd array southwest"}),
+(["mess":"æ•Œå†›åœ¨ä½ çš„è¥¿å—ï¼Œè¦è¿›è¡Œå¼“ç®­æ”»å‡»ç”¨ä»€ä¹ˆæŒ‡ä»¤ï¼Ÿ",
+"ans":({"cmd mixed * sw","cmd mixed * southwest"}),
 "help":"/help/player/sanguo/command/array"]),
-(["mess":"µĞ¾üÔÚÄãµÄÎ÷±±£¬Òª½øĞĞ¹­¼ı¹¥»÷ÓÃÊ²Ã´Ö¸Áî£¿",
-"ans":({"cmd array nw","cmd array northwest"}),
+(["mess":"æ•Œå†›åœ¨ä½ çš„è¥¿åŒ—ï¼Œè¦è¿›è¡Œå¼“ç®­æ”»å‡»ç”¨ä»€ä¹ˆæŒ‡ä»¤ï¼Ÿ",
+"ans":({"cmd mixed * nw","cmd mixed * northwest"}),
 "help":"/help/player/sanguo/command/array"]),
 });
   return question[random(sizeof(question))];
@@ -99,11 +99,11 @@ void input_answer(string p_leader,int task_id,string ans)
        TASK_D->set_task(task_id,"trainpara",trainpara);
        o=find_user(p_leader);
          if(objectp(o)) o->modal_pop();
-       tell_user(p_leader,"»Ø´ğÕıÈ·¡£\n");
+       tell_user(p_leader,"å›ç­”æ­£ç¡®ã€‚\n");
        return;
    }
    if(ans!="")
-       tell_user(p_leader,"»Ø´ğ´íÎó¡£\n");
+       tell_user(p_leader,"å›ç­”é”™è¯¯ã€‚\n");
 }
 void show_question(string p_leader,int task_id)
 {
@@ -114,7 +114,7 @@ void show_question(string p_leader,int task_id)
    trainpara=TASK_D->get_task(task_id,"trainpara");
    tell_user(p_leader,trainpara["mess"]+"\n");
    o->modal_push((: input_answer,p_leader,task_id :),
-        "ÓÃhelp²éÏà¹ØĞÅÏ¢¡£");
+        "ç”¨helpæŸ¥ç›¸å…³ä¿¡æ¯ã€‚");
 }
 void quit_question(int task_id)
 {

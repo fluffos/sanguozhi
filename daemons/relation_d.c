@@ -11,8 +11,8 @@
 
 inherit M_ACCESS;
 
-static  mapping cache;
-static  int     num_in_cache=0;
+nosave protected  mapping cache;
+nosave protected  int     num_in_cache=0;
 
 private mapping npc;
 
@@ -38,13 +38,13 @@ void cut_part_of_cache()
     if (cache[keys[i]]["time"]<=time())
        {map_delete(cache,keys[i]);
         num_in_cache -- ;}
- //Èç¹ûcacheÖĞÊıÄ¿ÈÔÈ»¹ı¶à,Ç¿ĞĞÉ¾³ıcacheÖĞµÄ¶àÓàÊı¾İ
- //Ê¹cacheÖĞµÄÊıÄ¿Îª150-50 = 100
+ //å¦‚æœcacheä¸­æ•°ç›®ä»ç„¶è¿‡å¤š,å¼ºè¡Œåˆ é™¤cacheä¸­çš„å¤šä½™æ•°æ®
+ //ä½¿cacheä¸­çš„æ•°ç›®ä¸º150-50 = 100
  if (num_in_cache>MAX_NUM_IN_CACHE) 
     for (i=0;i<CUT_NUM_OF_CACHE ;i++)
        {map_delete(cache,keys[i]);
         num_in_cache -- ;}
- SGSYS(sprintf("ÏµÍ³ÖĞÔ­ÓĞNPC¹ØÏµ¶ÈÌõÄ¿%d£¬Çå³ı¹ıÆÚÊı¾İÌõÄ¿ºó»¹ÓĞ%d",old_num,num_in_cache));
+ SGSYS(sprintf("ç³»ç»Ÿä¸­åŸæœ‰NPCå…³ç³»åº¦æ¡ç›®%dï¼Œæ¸…é™¤è¿‡æœŸæ•°æ®æ¡ç›®åè¿˜æœ‰%d",old_num,num_in_cache));
  call_out("cut_part_of_cache",CLEAN_TIME);
 }
 
@@ -52,7 +52,7 @@ void cut_part_of_cache()
 void add_num_in_cache()
 {
 num_in_cache++;
-//µ±cacheÖĞÊıÄ¿Îª151Ê±,cacheÒç³ö,ÇåÀícache
+//å½“cacheä¸­æ•°ç›®ä¸º151æ—¶,cacheæº¢å‡º,æ¸…ç†cache
 if (num_in_cache>MAX_NUM_IN_CACHE) 
    cut_part_of_cache();
 }
@@ -99,7 +99,7 @@ if (!npcid=cvt_id(id)) return -1;
 //printf("npcid = %s userid = %s \n",npcid,userid);
 if (!cache[npcid]) 
    {
-    if (file_size(RELATION_PATH(npcid)+".o")==-1) //ÎÄ¼ş²»´æÔÚ
+    if (file_size(RELATION_PATH(npcid)+".o")==-1) //æ–‡ä»¶ä¸å­˜åœ¨
         {
         cache[npcid] = ([]);
         tmp["data"]=([]);
@@ -132,7 +132,7 @@ return npc["data"][userid];
 mixed stat_me(int flag)
 {
 if (!flag)
-   return sprintf("ÏÖÔÚ¹²ÓĞ%d¸ö½ÇÉ«µÄ¹ØÏµ¶ÈÊı¾İÔÚ»º´æÖĞ!\n",num_in_cache);
+   return sprintf("ç°åœ¨å…±æœ‰%dä¸ªè§’è‰²çš„å…³ç³»åº¦æ•°æ®åœ¨ç¼“å­˜ä¸­!\n",num_in_cache);
 if (flag==1)
    return npc;
 if (flag==2)

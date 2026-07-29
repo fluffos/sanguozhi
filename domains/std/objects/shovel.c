@@ -8,10 +8,10 @@ inherit M_INPUT;
 
 void setup()
 {
-  set_adj("ËÜÁÏ");
-  set_unit("°Ñ");
-  set_id("shovel", "²ù×Ó");
-  set_long ("ËüÊÇ¸öĞ¡ËÜÁÏ²ù×Ó¡£\n");
+  set_adj("å¡‘æ–™");
+  set_unit("æŠŠ");
+  set_id("shovel", "é“²å­");
+  set_long ("å®ƒæ˜¯ä¸ªå°å¡‘æ–™é“²å­ã€‚\n");
   set_size (SMALL);
   set_gettable(1);
 }

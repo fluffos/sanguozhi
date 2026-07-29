@@ -8,7 +8,7 @@ void start()
 	who = this_body()->query_id()[0];
 	env = environment(this_body());
 	if( !env->is_troop() ){
-           	write("Ö»ÓĞÉíÔÚ¾üÖĞ²ÅÄÜÖ¸»Ó³·ÍË¡£\n");
+           	write("åªæœ‰èº«åœ¨å†›ä¸­æ‰èƒ½æŒ‡æŒ¥æ’¤é€€ã€‚\n");
            	return ;
 	}
 	troop = env->get_id();
@@ -16,32 +16,32 @@ void start()
 	side = TROOP_D->get_troops(troop, "side");
 	if( (side=="a"&&who!=TASK_D->get_task(task, "att_leader")) || 
 	    (side=="d"&&who!=TASK_D->get_task(task, "def_leader")) ){
-		write("Ö»ÓĞÖ÷½«²Å¿ÉÒÔÏÂ´ï³·ÍËµÄÃüÁî¡£\n");
+		write("åªæœ‰ä¸»å°†æ‰å¯ä»¥ä¸‹è¾¾æ’¤é€€çš„å‘½ä»¤ã€‚\n");
 		return;
 	}
 	if( TASK_D->get_task(task, "def_stage") != "enter_warfield" ){
-		write("»¹Ã»¿ªÕ½¾ÍÒªÌÓÅÜ°¡£¿\n");
+		write("è¿˜æ²¡å¼€æˆ˜å°±è¦é€ƒè·‘å•Šï¼Ÿ\n");
 		return;
 	}
 	if( TASK_D->get_task(task, "type") == 3 ){
-		write("ÕâÊÇÑµÁ·°¡£¬ÄãÒ²ÏëÌÓÅÜ£¡\n");
+		write("è¿™æ˜¯è®­ç»ƒå•Šï¼Œä½ ä¹Ÿæƒ³é€ƒè·‘ï¼\n");
 		return;
 	}
 	if( side == "a" ){
 		area = TROOP_D->get_troops(troop, "source_area");
 		if( AREA_D->get_area(area, "nation") != CHAR_D->get_char(who, "nation") ){
-			write(AREA_D->get_area(area,"name")+"ÒÑÂäÈëµĞÊÖ£¬ÄãÎŞ³Ç¿ÉÍË¡£\n");
+			write(AREA_D->get_area(area,"name")+"å·²è½å…¥æ•Œæ‰‹ï¼Œä½ æ— åŸå¯é€€ã€‚\n");
 			return;
 		}
-		WARAI_D->war_inf(task, CHAR_D->get_char(who, "name")+"´ó½ĞµÀ£ºÇé¿ö²»Ãî£¬ÔİÇÒÊÕ±ø°É¡£\n", "");
-		CHANNEL_D->deliver_tell("gossip",CHAR_D->get_char(who,"name"),"½ñÈÕÇÒ·Å¹ıÄãÃÇ£¬ÏÂ´Î¶¨ÒªÑªÏ´"+AREA_D->get_area(TROOP_D->get_troops(troop, "area"), "name")+"£¡");
-		CHANNEL_D->deliver_tell("rumor","system",CHAR_D->get_char(who,"name")+"²»µĞ¶øÍË£¬³·»Ø"+AREA_D->get_area(area, "name")+"ÁË£¡");
+		WARAI_D->war_inf(task, CHAR_D->get_char(who, "name")+"å¤§å«é“ï¼šæƒ…å†µä¸å¦™ï¼Œæš‚ä¸”æ”¶å…µå§ã€‚\n", "");
+		CHANNEL_D->deliver_tell("gossip",CHAR_D->get_char(who,"name"),"ä»Šæ—¥ä¸”æ”¾è¿‡ä½ ä»¬ï¼Œä¸‹æ¬¡å®šè¦è¡€æ´—"+AREA_D->get_area(TROOP_D->get_troops(troop, "area"), "name")+"ï¼");
+		CHANNEL_D->deliver_tell("rumor","system",CHAR_D->get_char(who,"name")+"ä¸æ•Œè€Œé€€ï¼Œæ’¤å›"+AREA_D->get_area(area, "name")+"äº†ï¼");
 		(EV_WAR)->war_def_win(task);
 	} else {
 		area = TROOP_D->get_troops(troop, "def_area");
 		target = AREA_D->get_area(area, "neighbor");
 		if( !arrayp(target) ){
-			write("ÄãÒÑÎŞ´¦¿ÉÍË£¬»¹ÊÇ¾öÒ»ËÀÕ½°É¡£\n");
+			write("ä½ å·²æ— å¤„å¯é€€ï¼Œè¿˜æ˜¯å†³ä¸€æ­»æˆ˜å§ã€‚\n");
 			return;
 		}
 		foreach(string tt in target){
@@ -53,14 +53,14 @@ void start()
 					CHAR_D->set_char(cc, "area", tt);
 					CHAR_D->set_char(cc,"ranklocal",R_SG);
 				};
-				WARAI_D->war_inf(task, CHAR_D->get_char(who, "name")+"´ó½ĞµÀ£ºÇé¿ö²»Ãî£¬ÔİÇÒÍËÍù"+AREA_D->get_area(tt, "name")+"°É¡£", "");
-				CHANNEL_D->deliver_tell("gossip",CHAR_D->get_char(who,"name"),"³ôÔô±ğ²ş¿ñ£¬À´ÈÕ¶¨ÒªÔÙÆğ¼×±øÊÕ¸´Ê§µØ£¡\n");
-				CHANNEL_D->deliver_tell("rumor", "system",CHAR_D->get_char(who, "name")+"²»Õ½¶øÍË£¬³·Íù"+AREA_D->get_area(tt, "name")+"ÁË£¡");
+				WARAI_D->war_inf(task, CHAR_D->get_char(who, "name")+"å¤§å«é“ï¼šæƒ…å†µä¸å¦™ï¼Œæš‚ä¸”é€€å¾€"+AREA_D->get_area(tt, "name")+"å§ã€‚", "");
+				CHANNEL_D->deliver_tell("gossip",CHAR_D->get_char(who,"name"),"è‡­è´¼åˆ«çŒ–ç‹‚ï¼Œæ¥æ—¥å®šè¦å†èµ·ç”²å…µæ”¶å¤å¤±åœ°ï¼\n");
+				CHANNEL_D->deliver_tell("rumor", "system",CHAR_D->get_char(who, "name")+"ä¸æˆ˜è€Œé€€ï¼Œæ’¤å¾€"+AREA_D->get_area(tt, "name")+"äº†ï¼");
 				(EV_WAR)->war_att_win(task);
 				return;
 			}
 		}
-		write("ÄãÒÑÎŞ´¦¿ÉÍË£¬»¹ÊÇ¾öÒ»ËÀÕ½°É¡£\n");
+		write("ä½ å·²æ— å¤„å¯é€€ï¼Œè¿˜æ˜¯å†³ä¸€æ­»æˆ˜å§ã€‚\n");
 	};
 
 	return;

@@ -1,151 +1,151 @@
-£É£Ä ¹ÙÏÎÃû³Æ µÈ¼¶ £É£Ä ¹ÙÏÎÃû³Æ µÈ¼¶ £É£Ä ¹ÙÏÎÃû³Æ µÈ¼¶ £É£Ä ¹ÙÏÎÃû³Æ µÈ¼¶ 
- 190 Ö÷½«     ( 3)  191 ²Î¾ü     ( 3)  192 Ëæ¾ü     ( 2)   70 ¼à¾ü     ( 3) 
-  71 »¤¾ü     ( 2) 
+ï¼©ï¼¤ å®˜è¡”åç§° ç­‰çº§ ï¼©ï¼¤ å®˜è¡”åç§° ç­‰çº§ ï¼©ï¼¤ å®˜è¡”åç§° ç­‰çº§ ï¼©ï¼¤ å®˜è¡”åç§° ç­‰çº§ 
+ 190 ä¸»å°†     ( 3)  191 å‚å†›     ( 3)  192 éšå†›     ( 2)   70 ç›‘å†›     ( 3) 
+  71 æŠ¤å†›     ( 2) 
 info o a 2
-£É£Ä ¹ÙÏÎÃû³Æ µÈ¼¶ £É£Ä ¹ÙÏÎÃû³Æ µÈ¼¶ £É£Ä ¹ÙÏÎÃû³Æ µÈ¼¶ £É£Ä ¹ÙÏÎÃû³Æ µÈ¼¶ 
- 180 ´å³¤     ( 3)  181 ÊéÒ¯     ( 3)  182 Í¨ÊÂ     ( 2)   60 µä¾ü     ( 3) 
-  61 ÎäÎÀ     ( 2) 
+ï¼©ï¼¤ å®˜è¡”åç§° ç­‰çº§ ï¼©ï¼¤ å®˜è¡”åç§° ç­‰çº§ ï¼©ï¼¤ å®˜è¡”åç§° ç­‰çº§ ï¼©ï¼¤ å®˜è¡”åç§° ç­‰çº§ 
+ 180 æ‘é•¿     ( 3)  181 ä¹¦çˆ·     ( 3)  182 é€šäº‹     ( 2)   60 å…¸å†›     ( 3) 
+  61 æ­¦å«     ( 2) 
 > info o a 3
-£É£Ä ¹ÙÏÎÃû³Æ µÈ¼¶ £É£Ä ¹ÙÏÎÃû³Æ µÈ¼¶ £É£Ä ¹ÙÏÎÃû³Æ µÈ¼¶ £É£Ä ¹ÙÏÎÃû³Æ µÈ¼¶ 
- 170 ÕòÌ«ÊØ   ( 4)  171 ±ð¼Ý     ( 4)  172 ´ÓÊÂ     ( 3)  173 Òé²Ü     ( 2) 
-  50 ñÔ½«     ( 4)   51 ÑÀ½«     ( 3)   52 Áì¾ü     ( 2) 
+ï¼©ï¼¤ å®˜è¡”åç§° ç­‰çº§ ï¼©ï¼¤ å®˜è¡”åç§° ç­‰çº§ ï¼©ï¼¤ å®˜è¡”åç§° ç­‰çº§ ï¼©ï¼¤ å®˜è¡”åç§° ç­‰çº§ 
+ 170 é•‡å¤ªå®ˆ   ( 4)  171 åˆ«é©¾     ( 4)  172 ä»Žäº‹     ( 3)  173 è®®æ›¹     ( 2) 
+  50 è£¨å°†     ( 4)   51 ç‰™å°†     ( 3)   52 é¢†å†›     ( 2) 
 > info o a 4
-£É£Ä ¹ÙÏÎÃû³Æ µÈ¼¶ £É£Ä ¹ÙÏÎÃû³Æ µÈ¼¶ £É£Ä ¹ÙÏÎÃû³Æ µÈ¼¶ £É£Ä ¹ÙÏÎÃû³Æ µÈ¼¶ 
- 160 ¿¤Ì«ÊØ   ( 5)  161 Ö÷²¾     ( 4)  165 ÖÎÖÐ     ( 3)  166 ¾ö²Ü     ( 2) 
-  40 ²¿½«     ( 5)   41 ¼à½«     ( 4)   42 ¶½¾ü     ( 3)   43 ¶¼Î¾     ( 2) 
+ï¼©ï¼¤ å®˜è¡”åç§° ç­‰çº§ ï¼©ï¼¤ å®˜è¡”åç§° ç­‰çº§ ï¼©ï¼¤ å®˜è¡”åç§° ç­‰çº§ ï¼©ï¼¤ å®˜è¡”åç§° ç­‰çº§ 
+ 160 éƒ¡å¤ªå®ˆ   ( 5)  161 ä¸»ç°¿     ( 4)  165 æ²»ä¸­     ( 3)  166 å†³æ›¹     ( 2) 
+  40 éƒ¨å°†     ( 5)   41 ç›‘å°†     ( 4)   42 ç£å†›     ( 3)   43 éƒ½å°‰     ( 2) 
 > info o a 5
-£É£Ä ¹ÙÏÎÃû³Æ µÈ¼¶ £É£Ä ¹ÙÏÎÃû³Æ µÈ¼¶ £É£Ä ¹ÙÏÎÃû³Æ µÈ¼¶ £É£Ä ¹ÙÏÎÃû³Æ µÈ¼¶ 
- 150 Ì«ÊØ     ( 6)  151 ¾üÊ¦     ( 5)  152 ²ÎÄ±     ( 4)  156 Àô²Ü     ( 3) 
- 157 ¹¦²Ü     ( 2)   30 ¸±½«     ( 5)   31 Çú½«     ( 4)   32 µä½«     ( 3) 
-  33 Ð£Î¾     ( 2) 
+ï¼©ï¼¤ å®˜è¡”åç§° ç­‰çº§ ï¼©ï¼¤ å®˜è¡”åç§° ç­‰çº§ ï¼©ï¼¤ å®˜è¡”åç§° ç­‰çº§ ï¼©ï¼¤ å®˜è¡”åç§° ç­‰çº§ 
+ 150 å¤ªå®ˆ     ( 6)  151 å†›å¸ˆ     ( 5)  152 å‚è°‹     ( 4)  156 åæ›¹     ( 3) 
+ 157 åŠŸæ›¹     ( 2)   30 å‰¯å°†     ( 5)   31 æ›²å°†     ( 4)   32 å…¸å°†     ( 3) 
+  33 æ ¡å°‰     ( 2) 
 
 
 
-ÎÄ¹Ù£¨level 2£¬ID 192,182,173,166,157£©
+æ–‡å®˜ï¼ˆlevel 2ï¼ŒID 192,182,173,166,157ï¼‰
 
-rep£º                     500
-local contri£º            100
-loyalty£º                 50
-skills£º                  bfxy 31 zgxy 31
-salary£º                  2
+repï¼š                     500
+local contriï¼š            100
+loyaltyï¼š                 50
+skillsï¼š                  bfxy 31 zgxy 31
+salaryï¼š                  2
 
 
-Îä¹Ù£¨level 2£¬ID 71,61,52,43,33£©
+æ­¦å®˜ï¼ˆlevel 2ï¼ŒID 71,61,52,43,33ï¼‰
 
-rep£º                     500
-local contri£º            50
-loyalty£º                 45
-skills£º                  bfxy 31 wxxy 31
-score£º                   att_abi 10
-salary£º                  2
+repï¼š                     500
+local contriï¼š            50
+loyaltyï¼š                 45
+skillsï¼š                  bfxy 31 wxxy 31
+scoreï¼š                   att_abi 10
+salaryï¼š                  2
 
-ÎÄ¹Ù£¨level 3£¬ID 191,181,172,165,156£©
+æ–‡å®˜ï¼ˆlevel 3ï¼ŒID 191,181,172,165,156ï¼‰
 
-rep£º                     2000
-local contri£º            200
-loyalty£º                 55
-skills£º                  bfxy 35 zgxy 35 meili + zhimou > 32
-salary£º                  3
+repï¼š                     2000
+local contriï¼š            200
+loyaltyï¼š                 55
+skillsï¼š                  bfxy 35 zgxy 35 meili + zhimou > 32
+salaryï¼š                  3
 
-Îä¹Ù£¨level 3£¬ID 70,60,51,42,32£©
+æ­¦å®˜ï¼ˆlevel 3ï¼ŒID 70,60,51,42,32ï¼‰
 
-rep£º                     2000
-local contri£º            150
-loyalty£º                 50
-skills£º                  bfxy 35 wxxy 35 wuli + zhimou > 32
-score£º                   att_abi 20
-salary£º                  3
+repï¼š                     2000
+local contriï¼š            150
+loyaltyï¼š                 50
+skillsï¼š                  bfxy 35 wxxy 35 wuli + zhimou > 32
+scoreï¼š                   att_abi 20
+salaryï¼š                  3
 
-ÎÄ¹Ù£¨level 4£¬ID 171,161,152£©
+æ–‡å®˜ï¼ˆlevel 4ï¼ŒID 171,161,152ï¼‰
 
-rep£º                     10000
-local contri£º            500
-loyalty£º                 65
-skills£º                  bfxy 45 zgxy 45 meili + zhimou > 35
-salary£º                  5
+repï¼š                     10000
+local contriï¼š            500
+loyaltyï¼š                 65
+skillsï¼š                  bfxy 45 zgxy 45 meili + zhimou > 35
+salaryï¼š                  5
 
-Îä¹Ù£¨level 4£¬ID 50,41,31£©
+æ­¦å®˜ï¼ˆlevel 4ï¼ŒID 50,41,31ï¼‰
 
-rep£º                     10000
-local contri£º            400
-loyalty£º                 60
-skills£º                  bfxy 45 wxxy 45 wuli + zhimou > 35
-score£º                   att_abi 30
-salary£º                  5
+repï¼š                     10000
+local contriï¼š            400
+loyaltyï¼š                 60
+skillsï¼š                  bfxy 45 wxxy 45 wuli + zhimou > 35
+scoreï¼š                   att_abi 30
+salaryï¼š                  5
 
-ÎÄ¹Ù£¨level 5£¬ID 151£©
+æ–‡å®˜ï¼ˆlevel 5ï¼ŒID 151ï¼‰
 
-rep£º                     20000
-local contri£º            1000
-loyalty£º                 75
-skills£º                  bfxy 60 zgxy 60 meili + zhimou > 38
-salary£º                  10
+repï¼š                     20000
+local contriï¼š            1000
+loyaltyï¼š                 75
+skillsï¼š                  bfxy 60 zgxy 60 meili + zhimou > 38
+salaryï¼š                  10
 
-Îä¹Ù£¨level 5£¬ID 40,30£©
+æ­¦å®˜ï¼ˆlevel 5ï¼ŒID 40,30ï¼‰
 
-rep£º                     20000
-local contri£º            800
-loyalty£º                 70
-score£º                   att_abi 40
-skills£º                  bfxy 60 wxxy 60 wuli + zhimou > 38
-salary£º                  10
+repï¼š                     20000
+local contriï¼š            800
+loyaltyï¼š                 70
+scoreï¼š                   att_abi 40
+skillsï¼š                  bfxy 60 wxxy 60 wuli + zhimou > 38
+salaryï¼š                  10
 
-ÏÐÖ°£º
+é—²èŒï¼š
 
-rep£º                      200
-local contri£º             10
-loyalty£º                  45
-skills£º                   30 30 30
-salary£º                   1
+repï¼š                      200
+local contriï¼š             10
+loyaltyï¼š                  45
+skillsï¼š                   30 30 30
+salaryï¼š                   1
 
-Ì«ÊØ£º
+å¤ªå®ˆï¼š
 
-level 1£º 
-rep£º                      1000
-local contri£º             -
-loyalty£º                  50
-skills£º                   -
-salary£º                   3
+level 1ï¼š 
+repï¼š                      1000
+local contriï¼š             -
+loyaltyï¼š                  50
+skillsï¼š                   -
+salaryï¼š                   3
 
-level 2£º
-rep£º                      2000
-local contri£º             -
-loyalty£º                  55
-skills£º                   -
-salary£º                   3
+level 2ï¼š
+repï¼š                      2000
+local contriï¼š             -
+loyaltyï¼š                  55
+skillsï¼š                   -
+salaryï¼š                   3
 
-level 3£º
-rep£º                      5000
-local contri£º             -
-loyalty£º                  60
-skills£º                   -
-salary£º                   5
+level 3ï¼š
+repï¼š                      5000
+local contriï¼š             -
+loyaltyï¼š                  60
+skillsï¼š                   -
+salaryï¼š                   5
 
-level 4£º
-rep£º                      10000
-local contri£º             -
-loyalty£º                  65
-skills£º                   -
-salary£º                   10
+level 4ï¼š
+repï¼š                      10000
+local contriï¼š             -
+loyaltyï¼š                  65
+skillsï¼š                   -
+salaryï¼š                   10
 
-level 5£º
-rep£º                      20000
-local contri£º             -
-loyalty£º                  70
-skills£º                   -
-salary£º                   20
+level 5ï¼š
+repï¼š                      20000
+local contriï¼š             -
+loyaltyï¼š                  70
+skillsï¼š                   -
+salaryï¼š                   20
 
 if pos a taishou with non-sufficient rep
-write "´ËÈËÉùÍû²»¹»£¬µ±Ì«ÊØÈçºÎÄÜ¹»·þÖÚ£¿"
+write "æ­¤äººå£°æœ›ä¸å¤Ÿï¼Œå½“å¤ªå®ˆå¦‚ä½•èƒ½å¤Ÿæœä¼—ï¼Ÿ"
 
 if pos a taishou with non-sufficient loyalty
-write "´ËÈËÖÒ³Ï²»¹»£¬µ±Ì«ÊØ¿ÖÅÂ²»ÉõÍ×µ±°É¡£"
+write "æ­¤äººå¿ è¯šä¸å¤Ÿï¼Œå½“å¤ªå®ˆææ€•ä¸ç”šå¦¥å½“å§ã€‚"
 
 national ranks:
 
-£É£Ä ¹ÙÏÎÃû³Æ µÈ¼¶ £É£Ä ¹ÙÏÎÃû³Æ µÈ¼¶ £É£Ä ¹ÙÏÎÃû³Æ µÈ¼¶ £É£Ä ¹ÙÏÎÃû³Æ µÈ¼¶ 
-   1 Ö÷¹«     ( 9)  130 ×Ü¾üÊ¦   ( 6)  131 ¸±¾üÊ¦   ( 5)  132 ³¤Ê·     ( 4) 
-  20 ´ó½«¾ü   ( 6)   21 ½«¾ü     ( 5)   22 Æ«½«¾ü   ( 4) 
+ï¼©ï¼¤ å®˜è¡”åç§° ç­‰çº§ ï¼©ï¼¤ å®˜è¡”åç§° ç­‰çº§ ï¼©ï¼¤ å®˜è¡”åç§° ç­‰çº§ ï¼©ï¼¤ å®˜è¡”åç§° ç­‰çº§ 
+   1 ä¸»å…¬     ( 9)  130 æ€»å†›å¸ˆ   ( 6)  131 å‰¯å†›å¸ˆ   ( 5)  132 é•¿å²     ( 4) 
+  20 å¤§å°†å†›   ( 6)   21 å°†å†›     ( 5)   22 åå°†å†›   ( 4) 
 
 ID   NaContri  Loyalty  att_abi  Skills
 130  2000      90         -      bfxy 75 zgxy 75 meili + zhimou > 45
@@ -156,4 +156,4 @@ ID   NaContri  Loyalty  att_abi  Skills
 22   500       65         30     wxxy 40 bfxy 40 wuli + zhimou > 38
 
 if pos a non-sufficient gift player to a position
-write "´ËÈËµÄÌØ³¤¿ÖÅÂ²»ÊÇµ±ÎÄ¹Ù/Îä¹Ù£¬ÁíÍâÅÉ¸öÖ°Î»°É¡£"
+write "æ­¤äººçš„ç‰¹é•¿ææ€•ä¸æ˜¯å½“æ–‡å®˜/æ­¦å®˜ï¼Œå¦å¤–æ´¾ä¸ªèŒä½å§ã€‚"

@@ -4,7 +4,7 @@
 #include <mudlib.h>
 inherit CMD;
 
-#define USAGE "用法：at <生物> <命令>\n" //"Usage: at <living> <command>\n"
+#define USAGE "鐢ㄦ硶锛歛t <鐢熺墿> <鍛戒护>\n" //"Usage: at <living> <command>\n"
 
 private void main( mixed *arg ) {
     string where;
@@ -14,7 +14,7 @@ private void main( mixed *arg ) {
     targ = environment(arg[0]);
     if(!targ){
         //out("Your target has no environment.\n");
-        out("你的目标没有环境。\n");
+        out("浣犵殑鐩爣娌℃湁鐜銆俓n");
         return;
     }
     this_body()->move( targ );

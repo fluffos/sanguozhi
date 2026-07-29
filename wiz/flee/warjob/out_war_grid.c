@@ -10,9 +10,9 @@ inherit M_ACCESS;
 #define GRID_ROOM(x,y)  (file_name() + "/" + (x) + "/" + (y))
 #define CELL(x,y)  (grid_desc_id[(y)][(x)])
 
-static private mixed grid_desc_id;
-static private string a_id;
-static private int width, height;
+nosave private mixed grid_desc_id;
+nosave private string a_id;
+nosave private int width, height;
 
 string room_desc(int x,int y);
     
@@ -59,7 +59,7 @@ void setup()
 }
 string room_brief(int x,int y)
 {
-        return "地区战场 "+
+        return "鍦板尯鎴樺満 "+
                 MAP_D->get_color(grid_desc_id[y][x])+
                 MAP_D->get_brief(grid_desc_id[y][x])+"%^RESET%^";
 }
@@ -103,7 +103,7 @@ object virtual_create(string arg)
     return room;
 }
 // Disappear if no longer needed
-static void clean_up() {
+protected void clean_up() {
    destruct(this_object());
 }
     

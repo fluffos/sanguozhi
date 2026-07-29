@@ -1,4 +1,4 @@
-//  ¹ÙÕ¬ by benben
+//  å®˜å®… by benben
 // lx_gzh.c 
 #include <mudlib.h>
 #include "/wiz/fire/fire.h"
@@ -7,8 +7,8 @@ inherit ROOM;
 void setup(){
     set_area("longxi");
     set_light(50);
-    set_brief(""+YEL+"--¹ÙÕ¬--"+NOR+"");
-    set_long("    ÃèÊö¡£\n");
+    set_brief(""+YEL+"--å®˜å®…--"+NOR+"");
+    set_long("    æè¿°ã€‚\n");
     set_exits( ([
         "east" :  __DIR__+"lx_lane1.c",
     ]) );

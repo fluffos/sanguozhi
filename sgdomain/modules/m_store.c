@@ -61,9 +61,9 @@ mixed query_items()
 	sum = sizeof(ids);
     if(!sum)
     {
-		return "����Ļ���û���ء�\n";
+		return "这儿的货还没进呢。\n";
     }
-    printf("��������                       ��Ǯ\n"+
+    printf("货物名称                       价钱\n"+
 	"--------------------------------------------------------\n");
 	for(i=0;i<sum;++i){
 		len=colour_strlen(stored_item[ids[i]]["name"]);
@@ -74,7 +74,7 @@ mixed query_items()
 		  CHINESE_D->chinese_value(stored_item[ids[i]]["value"]));
 	}
     return 
-	"--------------------------------------------------------\n��������Ҫ��ʲô\n";
+	"--------------------------------------------------------\n看看你需要点什么\n";
 }
 mixed list()
 {
@@ -93,12 +93,12 @@ void buy_sth(string item, int number)
     p_buyersmoney=this_body()->query_all_con_money();
 
 	if(!stored_item[item]){
-		write("��Ҫ�Ķ������û�С�\n");
+		write("你要的东西这儿没有。\n");
 		return;
 	}
 	p_itemvalue=stored_item[item]["value"];
 	if(p_itemvalue>p_buyersmoney) {
-					write("Ǯû����ѽ��\n");
+					write("钱没带够呀。\n");
 					return;
 	}
 	if(stored_item[item]["sg_obj"])
@@ -106,20 +106,20 @@ void buy_sth(string item, int number)
 	else
 		ob=new(stored_item[item]["file_name"]);
 	if(!objectp(ob)) {
-		write("�����򲻵�����BUG���뱨����ʦ��\n");
+		write("东西买不到，有BUG，请报告巫师。\n");
 		return;
 	}
 
     if((ob->move(this_body())) == MOVE_OK)
     {		
-   		this_body()->simple_action("$N�ڴ�������һ"+
-            ob->query_unit()+ob->short()+"��\n"); 
+   		this_body()->simple_action("$N在此买下了一"+
+            ob->query_unit()+ob->short()+"。\n"); 
     	this_body()->set_all_con_money(p_buyersmoney - p_itemvalue);
         return;
      }
     else
     {
-		write("����û���ò����ˡ�\n");
+		write("好象没法拿不了了。\n");
 	        destruct(ob);
 		return;
     }

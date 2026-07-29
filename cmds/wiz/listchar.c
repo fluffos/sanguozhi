@@ -5,7 +5,7 @@
 #include <daemons.h>
 inherit CMD;
 inherit M_GLOB;
-string bar="¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ\n";
+string bar="ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“\n";
 int s_wuli,s_zhimou,s_meili;
 mixed p_tmp;
 private void main(string arg)
@@ -85,7 +85,7 @@ private void main(string arg)
         }
         if(!list)
         {
-                printf("Ã»ÓÐÕâÑùµÄ½ÇÉ«£®\n");
+                printf("æ²¡æœ‰è¿™æ ·çš„è§’è‰²ï¼Ž\n");
                 return ;
         }
         else
@@ -94,7 +94,7 @@ private void main(string arg)
                 switch (p_sw)
                 {
                         case "/l" :  // just list
-								disp_tmp=sprintf("   ½ÇÉ«´úºÅ¡¡¡¡½ÇÉ«Ãû³Æ\n");
+								disp_tmp=sprintf("   è§’è‰²ä»£å·ã€€ã€€è§’è‰²åç§°\n");
 								disp=disp+disp_tmp;
 								disp_tmp=sprintf(bar);
 								disp=disp+disp_tmp;
@@ -105,12 +105,12 @@ private void main(string arg)
 								}
 								disp_tmp=sprintf(bar);
 								disp=disp+disp_tmp;
-                                disp_tmp=sprintf("¹²²éµ½£º%d¸ö½ÇÉ«¡£\n",count);
+                                disp_tmp=sprintf("å…±æŸ¥åˆ°ï¼š%dä¸ªè§’è‰²ã€‚\n",count);
 								disp=disp+disp_tmp;
 				more(disp);
 								return;
                                                 case "/1":  
-  disp_tmp=sprintf("  ½ÇÉ«´úºÅ    Ãû³Æ   ×Ö ÐÔ±ð ÄêÁä ÎäÁ¦ ÖÇÄ± ÷ÈÁ¦ ÈÝÃ² ÀàÐÍ ×´Ì¬ ÊÂÎñ\n");
+  disp_tmp=sprintf("  è§’è‰²ä»£å·    åç§°   å­— æ€§åˆ« å¹´é¾„ æ­¦åŠ› æ™ºè°‹ é­…åŠ› å®¹è²Œ ç±»åž‹ çŠ¶æ€ äº‹åŠ¡\n");
 							disp=disp+disp_tmp;
 							disp_tmp=sprintf(bar);
 							disp=disp+disp_tmp;
@@ -126,7 +126,7 @@ if(!mapp(p_tmp)) p_tmp=([]);
  disp_tmp=sprintf("%11s %6s %4s  %2s%5d%5d%5d%5d%5d  %3s %4s %4s\n",list[i],
 CHAR_D->get_char(list[i],"name"),
 									CHAR_D->get_char(list[i],"zi"),
-									(CHAR_D->get_char(list[i],"gender")==1 ? "ÄÐ" :"Å®"),
+									(CHAR_D->get_char(list[i],"gender")==1 ? "ç”·" :"å¥³"),
 									CHAR_D->get_char(list[i],"age"),
 									s_wuli,s_zhimou,s_meili,
 									p_tmp["rongmao"],
@@ -136,12 +136,12 @@ CHAR_D->get_char(list[i],"name"),
 							}
 							disp_tmp=sprintf(bar);
 							disp=disp+disp_tmp;
-                            disp_tmp=sprintf("¹²²éµ½£º%d¸ö½ÇÉ«¡£\n",count);
+                            disp_tmp=sprintf("å…±æŸ¥åˆ°ï¼š%dä¸ªè§’è‰²ã€‚\n",count);
 							disp=disp+disp_tmp;
 				more(disp);
 							return;
                                                 case "/2":
-							disp_tmp=sprintf("  ½ÇÉ«´úºÅ    Ãû³Æ   ÉýÍû   ËùÔÚµØ ËùÊô¹ú ³¯Í¢¹ÙÖ° µØ·½¹Ù ÖÒ³Ï ÙºÂ»\n");
+							disp_tmp=sprintf("  è§’è‰²ä»£å·    åç§°   å‡æœ›   æ‰€åœ¨åœ° æ‰€å±žå›½ æœå»·å®˜èŒ åœ°æ–¹å®˜ å¿ è¯š ä¿¸ç¦„\n");
 							disp=disp+disp_tmp;
 							disp_tmp=sprintf(bar);
 							disp=disp+disp_tmp;
@@ -159,7 +159,7 @@ CHAR_D->get_char(list[i],"name"),
 							}
 							disp_tmp=sprintf(bar);
 							disp=disp+disp_tmp;
-                            disp_tmp=sprintf("¹²²éµ½£º%d¸ö½ÇÉ«¡£\n",count);
+                            disp_tmp=sprintf("å…±æŸ¥åˆ°ï¼š%dä¸ªè§’è‰²ã€‚\n",count);
 							disp=disp+disp_tmp;
 				more(disp);
 							return;

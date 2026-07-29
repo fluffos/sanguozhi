@@ -12,8 +12,8 @@ inherit CMD;
 #define DIVIDER \
 "-------------------------------------------------------------------------"
 
-# define USER_DESC      "(ÏÞÓÚÍæ¼Ò)"
-# define WHO_FORMAT     "%s:  (µ±µØÊ±¼ä: %s) %s%d¸öÓÃ»§¡£\n%s\n"
+# define USER_DESC      "(é™äºŽçŽ©å®¶)"
+# define WHO_FORMAT     "%s:  (å½“åœ°æ—¶é—´: %s) %s%dä¸ªç”¨æˆ·ã€‚\n%s\n"
 
 
 string get_who_string(string arg)
@@ -36,13 +36,13 @@ string get_who_string(string arg)
             case "-w":
             case "-i":
                 u = filter_array(users(), (: wizardp :));
-                extra = "(ÏÞÓÚ´´½¨Õß)\n";
+                extra = "(é™äºŽåˆ›å»ºè€…)\n";
                 break;
             case "-l":
                 if ( wizardp(this_user()) )
                 {
                     u = users();
-                    extra = "(ËùÓÐÉúÎï)\n";
+                    extra = "(æ‰€æœ‰ç”Ÿç‰©)\n";
                     break;
                 }
             case "-m":
@@ -50,12 +50,12 @@ string get_who_string(string arg)
                 {
                     u = filter_array(children(USER_OB),
                                      (: !interactive($1) :));
-                    extra = "(ÏÞÓÚÐÝÃßÕß)\n";
+                    extra = "(é™äºŽä¼‘çœ è€…)\n";
                     break;
                 }
             default:
                 if(arg)
-                    retval += "Who: ´íÎóµÄ flag¡£\n";
+                    retval += "Who: é”™è¯¯çš„ flagã€‚\n";
                 u = users();
         }
         if(!wizardp(this_user()))
@@ -68,7 +68,7 @@ string get_who_string(string arg)
                       sizeof(u), DIVIDER);
     i = sizeof(u);
     if(!i)
-        retval += sprintf("%|70s\n","¶Ô²»Æð£¬Ã»ÓÐÃûµ¥¡£");
+        retval += sprintf("%|70s\n","å¯¹ä¸èµ·ï¼Œæ²¡æœ‰åå•ã€‚");
     while(i--)
     {
         if (!u[i]->query_body())

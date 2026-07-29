@@ -109,34 +109,34 @@ mixed my_ob(string str)
 {
 	mixed ret;
 	ret=query_my_ob(str);
-	if(!ret) write("ÄãÉíÉÏÃ»ÓĞ"+str+"¡£\n");
+	if(!ret) write("ä½ èº«ä¸Šæ²¡æœ‰"+str+"ã€‚\n");
 	return ret;
 }
 mixed env_ob(string str)
 {
 	mixed ret;
 	ret=query_env_ob(str);
-	if(!ret) write("ÄãÖÜÎ§Ã»ÓĞ"+str+"¡£\n");
+	if(!ret) write("ä½ å‘¨å›´æ²¡æœ‰"+str+"ã€‚\n");
 	return ret;
 }
 mixed myenv_ob(string str)
 {
 	mixed ret;
 	ret=query_myenv_ob(str);
-	if(!ret) write("ÄãÉíÉÏºÍÖÜÎ§¶¼Ã»ÓĞ"+str+"¡£\n");
+	if(!ret) write("ä½ èº«ä¸Šå’Œå‘¨å›´éƒ½æ²¡æœ‰"+str+"ã€‚\n");
 	return ret;
 }
 mixed envmy_ob(string str)
 {
 	mixed ret;
 	ret=query_envmy_ob(str);
-	if(!ret) write("ÄãÖÜÎ§ºÍÉíÉÏ¶¼Ã»ÓĞ"+str+"¡£\n");
+	if(!ret) write("ä½ å‘¨å›´å’Œèº«ä¸Šéƒ½æ²¡æœ‰"+str+"ã€‚\n");
 	return ret;
 }
 mixed env_liv(string str)
 {
 	mixed ret;
 	ret=query_env_liv(str);
-	if(!ret) write("ÄãÖÜÎ§Ã»¼ûµ½"+str+"¡£\n");
+	if(!ret) write("ä½ å‘¨å›´æ²¡è§åˆ°"+str+"ã€‚\n");
 	return ret;
 }

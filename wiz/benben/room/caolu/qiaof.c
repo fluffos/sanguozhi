@@ -1,26 +1,26 @@
-// éÔ·ò write by benben 
+// æ¨µå¤« write by benben 
 #include <mudlib.h>
 inherit LIVING;
 inherit M_ACTIONS;
 inherit M_TRIGGERS;
 void setup() 
 {
-    set_name("Qiao Fu", "éÔ·ò");
-    add_id("qiaofu","Qiao","fu","qiao fu","éÔ·ò");
+    set_name("Qiao Fu", "æ¨µå¤«");
+    add_id("qiaofu","Qiao","fu","qiao fu","æ¨µå¤«");
     set_gender(1);
-    set_proper_name("éÔ·ò");
-    set_in_room_desc("éÔ·ò(Qiao Fu)");
+    set_proper_name("æ¨µå¤«");
+    set_in_room_desc("æ¨µå¤«(Qiao Fu)");
     set_wander_area("caolu_area"); 
-    set_long("Ò»¸öéÔ·ò£¬Í·ÉÏ´÷óèóÒ£¬ÉíÉÏ´©²¼ÒÂ£¬Ñü¼äÏµ×Å»·ÌĞ£¬½ÅÏÂÌ¤×Å²İÂÄ£¬
-ÊÖÖ´Ò»±ú¸Ö¸«£¬ÕıÔÚ¿³Ê÷¡£\n\n");
-	add_question("ÎÔÁú¸Ú","ÎÔÁú¸Ô","wolonggang");
+    set_long("ä¸€ä¸ªæ¨µå¤«ï¼Œå¤´ä¸Šæˆ´ç®¬ç¬ ï¼Œèº«ä¸Šç©¿å¸ƒè¡£ï¼Œè…°é—´ç³»ç€ç¯ç»¦ï¼Œè„šä¸‹è¸ç€è‰å±¥ï¼Œ
+æ‰‹æ‰§ä¸€æŸ„é’¢æ–§ï¼Œæ­£åœ¨ç æ ‘ã€‚\n\n");
+	add_question("å§é¾™å²—","å§é¾™å†ˆ","wolonggang");
 }
 void special_answer(object who, string matt)
 {
 	switch(matt)
 	{
 		case "wolonggang" :
-			this_object()->simple_action("éÔ·òËµµÀ£º¡°²»Ô¶£¬²»Ô¶¡£¹ıÁËÁÖ×Ó¾ÍÊÇ¡£¡±\n");
+			this_object()->simple_action("æ¨µå¤«è¯´é“ï¼šâ€œä¸è¿œï¼Œä¸è¿œã€‚è¿‡äº†æ—å­å°±æ˜¯ã€‚â€\n");
 			return;
 	}
 }

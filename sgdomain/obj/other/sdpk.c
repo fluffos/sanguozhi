@@ -1,4 +1,4 @@
-// sdpk.c É¿¶¯²¼¸æ
+// sdpk.c ç…½åŠ¨å¸ƒå‘Š
 inherit OBJ;
 inherit M_GETTABLE;
 string m_area;
@@ -6,18 +6,18 @@ string m_roomname;
 int m_life;
 void setup()
 {   
-    set_id("bugao", "%^YELLOW%^²¼¸æ%^RESET%^");
+    set_id("bugao", "%^YELLOW%^å¸ƒå‘Š%^RESET%^");
     set_size(VERY_SMALL);
     set_gettable(1);
-    set_in_room_desc("Ç½ÉÏÌù×ÅÒ»ÕÅ%^YELLOW%^²¼¸æ%^RESET%^¡£\n");   
+    set_in_room_desc("å¢™ä¸Šè´´ç€ä¸€å¼ %^YELLOW%^å¸ƒå‘Š%^RESET%^ã€‚\n");   
 }
 string long() {
 	if(!AREA_D->area_exist(m_area)) {
 		remove();
 		return "";
 	}
-	return "Ò»ÕÅÉ¿¶¯"+AREA_D->get_area(m_area,"name")+
-          "¾ÓÃñµÄ²¼¸æ¡£\n";
+	return "ä¸€å¼ ç…½åŠ¨"+AREA_D->get_area(m_area,"name")+
+          "å±…æ°‘çš„å¸ƒå‘Šã€‚\n";
 }
 void set_area(string area) {
 	m_area=area;
@@ -33,9 +33,9 @@ mixed query_can_drop() {
 		return 0;
 	}
 	if(rom->get_area()!=m_area) 
-		return "ÕâÕÅ²¼¸æÒªÌùµ½"+AREA_D->get_area(m_area,"name")+"¡£\n";
+		return "è¿™å¼ å¸ƒå‘Šè¦è´´åˆ°"+AREA_D->get_area(m_area,"name")+"ã€‚\n";
 	if(rom->short()!=m_roomname) 
-		return "ÕâÕÅ²¼¸æÒªÌùµ½"+m_roomname+"¡£\n";
+		return "è¿™å¼ å¸ƒå‘Šè¦è´´åˆ°"+m_roomname+"ã€‚\n";
 	return 1;
 }
 void my_life() {
@@ -56,27 +56,27 @@ void my_life() {
 	switch(random(4)) {
 		case 0:
 			CHANNEL_D->deliver_tell("rumor","system", 
-			AREA_D->get_area(m_area,"name")+"³öÏÖÉ¿¶¯ĞÔ²¼¸æ£¬ËùĞÒ¾ÓÃñÃ»ÊÜÓ°Ïì¡£");
+			AREA_D->get_area(m_area,"name")+"å‡ºç°ç…½åŠ¨æ€§å¸ƒå‘Šï¼Œæ‰€å¹¸å±…æ°‘æ²¡å—å½±å“ã€‚");
 			return;
 
 		case 1:
 			safe++; 
 			AREA_D->set_area(m_area,"safe",safe);
 			CHANNEL_D->deliver_tell("rumor","system", AREA_D->get_area(m_area,"name")+
-			"³öÏÖÉ¿¶¯ĞÔ²¼¸æ£¬µ«¾ÓÃñ¿´ÆÆÒõÄ±£¬µ±µØ°²¶¨Ìá¸ßÁË£¡");
+			"å‡ºç°ç…½åŠ¨æ€§å¸ƒå‘Šï¼Œä½†å±…æ°‘çœ‹ç ´é˜´è°‹ï¼Œå½“åœ°å®‰å®šæé«˜äº†ï¼");
 			return;
 		case 2:
 			safe-=2; safe=bmax(0,safe);
 			AREA_D->set_area(m_area,"safe",safe);
 			CHANNEL_D->deliver_tell("rumor","system", 
-  AREA_D->get_area(m_area,"name")+"³öÏÖÉ¿¶¯ĞÔ²¼¸æ£¬¾ÓÃñÒéÂÛ·×·×£¬µ±µØ°²¶¨ÏÂ½µÁË¡£");
+  AREA_D->get_area(m_area,"name")+"å‡ºç°ç…½åŠ¨æ€§å¸ƒå‘Šï¼Œå±…æ°‘è®®è®ºçº·çº·ï¼Œå½“åœ°å®‰å®šä¸‹é™äº†ã€‚");
 			return;
 
 		default :
 			safe--; safe=bmax(0,safe);
 			AREA_D->set_area(m_area,"safe",safe);
 			CHANNEL_D->deliver_tell("rumor","system", 
-AREA_D->get_area(m_area,"name")+"³öÏÖÉ¿¶¯ĞÔ²¼¸æ£¬¾ÓÃñÒéÂÛ·×·×£¬µ±µØ°²¶¨ÏÂ½µÁË¡£");
+AREA_D->get_area(m_area,"name")+"å‡ºç°ç…½åŠ¨æ€§å¸ƒå‘Šï¼Œå±…æ°‘è®®è®ºçº·çº·ï¼Œå½“åœ°å®‰å®šä¸‹é™äº†ã€‚");
 			return;
 	}
 }
@@ -86,11 +86,11 @@ mixed drop() {
 	int loy;
 
        this_body()->other_action(
-		"$N¿´¿´×óÓÒÃ»ÈË£¬¹í¹íËîËîµØ´Ó»³ÀïÌÍ³öÕÅ²¼¸æ£¬Ìùµ½Ç½ÉÏ¡£\n");
+		"$Nçœ‹çœ‹å·¦å³æ²¡äººï¼Œé¬¼é¬¼ç¥Ÿç¥Ÿåœ°ä»æ€€é‡Œæå‡ºå¼ å¸ƒå‘Šï¼Œè´´åˆ°å¢™ä¸Šã€‚\n");
 	this_object()->move(this_body()->query_room());
 	m_life=0;
         call_out("my_life",5);
-	this_body()->start_busy(20,"ÄãÏÖÔÚÕıÃ¦×ÅÄØ¡£\n");
+	this_body()->start_busy(20,"ä½ ç°åœ¨æ­£å¿™ç€å‘¢ã€‚\n");
 //	call_out("drop_bugao",20);
 	this_body()->set_job("bugao","status","done");
 	m_id=this_body()->query_primary_id();
@@ -109,8 +109,8 @@ mixed drop() {
         CHAR_D->set_char(m_id,"catch_area",m_area);
 
 	CHANNEL_D->deliver_tell("rumor","system", 
-		this_body()->query_chinese_id()+"ÔÚ"+AREA_D->get_area(m_area,"name")+"ÕÅÌùÉ¿¶¯ĞÔ²¼¸æ¡£");
-       return "Äã°Ñ²¼¸æÌùµ½Ç½ÉÏ¡£\n";
+		this_body()->query_chinese_id()+"åœ¨"+AREA_D->get_area(m_area,"name")+"å¼ è´´ç…½åŠ¨æ€§å¸ƒå‘Šã€‚");
+       return "ä½ æŠŠå¸ƒå‘Šè´´åˆ°å¢™ä¸Šã€‚\n";
 }
 
 /*void disapp() {
@@ -121,13 +121,13 @@ mixed get() {
 	nat=AREA_D->get_area(m_area,"nation"); 
 	id=this_body()->query_primary_id();
 	if(CHAR_D->get_char(id,"nation")!=nat)
-		return "Ëû¹úµÄÊÂ£¬»¹ÊÇÉÙ¹Ü¡£\n";
+		return "ä»–å›½çš„äº‹ï¼Œè¿˜æ˜¯å°‘ç®¡ã€‚\n";
 	this_body()->simple_action(
-		"$NÒ»°Ñ½«²¼¸æ´ÓÇ½ÉÏËºÁËÏÂÀ´£¬Èà³ÉÒ»ÍÅ¡£\n");
+		"$Nä¸€æŠŠå°†å¸ƒå‘Šä»å¢™ä¸Šæ’•äº†ä¸‹æ¥ï¼Œæ‰æˆä¸€å›¢ã€‚\n");
 	CHAR_D->set_char(id,"loyalty",CHAR_D->get_char(id,"loyalty")+1);
 	remove();
 //	call_out("disapp",1);
-	return "ÄãµÄÖÒ³ÏÌá¸ßÁË¡£\n";
+	return "ä½ çš„å¿ è¯šæé«˜äº†ã€‚\n";
 }
 /*void drop_bugao()
 {

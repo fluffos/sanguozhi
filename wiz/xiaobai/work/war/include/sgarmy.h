@@ -6,23 +6,23 @@ class SGarmy
 {
     int m_nTaskId;  // task id in which this army is
     
-	int m_nArmyId;  // ·½Ãæ¾ü id
-	string m_strArmyName;  // ·½Ãæ¾üÃû×Ö
+	int m_nArmyId;  // æ–¹é¢å†› id
+	string m_strArmyName;  // æ–¹é¢å†›åå­—
 
-	string m_strNationId;  // ËùÊô¹ú¼Ò´úºÅ
-	string m_strCityId;  // ËùÊô³ÇÊĞ´úºÅ
+	string m_strNationId;  // æ‰€å±å›½å®¶ä»£å·
+	string m_strCityId;  // æ‰€å±åŸå¸‚ä»£å·
 
-	string m_strLeaderId;  // Ö÷Ë§
+	string m_strLeaderId;  // ä¸»å¸…
 
-	string m_strSide;  // a Îª½ø¹¥·½£¬d Îª·ÀÊØ·½
+	string m_strSide;  // a ä¸ºè¿›æ”»æ–¹ï¼Œd ä¸ºé˜²å®ˆæ–¹
 
-	string m_strColor;  // ÏÔÊ¾µÄÑÕÉ«
+	string m_strColor;  // æ˜¾ç¤ºçš„é¢œè‰²
 
-	int m_nFood;  // Á¸²İ
-	int m_nGold;  // ½ğ
-	string m_strCaptive  // ·ıÂ²Ãûµ¥ 
+	int m_nFood;  // ç²®è‰
+	int m_nGold;  // é‡‘
+	string m_strCaptive  // ä¿˜è™åå• 
 
-	int m_nCntTroop;  // troop ÊıÄ¿µÄ¼ÆÊıÆ÷
+	int m_nCntTroop;  // troop æ•°ç›®çš„è®¡æ•°å™¨
 	
 	mapping m_mTrpIds;  // array of the troop id
 }

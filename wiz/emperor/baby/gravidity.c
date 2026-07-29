@@ -5,8 +5,8 @@
 
 #define NO_HOME 0
 #define NO_BEDROOM 1
-#define NO_JSP 2  //½ÓÉúÆÅ
-#define NO_SHINV 3 //ÊÌÅ®
+#define NO_JSP 2  //æ¥ç”Ÿå©†
+#define NO_SHINV 3 //ä¾å¥³
 #define NO_INBED 4
 
 int check_home(object me){
@@ -67,9 +67,9 @@ int do_birth(string id,string parter_id,object o1,object o2){
 	string msg,npc_id,room;	
 	
 	if(!sizeof(o1->check_npc("pos","jsp"))) {
-		tell_user(id,HIR"Äã¾õµÃ¶ÇÖĞÒ»ÕóÌÛÍ´£¬ÄãÁ÷²úÁË£¡\n"NOR);
+		tell_user(id,HIR"ä½ è§‰å¾—è‚šä¸­ä¸€é˜µç–¼ç—›ï¼Œä½ æµäº§äº†ï¼\n"NOR);
 		return 0;
-	//	me->start_busy(30+random(30),"ÄãÄÑ¹ı¼«ÁË£¬Ê²Ã´¶¼²»Ïë¸É£¡\n");
+	//	me->start_busy(30+random(30),"ä½ éš¾è¿‡æäº†ï¼Œä»€ä¹ˆéƒ½ä¸æƒ³å¹²ï¼\n");
 	//	me->delete_gravidity();
 	//	return;
 	}
@@ -87,13 +87,13 @@ int do_birth(string id,string parter_id,object o1,object o2){
 	ret["growth"]=0;
 	ret["id"]=parter_id+" "+ id + (i);
 	ret["xuhao"]=(i);
-	if(ret["gender"]==1) msg="¶ù×Ó"; else msg="Å®¶ù";
-	ret["pre_name"]=CHAR_D->get_char(parter_id,"name")+"ºÍ"+CHAR_D->get_char(id,"name")+"µÄ"+msg;
+	if(ret["gender"]==1) msg="å„¿å­"; else msg="å¥³å„¿";
+	ret["pre_name"]=CHAR_D->get_char(parter_id,"name")+"å’Œ"+CHAR_D->get_char(id,"name")+"çš„"+msg;
 	o->set_info(ret);
 	npc_id=o1->add_npc(o);
 	o1->set_npc(npc_id,"npc_id",npc_id);
 	o1->update_npc(npc_id);
-	tell_user(id,HIR"Ö»¼û½ÓÉúÆÅÒ»ÕóÊÖÃ¦½ÅÂÒ£¬ÄãË³ÀûÉúÏÂÒ»¸ö"+msg+"¡£\n"NOR);
+	tell_user(id,HIR"åªè§æ¥ç”Ÿå©†ä¸€é˜µæ‰‹å¿™è„šä¹±ï¼Œä½ é¡ºåˆ©ç”Ÿä¸‹ä¸€ä¸ª"+msg+"ã€‚\n"NOR);
 	return 1;
 }
 
@@ -114,8 +114,8 @@ void childvirth(object me){
 		case NO_JSP :
 		case NO_SHINV :
 		case NO_INBED :
-			tell(me,HIR"Äã¾õµÃ¶ÇÖĞÒ»ÕóÌÛÍ´£¬ÄãÁ÷²úÁË£¡\n"NOR);
-			me->start_busy(30+random(30),"ÄãÄÑ¹ı¼«ÁË£¬Ê²Ã´¶¼²»Ïë¸É£¡\n");
+			tell(me,HIR"ä½ è§‰å¾—è‚šä¸­ä¸€é˜µç–¼ç—›ï¼Œä½ æµäº§äº†ï¼\n"NOR);
+			me->start_busy(30+random(30),"ä½ éš¾è¿‡æäº†ï¼Œä»€ä¹ˆéƒ½ä¸æƒ³å¹²ï¼\n");
 			me->delete_gravidity();
 			break;
 		default : 
@@ -126,8 +126,8 @@ void childvirth(object me){
 			}else if(room_owner=parter_id){	
 				if(do_birth(id,parter_id,o_p_h,o_p_h)) return;
 			}
-			tell(me,HIR"Äã¾õµÃ¶ÇÖĞÒ»ÕóÌÛÍ´£¬ÄãÁ÷²úÁË£¡\n"NOR);
-			me->start_busy(30+random(30),"ÄãÄÑ¹ı¼«ÁË£¬Ê²Ã´¶¼²»Ïë¸É£¡\n");
+			tell(me,HIR"ä½ è§‰å¾—è‚šä¸­ä¸€é˜µç–¼ç—›ï¼Œä½ æµäº§äº†ï¼\n"NOR);
+			me->start_busy(30+random(30),"ä½ éš¾è¿‡æäº†ï¼Œä»€ä¹ˆéƒ½ä¸æƒ³å¹²ï¼\n");
 			me->delete_gravidity();
 			return;
 	}
@@ -138,7 +138,7 @@ int update_condition(object me, int duration)
 	if( !duration ) {
 	//	me->delete_gravidity();
 		childvirth(me);
-	//	NEWS_D->system_post("marriage",p_boyname+"Óë"+p_girlname+"ÕıÊ½³É»é",message,  "%^YELLOW%^ÇÇ¹úÀÏ%^RESET%^");
+	//	NEWS_D->system_post("marriage",p_boyname+"ä¸"+p_girlname+"æ­£å¼æˆå©š",message,  "%^YELLOW%^ä¹”å›½è€%^RESET%^");
 
 		return 0;
 	}
@@ -147,21 +147,21 @@ int update_condition(object me, int duration)
         case 7 :
         case 6 :
         case 5 :
-	        if(random(4)==1)//Ò»ÌìÒ»´ÎÌ¥¶¯
- 		        tell(me,HIG"Äã¾õµÃ¶Ç×ÓÖĞºÃÏóÓĞ¸öÉúÃüÔÚÈä¶¯£¡\n"NOR);
+	        if(random(4)==1)//ä¸€å¤©ä¸€æ¬¡èƒåŠ¨
+ 		        tell(me,HIG"ä½ è§‰å¾—è‚šå­ä¸­å¥½è±¡æœ‰ä¸ªç”Ÿå‘½åœ¨è •åŠ¨ï¼\n"NOR);
             break;
         case 4:
         case 3:
-	        if(random(4)==1)//Ò»ÌìÒ»´ÎÌ¥¶¯
-		        tell(me,HIM"Äã¾õµÃ¶Ç×ÓÖĞÒ»¶¯£¬ºÃÏóÓĞ¸öĞ¡ÉúÃüÌßÁËÄãÒ»ÏÂ£¡\n"NOR);
+	        if(random(4)==1)//ä¸€å¤©ä¸€æ¬¡èƒåŠ¨
+		        tell(me,HIM"ä½ è§‰å¾—è‚šå­ä¸­ä¸€åŠ¨ï¼Œå¥½è±¡æœ‰ä¸ªå°ç”Ÿå‘½è¸¢äº†ä½ ä¸€ä¸‹ï¼\n"NOR);
             break;
         case 2:
-	        if(random(4)==1)//Ò»ÌìÒ»´ÎÌ¥¶¯
-		        tell(me,HIY"Äã¾õµÃ¶Ç×ÓÖĞµÄĞ¡ÉúÃüÓÖ¿ªÊ¼¾çÁÒÔË¶¯ÆğÀ´£¡\n"NOR);
+	        if(random(4)==1)//ä¸€å¤©ä¸€æ¬¡èƒåŠ¨
+		        tell(me,HIY"ä½ è§‰å¾—è‚šå­ä¸­çš„å°ç”Ÿå‘½åˆå¼€å§‹å‰§çƒˆè¿åŠ¨èµ·æ¥ï¼\n"NOR);
             break;
         case 1:
-	        if(random(4)==1)//Ò»ÌìÒ»´ÎÌ¥¶¯
-		        tell(me,HIR"Äã¾õµÃ¾Í¿ìÒªÁÙÅèÁË£¡\n"NOR);
+	        if(random(4)==1)//ä¸€å¤©ä¸€æ¬¡èƒåŠ¨
+		        tell(me,HIR"ä½ è§‰å¾—å°±å¿«è¦ä¸´ç›†äº†ï¼\n"NOR);
             break;
 
         default : 

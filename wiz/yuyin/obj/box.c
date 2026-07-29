@@ -1,4 +1,4 @@
-//ÖìºìÏ»×Ó by benben
+//æœ±çº¢åŒ£å­ by benben
 #include <mudlib.h>
 #include <setbit.h>
 #include <sanguo.h>
@@ -8,10 +8,10 @@ inherit M_LOCKABLE;
 inherit M_OPENABLE;
 void setup(){   
   object ob1,ob2;
-  set_in_room_desc("Ò»¸öĞ¡ÇÉµÄÌÇºĞ(box)¡£");
-  set_adj( "Ğ¡ÇÉµÄ" );
-  set_id( "box","ÌÇºĞ", );
-  set_long("Ò»¸öĞ¡ÇÉµÄÌÇºĞ£¬ÉÏÃæĞ´×Å£ºÌìÌì³ÔÌÇ£¬ÑÀ³İ½¡¿µ¡£\n");
+  set_in_room_desc("ä¸€ä¸ªå°å·§çš„ç³–ç›’(box)ã€‚");
+  set_adj( "å°å·§çš„" );
+  set_id( "box","ç³–ç›’", );
+  set_long("ä¸€ä¸ªå°å·§çš„ç³–ç›’ï¼Œä¸Šé¢å†™ç€ï¼šå¤©å¤©åƒç³–ï¼Œç‰™é½¿å¥åº·ã€‚\n");
   set_relations("in");
   set_max_capacity(SMALL*2);
   ob1=new(FOBJPATH+"candy");

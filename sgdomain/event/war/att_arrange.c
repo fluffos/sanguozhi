@@ -4,7 +4,7 @@
 
 void release_army(int p_id);
 void atack_abort(string p_id,int task_id) {
-	array att_store_troop;
+	mixed * att_store_troop;
 	int sum,i;
 	mapping tmptroop,troop;
 	mapping pre_troop;
@@ -70,9 +70,9 @@ void att_collect(int task_id)
    	p_short = load_object(p_flyroom)->short();
 
    	if( objectp(o_char) ){ 
-		o_char->simple_action("$NµÀ£ºÖîÎ»½«¾ü¡¢´óÈË£¬ÇëËÙµ½"+p_short+"µã±ø³öÕ÷¡£\n");
+		o_char->simple_action("$Né“ï¼šè¯¸ä½å°†å†›ã€å¤§äººï¼Œè¯·é€Ÿåˆ°"+p_short+"ç‚¹å…µå‡ºå¾ã€‚\n");
       		CHAR_D->put_char(att_leader,p_flyroom);
-      		o_char->simple_action("$NÀ´µ½ÁË"+p_short+"¡£\n");
+      		o_char->simple_action("$Næ¥åˆ°äº†"+p_short+"ã€‚\n");
    	}
    	CHAR_D->put_char(att_leader,p_flyroom);
 
@@ -95,7 +95,7 @@ void att_collect(int task_id)
       			o_char=CHAR_D->find_char(p_id);
       			CHAR_D->put_char(p_id,p_flyroom);
       			if(objectp(o_char))
-			o_char->simple_action("$NÀ´µ½ÁË"+p_short+"¡£\n");
+			o_char->simple_action("$Næ¥åˆ°äº†"+p_short+"ã€‚\n");
    		}
    	att_pre_arrange(task_id,att_area);
    	new("/sgdomain/menu/warinput")->man_input(att_leader,task_id,"a");
@@ -124,8 +124,8 @@ void att_arrange_left(int task_id)
    	o_leader = CHAR_D->find_char(p_leader);
 
 	if( objectp(o_leader) ){
-		o_leader->simple_action("$NºÈµÀ£ºÈ«Ìå½«Ê¿¶¨Òª·ÜÓÂÉ±µĞ£¬$s×ÔÓĞÖØÉÍ£¡\n");
-                o_leader->simple_action("$NÁì½«Ê¿½øÈëÕ½³¡¡£\n");
+		o_leader->simple_action("$Nå–é“ï¼šå…¨ä½“å°†å£«å®šè¦å¥‹å‹‡æ€æ•Œï¼Œ$sè‡ªæœ‰é‡èµï¼\n");
+                o_leader->simple_action("$Né¢†å°†å£«è¿›å…¥æˆ˜åœºã€‚\n");
         }
    	att_store_troop = TASK_D->get_task(task_id,"att_store_troop");
    	sum = sizeof(att_store_troop);
@@ -160,10 +160,10 @@ void att_arrange_left(int task_id)
         };
 	AREA_D->set_area(a_area, "troop", tmp);
    	CHANNEL_D->deliver_tell("rumor","system",
-	 	CHAR_D->get_char(p_leader,"name")+"Áì"+
-	   	chinese_number(total_soldier)+"±øÊ¿Ïò"+
-	   	AREA_D->get_area(p_area,"name")+"É±À´£¡£¡£¡");
-	TASK_D->set_task(task_id,"msg_total_att_soldiers","½ø¹¥·½×Ü±øÁ¦£º"+chinese_number(total_soldier));
+	 	CHAR_D->get_char(p_leader,"name")+"é¢†"+
+	   	chinese_number(total_soldier)+"å…µå£«å‘"+
+	   	AREA_D->get_area(p_area,"name")+"æ€æ¥ï¼ï¼ï¼");
+	TASK_D->set_task(task_id,"msg_total_att_soldiers","è¿›æ”»æ–¹æ€»å…µåŠ›ï¼š"+chinese_number(total_soldier));
 
 }
 void put_att_troop(int task_id)
@@ -173,7 +173,7 @@ void put_att_troop(int task_id)
    	object o_leader,o_general;
    	int total_soldier;
 	mapping troop;
-	array msg_att_party;
+	mixed * msg_att_party;
 	mapping msgs;
 
    	pre_troop = TASK_D->get_task(task_id,"att_curent_arrange_troop");
@@ -187,13 +187,13 @@ void put_att_troop(int task_id)
    	o_general= CHAR_D->find_char(p_general);
    	if( (objectp(o_leader))&&(objectp(o_general)) ){
 		if( p_leader == p_general )
-			o_leader->simple_action("$sÇ××Ô´ø"+CHINESE_D->chinese_number(total_soldier)+"±øÂí³öÕ½£¡\n");
+			o_leader->simple_action("$säº²è‡ªå¸¦"+CHINESE_D->chinese_number(total_soldier)+"å…µé©¬å‡ºæˆ˜ï¼\n");
                 else {
-       			o_leader->targetted_action("$NºÈµÀ£º$TºÎÔÚ£¿\n",o_general);
-       			o_general->simple_action("$N´ğµÀ£º$sÔÚ£¡\n");
+       			o_leader->targetted_action("$Nå–é“ï¼š$Tä½•åœ¨ï¼Ÿ\n",o_general);
+       			o_general->simple_action("$Nç­”é“ï¼š$såœ¨ï¼\n");
 			DELAY_D->delay_targetted_action(
-				o_leader,o_general,"$N¶Ô$TËµµ½£ºËÙµã"+
-				CHINESE_D->chinese_number(total_soldier)+"±øÂí´ıÃü³ö·¢¡£\n$T´ğµÀ£ºµÃÁî¡£\n",1);
+				o_leader,o_general,"$Nå¯¹$Tè¯´åˆ°ï¼šé€Ÿç‚¹"+
+				CHINESE_D->chinese_number(total_soldier)+"å…µé©¬å¾…å‘½å‡ºå‘ã€‚\n$Tç­”é“ï¼šå¾—ä»¤ã€‚\n",1);
 		}
    	}
 

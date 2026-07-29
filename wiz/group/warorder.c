@@ -21,7 +21,7 @@ mixed order_match(string para)
    mixed pos;
    mapping ret=([]);
    pos=get_pos(para);
-   if(!sizeof(pos)) return "参数错误。\n";
+   if(!sizeof(pos)) return "鍙傛暟閿欒銆俓n";
    ret["action"]="match";
    ret["target"]=WARAI_D->point_tostring(pos);
    return ret;
@@ -36,7 +36,7 @@ mixed order_guard(int t_id,string para,string range)
    else
    {
      pos=get_pos(para);
-     if(!sizeof(pos)) return "参数错误。\n";
+     if(!sizeof(pos)) return "鍙傛暟閿欒銆俓n";
    }
    if((!range)||(range=="")) ran=1;
    else
@@ -60,9 +60,9 @@ mixed order_pursue(int *all_troop,string para)
    int t;
    
    t=get_t_id(para);
-   if(t<=0) return "参数错误。\n";
+   if(t<=0) return "鍙傛暟閿欒銆俓n";
   if(member_array(t,all_troop)==-1)
-    return "追击哪支部队？\n"; 
+    return "杩藉嚮鍝敮閮ㄩ槦锛焅n"; 
   ret["action"]="pursue";
    ret["aim"]=t;
    return ret;
@@ -82,7 +82,7 @@ void start(string arg)
     p_id=this_body()->query_id()[0];
     t_task=TASK_D->get_char_task(p_id);
     if((t_task[0]==-1)||((t_task[1]!=TASK_WAR)&&(t_task[1]!=TASK_TRAIN)))
-    {  write("你没在战争中，不能指挥军队。\n");
+    {  write("浣犳病鍦ㄦ垬浜変腑锛屼笉鑳芥寚鎸ュ啗闃熴�俓n");
        return;
     }
     
@@ -114,7 +114,7 @@ void start(string arg)
 	}
 
     if(p_side=="")
-    {  write("只有战争统帅才可以对军团下达命令。\n");
+    {  write("鍙湁鎴樹簤缁熷竻鎵嶅彲浠ュ鍐涘洟涓嬭揪鍛戒护銆俓n");
        return;
     }
     if(!all_troops) all_troops=({});
@@ -127,14 +127,14 @@ void start(string arg)
     if(sizeof(ex)>3) para2=ex[3];
     t_id=get_t_id(tar);
     if(t_id<=0) 
-    { write ("你要指挥哪支部队？\n"); return;
+    { write ("浣犺鎸囨尌鍝敮閮ㄩ槦锛焅n"); return;
     }
     o=TROOP_D->find_troop(t_id);
     if(!objectp(o))
-    { write ("你要指挥哪支部队？\n"); return;
+    { write ("浣犺鎸囨尌鍝敮閮ㄩ槦锛焅n"); return;
     }
     if(member_array(t_id,my_troops)==-1)
-    { write ("你要指挥哪支部队？\n"); return;
+    { write ("浣犺鎸囨尌鍝敮閮ㄩ槦锛焅n"); return;
     }
 // here need more check to make sure this user has the 
 // right to give this order
@@ -146,12 +146,12 @@ void start(string arg)
        case "guard": order=order_guard(t_id,para1,para2); break;
        case "follow":
        case "pursue": order=order_pursue(all_troops,para1); break;
-       default : write("没有这条指令。\n"); return;
+       default : write("娌℃湁杩欐潯鎸囦护銆俓n"); return;
     }
     if(stringp(order))
     {  write(order); return;
     }
-    if(fake_s) tell_user(p_id,"命令已经成功下达。\n");
+    if(fake_s) tell_user(p_id,"鍛戒护宸茬粡鎴愬姛涓嬭揪銆俓n");
     TROOP_D->set_troops(t_id,"command",order);
     WARAI_D->order_display(t_id);
 }

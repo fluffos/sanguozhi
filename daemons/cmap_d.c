@@ -1,7 +1,7 @@
 // color_map
 #include <ansi.h>
-static private string *asam=({"°Ò","°Ù","°¯","°ˆ","°Ô"}) ;
-static private array colors=
+nosave private string *asam=({"‚óè","‚óÜ","‚ñ≤","‚ñ†","‚òÖ"}) ;
+nosave private mixed * colors=
 ({ 
 	RED,GRN,BLU,MAG,ORG,CYN, WHT,
   BRED+GRN,BRED+BLU,BRED+MAG,BRED+ORG,BRED+CYN, BRED+WHT,
@@ -13,7 +13,7 @@ BGRN+RED,BGRN+BLU,BGRN+MAG,BGRN+ORG,BGRN+CYN, BGRN+WHT,
 
 
  });
-static private mapping mappos =([
+nosave private mapping mappos =([
  "/sgdomain/txt/maps/northwest.map":
 ({"taiyuan","yanmenguan","xiliang","shangdang","didao","anding","jieting","longxi","tianshui",
  "qinchuan","chencang","xianyang","jingyang","hongnong","mianchi","luoyang",

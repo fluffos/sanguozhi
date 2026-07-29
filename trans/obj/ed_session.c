@@ -16,8 +16,8 @@
 inherit M_INPUT;
 inherit M_ACCESS;
 
-static private function end_func;
-static private object   user;
+nosave private function end_func;
+nosave private object   user;
 
 private int already_editing = 0;
 
@@ -73,7 +73,7 @@ varargs nomask void begin_editing(string fname,
       end_func = f;
 
       ed_start(fname, restricted);
-      printf("±à¼­£º/%s", ed_cmd("f"));
+      printf("ç¼–è¾‘ï¼š/%s", ed_cmd("f"));
       if(!is_file(fname))
           printf("[New file]\n");
   }

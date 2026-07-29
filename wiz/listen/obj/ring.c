@@ -9,15 +9,15 @@ inherit M_VALUE;
 void setup()
 {
     ::mudlib_setup();
-    set_unit("Ö»");
-    set_id("listenring", HIG+"½á»é½äÖ¸"+NOR);
+    set_unit("åª");
+    set_id("listenring", HIG+"ç»“å©šæˆ’æŒ‡"+NOR);
     add_id("ring");
-    set_in_room_desc(HIG+"½á»é½äÖ¸"+NOR+"(listen's ring)");
-    set_long("ÕâÊÇÀî´óºÍĞ¡²İµÄ¶¨ÇéĞÅÎï¡£");
+    set_in_room_desc(HIG+"ç»“å©šæˆ’æŒ‡"+NOR+"(listen's ring)");
+    set_long("è¿™æ˜¯æå¤§å’Œå°è‰çš„å®šæƒ…ä¿¡ç‰©ã€‚");
     set_gettable(1);
 	set_slot(HANDS);
-	set_wearmsg("$NÉîÇéµØ°Ñ$oÌ×ÔÚ×Ô¼ºµÄÎŞÃûÖ¸ÉÏ¡£\n");
-	set_removemsg("$NĞ¡ĞÄµØ°Ñ$o·Å»Ø½õºĞÖĞ¡£\n");
+	set_wearmsg("$Næ·±æƒ…åœ°æŠŠ$oå¥—åœ¨è‡ªå·±çš„æ— åæŒ‡ä¸Šã€‚\n");
+	set_removemsg("$Nå°å¿ƒåœ°æŠŠ$oæ”¾å›é”¦ç›’ä¸­ã€‚\n");
     set_attack_ability(100);
 	set_defence_power(40);
     set_defence_ability(100);

@@ -6,49 +6,49 @@ string stat_me(string p_id,int priority)
    string p_ret="";
    mixed c;
    if(!char_exist(p_id))
-       return "Ã»ÓÐÕâ¸ö½ÇÉ«¡£\n";
+       return "æ²¡æœ‰è¿™ä¸ªè§’è‰²ã€‚\n";
    c=get_char(p_id,"");
    if(!c["gift"]) c["gift"]=([]);
-   p_ret+=sprintf("½ÇÉ«´úºÅ£º%-14sÐÕÃû£º%s\n",p_id, c["name"]);
-   p_ret+="¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ\n";
-   p_ret+=sprintf("×Ö£º%4s  ÐÔ±ð£º%2s  ÄêÁä£º%3d ÈÝÃ²£º%d\n",
-       (sizeof(c["zi"]) ? c["zi"] : "©¥©¥" ),
-       (c["gender"]==1 ? "ÄÐ" :"Å®"),c["age"],c["gift"]["rongmao"]);
-   p_ret+=sprintf("ËùÊô¹ú£º%-10s  ËùÔÚµØ£º%-8s\n",
-     (sizeof(c["nation"]) ? COUNTRY_D->get_country(c["nation"],"name") : "©¥©¥"),
-     (sizeof(c["area"]) ? AREA_D->get_area(c["area"],"name") : "©¥©¥" ));
-   p_ret+=sprintf("³¯Í¢¹ÙÖ°£º%-8s  µØ·½¹ÙÖ°£º%-8s\n",
+   p_ret+=sprintf("è§’è‰²ä»£å·ï¼š%-14så§“åï¼š%s\n",p_id, c["name"]);
+   p_ret+="ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“\n";
+   p_ret+=sprintf("å­—ï¼š%4s  æ€§åˆ«ï¼š%2s  å¹´é¾„ï¼š%3d å®¹è²Œï¼š%d\n",
+       (sizeof(c["zi"]) ? c["zi"] : "â”â”" ),
+       (c["gender"]==1 ? "ç”·" :"å¥³"),c["age"],c["gift"]["rongmao"]);
+   p_ret+=sprintf("æ‰€å±žå›½ï¼š%-10s  æ‰€åœ¨åœ°ï¼š%-8s\n",
+     (sizeof(c["nation"]) ? COUNTRY_D->get_country(c["nation"],"name") : "â”â”"),
+     (sizeof(c["area"]) ? AREA_D->get_area(c["area"],"name") : "â”â”" ));
+   p_ret+=sprintf("æœå»·å®˜èŒï¼š%-8s  åœ°æ–¹å®˜èŒï¼š%-8s\n",
      OFFICER_D->query_rank_name(c["ranknation"]),
      OFFICER_D->query_rank_name(c["ranklocal"]));
    if(priority<2)
    {  if(!c["skills"]) c["skills"]=([]);
-      p_ret+=sprintf("ÎäÁ¦£º%d  ÖÇÄ±£º%d  ÷ÈÁ¦£º%d  ÙºÂ»£º%d\n",
+      p_ret+=sprintf("æ­¦åŠ›ï¼š%d  æ™ºè°‹ï¼š%d  é­…åŠ›ï¼š%d  ä¿¸ç¦„ï¼š%d\n",
        c["skills"]["sk_wuli"],c["skills"]["sk_zhimou"],
        c["skills"]["sk_meili"],get_char(p_id,"salary"));
-      p_ret+=sprintf("ÉùÍû£º%s(%d) µØÇø¹±Ï×£º%d  ¹ú¼Ò¹±Ï×£º%d ÖÒ³Ï£º%d\n",
+      p_ret+=sprintf("å£°æœ›ï¼š%s(%d) åœ°åŒºè´¡çŒ®ï¼š%d  å›½å®¶è´¡çŒ®ï¼š%d å¿ è¯šï¼š%d\n",
         get_char(p_id,"reputationstr"),c["reputation"],
         get_char(p_id,"localcontribution"),get_char(p_id,"nationcontribution"),get_char(p_id,"loyalty"));
-      p_ret+=sprintf("ÀàÐÍ£º%s  ×´Ì¬£º%s  ÊÂÎñ£º%s\n",
-        (c["type"]==TYPE_NPC ? "NPC " :"Íæ¼Ò"),
+      p_ret+=sprintf("ç±»åž‹ï¼š%s  çŠ¶æ€ï¼š%s  äº‹åŠ¡ï¼š%s\n",
+        (c["type"]==TYPE_NPC ? "NPC " :"çŽ©å®¶"),
         get_char(p_id,"statustr"),get_char(p_id,"taskstr"));
    }
    if(priority<1)
    {  string *list,*a_tmp;
       string s_tmp;
-      p_ret+="ÓëËû¹ú¹ØÏµ£º\n";
+      p_ret+="ä¸Žä»–å›½å…³ç³»ï¼š\n";
       list=COUNTRY_D->list_countries();
       s_tmp=c["nation"];
       list-=({s_tmp});
       a_tmp=({});
       foreach(string n_id in list)
-      {  s_tmp=sprintf("%6s£º%3d ",
+      {  s_tmp=sprintf("%6sï¼š%3d ",
             COUNTRY_D->get_country(n_id,"name"),
             CHAR_D->get_char_loyalty(p_id,n_id));
          a_tmp+=({s_tmp});
       }
       p_ret+=sprintf("%-#50s\n",implode(a_tmp,"\n"));
       if(!c["myarmy"]) c["myarmy"]=([]);
-      p_ret+=sprintf("Ç×±øÊý£º%d  ÑµÁ·£º%d  ÂíÆ¥£º%d  ¹­¼ý£º%d  Á¸Ê³£º%d\n",
+      p_ret+=sprintf("äº²å…µæ•°ï¼š%d  è®­ç»ƒï¼š%d  é©¬åŒ¹ï¼š%d  å¼“ç®­ï¼š%d  ç²®é£Ÿï¼š%d\n",
         c["myarmy"]["qbnum"],c["myarmy"]["train"],
         c["myarmy"]["horse"],c["myarmy"]["bow"],c["myarmy"]["food"]);
    }

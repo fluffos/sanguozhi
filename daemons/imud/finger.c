@@ -31,7 +31,7 @@ protected nomask void rcv_finger_req(string orig_mud, string orig_user,
     if ( !info )
     {
 	return_error(orig_mud, orig_user, "unk-user",
-		     sprintf("Ã»ÓĞ¡¸%s¡¹Õâ¸öÍæ¼Ò", message[0]));
+		     sprintf("æ²¡æœ‰ã€Œ%sã€è¿™ä¸ªç©å®¶", message[0]));
     }
     else
     {
@@ -59,7 +59,7 @@ protected nomask void rcv_finger_reply(string orig_mud, string orig_user,
     if ( !p )
     {
 	return_error(orig_mud, orig_user, "unk-user",
-		     sprintf("×ª»Ø¸ø²»ÖªÃûÍæ¼Ò¡¸%s¡¹",
+		     sprintf("è½¬å›ç»™ä¸çŸ¥åç©å®¶ã€Œ%sã€",
 			     targ_user));
     }
     else
@@ -78,32 +78,32 @@ protected nomask void rcv_finger_reply(string orig_mud, string orig_user,
 	if ( message[8] == "" ) message[8] = 0;
 
 	if ( message[2] )
-	    s = sprintf("\nÃû×Ö:  %-35sÕæÊµĞÕÃû: %s\n",
+	    s = sprintf("\nåå­—:  %-35sçœŸå®å§“å: %s\n",
 			message[0], message[2]);
 	else
-	    s = sprintf("\n:Ãû×Ö:  %s\n", message[0]);
+	    s = sprintf("\n:åå­—:  %s\n", message[0]);
 	if ( message[3] )
 	    s += sprintf("%' '42sEmail: %s\n", "", message[3]);
-	s += sprintf("µÈ¼¶: %-35sÍ·ÏÎ: %s\n",
+	s += sprintf("ç­‰çº§: %-35så¤´è¡”: %s\n",
 		     message[7] ? message[7] : "<unknown>",
 		     message[1] ? message[1] : "<unknown>");
 	if ( message[5] == -1 )
 	{
 	    if ( message[4] && message[6] )
 	    {
-		s += sprintf("ÉÏ´ÎÁ¬ÏßÊ±¼ä£º%s£¬À´×Ô£º%s\n", message[4], message[6]);
+		s += sprintf("ä¸Šæ¬¡è¿çº¿æ—¶é—´ï¼š%sï¼Œæ¥è‡ªï¼š%s\n", message[4], message[6]);
 	    }
 	    else if ( message[4] )
 	    {
-		s += sprintf("ÉÏ´ÎÁ¬ÏßÊ±¼ä£º%s\n", message[4]);
+		s += sprintf("ä¸Šæ¬¡è¿çº¿æ—¶é—´ï¼š%s\n", message[4]);
 	    }
 	    else if ( message[6] )
 	    {
-		s += sprintf("ÉÏ´ÎÁ¬ÏßÀ´×Ô£º%s\n", message[6]);
+		s += sprintf("ä¸Šæ¬¡è¿çº¿æ¥è‡ªï¼š%s\n", message[6]);
 	    }
 	    else
 	    {
-		s += "²»ÔÚÏßÉÏ¡£\n";
+		s += "ä¸åœ¨çº¿ä¸Šã€‚\n";
 	    }
 	}
 	else
@@ -121,12 +121,12 @@ protected nomask void rcv_finger_reply(string orig_mud, string orig_user,
     else idle = "";
 
 	    if ( message[4] && message[6] )
-		s += sprintf("ÉÏÏßÊ±¼ä£º%s%s£¬À´×Ô£º%s\n",
+		s += sprintf("ä¸Šçº¿æ—¶é—´ï¼š%s%sï¼Œæ¥è‡ªï¼š%s\n",
 			     message[4], idle, message[6]);
 	    else if ( message[4] )
-		s += sprintf("ÉÏÏßÊ±¼ä£º%s%s\n", message[4], idle);
+		s += sprintf("ä¸Šçº¿æ—¶é—´ï¼š%s%s\n", message[4], idle);
 	    else if ( message[6] )
-		s += sprintf("À´×Ô£º%s%s\n", message[6], idle);
+		s += sprintf("æ¥è‡ªï¼š%s%s\n", message[6], idle);
 	}
 
 	if ( message[8] )

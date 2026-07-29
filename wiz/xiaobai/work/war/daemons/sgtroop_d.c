@@ -24,7 +24,7 @@ inherit __DIR__+"troop_d/number";
 private mapping p_troops=([]);
 private SGtroop p_trp;
 private int p_maxid=1;
-static int save_mark;
+nosave protected int save_mark;
 
 #define SAVE_FILE "/data/daemons/sgtroop"
 #define TROOP_TYPE(x) "/sgdomain/troops/"+x+".c"
@@ -174,7 +174,7 @@ string get_troop_name( int par_nId )
     strArr = explode( p_trp->m_strLeaders, "," );
     strLeader = strArr[0];
         
-    strRet = sprintf( "%s%s%s", strArmyName, strLeader, "¾ü" );
+    strRet = sprintf( "%s%s%s", strArmyName, strLeader, "å†›" );
     
     return strRet;
     
@@ -417,7 +417,7 @@ void remove_troop( int par_nId )
   
     chars = explode( p_trp->m_strLeaders, "," );
   
-    // °Ñ chars ·Å»Ø»áÒéµÄµØ·½
+    // æŠŠ chars æ”¾å›žä¼šè®®çš„åœ°æ–¹
     if( sizeof(chars) )
     {
         foreach( string strId in chars )
@@ -434,7 +434,7 @@ void remove_troop( int par_nId )
 
                 o_char = CHAR_D->find_char( strId );
                 if( objectp(o_char) )
-                    o_char->simple_action("$N´ÓÕ½³¡ÉÏ³·ÁËÏÂÀ´¡£\n");
+                    o_char->simple_action("$Nä»Žæˆ˜åœºä¸Šæ’¤äº†ä¸‹æ¥ã€‚\n");
             }
         }
     }
@@ -460,7 +460,7 @@ void remove_troop( int par_nId )
         		if(o->is_living())
         		{
         			o->move(VOID_ROOM); // should be wiz
-        			o->simple_action("$N±»Ò»½Åõßµ½ÁËÐéÎÞ¡£\n");
+        			o->simple_action("$Nè¢«ä¸€è„šè¸¹åˆ°äº†è™šæ— ã€‚\n");
         		}
         		else
         			o->remove();

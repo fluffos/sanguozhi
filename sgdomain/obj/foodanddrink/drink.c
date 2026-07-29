@@ -8,7 +8,7 @@ void setup()
 {
     if(file_name(previous_object())!=OBJ_D)
     {
-            write("·Ç·¨¸´ÖÆ.\n");
+            write("éæ³•å¤åˆ¶.\n");
             this_object()->remove();
             return;
     }
@@ -22,7 +22,7 @@ int init_obj(string p_id)
 	add_id(p_id+" obj");
 	set_unit(par["unit"]);
 
-	set_in_room_desc("Ò»"+par["unit"]+par["name"]+"("+p_id+")\n");
+	set_in_room_desc("ä¸€"+par["unit"]+par["name"]+"("+p_id+")\n");
 
 	set_size(par["size"]);
 	set_gettable(1); // food always can get
@@ -54,13 +54,13 @@ string check_obj()
 	mixed inf;
 	inf=OBJ_D->get_obj(p_id);
 
-	ret="ÎïÆ·Àà±ğ£º"+sprintf("%-8s  ",OBJ_D->type_name(inf["type"]))+"\n";
-	ret+="ÒûË®»Ö¸´£º"+sprintf("%+d\n",inf["drink_val"])+
-		"Ê³Îï»Ö¸´£º"+sprintf("%+d\n",inf["eat_val"])+
-		"¼ÛÇ®£º"+
-		((inf["value"] < 0) ? ("ÎŞ¼ÛÖ®±¦"):(CHINESE_D->chinese_value(inf["value"])))+"\n";
-	ret+="ÄÜºÈ¼¸¿Ú£º"+sprintf("%d",inf["num_drinks"])+
-		"\n»¹³Ë¼¸¿Ú£º"+this_object()->query_num_drinks()+"\n";
+	ret="ç‰©å“ç±»åˆ«ï¼š"+sprintf("%-8s  ",OBJ_D->type_name(inf["type"]))+"\n";
+	ret+="é¥®æ°´æ¢å¤ï¼š"+sprintf("%+d\n",inf["drink_val"])+
+		"é£Ÿç‰©æ¢å¤ï¼š"+sprintf("%+d\n",inf["eat_val"])+
+		"ä»·é’±ï¼š"+
+		((inf["value"] < 0) ? ("æ— ä»·ä¹‹å®"):(CHINESE_D->chinese_value(inf["value"])))+"\n";
+	ret+="èƒ½å–å‡ å£ï¼š"+sprintf("%d",inf["num_drinks"])+
+		"\nè¿˜ä¹˜å‡ å£ï¼š"+this_object()->query_num_drinks()+"\n";
 	return ret;
 
 }

@@ -75,10 +75,10 @@ inherit __DIR__ "body/guilds";
 
 // Global variables --
 private string reply;
-private string array channel_list = ({ });
+private string * channel_list = ({ });
 private string plan;
-private static object link;
-private static int catching_scrollback;
+private nosave object link;
+private nosave int catching_scrollback;
 private mixed saved_items;
 
 // interfaces for other objects to manipulate our global variables
@@ -105,7 +105,7 @@ nomask void set_plan(string new_plan)
 {
     if ( this_body() != this_object() )
         error(//"illegal attempt to set plan\n");
-              "ÊÔÍ¼·Ç·¨Éè¶¨¼Æ»®\n");
+              "è¯•å›¾éžæ³•è®¾å®šè®¡åˆ’\n");
 
     plan = new_plan;
     save_me();
@@ -132,7 +132,7 @@ private nomask void init_cmd_hook()
     else
     {
         mailbox->set_message_index(idx);
-        write("\n>>ÄãÓÐÐÂÓÊ¼þ£¡<<\n");
+        write("\n>>ä½ æœ‰æ–°é‚®ä»¶ï¼<<\n");
     }
 
 write( "\n" );
@@ -166,7 +166,7 @@ private nomask void finish_enter_game()
 {
 
     CHANNEL_D->deliver_emote("announce", query_who_name(),
-      sprintf("´Ó %s ½øÈë%s¡£", query_ip_name(this_user()), mud_name()));
+      sprintf("ä»Ž %s è¿›å…¥%sã€‚", query_ip_name(this_user()), mud_name()));
      this_body()->get_m_all_money(); // add by fire on Dec 14, 1997
      this_body()->start_age();
 
@@ -177,14 +177,14 @@ the simple_action */
 
 	if ( !move_to_start() )
 	{
-			write("ÄãÉíÔÚÐéÎÞçÎç¿¼ä£¬ÄÄ¶ùÒ²È¥²»ÁË¡£\n");
+			write("ä½ èº«åœ¨è™šæ— ç¼¥ç¼ˆé—´ï¼Œå“ªå„¿ä¹ŸåŽ»ä¸äº†ã€‚\n");
 			return;
 	}
 
 	/* we don't want other people to get the extra newlines */
 	write("\n");
 	if(is_visible())
-		simple_action("$N½øÈë"+mud_name()+"¡£");
+		simple_action("$Nè¿›å…¥"+mud_name()+"ã€‚");
 	write("\n");
 
 	if(!query_wuli_pure())
@@ -207,10 +207,10 @@ nomask void su_enter_game(object where)
 
 // this should go away once we torch the corresponding leave msg for 'su'
     CHANNEL_D->deliver_emote("announce", query_name(),
-      sprintf("½øÈë%s¡£", mud_name()));
+      sprintf("è¿›å…¥%sã€‚", mud_name()));
 
     if ( is_visible() )
-        simple_action("$N½øÈë"+mud_name()+"¡£");
+        simple_action("$Nè¿›å…¥"+mud_name()+"ã€‚");
 
     CHANNEL_D->register_channels(channel_list);
 
@@ -223,7 +223,7 @@ void enter_game(int is_new)
     if ( is_new && wizardp(link) )
     {
         write(
-          "\nÄãºÃ£¬ÐÂÎ×Ê¦£¡ÏÖÔÚÎªÄã´ò¿ª±¾£Í£Õ£ÄÖØÒªÆµµÀ¡£\n"
+          "\nä½ å¥½ï¼Œæ–°å·«å¸ˆï¼çŽ°åœ¨ä¸ºä½ æ‰“å¼€æœ¬ï¼­ï¼µï¼¤é‡è¦é¢‘é“ã€‚\n"
           "Doing: wiz /on\n"
           "Doing: chan news /on   (you'll see when new news is posted.)\n"
           "Doing: gossip /on\n"
@@ -245,11 +245,11 @@ this_user()->update_translations();
     else if ( is_new )
     {
       write("\n"
-          "´ò¿ªÐÂÊÖÆµµÀ¡£(newbie /on)\n"
-          "´ò¿ªÏÐÁÄÆµµÀ¡£(chat /on)\n"
-          "´ò¿ªÌìÆøÆµµÀ¡£(weather /on)\n"
-          "´ò¿ªÈý¹úÖ¾ÆµµÀ¡£(sgz /on)\n"
-          "´ò¿ªÒ¥ÑÔÆµµÀ¡£(rumor /on)\n"
+          "æ‰“å¼€æ–°æ‰‹é¢‘é“ã€‚(newbie /on)\n"
+          "æ‰“å¼€é—²èŠé¢‘é“ã€‚(chat /on)\n"
+          "æ‰“å¼€å¤©æ°”é¢‘é“ã€‚(weather /on)\n"
+          "æ‰“å¼€ä¸‰å›½å¿—é¢‘é“ã€‚(sgz /on)\n"
+          "æ‰“å¼€è°£è¨€é¢‘é“ã€‚(rumor /on)\n"
           "\n");
 
         /* these will be registered later */
@@ -265,7 +265,7 @@ set_ilog_time(time());
     {
         DID_D->dump_did_info(query_ilog_time(),
           ({ "",
-            "×Ô´ÓÄãÉÏ´ÎÁ¬ÏßÒÔÀ´µÄ¸Ä¶¯",
+            "è‡ªä»Žä½ ä¸Šæ¬¡è¿žçº¿ä»¥æ¥çš„æ”¹åŠ¨",
             "********************************",
             "" }),
           0,
@@ -333,10 +333,10 @@ void quit()
     }
 
     if (is_visible())
-        simple_action("$NÀë¿ªÁË"+mud_name()+"¡£");
+        simple_action("$Nç¦»å¼€äº†"+mud_name()+"ã€‚");
 
     CHANNEL_D->deliver_emote("announce", query_who_name(),
-      sprintf("Àë¿ªÁË%s¡£", mud_name()));
+      sprintf("ç¦»å¼€äº†%sã€‚", mud_name()));
     CHANNEL_D->unregister_channels();
 
 #ifdef PLAYERS_START_WHERE_THEY_QUIT
@@ -376,8 +376,8 @@ void net_dead()
     //### add security here?
 
 	string p_id;
-    if(is_visible()) simple_action("$N¶ÏÏßÁË¡£");
-CHANNEL_D->deliver_emote("announce", query_who_name(), sprintf("¶ÏÏßÁË¡£"));
+    if(is_visible()) simple_action("$Næ–­çº¿äº†ã€‚");
+CHANNEL_D->deliver_emote("announce", query_who_name(), sprintf("æ–­çº¿äº†ã€‚"));
     if ( link && link->query_shell_ob()->get_variable("save_scrollback") )
         catching_scrollback = 1;
 	p_id=query_primary_id();
@@ -395,10 +395,10 @@ void reconnect(object new_link)
 
     link = new_link;
     if(is_visible())
-        simple_action("$NÖØÐÂÁ¬Ïß½øÈë¡£\n");
+        simple_action("$Né‡æ–°è¿žçº¿è¿›å…¥ã€‚\n");
 
     CHANNEL_D->deliver_emote("announce", query_who_name(),
-      sprintf("´Ó %s ÖØÐÂÁ¬Ïß½øÈë¡£", query_ip_name(this_user()), mud_name()));
+      sprintf("ä»Ž %s é‡æ–°è¿žçº¿è¿›å…¥ã€‚", query_ip_name(this_user()), mud_name()));
 
     catching_scrollback = 0;
     if ( link->query_shell_ob() )
@@ -412,14 +412,14 @@ void die()
     if ( wizardp(link) )
     {
         if(is_visible())
-            simple_action("Òª²»ÊÇ$nÊÇ²»ËÀÉí£¬¾ÍÔçËÀÁË¡£\n");
+            simple_action("è¦ä¸æ˜¯$næ˜¯ä¸æ­»èº«ï¼Œå°±æ—©æ­»äº†ã€‚\n");
         stop_fight();
         return;
     }
 
     if(is_visible())
-        simple_action("$NÍÑÀëÁËÇû¿Ç£¬ÏòÌìÉÏÉýÈ¥¡£\n");
-    receive_private_msg("\n\n  **** ÄãËÀÁË  ****\n\n",0,0);
+        simple_action("$Nè„±ç¦»äº†èº¯å£³ï¼Œå‘å¤©ä¸Šå‡åŽ»ã€‚\n");
+    receive_private_msg("\n\n  **** ä½ æ­»äº†  ****\n\n",0,0);
 //    rack_up_a_death();
 
 #ifdef DEATH_MESSAGES
@@ -475,7 +475,7 @@ varargs private void create(string userid, string chinese_name)
 
     if ( base_name(previous_object()) != USER_OB )
         //error("security violation: illegal attempt to change name\n");
-        error("°²È«Î¥Àý£ºÆóÍ¼·Ç·¨¸Ä±äÐÕÃû\n");
+        error("å®‰å…¨è¿ä¾‹ï¼šä¼å›¾éžæ³•æ”¹å˜å§“å\n");
         
     messages = ([]);
 
@@ -536,7 +536,7 @@ void channel_rcv_string(string channel_name, string message)
     receive_private_msg(message);
 }
 
-void channel_rcv_soul(string channel_name, array data)
+void channel_rcv_soul(string channel_name, mixed *data)
 {
     string msg;
 
@@ -576,7 +576,7 @@ nomask object query_shell_ob()
     return link && link->query_shell_ob();
 }
 
-nomask array query_failures()
+nomask mixed * query_failures()
 {
     return link->query_failures();
 }
@@ -604,7 +604,7 @@ int go_somewhere(string arg)
 
 string inventory_header()
 {
-    return query_name() + "ÉíÉÏ´ø×Å£º\n";
+    return query_name() + "èº«ä¸Šå¸¦ç€ï¼š\n";
 }
 
 int ob_state() 
@@ -648,15 +648,15 @@ void move_or_destruct(object suggested_dest)
               throw("Being destructed.\n");
         };
     if (destination && !err) {
-            receive_private_msg(dested_env->short() + "±»´Ý»ÙÁË£¬Ò»ÕóÊ±¿Õ
-×ªÒÆ½«ÄãËÍµ½" + destination->short() + "¡£\n");
+            receive_private_msg(dested_env->short() + "è¢«æ‘§æ¯äº†ï¼Œä¸€é˜µæ—¶ç©º
+è½¬ç§»å°†ä½ é€åˆ°" + destination->short() + "ã€‚\n");
             return;
         } else {
             if (destination)
-                receive_private_msg("²»ÄÜ×ªÒÆµ½" + destination->short() +"£º" + err);
+                receive_private_msg("ä¸èƒ½è½¬ç§»åˆ°" + destination->short() +"ï¼š" + err);
         }
     }
-    receive_private_msg("àÞ... Å¶... ÄãÄÄ¶ùÒ²È¥²»ÁË£¬ÔÙ¼û°É¡£\n");
+    receive_private_msg("å™¢... å“¦... ä½ å“ªå„¿ä¹ŸåŽ»ä¸äº†ï¼Œå†è§å§ã€‚\n");
     (this_object()->query_link())->remove();
 }
 

@@ -1,6 +1,6 @@
 //*******************************************************************
 // m_dangpu.c  by fire on Dec 16, 1997
-// µ±ÆÌÄ£¿é
+// å½“é“ºæ¨¡å—
 #include <mudlib.h>
 #include <move.h>
 #include <sanguo.h>
@@ -105,14 +105,14 @@ void list_item()
         j = sizeof(items_available);
 	if(j == 0)
 	{
-		write("±¾µ±ÆÌÄ¿Ç°ÉÐÎÞÈÎºÎ´æ»õ\n");
+		write("æœ¬å½“é“ºç›®å‰å°šæ— ä»»ä½•å­˜è´§\n");
 		return;
 	}
 	else
 	{
-		write("±¾µ±ÆÌÏÖÓÐÏÂÁÐ´æ»õ£º \n
+		write("æœ¬å½“é“ºçŽ°æœ‰ä¸‹åˆ—å­˜è´§ï¼š \n
 -----------------------------------------------------------------\n");
-printf("          »õÎïÃû³Æ            ´æ»õÊýÁ¿         µ¥¼Û\n");
+printf("          è´§ç‰©åç§°            å­˜è´§æ•°é‡         å•ä»·\n");
                 for( m=0; m < j; m++)
                 {
                 	p_tmp=({ items_available[m][1] });
@@ -121,11 +121,11 @@ printf("          »õÎïÃû³Æ            ´æ»õÊýÁ¿         µ¥¼Û\n");
 			ppp=p_val[0];
 			ppp = ppp * SALERATE;
 		        printf("%20s          %s    %s",items_available[m][3],
-					 "»¹Ê£"+chinese_number(p_tmp[0])+p_ttt[0] ,
+					 "è¿˜å‰©"+chinese_number(p_tmp[0])+p_ttt[0] ,
 			 chinese_value(ppp) );
                 }
                 printf(
-"-----------------------------------------------------------------\n¿´¿´ÄãÊÇÂòµãÊ²Ã´»¹ÊÇÂôµãÊ²Ã´£¿\n");
+"-----------------------------------------------------------------\nçœ‹çœ‹ä½ æ˜¯ä¹°ç‚¹ä»€ä¹ˆè¿˜æ˜¯å–ç‚¹ä»€ä¹ˆï¼Ÿ\n");
         }
 }
 void buy_sthing(string p_fullid)
@@ -156,13 +156,13 @@ void buy_sthing(string p_fullid)
 	p_itemvalue = p_itemvalue *  SALERATE;
 	if (p_itemvalue > p_buyersmoney)
 	{
-		write("ÄãµÄÇ®ºÃÏóÃ»´ø¹»Ñ½¡£\n");
+		write("ä½ çš„é’±å¥½è±¡æ²¡å¸¦å¤Ÿå‘€ã€‚\n");
 		return;
 	}
         if((ob->move(this_body())) == MOVE_OK)
         {		
-  		this_body()->simple_action("$NÔÚ´ËÆÌÂòÏÂÁËÒ»"+
-                ob->query_unit()+ob->short()+"¡£\n"); 
+  		this_body()->simple_action("$Nåœ¨æ­¤é“ºä¹°ä¸‹äº†ä¸€"+
+                ob->query_unit()+ob->short()+"ã€‚\n"); 
 		this_body()->set_all_con_money(p_buyersmoney - p_itemvalue);
                 stored_items -= ({ stored_items[i] });
 		query_items();
@@ -170,7 +170,7 @@ void buy_sthing(string p_fullid)
         }
         else
 	{
-		write("ºÃÏóÄÃ²»ÁËÁË¡£\n");
+		write("å¥½è±¡æ‹¿ä¸äº†äº†ã€‚\n");
 		return;
     }
 	
@@ -190,7 +190,7 @@ void buy_sth(string item, int number)
     }
     if(!p_items)
     {
-    	write("Ä¿Ç°±¾ÆÌÃ»ÓÐ´æ»õ¿ÉÂô¡£\n");
+    	write("ç›®å‰æœ¬é“ºæ²¡æœ‰å­˜è´§å¯å–ã€‚\n");
 	return;
     }
     
@@ -211,7 +211,7 @@ void buy_sth(string item, int number)
     }
     if(!p_objfind)
     {
-	write("ÄãÒªµÃ¶«Î÷Õâ¶ùºÃÏóÃ»ÓÐÑ½¡£\n");
+	write("ä½ è¦å¾—ä¸œè¥¿è¿™å„¿å¥½è±¡æ²¡æœ‰å‘€ã€‚\n");
 	return;
     }
     buy_sthing(p_fullid);
@@ -232,7 +232,7 @@ void sell_sth( string item, int number)
 	p_itemnum = sizeof(contents);
 	if(!p_itemnum)
 	{
-		write("±ð¶ºÁË£¬Äã¿ÉÊÇÒ»ÎÞËùÓÐÑ½¡£\n");
+		write("åˆ«é€—äº†ï¼Œä½ å¯æ˜¯ä¸€æ— æ‰€æœ‰å‘€ã€‚\n");
 	}
 	j=0;
 	for(i=0;i<p_itemnum;++i)
@@ -251,26 +251,26 @@ void sell_sth( string item, int number)
 	}
 	if(!p_findobj)
 	{
-		write("Äãµ½µ×ÒªÂôÊ²Ã´£¬ÏëÇå³þµã¡£\n");
+		write("ä½ åˆ°åº•è¦å–ä»€ä¹ˆï¼Œæƒ³æ¸…æ¥šç‚¹ã€‚\n");
 		return;
 	}
 	p_value=ob->query_absolutevalue();
 	if(!p_value)
 	{
-		write("ÕâÖÖ¶«Î÷´ËÆÌ²»ÊÕ¡£\n");
+		write("è¿™ç§ä¸œè¥¿æ­¤é“ºä¸æ”¶ã€‚\n");
 		return;
 	}
 	p_value = p_value *  BUYRATE;
 	
         if((ob->move(p_dpck)) != MOVE_OK)
 	{
-		write("µ±ÆÌºÃÏóÒÑ¾­Ã»µØ·½ÔÚÊÕÐÂ»õÎïÁË¡£\n");
+		write("å½“é“ºå¥½è±¡å·²ç»æ²¡åœ°æ–¹åœ¨æ”¶æ–°è´§ç‰©äº†ã€‚\n");
 		return;
 	}
 	add_object(ob) ;
 	this_body()->set_all_con_money(p_buyersmoney + p_value);
-	this_body()->simple_action("$NÔÚ´ËÆÌÂôÁËÒ»"+
-                ob->query_unit()+ob->short()+"£¬\nµÃÁË"+
+	this_body()->simple_action("$Nåœ¨æ­¤é“ºå–äº†ä¸€"+
+                ob->query_unit()+ob->short()+"ï¼Œ\nå¾—äº†"+
 		chinese_value(p_value)); 
 	return;
 }

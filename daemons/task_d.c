@@ -8,7 +8,7 @@
 #include <security.h>
 inherit M_ACCESS;
 private mapping tasks=([]);
-static int save_mark;
+nosave protected int save_mark;
 private int max_task_id;
 #define SAVE_FILE "/data/daemons/task"
 void save_data()
@@ -211,14 +211,14 @@ int clean_up() {
 string get_typestring(int t) {
 	switch(t) {
 	case TT_LOCALMEETING:
-		return "µØÇø»áÒé";
+		return "åœ°åŒºä¼šè®®";
         case TT_WAR:
-		return "Õ½Õù";
+		return "æˆ˜äº‰";
         case TT_TRAIN:
-		return "ÑµÁ·";
+		return "è®­ç»ƒ";
 	case 255: // TT_PARTY
-		return "Ñç»á";
-	default : return "Î´Öª";
+		return "å®´ä¼š";
+	default : return "æœªçŸ¥";
 
 	}
 }
@@ -227,7 +227,7 @@ string show_me() {
 	string ret="";
 	ids=keys(tasks);
 	if(!sizeof(ids)) {
-		return "Ä¿Ç°Ã»ÓÃÈÎºÎÈÎÎñ¡£\n";
+		return "ç›®å‰æ²¡ç”¨ä»»ä½•ä»»åŠ¡ã€‚\n";
 	}
 	foreach(int id in ids) {
 		string a,*cids;
@@ -235,11 +235,11 @@ string show_me() {
 		a=tasks[id]["area"];
 		cids=tasks[id]["chars"];
 		t=tasks[id]["type"];
-		ret+="ÈÎÎñID£º"+id+" ";
-		ret+="ÈÎÎñµØÇø£º"+AREA_D->get_area(a,"name")+"("+a+") ";
-		ret+="ÈÎÎñÀàÐÍ£º"+get_typestring(t)+" \n";
+		ret+="ä»»åŠ¡IDï¼š"+id+" ";
+		ret+="ä»»åŠ¡åœ°åŒºï¼š"+AREA_D->get_area(a,"name")+"("+a+") ";
+		ret+="ä»»åŠ¡ç±»åž‹ï¼š"+get_typestring(t)+" \n";
 		if(sizeof(cids)) {
-			ret+="²Î¼Ó½ÇÉ«£º";
+			ret+="å‚åŠ è§’è‰²ï¼š";
 			foreach(string c,int p in cids) {
 				ret+=CHAR_D->get_char(c,"name")+"("+c+"):"+p+" ";
 			}

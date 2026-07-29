@@ -11,8 +11,8 @@ inherit ROOM;
   
 void setup()
 {
-    set_brief("°ÍÀ×µÄÉ½¶´");
-    set_long("ÄãÕ¾ÔÚ°ÍÀ×µÄÉ½¶´Àï£¬ËüÖ»ÊôÓÚËûµÄÕ¼ÓĞÕß¡£");
+    set_brief("å·´é›·çš„å±±æ´");
+    set_long("ä½ ç«™åœ¨å·´é›·çš„å±±æ´é‡Œï¼Œå®ƒåªå±äºä»–çš„å æœ‰è€…ã€‚");
     set_exits( ([ "north" : "room2" ]) );
     set_objects( ([
 	"/domains/std/barney" : 1

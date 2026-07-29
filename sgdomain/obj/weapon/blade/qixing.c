@@ -5,15 +5,15 @@ inherit M_WEAPON;
 inherit M_VALUE;
 void setup()
 {
-set_unit("±ú");
-set_id("qixing dao", HIC+"ÆßĞÇµ¶"+NOR);
+set_unit("æŸ„");
+set_id("qixing dao", HIC+"ä¸ƒæ˜Ÿåˆ€"+NOR);
 add_id("qixing");
 add_id("dao");
 add_id("blade");
 add_id("qixing dao");
-set_in_room_desc(HIC+"ÆßĞÇµ¶"+NOR+"(qixing dao)");
-set_long("¼ÛÖµÁ¬³ÇµÄ±¦µ¶£¬ÒòÆäµ¶ÇÊÉÏÏâÓĞÆßÁ£±¦Ê¯£¬¹ÊÃû»½¡¸ÆßĞÇ¡¹¡£
-´Ëµ¶Ô­ÎªË¾ÂíÔÊËùÓĞ£¬ºóÎª²Ü²ÙËù½è£¬ÒÔÏ×µ¶Ö®Ãû´ÌÉ±¶­×¿¡£\n");
+set_in_room_desc(HIC+"ä¸ƒæ˜Ÿåˆ€"+NOR+"(qixing dao)");
+set_long("ä»·å€¼è¿åŸçš„å®åˆ€ï¼Œå› å…¶åˆ€é˜ä¸Šé•¶æœ‰ä¸ƒç²’å®çŸ³ï¼Œæ•…åå”¤ã€Œä¸ƒæ˜Ÿã€ã€‚
+æ­¤åˆ€åŸä¸ºå¸é©¬å…æ‰€æœ‰ï¼Œåä¸ºæ›¹æ“æ‰€å€Ÿï¼Œä»¥çŒ®åˆ€ä¹‹ååˆºæ€è‘£å“ã€‚\n");
 set_size(MEDIUM);
 set_value(50000);
 set_currency_type("gold");
@@ -21,6 +21,6 @@ set_attack_ability(150);
 set_attack_power(100);
 set_defence_ability(150);
 set_combat_messages("combat-blade");
-set_wield_message("Ö»¼ûÒ»µÀÆß²Ê»¡¹â£¬$NÒÑ½«$o³é³ö£¬ºáÔÚÉíÇ°¡£\n");
-set_unwield_message("$NÊÖÍóÒ»·­£¬$oÔçÒÑÈëÇÊ£¬Æß²Ê¹âÃ¢Ò»ÂÓ¶øÊÅ¡£\n");
+set_wield_message("åªè§ä¸€é“ä¸ƒå½©å¼§å…‰ï¼Œ$Nå·²å°†$oæŠ½å‡ºï¼Œæ¨ªåœ¨èº«å‰ã€‚\n");
+set_unwield_message("$Næ‰‹è…•ä¸€ç¿»ï¼Œ$oæ—©å·²å…¥é˜ï¼Œä¸ƒå½©å…‰èŠ’ä¸€æ è€Œé€ã€‚\n");
 }

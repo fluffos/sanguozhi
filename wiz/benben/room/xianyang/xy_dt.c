@@ -1,4 +1,4 @@
-//  ´óÌÃ by benben
+//  å¤§å ‚ by benben
 // xy_dt.c 
 #include <mudlib.h>
 #include "/wiz/fire/fire.h"
@@ -7,8 +7,8 @@ inherit OUTDOOR_ROOM;
 void setup(){
     set_area("xianyang");
     set_light(50);
-    set_brief(""+YEL+"´óÌÃ"+NOR+"");
-    set_long("    ÃèÊö¡£\n");
+    set_brief(""+YEL+"å¤§å ‚"+NOR+"");
+    set_long("    æè¿°ã€‚\n");
     set_exits( ([
         "east" :  __DIR__+"xy_ym.c",
         "north" : __DIR__+"xy_jail.c"

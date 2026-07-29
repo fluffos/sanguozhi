@@ -13,7 +13,7 @@ void do_call(string str)
     o_h=SGHOME(p_id);
 	ids=o_h->check_npc("pre_id",str);
     if(!sizeof(ids))  {
-	write("Äã¼ÒÃ»ÓĞ"+str+"¡£\n");
+	write("ä½ å®¶æ²¡æœ‰"+str+"ã€‚\n");
 	return;
     }
 	poped=0;
@@ -25,11 +25,11 @@ void do_call(string str)
 	o_k->move(master->query_room());
     call_out("quit_menu_application",5);
 
-    master->targetted_action("$N¶Ô$TµÀ£º$RĞÁ¿àÒ»ÏÂ£¬°Ñ$o½Ğ¹ıÀ´¡£\n",slave,o_k);
+    master->targetted_action("$Nå¯¹$Té“ï¼š$Rè¾›è‹¦ä¸€ä¸‹ï¼ŒæŠŠ$oå«è¿‡æ¥ã€‚\n",slave,o_k);
 
-    DELAY_D->delay_simple_action(slave,"$NµãÍ·µÀ£ºÊÇ£¬×ªÉíÀë¿ªÁË¡£\n",2);
-    DELAY_D->delay_targetted_action(slave,o_k,"$N°Ñ$TÁìÀ´ÁË¡£\n",3);
-    DELAY_D->delay_targetted_action(o_k,master,"$N¶Ô$T¾Ï¹ªµÀ£ºÕ¾µ½Ò»ÅÔ¡£\n",3);
+    DELAY_D->delay_simple_action(slave,"$Nç‚¹å¤´é“ï¼šæ˜¯ï¼Œè½¬èº«ç¦»å¼€äº†ã€‚\n",2);
+    DELAY_D->delay_targetted_action(slave,o_k,"$NæŠŠ$Té¢†æ¥äº†ã€‚\n",3);
+    DELAY_D->delay_targetted_action(o_k,master,"$Nå¯¹$Té èº¬é“ï¼šç«™åˆ°ä¸€æ—ã€‚\n",3);
 
 }
 
@@ -48,11 +48,11 @@ void do_npclist() {
 	poped=0;
 
 	master->targetted_action(
-		"$N¶Ô$TµÀ£º$m£¬ÏÖÔÚ¼ÒÀï¶¼¹ÍÓ¶ÁËĞ©Ê²Ã´ÈË¡£\n",slave);
+		"$Nå¯¹$Té“ï¼š$mï¼Œç°åœ¨å®¶é‡Œéƒ½é›‡ä½£äº†äº›ä»€ä¹ˆäººã€‚\n",slave);
 
 	ls=o_h->get_npc("list");
 	sum=sizeof(ls);
-	msg="$N¶Ô$T¹ªÉíµÀ£º»Ø$R£¬ÏÖÔÚ¸®Àï¸÷ÖÖÈËÊÖ¹²ÓĞ"+chinese_number(sum)+"ÈË\n";
+	msg="$Nå¯¹$Tèº¬èº«é“ï¼šå›$Rï¼Œç°åœ¨åºœé‡Œå„ç§äººæ‰‹å…±æœ‰"+chinese_number(sum)+"äºº\n";
 	for(i=0;i<sum;++i) {
 		t_id=ls[i];
 		inf=o_h->get_npc(t_id);
@@ -61,8 +61,8 @@ void do_npclist() {
 		t_pos=inf["pos"];
 		if(!stringp(t_pos)) t_pos="free";
 		t_pos=load_object("/sgdomain/home/npc/"+t_pos)->get_type_name();
-		msg+=t_name+"("+tt_id+")£¬Ö°Î»£º"+t_pos+"£¬ÔÂÒø£º"+
-			chinese_number(inf["salary"])+"Á½¡£\n";
+		msg+=t_name+"("+tt_id+")ï¼ŒèŒä½ï¼š"+t_pos+"ï¼Œæœˆé“¶ï¼š"+
+			chinese_number(inf["salary"])+"ä¸¤ã€‚\n";
 				
 	}
         DELAY_D->delay_targetted_action(slave,master,msg,2);
@@ -72,8 +72,8 @@ void do_npclist() {
 void create( )
 {
     set_privilege(1);
-    toplevel = new_menu("\nÇë¶ÔÏĞÈËÏÂ´ïÖ¸Áî£º");
-    quit_item = new_menu_item("ÍËÏÂ", (:quit_old_place:), "q");
+    toplevel = new_menu("\nè¯·å¯¹é—²äººä¸‹è¾¾æŒ‡ä»¤ï¼š");
+    quit_item = new_menu_item("é€€ä¸‹", (:quit_old_place:), "q");
     seperator = new_seperator
     ("----------------------------------------------------------------------");
     space = new_seperator
@@ -81,28 +81,28 @@ void create( )
 
     add_menu_item(toplevel, seperator);
     add_menu_item(toplevel, space);
-    add_menu_item(toplevel, new_menu_item("ÔÚ´Ë¹§ºò",	(: do_stayhere :) ,"1"));
+    add_menu_item(toplevel, new_menu_item("åœ¨æ­¤æ­å€™",	(: do_stayhere :) ,"1"));
 
 
-    add_menu_item(toplevel, new_menu_item("Ñ¯ÎÊÇé¿ö",	(: do_getinfo :) ,"3"));
-    add_menu_item(toplevel, new_menu_item("ÉÍ´ÍÎïÆ·",	(: get_input_then_call,
-		(: do_praise :) ,"ÉÍ´ÍºÎÎï£º" :) ,"4"));
+    add_menu_item(toplevel, new_menu_item("è¯¢é—®æƒ…å†µ",	(: do_getinfo :) ,"3"));
+    add_menu_item(toplevel, new_menu_item("èµèµç‰©å“",	(: get_input_then_call,
+		(: do_praise :) ,"èµèµä½•ç‰©ï¼š" :) ,"4"));
 
 
-    add_menu_item(toplevel, new_menu_item("¸Ä±äID",	(: get_input_then_call,
-		(: do_changeid :) ,"±äÎªºÎID£º" :) ,"9"));
+    add_menu_item(toplevel, new_menu_item("æ”¹å˜ID",	(: get_input_then_call,
+		(: do_changeid :) ,"å˜ä¸ºä½•IDï¼š" :) ,"9"));
 
 
-    add_menu_item(toplevel, new_menu_item("³·Ö°", 	(: get_input_then_call,
-	(: do_demote :) ,"È·ÈÏ³·Ö°Âğ(y/n)£¿" :) ,"a"));
+    add_menu_item(toplevel, new_menu_item("æ’¤èŒ", 	(: get_input_then_call,
+	(: do_demote :) ,"ç¡®è®¤æ’¤èŒå—(y/n)ï¼Ÿ" :) ,"a"));
 
-    add_menu_item(toplevel, new_menu_item("»¨Ãû²á",	(: do_npclist :) ,"b"));
+    add_menu_item(toplevel, new_menu_item("èŠ±åå†Œ",	(: do_npclist :) ,"b"));
 
-    add_menu_item(toplevel, new_menu_item("ÕÙÈËÀ´",	(: get_input_then_call,
-		(: do_call :) ,"ÕÙ»½ºÎÈË£º" :) ,"c"));
+    add_menu_item(toplevel, new_menu_item("å¬äººæ¥",	(: get_input_then_call,
+		(: do_call :) ,"å¬å”¤ä½•äººï¼š" :) ,"c"));
 
     add_menu_item(toplevel, quit_item);
     add_menu_item(toplevel, space);
-    set_menu_prompt (toplevel, "ÊäÈëÖ¸Áî[12349q]: ");
+    set_menu_prompt (toplevel, "è¾“å…¥æŒ‡ä»¤[12349q]: ");
 }
 

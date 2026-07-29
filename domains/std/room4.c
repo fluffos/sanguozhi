@@ -10,8 +10,8 @@ inherit OUTDOOR_ROOM;
 void setup()
 {
 set_area("wiz_area");
-    set_brief("´ó×ÔÈ»");
-    set_long("±äÌìµÄµØ·½£¬¹şÀïÔ÷¶ñÕâ¸öµØ·½¡£");
+    set_brief("å¤§è‡ªç„¶");
+    set_long("å˜å¤©çš„åœ°æ–¹ï¼Œå“ˆé‡Œæ†æ¶è¿™ä¸ªåœ°æ–¹ã€‚");
     set_weather(1);
     
     set_exits( ([

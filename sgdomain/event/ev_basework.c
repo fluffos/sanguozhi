@@ -3,7 +3,7 @@
 #include <security.h>
 inherit M_ACCESS;
 
-static int p_month,p_day;
+nosave protected int p_month,p_day;
 #define LOG_FILE "/sgdomain/event/ev_basework.log"
 
 int log_me(string msg) {
@@ -40,13 +40,13 @@ void area_base_work_r(string a_id,string f_id) // the real part
 {
 	object ob=SGBASE(a_id,f_id);
 	string p_tmp;
-        array p_date;
+        mixed * p_date;
 	p_date=DAY_D->query_date();
 	p_month=p_date[2];
 	p_day=p_date[1]; // check day and month to determine harvest
 	p_tmp=sprintf("\n area is %s base is %s ",a_id,f_id);
 	log_me(p_tmp);
-        //SGSYS("ÏÖÔÚÖ´ÐÐ"+a_id+"µØÇøµÄ"+f_id+"»ùµØ");
+        //SGSYS("çŽ°åœ¨æ‰§è¡Œ"+a_id+"åœ°åŒºçš„"+f_id+"åŸºåœ°");
 	if(!objectp(ob)) return;
 	log_me(" working ");
 	ob->base_working();
@@ -94,7 +94,7 @@ void area_base_work(int a_index) {
 }
 void base_work()
 {
-	array p_date;
+	mixed * p_date;
 	string p_tmp;
 	p_date=DAY_D->query_date();
 	p_month=p_date[2];

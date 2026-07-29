@@ -10,17 +10,17 @@ void start(string arg)
 	p_id=me->query_id()[0];
 	if((!me->query_job("patrol","beg_time"))||
 	(me->query_job("patrol","status")=="done")){
-		write("�����ڲ�δ����Ѳ�����񣬻����ٹ�����Ϊ�\n");
+		write("你现在并未担任巡逻任务，还是少管闲事为妙。\n");
 		return;
 	}
 	
 	if(!arg){
-		write("�÷������� help catch �鿴������\n");
+		write("用法错误，用 help catch 查看帮助。\n");
 		return;
 	}
 	tar=present(arg,environment(this_body()));
 	if(!objectp(tar)){
-		write("��Ҫץ˭��\n");
+		write("你要抓谁？\n");
 		return;
 	}
 
@@ -55,7 +55,7 @@ void start(string arg)
 			CHAR_D->set_char(tar,"catch_area",0);
 		}
 	}
-	write("���û�����ɣ��Ͳ������ץ�ˡ�\n");
+	write("如果没有理由，就不能随便抓人。\n");
 	return ;
 	
 }
@@ -70,13 +70,13 @@ mixed catch_award(string o_id,string p_id)
 	repinc=rep/20;
 	if (repinc>15000)repred=15000;
 	if(repinc)
-		mess=CHAR_D->get_char(o_id,"name")+"�ܻ���"+
-		CHAR_D->get_char(p_id,"name")+"��"+CHAR_D->get_char(o_id,"name")+
-		"�����������"+
-		chinese_number(repinc)+"�㡣";
+		mess=CHAR_D->get_char(o_id,"name")+"擒获了"+
+		CHAR_D->get_char(p_id,"name")+"，"+CHAR_D->get_char(o_id,"name")+
+		"的声望提高了"+
+		chinese_number(repinc)+"点。";
 	else
-		mess=CHAR_D->get_char(o_id,"name")+"�ܻ���"+
-		CHAR_D->get_char(p_id,"name")+"��";
+		mess=CHAR_D->get_char(o_id,"name")+"擒获了"+
+		CHAR_D->get_char(p_id,"name")+"。";
 	
 	CHANNEL_D->deliver_tell("rumor","system",mess);
 
@@ -85,6 +85,6 @@ mixed catch_award(string o_id,string p_id)
 		CHAR_D->get_char(o_id,"reputation")+repinc);
 
 	CHAR_D->appear(p_id,CHAR_D->get_char(p_id,"area"),
-		"meeting","$N����֮�󣬱��ܿ��ѣ����������ؼ������ˡ�\n");
+		"meeting","$N遭擒之后，饱受苦难，但终于又重见天日了。\n");
 
 }

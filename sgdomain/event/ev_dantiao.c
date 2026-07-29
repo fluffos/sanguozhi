@@ -1,4 +1,4 @@
-//µ¥Ìô
+//å•æŒ‘
 
 #include <mudlib.h>
 #include <daemons.h>
@@ -34,7 +34,7 @@ p_defen=FIGHT_D->get_pure_def_pow(fighter1->query_body())+FIGHT_D->get_add_def_p
 e_defen=FIGHT_D->get_pure_def_pow(fighter2->query_body())+FIGHT_D->get_add_def_pow(fighter2->query_body());	
 
 	WARAI_D->war_inf(TROOP_D->get_troops(p_it,"task_id"),
-p_name+"Óë"+e_name+"¿ªÊ¼µ¥Ìô£¡","b");
+p_name+"ä¸"+e_name+"å¼€å§‹å•æŒ‘ï¼","b");
 	i = 1;
 	p_hp=fighter1->query_body()->query_cur_hp();
 	e_hp=fighter2->query_body()->query_cur_hp();	
@@ -49,14 +49,14 @@ void input_way(string arg)
 {
 	int num,i;
 
-	if (!arg) {write("´íÎóÑ¡Ôñ¡£ÇëÊäÈëÎå´ÎĞĞ¶¯µÄÃüÁî¡£");
+	if (!arg) {write("é”™è¯¯é€‰æ‹©ã€‚è¯·è¾“å…¥äº”æ¬¡è¡ŒåŠ¨çš„å‘½ä»¤ã€‚");
 	return;}
 	p_input = explode(arg,",");
 	num = sizeof(p_input);
 	if (num != 5)
 	{write(
-"´íÎóÑ¡Ôñ¡£ÇëÊäÈëÎå´ÎĞĞ¶¯µÄÃüÁî¡£(¿ÉÑ¡£ºau,am,ad,du,dm,dd£»
-¾ÙÀı£ºau,dd,ad,ad,dd)£º");
+"é”™è¯¯é€‰æ‹©ã€‚è¯·è¾“å…¥äº”æ¬¡è¡ŒåŠ¨çš„å‘½ä»¤ã€‚(å¯é€‰ï¼šau,am,ad,du,dm,ddï¼›
+ä¸¾ä¾‹ï¼šau,dd,ad,ad,dd)ï¼š");
 	return;}
 	for (i=0;i<5;i++)
 	{ 
@@ -65,8 +65,8 @@ void input_way(string arg)
 		&& p_input[i]!="dd")
 
        {	write( 
-"´íÎóÑ¡Ôñ¡£ÇëÊäÈëÎå´ÎĞĞ¶¯µÄÃüÁî¡£(¿ÉÑ¡£ºau,am,ad,du,dm,dd£»
-¾ÙÀı£ºau,dd,ad,ad,dd)£º");
+"é”™è¯¯é€‰æ‹©ã€‚è¯·è¾“å…¥äº”æ¬¡è¡ŒåŠ¨çš„å‘½ä»¤ã€‚(å¯é€‰ï¼šau,am,ad,du,dm,ddï¼›
+ä¸¾ä¾‹ï¼šau,dd,ad,ad,dd)ï¼š");
 	return; 
 	}
 	}
@@ -78,14 +78,14 @@ void input_way2(string arg)
 {
         int num,i;
 	
-        if (!arg) {write("´íÎóÑ¡Ôñ¡£ÇëÊäÈëÎå´ÎĞĞ¶¯µÄÃüÁî¡£");
+        if (!arg) {write("é”™è¯¯é€‰æ‹©ã€‚è¯·è¾“å…¥äº”æ¬¡è¡ŒåŠ¨çš„å‘½ä»¤ã€‚");
         return;}
 	e_input = explode(arg,",");
         num = sizeof(e_input);
         if (num != 5)
         {write(
-"´íÎóÑ¡Ôñ¡£ÇëÊäÈëÎå´ÎĞĞ¶¯µÄÃüÁî¡£(¿ÉÑ¡£ºau,am,ad,du,dm,dd£»
-¾ÙÀı£ºau,dd,ad,ad,dd)£º");
+"é”™è¯¯é€‰æ‹©ã€‚è¯·è¾“å…¥äº”æ¬¡è¡ŒåŠ¨çš„å‘½ä»¤ã€‚(å¯é€‰ï¼šau,am,ad,du,dm,ddï¼›
+ä¸¾ä¾‹ï¼šau,dd,ad,ad,dd)ï¼š");
 	return;
 	}
         for (i=0;i<5;i++)
@@ -95,8 +95,8 @@ void input_way2(string arg)
 		&& e_input[i]!="dd")
 	
         {write(
-"´íÎóÑ¡Ôñ¡£ÇëÊäÈëÎå´ÎĞĞ¶¯µÄÃüÁî¡£(¿ÉÑ¡£ºau,am,ad,du,dm,dd£»
-¾ÙÀı£ºau,dd,ad,ad,dd)£º");
+"é”™è¯¯é€‰æ‹©ã€‚è¯·è¾“å…¥äº”æ¬¡è¡ŒåŠ¨çš„å‘½ä»¤ã€‚(å¯é€‰ï¼šau,am,ad,du,dm,ddï¼›
+ä¸¾ä¾‹ï¼šau,dd,ad,ad,dd)ï¼š");
 	return;
         }}
 	counter =4;
@@ -111,7 +111,7 @@ int show_result(int p_ids, int e_ids,int k)
 	int damage,hp;
 
 	WARAI_D->war_inf(TROOP_D->get_troops(p_it,"task_id"),
-p_name+"Óë"+e_name+"µ¥ÌôµÚ"+chinese_number(k)+"»ØºÏ¿ªÊ¼£¡","b");
+p_name+"ä¸"+e_name+"å•æŒ‘ç¬¬"+chinese_number(k)+"å›åˆå¼€å§‹ï¼","b");
 for( j=0;j<5;j++)
 {	
 	i1 = p_input[j];		
@@ -134,22 +134,22 @@ tell_user("group",sprintf("%d%d%s%s",c1,c2,p_input[j],e_input[j]));
 	{
 	  if (c1<c2)
 	WARAI_D->war_inf(TROOP_D->get_troops(p_ids,"task_id"),
-p_name+"¹¥Ïò"+e_name+"Ò»ÕĞµ«ÊÇ±»µ²×¡ÁË¡£","b");			
+p_name+"æ”»å‘"+e_name+"ä¸€æ‹›ä½†æ˜¯è¢«æŒ¡ä½äº†ã€‚","b");			
 	if (c1>c2)
 	WARAI_D->war_inf(TROOP_D->get_troops(p_ids,"task_id"),
-e_name+"¹¥Ïò"+p_name+"Ò»ÕĞµ«ÊÇ±»µ²×¡ÁË¡£","b");	
+e_name+"æ”»å‘"+p_name+"ä¸€æ‹›ä½†æ˜¯è¢«æŒ¡ä½äº†ã€‚","b");	
 	}
 	
 	else {
 	if ((c1+c2)>=12)
 	WARAI_D->war_inf(TROOP_D->get_troops(p_ids,"task_id"),
-p_name+"ºÍ"+e_name+"¾ãÊØÒ»ÕĞ£¬¸÷ÎŞËğÉË¡£","b");
+p_name+"å’Œ"+e_name+"ä¿±å®ˆä¸€æ‹›ï¼Œå„æ— æŸä¼¤ã€‚","b");
 	
 	if ((c1+c2)>6 && (c1+c2)<12)
 	{
 	if (c1<c2 )
 	{	WARAI_D->war_inf(TROOP_D->get_troops(p_ids,"task_id"),
-p_name+"¹¥Ïò"+e_name+"Ò»ÕĞ£¬"+e_name+"µ²Ê±È´µ²ÁË¸ö¿Õ¡£","b");
+p_name+"æ”»å‘"+e_name+"ä¸€æ‹›ï¼Œ"+e_name+"æŒ¡æ—¶å´æŒ¡äº†ä¸ªç©ºã€‚","b");
 		
 	    damage = p_power - e_defen;
 	    if (damage <=0) damage = 1+random(2);
@@ -158,11 +158,11 @@ p_name+"¹¥Ïò"+e_name+"Ò»ÕĞ£¬"+e_name+"µ²Ê±È´µ²ÁË¸ö¿Õ¡£","b");
 		fighter2->query_body()->set_cur_hp(hp);
 		
 		WARAI_D->war_inf(TROOP_D->get_troops(p_ids,"task_id"),
-e_name+"ËğÑª"+chinese_number(damage)+"µã¡£","b");
+e_name+"æŸè¡€"+chinese_number(damage)+"ç‚¹ã€‚","b");
 			
 		if (e_hp == 0)
 		{WARAI_D->war_inf(TROOP_D->get_troops(p_ids,"task_id"),
-p_name+"µ¥Ìô»÷°Ü"+e_name+"£¡","b");
+p_name+"å•æŒ‘å‡»è´¥"+e_name+"ï¼","b");
 		fighter1->query_body()->set_cur_hp(p_hp);
                 fighter2->query_body()->set_cur_hp(e_hp);
 			return 1;
@@ -170,7 +170,7 @@ p_name+"µ¥Ìô»÷°Ü"+e_name+"£¡","b");
 		}
 	else 
         {       WARAI_D->war_inf(TROOP_D->get_troops(p_ids,"task_id"),
-e_name+"¹¥Ïò"+p_name+"Ò»ÕĞ£¬"+p_name+"µ²Ê±È´µ²ÁË¸ö¿Õ¡£","b");
+e_name+"æ”»å‘"+p_name+"ä¸€æ‹›ï¼Œ"+p_name+"æŒ¡æ—¶å´æŒ¡äº†ä¸ªç©ºã€‚","b");
 
             damage = e_power - p_defen;
             if (damage <=0) damage = 1+random(2);
@@ -178,11 +178,11 @@ e_name+"¹¥Ïò"+p_name+"Ò»ÕĞ£¬"+p_name+"µ²Ê±È´µ²ÁË¸ö¿Õ¡£","b");
                 if (p_hp<0) p_hp =0;
 
                 WARAI_D->war_inf(TROOP_D->get_troops(p_ids,"task_id"),
-p_name+"ËğÑª"+chinese_number(damage)+"µã¡£","b");
+p_name+"æŸè¡€"+chinese_number(damage)+"ç‚¹ã€‚","b");
 
                 if (p_hp == 0)
                 {WARAI_D->war_inf(TROOP_D->get_troops(p_ids,"task_id"),
-e_name+"µ¥Ìô»÷°Ü"+p_name+"£¡","b");
+e_name+"å•æŒ‘å‡»è´¥"+p_name+"ï¼","b");
                 fighter1->query_body()->set_cur_hp(p_hp);
 		fighter2->query_body()->set_cur_hp(e_hp);	        
 		return 1;
@@ -193,14 +193,14 @@ e_name+"µ¥Ìô»÷°Ü"+p_name+"£¡","b");
 	if ((c1+c2) <= 6)
 	{ 
 	WARAI_D->war_inf(TROOP_D->get_troops(p_ids,"task_id"),
-p_name+"ºÍ"+e_name+"¾ã¹¥Ò»ÕĞ£¬¸÷ÓĞËğÉË¡£","b");
+p_name+"å’Œ"+e_name+"ä¿±æ”»ä¸€æ‹›ï¼Œå„æœ‰æŸä¼¤ã€‚","b");
 	damage = p_power;
             if (damage <=0) damage = 1+random(2);
 		e_hp = e_hp - damage;
                 if (e_hp<0) e_hp =0;
 
                 WARAI_D->war_inf(TROOP_D->get_troops(p_ids,"task_id"),
-e_name+"ËğÑª"+chinese_number(damage)+"µã¡£","b");	
+e_name+"æŸè¡€"+chinese_number(damage)+"ç‚¹ã€‚","b");	
 
 	damage = e_power;
             if (damage <=0) damage = 1+random(2);
@@ -208,11 +208,11 @@ e_name+"ËğÑª"+chinese_number(damage)+"µã¡£","b");
                if (p_hp<0) p_hp =0;
 
                 WARAI_D->war_inf(TROOP_D->get_troops(p_ids,"task_id"),
-p_name+"ËğÑª"+chinese_number(damage)+"µã¡£","b");
+p_name+"æŸè¡€"+chinese_number(damage)+"ç‚¹ã€‚","b");
  
 	    if (p_hp== 0 && e_hp== 0)
 	{	WARAI_D->war_inf(TROOP_D->get_troops(p_ids,"task_id"),
-p_name+"ºÍ"+e_name+"Á½°Ü¾ãÉË£¬É±³ÉÆ½ÊÖ¡£","b");
+p_name+"å’Œ"+e_name+"ä¸¤è´¥ä¿±ä¼¤ï¼Œæ€æˆå¹³æ‰‹ã€‚","b");
 		fighter1->query_body()->set_cur_hp(p_hp);
                 fighter2->query_body()->set_cur_hp(e_hp);
 		return 1;
@@ -221,14 +221,14 @@ p_name+"ºÍ"+e_name+"Á½°Ü¾ãÉË£¬É±³ÉÆ½ÊÖ¡£","b");
 	{
 		if (p_hp == 0)
                 {WARAI_D->war_inf(TROOP_D->get_troops(p_ids,"task_id"),
-e_name+"µ¥Ìô»÷°Ü"+p_name+"£¡","b");
+e_name+"å•æŒ‘å‡»è´¥"+p_name+"ï¼","b");
                 fighter1->query_body()->set_cur_hp(p_hp);
                 fighter2->query_body()->set_cur_hp(e_hp);        
 		return 1;
                 }	
 		if (e_hp == 0)
                 {WARAI_D->war_inf(TROOP_D->get_troops(p_ids,"task_id"),
-p_name+"µ¥Ìô»÷°Ü"+e_name+"£¡","b");
+p_name+"å•æŒ‘å‡»è´¥"+e_name+"ï¼","b");
 		fighter1->query_body()->set_cur_hp(p_hp);
                 fighter2->query_body()->set_cur_hp(e_hp);
                         return 1;
@@ -246,15 +246,15 @@ void wait_result(int h)
 	remove_call_out("wait_result");
 	if (counter == 0)
         {counter ++;
-	set_this_player(fighter1);
+	// set_this_player(fighter1); // set_this_player() unavailable in this driver build (no NO_ADD_ACTION) -- no-op'd, this_player() is whatever it naturally is here
 	fighter1->modal_push((:
-	input_way:),"ÇëÊäÈëÄãµÄµÚ"+chinese_number(h)+"»ØºÏÑ¡Ôñ£º");
+	input_way:),"è¯·è¾“å…¥ä½ çš„ç¬¬"+chinese_number(h)+"å›åˆé€‰æ‹©ï¼š");
 	}
 	if (counter == 2)
 	{	counter++;
-		set_this_player(fighter2);	
+		// set_this_player(fighter2); // set_this_player() unavailable in this driver build (no NO_ADD_ACTION) -- no-op'd, this_player() is whatever it naturally is here
            fighter2->modal_push((:
-        input_way2:),"ÇëÊäÈëÄãµÄµÚ"+chinese_number(h)+"»ØºÏÑ¡Ôñ£º");
+        input_way2:),"è¯·è¾“å…¥ä½ çš„ç¬¬"+chinese_number(h)+"å›åˆé€‰æ‹©ï¼š");
 	}
 	if ( counter==4)
 	{if (show_result(p_it,e_it,h))
@@ -263,7 +263,7 @@ void wait_result(int h)
 		counter =0;
 	if (h==6)
 	{	WARAI_D->war_inf(TROOP_D->get_troops(p_it,"task_id"),
-p_name+"ºÍ"+e_name+"ÄÑ·ÖÄÑ½â£¬É±³ÉÆ½ÊÖ¡£","b");
+p_name+"å’Œ"+e_name+"éš¾åˆ†éš¾è§£ï¼Œæ€æˆå¹³æ‰‹ã€‚","b");
 		return;
 	}
 	}

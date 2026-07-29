@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is °ÍÉ½Ò¹Óê
+// driver is å·´å±±å¤œé›¨
 // created date is Sat May 28 19:52:18 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,10 +7,10 @@ inherit OUTDOOR_ROOM;
 void setup() {
 set_area("wuling");
 set_light(50);
-set_brief("%^YELLOW%^"+"Ğ¡ÂëÍ·"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"å°ç å¤´"+"%^RESET%^");
 set_long("
-    ÕâÀïÊÇÎäÁêµÄĞ¡ÂëÍ·,ÓĞ¼¸ËÒĞ¡Óã´¬Í£ÔÚÂëÍ·±ßÉÏ,Õı
-ÔÚ½ĞÂô½ñÌì¸Õ²¶µÄË®²ú¡£\n\n");
+    è¿™é‡Œæ˜¯æ­¦é™µçš„å°ç å¤´,æœ‰å‡ è‰˜å°é±¼èˆ¹åœåœ¨ç å¤´è¾¹ä¸Š,æ­£
+åœ¨å«å–ä»Šå¤©åˆšæ•çš„æ°´äº§ã€‚\n\n");
 set_exits( ([
 "south":"/a/wuling/wl_xiaolu1.c",
  ]));

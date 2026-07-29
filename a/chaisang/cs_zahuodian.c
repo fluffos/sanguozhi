@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is ∞Õ…Ω“π”Í
+// driver is Â∑¥Â±±Â§úÈõ®
 // created date is Mon May 30 20:56:09 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,7 +7,7 @@ inherit INDOOR_ROOM;
 void setup() {
 set_area("chaisang");
 set_light(50);
-set_brief("%^YELLOW%^"+"‘”ªıµÍ"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"ÊùÇË¥ßÂ∫ó"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "west":"/a/chaisang/cs_chengyidian.c",

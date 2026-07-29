@@ -27,8 +27,8 @@ inherit M_ACCESS;
 inherit M_INPUT;
 
 #define HEADER \
-"¿ªÊ¼±à¼­¡£ÓÃ . ½áÊø±à¼­£¬ÓÃ ~q ÖĞ¶Ï£¬ÓÃ ~h È¡µÃ°ïÖú¡£\n"+\
-"©¤©¤©¤©¤¡ó©¤©¤©¤©¤¡ô©¤©¤©¤©¤¡ó©¤©¤©¤©¤¡ô©¤©¤©¤©¤¡ó©¤©¤©¤©¤\n"
+"å¼€å§‹ç¼–è¾‘ã€‚ç”¨ . ç»“æŸç¼–è¾‘ï¼Œç”¨ ~q ä¸­æ–­ï¼Œç”¨ ~h å–å¾—å¸®åŠ©ã€‚\n"+\
+"â”€â”€â”€â”€â—‡â”€â”€â”€â”€â—†â”€â”€â”€â”€â—‡â”€â”€â”€â”€â—†â”€â”€â”€â”€â—‡â”€â”€â”€â”€\n"
 
 private string* buf;
 private int already_editing;
@@ -50,13 +50,13 @@ private string * read_strings(string fname, int messages)
     {
         if ( size == -2 )
             //write("File is a directory. Ignoring.\n");
-            write("ÊÇÄ¿Â¼ÎÄ¼ş£¬²µ»Ø¡£\n");
+            write("æ˜¯ç›®å½•æ–‡ä»¶ï¼Œé©³å›ã€‚\n");
         else if ( size == -1 )
             //write("File not found.\n");
-            write("ÎŞ´ËÎÄ¼ş¡£\n");
+            write("æ— æ­¤æ–‡ä»¶ã€‚\n");
         else if ( size == 0 )
             //write("File is empty.\n");
-            write("¿ÕÎÄ¼ş¡£\n");
+            write("ç©ºæ–‡ä»¶ã€‚\n");
         else
             write("Ok.\n");
     }
@@ -71,11 +71,11 @@ varargs private string build_string(int flag)
     switch (sizeof(buf)) {
     case 0:
         return (flag & 1) ? //"**No text!\n"
-                            "** Ã»ÓĞÎÄ±¾£¡\n" : "";
+                            "** æ²¡æœ‰æ–‡æœ¬ï¼\n" : "";
     default:
         if (flag & 2)
             return "[" + (sizeof(buf)-15) + //" lines not displayed, please trim (~e)]\n"
-                                            " ĞĞÃ»ÓĞÏÔÊ¾³öÀ´£¬ÇëĞŞ¸Ä (~e)]\n" + implode(buf[<15..], "\n") + "\n";
+                                            " è¡Œæ²¡æœ‰æ˜¾ç¤ºå‡ºæ¥ï¼Œè¯·ä¿®æ”¹ (~e)]\n" + implode(buf[<15..], "\n") + "\n";
         /* WARNING - falls through */
     case 1..15:
         return implode(buf, "\n") + "\n";
@@ -121,7 +121,7 @@ private nomask void end_ed()
     rm(tmp_file);
 
     //write("Continue editing file.\n");
-    write("¼ÌĞø±à¼­ÎÄ¼ş¡£\n");
+    write("ç»§ç»­ç¼–è¾‘æ–‡ä»¶ã€‚\n");
 
 }
 
@@ -134,7 +134,7 @@ private void handle_escape(string str)
     {
     case 'q':
         //write("Edit aborted.\n");
-        write("±à¼­ÖĞÖ¹¡£\n");
+        write("ç¼–è¾‘ä¸­æ­¢ã€‚\n");
         end_edit(1);
         return;
 
@@ -149,7 +149,7 @@ private void handle_escape(string str)
             tmp = build_string();
             if(!write_file(evaluate_path(str[3..]),tmp))
                 //write("Unable to write to file.\n");
-                write("ÎŞ·¨Ğ´ÈëÎÄ¼ş¡£\n");
+                write("æ— æ³•å†™å…¥æ–‡ä»¶ã€‚\n");
             else
                 write("Ok.\n");
         }
@@ -159,16 +159,16 @@ private void handle_escape(string str)
         //write(
         //  "Help for editor:\n. or **\t\texit editor\n~q\t\tabort edit.\n~h\t\tthis help.\n"+
         //  "~e\t\tenter line by line editor.\n~p\t\tdisplay edit buffer.\n");
-        write("±à¼­°ïÖú£º\n"
-              "  . »ò **                 ½áÊø±à¼­£¬ÍË³ö±à¼­Æ÷¡£\n"
-              "  ~q                      ÖĞ¶Ï±à¼­£¬ÍË³ö±à¼­Æ÷¡£\n"
-              "  ~h                      ÏÔÊ¾±¾°ïÖú¡£\n"
-              "  ~e                      ½øÈëÖğĞĞ±à¼­Æ÷¡£\n"
-              "  ~p                      ÏÔÊ¾±à¼­Æ÷»º³åÇø¡£\n");
+        write("ç¼–è¾‘å¸®åŠ©ï¼š\n"
+              "  . æˆ– **                 ç»“æŸç¼–è¾‘ï¼Œé€€å‡ºç¼–è¾‘å™¨ã€‚\n"
+              "  ~q                      ä¸­æ–­ç¼–è¾‘ï¼Œé€€å‡ºç¼–è¾‘å™¨ã€‚\n"
+              "  ~h                      æ˜¾ç¤ºæœ¬å¸®åŠ©ã€‚\n"
+              "  ~e                      è¿›å…¥é€è¡Œç¼–è¾‘å™¨ã€‚\n"
+              "  ~p                      æ˜¾ç¤ºç¼–è¾‘å™¨ç¼“å†²åŒºã€‚\n");
         if(wizardp(this_user()))           
             //write("~w <file>\twrite buffer to specified file.\n~r <file>\tread file into buffer.\n");
-            write("  ~w <ÎÄ¼şÃû>             °Ñ»º³åÇøĞ´ÈëÖ¸¶¨ÎÄ¼ş¡£\n"
-                  "  ~r <ÎÄ¼şÃû>             °ÑÎÄ¼şÄÚÈİ¶ÁÈë»º³åÇø¡£\n");           
+            write("  ~w <æ–‡ä»¶å>             æŠŠç¼“å†²åŒºå†™å…¥æŒ‡å®šæ–‡ä»¶ã€‚\n"
+                  "  ~r <æ–‡ä»¶å>             æŠŠæ–‡ä»¶å†…å®¹è¯»å…¥ç¼“å†²åŒºã€‚\n");           
         write("\n\n");
         return;
 
@@ -208,7 +208,7 @@ private void begin_edit(string *text, function continuation)
     if ( this_body()->test_flag(F_IN_EDIT) ) {
         //write("Warning! You are already marked as editing.\n");
         already_editing = 1;
-        write("¾¯¸æ£¡ÄãÔçÒÑ´¦ÓÚ±à¼­×´Ì¬ÁË£¡\n");
+        write("è­¦å‘Šï¼ä½ æ—©å·²å¤„äºç¼–è¾‘çŠ¶æ€äº†ï¼\n");
     }
     else this_body()->set_flag(F_IN_EDIT);
 

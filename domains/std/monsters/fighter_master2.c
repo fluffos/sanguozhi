@@ -15,7 +15,7 @@ void setup()
 {
     object sword;
 
-    set_name("Guildmaster", "°ïÅÉÀÏ´ó");
+    set_name("Guildmaster", "å¸®æ´¾è€å¤§");
     set_proper_name("The Guildmaster");
     add_id("master");
     set_id("guildmaster");

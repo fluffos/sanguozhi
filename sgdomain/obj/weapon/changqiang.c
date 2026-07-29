@@ -5,13 +5,13 @@ inherit M_WEAPON;
 inherit M_VALUE;
 void setup()
 {
-set_unit("¸Ë");
-set_id("chang qiang", "³¤Ç¹");
+set_unit("æ†");
+set_id("chang qiang", "é•¿æª");
 add_id("chang qiang");
 add_id("qiang");
-set_in_room_desc("³¤Ç¹(chang qiang)");
-set_long("ÆÕÍ¨µÄ³¤±øÆ÷£¬³ßÓàµÄÇ¹Í·ºó»¹´¹×ÅÎŞÊıºìÉ«Ç¹Ëë£¬Îª
-´ó¶àÎä½«ËùÓÃµÄÇáÁéÂíÕ½±øÈĞ¡£\n");
+set_in_room_desc("é•¿æª(chang qiang)");
+set_long("æ™®é€šçš„é•¿å…µå™¨ï¼Œå°ºä½™çš„æªå¤´åè¿˜å‚ç€æ— æ•°çº¢è‰²æªç©—ï¼Œä¸º
+å¤§å¤šæ­¦å°†æ‰€ç”¨çš„è½»çµé©¬æˆ˜å…µåˆƒã€‚\n");
 set_size(MEDIUM);
 set_value(500);
 set_currency_type("silver");
@@ -19,6 +19,6 @@ set_attack_ablity(90);
 set_attack_power(75);
 set_defence_ablity(90);
 set_combat_messages("combat-ji");
-set_wield_message("$NË«ÊÖÒ»¶¶£¬½«ÕÆÖĞ$oÎèÁËÊı¸öÔ²È¦¡£\n");
-set_unwield_message("$Nµ¥ÊÖ½«$o²å»ØàÎÍ·¡£\n");
+set_wield_message("$NåŒæ‰‹ä¸€æŠ–ï¼Œå°†æŒä¸­$oèˆäº†æ•°ä¸ªåœ†åœˆã€‚\n");
+set_unwield_message("$Nå•æ‰‹å°†$oæ’å›è¾”å¤´ã€‚\n");
 }

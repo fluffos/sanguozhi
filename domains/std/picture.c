@@ -10,11 +10,11 @@ void setup()
 {
     object ob;
 
-    set_unit("·ù");
-    set_id("picture", "¹Å»­");
+    set_unit("å¹…");
+    set_id("picture", "å¤ç”»");
     set_gettable(1);
     if ( (ob = this_body()) && (ob = environment(ob)) ) {
-        set_long("Äã³¯»­ÉÏ¿´È¥£¬¿´µ½£º\n\n" + ob->long());
+        set_long("ä½ æœç”»ä¸Šçœ‹åŽ»ï¼Œçœ‹åˆ°ï¼š\n\n" + ob->long());
         add_save( ({ "long" }) );
     }
 }

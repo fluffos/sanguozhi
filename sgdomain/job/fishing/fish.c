@@ -1,4 +1,4 @@
-// fish.c (ÏÊÓã)
+// fish.c (é²œé±¼)
 #include <mudlib.h>
 
 inherit OBJ;
@@ -7,18 +7,18 @@ inherit M_EDIBLE;
 
 void setup()
 {
-        set_id("fish", "ÏÊÓã");
-        set_unit("Ìõ");
+        set_id("fish", "é²œé±¼");
+        set_unit("æ¡");
         set_gettable(1);
         set_num_eats(1);
-set_last_eat_action((: this_body()->simple_action("$NÀÌÆğÒ»ÌõÉúÓã³ÔÁËÏÂÈ¥¡£"+
+set_last_eat_action((: this_body()->simple_action("$Næèµ·ä¸€æ¡ç”Ÿé±¼åƒäº†ä¸‹å»ã€‚"+
         "\n") :));
         return;
 }
 
 void modify(int size) {
 	if ( size < 3 )
-                set_long("Ò»Ìõ»î±ÄÂÒÌøµÄĞ¡Óã");
+                set_long("ä¸€æ¡æ´»è¹¦ä¹±è·³çš„å°é±¼");
 	else
-                set_long("Ò»ÌõĞÂÏÊ´óÓã");
+                set_long("ä¸€æ¡æ–°é²œå¤§é±¼");
 }

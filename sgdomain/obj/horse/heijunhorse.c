@@ -5,17 +5,17 @@ inherit M_HORSE_1;
 inherit M_VALUE;
 void setup()
 {
-    set_id("heijunhorse", "ºÚ¿¥Âí");
+    set_id("heijunhorse", "é»‘éªé©¬");
     add_id("heijun");
     add_id("horse");
     add_id("ma");
     set_relations("on");
-    set_unit("Æ¥");
-    set_long("ÕâÊÇÒ»Æ¥ºÚ¿¥Âí£¬ËÄÌãÈ´ÊÇÇàÉ«£¬¿ÉËãÒ»Æ¥ºÃÂí¡£");
+    set_unit("åŒ¹");
+    set_long("è¿™æ˜¯ä¸€åŒ¹é»‘éªé©¬ï¼Œå››è¹„å´æ˜¯é’è‰²ï¼Œå¯ç®—ä¸€åŒ¹å¥½é©¬ã€‚");
     set_max_capacity(VERY_LARGE*2);
     // So people will see: Sitting on the horse you see Rust...
     set_preposition("on");
-    set_in_room_desc("ºÚ¿¥Âí(heijunhorse)");
+    set_in_room_desc("é»‘éªé©¬(heijunhorse)");
     set_value(200);
     set_currency_type("silver");
     set_attack_ability(110);

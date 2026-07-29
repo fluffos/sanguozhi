@@ -25,12 +25,12 @@ inherit CLASS_ALIAS;
 ** and the rest of your command.  It's got it's own structure so we can limit
 ** our search (That is, the side list is an optimization).
 */
-static mapping aliases = ([]);
-static string * xaliases = ({});
-static mapping alias_save = ([]);
-static string* xalias_save = ({});
+nosave protected mapping aliases = ([]);
+nosave protected string * xaliases = ({});
+nosave protected mapping alias_save = ([]);
+nosave protected string* xalias_save = ({});
 
-static void init_alias_editor()
+protected void init_alias_editor()
 {
     new(ALIASMENU)->begin_menu(this_object());
 }
@@ -51,12 +51,12 @@ nomask void add_xalias(string alias_name)
 {
     if ( base_name(previous_object()) != ALIASMENU )
     //error("invalid attempt to add an xalias\n");
-    error("ÆóÍ¼·Ç·¨Ôö¼Ó xalias\n");
+    error("ä¼å›¾éžæ³•å¢žåŠ  xalias\n");
 #ifdef MAX_NUMBER_OF_ALIASES
     if (query_alias_count() >= MAX_NUMBER_OF_ALIASES)
       {
     //write("Sorry, you already have too many aliases.\n");
-    write("¶Ô²»Æð£¬ÄãµÄ alias ÒÑ¾­Éè¶¨µÃÌ«¶àÁË¡£\n");
+    write("å¯¹ä¸èµ·ï¼Œä½ çš„ alias å·²ç»è®¾å®šå¾—å¤ªå¤šäº†ã€‚\n");
     return;
       }
 #endif
@@ -79,12 +79,12 @@ nomask void add_alias_simple(string alias_name, class alias the_alias)
 {
     if ( base_name(previous_object()) != ALIASMENU )
     //error("invalid attempt to add an alias\n");
-    error("ÆóÍ¼·Ç·¨Ôö¼Ó alias\n");
+    error("ä¼å›¾éžæ³•å¢žåŠ  alias\n");
 #ifdef MAX_NUMBER_OF_ALIASES
     if (query_alias_count() >= MAX_NUMBER_OF_ALIASES)
       {
     //write("Sorry, you already have too many aliases.\n");
-    write("¶Ô²»Æð£¬ÄãµÄ alias ÒÑ¾­Éè¶¨µÃÌ«¶àÁË¡£\n");
+    write("å¯¹ä¸èµ·ï¼Œä½ çš„ alias å·²ç»è®¾å®šå¾—å¤ªå¤šäº†ã€‚\n");
     return;
       }
 #endif
@@ -108,7 +108,7 @@ nomask void remove_alias(string alias_name)
 {
     if ( base_name(previous_object()) != ALIASMENU )
     //error("invalid attempt to remove an alias\n");
-    error("ÆóÍ¼·Ç·¨É¾³ý alias\n");
+    error("ä¼å›¾éžæ³•åˆ é™¤ alias\n");
     internal_remove_alias(alias_name);
 }
 
@@ -171,7 +171,7 @@ add_alias(string name, string template, string* defaults, int xverb)
     if (query_alias_count() >= MAX_NUMBER_OF_ALIASES)
       {
     //write("Sorry, you already have too many aliases.\n");
-    write("¶Ô²»Æð£¬ÄãµÄ alias ÒÑ¾­Éè¶¨µÃÌ«¶àÁË¡£\n");
+    write("å¯¹ä¸èµ·ï¼Œä½ çš„ alias å·²ç»è®¾å®šå¾—å¤ªå¤šäº†ã€‚\n");
     return;
       }
 #endif
@@ -236,7 +236,7 @@ mixed expand_alias(string* argv)
       break;
     default:
       printf(//"ERROR: Alias conflict: can't destinguish between: %s.\n",
-             "´íÎó£ºalias ³åÍ»£¬ÎÞ·¨Çø·Ö£º%s¡£\n",
+             "é”™è¯¯ï¼šalias å†²çªï¼Œæ— æ³•åŒºåˆ†ï¼š%sã€‚\n",
          implode(xverb_matches,", "));
       return 0;
     }
@@ -292,7 +292,7 @@ void create()
     }
 }
 
-varargs static void cmd_alias(mixed argv, string array implode_info)
+varargs protected void cmd_alias(mixed argv, string * implode_info)
 {
     switch(sizeof(argv))
     {
@@ -319,29 +319,29 @@ varargs static void cmd_alias(mixed argv, string array implode_info)
     else
       add_alias(argv[1], implode(argv[2..]," "));
     printf(//"Alias '%s' set to: %s.\n", argv[1],
-           "Alias '%s' Éè¶¨Îª£º%s¡£\n", argv[1],
+           "Alias '%s' è®¾å®šä¸ºï¼š%sã€‚\n", argv[1],
            ((class alias)aliases[argv[1]])->template);
     }
 }
 
-varargs static void cmd_remove_alias(mixed argv)
+varargs protected void cmd_remove_alias(mixed argv)
 {
     if ( sizeof(argv) != 2 )
     {
     //printf("Usage: unalias <aliasname>\n");
-    printf("ÓÃ·¨£ºunalias <alias µÄÃû³Æ>\n");
+    printf("ç”¨æ³•ï¼šunalias <alias çš„åç§°>\n");
     return;
     }
 
     if ( !aliases[argv[1]] )
     {
     //printf("You don't have '%s' as an alias.\n", argv[1]);
-    printf("ÄãÃ»ÓÐÉè¶¨ '%s' Õâ¸ö alias¡£\n", argv[1]);
+    printf("ä½ æ²¡æœ‰è®¾å®š '%s' è¿™ä¸ª aliasã€‚\n", argv[1]);
     }
     else
     {
     internal_remove_alias(argv[1]);
     //printf("Alias '%s' removed.\n", argv[1]);
-    printf("Alias '%s' ±»É¾³ý¡£\n", argv[1]);
+    printf("Alias '%s' è¢«åˆ é™¤ã€‚\n", argv[1]);
     }
 }

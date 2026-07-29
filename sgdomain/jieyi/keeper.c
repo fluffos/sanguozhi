@@ -11,18 +11,18 @@ string *query_channel_list() {
 }
 void setup()
 {
-    set_name("old keeper", "ÀÏµêÖ÷");
+    set_name("old keeper", "è€åº—ä¸»");
     set_gender(1);
-    set_proper_name("ÀÏµêÖ÷");
-    set_in_room_desc("ÀÏµêÖ÷(old keeper)");
+    set_proper_name("è€åº—ä¸»");
+    set_in_room_desc("è€åº—ä¸»(old keeper)");
     add_id("keeper");
     set_age(70);
-    set_long("Ò»¸ö°×·¢²Ô²Ô¡¢ÄêÂõÌåÈõµÄÀÏÈË£¬²Òµ­¾­Óª×ÅÕâ¼ÒÏãÖòµê¡£\n²»¹ýÓÉÓÚËûÊÇò¯³ÏµÄ·ð½ÌÍ½£¬Ò²¾ÍÀÖÉÆºÃÊ©£¬µ±È»Ö»ÊÇ¸øÒ»Ð©µêÀïÓÐµÄ¶«Î÷ÁË¡£\n(ask old keeper about incense)");
+    set_long("ä¸€ä¸ªç™½å‘è‹è‹ã€å¹´è¿ˆä½“å¼±çš„è€äººï¼Œæƒ¨æ·¡ç»è¥ç€è¿™å®¶é¦™çƒ›åº—ã€‚\nä¸è¿‡ç”±äºŽä»–æ˜¯è™”è¯šçš„ä½›æ•™å¾’ï¼Œä¹Ÿå°±ä¹å–„å¥½æ–½ï¼Œå½“ç„¶åªæ˜¯ç»™ä¸€äº›åº—é‡Œæœ‰çš„ä¸œè¥¿äº†ã€‚\n(ask old keeper about incense)");
 	add_question("name","name" );
 	add_question("here","here");
 	add_question("rumors","rumors");
 	add_question("incense","incense");
-	add_ask_str("incense","$N¶Ô$T¹ªÉíÒ»°Ý£¬µÀ£º$sÓûÐÐ¼Àìë´óÀñ£¬¸ÒÎÊÀÏÕÉÇóÐ©ºÃÏã£¬²»Öª¡£¡£¡£\n");
+	add_ask_str("incense","$Nå¯¹$Tèº¬èº«ä¸€æ‹œï¼Œé“ï¼š$sæ¬²è¡Œç¥­ç¥€å¤§ç¤¼ï¼Œæ•¢é—®è€ä¸ˆæ±‚äº›å¥½é¦™ï¼Œä¸çŸ¥ã€‚ã€‚ã€‚\n");
 }
 void special_answer(object who, string matt)
 {
@@ -31,25 +31,25 @@ void special_answer(object who, string matt)
 	switch(matt)
 	{
 		case "name" :
-			this_object()->simple_action("$N¿ÈËÔÁË¼¸Éù£¬ÓÃ²ÔÀÏµÄÉùÒô´ðµÀ£º"+
-"ÀÏ·ò¹éÒþÒÑ¾Ã£¬ÕâÃû×Ö²»ÌáÒ²°Õ¡£\n");
+			this_object()->simple_action("$Nå’³å—½äº†å‡ å£°ï¼Œç”¨è‹è€çš„å£°éŸ³ç­”é“ï¼š"+
+"è€å¤«å½’éšå·²ä¹…ï¼Œè¿™åå­—ä¸æä¹Ÿç½¢ã€‚\n");
  			return;
  		case "here" :
 			this_object()->simple_action(
-"$NÂýÌõË¹ÀíµØµÀ£ºÀÏ·òÏÐÀ´ÎÞÊÂ£¬È¨ÇÒ¿ªÕâÒ»¼ÒÐ¡µêÁË¶È²ÐÉú¡£\n");
+"$Næ…¢æ¡æ–¯ç†åœ°é“ï¼šè€å¤«é—²æ¥æ— äº‹ï¼Œæƒä¸”å¼€è¿™ä¸€å®¶å°åº—äº†åº¦æ®‹ç”Ÿã€‚\n");
 			return;
 		case "rumors" :
-			this_object()->targetted_action("$N¿´ÁË$TÒ»ÑÛ£¬µÀ£º"+
-"ÄãÈôÓÐÐÄ£¬¾Í¸Ã½â¾ÈÖÚÀèÃñÓÚÂÒÊÀ¡£¡£¡£\n",this_body());
+			this_object()->targetted_action("$Nçœ‹äº†$Tä¸€çœ¼ï¼Œé“ï¼š"+
+"ä½ è‹¥æœ‰å¿ƒï¼Œå°±è¯¥è§£æ•‘ä¼—é»Žæ°‘äºŽä¹±ä¸–ã€‚ã€‚ã€‚\n",this_body());
 			return;
 		case "incense" :
 	ob=present("incense",this_body());
 	if(objectp(ob))
 	{
-	this_object()->targetted_action("$N¶Ô$TÒ¡Ò¡Í·µÀ£ºÄã¼ÈÒÑÓÐÁË£¬ºÎ±ØÔÙÎÊÀÏ·òÒªÄØ£¿\n",this_body());
+	this_object()->targetted_action("$Nå¯¹$Tæ‘‡æ‘‡å¤´é“ï¼šä½ æ—¢å·²æœ‰äº†ï¼Œä½•å¿…å†é—®è€å¤«è¦å‘¢ï¼Ÿ\n",this_body());
 	return;
 	}
-	this_object()->targetted_action("$N¿´ÁË$TÒ»ÑÛ£¬Î¢Î¢ò¥Ê×£ºàÅ£¬¼Ç×¡£¬ÐÄ³ÏÔòÁé°¡¡£\n$NµÝ¸ø$TÒ»Ö§%^CYAN%^Ïã%^RESET%^¡£\n",this_body());
+	this_object()->targetted_action("$Nçœ‹äº†$Tä¸€çœ¼ï¼Œå¾®å¾®é¢”é¦–ï¼šå—¯ï¼Œè®°ä½ï¼Œå¿ƒè¯šåˆ™çµå•Šã€‚\n$Né€’ç»™$Tä¸€æ”¯%^CYAN%^é¦™%^RESET%^ã€‚\n",this_body());
 	incense=new("/sgdomain/jieyi/incense.c");
 	incense->move(this_body());
 	}

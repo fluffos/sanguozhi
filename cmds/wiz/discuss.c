@@ -8,7 +8,7 @@ private void main(mixed *arg)
 {
     if(userp(arg[0]) || member_array(arg[0],bodies()) != -1)
     {
-        out("Äã²»ÄÜ discuss Ò»¸öÓÃ»§£¬Ö»ÄÜÊÇÒ»¸öÎï¼ş¡£\n");
+        out("ä½ ä¸èƒ½ discuss ä¸€ä¸ªç”¨æˆ·ï¼Œåªèƒ½æ˜¯ä¸€ä¸ªç‰©ä»¶ã€‚\n");
         return;
     }
     new(ANNO_MENU, arg[0])->start_menu();

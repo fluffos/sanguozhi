@@ -12,7 +12,7 @@ private void main( string str) {
 
   if ( !str )
   {
-    out("用法：echo <msg>\n");
+    out("鐢ㄦ硶锛歟cho <msg>\n");
     return;
   }
 
@@ -23,7 +23,7 @@ private void main( string str) {
   }
 
     tell_environment(this_body(), str + "\n", 0, ({ this_body() }));
-    write("你发布消息："+str+"\n");
+    write("浣犲彂甯冩秷鎭細"+str+"\n");
 
     return;
 }

@@ -48,8 +48,8 @@ private mixed handle_blocks( string dir )
     if( !cn || !mapp(cn) ) cn = ([ ]);
         AREA_D->clear_bn(p_area);
     if(environment(this_body())->is_horse())
-{this_object()->targetted_action("$NÖ¸ÁËÖ¸$T£¬µÀ£º²»ÖªµÀ½ø³Ç±ØÐëÏÂÂíÂð£¿\n",this_body());
-return "ÄãÒ»Ë¼Á¿£º¶Ô£¬»¹ÊÇÏÈÏÂÂí°É\n";}
+{this_object()->targetted_action("$NæŒ‡äº†æŒ‡$Tï¼Œé“ï¼šä¸çŸ¥é“è¿›åŸŽå¿…é¡»ä¸‹é©¬å—ï¼Ÿ\n",this_body());
+return "ä½ ä¸€æ€é‡ï¼šå¯¹ï¼Œè¿˜æ˜¯å…ˆä¸‹é©¬å§\n";}
         if( wizardp(this_body()) ){
         return 0;
         }
@@ -67,15 +67,15 @@ void setup()
 //    if(!objectp(room)) {SGSYS("I don't know where am i. "); return;}
 //    an_area = room->get_area();
     set_area(p_obj->get_area());
-    set_id(p_obj->get_area()+" guard","%^H_CYAN%^³ÇÃÅÐ£Î¾%^RESET%^"); 
+    set_id(p_obj->get_area()+" guard","%^H_CYAN%^åŸŽé—¨æ ¡å°‰%^RESET%^"); 
     add_id("guard");
     add_question("enter","enter");
-    add_ask_str("enter","$N¶Ô$TÒ»¹°ÊÖ£¬µÀ£º$sÓÐÒªÊÂÔÚÉí£¬²»Öª´óÈË¿É·ñ·ÅÐÐ£¿\n");
+    add_ask_str("enter","$Nå¯¹$Tä¸€æ‹±æ‰‹ï¼Œé“ï¼š$sæœ‰è¦äº‹åœ¨èº«ï¼Œä¸çŸ¥å¤§äººå¯å¦æ”¾è¡Œï¼Ÿ\n");
     add_question("list","list");
-    add_ask_str("list","$N¶Ô$TÒ»¹°ÊÖ£¬µÀ£º¸ÒÎÊ´óÈË£¬±¾µØÇø½ûÖ¹ºÎÈË½øÈë£¿\n");
+    add_ask_str("list","$Nå¯¹$Tä¸€æ‹±æ‰‹ï¼Œé“ï¼šæ•¢é—®å¤§äººï¼Œæœ¬åœ°åŒºç¦æ­¢ä½•äººè¿›å…¥ï¼Ÿ\n");
     call_out("add_enter",random(10)+1);   
     add_block("enter");
-    set_block_action( "$NÉìÊÖÒ»À¹£ºÂý×Å£¬$m£¬ÄãÏë½øÈ¥»¹µÃÏÈÎÊÎÊÎÒ¡£\n");
+    set_block_action( "$Nä¼¸æ‰‹ä¸€æ‹¦ï¼šæ…¢ç€ï¼Œ$mï¼Œä½ æƒ³è¿›åŽ»è¿˜å¾—å…ˆé—®é—®æˆ‘ã€‚\n");
     set_in_room_desc(query_title("",""));
 }
 string long()
@@ -84,9 +84,9 @@ string long()
     string a_id;
     my_area=this_object()->get_area();
     a_id=AREA_D->get_area(my_area,"name");
-    return a_id+"³ÇÃÅÐ£Î¾£¬×¨ÃÅ¸ºÔðµØÇøµÄ°²È«±£ÎÀÊÂÒË¡£\n"+
-"ËûÕýÔÚÈÏÕæµØÅÌ²é¹ýÍùµÄÒ»ÇÐÐÐÈË¡£\n"+
-"ÄãÈôÒª½øÈë£¬±ØÐëÏÈÎÊ¹ýËû²ÅÐÐ %^H_CYAN%^ask guard about enter%^RESET%^ ¡£\n";
+    return a_id+"åŸŽé—¨æ ¡å°‰ï¼Œä¸“é—¨è´Ÿè´£åœ°åŒºçš„å®‰å…¨ä¿å«äº‹å®œã€‚\n"+
+"ä»–æ­£åœ¨è®¤çœŸåœ°ç›˜æŸ¥è¿‡å¾€çš„ä¸€åˆ‡è¡Œäººã€‚\n"+
+"ä½ è‹¥è¦è¿›å…¥ï¼Œå¿…é¡»å…ˆé—®è¿‡ä»–æ‰è¡Œ %^H_CYAN%^ask guard about enter%^RESET%^ ã€‚\n";
  }
  string query_title(string p_id,string c_id)
  {
@@ -96,7 +96,7 @@ string long()
     an_area = this_object()->get_area();
     p_areaname=AREA_D->get_area(get_area(),"name");
     p_nationname=COUNTRY_D->get_country(AREA_D->get_area(get_area(),"nation"),"name");
-    return ""HIC"¡¼"+p_nationname+"¡½"HIY"¡ò"+p_areaname+"¡ò³ÇÃÅÐ£Î¾"NOR"("+an_area+" guard)";
+    return ""HIC"ã€–"+p_nationname+"ã€—"HIY"â—Ž"+p_areaname+"â—ŽåŸŽé—¨æ ¡å°‰"NOR"("+an_area+" guard)";
  }
 void extra_init()
  {
@@ -108,11 +108,11 @@ void do_my_speak()
                 {
                 case 0:
                 this_object()->simple_action(
-                "$NÓÃÀäÀäµÄÄ¿¹â×¢ÊÓ×Å¹ýÍùµÄÐÐÈË£¬×ìÀï²»ÖªµÀÔÚÄîß¶Ê²Ã´¡£\n");
+                "$Nç”¨å†·å†·çš„ç›®å…‰æ³¨è§†ç€è¿‡å¾€çš„è¡Œäººï¼Œå˜´é‡Œä¸çŸ¥é“åœ¨å¿µå¨ä»€ä¹ˆã€‚\n");
                 break;
                 case 1:
                 this_object()->simple_action(
-                "$NÒ»×ÖÒ»¾äµØµÀ£ºÄãÃÇ¶¼ÀÏÊµµã£¬ÈÇÄÕÁËÎÒ¿ÉÃ»ºÃ¹û×Ó³Ô¡£¡£¡£\n");
+                "$Nä¸€å­—ä¸€å¥åœ°é“ï¼šä½ ä»¬éƒ½è€å®žç‚¹ï¼Œæƒ¹æ¼äº†æˆ‘å¯æ²¡å¥½æžœå­åƒã€‚ã€‚ã€‚\n");
                 break;
                 case 2:
                 this_object()->responda("beat");
@@ -122,11 +122,11 @@ void do_my_speak()
                 break;
                 case 4:
                 this_object()->simple_action(
-                "$NÀ÷ÉùºÈµÀ£ºÄã£¬¸øÎÒÌ§ÆðÍ·À´£¬¸ÉÂï¹í¹íËîËîµÄ£¿£¡\n");
+                "$NåŽ‰å£°å–é“ï¼šä½ ï¼Œç»™æˆ‘æŠ¬èµ·å¤´æ¥ï¼Œå¹²å˜›é¬¼é¬¼ç¥Ÿç¥Ÿçš„ï¼Ÿï¼\n");
                 break;
                 default:
                 this_object()->simple_action(
-                "$N×ÔÑÔ×ÔÓïµÀ£ºÈç¹ûÎÒÐÄÇéºÃ£¬Ò»ÇÐ¶¼ºÃËµ¡£¡£¡£\n");
+                "$Nè‡ªè¨€è‡ªè¯­é“ï¼šå¦‚æžœæˆ‘å¿ƒæƒ…å¥½ï¼Œä¸€åˆ‡éƒ½å¥½è¯´ã€‚ã€‚ã€‚\n");
                 break;
                 }
 }
@@ -172,55 +172,55 @@ void special_answer(object who, string matt)
     if( !cn || !mapp(cn) ) cn = ([ ]);
         AREA_D->clear_bn(area);
         if( wizardp(who) ){
-        this_object()->simple_action("$NÃ¦µÀ£ºÑ½£¬Ô­À´ÊÇÎ×Ê¦´óÈË£¬ÓÐÇëÓÐÇë¡£\n");
+        this_object()->simple_action("$Nå¿™é“ï¼šå‘€ï¼ŒåŽŸæ¥æ˜¯å·«å¸ˆå¤§äººï¼Œæœ‰è¯·æœ‰è¯·ã€‚\n");
 
         this_object()->responda("bow "+who->query_primary_id());
         this_body()->move(p_entry);
-        tell_user(p_id,"ÄãÔÚ³ÇÃÅÐ£Î¾µÄÖ¸ÒýÏÂ£¬À´µ½ÁË"+p_short+"¡£\n");
+        tell_user(p_id,"ä½ åœ¨åŸŽé—¨æ ¡å°‰çš„æŒ‡å¼•ä¸‹ï¼Œæ¥åˆ°äº†"+p_short+"ã€‚\n");
         return;
         }
         if( cn[p_id] > time ) 
         {
         this_object()->targetted_action(
-"$N¡ºÇºà¥¡»Ò»Éù°Î³ö¸Öµ¶£¬Ö¸×Å$TÀ÷ÉùºÈµÀ£º´óµ¨$r£¬ÄãÒÑ±»ÁÐÈëºÚÃûµ¥¡£\n"+
-"ÏÞÄãÁ¢¼´ÔÚÎÒÃæÇ°ÏûÊ§£¬Òª²»È»£¬ºßºß¡£¡£¡£\n",who);
-	this_body()->simple_action("$N´ó¾ªÊ§É«£¬»ÅÃ¦ÌÓ»ØÁË"+COUNTRY_D->get_country(CHAR_D->get_char(p_id,
-"nation"),"name")+"¡£\n");
+"$Nã€Žå‘›å•·ã€ä¸€å£°æ‹”å‡ºé’¢åˆ€ï¼ŒæŒ‡ç€$TåŽ‰å£°å–é“ï¼šå¤§èƒ†$rï¼Œä½ å·²è¢«åˆ—å…¥é»‘åå•ã€‚\n"+
+"é™ä½ ç«‹å³åœ¨æˆ‘é¢å‰æ¶ˆå¤±ï¼Œè¦ä¸ç„¶ï¼Œå“¼å“¼ã€‚ã€‚ã€‚\n",who);
+	this_body()->simple_action("$Nå¤§æƒŠå¤±è‰²ï¼Œæ…Œå¿™é€ƒå›žäº†"+COUNTRY_D->get_country(CHAR_D->get_char(p_id,
+"nation"),"name")+"ã€‚\n");
         this_body()->move(p_fly);
         return;
         }
         if( p_area == area ){
-        this_object()->targetted_action("$NµÀ£º$RÄË±¾µØÈËÊ¿£¬Ö±½Ó½øÈë±ã¿É¡£\n",who);
+        this_object()->targetted_action("$Né“ï¼š$Rä¹ƒæœ¬åœ°äººå£«ï¼Œç›´æŽ¥è¿›å…¥ä¾¿å¯ã€‚\n",who);
         return;
         }
         if(CHAR_D->get_char(p_id,"nation")==AREA_D->get_area(area,"nation"))
         {
         this_object()->targetted_action(
-"$NµÀ£ºÄãÎÒÍ¬³¯Îª¹Ù£¬²»±Ø¿ÍÆø£¬$RÖ±½Ó½øÈë±ã¿É¡£\n",who);
+"$Né“ï¼šä½ æˆ‘åŒæœä¸ºå®˜ï¼Œä¸å¿…å®¢æ°”ï¼Œ$Rç›´æŽ¥è¿›å…¥ä¾¿å¯ã€‚\n",who);
         return;
         }
         if( !COUNTRY_D->nation_exist(CHAR_D->get_char(p_id,"nation")) ){
                 this_object()->targetted_action(
-"$N¿´ÁË$TÒ»ÑÛ£ºÅ¶£¬$RÄËÊÇÒþ¾ÓÏÍÈË£¬×Ô¼º½øÈ¥°É¡£\n",who);
+"$Nçœ‹äº†$Tä¸€çœ¼ï¼šå“¦ï¼Œ$Rä¹ƒæ˜¯éšå±…è´¤äººï¼Œè‡ªå·±è¿›åŽ»å§ã€‚\n",who);
                 return;
         }
         if(p_lo>39){
                 this_object()->targetted_action(
-"$NÃ¦µÀ£ºÔ­À´ÊÇ$m$R£¬Ê§¾´Ê§¾´£¬¿ì¿ìÇë½ø¡£\n",who);
-                tell_user(p_id,"ÄãÔÚ³ÇÃÅÐ£Î¾µÄÖ¸ÒýÏÂ£¬À´µ½ÁË"+p_short+"¡£\n");
+"$Nå¿™é“ï¼šåŽŸæ¥æ˜¯$m$Rï¼Œå¤±æ•¬å¤±æ•¬ï¼Œå¿«å¿«è¯·è¿›ã€‚\n",who);
+                tell_user(p_id,"ä½ åœ¨åŸŽé—¨æ ¡å°‰çš„æŒ‡å¼•ä¸‹ï¼Œæ¥åˆ°äº†"+p_short+"ã€‚\n");
                 this_body()->move(p_entry);
                 return;
         }
         else if (p_lo == 1 && p_chance == 3) {
 			DELAY_D->delay_targetted_action(this_object(),this_body(),
-"$N¡ºÇºà¥¡»Ò»Éù°Î³ö¸Öµ¶£¬Ö¸×Å$TÀ÷ÉùºÈµÀ£º´óµ¨$r£¬¶àÐÐ²»Òå£¬¶ñ¹áÂúÓ¯£¡\n"+
-"ÄãÒÑ±»ÎÒ¹ú»­Ó°Í¨¼­£¬½ñÈÕÄã×ÔÍ¶ÂÞÍø£¬¿´ÄãÄÄÀïÌÓ£¡\n",2);
+"$Nã€Žå‘›å•·ã€ä¸€å£°æ‹”å‡ºé’¢åˆ€ï¼ŒæŒ‡ç€$TåŽ‰å£°å–é“ï¼šå¤§èƒ†$rï¼Œå¤šè¡Œä¸ä¹‰ï¼Œæ¶è´¯æ»¡ç›ˆï¼\n"+
+"ä½ å·²è¢«æˆ‘å›½ç”»å½±é€šè¾‘ï¼Œä»Šæ—¥ä½ è‡ªæŠ•ç½—ç½‘ï¼Œçœ‹ä½ å“ªé‡Œé€ƒï¼\n",2);
 			call_out("catch_player",2);
 		}
 		else {
         this_object()->targetted_action(
-"$NÉÏÏÂ´òÁ¿ÁË$TÒ»·¬£¬µÀ£ºÄãµ½µ×Ïë¸ÉÊ²Ã´£¿ÀÏÊµ½»´ú£¡\n",who);
-        tell_user(p_id,"¿´À´Ëû²»»áÇáÒ×·ÅÄã½øÈ¥¡£\n");
+"$Nä¸Šä¸‹æ‰“é‡äº†$Tä¸€ç•ªï¼Œé“ï¼šä½ åˆ°åº•æƒ³å¹²ä»€ä¹ˆï¼Ÿè€å®žäº¤ä»£ï¼\n",who);
+        tell_user(p_id,"çœ‹æ¥ä»–ä¸ä¼šè½»æ˜“æ”¾ä½ è¿›åŽ»ã€‚\n");
         remove_call_out("my_selection");
         call_out("my_selection", 1, p_id);
         return;
@@ -231,13 +231,13 @@ void my_selection(string str)
         object usr;
         usr=CHAR_D->find_char(str);
         if( !objectp(usr) ) return;
-        tell_user(str,"ÄãÏë²ÉÈ¡Ê²Ã´¶Ô²ß£¿\n"+
-"¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ\n"+
-"  1¡¢»ßÂ¸    2¡¢ÍþÏÅ    3¡¢È°ÓÕ    4¡¢ÓÞÅª    5¡¢ÆòÇó    6¡¢·ÅÆú\n"+
-"¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ\n"+
-"ÇëÊäÈëÄãµÄÑ¡Ôñ(1--5)£º\n");
+        tell_user(str,"ä½ æƒ³é‡‡å–ä»€ä¹ˆå¯¹ç­–ï¼Ÿ\n"+
+"ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“\n"+
+"  1ã€è´¿èµ‚    2ã€å¨å“    3ã€åŠè¯±    4ã€æ„šå¼„    5ã€ä¹žæ±‚    6ã€æ”¾å¼ƒ\n"+
+"ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“\n"+
+"è¯·è¾“å…¥ä½ çš„é€‰æ‹©(1--5)ï¼š\n");
         call_out("no_answer",30);
-        usr->modal_push((: input_way:),"ÇëÊäÈëÄãµÄÑ¡Ôñ(1--6)£º\n");
+        usr->modal_push((: input_way:),"è¯·è¾“å…¥ä½ çš„é€‰æ‹©(1--6)ï¼š\n");
 }
 void input_way(string str)
 {
@@ -266,16 +266,16 @@ void input_way(string str)
         switch(str){
                 case "1":
                         this_body()->targetted_action(
-"$NÂúÁ³¶ÑÐ¦µØ¶Ô$TµÀ£º$sÉõÊÇÅå·þ´óÈËµÄÆø¸Å£¬ÕâÐ©Òø×Ó¡£¡£»¹ÍûÐ¦ÄÉ¡£\n",this_object());
+"$Næ»¡è„¸å †ç¬‘åœ°å¯¹$Té“ï¼š$sç”šæ˜¯ä½©æœå¤§äººçš„æ°”æ¦‚ï¼Œè¿™äº›é“¶å­ã€‚ã€‚è¿˜æœ›ç¬‘çº³ã€‚\n",this_object());
                         if(this_body()->query_all_con_money()<2500){
                                 DELAY_D->delay_targetted_action(this_object(),this_body(),
-"$NÅ­µÀ£ºÄãµ±ÎÒÊÇÉµ¹Ï°¡£¬ÄãÄÄÀïÓÐÇ®£¡£¿\n",2);
+"$Næ€’é“ï¼šä½ å½“æˆ‘æ˜¯å‚»ç“œå•Šï¼Œä½ å“ªé‡Œæœ‰é’±ï¼ï¼Ÿ\n",2);
                                 DELAY_D->delay_targetted_action(this_object(),this_body(),
-"$NÒ»ÕÐÊÖ£¬ºÈµÀ£ºÀ´ÈËÄÅ£¬¸øÎÒ°Ñ$mÕâ¸ö$r×¥ÆðÀ´£¡\n",3);
+"$Nä¸€æ‹›æ‰‹ï¼Œå–é“ï¼šæ¥äººå‘ï¼Œç»™æˆ‘æŠŠ$mè¿™ä¸ª$ræŠ“èµ·æ¥ï¼\n",3);
                                 DELAY_D->delay_targetted_action(this_object(),this_body(),
-"Á½±ß¾üÊ¿Ò»Óµ¶øÉÏ£¬°Ñ$TÀ¦ÁË¸ö½á½áÊµÊµ£¬Ö±±¼´óÀÎ¶øÈ¥¡£\n",4);
+"ä¸¤è¾¹å†›å£«ä¸€æ‹¥è€Œä¸Šï¼ŒæŠŠ$Tæ†äº†ä¸ªç»“ç»“å®žå®žï¼Œç›´å¥”å¤§ç‰¢è€ŒåŽ»ã€‚\n",4);
                                 DELAY_D->delay_simple_action(this_body(),
-"µÈ$NÇåÐÑ¹ýÀ´µÄÊ±ºî£¬·¢ÏÖ$nÒÑ¾­ÔÚ´óÀÎÀïÁË¡£\n",5);
+"ç­‰$Næ¸…é†’è¿‡æ¥çš„æ—¶ä¾¯ï¼Œå‘çŽ°$nå·²ç»åœ¨å¤§ç‰¢é‡Œäº†ã€‚\n",5);
                                 this_body()->move(p_prison);
                                 if (p_chance<3)
                                 {
@@ -283,8 +283,8 @@ void input_way(string str)
                                         p_lo=p_lo-1;
                                         CHAR_D->set_char_loyalty(p_id,AREA_D->get_area(area,"nation"),p_lo);
                                         DELAY_D->delay_simple_action(this_body(),
-"$T·¢ÏÖ$nÓë"+COUNTRY_D->get_country(AREA_D->get_area(area,"nation"),"name")+
-"µÄ¹ØÏµÏÂ½µÁËÒ»µã¡£\n",8);
+"$Tå‘çŽ°$nä¸Ž"+COUNTRY_D->get_country(AREA_D->get_area(area,"nation"),"name")+
+"çš„å…³ç³»ä¸‹é™äº†ä¸€ç‚¹ã€‚\n",8);
 
                                                 }
                                 return;
@@ -292,33 +292,33 @@ void input_way(string str)
                                 }
                         else{
                                 this_body()->targetted_action(
-"$NÍµÍµÃþ³ö¶þÊ®ÎåÁ½Òø×ÓÏëÈû¸ø$T¡£\n",this_object());
+"$Nå·å·æ‘¸å‡ºäºŒåäº”ä¸¤é“¶å­æƒ³å¡žç»™$Tã€‚\n",this_object());
                                 if (p_chance<5)
                                 {
                                 if ((p_chance1==1)||(p_chance1==2)||(p_chance1==3))
                                 {
                                 DELAY_D->delay_targetted_action(this_object(),this_body(),
-"$NÅ­µÀ£ºÄãÒÔÎªÎÒ»áÔÚºõÕâÐ©Ð¡Ç®£¿Ì«Ð¡¿´ÈËÁË£¡\n$N°ÑÇ®ÈÓ»¹¸ø$T¡£\n",2);
+"$Næ€’é“ï¼šä½ ä»¥ä¸ºæˆ‘ä¼šåœ¨ä¹Žè¿™äº›å°é’±ï¼Ÿå¤ªå°çœ‹äººäº†ï¼\n$NæŠŠé’±æ‰”è¿˜ç»™$Tã€‚\n",2);
                                 call_out("catch_player",2);
                                 }
                                 else{
                                 DELAY_D->delay_targetted_action(this_object(),this_body(),
-"$NÅ­µÀ£ºÄãÒÔÎªÎÒ»áÔÚºõÕâÐ©Ð¡Ç®£¿Ì«Ð¡¿´ÈËÁË£¡\n$N°ÑÇ®ÈÓ»¹¸ø$T¡£\n",2);
+"$Næ€’é“ï¼šä½ ä»¥ä¸ºæˆ‘ä¼šåœ¨ä¹Žè¿™äº›å°é’±ï¼Ÿå¤ªå°çœ‹äººäº†ï¼\n$NæŠŠé’±æ‰”è¿˜ç»™$Tã€‚\n",2);
                                 DELAY_D->delay_targetted_action(this_object(),this_body(),
-"$NÒ»ÕÐÊÖ£¬ºÈµÀ£ºÀ´ÈËÄÅ£¬¸øÎÒ°Ñ$mÕâ¸ö$r×¥ÆðÀ´£¡\n",3);
+"$Nä¸€æ‹›æ‰‹ï¼Œå–é“ï¼šæ¥äººå‘ï¼Œç»™æˆ‘æŠŠ$mè¿™ä¸ª$ræŠ“èµ·æ¥ï¼\n",3);
                                 DELAY_D->delay_targetted_action(this_object(),this_body(),
-"Á½±ß¾üÊ¿Ò»Óµ¶øÉÏ£¬ÏëÒª½«$TÀ¦ÆðÀ´¡£\n",4);
+"ä¸¤è¾¹å†›å£«ä¸€æ‹¥è€Œä¸Šï¼Œæƒ³è¦å°†$Tæ†èµ·æ¥ã€‚\n",4);
                                 DELAY_D->delay_targetted_action(this_body(),this_object(),
-"$NÏÅµÃ»ê²»¸½Ìå£¬¶áÂ·¶ø³ö£¬ÀÇ±·ÌÓ»ØÁË"+COUNTRY_D->get_country(CHAR_D->get_char(p_id,
-"nation"),"name")+"¡£\n",5);
+"$Nå“å¾—é­‚ä¸é™„ä½“ï¼Œå¤ºè·¯è€Œå‡ºï¼Œç‹¼ç‹ˆé€ƒå›žäº†"+COUNTRY_D->get_country(CHAR_D->get_char(p_id,
+"nation"),"name")+"ã€‚\n",5);
                                 this_body()->move(p_fly);
                                 if( p_lo > 10 ){
                                         p_lo=p_lo-1;
                                         CHAR_D->set_char_loyalty(p_id,AREA_D->get_area(area,
 "nation"),p_lo);
                                         DELAY_D->delay_simple_action(this_body(),
-"$N·¢ÏÖ$nÓë"+COUNTRY_D->get_country(AREA_D->get_area(area,"nation"),"name")+
-"µÄ¹ØÏµÏÂ½µÁËÒ»µã¡£\n",8);
+"$Nå‘çŽ°$nä¸Ž"+COUNTRY_D->get_country(AREA_D->get_area(area,"nation"),"name")+
+"çš„å…³ç³»ä¸‹é™äº†ä¸€ç‚¹ã€‚\n",8);
 
                                         }
                                 }
@@ -330,43 +330,43 @@ void input_way(string str)
                                 if (p_lo<30){
                                 p_lo=p_lo+1;
                                 CHAR_D->set_char_loyalty(p_id,AREA_D->get_area(area,"nation"),p_lo);
-                                DELAY_D->delay_simple_action(this_body(),"$N·¢ÏÖ$nÓë"+
-COUNTRY_D->get_country(AREA_D->get_area(area,"nation"),"name")+"µÄ¹ØÏµÉÏÉýÁËÒ»µã¡£\n",8);
+                                DELAY_D->delay_simple_action(this_body(),"$Nå‘çŽ°$nä¸Ž"+
+COUNTRY_D->get_country(AREA_D->get_area(area,"nation"),"name")+"çš„å…³ç³»ä¸Šå‡äº†ä¸€ç‚¹ã€‚\n",8);
                                 }
                                 this_object()->simple_action(
-"$NÇÄÇÄ°ÑÇ®ÊÕÏÂ£¬µÀ£º´ËÊÂÄãÖªÎÒÖªËû²»Öª£¬ÌìÖªµØÖª¹í²»Öª£¬Ã÷°×Âð£¿\n");
+"$Næ‚„æ‚„æŠŠé’±æ”¶ä¸‹ï¼Œé“ï¼šæ­¤äº‹ä½ çŸ¥æˆ‘çŸ¥ä»–ä¸çŸ¥ï¼Œå¤©çŸ¥åœ°çŸ¥é¬¼ä¸çŸ¥ï¼Œæ˜Žç™½å—ï¼Ÿ\n");
                                 call_out("consider",3);
                                 }
                         }
                         break;
                 case "2":
                         this_body()->simple_action(
-"$NÁ³Ò»³Á£¬µÀ£º´óÃû¶¦¶¦µÄ$MÄã¶¼²»ÈÏÊ¶£¿ÄãÊÇ»ì¸É·¹³Ô\nµÄ°¡£¿£¡ÎóÁËÕýÊÂÄãµ£µ±µÃÆðÂð£¿£¡\n");
+"$Nè„¸ä¸€æ²‰ï¼Œé“ï¼šå¤§åé¼Žé¼Žçš„$Mä½ éƒ½ä¸è®¤è¯†ï¼Ÿä½ æ˜¯æ··å¹²é¥­åƒ\nçš„å•Šï¼Ÿï¼è¯¯äº†æ­£äº‹ä½ æ‹…å½“å¾—èµ·å—ï¼Ÿï¼\n");
                         if (wuli+p_chance<55){
                                 if ((p_chance1==1)||(p_chance1==2)||(p_chance1==3))
                                 {
                                 DELAY_D->delay_targetted_action(this_object(),this_body(),
-"$NÀäÐ¦Ò»Éù£ºàÍ£¬ÎÒ¹ÜÄãÊÇÊ²Âï¶«Î÷£¬½ñÌìÄã¾Í±ðÏë¹ýÎÒÕâµÀ¹Ø£¡\n",2);
+"$Nå†·ç¬‘ä¸€å£°ï¼šå—¤ï¼Œæˆ‘ç®¡ä½ æ˜¯ä»€å˜›ä¸œè¥¿ï¼Œä»Šå¤©ä½ å°±åˆ«æƒ³è¿‡æˆ‘è¿™é“å…³ï¼\n",2);
                                 call_out("catch_player",2);
                                 }
                                 else{
                                 DELAY_D->delay_targetted_action(this_object(),this_body(),
-"$NÀäÐ¦Ò»Éù£ºàÍ£¬ÎÒ¹ÜÄãÊÇÊ²Âï¶«Î÷£¬½ñÌìÄã¾Í±ðÏë¹ýÎÒÕâµÀ¹Ø£¡\n",2);
+"$Nå†·ç¬‘ä¸€å£°ï¼šå—¤ï¼Œæˆ‘ç®¡ä½ æ˜¯ä»€å˜›ä¸œè¥¿ï¼Œä»Šå¤©ä½ å°±åˆ«æƒ³è¿‡æˆ‘è¿™é“å…³ï¼\n",2);
                                 DELAY_D->delay_targetted_action(this_object(),this_body(),
-"$NÒ»ÕÐÊÖ£¬ºÈµÀ£ºÀ´ÈËÄÅ£¬¸øÎÒ°Ñ$mÕâ¸ö$r×¥ÆðÀ´£¡\n",3);
+"$Nä¸€æ‹›æ‰‹ï¼Œå–é“ï¼šæ¥äººå‘ï¼Œç»™æˆ‘æŠŠ$mè¿™ä¸ª$ræŠ“èµ·æ¥ï¼\n",3);
                                 DELAY_D->delay_targetted_action(this_object(),this_body(),
-"Á½±ß¾üÊ¿Ò»Óµ¶øÉÏ£¬ÏëÒª½«$TÀ¦ÆðÀ´¡£\n",4);
+"ä¸¤è¾¹å†›å£«ä¸€æ‹¥è€Œä¸Šï¼Œæƒ³è¦å°†$Tæ†èµ·æ¥ã€‚\n",4);
                                 DELAY_D->delay_targetted_action(this_body(),this_object(),
-"$NÏÅµÃ»ê²»¸½Ìå£¬¶áÂ·¶ø³ö£¬ÀÇ±·ÌÓ»ØÁË"+COUNTRY_D->get_country(CHAR_D->get_char(p_id,
-"nation"),"name")+"¡£\n",5);
+"$Nå“å¾—é­‚ä¸é™„ä½“ï¼Œå¤ºè·¯è€Œå‡ºï¼Œç‹¼ç‹ˆé€ƒå›žäº†"+COUNTRY_D->get_country(CHAR_D->get_char(p_id,
+"nation"),"name")+"ã€‚\n",5);
                                 this_body()->move(p_fly);
                                 if (p_lo>10){
                                         p_lo=p_lo-1;
                                         CHAR_D->set_char_loyalty(p_id,AREA_D->get_area(area,
 "nation"),p_lo);
                                         DELAY_D->delay_simple_action(this_body(),
-"$N·¢ÏÖ$nÓë"+COUNTRY_D->get_country(AREA_D->get_area(area,"nation"),"name")+
-"µÄ¹ØÏµÏÂ½µÁËÒ»µã¡£\n",8);
+"$Nå‘çŽ°$nä¸Ž"+COUNTRY_D->get_country(AREA_D->get_area(area,"nation"),"name")+
+"çš„å…³ç³»ä¸‹é™äº†ä¸€ç‚¹ã€‚\n",8);
 
                                 }
                                 }
@@ -378,32 +378,32 @@ COUNTRY_D->get_country(AREA_D->get_area(area,"nation"),"name")+"µÄ¹ØÏµÉÏÉýÁËÒ»µã
                         break;
                 case "3":
                         this_body()->targetted_action(
-"$NÎ¢Ð¦×Å¶Ô$TµÀ£ºÎªÈËÓ¦¹ã¿ª·½±ãÖ®ÃÅ£¬½ñÈÕÈôÈÃ$s½øÈ¥£¬ËûÈÕ±ØÓÐ´óÈËÄãµÄºÃ´¦¡£\n",this_object());
+"$Nå¾®ç¬‘ç€å¯¹$Té“ï¼šä¸ºäººåº”å¹¿å¼€æ–¹ä¾¿ä¹‹é—¨ï¼Œä»Šæ—¥è‹¥è®©$sè¿›åŽ»ï¼Œä»–æ—¥å¿…æœ‰å¤§äººä½ çš„å¥½å¤„ã€‚\n",this_object());
                         if (meili+p_chance<55){
                                 if ((p_chance1==1)||(p_chance1==2)||(p_chance1==3))
                                 {
                                 DELAY_D->delay_targetted_action(this_object(),this_body(),
-"$NÐ±ÁË$TÒ»ÑÛ£¬¸ÉÐ¦¼¸ÉùºóµÀ£º¾ÍÆ¾Äã£¿£¡µÈÄã¸øÎÒºÃ´¦´ó¸ÅÒªµ½ºïÄêÂíÔÂÁË¡£\n",2);
+"$Næ–œäº†$Tä¸€çœ¼ï¼Œå¹²ç¬‘å‡ å£°åŽé“ï¼šå°±å‡­ä½ ï¼Ÿï¼ç­‰ä½ ç»™æˆ‘å¥½å¤„å¤§æ¦‚è¦åˆ°çŒ´å¹´é©¬æœˆäº†ã€‚\n",2);
                                 call_out("catch_player",2);
                                 }
                                 else{
                                 DELAY_D->delay_targetted_action(this_object(),this_body(),
-"$NÐ±ÁË$TÒ»ÑÛ£¬¸ÉÐ¦¼¸ÉùºóµÀ£º¾ÍÆ¾Äã£¿£¡µÈÄã¸øÎÒºÃ´¦´ó¸ÅÒªµ½ºïÄêÂíÔÂÁË¡£\n",2);
+"$Næ–œäº†$Tä¸€çœ¼ï¼Œå¹²ç¬‘å‡ å£°åŽé“ï¼šå°±å‡­ä½ ï¼Ÿï¼ç­‰ä½ ç»™æˆ‘å¥½å¤„å¤§æ¦‚è¦åˆ°çŒ´å¹´é©¬æœˆäº†ã€‚\n",2);
                                 DELAY_D->delay_targetted_action(this_object(),this_body(),
-"$NÒ»ÕÐÊÖ£¬ºÈµÀ£ºÀ´ÈËÄÅ£¬¸øÎÒ°Ñ$mÕâ¸ö$r×¥ÆðÀ´£¡\n",3);
+"$Nä¸€æ‹›æ‰‹ï¼Œå–é“ï¼šæ¥äººå‘ï¼Œç»™æˆ‘æŠŠ$mè¿™ä¸ª$ræŠ“èµ·æ¥ï¼\n",3);
                                 DELAY_D->delay_targetted_action(this_object(),this_body(),
-"Á½±ß¾üÊ¿Ò»Óµ¶øÉÏ£¬ÏëÒª½«$TÀ¦ÆðÀ´¡£\n",4);
+"ä¸¤è¾¹å†›å£«ä¸€æ‹¥è€Œä¸Šï¼Œæƒ³è¦å°†$Tæ†èµ·æ¥ã€‚\n",4);
                                 DELAY_D->delay_targetted_action(this_body(),this_object(),
-"$NÏÅµÃ»ê²»¸½Ìå£¬¶áÂ·¶ø³ö£¬ÀÇ±·ÌÓ»ØÁË"+
-COUNTRY_D->get_country(CHAR_D->get_char(p_id,"nation"),"name")+"¡£\n",5);
+"$Nå“å¾—é­‚ä¸é™„ä½“ï¼Œå¤ºè·¯è€Œå‡ºï¼Œç‹¼ç‹ˆé€ƒå›žäº†"+
+COUNTRY_D->get_country(CHAR_D->get_char(p_id,"nation"),"name")+"ã€‚\n",5);
                                 this_body()->move(p_fly);
                                 if (p_lo>10){
                                         p_lo=p_lo-1;
                                         CHAR_D->set_char_loyalty(p_id,
 AREA_D->get_area(area,"nation"),p_lo);
                                         DELAY_D->delay_simple_action(this_body(),
-"$N·¢ÏÖ$nÓë"+COUNTRY_D->get_country(AREA_D->get_area(area,"nation"),"name")+
-"µÄ¹ØÏµÏÂ½µÁËÒ»µã¡£\n",8);
+"$Nå‘çŽ°$nä¸Ž"+COUNTRY_D->get_country(AREA_D->get_area(area,"nation"),"name")+
+"çš„å…³ç³»ä¸‹é™äº†ä¸€ç‚¹ã€‚\n",8);
 
                                 }
                                 }
@@ -415,33 +415,33 @@ AREA_D->get_area(area,"nation"),p_lo);
                         break;
                 case "4":
                         this_body()->targetted_action(
-"$NÉñÃØµØ´Õ¹ýÈ¥¶Ô$TµÀ£ºÎÒÊÇÊÜÃüÍâ³öÇÇ×°´ÌÌ½¾üÇéµÄ£¬Èç½ñÈÎÎñ\n"+
-"Íê³É£¬¿ì·ÅÎÒ½øÈ¥£¬ÒÔ±ãÏòÖ÷¹«¸´Ãü¡£\n",this_object());
+"$Nç¥žç§˜åœ°å‡‘è¿‡åŽ»å¯¹$Té“ï¼šæˆ‘æ˜¯å—å‘½å¤–å‡ºä¹”è£…åˆºæŽ¢å†›æƒ…çš„ï¼Œå¦‚ä»Šä»»åŠ¡\n"+
+"å®Œæˆï¼Œå¿«æ”¾æˆ‘è¿›åŽ»ï¼Œä»¥ä¾¿å‘ä¸»å…¬å¤å‘½ã€‚\n",this_object());
                         if (zhimou+p_chance<55){
                                 if ((p_chance1==1)||(p_chance1==2)||(p_chance1==3))
                                 {
                                 DELAY_D->delay_targetted_action(this_object(),this_body(),
-"$NÉ¨ÁË$T¼¸ÑÛ£¬ÀäÐ¦µÀ£ºÆ¾ÄãÕâµã±¾ÊÂÏëÃÉÎÒ£¿£¡ÔÙÁ·Ê®Äê°É£¡\n",2);
+"$Næ‰«äº†$Tå‡ çœ¼ï¼Œå†·ç¬‘é“ï¼šå‡­ä½ è¿™ç‚¹æœ¬äº‹æƒ³è’™æˆ‘ï¼Ÿï¼å†ç»ƒåå¹´å§ï¼\n",2);
                                 call_out("catch_player",2);
                                 }
                                 else{
                                 DELAY_D->delay_targetted_action(this_object(),this_body(),
-"$NÉ¨ÁË$T¼¸ÑÛ£¬ÀäÐ¦µÀ£ºÆ¾ÄãÕâµã±¾ÊÂÏëÃÉÎÒ£¿£¡ÔÙÁ·Ê®Äê°É£¡\n",2);
+"$Næ‰«äº†$Tå‡ çœ¼ï¼Œå†·ç¬‘é“ï¼šå‡­ä½ è¿™ç‚¹æœ¬äº‹æƒ³è’™æˆ‘ï¼Ÿï¼å†ç»ƒåå¹´å§ï¼\n",2);
                                 DELAY_D->delay_targetted_action(this_object(),this_body(),
-"$NÒ»ÕÐÊÖ£¬ºÈµÀ£ºÀ´ÈËÄÅ£¬¸øÎÒ°Ñ$mÕâ¸ö$rºå³öÈ¥£¡\n",3);
+"$Nä¸€æ‹›æ‰‹ï¼Œå–é“ï¼šæ¥äººå‘ï¼Œç»™æˆ‘æŠŠ$mè¿™ä¸ª$rå“„å‡ºåŽ»ï¼\n",3);
                                 DELAY_D->delay_targetted_action(this_object(),this_body(),
-"Á½±ß¾üÊ¿Ò»Óµ¶øÉÏ£¬Á¬ÍÆ´øÞú£¬×îºó»¹ÔÚ$TµÄÆ¨Æ¨ÉÏ²¹ÁËÒ»½Å¡£\n",4);
+"ä¸¤è¾¹å†›å£«ä¸€æ‹¥è€Œä¸Šï¼Œè¿žæŽ¨å¸¦æ¡ï¼Œæœ€åŽè¿˜åœ¨$Tçš„å±å±ä¸Šè¡¥äº†ä¸€è„šã€‚\n",4);
                                 DELAY_D->delay_targetted_action(this_body(),this_object(),
-"$NÖ»¾õµÃÈçÌÚÔÆ¼ÝÎíÒ»°ã£¬¾Í·É»Ø"+
-COUNTRY_D->get_country(CHAR_D->get_char(p_id,"nation"),"name")+"È¥ÁË¡£\n",5);
+"$Nåªè§‰å¾—å¦‚è…¾äº‘é©¾é›¾ä¸€èˆ¬ï¼Œå°±é£žå›ž"+
+COUNTRY_D->get_country(CHAR_D->get_char(p_id,"nation"),"name")+"åŽ»äº†ã€‚\n",5);
                                 this_body()->move(p_fly);
                                 if (p_lo>10){
                                         p_lo=p_lo-1;
                                         CHAR_D->set_char_loyalty(p_id,
 AREA_D->get_area(area,"nation"),p_lo);
                                         DELAY_D->delay_simple_action(this_body(),
-"$N·¢ÏÖ$nÓë"+COUNTRY_D->get_country(AREA_D->get_area(area,"nation"),"name")+
-"µÄ¹ØÏµÏÂ½µÁËÒ»µã¡£\n",8);
+"$Nå‘çŽ°$nä¸Ž"+COUNTRY_D->get_country(AREA_D->get_area(area,"nation"),"name")+
+"çš„å…³ç³»ä¸‹é™äº†ä¸€ç‚¹ã€‚\n",8);
 
                                 }
                                 }
@@ -453,32 +453,32 @@ AREA_D->get_area(area,"nation"),p_lo);
                         break;
 		case "5":
                         this_body()->targetted_action(
-"$NÒ»°Ñ±§×¡$TµÄ´óÍÈ£¬ÓÃ¼¸ºõßìÑÊµÄÉùÒôµÀ£º´óÈË£¡$sÎÒ¹ÙµÍÖ°Î¢£¬ÊËÍ¾¿²¿À£¬Ä¬Ä¬ÎÞÎÅ£¬Äú¾ÍÐÐ¸ö·½±ã°É¡£¡£¡£\n",this_object());
+"$Nä¸€æŠŠæŠ±ä½$Tçš„å¤§è…¿ï¼Œç”¨å‡ ä¹Žå“½å’½çš„å£°éŸ³é“ï¼šå¤§äººï¼$sæˆ‘å®˜ä½ŽèŒå¾®ï¼Œä»•é€”åŽå·ï¼Œé»˜é»˜æ— é—»ï¼Œæ‚¨å°±è¡Œä¸ªæ–¹ä¾¿å§ã€‚ã€‚ã€‚\n",this_object());
                         if (p_rep>2000){
 			if ((p_chance1==1)||(p_chance1==2)||(p_chance1==3))
 				{
 				DELAY_D->delay_targetted_action(this_object(),this_body(),
-"$N¹îÒìµØÒ»Ð¦£¬µÀ£º$m£¬ÄãÔçÒÑÉùÃûÔÚÍâ£¬ÎªºÎ½ñÈÕÈç´ËµÍÉùÏÂÆø£¡£¿ÏëÀ´±ØÓÐËùÍ¼¡£¡£¡£\n",2);
+"$Nè¯¡å¼‚åœ°ä¸€ç¬‘ï¼Œé“ï¼š$mï¼Œä½ æ—©å·²å£°ååœ¨å¤–ï¼Œä¸ºä½•ä»Šæ—¥å¦‚æ­¤ä½Žå£°ä¸‹æ°”ï¼ï¼Ÿæƒ³æ¥å¿…æœ‰æ‰€å›¾ã€‚ã€‚ã€‚\n",2);
                                 call_out("catch_player",2);
                                 }
                                 else{
                                 DELAY_D->delay_targetted_action(this_object(),this_body(),
-"$N¹îÒìµØÒ»Ð¦£¬µÀ£º$m£¬ÄãÔçÒÑÉùÃûÔÚÍâ£¬ÎªºÎ½ñÈÕÈç´ËµÍÉùÏÂÆø£¡£¿ÏëÀ´±ØÓÐËùÍ¼¡£¡£¡£\n",2);
+"$Nè¯¡å¼‚åœ°ä¸€ç¬‘ï¼Œé“ï¼š$mï¼Œä½ æ—©å·²å£°ååœ¨å¤–ï¼Œä¸ºä½•ä»Šæ—¥å¦‚æ­¤ä½Žå£°ä¸‹æ°”ï¼ï¼Ÿæƒ³æ¥å¿…æœ‰æ‰€å›¾ã€‚ã€‚ã€‚\n",2);
                                 DELAY_D->delay_targetted_action(this_object(),this_body(),
-"$NÒ»ÕÐÊÖ£¬ºÈµÀ£ºÀ´ÈËÄÅ£¬¸øÎÒ°Ñ$mÕâ¸ö$rºå³öÈ¥£¡\n",3);
+"$Nä¸€æ‹›æ‰‹ï¼Œå–é“ï¼šæ¥äººå‘ï¼Œç»™æˆ‘æŠŠ$mè¿™ä¸ª$rå“„å‡ºåŽ»ï¼\n",3);
                                 DELAY_D->delay_targetted_action(this_object(),this_body(),
-"Á½±ß¾üÊ¿Ò»Óµ¶øÉÏ£¬Á¬ÍÆ´øÞú£¬×îºó»¹ÔÚ$TµÄÆ¨Æ¨ÉÏ²¹ÁËÒ»½Å¡£\n",4);
+"ä¸¤è¾¹å†›å£«ä¸€æ‹¥è€Œä¸Šï¼Œè¿žæŽ¨å¸¦æ¡ï¼Œæœ€åŽè¿˜åœ¨$Tçš„å±å±ä¸Šè¡¥äº†ä¸€è„šã€‚\n",4);
                                 DELAY_D->delay_targetted_action(this_body(),this_object(),
-"$NÖ»¾õµÃÈçÌÚÔÆ¼ÝÎíÒ»°ã£¬¾Í·É»Ø"+
-COUNTRY_D->get_country(CHAR_D->get_char(p_id,"nation"),"name")+"È¥ÁË¡£\n",5);
+"$Nåªè§‰å¾—å¦‚è…¾äº‘é©¾é›¾ä¸€èˆ¬ï¼Œå°±é£žå›ž"+
+COUNTRY_D->get_country(CHAR_D->get_char(p_id,"nation"),"name")+"åŽ»äº†ã€‚\n",5);
                                 this_body()->move(p_fly);
                                 if (p_lo>10){
                                         p_lo=p_lo-1;
                                         CHAR_D->set_char_loyalty(p_id,
 AREA_D->get_area(area,"nation"),p_lo);
                                         DELAY_D->delay_simple_action(this_body(),
-"$N·¢ÏÖ$nÓë"+COUNTRY_D->get_country(AREA_D->get_area(area,"nation"),"name")+
-"µÄ¹ØÏµÏÂ½µÁËÒ»µã¡£\n",8);
+"$Nå‘çŽ°$nä¸Ž"+COUNTRY_D->get_country(AREA_D->get_area(area,"nation"),"name")+
+"çš„å…³ç³»ä¸‹é™äº†ä¸€ç‚¹ã€‚\n",8);
 
                                 }
                                 }
@@ -490,7 +490,7 @@ AREA_D->get_area(area,"nation"),p_lo);
                         break;			
                 default:
                         this_body()->simple_action(
-"$NÊ§ÍûµØÌ¾ÁËÒ»¿ÚÆø£¬µÀ£º¼ÈÈ»Èç´Ë£¬¾ÍËãÁË°É¡£\n");
+"$Nå¤±æœ›åœ°å¹äº†ä¸€å£æ°”ï¼Œé“ï¼šæ—¢ç„¶å¦‚æ­¤ï¼Œå°±ç®—äº†å§ã€‚\n");
         }
         this_body()->modal_pop();
         return;
@@ -508,8 +508,8 @@ void consider()
         //    p_entry=AREA_D->get_area(area,"path")+AREA_D->get_area(area,"entry");
         p_short=load_object(p_entry)->short();
         p_id=this_body()->query_id()[0];
-        this_object()->targetted_action("$NµÀ£º¼ÈÈ»Èç´Ë£¬$m$R¿ìÇë½ø°É¡£\n",this_body());
-        tell_user(p_id,"ÄãÔÚ³ÇÃÅÐ£Î¾µÄÖ¸ÒýÏÂ£¬À´µ½ÁË"+p_short+"¡£\n");
+        this_object()->targetted_action("$Né“ï¼šæ—¢ç„¶å¦‚æ­¤ï¼Œ$m$Rå¿«è¯·è¿›å§ã€‚\n",this_body());
+        tell_user(p_id,"ä½ åœ¨åŸŽé—¨æ ¡å°‰çš„æŒ‡å¼•ä¸‹ï¼Œæ¥åˆ°äº†"+p_short+"ã€‚\n");
         this_body()->move(p_entry);
         this_body()->responda("hehe");
         return;
@@ -523,11 +523,11 @@ void catch_player()
         p_prison=AREA_D->get_area(area,"path")+AREA_D->get_area(area,"prison");
         p_id=this_body()->query_id()[0];
         DELAY_D->delay_targetted_action(this_object(),this_body(),
-         "$NÒ»ÕÐÊÖ£¬ºÈµÀ£ºÀ´ÈËÄÅ£¬¸øÎÒ°Ñ$mÕâ¸ö$r×¥ÆðÀ´£¡\n",3);
+         "$Nä¸€æ‹›æ‰‹ï¼Œå–é“ï¼šæ¥äººå‘ï¼Œç»™æˆ‘æŠŠ$mè¿™ä¸ª$ræŠ“èµ·æ¥ï¼\n",3);
         DELAY_D->delay_targetted_action(this_object(),this_body(),
-         "Á½±ß¾üÊ¿Ò»Óµ¶øÉÏ£¬°Ñ$TÀ¦ÁË¸ö½á½áÊµÊµ£¬Ö±±¼´óÀÎ¶øÈ¥¡£\n",4);
+         "ä¸¤è¾¹å†›å£«ä¸€æ‹¥è€Œä¸Šï¼ŒæŠŠ$Tæ†äº†ä¸ªç»“ç»“å®žå®žï¼Œç›´å¥”å¤§ç‰¢è€ŒåŽ»ã€‚\n",4);
         DELAY_D->delay_simple_action(this_body(),
-          "µÈ$NÇåÐÑ¹ýÀ´µÄÊ±ºî£¬·¢ÏÖ$nÒÑ¾­ÔÚ´óÀÎÀïÁË¡£\n",5);
+          "ç­‰$Næ¸…é†’è¿‡æ¥çš„æ—¶ä¾¯ï¼Œå‘çŽ°$nå·²ç»åœ¨å¤§ç‰¢é‡Œäº†ã€‚\n",5);
         CHAR_D->put_prison(p_id,2);
         return;
 }
@@ -535,7 +535,7 @@ void no_answer()
 {
         remove_call_out("no_answer");
         this_body()->responda("sigh");
-        this_body()->simple_action("$NÊ§ÍûµØµÀ£º¼ÈÈ»Èç´Ë£¬¾ÍËãÁË°É¡£¡£¡£\n");
+        this_body()->simple_action("$Nå¤±æœ›åœ°é“ï¼šæ—¢ç„¶å¦‚æ­¤ï¼Œå°±ç®—äº†å§ã€‚ã€‚ã€‚\n");
         this_body()->modal_pop();
         return;
 }
@@ -550,16 +550,16 @@ void answer_list(object who)
 	here = env->get_area();
 	out = "";
 	if( !here||!stringp(here) )
-		this_object()->simple_action("$NÅÄÁËÅÄ×Ô¼ºµÄÍ·£ºÎÒÏÖÔÚÊÇÔÚÄÄ¶ù°¡£¿\n");
+		this_object()->simple_action("$Næ‹äº†æ‹è‡ªå·±çš„å¤´ï¼šæˆ‘çŽ°åœ¨æ˜¯åœ¨å“ªå„¿å•Šï¼Ÿ\n");
 	else if( !(bn=AREA_D->get_area(here,"bn"))||!mapp(bn)||!sizeof(bn) )
-		this_object()->simple_action("$NÒ¡Ò¡Í·£¬µÀ£º±¾µØÇøÃ»ÓÐ½ûÖ¹ÈÎºÎÈËÍ¨ÐÐ¡£\n");
+		this_object()->simple_action("$Næ‘‡æ‘‡å¤´ï¼Œé“ï¼šæœ¬åœ°åŒºæ²¡æœ‰ç¦æ­¢ä»»ä½•äººé€šè¡Œã€‚\n");
 	else {
 		foreach( string nn in keys(bn) ){
 			i++;
 			out = out + sprintf("(%-2d)%-12s%-16s%10s\n", i, COUNTRY_D->get_country(CHAR_D->get_char(nn,"nation"),"name"),CHAR_D->get_char(nn,"name")+"("+nn+")",
-				(bn[nn]<time()?"ÒÑÊ§Ð§":"ÈÔÓÐÐ§"));
+				(bn[nn]<time()?"å·²å¤±æ•ˆ":"ä»æœ‰æ•ˆ"));
 		};
-more(this_object()->short()+"×ªÉíÄÃ³öÒ»ÕÅÃûµ¥£¬µÀ£º±¾µØÇø½ûÖ¹ÏÂÁÐÈËµÈÍ¨ÐÐ£º\n"+out+"\n");
+more(this_object()->short()+"è½¬èº«æ‹¿å‡ºä¸€å¼ åå•ï¼Œé“ï¼šæœ¬åœ°åŒºç¦æ­¢ä¸‹åˆ—äººç­‰é€šè¡Œï¼š\n"+out+"\n");
 	}
 }
 

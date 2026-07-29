@@ -12,8 +12,8 @@ void start(string arg)
 	string where;
 
         if(arg == ""){
-                write("ÓÃ·¨´íÎó£¡");
-                write("ÓÃ cmd help warmap ²é¿´ÏêÏ¸°ïÖú¡£\n");
+                write("ç”¨æ³•é”™è¯¯ï¼");
+                write("ç”¨ cmd help warmap æŸ¥çœ‹è¯¦ç»†å¸®åŠ©ã€‚\n");
                 return;
 	};
 	env = environment(this_body());
@@ -34,7 +34,7 @@ void start(string arg)
                 arg = env->get_area();
         	tmp=MAP_D->city_exist( arg );
         	if( tmp!=1) {
-        		write("Ã»ÓĞ´Ë´¦µÄµØÍ¼£¬ÓÃmap²éÔÄÄ¿Ç°ÒÑÓĞµÄµØÍ¼¡£\n");
+        		write("æ²¡æœ‰æ­¤å¤„çš„åœ°å›¾ï¼Œç”¨mapæŸ¥é˜…ç›®å‰å·²æœ‰çš„åœ°å›¾ã€‚\n");
                 	return;
 		};
 	}

@@ -16,9 +16,9 @@ int do_award(object usr, string here);
 string *find_path(string STA, string END);
 
 void setup() {
-        set_id("magic mirror", HIY+"Òõ"+HIR+"Ñô"+NOR+"±¦¾µ", "mirror");
-        set_unit("±ú");
-        set_in_room_desc("Ò»±ú×ó´ÈÌØÖÆµÄ"+HIY+"Òõ"+HIR+"Ñô"+NOR+"±¦¾µ"+"(magic mirror)");
+        set_id("magic mirror", HIY+"é˜´"+HIR+"é˜³"+NOR+"å®é•œ", "mirror");
+        set_unit("æŸ„");
+        set_in_room_desc("ä¸€æŸ„å·¦æ…ˆç‰¹åˆ¶çš„"+HIY+"é˜´"+HIR+"é˜³"+NOR+"å®é•œ"+"(magic mirror)");
         set_attack_ability(2);
         set_attack_power(10);
         set_defence_ability(1);
@@ -37,26 +37,26 @@ int do_use_it()
 
 	who = this_body();
 	job = who->query_job("zuo ci", "");
-	who->start_busy(3, "ÄãÕýÃ¦×ÅÌ½Ë÷ÄØ£¡");
+	who->start_busy(3, "ä½ æ­£å¿™ç€æŽ¢ç´¢å‘¢ï¼");
 
         if( who->query_cur_hp() < 20 ){
-		write("»¹ÊÇÐÝÏ¢Ò»»áÔÙ¸É°É¡£\n");
+		write("è¿˜æ˜¯ä¼‘æ¯ä¸€ä¼šå†å¹²å§ã€‚\n");
 		return 1;
         } else who->set_cur_hp(who->query_cur_hp()-15);
 
 	if( !job || !mapp(job) || job["beg_time"] <= 0 ){
-		who->simple_action("$N×°Ä£×÷ÑùµÄÄÃ×Å"+this_object()->short()+"×ªÀ´×ªÈ¥¡£\n");
+		who->simple_action("$Nè£…æ¨¡ä½œæ ·çš„æ‹¿ç€"+this_object()->short()+"è½¬æ¥è½¬åŽ»ã€‚\n");
 		return 1;
 	};
 
 	env = environment(who);
 	if( env->is_horse() ){
-		write("ÔÚÂíÉÏÊÇ²»ÄÜ¿´·çË®µÄ¡£\n");
+		write("åœ¨é©¬ä¸Šæ˜¯ä¸èƒ½çœ‹é£Žæ°´çš„ã€‚\n");
 		return 1;
 	};
 	here = env->get_area();
 	if( !here||here==""||!stringp(here)||here == "huayin" ) {
-		write("ºÜÏÔÈ»£¬²»ÊÇÕâ¶ù¡£\n");
+		write("å¾ˆæ˜¾ç„¶ï¼Œä¸æ˜¯è¿™å„¿ã€‚\n");
 		return 1;
 	}
 	filename = file_name(env);
@@ -75,8 +75,8 @@ int succ_job(object who, string here)
 	string name;
 
 	name = who->query_id()[0];
-	who->simple_action("$NÂúÒâµÄµãÁËµãÍ·£º´Ë´¦·çË®¼«¼Ñ£¬¶¨ÓÐÁ¼³¼ÃÍ½«£¡\n");
-	write("ÄãµÄÈÎÎñÍê³ÉÁË£¡\n");
+	who->simple_action("$Næ»¡æ„çš„ç‚¹äº†ç‚¹å¤´ï¼šæ­¤å¤„é£Žæ°´æžä½³ï¼Œå®šæœ‰è‰¯è‡£çŒ›å°†ï¼\n");
+	write("ä½ çš„ä»»åŠ¡å®Œæˆäº†ï¼\n");
 	who->finish_job("zuo ci");
 	ROBOT->robot_test(who, (: do_award :), here);
 	
@@ -93,7 +93,7 @@ int do_award(object usr, string here)
 	sks  = keys(usr->get_sg_skills());
 
 	if( usr->query_robot() ){
-		write("±§Ç¸£¬´íÎóµÄ´ð°¸£¬Ã»ÓÐÈÎºÎ½±Àø£¬ÏÂ´ÎÔÙÅ¬Á¦°É£¡\n");
+		write("æŠ±æ­‰ï¼Œé”™è¯¯çš„ç­”æ¡ˆï¼Œæ²¡æœ‰ä»»ä½•å¥–åŠ±ï¼Œä¸‹æ¬¡å†åŠªåŠ›å§ï¼\n");
 		return 2;
 	}
 	CHAR_D->set_char(name, "reputation",
@@ -102,10 +102,10 @@ int do_award(object usr, string here)
 	if( AREA_D->get_area(here, "nation") ){
 		CHAR_D->set_char_loyalty(name,AREA_D->get_area(here,"nation"),
 			CHAR_D->get_char_loyalty(name,AREA_D->get_area(here,"nation"))+1);
-			write("ÄãÓë"+COUNTRY_D->get_country(AREA_D->get_area(here,"nation"),"name")+"µÄÓÑºÃ¶ÈÌá¸ßÁË£¡\n");
+			write("ä½ ä¸Ž"+COUNTRY_D->get_country(AREA_D->get_area(here,"nation"),"name")+"çš„å‹å¥½åº¦æé«˜äº†ï¼\n");
 	};
-	write("Äã±»½±ÀøÁË"+chinese_number(gold/100)+"Á½°×Òø¡£\n");
-	write("ÄãµÄÉùÍûÌá¸ßÁË"+chinese_number(rep)+"¡£\n");
+	write("ä½ è¢«å¥–åŠ±äº†"+chinese_number(gold/100)+"ä¸¤ç™½é“¶ã€‚\n");
+	write("ä½ çš„å£°æœ›æé«˜äº†"+chinese_number(rep)+"ã€‚\n");
 
 	if( !sks||!arrayp(sks)||!sizeof(sks) ) return 1;
 	sks = filter_array(sks, (: SG_SKILL_D->query_type($1)==4 :));
@@ -116,8 +116,8 @@ int do_award(object usr, string here)
 	point = point + 50 + random(50);
 
 	usr->award_exp(point ,skill);
-	write("ÄãµÄ%^H_CYAN%^"+SG_SKILL_D->query_name(skill)+"%^RESET%^Ìá¸ßÁË"
-		+chinese_number(point)+"µã£¡\n");
+	write("ä½ çš„%^H_CYAN%^"+SG_SKILL_D->query_name(skill)+"%^RESET%^æé«˜äº†"
+		+chinese_number(point)+"ç‚¹ï¼\n");
 
 	return 1;
 }
@@ -132,22 +132,22 @@ int find_area(object who, string here, string where)
 	w2 = AREA_D->get_distance(where, WCITY);
 	dis = (n1-n2)*(n1-n2)+(w1-w2)*(w1-w2);
 	
-	if( w1 > w2 ) msg = "Î÷";
-	else if( w1 < w2 ) msg = "¶«";
+	if( w1 > w2 ) msg = "è¥¿";
+	else if( w1 < w2 ) msg = "ä¸œ";
 	else msg = "";
-	if( n1 > n2 ) msg = msg + "±±";
-	else if( n1 < n2 ) msg = msg + "ÄÏ";
+	if( n1 > n2 ) msg = msg + "åŒ—";
+	else if( n1 < n2 ) msg = msg + "å—";
 	else msg = msg + "";
-	if( !msg || msg == "" )msg = "ÖÜÎ§";
-	else msg = msg + "·½";
+	if( !msg || msg == "" )msg = "å‘¨å›´";
+	else msg = msg + "æ–¹";
 
-	if( dis <= 2 )msg = msg + "¼«½üµÄ";
-	else if( dis <= 16 ) msg = msg + "²»Ô¶µÄ";
-	else if( dis <= 36 ) msg = msg + "½ÏÔ¶µÄ";
-	else msg = msg + "¼«Ô¶µÄ";
+	if( dis <= 2 )msg = msg + "æžè¿‘çš„";
+	else if( dis <= 16 ) msg = msg + "ä¸è¿œçš„";
+	else if( dis <= 36 ) msg = msg + "è¾ƒè¿œçš„";
+	else msg = msg + "æžè¿œçš„";
 
-	this_body()->simple_action("$NÒ»±ß×ìÀï·¢³öß´Á¨¹¾ààµÄÉùÒô£¬Ò»±ß×ª¶¯×ÅÊÖÀïµÄ"+this_object()->short()+"¡£\n");
-	write("Äã·¢ÏÖ"+msg+"µÄ³ÇÊÐÓÐµãÆæÒì¡£\n");
+	this_body()->simple_action("$Nä¸€è¾¹å˜´é‡Œå‘å‡ºå½å“©å’•å™œçš„å£°éŸ³ï¼Œä¸€è¾¹è½¬åŠ¨ç€æ‰‹é‡Œçš„"+this_object()->short()+"ã€‚\n");
+	write("ä½ å‘çŽ°"+msg+"çš„åŸŽå¸‚æœ‰ç‚¹å¥‡å¼‚ã€‚\n");
 
 	return 1;
 }
@@ -158,7 +158,7 @@ string *find_path(string STA, string END)
         mapping exits;
         string *checked_rooms;
         string *curren_rooms;
-        array  *main_rooms;
+        mixed *  *main_rooms;
         string room;
         string *path;
         string *tmp_curren_rooms;
@@ -225,9 +225,9 @@ int find_room(object who, string room, string next)
 
         path = find_path(room, next);
 
-	who->simple_action("$NÒ»±ß×ìÀï·¢³öß´Á¨¹¾ààµÄÉùÒô£¬Ò»±ß×ª¶¯×ÅÊÖÀïµÄ"+this_object()->short()+"¡£\n");
+	who->simple_action("$Nä¸€è¾¹å˜´é‡Œå‘å‡ºå½å“©å’•å™œçš„å£°éŸ³ï¼Œä¸€è¾¹è½¬åŠ¨ç€æ‰‹é‡Œçš„"+this_object()->short()+"ã€‚\n");
 	if( !path || !arrayp(path) || !sizeof(path) ){
-		write("µ«ÊÇÃ»ÓÐÈÎºÎ·¢ÏÖ¡£\n");
+		write("ä½†æ˜¯æ²¡æœ‰ä»»ä½•å‘çŽ°ã€‚\n");
 		return 1;
 	};
 	nn = 0; ww = 0; dd = 0; msg = "";
@@ -249,26 +249,26 @@ int find_room(object who, string room, string next)
 		else if( ss == "westup")    {ww++;dd--;}
 		else if( ss == "westdown")  {ww++;dd++;}
 	}
-	if( ww > 0 ) msg = "Î÷";
-        else if( ww < 0 ) msg = "¶«";
+	if( ww > 0 ) msg = "è¥¿";
+        else if( ww < 0 ) msg = "ä¸œ";
         else msg = "";
-        if( nn > 0 ) msg = msg + "±±";
-        else if( nn < 0 ) msg = msg + "ÄÏ";
+        if( nn > 0 ) msg = msg + "åŒ—";
+        else if( nn < 0 ) msg = msg + "å—";
         else msg = msg + "";
-        if( !msg || msg == "" )msg = "ÖÜÎ§";
-        else msg = msg + "·½";
+        if( !msg || msg == "" )msg = "å‘¨å›´";
+        else msg = msg + "æ–¹";
 
-        if( nn*nn+ww*ww <= 4 )msg = msg + "¼«½üµÄ";
-        else if(  nn*nn+ww*ww <= 16 ) msg = msg + "²»Ô¶µÄ";
-        else if(  nn*nn+ww*ww <= 36 ) msg = msg + "½ÏÔ¶µÄ";
-        else msg = msg + "¼«Ô¶µÄ";
+        if( nn*nn+ww*ww <= 4 )msg = msg + "æžè¿‘çš„";
+        else if(  nn*nn+ww*ww <= 16 ) msg = msg + "ä¸è¿œçš„";
+        else if(  nn*nn+ww*ww <= 36 ) msg = msg + "è¾ƒè¿œçš„";
+        else msg = msg + "æžè¿œçš„";
 	
-	if( dd > 0 ) msg = msg + "¸ß´¦";
-	else if( dd < 0 ) msg = msg + "µÍ´¦";
-	else msg = msg + "µØ·½";
+	if( dd > 0 ) msg = msg + "é«˜å¤„";
+	else if( dd < 0 ) msg = msg + "ä½Žå¤„";
+	else msg = msg + "åœ°æ–¹";
 
-	write("ÄãÒÑ¾­ÕÒµ½ÒªÕÒµÄ³ÇÊÐÁË£¡\n");
-        write("Äã·¢ÏÖ"+msg+"ÓÐµãÆæÒì¡£\n");
+	write("ä½ å·²ç»æ‰¾åˆ°è¦æ‰¾çš„åŸŽå¸‚äº†ï¼\n");
+        write("ä½ å‘çŽ°"+msg+"æœ‰ç‚¹å¥‡å¼‚ã€‚\n");
 
 	return 1;
 }
@@ -330,7 +330,7 @@ int find_rooma(object who, string beg, string end,string p_area)
 		path=({});
 		while(cur!=beg) {
 			if(!mapp(net[cur])) {
-				write("¾ÍÊÇÕâ¸ö³ÇÊÐ£¬µ«¾ßÌåÎ»ÖÃ»¹²â²»³öÀ´¡£ÔÚ»»¸ö·¿¼äÊÔÑéÒ»ÏÂ¡£\n");
+				write("å°±æ˜¯è¿™ä¸ªåŸŽå¸‚ï¼Œä½†å…·ä½“ä½ç½®è¿˜æµ‹ä¸å‡ºæ¥ã€‚åœ¨æ¢ä¸ªæˆ¿é—´è¯•éªŒä¸€ä¸‹ã€‚\n");
 				return;
 			}
 			tmp=net[cur]["old"];
@@ -338,9 +338,9 @@ int find_rooma(object who, string beg, string end,string p_area)
 			cur=tmp;
 		}
 	}
-	who->simple_action("$NÒ»±ß×ìÀï·¢³öß´Á¨¹¾ààµÄÉùÒô£¬Ò»±ß×ª¶¯×ÅÊÖÀïµÄ"+this_object()->short()+"¡£\n");
+	who->simple_action("$Nä¸€è¾¹å˜´é‡Œå‘å‡ºå½å“©å’•å™œçš„å£°éŸ³ï¼Œä¸€è¾¹è½¬åŠ¨ç€æ‰‹é‡Œçš„"+this_object()->short()+"ã€‚\n");
 	if( !path || !arrayp(path) || !sizeof(path) ){
-		write("µ«ÊÇÃ»ÓÐÈÎºÎ·¢ÏÖ¡£\n");
+		write("ä½†æ˜¯æ²¡æœ‰ä»»ä½•å‘çŽ°ã€‚\n");
 		return 1;
 	};
 	nn = 0; ww = 0; dd = 0; msg = "";
@@ -362,23 +362,23 @@ int find_rooma(object who, string beg, string end,string p_area)
 		else if( ss == "westup")    {ww++;dd--;}
 		else if( ss == "westdown")  {ww++;dd++;}
 	}
-	if( ww > 0 ) msg = "Î÷";
-        else if( ww < 0 ) msg = "¶«";
+	if( ww > 0 ) msg = "è¥¿";
+        else if( ww < 0 ) msg = "ä¸œ";
         else msg = "";
-        if( nn > 0 ) msg = msg + "±±";
-        else if( nn < 0 ) msg = msg + "ÄÏ";
+        if( nn > 0 ) msg = msg + "åŒ—";
+        else if( nn < 0 ) msg = msg + "å—";
         else msg = msg + "";
-        if( !msg || msg == "" )msg = "ÖÜÎ§";
-        else msg = msg + "·½";
-        if( nn*nn+ww*ww <= 4 )msg = msg + "¼«½üµÄ";
-        else if(  nn*nn+ww*ww <= 16 ) msg = msg + "²»Ô¶µÄ";
-        else if(  nn*nn+ww*ww <= 36 ) msg = msg + "½ÏÔ¶µÄ";
-        else msg = msg + "¼«Ô¶µÄ";
-	if( dd > 0 ) msg = msg + "¸ß´¦";
-	else if( dd < 0 ) msg = msg + "µÍ´¦";
-	else msg = msg + "µØ·½";
-	write("ÄãÒÑ¾­ÕÒµ½ÒªÕÒµÄ³ÇÊÐÁË£¡\n");
-        write("Äã·¢ÏÖ"+msg+"ÓÐµãÆæÒì¡£\n");
+        if( !msg || msg == "" )msg = "å‘¨å›´";
+        else msg = msg + "æ–¹";
+        if( nn*nn+ww*ww <= 4 )msg = msg + "æžè¿‘çš„";
+        else if(  nn*nn+ww*ww <= 16 ) msg = msg + "ä¸è¿œçš„";
+        else if(  nn*nn+ww*ww <= 36 ) msg = msg + "è¾ƒè¿œçš„";
+        else msg = msg + "æžè¿œçš„";
+	if( dd > 0 ) msg = msg + "é«˜å¤„";
+	else if( dd < 0 ) msg = msg + "ä½Žå¤„";
+	else msg = msg + "åœ°æ–¹";
+	write("ä½ å·²ç»æ‰¾åˆ°è¦æ‰¾çš„åŸŽå¸‚äº†ï¼\n");
+        write("ä½ å‘çŽ°"+msg+"æœ‰ç‚¹å¥‡å¼‚ã€‚\n");
 	return 1;
 }
 

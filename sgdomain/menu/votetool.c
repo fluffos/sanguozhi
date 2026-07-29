@@ -17,11 +17,11 @@ inherit CLASS_NEWSMSG;
 nomask void receive_top_cmd(string cmd);
 nomask void receive_grp_cmd(string cmd);
 nomask void receive_msg_cmd(string cmd);
-private static string* vote_memo;
-private static int item_count=1;
-private static string vote_subject;
-private static string* items=({});
-private static int vote_count,readright,writeright;
+private nosave string* vote_memo;
+private nosave int item_count=1;
+private nosave string vote_subject;
+private string* items=({});
+private nosave int vote_count,readright,writeright;
 private nomask void init_static_var()
 {
 vote_memo=({});
@@ -75,15 +75,15 @@ private nomask string format_group_line(string group)
     int last_id;
     int unread = count_unread_messages(VOTE_GROUP, 1);
     last_id = NEWS_D->get_group_last_id(VOTE_GROUP);
-    return sprintf("  %-40s (%d Ìõ±í¾ö, %d ÌõÎ´¶Á)",
-      "±í¾öÍ¶Æ±",
+    return sprintf("  %-40s (%d æ¡è¡¨å†³, %d æ¡æœªè¯»)",
+      "è¡¨å†³æŠ•ç¥¨",
       unread,
       count_unread_messages(VOTE_GROUP, 0));
 }
 private nomask string msg_cmd_prompt()
 {
-    return sprintf("(%s:%dÌõ) %d ÌõÎ´¶Á [q?lLpvMD] > ",
-      "Í¶Æ±±í¾ö",
+    return sprintf("(%s:%dæ¡) %d æ¡æœªè¯» [q?lLpvMD] > ",
+      "æŠ•ç¥¨è¡¨å†³",
       get_current_id(VOTE_GROUP),
       count_unread_messages(VOTE_GROUP, 0)
     );
@@ -103,7 +103,7 @@ string format_message_line(int short_fmt, int id, int noremoved)
         if (noremoved)
             return 0;
         else
-            subject = sprintf(short_fmt ? "%d. %s" : "%4d. %-35s", id, " (ÒÑÉ¾³ı)");
+            subject = sprintf(short_fmt ? "%d. %s" : "%4d. %-35s", id, " (å·²åˆ é™¤)");
     } else
         subject = msg->subject;                                                         
                                
@@ -126,7 +126,7 @@ private nomask void display_messages(int display_all)
         ids = filter_array(ids, (: $1 > $(read_thru_id) :) );
     }
     lines = map_array(sort_array(ids, 1), (: format_message_line(0, $1, 1) :)) - ({ 0 });
-    lines = ({(display_all?"ËùÓĞµÄ±í¾öÓĞ:":"Î´¶ÁµÄ±í¾öÓĞ:")}) + lines + ({""});
+    lines = ({(display_all?"æ‰€æœ‰çš„è¡¨å†³æœ‰:":"æœªè¯»çš„è¡¨å†³æœ‰:")}) + lines + ({""});
     more(lines);
 }
 nomask void wrap_post(string * text)
@@ -147,13 +147,13 @@ nomask void wrap_post(string * text)
 private nomask void receive_vote_writeright(string str)
 {int sel,id;
  if (str=="") 
-    { write("Ñ¡Ôñ´íÎó£¬ÖØĞÂÑ¡Ôñ:");
+    { write("é€‰æ‹©é”™è¯¯ï¼Œé‡æ–°é€‰æ‹©:");
       modal_simple((: receive_vote_writeright:));
     }
  else{
       sscanf(str,"%d",sel);
       if (sel<1||sel>5) 
-         { write("Ñ¡Ôñ´íÎó£¬ÖØĞÂÑ¡Ôñ:");
+         { write("é€‰æ‹©é”™è¯¯ï¼Œé‡æ–°é€‰æ‹©:");
           modal_simple((: receive_vote_writeright:));
          }
       else
@@ -161,26 +161,26 @@ private nomask void receive_vote_writeright(string str)
           //vote_memo += items;
           id = NEWS_D->post(VOTE_GROUP, vote_subject, implode(vote_memo, "\n") + "\n");
           VOTE_D->add_selectitem(id,items,readright,writeright);
-          write("³É¹¦¼ÓÈë±í¾ö: " + format_message_line(1, id) + "\n");
+          write("æˆåŠŸåŠ å…¥è¡¨å†³: " + format_message_line(1, id) + "\n");
          }     
     }
 }
 private nomask void receive_vote_readright(string str)
 {int sel;
  if (str=="") 
-    { write("Ñ¡Ôñ´íÎó£¬ÖØĞÂÑ¡Ôñ:");
+    { write("é€‰æ‹©é”™è¯¯ï¼Œé‡æ–°é€‰æ‹©:");
       modal_simple((: receive_vote_readright:));
     }
  else{
       sscanf(str,"%d",sel);
       if (sel<1||sel>5) 
-         { write("Ñ¡Ôñ´íÎó£¬ÖØĞÂÑ¡Ôñ:");
+         { write("é€‰æ‹©é”™è¯¯ï¼Œé‡æ–°é€‰æ‹©:");
           modal_simple((: receive_vote_readright:));
          }
       else
          {readright = sel;
-          write("Í¶Æ±È¨Àû: (1-È«ÌåÍæ¼Ò½ÇÉ« 2-±¾¹úÍæ¼Ò½ÇÉ« 3-±¾¹ú¹ÙÔ± 4-ËùÓĞ¹ÙÔ± 5-Î×Ê¦)\n");
-          write("ÇëÑ¡Ôñ±¾±í¾öµÄÍ¶Æ±È¨Àû:");
+          write("æŠ•ç¥¨æƒåˆ©: (1-å…¨ä½“ç©å®¶è§’è‰² 2-æœ¬å›½ç©å®¶è§’è‰² 3-æœ¬å›½å®˜å‘˜ 4-æ‰€æœ‰å®˜å‘˜ 5-å·«å¸ˆ)\n");
+          write("è¯·é€‰æ‹©æœ¬è¡¨å†³çš„æŠ•ç¥¨æƒåˆ©:");
           modal_simple((: receive_vote_writeright :)); 
          }     
     }
@@ -190,25 +190,25 @@ private nomask void receive_selectitem_verify(string str)
 {   //int id;
     if ( str[0] == 'n' || str[0] == 'N' )
     {
-        write("·ÅÆúÇ°ÃæÉè¶¨£¬ÖØĞÂÌí¼ÓĞÂµÄ±í¾öÑ¡Ïî\n");
+        write("æ”¾å¼ƒå‰é¢è®¾å®šï¼Œé‡æ–°æ·»åŠ æ–°çš„è¡¨å†³é€‰é¡¹\n");
         item_count=1;
         items=({});
-        write(sprintf("Éè¶¨±í¾öÑ¡Ïî(%d)£º",item_count));
+        write(sprintf("è®¾å®šè¡¨å†³é€‰é¡¹(%d)ï¼š",item_count));
         modal_simple((: receive_vote_selectitem :));
         
     }
     else if ( str[0] == 'y' || str[0] == 'Y' )
-    {write("%^RED%^±í¾öÑ¡ÏîÊäÈëÍê³É!%^RESET%^\n");
-     write("¶ÁÈ¨Àû: (1-È«ÌåÍæ¼Ò½ÇÉ« 2-±¾¹úÍæ¼Ò½ÇÉ« 3-±¾¹ú¹ÙÔ± 4-ËùÓĞ¹ÙÔ± 5-Î×Ê¦)\n");
-     write("ÇëÑ¡Ôñ±¾±í¾öµÄ¶ÁÈ¨Àû:");
+    {write("%^RED%^è¡¨å†³é€‰é¡¹è¾“å…¥å®Œæˆ!%^RESET%^\n");
+     write("è¯»æƒåˆ©: (1-å…¨ä½“ç©å®¶è§’è‰² 2-æœ¬å›½ç©å®¶è§’è‰² 3-æœ¬å›½å®˜å‘˜ 4-æ‰€æœ‰å®˜å‘˜ 5-å·«å¸ˆ)\n");
+     write("è¯·é€‰æ‹©æœ¬è¡¨å†³çš„è¯»æƒåˆ©:");
      modal_simple((: receive_vote_readright :));      
     	/*vote_memo += items;
         id = NEWS_D->post(VOTE_GROUP, vote_subject, implode(vote_memo, "\n") + "\n");
         VOTE_D->add_selectitem(id,items);
-        write("³É¹¦¼ÓÈë±í¾ö: " + format_message_line(1, id) + "\n");*/
+        write("æˆåŠŸåŠ å…¥è¡¨å†³: " + format_message_line(1, id) + "\n");*/
      }
     else
-    { write("Ñ¡Ôñ´íÎó£¬ÖØĞÂÑ¡Ôñ [yn] > ");
+    { write("é€‰æ‹©é”™è¯¯ï¼Œé‡æ–°é€‰æ‹© [yn] > ");
       modal_simple((: receive_selectitem_verify:));
     }
     
@@ -221,21 +221,21 @@ private nomask void receive_vote_selectitem(string selectitem)
     {
         //write("Post aborted.\n");
         if (item_count==1)
-           write("·ÅÆúÌí¼ÓĞÂµÄ±í¾ö¡£\n");
+           write("æ”¾å¼ƒæ·»åŠ æ–°çš„è¡¨å†³ã€‚\n");
         else
            {
-            write("±í¾öÑ¡ÏîÌí¼ÓÍê±Ï£¬ÄãÈ·¶¨Âğ£¿[yn] > ");
+            write("è¡¨å†³é€‰é¡¹æ·»åŠ å®Œæ¯•ï¼Œä½ ç¡®å®šå—ï¼Ÿ[yn] > ");
             modal_simple((: receive_selectitem_verify:));	
             /*vote_memo += items;
             id = NEWS_D->post(VOTE_GROUP, vote_subject, implode(vote_memo, "\n") + "\n");
             VOTE_D->add_selectitem(id,items);
-            write("³É¹¦¼ÓÈë±í¾ö: " + format_message_line(1, id) + "\n");*/
+            write("æˆåŠŸåŠ å…¥è¡¨å†³: " + format_message_line(1, id) + "\n");*/
            }
         return;
     } 
  items += ({sprintf("(%d) %s",item_count,selectitem)});
  item_count++;
- write(sprintf("Éè¶¨±í¾öÑ¡Ïî(%d)£º",item_count));
+ write(sprintf("è®¾å®šè¡¨å†³é€‰é¡¹(%d)ï¼š",item_count));
  modal_simple((: receive_vote_selectitem :));
 }  
 private nomask void receive_post_text(string subject, string * text)
@@ -244,13 +244,13 @@ private nomask void receive_post_text(string subject, string * text)
     if ( !text )
     {
         write("Post aborted.\n");
-        write("·ÅÆúÕÅÌùĞÂÎÅ¡£\n");
+        write("æ”¾å¼ƒå¼ è´´æ–°é—»ã€‚\n");
         return;
     }
     wrap_post(text);
     vote_subject = subject;
     vote_memo = text;
-    write(sprintf("Éè¶¨±í¾öÑ¡Ïî(%d)£º",item_count));
+    write(sprintf("è®¾å®šè¡¨å†³é€‰é¡¹(%d)ï¼š",item_count));
     modal_simple((: receive_vote_selectitem :));
     //id = NEWS_D->post(VOTE_GROUP, subject, implode(text, "\n") + "\n");
     //write("Posted:  " + format_message_line(1, id) + "\n");
@@ -262,7 +262,7 @@ private nomask void receive_post_subject(mixed subject)
     if ( subject == "" )
     {
         //write("Post aborted.\n");
-        write("·ÅÆúÕÅÌùĞÂÎÅ¡£\n");
+        write("æ”¾å¼ƒå¼ è´´æ–°é—»ã€‚\n");
         return;
     }
     new(EDIT_OB, EDIT_TEXT, 0, (: receive_post_text, subject :));
@@ -276,7 +276,7 @@ private nomask void post_message()
        return;
       }
     init_static_var();   
-    write("±í¾öÌâÄ¿£º");
+    write("è¡¨å†³é¢˜ç›®ï¼š");
     modal_simple((: receive_post_subject :));
 }
 private nomask class news_msg get_current_message()
@@ -308,7 +308,7 @@ private nomask int read_next_message(int skip_allowed)
             if ( skipped )
             {
                 printf(//"Skipped %d removed messages.\n",
-                       "Ìø¹ı %d ·âÒÑÉ¾³ıµÄ±í¾ö¡£\n",
+                       "è·³è¿‡ %d å°å·²åˆ é™¤çš„è¡¨å†³ã€‚\n",
                   msg_id - (get_current_id() + 1));
                 /*
                 ** Update the body's current message number (to mark all
@@ -317,7 +317,7 @@ private nomask int read_next_message(int skip_allowed)
                 this_body()->set_news_group_id(VOTE_GROUP, msg_id);
             }
             //write("No more messages.\n");
-            write("Ã»ÓĞĞÂµÄ±í¾öÁË¡£\n");
+            write("æ²¡æœ‰æ–°çš„è¡¨å†³äº†ã€‚\n");
             return 1;
         }
         msg = NEWS_D->get_message(VOTE_GROUP, msg_id);
@@ -337,7 +337,7 @@ private nomask int read_next_message(int skip_allowed)
     if ( skipped )
     {
         printf(//"Skipped %d removed messages.\n",
-               "Ìø¹ı %d ·âÒÑÉ¾³ıµÄÁôÑÔ¡£\n",
+               "è·³è¿‡ %d å°å·²åˆ é™¤çš„ç•™è¨€ã€‚\n",
           msg_id - (get_current_id() + 1));
     }
     /*
@@ -352,9 +352,9 @@ private nomask int read_next_message(int skip_allowed)
     return 0;
     }
     if ( msg ) {
-        post = sprintf("Ê±¼ä:  %-40sPost-id: %d (%d Last)\n"
-                "×÷Õß:  %s\n"
-                "ÌâÄ¿:  %s\n"
+        post = sprintf("æ—¶é—´:  %-40sPost-id: %d (%d Last)\n"
+                "ä½œè€…:  %s\n"
+                "é¢˜ç›®:  %s\n"
                 "----------------------------------------------------------------------\n"
                 "%s",
                 intp(msg->time) ? ctime(msg->time) : msg->time,
@@ -362,11 +362,11 @@ private nomask int read_next_message(int skip_allowed)
                 NEWS_D->get_group_last_id(VOTE_GROUP),
                 msg->poster,
                 msg->subject,
-                msg->body ? msg->body : "*** ÒÑÉ¾³ı ***");
+                msg->body ? msg->body : "*** å·²åˆ é™¤ ***");
        
     }
     else {
-        post = sprintf("Post-id: %d (%d Last)\n\n*** ÒÑÉ¾³ı ***",
+        post = sprintf("Post-id: %d (%d Last)\n\n*** å·²åˆ é™¤ ***",
                        msg_id, NEWS_D->get_group_last_id(VOTE_GROUP));
     }
     more(post);
@@ -382,7 +382,7 @@ private nomask void global_commands(string cmd)
     }
     else 
     {
-        write("ÎŞ´ËÃüÁî£¬ÓÃ ? À´»ñÈ¡°ïÖúĞÅÏ¢¡£\n"); 
+        write("æ— æ­¤å‘½ä»¤ï¼Œç”¨ ? æ¥è·å–å¸®åŠ©ä¿¡æ¯ã€‚\n"); 
         //"Unknown command. Type ? for help.\n");
     }
 }
@@ -420,7 +420,7 @@ private nomask void receive_remove_verify(string str)
     if ( str[0] != 'y' && str[0] != 'Y' )
     {
         //write("Removal aborted.\n");
-        write("·ÅÆúÉ¾³ı¡£\n");
+        write("æ”¾å¼ƒåˆ é™¤ã€‚\n");
         return;
     }
     NEWS_D->remove_post(VOTE_GROUP, cur_id);
@@ -432,18 +432,18 @@ private nomask void remove_message()
     if ( !msg )
     {
         //write("This post has already been removed.\n");
-        write("Õâ¸öÌù×ÓÒÑ¾­±»É¾³ıÁË¡£\n");
+        write("è¿™ä¸ªè´´å­å·²ç»è¢«åˆ é™¤äº†ã€‚\n");
         return;
     }
     if ( !adminp(this_user()) &&
       msg->userid != this_user()->query_userid() )
     {
         //write("You are not allowed to remove that post.\n");
-        write("ÄãÎŞÈ¨É¾³ıÄÇÕÅÌû×Ó¡£\n");
+        write("ä½ æ— æƒåˆ é™¤é‚£å¼ å¸–å­ã€‚\n");
         return;
     }
     printf(//"Removing: %s\nAre you sure? [yn] > ",
-           "×¼±¸É¾³ı£º%s\nÄãÈ·¶¨Âğ£¿[yn] > ",
+           "å‡†å¤‡åˆ é™¤ï¼š%s\nä½ ç¡®å®šå—ï¼Ÿ[yn] > ",
       format_message_line(1, get_current_id()));
     modal_simple((: receive_remove_verify :));
 }
@@ -451,13 +451,13 @@ private nomask void receive_vote_select(string sel)
 {int sel_id;
  if (sel == "")
     {
-    write("%^YELLOW%^ÄãÍ»È»¾ö¶¨ÔİÊ±ÏÈ²»²Î¼ÓÕâ´Î±í¾ö. %^RESET%^\n");
+    write("%^YELLOW%^ä½ çªç„¶å†³å®šæš‚æ—¶å…ˆä¸å‚åŠ è¿™æ¬¡è¡¨å†³. %^RESET%^\n");
     return;
     }
  sscanf(sel,"%d",sel_id); 
  if ((sel_id<1) || (sel_id>vote_count))
     {
-     write("%^YELLOW%^Ã»ÓĞ´Ë¶ÔÓ¦µÄÑ¡ÔñÏî£¬ÎŞĞ§Ñ¡Ôñ£¬ÇëÖØÑ¡!%^RESET%^\nÇëÊäÈëÄãÔŞÍ¬µÄÑ¡Ôñ: ");
+     write("%^YELLOW%^æ²¡æœ‰æ­¤å¯¹åº”çš„é€‰æ‹©é¡¹ï¼Œæ— æ•ˆé€‰æ‹©ï¼Œè¯·é‡é€‰!%^RESET%^\nè¯·è¾“å…¥ä½ èµåŒçš„é€‰æ‹©: ");
      modal_simple((: receive_vote_select :));
     }
  else
@@ -476,13 +476,13 @@ private nomask void do_vote()
     }
  items = VOTE_D->get_selectitems(vote_id);
  if (!items)
-    {write("%^RED%^²»ÖªÊ²Ã´Ô­ÒòÕâÏî±í¾öµÄĞÅÏ¢¶ªÊ§ÁË£¬ÎŞ·¨½øĞĞ±í¾ö!%^RESET%^\n");
+    {write("%^RED%^ä¸çŸ¥ä»€ä¹ˆåŸå› è¿™é¡¹è¡¨å†³çš„ä¿¡æ¯ä¸¢å¤±äº†ï¼Œæ— æ³•è¿›è¡Œè¡¨å†³!%^RESET%^\n");
      return;
     }
  vote_count = sizeof(keys(items));
  for (int i=1;i<=vote_count;i++)
      printf("%%^RED%%^(%d) %s%%^RESET%%^\n",i,items[i]);
- write("ÇëÊäÈëÄãÔŞÍ¬µÄÑ¡Ôñ: ");
+ write("è¯·è¾“å…¥ä½ èµåŒçš„é€‰æ‹©: ");
  modal_simple((: receive_vote_select :));
 }
 private nomask void receive_msg_cmd(mixed cmd)
@@ -493,18 +493,18 @@ private nomask void receive_msg_cmd(mixed cmd)
     cmd = trim_spaces(cmd);
     if ( cmd == "?" )
     {
-        write("\nÕâÊÇÍ¶Æ±±í¾öµÄÃüÁîÑ¡µ¥£º\n"
-              "     q           - ÍË³ö±í¾ö\n"
-              "     ?           - ±¾°ïÖú\n"
-              "     l           - ÁĞ³öÎ´¶ÁµÄ±í¾ö\n"
-              "     L           - ÁĞ³öËùÓĞµÄ±í¾ö\n"
-              "     p           - Ìí¼ÓĞÂµÄ±í¾ö\n"
-              "     v           - ²Î¼Ó±í¾ö\n"
-              "     M           - ·¢²¼±í¾ö½á¹û[×Ô¼º/´óÉñ]\n"
-              "     D           - É¾³ıÕıÔÚÔÄ¶ÁµÄ±í¾ö\n"
-              "   <»Ø³µ>        - ¶ÁÈ¡ÏÂÒ»Ìõ±í¾ö\n"
+        write("\nè¿™æ˜¯æŠ•ç¥¨è¡¨å†³çš„å‘½ä»¤é€‰å•ï¼š\n"
+              "     q           - é€€å‡ºè¡¨å†³\n"
+              "     ?           - æœ¬å¸®åŠ©\n"
+              "     l           - åˆ—å‡ºæœªè¯»çš„è¡¨å†³\n"
+              "     L           - åˆ—å‡ºæ‰€æœ‰çš„è¡¨å†³\n"
+              "     p           - æ·»åŠ æ–°çš„è¡¨å†³\n"
+              "     v           - å‚åŠ è¡¨å†³\n"
+              "     M           - å‘å¸ƒè¡¨å†³ç»“æœ[è‡ªå·±/å¤§ç¥]\n"
+              "     D           - åˆ é™¤æ­£åœ¨é˜…è¯»çš„è¡¨å†³\n"
+              "   <å›è½¦>        - è¯»å–ä¸‹ä¸€æ¡è¡¨å†³\n"
               "\n"
-              "¼üÈëÃüÁîÈ»ºó»Ø³µ¾ÍĞĞÁË¡£\n");
+              "é”®å…¥å‘½ä»¤ç„¶åå›è½¦å°±è¡Œäº†ã€‚\n");
     }
     else if (cmd == "D" )
     {
@@ -516,7 +516,7 @@ private nomask void receive_msg_cmd(mixed cmd)
     }
     else if ( cmd == "M" )
     {
-        write( "·¢²¼±í¾ö½á¹û£¿[y/N]");
+        write( "å‘å¸ƒè¡¨å†³ç»“æœï¼Ÿ[y/N]");
     }
     else
     {
@@ -528,7 +528,7 @@ void begin_reading()
     if (member_array(VOTE_GROUP,NEWS_D->get_groups())==-1)
     {
         printf( //"%s has no newsgroups right now.\n"
-                "%sÄ¿Ç°ÉĞÎ´¿ª·Å±í¾öĞÂÎÅ×é¡£\n", mud_name());
+                "%sç›®å‰å°šæœªå¼€æ”¾è¡¨å†³æ–°é—»ç»„ã€‚\n", mud_name());
         destruct();
         return;
     }

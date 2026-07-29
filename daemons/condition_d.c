@@ -77,15 +77,15 @@ void do_summary()
 	if( !sizeof(conds) ) return;
 
 	output=sprintf("%-8s%-12s  %-6s%-10s  %s\n",
-		"Ãû³Æ", "£É£Ä", "µÈ¼¶", "·¢×÷¼ä¸ô", "ÎÄ¼şÂ·¾¶");
+		"åç§°", "ï¼©ï¼¤", "ç­‰çº§", "å‘ä½œé—´éš”", "æ–‡ä»¶è·¯å¾„");
 	foreach(string ss in keys(conds)){
 		i++;
 		tmp = conds[ss];
 		output+=sprintf("%-8s%-12s  %-6s%-10s  %s\n", 
-			tmp["name"], ss, chinese_number(tmp["level"])+"¼¶", 
+			tmp["name"], ss, chinese_number(tmp["level"])+"çº§", 
 			chinese_number(tmp["times"]), tmp["path"]);
 	}
-	output+="µ±Ç°Èı¹úÖĞ¹²ÓĞ"+chinese_number(i)+"ÖÖ×´Ì¬\n";
+	output+="å½“å‰ä¸‰å›½ä¸­å…±æœ‰"+chinese_number(i)+"ç§çŠ¶æ€\n";
 
 	write(output);
 }

@@ -8,7 +8,7 @@ void switch_to(object);
 void attack();
 object get_target();
 
-static int  attacking;
+nosave protected int  attacking;
 int is_fighting()
 {
 	return attacking;
@@ -27,7 +27,7 @@ void do_something() {
 	}
     if (this_object()->query_cur_hp()<30)
     { 	
-//	this_object()->simple_action("$N死了！\n");
+//	this_object()->simple_action("$N姝讳簡锛乗n");
 //	this_object()->die();
 		this_object()->panic();
 		attacking=0;
@@ -61,8 +61,8 @@ varargs void attacked_by(object who, int take_a_swing) {
 string continue_fight() {
     if (!get_target())
         return //"You aren't attacking anyone.\n";
-               "你没有进攻对象了。\n";
+               "浣犳病鏈夎繘鏀诲璞′簡銆俓n";
     // wait for heart_beat
     return //"All in good time.\n";
-           "一切太平。\n";
+           "涓�鍒囧お骞炽�俓n";
 }

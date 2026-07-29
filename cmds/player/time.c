@@ -25,7 +25,7 @@ private void main(string notused)
     string str;
  
     int x;
-   out("当地时间\t\t"+ tm2 +"\n");
-   out(mud_name()+"启动于\t\t" + tm4 +"\n");
-   out("本次运行时间为\t\t" + CHINESE_D->chinese_period(uptime())+"\n");
+   out("褰撳湴鏃堕棿\t\t"+ tm2 +"\n");
+   out(mud_name()+"鍚姩浜嶾t\t" + tm4 +"\n");
+   out("鏈杩愯鏃堕棿涓篭t\t" + CHINESE_D->chinese_period(uptime())+"\n");
 }

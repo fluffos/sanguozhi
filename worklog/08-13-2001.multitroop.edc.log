@@ -4,13 +4,13 @@ Update  /sgdomain/npc/shuijing.c
 
 07/2001
 Update	/sgdomain/event/war/att_input.c
-	cancel ½ø¹¥·½»ì±à±øÖÖ
+	cancel è¿›æ”»æ–¹æ··ç¼–å…µç§
 Update	/sgdomain/event/war/def_input.c
-	cancel ·ÀÊØ·½»ì±à±øÖÖ
+	cancel é˜²å®ˆæ–¹æ··ç¼–å…µç§
 	
 07/2001
 Update	/daemons/warai_d/array_attack.c
-	cancel ¹­±øÌùÉíÉä»÷
+	cancel å¼“å…µè´´èº«å°„å‡»
 	
 08/01/2001
 Create	/cmds/player/setWar.c
@@ -23,13 +23,13 @@ Create	/cmds/player/setCity.c
 08/03/2001
 Update	/sgdomain/event/war/def_input.c
 Update	/sgdomain/event/war/def_arrange.c
-	½â¾önpc×Ô¶¯·Ö±øÖ»·ÖÃñ±øÎÊÌâ, ¸Ä±äsuicideËã·¨(½«¾ü×î´ó»¯, Ê¿±øÆ½¾ù»¯)
-	ĞÂËã·¨: ÓÅÏÈ·ÖÊ£Óà×î¶àµÄ±øÖÖ, troop±øÁ¦×î´ó»¯
+	è§£å†³npcè‡ªåŠ¨åˆ†å…µåªåˆ†æ°‘å…µé—®é¢˜, æ”¹å˜suicideç®—æ³•(å°†å†›æœ€å¤§åŒ–, å£«å…µå¹³å‡åŒ–)
+	æ–°ç®—æ³•: ä¼˜å…ˆåˆ†å‰©ä½™æœ€å¤šçš„å…µç§, troopå…µåŠ›æœ€å¤§åŒ–
 
 08/04/2001
 Update	/sgdomain/event/war/att_input.c
 Update	/sgdomain/event/war/def_input.c
-	¸ø"ÊäÈëÑ¡Ôñ±øÖÖ"¼ÓÁË¸öÊı×ÖÌáÊ¾
+	ç»™"è¾“å…¥é€‰æ‹©å…µç§"åŠ äº†ä¸ªæ•°å­—æç¤º
 Update	/sgdomain/event/war/def_arrange.c
 	add a new property "who_defend" to war task, which can be used in array_attack.c
 Update	/daemons/warai_d/array_attack.c

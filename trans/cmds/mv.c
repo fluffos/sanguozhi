@@ -12,22 +12,22 @@ private void move_one(string src, string dst, int force)
     if ( is_file(dst) && !force )
     {
         //outf("%s already exists.  Move failed.\n", dst);
-        outf("%s ÔçÒÑ´æÔÚÁË£¬Move Ê§°Ü¡£\n", dst);
+        outf("%s æ—©å·²å­˜åœ¨äº†ï¼ŒMove å¤±è´¥ã€‚\n", dst);
     }
     else if ( !(contents = read_file(src)) )
     {
         //outf("Could not read %s.  Move failed.\n", src);
-        outf("ÎŞ·¨¶ÁÈ¡ %s¡£Move Ê§°Ü¡£\n", src);
+        outf("æ— æ³•è¯»å– %sã€‚Move å¤±è´¥ã€‚\n", src);
     }
     else if ( !write_file(dst, contents, 1) )
     {
         //outf("%s could not be written to.  Move failed.\n", dst);
-        outf("%s ÎŞ·¨Ğ´Èë£¬Move Ê§°Ü¡£\n", dst);
+        outf("%s æ— æ³•å†™å…¥ï¼ŒMove å¤±è´¥ã€‚\n", dst);
     }
     else if ( !rm(src) )
     {
         //outf("%s couldn't be removed.\n", src);
-        outf("ÎŞ·¨É¾³ı %s¡£\n", src);
+        outf("æ— æ³•åˆ é™¤ %sã€‚\n", src);
     }
     else
     {
@@ -42,7 +42,7 @@ private void main(mixed argv, mapping flags)
     if(arrayp(argv[0]) && sizeof(argv[0]) > 1 && !is_directory(argv[1]))
     {
         //outf("mv: files dir, not mv files file\n");
-        outf("ÓÃ·¨£ºmv <ÎÄ¼şÈº> <Ä¿Â¼> ¶ø²»ÊÇ mv <ÎÄ¼şÈº> <ÎÄ¼ş>\n");
+        outf("ç”¨æ³•ï¼šmv <æ–‡ä»¶ç¾¤> <ç›®å½•> è€Œä¸æ˜¯ mv <æ–‡ä»¶ç¾¤> <æ–‡ä»¶>\n");
         return;
     }
     if(sizeof(argv[0]) > 1)

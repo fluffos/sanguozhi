@@ -5,15 +5,15 @@
 
 object query_owner();   // in SHELL
 
-private static string scrollback = "";
-private static string last_scrollback = "";
+private nosave string scrollback = "";
+private nosave string last_scrollback = "";
 
 private nomask void cmd_scrollback()
 {
     if(last_scrollback=="")
     {
     //write("You have no scrollback.\n");
-    write("你没有保留信息可以重读。\n");
+    write("浣犳病鏈変繚鐣欎俊鎭彲浠ラ噸璇汇�俓n");
     return;
     }
     more(last_scrollback);
@@ -30,6 +30,6 @@ nomask void add_scrollback(string s)
 {
     if ( previous_object() != query_owner() )
     //error("illegal attempt at adding scrollback data\n");
-    error("试图非法增加保留信息\n");
+    error("璇曞浘闈炴硶澧炲姞淇濈暀淇℃伅\n");
     scrollback += s;
 }

@@ -5,30 +5,30 @@
 #define DEF_LEN 20
 inherit M_ANSI;
 
-private static string remote_desc;
-private static string array room_state = ({});
-private static mapping room_state_extra_longs = ([]);
-private static int this_look_is_forced;
+private nosave string remote_desc;
+private string * room_state = ({});
+private mapping room_state_extra_longs = ([]);
+private nosave int this_look_is_forced;
 
-static private mapping default_nb =
-(["northwest":"©³©¥©¥©¥©¥©¥©¥©¥©¥©¥",
- "north": "©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥",
- "northeast": "©¥©¥©¥©¥©¥©¥©¥©¥©¥©·",
- "west": "©§        ",
- "east": "        ©§",
- "southwest": "©»©¥©¥©¥©¥©¥©¥©¥©¥©¥",
- "south": "©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥",
- "southeast":  "©¥©¥©¥©¥©¥©¥©¥©¥©¥©¿",
+nosave private mapping default_nb =
+(["northwest":"â”â”â”â”â”â”â”â”â”â”",
+ "north": "â”â”â”â”â”â”â”â”â”â”",
+ "northeast": "â”â”â”â”â”â”â”â”â”â”“",
+ "west": "â”ƒ        ",
+ "east": "        â”ƒ",
+ "southwest": "â”—â”â”â”â”â”â”â”â”â”",
+ "south": "â”â”â”â”â”â”â”â”â”â”",
+ "southeast":  "â”â”â”â”â”â”â”â”â”â”›",
  "upp" : "                            ",
  "downp" : "                            ",
  "enterp" : "                            ",
  "outp" : "                            ",
 ]);
 
-static private string pd="©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥";
-static private string pds="                    ";
-static private string bl=
-"©§                                                        ©§";
+nosave private string pd="â”â”â”â”â”â”â”â”â”â”";
+nosave private string pds="                    ";
+nosave private string bl=
+"â”ƒ                                                        â”ƒ";
 
 int query_light();
 string short();
@@ -40,7 +40,7 @@ string query_exit_value(string dir);
 string default_base_long();
 
 
-string array get_room_state_info()
+string * get_room_state_info()
 {
   return copy(room_state);
 }
@@ -133,7 +133,7 @@ varargs string show_objects(object except)
               if(0) //  if (except) modified by fire
                 {
                   str += sprintf(//" (outside %s)"
-                                 " (ÔÚ%sÍâÃæ)", except->short());
+                                 " (åœ¨%så¤–é¢)", except->short());
                 }
               obj_show += str + "\n";
             }
@@ -150,7 +150,7 @@ varargs string show_objects(object except)
                   if(0) // if(except) modified by fire
                 {
                   str += sprintf(//" (outside %s)"
-                                 " (ÔÚ%sÍâÃæ)", except->short());
+                                 " (åœ¨%så¤–é¢)", except->short());
                 }
                     obj_show += str + "\n";
                 }
@@ -177,7 +177,7 @@ string long()
 {
 #ifdef OBVIOUS_EXITS_BOTTOM
     return sprintf(//"%s%s%sObvious Exits: %s\nYou also see:\n%s",
-                   "%s%s%sÃ÷ÏÔµÄ³ö¿ÚÊÇ£º%s\nÄã»¹¿ÉÒÔ¿´µ½£º\n%s",     
+                   "%s%s%sæ˜æ˜¾çš„å‡ºå£æ˜¯ï¼š%s\nä½ è¿˜å¯ä»¥çœ‹åˆ°ï¼š\n%s",     
                    (dont_show_long() ? "" : get_base_long()[0..<2]),
                    get_state_specific_long(),
                    get_extra_long(),
@@ -199,7 +199,7 @@ string long_without_object(object o)
 {
 #ifdef OBVIOUS_EXITS_BOTTOM
     return sprintf(//"%s%sObvious Exits: %s\n%s",
-                   "%s%sÃ÷ÏÔµÄ³ö¿ÚÊÇ£º%s\n%s",     
+                   "%s%sæ˜æ˜¾çš„å‡ºå£æ˜¯ï¼š%s\n%s",     
                    get_base_long()[0..<2],
                    get_state_specific_long(),
                    get_extra_long(),
@@ -233,18 +233,18 @@ void do_looking(int forced_look)
     if ( query_light() < 1 )
     {
         //write("Someplace dark\nIt is dark here.\n");
-        write("µØ·½ºÜ°µ£¬ÕâÀïÆáºÚÒ»Æ¬¡£\n");
+        write("åœ°æ–¹å¾ˆæš—ï¼Œè¿™é‡Œæ¼†é»‘ä¸€ç‰‡ã€‚\n");
 #ifdef ZORKMUD
         //write("You might get eaten by a grue.\n");
-        write("Äã¿ÉÒªĞ¡ĞÄ±ğÏÅÅ¿ÏÂà¶...\n");
+        write("ä½ å¯è¦å°å¿ƒåˆ«å“è¶´ä¸‹å–½...\n");
 #endif
     }
     else
     {
 #ifdef OBVIOUS_EXITS
-        write(short()+"%^ROOM_EXIT%^ [³ö¿Ú£º"+show_exits()+"]%^RESET%^\n");
+        write(short()+"%^ROOM_EXIT%^ [å‡ºå£ï¼š"+show_exits()+"]%^RESET%^\n");
 //        printf(//"%s [exits: %s]\n"
-//               "%s%%^ROOM_EXIT%%^ [³ö¿Ú£º%s]%%^RESET%%^\n", short(), show_exits());
+//               "%s%%^ROOM_EXIT%%^ [å‡ºå£ï¼š%s]%%^RESET%%^\n", short(), show_exits());
         
 #else
         printf("%s\n", short());
@@ -273,7 +273,7 @@ void remote_look(object o)
     else
     {
         //printf("You can't seem to make out anything.\n");
-        printf("ÄãÊ¹¾¢Õõ´óË«ÑÛ£¬¿ÉÊ²Ã´Ò²ÇÆ²»¼û...\n");
+        printf("ä½ ä½¿åŠ²æŒ£å¤§åŒçœ¼ï¼Œå¯ä»€ä¹ˆä¹Ÿç§ä¸è§...\n");
     }
 }
 
@@ -379,11 +379,11 @@ string default_base_long()
 	c=exp_string(c,"c");
 	e=exp_string(e,"e");
 
-	up="©§"+get_spe_dir("up");
-	dw="©§"+get_spe_dir("down");
+	up="â”ƒ"+get_spe_dir("up");
+	dw="â”ƒ"+get_spe_dir("down");
 
-	en=get_spe_dir("enter")+"©§";
-	ot=get_spe_dir("out")+"©§";
+	en=get_spe_dir("enter")+"â”ƒ";
+	ot=get_spe_dir("out")+"â”ƒ";
 
 	return "\n"+nw+n+ne+"\n"+up+ot+"\n"+w+c+e+"\n"+dw+en+"\n"+sw+s+se+"\n\n";
 

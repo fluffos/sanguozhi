@@ -6,7 +6,7 @@ mixed up_dest, down_dest;
 mixed direct_climb_obj() {
     if (up_dest && down_dest)
         //return "Do you want to climb up it or down it?\n";
-        return "你要向上还是向下？\n";
+        return "浣犺鍚戜笂杩樻槸鍚戜笅锛焅n";
     if (up_dest || down_dest) return 1;
     return 0;
 }
@@ -14,14 +14,14 @@ mixed direct_climb_obj() {
 mixed direct_climb_up_obj() {
     if (up_dest) return 1;
     if (down_dest) //return "Try climbing down it.\n";
-                   return "试试向下的方向。\n";
+                   return "璇曡瘯鍚戜笅鐨勬柟鍚戙�俓n";
     return 0;
 }
 
 mixed direct_climb_down_obj() {
     if (down_dest) return 1;
     if (up_dest) //return "Try climbing up it.\n";
-                 return "试试向上的方向。\n";                       
+                 return "璇曡瘯鍚戜笂鐨勬柟鍚戙�俓n";                       
     return 0;
 }
 

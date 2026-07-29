@@ -36,7 +36,7 @@ mixed job(string m_id,string officer_id)
    if(!sizeof(mlist)){
 		o->add_job("findbody");
 		o->finish_job("findbody");
-		return "$N¶Ô$TµÀ£ºÏÖÔÚÃ»Ë­ºÃÕÒÑ½¡£\n";
+		return "$Nå¯¹$Té“ï¼šç°åœ¨æ²¡è°å¥½æ‰¾å‘€ã€‚\n";
 	}
    target=mlist[random(sizeof(mlist))];
    o->set_asklist("come","target",target);
@@ -45,11 +45,11 @@ mixed job(string m_id,string officer_id)
 
   o->add_job("findbody");
   o->set_job("findbody","status","begin");
-  o->set_job("findbody","memo","ÕÒ"+CHAR_D->get_char(target,"name")+"("+target+")");
+  o->set_job("findbody","memo","æ‰¾"+CHAR_D->get_char(target,"name")+"("+target+")");
    
-   return "$N¶Ô$TµÀ£ºÄÇ¾ÍÂé·³$RÈ¥°ïÎÒÕÒÒ»ÏÂ"+
+   return "$Nå¯¹$Té“ï¼šé‚£å°±éº»çƒ¦$Rå»å¸®æˆ‘æ‰¾ä¸€ä¸‹"+
 	   CHAR_D->get_char(target,"name")+"("+target+")"+
-	   "£¬\n¼ûÃæ¾ÍËµask "+target+" about come ¡£\n";
+	   "ï¼Œ\nè§é¢å°±è¯´ask "+target+" about come ã€‚\n";
 }
 void ask_come(object me, object target)
 {
@@ -61,11 +61,11 @@ void ask_come(object me, object target)
         (OFFICER_D->query_area_officer_title(
          AREA_D->get_area(m_area,"level"),0,0))[0]);
 	me->targetted_action(
-      "$N¶Ô$TĞ¦×ÅËµµÀ£º±¾µØ"+m_title+"ÓĞÇë$R\n",target);
+      "$Nå¯¹$Tç¬‘ç€è¯´é“ï¼šæœ¬åœ°"+m_title+"æœ‰è¯·$R\n",target);
 	DELAY_D->delay_targetted_action(
-		target,me,"$N¶Ô$TµÀ£ºÖªµÀÁË£¬Ëæºó¾ÍÈ¥£¬Ğ»Ğ»$R¡£\n",1);
+		target,me,"$Nå¯¹$Té“ï¼šçŸ¥é“äº†ï¼Œéšåå°±å»ï¼Œè°¢è°¢$Rã€‚\n",1);
 	me->clear_asklist("come");
 	me->set_job("findbody","status","done");
-	tell_user(m_id,"%^H_GREEN%^ÈÎÎñÍê³É£¬¿ìÈ¥Ì«ÊØ´¦ÁìÉÍ°É¡£\n%^RESET%^");
+	tell_user(m_id,"%^H_GREEN%^ä»»åŠ¡å®Œæˆï¼Œå¿«å»å¤ªå®ˆå¤„é¢†èµå§ã€‚\n%^RESET%^");
 	return;
 }

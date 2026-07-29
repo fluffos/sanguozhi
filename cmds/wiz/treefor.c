@@ -7,7 +7,7 @@
 #include <mudlib.h>
 inherit CMD;
 
-#define SYNTAX "ÓÃ·¨:  treefor <lpc expression>\n"
+#define SYNTAX "ç”¨æ³•:  treefor <lpc expression>\n"
 
 private void ind(int indent) {
     outf("%*-' 's", indent, "");

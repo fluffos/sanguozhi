@@ -57,8 +57,8 @@ int help()
 //        "Displays the entire contents of the specified file to your screen "
 //        "all at once.  See also more.\n" ));
       write(
-          "ÓÃ·¨£ºcat <ÎÄ¼şÃû>\n"
-          "ÏÔÊ¾Ö¸¶¨ÎÄ¼şµÄÈ«²¿ÄÚÈİ¡£\n"
-          "²Î¿¼£ºmore \n");
+          "ç”¨æ³•ï¼šcat <æ–‡ä»¶å>\n"
+          "æ˜¾ç¤ºæŒ‡å®šæ–‡ä»¶çš„å…¨éƒ¨å†…å®¹ã€‚\n"
+          "å‚è€ƒï¼šmore \n");
 }
 

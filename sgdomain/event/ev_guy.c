@@ -2,8 +2,8 @@
 // appear.c
 // by fire on Dec 1998
 //modified by Listen to setup fake guys
-static string *legalset=({"boy","guy","resident","idler"});
-static int s_id;
+nosave protected string *legalset=({"boy","guy","resident","idler"});
+nosave protected int s_id;
 void create_boy(string p_area);
 void check_boy();
 
@@ -18,7 +18,7 @@ string get_type()
    }
 }
 
-array get_array_type()
+mixed * get_array_type()
 {
    int i=random(3);
    switch(i)
@@ -33,10 +33,10 @@ string get_type_name(string p_type)
 {
    switch(p_type)
    {
-      case "guy": return "Ğ¡»ï";
-      case "resident": return "¾ÓÃñ";
-      case "idler" : return "ÏĞÈË";
-      default : return "ÓÎÃñ";
+      case "guy": return "å°ä¼™";
+      case "resident": return "å±…æ°‘";
+      case "idler" : return "é—²äºº";
+      default : return "æ¸¸æ°‘";
    }
 }
 int create_guy(string p_area,string p_type)
@@ -45,10 +45,10 @@ int create_guy(string p_area,string p_type)
    object o;
 
    p_id=p_area+" "+p_type;
-	//tell_user("huaer",sprintf("½øÁËcreate_guy(),p_area = %s, p_type = %s\n",p_area,p_type));
+	//tell_user("huaer",sprintf("è¿›äº†create_guy(),p_area = %s, p_type = %s\n",p_area,p_type));
 	if(objectp(o=CHAR_D->find_npc_char(p_id)))
 	{
-		//tell_user("huaer","guyÒÑ¾­´æÔÚÁË\n");
+		//tell_user("huaer","guyå·²ç»å­˜åœ¨äº†\n");
 		if (o->query("is_fake")) // a fake guy exist
 			return 0; //fail to creat
 		else
@@ -62,13 +62,13 @@ int create_guy(string p_area,string p_type)
    CHAR_D->set_char(p_id,"is_guy",1);
    CHAR_D->set_char(p_id,"body","guy");
 
-   CHAR_D->appear(p_id,p_area,"","Ò»Èº$N³³³³ÄÖÄÖµØ×ßÁË¹ıÀ´¡£\n");
+   CHAR_D->appear(p_id,p_area,"","ä¸€ç¾¤$Nåµåµé—¹é—¹åœ°èµ°äº†è¿‡æ¥ã€‚\n");
    o=CHAR_D->find_npc_char(p_id);
    if(objectp(o)) 
    {
 		o->set_area(p_area);
 		o->set("is_fake",0);
-		//tell_user("huaer",sprintf("ÔÚ%s½¨Á¢ÁËÒ»Èºguy\n",p_area));
+		//tell_user("huaer",sprintf("åœ¨%så»ºç«‹äº†ä¸€ç¾¤guy\n",p_area));
    }
    CHAR_D->remove_char_d(p_id);
    return 1;
@@ -78,7 +78,7 @@ int create_guy(string p_area,string p_type)
 int create_fake_guy(string p_area,string p_room,string m_id)
 {
    string p_id;
-   array p_type=get_array_type();
+   mixed * p_type=get_array_type();
    object o;
 
    for(int i=0;i<3;i++)
@@ -94,7 +94,7 @@ int create_fake_guy(string p_area,string p_room,string m_id)
 	   else
 	   {
 	   	o->move(p_room);
-	   	DELAY_D->delay_simple_action(o,"Ò»Èº$N³³³³ÄÖÄÖµØ×ßÁË¹ıÀ´¡£\n");
+	   	DELAY_D->delay_simple_action(o,"ä¸€ç¾¤$Nåµåµé—¹é—¹åœ°èµ°äº†è¿‡æ¥ã€‚\n");
 	   	o->set_area(p_area);
 		o->set("is_fake",1);
 		o->set("master",m_id);
@@ -114,7 +114,7 @@ int create_fake_guy(string p_area,string p_room,string m_id)
    	o=CHAR_D->find_char(p_id);
 	if(objectp(o))
 	{
-		DELAY_D->delay_simple_action(o,"Ò»Èº$N³³³³ÄÖÄÖµØ×ßÁË¹ıÀ´¡£\n");
+		DELAY_D->delay_simple_action(o,"ä¸€ç¾¤$Nåµåµé—¹é—¹åœ°èµ°äº†è¿‡æ¥ã€‚\n");
    		o->set_area(p_area);
 		o->set("is_fake",1);
 		o->set("master",m_id);//tell who set the ppl
@@ -145,7 +145,7 @@ object create_ppl(string p_area) {
    	CHAR_D->set_char(p_id,"body","ppl/ppl");
 	CHAR_D->set_char(p_id,"no_extra",1);
 
-   	CHAR_D->appear(p_id,p_area,"","$N×ßÁË¹ıÀ´¡£\n");
+   	CHAR_D->appear(p_id,p_area,"","$Nèµ°äº†è¿‡æ¥ã€‚\n");
 	o=CHAR_D->find_npc_char(p_id);
    	CHAR_D->remove_char_d(p_id);
 	return o;
@@ -174,12 +174,12 @@ void create_boy(string p_area)
    p_id=p_area+" "+"boy";
    CHAR_D->add_char(p_id);
    CHAR_D->set_char(p_id,"my_area",p_area);
-   CHAR_D->set_char(p_id,"name","µ÷Æ¤Ğ¡ÄĞº¢");
+   CHAR_D->set_char(p_id,"name","è°ƒçš®å°ç”·å­©");
    CHAR_D->set_char(p_id,"is_tmp",1);
    CHAR_D->set_char(p_id,"is_boy",1);
    CHAR_D->set_char(p_id,"body","boy");
    CHAR_D->set_char(p_id,"age",10);
-   CHAR_D->appear(p_id,p_area,"","Ò»¸ö$N±Ä±ÄÌøÌøµØÅÜÁË¹ıÀ´¡£\n");
+   CHAR_D->appear(p_id,p_area,"","ä¸€ä¸ª$Nè¹¦è¹¦è·³è·³åœ°è·‘äº†è¿‡æ¥ã€‚\n");
    o=CHAR_D->find_npc_char(p_id);
    if(objectp(o)) {
      o->set_area(p_area);

@@ -15,22 +15,22 @@ inherit M_MOUNTABLE;
 void setup()
 {
     set_relations("on");
-    set_adj("³ó");
-    set_id("horse", "Âí");
-    set_unit("Æ¥");
-    set_long("£Å£ò£ò£ò£®£®£®ÕâÆ¥ÂíÌ«³óÁË!!!");
+    set_adj("ä¸‘");
+    set_id("horse", "é©¬");
+    set_unit("åŒ¹");
+    set_long("ï¼¥ï½’ï½’ï½’ï¼ï¼ï¼è¿™åŒ¹é©¬å¤ªä¸‘äº†!!!");
     set_preposition("on");
     set_max_capacity(VERY_LARGE*2);
     // So people will see: Sitting on the horse you see Rust...
     set_primary_verb("sitting");
-//    set_in_room_desc("ÕâÀïÓĞÒ»Æ¥³óÂí¡£");
-    set_get_on_msg("$N·­ÉíÆïÉÏÁË³óÂí¡£\n");
-    set_get_off_msg("$N·­Éí´Ó³óÂíÉÏÌøÁËÏÂÀ´¡£\n");
+//    set_in_room_desc("è¿™é‡Œæœ‰ä¸€åŒ¹ä¸‘é©¬ã€‚");
+    set_get_on_msg("$Nç¿»èº«éª‘ä¸Šäº†ä¸‘é©¬ã€‚\n");
+    set_get_off_msg("$Nç¿»èº«ä»ä¸‘é©¬ä¸Šè·³äº†ä¸‹æ¥ã€‚\n");
 
 // We could opt for simple messages, and uncomment these
 // 2 lines, but we can also go for more complex msgs (see below).
-//    set_arrival_msg("$NÒ»²½Èı»ÎµØ×ßÁË¹ıÀ´¡£\n");
-//    set_departure_msg("$NÀë¿ªÁË¡£\n");
+//    set_arrival_msg("$Nä¸€æ­¥ä¸‰æ™ƒåœ°èµ°äº†è¿‡æ¥ã€‚\n");
+//    set_departure_msg("$Nç¦»å¼€äº†ã€‚\n");
 }
 
 
@@ -41,7 +41,7 @@ string get_arrival_msg()
   if(!(riders = get_riders_as_string()))
     return 0;
 
-  return short() + "ÍÔ×Å" + riders +"Àë¿ªÁË¡£\n";
+  return short() + "é©®ç€" + riders +"ç¦»å¼€äº†ã€‚\n";
 }
 
 string get_departure_msg()
@@ -51,5 +51,5 @@ string get_departure_msg()
   if(!(riders = get_riders_as_string()))
     return 0;
 
-  return riders + "ÆïÔÚ" + a_short() + "¹ıÀ´ÁË¡£\n";
+  return riders + "éª‘åœ¨" + a_short() + "è¿‡æ¥äº†ã€‚\n";
 }

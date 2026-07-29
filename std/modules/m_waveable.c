@@ -92,7 +92,7 @@ private void answer_question(string input)
 
 void complete_wave()
 {
-  object array obs;
+  object * obs;
 
   obs = filter(all_inventory(this_body())+all_inventory(environment(this_body())),
                (: $1->can_wave() :));
@@ -101,17 +101,17 @@ void complete_wave()
     {
     case 0:
       //write("You have nothing with which to wave.\n");   
-      write("ÄãÃ»ÓĞÉÈµÄ¹¤¾ß¡£\n");
+      write("ä½ æ²¡æœ‰æ‰‡çš„å·¥å…·ã€‚\n");
       return;
     case 1:
           printf(//"[with %s]\n"
-                 "[´ø×Å %s]",obs[0]->short());
+                 "[å¸¦ç€ %s]",obs[0]->short());
           obs[0]->do_waveing(this_object());
           return;
     default:
           modal_wave((:answer_question:),
                                   //"What do you want to wave with? "
-                                  "ÄãÒªÄÃÊ²Ã´À´ÉÈÑ½£¿");
+                                  "ä½ è¦æ‹¿ä»€ä¹ˆæ¥æ‰‡å‘€ï¼Ÿ");
           return;
     }
 }

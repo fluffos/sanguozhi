@@ -6,7 +6,7 @@ void wake(string p_id)
 	object o=find_body(p_id);
 	if(!objectp(o))
 		return;
-	o->simple_action("$NË¯ÐÑÁË£¬ÕâÒ»¾õÕæÊæ·þÑ½¡£\n");
+	o->simple_action("$Nç¡é†’äº†ï¼Œè¿™ä¸€è§‰çœŸèˆ’æœå‘€ã€‚\n");
 	return;
 }
 void do_sleep()
@@ -20,19 +20,19 @@ void do_sleep()
    env=environment(this_body());
    if(!env->is_bed())
    {
-	   write("ÏÈÕÒÕÅ´²ÔÙË¯¡£\n");
+	   write("å…ˆæ‰¾å¼ åºŠå†ç¡ã€‚\n");
 	   return;
    }
    food=this_body()->query_sg_food();
    drink=this_body()->query_sg_drink();
    if(!food)
    {
-	   write("ÄãÌ«¶öÁË£¬Ë¯²»×ÅÑ½¡£\n");
+	   write("ä½ å¤ªé¥¿äº†ï¼Œç¡ä¸ç€å‘€ã€‚\n");
 	   return;
    }
    if(!drink)
    {
-	   write("Äã¿Ú¿ÊµÃÀûº¦£¬ÊµÔÚÄÑÒÔÈëË¯¡£\n");
+	   write("ä½ å£æ¸´å¾—åˆ©å®³ï¼Œå®žåœ¨éš¾ä»¥å…¥ç¡ã€‚\n");
 	   return;
    }
 
@@ -41,11 +41,11 @@ void do_sleep()
    hp=this_body()->query_cur_max_mp();
    this_body()->set_cur_mp(hp);
 
-   this_body()->start_busy(sleeptime, "ÄãÕýÔÚÃÎÏçÖÐ¡£\n");
-   this_body()->simple_action("$NÒ»Í·µ¹µ½´²ÉÏ£¬ºôºô´óË¯ÆðÀ´¡£\n");
+   this_body()->start_busy(sleeptime, "ä½ æ­£åœ¨æ¢¦ä¹¡ä¸­ã€‚\n");
+   this_body()->simple_action("$Nä¸€å¤´å€’åˆ°åºŠä¸Šï¼Œå‘¼å‘¼å¤§ç¡èµ·æ¥ã€‚\n");
    call_out("wake",sleeptime+1,p_id);
 }
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ ""}) });
 }

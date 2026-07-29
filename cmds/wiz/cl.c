@@ -42,11 +42,11 @@ private void main( string str ) {
 	}
     if (o->get() != MOVE_OK || o->move(this_body()) != MOVE_OK) {
         if (o->move(environment(this_body())) != MOVE_OK)
-            out("Íê³É¡£(ÎŞ·¨ÒÆ¶¯)\n");
+            out("å®Œæˆã€‚(æ— æ³•ç§»åŠ¨)\n");
         else
-            out("Íê³É¡£(·ÅÔÚÕâÀï)\n");
+            out("å®Œæˆã€‚(æ”¾åœ¨è¿™é‡Œ)\n");
     } else
-        out("Íê³É¡£(·ÅÔÚÄãµÄÎïÆ·À¸)\n");
+        out("å®Œæˆã€‚(æ”¾åœ¨ä½ çš„ç‰©å“æ )\n");
     return;
 }
 void dis_objs(string *ids)
@@ -81,7 +81,7 @@ void dis_objs(string *ids)
 		}
 	}
 	printf("\n");
-	printf("²éµ½ÎïÆ·£º%d¼ş¡£\n",sum);
+	printf("æŸ¥åˆ°ç‰©å“ï¼š%dä»¶ã€‚\n",sum);
 
 }
 void dis_all_obj()
@@ -118,7 +118,7 @@ void dis_all_obj()
 		}
 	}
 	printf("\n");
-	printf("²éµ½ÎïÆ·£º%d¼ş¡£\n",sum);
+	printf("æŸ¥åˆ°ç‰©å“ï¼š%dä»¶ã€‚\n",sum);
 }
 
 void dis_list()
@@ -145,10 +145,10 @@ void dis_list()
 		mk_dt[mk]=CHAR_D->get_char(mk);
 	}
 	foreach(string ob in obs) {
-		dis+=sprintf("[%d] ID: %s  Ãû³Æ£º%sµÈ¼¶£º%d\n",
+		dis+=sprintf("[%d] ID: %s  åç§°ï¼š%sç­‰çº§ï¼š%d\n",
 			i,ob,OBJ_D->get_obj(ob,"name"),OBJ_D->get_obj(ob,"level"));
 		i++;
-//		dis+=sprintf("¿ÉÖÆ×÷¹¤½³            ¹¤½³ID  ¿É¶¨  ÎïÖÖÀà  ËùÔÚµØÇø  ËùÔÚ·¿¼ä ¡£\n");
+//		dis+=sprintf("å¯åˆ¶ä½œå·¥åŒ             å·¥åŒ ID  å¯å®š  ç‰©ç§ç±»  æ‰€åœ¨åœ°åŒº  æ‰€åœ¨æˆ¿é—´ ã€‚\n");
 		foreach(string mk in makers){
 			ls=mk_dt[mk]["goods"];
 			if(!ls) ls=({});
@@ -166,10 +166,10 @@ void dis_list()
 					if(!p_area) p_area="no area";
 				}
 				if(p_area=="no area")
-					SGSYS("¹¤½³"+mk+"Ã»ÓĞºÏ·¨µØÇø¡£");
+					SGSYS("å·¥åŒ "+mk+"æ²¡æœ‰åˆæ³•åœ°åŒºã€‚");
 				dis+=sprintf("%10s%18s  %4s  %6d%10s  %s\n",
 					mk_dt[mk]["name"],mk,
-					((mk_dt[mk]["just_sell"]==1) ? "²»ĞĞ":"¿ÉÒÔ"),
+					((mk_dt[mk]["just_sell"]==1) ? "ä¸è¡Œ":"å¯ä»¥"),
 					sizeof(ls),p_area,room_name);
 			}
 		}

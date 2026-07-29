@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is »¨¶ù¶ä¶ä
+// driver is èŠ±å„¿æœµæœµ
 // created date is Sat Jul 23 22:04:43 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -8,7 +8,7 @@ inherit STORE;
 void setup() {
 set_area("jiangxia");
 set_light(50);
-set_brief("%^YELLOW%^"+"·¹¹Ý"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"é¥­é¦†"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "east":"/a/jiangxia/jx_kedian.c",

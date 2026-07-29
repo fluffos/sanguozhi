@@ -19,9 +19,9 @@ string
 call_trace() {
     string res;
     int i, n;
-    object array objects;
-    string array programs;
-    string array functions;
+    object * objects;
+    string * programs;
+    string * functions;
     
     res = "";
     programs = call_stack(0);
@@ -357,7 +357,7 @@ len( mixed f ){
 
 //:FUNCTION choice
 //Returns a random element of the structure passed, if that
-//structure is an aggregate type (i.e., A string, array or mapping).
+//structure is an aggregate type (i.e., A string, arrayor mapping).
 
 mixed choice( mixed f ){
     mixed *k;
@@ -420,7 +420,7 @@ flatten_array(mixed arr)
 //Does a call_out to a list of functions, one following
 //another, with each returning the delay till the next one is called.
 
-static void handle_chain(object ob, array funcs, array args) {
+protected void handle_chain(object ob, mixed *funcs, mixed *args) {
     int delay;
     if(!sizeof(funcs))
       return;
@@ -432,7 +432,7 @@ static void handle_chain(object ob, array funcs, array args) {
     call_out( (: handle_chain :), delay, ob, funcs[1..], args);
 }
 
-void call_out_chain(array funcs, int delay, array args...) {
+void call_out_chain(mixed *funcs, int delay, mixed *args...) {
     call_out( (: handle_chain :), delay, previous_object(), funcs, args);
 }
 
@@ -541,7 +541,7 @@ int fuzzy_divide(int top, int bottom) {
         return top / bottom;
 }
 
-string implode_by_arr(string array arr1, string array arr2)
+string implode_by_arr(string * arr1, string * arr2)
 {
   string        res = "";
   int           i;
@@ -601,7 +601,7 @@ string convert_time(int sec, int type) {
 //sort_by_value(arr, f) returns the array arr sorted in such                                        
 //a way that the elements are in increasing order, as defined by the                                
 //value of the function f                                                                           
-array sort_by_value(array arr, function value_func) {                                               
+mixed * sort_by_value(mixed *arr, function value_func) {                                               
     return sort_array(arr, (: evaluate($(value_func), $1) - evaluate($(value_func), $2) :));        
 }                                                                                                       
 

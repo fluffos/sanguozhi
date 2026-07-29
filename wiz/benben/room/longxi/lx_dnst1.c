@@ -1,4 +1,4 @@
-//  ¶·ÄÏ½Ö by benben
+//  æ–—å—è¡— by benben
 // lx_dnst1.c 
 #include <mudlib.h>
 #include "/wiz/fire/fire.h"
@@ -7,8 +7,8 @@ inherit OUTDOOR_ROOM;
 void setup(){
     set_area("longxi");
     set_light(50);
-    set_brief(""+YEL+"--¶·ÄÏ½Ö--"+NOR+"");
-    set_long("    ÃèÊö¡£\n");
+    set_brief(""+YEL+"--æ–—å—è¡—--"+NOR+"");
+    set_long("    æè¿°ã€‚\n");
     set_exits( ([
         "east" :  __DIR__+"lx_yzh.c",
         "west" :  __DIR__+"lx_chk.c",

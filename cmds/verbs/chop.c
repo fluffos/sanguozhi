@@ -11,17 +11,17 @@ void do_chop_str_with_str(string st1, string st2)
 	if(!ob2){ return;}
     if(!ob2->can_chop_with_obj())
 	{
-		write(ob2->short()+"好象没法用来砍东西。\n");
+		write(ob2->short()+"濂借薄娌℃硶鐢ㄦ潵鐮嶄笢瑗裤�俓n");
 		return;
 	}
 	if(!ob1->is_choppable())
 	{
-		write(ob1->short()+"好象不能砍。\n");
+		write(ob1->short()+"濂借薄涓嶈兘鐮嶃�俓n");
 		return;
 	}
 	ob2->do_chopping(ob1);
 }
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ "STR with STR", }) });
 }

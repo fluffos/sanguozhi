@@ -3,7 +3,7 @@
 #define SAVE_FILE "/data/daemons/troop_type_d"
 inherit M_ACCESS;
 private mapping tps=([]);
-static string *lst;
+nosave protected string *lst;
 
 void clear_tps() {
 	lst=keys(tps);
@@ -49,19 +49,19 @@ mixed init_off() {
 		tps[t_id]["city"]=o->get_city();
 
 		tps[t_id]["energy_cost"]=([]);
-		tps[t_id]["energy_cost"]["¡Ä"]=o->query_energy_cost("¡Ä",0,0);
-		tps[t_id]["energy_cost"]["¡«"]=o->query_energy_cost("¡«",0,0);
-		tps[t_id]["energy_cost"]["£®"]=o->query_energy_cost("£®",0,0);
-		tps[t_id]["energy_cost"]["£ª"]=o->query_energy_cost("£ª",0,0);
-		tps[t_id]["energy_cost"]["¡á"]=o->query_energy_cost("¡á",0,0);
+		tps[t_id]["energy_cost"]["âˆ§"]=o->query_energy_cost("âˆ§",0,0);
+		tps[t_id]["energy_cost"]["ï½"]=o->query_energy_cost("ï½",0,0);
+		tps[t_id]["energy_cost"]["ï¼"]=o->query_energy_cost("ï¼",0,0);
+		tps[t_id]["energy_cost"]["ï¼Š"]=o->query_energy_cost("ï¼Š",0,0);
+		tps[t_id]["energy_cost"]["â™‚"]=o->query_energy_cost("â™‚",0,0);
 		tps[t_id]["energy_cost"]["other"]=o->query_energy_cost("other",0,0);
 
 		tps[t_id]["energy_recover"]=([]);
-		tps[t_id]["energy_recover"]["¡Ä"]=o->query_energy_recover("¡Ä",0,0);
-		tps[t_id]["energy_recover"]["¡«"]=o->query_energy_recover("¡«",0,0);
-		tps[t_id]["energy_recover"]["£®"]=o->query_energy_recover("£®",0,0);
-		tps[t_id]["energy_recover"]["£ª"]=o->query_energy_recover("£ª",0,0);
-		tps[t_id]["energy_recover"]["¡á"]=o->query_energy_recover("¡á",0,0);
+		tps[t_id]["energy_recover"]["âˆ§"]=o->query_energy_recover("âˆ§",0,0);
+		tps[t_id]["energy_recover"]["ï½"]=o->query_energy_recover("ï½",0,0);
+		tps[t_id]["energy_recover"]["ï¼"]=o->query_energy_recover("ï¼",0,0);
+		tps[t_id]["energy_recover"]["ï¼Š"]=o->query_energy_recover("ï¼Š",0,0);
+		tps[t_id]["energy_recover"]["â™‚"]=o->query_energy_recover("â™‚",0,0);
 		tps[t_id]["energy_recover"]["other"]=o->query_energy_recover("other",0,0);
 
 		tps[t_id]["arrow_defence"]=o->query_arrow_defence();
@@ -77,7 +77,7 @@ string list_troop() {
 	string ret;
 	sum=sizeof(lst);
 	ret=
-"±øÖÖID       ±øÖÖÃû³Æ   ±øÖÖID       ±øÖÖÃû³Æ   ±øÖÖID       ±øÖÖÃû³Æ   \n";
+"å…µç§ID       å…µç§åç§°   å…µç§ID       å…µç§åç§°   å…µç§ID       å…µç§åç§°   \n";
 	ret+= 
 "------------------------------------------------------------------------\n";
 	ts=1;
@@ -100,16 +100,16 @@ string get_stuff_list(mixed ms) {
 		ls=keys(ms);
 		foreach(string l in ls) {
 			if(l=="gold") 
-				ret+="½ğ£º";
+				ret+="é‡‘ï¼š";
 			else
-				ret+=(EV_MERCHANT)->query_goods(l,"name")+"£º";
+				ret+=(EV_MERCHANT)->query_goods(l,"name")+"ï¼š";
 			ret+=ms[l]+" ";
 		}
 	}
 	else {
 		foreach(string l in ms) {
 			if(l=="gold") 
-				ret+="½ğ ";
+				ret+="é‡‘ ";
 			else
 				ret+=(EV_MERCHANT)->query_goods(l,"name")+" ";
 		}
@@ -131,9 +131,9 @@ string get_area_con(mixed ss) {
 	ls=keys(ss);
 	foreach(string s in ls) {
 		if(s=="other")
-			ret+="³ÇÇ½£º";
+			ret+="åŸå¢™ï¼š";
 		else
-			ret+=s+"£º";
+			ret+=s+"ï¼š";
 		ret+=sprintf("(%2d) ",ss[s]);
 	}
 	return ret;
@@ -146,45 +146,45 @@ string get_attack_range(mixed ss) {
 		p_min=bmin(p_min,mm);
 		p_max=bmax(p_max,mm);
 	}
-	return "É±ÉËÁ¦£º"+p_min+" -- "+p_max;
+	return "æ€ä¼¤åŠ›ï¼š"+p_min+" -- "+p_max;
 }
 
 
 string show_troop(string what) {
 	string ret;
 	string *ls;
-	ret=sprintf("ID£º%s  Ãû³Æ£º%s  ÀàĞÍ£º%s\n", 
+	ret=sprintf("IDï¼š%s  åç§°ï¼š%s  ç±»å‹ï¼š%s\n", 
 		what,tps[what]["name"],tps[what]["type"]);
 
 	if(sizeof(tps[what]["recruit"])) {
-		ret+="ÕĞÄ¼£º"+get_stuff_list(tps[what]["recruit"])+"\n";
+		ret+="æ‹›å‹Ÿï¼š"+get_stuff_list(tps[what]["recruit"])+"\n";
 	}
 	if(sizeof(tps[what]["cost"])) {
-		ret+="ÏûºÄ£º"+get_stuff_list(tps[what]["cost"])+"\n";
+		ret+="æ¶ˆè€—ï¼š"+get_stuff_list(tps[what]["cost"])+"\n";
 	}
 	
 	if(sizeof(tps[what]["update"])) {
-		ret+=sprintf("Éı¼¶£º\n");
+		ret+=sprintf("å‡çº§ï¼š\n");
 		ls=keys(tps[what]["update"]); 
 		foreach(string l in ls){
-			ret+=sprintf("   ±øÖÖ£º%-10sÑµÁ·£º%3d ×°±¸£º%s\n",
+			ret+=sprintf("   å…µç§ï¼š%-10sè®­ç»ƒï¼š%3d è£…å¤‡ï¼š%s\n",
 			get_troop_type(l,"name"),
 			tps[what]["update"][l]["train"],
 			get_stuff_list(tps[what]["update"][l]["weapon"]));
 		}
 	}
-	ret+=sprintf("½ûÖ¹µØĞÎ£º%s\n",implode(tps[what]["forbiden"]," "));
+	ret+=sprintf("ç¦æ­¢åœ°å½¢ï¼š%s\n",implode(tps[what]["forbiden"]," "));
 
 	if(sizeof(tps[what]["city"])) {
-		ret+=sprintf("¿ÉÕĞÄ¼µØÇø£º%s\n",get_area_list(tps[what]["city"]));
+		ret+=sprintf("å¯æ‹›å‹Ÿåœ°åŒºï¼š%s\n",get_area_list(tps[what]["city"]));
 	}
-	ret+=sprintf("ĞĞ½«ÄÜÁ¿ÏûºÄ£º%s\n",get_area_con(tps[what]["energy_cost"]));
-	ret+=sprintf("ĞİÏ¢ÄÜÁ¿»Ö¸´£º%s\n",get_area_con(tps[what]["energy_recover"]));
+	ret+=sprintf("è¡Œå°†èƒ½é‡æ¶ˆè€—ï¼š%s\n",get_area_con(tps[what]["energy_cost"]));
+	ret+=sprintf("ä¼‘æ¯èƒ½é‡æ¢å¤ï¼š%s\n",get_area_con(tps[what]["energy_recover"]));
 
 	if(tps[what]["arrow_defence"]) 
-		ret+=sprintf("·À¹­¼ıÄÜÁ¦£º%d\n",tps[what]["arrow_defence"]);
+		ret+=sprintf("é˜²å¼“ç®­èƒ½åŠ›ï¼š%d\n",tps[what]["arrow_defence"]);
 	if(sizeof(tps[what]["special_defence"])) {
-		ret+=sprintf("ÌØÊâ·ÀÓùÁ¦£º");
+		ret+=sprintf("ç‰¹æ®Šé˜²å¾¡åŠ›ï¼š");
 		ls=keys(tps[what]["special_defence"]); 
 		foreach(string l in ls){
 			ret+=get_troop_type(l,"name");
@@ -193,7 +193,7 @@ string show_troop(string what) {
 		ret+="\n";
 	}
 	if(sizeof(tps[what]["special_attack"]))  {
-		ret+=sprintf("ÌØÊâ¹¥»÷Á¦£º");
+		ret+=sprintf("ç‰¹æ®Šæ”»å‡»åŠ›ï¼š");
 		ls=keys(tps[what]["special_attack"]); 
 		foreach(string l in ls){
 			ret+=get_troop_type(l,"name");
@@ -220,7 +220,7 @@ string stat_me(string what) {
 			return ret;
 		default :
 			if(!mapp(tps[what])) 
-				return "Ã»ÓĞÕâÖÖ²¿¶Ó¡£\n";
+				return "æ²¡æœ‰è¿™ç§éƒ¨é˜Ÿã€‚\n";
 			return show_troop(what);
 	}
 }

@@ -10,7 +10,7 @@
 inherit M_ACCESS;
 
 private mapping casts;
-static  mapping players;
+nosave protected  mapping players;
 
 void save_data()
 {
@@ -45,14 +45,14 @@ mixed can_cast(string who, string what)
 	int lvl;
 	mapping tmp;
 
-	if( !CHAR_D->get_char(who,"") ) return "Ö»ÓĞÓÎÏ·µÄ½ÇÉ«²Å¿ÉÊ¹ÓÃ¼ÆÄ±£¡\n";
+	if( !CHAR_D->get_char(who,"") ) return "åªæœ‰æ¸¸æˆçš„è§’è‰²æ‰å¯ä½¿ç”¨è®¡è°‹ï¼\n";
 	tmp = CHAR_D->get_char(who, "skills");
-	if( !mapp(tmp)||!sizeof(tmp) ) return "ºÜ¿ÉÏ§£¬Äã²¢²»»áÈÎºÎ¼ÆÄ±£¡\n";
+	if( !mapp(tmp)||!sizeof(tmp) ) return "å¾ˆå¯æƒœï¼Œä½ å¹¶ä¸ä¼šä»»ä½•è®¡è°‹ï¼\n";
 	lvl = tmp[what];
-	if( member_array(what, keys(casts))==-1 ) return "Ã»ÓĞÕâÖÖ¼ÆÄ±£¡\n";
-	if( !lvl||lvl<casts[what]["req"] ) return "ÄãµÄ¼¶±ğ²»×ã£¬ÎŞ·¨Ê¹ÓÃÕâÖÖ¼ÆÄ±£¡\n";
+	if( member_array(what, keys(casts))==-1 ) return "æ²¡æœ‰è¿™ç§è®¡è°‹ï¼\n";
+	if( !lvl||lvl<casts[what]["req"] ) return "ä½ çš„çº§åˆ«ä¸è¶³ï¼Œæ— æ³•ä½¿ç”¨è¿™ç§è®¡è°‹ï¼\n";
 	if( !(tmp=players[who])||!mapp(tmp) ) return 1;
-	if( member_array(what, keys(tmp))!=-1 ) return "²»ÄÜÈç´ËÆµ·±µÄÊ¹ÓÃÕâÖÖ¼ÆÄ±£¡\n";
+	if( member_array(what, keys(tmp))!=-1 ) return "ä¸èƒ½å¦‚æ­¤é¢‘ç¹çš„ä½¿ç”¨è¿™ç§è®¡è°‹ï¼\n";
 	return 1;
 }
 void reg_player(string who, string what)
@@ -75,39 +75,39 @@ mixed get_cast(string id, string what)
 void set_cast(string id, string what, mixed val)
 {
 	if( !id||!stringp(id)||id=="" )
-		write("ÒªĞŞ¸ÄÄÄÖÖ¼ÆÄ±£¿\n");
+		write("è¦ä¿®æ”¹å“ªç§è®¡è°‹ï¼Ÿ\n");
 	else if( member_array(id, keys(casts))==-1 )
-		write("Ã»ÓĞÕâÖÖ¼ÆÄ±£¡\n");
+		write("æ²¡æœ‰è¿™ç§è®¡è°‹ï¼\n");
 	else if( !what||!stringp(what)||what=="") 
-		write("ÒªĞŞ¸ÄÄÄÖÖÊôĞÔ\n");
+		write("è¦ä¿®æ”¹å“ªç§å±æ€§\n");
 	else {
 		if( !mapp(casts[id]) ) casts[id] = ([ ]);
 		casts[id][what] = val;
-		write("ĞŞ¸ÄÁË£¡\n");
+		write("ä¿®æ”¹äº†ï¼\n");
 		save_data();
 	}
 }
 void add_cast(string id)
 {
 	if( !id||!stringp(id)||id=="" )
-		write("ÒªÔö¼ÓÊ²Ã´¼ÆÄ±£¿\n");
+		write("è¦å¢åŠ ä»€ä¹ˆè®¡è°‹ï¼Ÿ\n");
 	else if( member_array(id, keys(casts))!=-1 )
-		write("ÕâÖÖ¼ÆÄ±ÒÑ¾­´æÔÚÁË£¡\n");
+		write("è¿™ç§è®¡è°‹å·²ç»å­˜åœ¨äº†ï¼\n");
 	else {
 		casts[id] = ([ ]);
-		write("Ôö¼ÓÁË£¡");
+		write("å¢åŠ äº†ï¼");
 		save_data();
 	}
 }
 void remove_cast(string id)
 {
 	if( !id||!stringp(id)||id=="" )
-		write("ÒªÉ¾³ıÄÄÖÖ¼ÆÄ±£¿\n");
+		write("è¦åˆ é™¤å“ªç§è®¡è°‹ï¼Ÿ\n");
 	else if( member_array(id, keys(casts))==-1 )
-		write("Ã»ÓĞÕâÖÖ¼ÆÄ±£¡\n");
+		write("æ²¡æœ‰è¿™ç§è®¡è°‹ï¼\n");
 	else {
 		map_delete(casts, id);
-		write("É¾³ı£¡\n");
+		write("åˆ é™¤ï¼\n");
 		save_data();
 	}
 }
@@ -118,16 +118,16 @@ void stat_me()
 
 	if( !sizeof(casts) ) return;
 	out = sprintf("%-8s%-12s  %-6s%-14s  %-10s  %s\n",
-                "Ãû³Æ", "£É£Ä", "µÈ¼¶", "Ê¹ÓÃ¼ä¸ô", "Ê¹ÓÃÒªÇó", "»ù±¾ĞŞÑø");
+                "åç§°", "ï¼©ï¼¤", "ç­‰çº§", "ä½¿ç”¨é—´éš”", "ä½¿ç”¨è¦æ±‚", "åŸºæœ¬ä¿®å…»");
 	foreach(string id in keys(casts)){
 		tmp = casts[id];
 		out+=sprintf("%-8s%-12s  %-6s%-14s  %-10s  %s\n",
 			tmp["name"], id, chinese_number(tmp["level"]),
-			chinese_number(tmp["duration"])+"Ãë",
-			chinese_number(tmp["req"])+"¼¶",
-			(tmp["base"]==1?"ÎäÑ§ĞŞÑø":(tmp["base"]==2?"±ø·¨ĞŞÑø":"ÖÎ¹úĞŞÑø")));
+			chinese_number(tmp["duration"])+"ç§’",
+			chinese_number(tmp["req"])+"çº§",
+			(tmp["base"]==1?"æ­¦å­¦ä¿®å…»":(tmp["base"]==2?"å…µæ³•ä¿®å…»":"æ²»å›½ä¿®å…»")));
 	}
-	out+="Èı¹úÖ¾ÖĞ¹²ÓĞ"+chinese_number(sizeof(casts))+"ÖÖ¼ÆÄ±£¡\n";
+	out+="ä¸‰å›½å¿—ä¸­å…±æœ‰"+chinese_number(sizeof(casts))+"ç§è®¡è°‹ï¼\n";
 
 	write(out);
 }

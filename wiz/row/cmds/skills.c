@@ -40,11 +40,11 @@ private void skills_print(object who)
         }
 printf(
 "-----------------------------------------------------\n");
-printf("»ù±¾ĞŞÑø£º    Ãû³Æ         µÈ¼¶    ¾­Ñé \n");
+printf("åŸºæœ¬ä¿®å…»ï¼š    åç§°         ç­‰çº§    ç»éªŒ \n");
 out_skill("sk_wuli",who);
 out_skill("sk_zhimou",who);
 out_skill("sk_meili",who);
-printf("ËùÑ§Õó·¨£º\n");
+printf("æ‰€å­¦é˜µæ³•ï¼š\n");
         self_skills=who->query_self_skills();
         i=sizeof(self_skills);
         for(j=0 ; j<i ; ++j)
@@ -53,7 +53,7 @@ printf("ËùÑ§Õó·¨£º\n");
                 if((SG_SKILL_D->query_type(s_tmp))==SK_ZHENG)
                         out_skill(s_tmp , who);
         }
-printf("ËùÑ§¼ÆÄ±£º\n");
+printf("æ‰€å­¦è®¡è°‹ï¼š\n");
         for(j=0 ; j<i ; ++j)
         {
                 s_tmp=self_skills[j];
@@ -62,7 +62,7 @@ printf("ËùÑ§¼ÆÄ±£º\n");
         }
 
 
-printf("»ù±¾Îä¹¦£º\n");
+printf("åŸºæœ¬æ­¦åŠŸï¼š\n");
         for(j=0 ; j<i ; ++j)
         {
                 s_tmp=self_skills[j];
@@ -70,7 +70,7 @@ printf("»ù±¾Îä¹¦£º\n");
                         out_skill(s_tmp , who);
         }
 
-printf("ÌØÊâÕĞ·¨£º\n");
+printf("ç‰¹æ®Šæ‹›æ³•ï¼š\n");
         for(j=0 ; j<i ; ++j)
         {
                 s_tmp=self_skills[j];
@@ -93,7 +93,7 @@ void do_skills_str(string liv)
         object ob;
         if(!(wizardp(this_body()->query_userid())))
         {
-                printf("Ö»ÓĞÎ×Ê¦²Å¿ÉÒÔÍ¸ÊÓ±ğÈËµÄ×´¿ö\n");
+                printf("åªæœ‰å·«å¸ˆæ‰å¯ä»¥é€è§†åˆ«äººçš„çŠ¶å†µ\n");
                 return;
         }
         else
@@ -101,17 +101,17 @@ void do_skills_str(string liv)
                 ob = present(liv, environment(this_body()));
                 if (!ob) ob = find_body(liv);
                 if (!ob) {
-                        write("ÄãÒª²ì¿´Ë­µÄ¼¼ÄÜ£¿\n");
+                        write("ä½ è¦å¯Ÿçœ‹è°çš„æŠ€èƒ½ï¼Ÿ\n");
                         return;
                 }
 		if (!ob->is_living()) {
-			write("Äã²ì²»³öÎï¼şÄÜÓĞÊ²Ã´¼¼ÄÜ¡£\n");
+			write("ä½ å¯Ÿä¸å‡ºç‰©ä»¶èƒ½æœ‰ä»€ä¹ˆæŠ€èƒ½ã€‚\n");
 			return;
 		}
                 skills_print(ob);
         }
 }
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ "", "STR", }),({  }) });
 }

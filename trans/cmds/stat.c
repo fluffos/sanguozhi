@@ -20,7 +20,7 @@ inherit CMD;
 private void main(mixed *arg) {
     if (!arg[0]->stat_me()) {
         //outf("No information available for %O.\n", arg[0]);
-        outf("Ã»ÓĞÓë %O Ïà¹ØµÄĞÅÏ¢¡£\n", arg[0]);
+        outf("æ²¡æœ‰ä¸ %O ç›¸å…³çš„ä¿¡æ¯ã€‚\n", arg[0]);
         return;
     }
     return;
@@ -28,6 +28,6 @@ private void main(mixed *arg) {
 
 int help() {
     //write("Syntax: stat <object>\n\nGives you vital information about ANY object.\n");
-    write("ÓÃ·¨£ºstat <Îï¼ş>\n"
-          "ËµÃ÷£ºÏÔÊ¾ÈÎºÎÎï¼şµÄÏà¹ØĞÅÏ¢¡£\n"); 
+    write("ç”¨æ³•ï¼šstat <ç‰©ä»¶>\n"
+          "è¯´æ˜ï¼šæ˜¾ç¤ºä»»ä½•ç‰©ä»¶çš„ç›¸å…³ä¿¡æ¯ã€‚\n"); 
 }

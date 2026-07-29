@@ -65,9 +65,9 @@ mixed can_i_send(string msg) {
 		return 1;
 	}
 	if((curtime-oldtime)<2)
-		return "ÄãËµ»°Ì«¼±ÁË¡£\n";
+		return "ä½ è¯´è¯å¤ªæ€¥äº†ã€‚\n";
 	if(msg==oldmsg)
-		return "Ê®ÃëÄÚ²»ÄÜÖØ¸´Í¬ÑùµÄ»°Óï¡£\n";
+		return "åç§’å†…ä¸èƒ½é‡å¤åŒæ ·çš„è¯è¯­ã€‚\n";
 	tb->set_lastchat(msg);
 	return 1;
 }
@@ -85,7 +85,7 @@ varargs nomask void cmd_channel(string channel_name, string arg,
     //printf("tb = %O\n",tb);
     ret=can_i_send(arg);
     if(tb->chan_disabled()) {
-            printf("ÄãµÄÆµµÀ½»Á÷ÌØÈ¨±»È¡ÏûÁË£¬ÇëÔÚÏßWIZ°ïÄã»Ö¸´¡£\n");
+            printf("ä½ çš„é¢‘é“äº¤æµç‰¹æƒè¢«å–æ¶ˆäº†ï¼Œè¯·åœ¨çº¿WIZå¸®ä½ æ¢å¤ã€‚\n");
             return;
 
     }
@@ -99,14 +99,14 @@ varargs nomask void cmd_channel(string channel_name, string arg,
         if ( listening )
         {
         printf(//"You are presently listening to '%s'.\n",
-               "ÄãÕıÔÚ½ÓÊÕ '%s' µÄĞÅÏ¢¡£\n",
+               "ä½ æ­£åœ¨æ¥æ”¶ '%s' çš„ä¿¡æ¯ã€‚\n",
                 user_channel_name);
         print_mod_info(channel_name);
         }
         else
         {
         printf(//"You are not listening to '%s'.\n",
-               "ÄãÏÖÔÚ²¢Î´½ÓÊÕ '%s' µÄĞÅÏ¢¡£\n",
+               "ä½ ç°åœ¨å¹¶æœªæ¥æ”¶ '%s' çš„ä¿¡æ¯ã€‚\n",
                 user_channel_name);
         }
 
@@ -121,18 +121,18 @@ varargs nomask void cmd_channel(string channel_name, string arg,
         {
             if ( sizeof(options) )
               printf(//"'%s' already exists; modifying options...\n",
-                "'%s' ÒÑ¾­±»Ê¹ÓÃÁË£¬Çë»»ÓÃÆäËüµÄ Options¡£\n",
+                "'%s' å·²ç»è¢«ä½¿ç”¨äº†ï¼Œè¯·æ¢ç”¨å…¶å®ƒçš„ Optionsã€‚\n",
                user_channel_name);
             else
               printf(//"'%s' already exists.\n",
-               "'%s' ÒÑ¾­±»Ê¹ÓÃÁË¡£\n",
+               "'%s' å·²ç»è¢«ä½¿ç”¨äº†ã€‚\n",
                 user_channel_name);
         }
         else
         {
             create_channel(channel_name);
             printf(//"'%s' has been created.\n",
-               "'%s' ½¨Á¢³É¹¦¡£\n",
+               "'%s' å»ºç«‹æˆåŠŸã€‚\n",
                 user_channel_name);
         }
 
@@ -146,12 +146,12 @@ varargs nomask void cmd_channel(string channel_name, string arg,
                     if ( !adminp(this_user()) )
                     {
                     //printf("Only admins can create admin channels.\n");
-                    printf("Ö»ÓĞÌìÉñ²ÅÄÜ½¨Á¢ admin ÆµµÀ¡£\n");
+                    printf("åªæœ‰å¤©ç¥æ‰èƒ½å»ºç«‹ admin é¢‘é“ã€‚\n");
                     return;
                     }
                     set_flags(channel_name, CHANNEL_ADMIN_ONLY);
                     // printf("  --> only admins may tune in\n");
-                    printf("  --> Ö»ÓĞÌìÉñ²ÅÄÜÊÜÌı¡£\n");
+                    printf("  --> åªæœ‰å¤©ç¥æ‰èƒ½å—å¬ã€‚\n");
                     break;
 
                 case "wiz":
@@ -160,18 +160,18 @@ varargs nomask void cmd_channel(string channel_name, string arg,
                     if ( (ci->flags & CHANNEL_ADMIN_ONLY) && !adminp(this_user()) )
                     {
                         //printf("Only admins can turn off admin-only.\n");
-                        printf("Ö»ÓĞÌìÉñ²ÅÄÜ¹Ø±Õ admin-only µÄÊôĞÔ¡£\n");
+                        printf("åªæœ‰å¤©ç¥æ‰èƒ½å…³é—­ admin-only çš„å±æ€§ã€‚\n");
                         return;
                     }
                     else if ( !wizardp(this_user()) )
                     {
                         //printf("Only wizards can create wizard channels.\n");
-                        printf("Ö»ÓĞÎ×Ê¦²ÅÄÜ½¨Á¢ wizard ÆµµÀ¡£\n");
+                        printf("åªæœ‰å·«å¸ˆæ‰èƒ½å»ºç«‹ wizard é¢‘é“ã€‚\n");
                         return;
                     }
                     set_flags(channel_name, CHANNEL_WIZ_ONLY);
                     //printf("  --> only wizards may tune in\n");
-                    printf("  --> Ö»ÓĞÎ×Ê¦²ÅÄÜÊÕÌı¡£\n");
+                    printf("  --> åªæœ‰å·«å¸ˆæ‰èƒ½æ”¶å¬ã€‚\n");
                     break;
 
                 case "permanent":
@@ -179,12 +179,12 @@ varargs nomask void cmd_channel(string channel_name, string arg,
                    if ( !adminp(this_user()) )
                    {
                         //printf("Only admins can tweak permanent channels.\n");
-                        printf("Ö»ÓĞÌìÉñ²ÅÄÜ¿ª¹ØÓÀ¾ÃÆµµÀ¡£\n");
+                        printf("åªæœ‰å¤©ç¥æ‰èƒ½å¼€å…³æ°¸ä¹…é¢‘é“ã€‚\n");
                         return;
                     }
                     set_permanent(channel_name, 1);
                     //printf("  --> the channel is permanent\n");
-                    printf("  --> Õâ¸öÆµµÀ³ÉÎªÓÀ¾ÃÆµµÀ¡£\n");
+                    printf("  --> è¿™ä¸ªé¢‘é“æˆä¸ºæ°¸ä¹…é¢‘é“ã€‚\n");
                     break;
 
                 case "nopermanent":
@@ -193,12 +193,12 @@ varargs nomask void cmd_channel(string channel_name, string arg,
                     if ( !adminp(this_user()) )
                     {
                         //printf("Only admins can tweak permanent channels.\n");
-                        printf("Ö»ÓĞÌìÉñ²ÅÄÜ¿ª¹ØÓÀ¾ÃÆµµÀ¡£\n");
+                        printf("åªæœ‰å¤©ç¥æ‰èƒ½å¼€å…³æ°¸ä¹…é¢‘é“ã€‚\n");
                         return;
                     }
                     set_permanent(channel_name, 0);
                     //printf("  --> the channel may now go away\n");
-                    printf("  --> Õâ¸öÆµµÀ³ÉÎªÔİÊ±ÆµµÀ¡£\n");
+                    printf("  --> è¿™ä¸ªé¢‘é“æˆä¸ºæš‚æ—¶é¢‘é“ã€‚\n");
                     test_for_purge(channel_name);
                 break;
             }
@@ -212,13 +212,13 @@ varargs nomask void cmd_channel(string channel_name, string arg,
         if ( listening )
         {
                 printf(//"You are already listening to '%s'.\n",
-                        "ÄãÒÑ¾­ÔÚÊÕÌı '%s' ÆµµÀÁË¡£\n",
+                        "ä½ å·²ç»åœ¨æ”¶å¬ '%s' é¢‘é“äº†ã€‚\n",
                         user_channel_name);
         }
         else if ( !ci )
         {
                 printf(//"'%s' does not exist. Use /new to create it.\n",
-                        "'%s' ²¢²»´æÔÚ£¬ÓÃ /new À´´´Á¢¡£\n",
+                        "'%s' å¹¶ä¸å­˜åœ¨ï¼Œç”¨ /new æ¥åˆ›ç«‹ã€‚\n",
                         user_channel_name);
                 return;
         }
@@ -229,21 +229,21 @@ varargs nomask void cmd_channel(string channel_name, string arg,
                 if ( (ci->flags & CHANNEL_WIZ_ONLY) && !wizardp(this_user()) )
                 {
                         printf(//"Sorry, but '%s' is for wizards only.\n",
-                                "¶Ô²»Æğ£¬'%s' ÊÇÎ×Ê¦×¨ÓÃÆµµÀ¡£\n",
+                                "å¯¹ä¸èµ·ï¼Œ'%s' æ˜¯å·«å¸ˆä¸“ç”¨é¢‘é“ã€‚\n",
                                 user_channel_name);
                         return;
                 }
                 if ( (ci->flags & CHANNEL_ADMIN_ONLY) && !adminp(this_user()) )
                 {
                         printf(//"Sorry, but '%s' is for admins only.\n",
-                                "¶Ô²»Æğ£¬'%s' ÊÇÌìÉñ×¨ÓÃÆµµÀ¡£\n",
+                                "å¯¹ä¸èµ·ï¼Œ'%s' æ˜¯å¤©ç¥ä¸“ç”¨é¢‘é“ã€‚\n",
                                 user_channel_name);
                         return;
                 }
 
                 tb->channel_add(channel_name);
                 printf(//"You are now listening to '%s'.\n",
-                        "ÄãÏÖÔÚÊÕÌı '%s' ÆµµÀ¡£\n",
+                        "ä½ ç°åœ¨æ”¶å¬ '%s' é¢‘é“ã€‚\n",
                         user_channel_name);
         }
 
@@ -258,7 +258,7 @@ varargs nomask void cmd_channel(string channel_name, string arg,
     if ( !listening )
     {
         printf(//"You are not listening to '%s'.\n",
-                   "ÄãÏÖÔÚÃ»ÓĞÊÕÌı '%s' ÆµµÀ¡£\n",
+                   "ä½ ç°åœ¨æ²¡æœ‰æ”¶å¬ '%s' é¢‘é“ã€‚\n",
                         user_channel_name);
 
         return;
@@ -271,7 +271,7 @@ varargs nomask void cmd_channel(string channel_name, string arg,
     {
         tb->channel_remove(channel_name);
         printf(//"You are no longer listening to '%s'.\n",
-           "ÄãÏÖÔÚÍ£Ö¹ÊÕÌı '%s' ÆµµÀ¡£\n",
+           "ä½ ç°åœ¨åœæ­¢æ”¶å¬ '%s' é¢‘é“ã€‚\n",
             user_channel_name);
 
         moderation_signoff(channel_name);
@@ -279,7 +279,7 @@ varargs nomask void cmd_channel(string channel_name, string arg,
     else if ( arg == "/list" || arg == "/who" )
     {
         write(iwrap(sprintf(//"Users listening to '%s': %s.\n",
-                        "ÓÃ»§ÕıÔÚÊÕÌı '%s' µÄÓĞ : %s.\n",
+                        "ç”¨æˆ·æ­£åœ¨æ”¶å¬ '%s' çš„æœ‰ : %s.\n",
                 user_channel_name,
                 make_name_list(ci->listeners))));
     }
@@ -291,7 +291,7 @@ varargs nomask void cmd_channel(string channel_name, string arg,
                 history = "<none>\n";
 
         more(sprintf(//"History of channel '%s':\n%s\n",
-                 "'%s' ÆµµÀ¹ıÈ¥Ëù³öÏÖµÄĞÅÏ¢ÓĞ£º\n%s\n",
+                 "'%s' é¢‘é“è¿‡å»æ‰€å‡ºç°çš„ä¿¡æ¯æœ‰ï¼š\n%s\n",
              user_channel_name, history));
     }
     else if( arg == "/clear" )
@@ -299,11 +299,11 @@ varargs nomask void cmd_channel(string channel_name, string arg,
 	if( adminp( tb ) || tb == ci->moderator )
         {
             ci->history = ({});
-            write( "ÆµµÀÇå³ıÁË¡£\n");
+            write( "é¢‘é“æ¸…é™¤äº†ã€‚\n");
         }
         else
             error( this_body()->query_userid() + 
-		"ÊÔÍ¼·Ç·¨Çå³ı " + user_channel_name + " ÆµµÀ");
+		"è¯•å›¾éæ³•æ¸…é™¤ " + user_channel_name + " é¢‘é“");
     }
     else if ( cmd_moderation(channel_name, arg) )
     {
@@ -313,11 +313,11 @@ varargs nomask void cmd_channel(string channel_name, string arg,
     {
     	if(channel_name=="rumor"){
     		int reputation=CHAR_D->get_char(sender_id,"reputation");
-    		if(!CHAR_D->get_char(sender_id)) {write("Äã»¹Ã»ÓĞ¶¨¾Ó£¬²»ÄÜÉ¢²¼Ò¥ÑÔ¡£\n");return;}
-    		if(reputation<100) {write("ÄãµÄÉùÍû²»¹»£¬²»ÄÜÉ¢²¼Ò¥ÑÔ¡£\n");return;}
+    		if(!CHAR_D->get_char(sender_id)) {write("ä½ è¿˜æ²¡æœ‰å®šå±…ï¼Œä¸èƒ½æ•£å¸ƒè°£è¨€ã€‚\n");return;}
+    		if(reputation<100) {write("ä½ çš„å£°æœ›ä¸å¤Ÿï¼Œä¸èƒ½æ•£å¸ƒè°£è¨€ã€‚\n");return;}
 re_repu=50-random(50);
                 CHAR_D->set_char(sender_id,"reputation",reputation-re_repu);
-printf("ÓÉÓÚÉ¢²¼Ò¥ÑÔ£¬ÄãµÄÉùÍû¼õÉÙÁË%dµã¡£\n",re_repu);
+printf("ç”±äºæ•£å¸ƒè°£è¨€ï¼Œä½ çš„å£°æœ›å‡å°‘äº†%dç‚¹ã€‚\n",re_repu);
     	}
 
 		if(stringp(ret)) {
@@ -328,7 +328,7 @@ printf("ÓÉÓÚÉ¢²¼Ò¥ÑÔ£¬ÄãµÄÉùÍû¼õÉÙÁË%dµã¡£\n",re_repu);
           tb != ci->moderator && tb != ci->speaker )
         {
             printf(//"You are not the speaker on '%s'.\n"
-                   "Äã²»ÊÇ %s ÆµµÀÉÏµÄ·¢ÑÔÈË¡£\n", user_channel_name);
+                   "ä½ ä¸æ˜¯ %s é¢‘é“ä¸Šçš„å‘è¨€äººã€‚\n", user_channel_name);
         }
         else if ( channel_type == 1 ) {
             mixed * soul;
@@ -386,10 +386,10 @@ printf("ÓÉÓÚÉ¢²¼Ò¥ÑÔ£¬ÄãµÄÉùÍû¼õÉÙÁË%dµã¡£\n",re_repu);
 	    if (p_se) {	
 	    	deliver_channel(channel_name,p_se[0..(strlen(p_se)-2)]);
                 if(channel_name=="rumor")
-                   deliver_notice("announce", sprintf("Ò¥ÑÔ£º%s", sender_name));
+                   deliver_notice("announce", sprintf("è°£è¨€ï¼š%s", sender_name));
 	    }
             else {
-                printf("Ê²Ã´. . . £¿\n");
+                printf("ä»€ä¹ˆ. . . ï¼Ÿ\n");
 	    }
 	}
         else
@@ -400,11 +400,11 @@ printf("ÓÉÓÚÉ¢²¼Ò¥ÑÔ£¬ÄãµÄÉùÍû¼õÉÙÁË%dµã¡£\n",re_repu);
     else {
     	if(channel_name=="rumor"){
     		int reputation=CHAR_D->get_char(sender_id,"reputation");
-    		if(!CHAR_D->get_char(sender_id)) {write("Äã»¹Ã»ÓĞ¶¨¾Ó£¬²»ÄÜÉ¢²¼Ò¥ÑÔ¡£\n");return;}
-    		if(reputation<100) {write("ÄãµÄÉùÍû²»¹»£¬²»ÄÜÉ¢²¼Ò¥ÑÔ¡£\n");return;}
+    		if(!CHAR_D->get_char(sender_id)) {write("ä½ è¿˜æ²¡æœ‰å®šå±…ï¼Œä¸èƒ½æ•£å¸ƒè°£è¨€ã€‚\n");return;}
+    		if(reputation<100) {write("ä½ çš„å£°æœ›ä¸å¤Ÿï¼Œä¸èƒ½æ•£å¸ƒè°£è¨€ã€‚\n");return;}
 re_repu=50-random(50);
                 CHAR_D->set_char(sender_id,"reputation",reputation-re_repu);
-printf("ÓÉÓÚÉ¢²¼Ò¥ÑÔ£¬ÄãµÄÉùÍû¼õÉÙÁË%dµã¡£\n",re_repu);
+printf("ç”±äºæ•£å¸ƒè°£è¨€ï¼Œä½ çš„å£°æœ›å‡å°‘äº†%dç‚¹ã€‚\n",re_repu);
     	}
 
 	if(stringp(ret)) {
@@ -416,7 +416,7 @@ printf("ÓÉÓÚÉ¢²¼Ò¥ÑÔ£¬ÄãµÄÉùÍû¼õÉÙÁË%dµã¡£\n",re_repu);
          tb != ci->moderator && tb != ci->speaker )
         {
                printf(//"You are not the speaker on '%s'.\n",
-               "Äã²»ÊÇ '%s' µÄ·¢ÑÔÈËÖ®Ò»¡£\n",
+               "ä½ ä¸æ˜¯ '%s' çš„å‘è¨€äººä¹‹ä¸€ã€‚\n",
                 user_channel_name);
         }
         else
@@ -431,19 +431,19 @@ string query_channel_name(string channel_name)
 	{
 	    case "chat" :
 		case "gossip":
-			return "ÏĞÁÄ";
+			return "é—²èŠ";
 		case "newbie" :
-			return "ĞÂÊÖ";
+			return "æ–°æ‰‹";
 		case "wiz" :
-            return "Î×Ê¦";  
+            return "å·«å¸ˆ";  
         case "rumor" :
-            return "Ò¥ÑÔ";  
+            return "è°£è¨€";  
 		case "announce" :
-            return "ÏµÍ³";
+            return "ç³»ç»Ÿ";
         case "weather" :
-            return "ÌìÉ«";  
+            return "å¤©è‰²";  
         case "imud_imud_sgz" :
-			return "Èı¹úÖ¾";  
+			return "ä¸‰å›½å¿—";  
 		default :
 			return channel_name;
 	}

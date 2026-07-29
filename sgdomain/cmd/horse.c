@@ -11,19 +11,19 @@ void start(string arg)
         env=environment(this_body());
         if(!arg||arg=="")
         {
-          write("ÓÃ·¨´íÎó£¬ÇëÓÃcmd help horse ²é¿´ÏêÏ¸°ïÖú¡£\n");
+          write("ç”¨æ³•é”™è¯¯ï¼Œè¯·ç”¨cmd help horse æŸ¥çœ‹è¯¦ç»†å¸®åŠ©ã€‚\n");
           return;
         }
         if(!env->is_troop())
         {
-           write("Ö»ÓĞÉíÔÚ¾üÖĞ²ÅÄÜÖ¸»Ó³å·æ¡£\n");
+           write("åªæœ‰èº«åœ¨å†›ä¸­æ‰èƒ½æŒ‡æŒ¥å†²é”‹ã€‚\n");
            return ;
         }
         t_id=TROOP_D->get_char_troop(p_id);
         if (TROOP_D->get_troops(t_id, "conds"))
         { if (TROOP_D->get_troops(t_id, "conds")["confuse"])
           {
-        write ("»ìÂÒÖĞ£¬ÎŞ·¨¹¥»÷¡£\n");
+        write ("æ··ä¹±ä¸­ï¼Œæ— æ³•æ”»å‡»ã€‚\n");
         return;
         }
         }
@@ -34,7 +34,7 @@ void start(string arg)
            write(ret);
            return;
         }
-        this_body()->simple_action("$NÕñ±ÛÒ»ºô£º³å°¡£¬³å°¡£¬¸øÎÒÉ±¡£¡£¡£¡£\n");
+        this_body()->simple_action("$NæŒ¯è‡‚ä¸€å‘¼ï¼šå†²å•Šï¼Œå†²å•Šï¼Œç»™æˆ‘æ€ã€‚ã€‚ã€‚ã€‚\n");
 //        WARAI_D->do_horse_attack(t_id,arg);
         WARAI_D->attack_target(t_id, arg, "horse attack");
         return;

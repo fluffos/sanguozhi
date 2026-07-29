@@ -6,15 +6,15 @@ inherit OBJ;
 inherit M_GETTABLE;
 
 void setup() {
-	set_adj("¿ÅÁ£±¥ÂúµÄ");
-	set_long("ÕâÊÇÒ»´üÉÏÑ¡µÄ%^H_YELLOW%^»Æ¶¹%^RESET%^£¬ÓÃÀ´×ö¶¹¸¯ÊÇ×îºÃ²»¹ıµÄÁË¡£\n");
-	set_id("soy bean", "%^H_YELLOW%^»Æ¶¹%^RESET%^","soybean");
-	set_unit("´ü");
-	set_in_room_desc("Ò»´ü¿ÅÁ£±¥ÂúµÄ%^H_YELLOW%^»Æ¶¹%^RESET%^(soy bean)¡£\n");
+	set_adj("é¢—ç²’é¥±æ»¡çš„");
+	set_long("è¿™æ˜¯ä¸€è¢‹ä¸Šé€‰çš„%^H_YELLOW%^é»„è±†%^RESET%^ï¼Œç”¨æ¥åšè±†è…æ˜¯æœ€å¥½ä¸è¿‡çš„äº†ã€‚\n");
+	set_id("soy bean", "%^H_YELLOW%^é»„è±†%^RESET%^","soybean");
+	set_unit("è¢‹");
+	set_in_room_desc("ä¸€è¢‹é¢—ç²’é¥±æ»¡çš„%^H_YELLOW%^é»„è±†%^RESET%^(soy bean)ã€‚\n");
 	set_can_give(0);
 	set_is_keeping(1);
 	set_can_drop(0);
-	set_can_drop("°Ñ»Æ¶¹¶ªÁË¾ÍÄÃ²»µ½¹¤Ç®ÁË¡£\n");
+	set_can_drop("æŠŠé»„è±†ä¸¢äº†å°±æ‹¿ä¸åˆ°å·¥é’±äº†ã€‚\n");
 	set_size(SMALL);
 }
 mixed direct_turn_obj()
@@ -34,21 +34,21 @@ int turn()
 	if(this_body()->query_job("makedoufu","beg_time")==0)
 	{
 	this_body()->simple_action(
-	"$NÒ»ÕóÊÖÃ¦½ÅÂÒ£¬½«%^H_YELLOW%^»Æ¶¹%^RESET%^È÷ÁËÒ»µØ¡£\n");
+	"$Nä¸€é˜µæ‰‹å¿™è„šä¹±ï¼Œå°†%^H_YELLOW%^é»„è±†%^RESET%^æ´’äº†ä¸€åœ°ã€‚\n");
 	destruct(soy);
 	return 1;
 	}
 	if( !shimo = present("shimo", room) )
 	{
-	write("ÄãÏë°Ñ%^H_YELLOW%^»Æ¶¹%^RESET%^µ¹µ½Ê²Ã´µØ·½£¿\n");
+	write("ä½ æƒ³æŠŠ%^H_YELLOW%^é»„è±†%^RESET%^å€’åˆ°ä»€ä¹ˆåœ°æ–¹ï¼Ÿ\n");
 	return 1;
 	}
 	stat=shimo->query_isfill();
 	if(stat==1) {
-	write("Ê¯Ä¥ÀïÒÑ¾­×°Âú%^H_YELLOW%^»Æ¶¹%^RESET%^ÁË¡£\n");
+	write("çŸ³ç£¨é‡Œå·²ç»è£…æ»¡%^H_YELLOW%^é»„è±†%^RESET%^äº†ã€‚\n");
 	return 1;
 	}
-      this_body()->simple_action("$NÌáÆğ´üµ×£¬½«ÂúÂúÒ»¿Ú´ü%^H_YELLOW%^»Æ¶¹%^RESET%^È«µ¹ÈëÁËÊ¯Ä¥Àï¡£\n");
+      this_body()->simple_action("$Næèµ·è¢‹åº•ï¼Œå°†æ»¡æ»¡ä¸€å£è¢‹%^H_YELLOW%^é»„è±†%^RESET%^å…¨å€’å…¥äº†çŸ³ç£¨é‡Œã€‚\n");
 	shimo->set_isfill(1);
 	destruct(soy);
 	return 1;

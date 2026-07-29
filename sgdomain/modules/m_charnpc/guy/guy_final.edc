@@ -29,7 +29,7 @@ void  select_num()
 	else
 	{
 	   this_object()->targetted_action(
-			"Ò»$N¶Ô$TµÀ£ºÔÚÎÒÃÇ×ßÖ®Ç°£¬¸øÄãµÀÌâ£¬¿´Äã»á²»»á¡£\n",find_body(p_id));
+			"ä¸€$Nå¯¹$Té“ï¼šåœ¨æˆ‘ä»¬èµ°ä¹‹å‰ï¼Œç»™ä½ é“é¢˜ï¼Œçœ‹ä½ ä¼šä¸ä¼šã€‚\n",find_body(p_id));
 	   ROBOT->robot_test(usr,(:award:));
 	}
 }
@@ -57,7 +57,7 @@ void award(object usr)
    if (this_object()->query("is_fake")) //do penalty
    {
 	this_object()->targetted_action(
-		"ÖÚ$N¶Ô$TµÀ£º$m$RÕæÉñÈËÒ²£¬¸úËû·¢Õ¹£¬Ò»¶¨´óÓĞÇ°Í¾¡£\n",usr);
+		"ä¼—$Nå¯¹$Té“ï¼š$m$RçœŸç¥äººä¹Ÿï¼Œè·Ÿä»–å‘å±•ï¼Œä¸€å®šå¤§æœ‰å‰é€”ã€‚\n",usr);
 //this is for temp track of success rate
 	CHAR_D->set_char("listen","setpplsuccess",
 		CHAR_D->get_char("listen","setpplsuccess")+1); 
@@ -69,13 +69,13 @@ void award(object usr)
 		   CHAR_D->get_char(p_id,"gold")-50);
 		if (CHAR_D->get_char(p_id,"gold")<0)
 		   CHAR_D->set_char(p_id,"gold",0);
-		tell_user(p_id,"%^H_GREEN%^ºÜ²»ĞÒ£¬Äã±»Æ­ÁË50Á½½ğ×Ó¡£%^RESET%^\n");
+		tell_user(p_id,"%^H_GREEN%^å¾ˆä¸å¹¸ï¼Œä½ è¢«éª—äº†50ä¸¤é‡‘å­ã€‚%^RESET%^\n");
 		p_tmp=sprintf("\n time at %s ,%s  gold change from %d to %d",
 			CHINESE_D->chinese_time(time()),p_id,old_data,CHAR_D->get_char(p_id,"gold"));
 		log_me(p_tmp);
 		if (stringp(this_object()->query("master")))
-			tell_user(this_object()->query("master"),"%^H_RED%^¡¾·É¸ë´«Êé¡¿ÃÜ±¨£º"+
-				"Îá·½¼äµıÒÑ³É¹¦»ìÈë"+CHAR_D->get_char(p_id,"name")+"¼ÒÖĞ¡£%^RESET%^\n");
+			tell_user(this_object()->query("master"),"%^H_RED%^ã€é£é¸½ä¼ ä¹¦ã€‘å¯†æŠ¥ï¼š"+
+				"å¾æ–¹é—´è°å·²æˆåŠŸæ··å…¥"+CHAR_D->get_char(p_id,"name")+"å®¶ä¸­ã€‚%^RESET%^\n");
 	}
 	else if(act=="recruit")
 	{
@@ -99,10 +99,10 @@ void award(object usr)
       		p_tmp=sprintf("\n time at %s ,%s troop change from %d to %d",
 			CHINESE_D->chinese_time(time()),p_area,old_data,AREA_D->get_area_soldier(p_area,"sum"));
 		log_me(p_tmp);
-		usr->simple_action("ÓÉÓÚÎóĞÅ´õÈË£¬$NµÄµØÇøÔâÊÜµ½ÑÏÖØËğÊ§¡£\n");
+		usr->simple_action("ç”±äºè¯¯ä¿¡æ­¹äººï¼Œ$Nçš„åœ°åŒºé­å—åˆ°ä¸¥é‡æŸå¤±ã€‚\n");
 		if (stringp(this_object()->query("master")))
-			tell_user(this_object()->query("master"),"%^H_RED%^¡¾·É¸ë´«Êé¡¿ÃÜ±¨£º"+
-				"Îá·½¼äµıÒÑ³É¹¦»ìÈë"+AREA_D->get_area(p_area,"name")+"¾ü¶Ó¡£%^RESET%^\n");
+			tell_user(this_object()->query("master"),"%^H_RED%^ã€é£é¸½ä¼ ä¹¦ã€‘å¯†æŠ¥ï¼š"+
+				"å¾æ–¹é—´è°å·²æˆåŠŸæ··å…¥"+AREA_D->get_area(p_area,"name")+"å†›é˜Ÿã€‚%^RESET%^\n");
 	
 		p_left=(PJOB+"recruit/recruit")->get_recruit_left(p_id);
 		p_left-=50;
@@ -111,9 +111,9 @@ void award(object usr)
 		{
 			usr->add_job("recruit");
 			usr->set_job("recruit","left",p_left);
-			usr->set_job("recruit","memo","Õ÷"+p_left+"±ø");
-			tell_user(p_id,"Äã»¹ĞèÒªÕĞ"+chinese_number(p_left)+
-				"ÃûĞÂ±ø¡£\n");
+			usr->set_job("recruit","memo","å¾"+p_left+"å…µ");
+			tell_user(p_id,"ä½ è¿˜éœ€è¦æ‹›"+chinese_number(p_left)+
+				"åæ–°å…µã€‚\n");
 		}
 	}
 	else if(act=="getppl")
@@ -125,10 +125,10 @@ void award(object usr)
 		m_area=this_object()->query_room()->get_area();
 		bs=SGBASE(p_area,f_id);
 		
-		usr->simple_action("ÓÉÓÚÎóĞÅ´õÈË,$NµÄÅ©³¡Ôâµ½ÑÏÖØËğÊ§¡£\n");
+		usr->simple_action("ç”±äºè¯¯ä¿¡æ­¹äºº,$Nçš„å†œåœºé­åˆ°ä¸¥é‡æŸå¤±ã€‚\n");
 		if (stringp(this_object()->query("master")))
-			tell_user(this_object()->query("master"),"%^H_RED%^¡¾·É¸ë´«Êé¡¿ÃÜ±¨£º"+
-				"Îá·½¼äµıÒÑ³É¹¦»ìÈë"+AREA_D->get_area(p_area,"name")+"Å©³¡¡£%^RESET%^\n");
+			tell_user(this_object()->query("master"),"%^H_RED%^ã€é£é¸½ä¼ ä¹¦ã€‘å¯†æŠ¥ï¼š"+
+				"å¾æ–¹é—´è°å·²æˆåŠŸæ··å…¥"+AREA_D->get_area(p_area,"name")+"å†œåœºã€‚%^RESET%^\n");
 		usr->finish_job("getppl");
 		if(objectp(bs)) 
 		{
@@ -142,7 +142,7 @@ void award(object usr)
 	else
 	{
 		SGSYS("Not one of getppl,recruit & followme happened in guy_final action!");
-		usr->simple_action("ÄÚ²¿´íÎó·¢Éú,Çë¾¡¿ìÏóÎ×Ê¦±¨¸æÕâÒ»´íÎó¡£Ğ»Ğ»ÄúµÄºÏ×÷£¡\n");
+		usr->simple_action("å†…éƒ¨é”™è¯¯å‘ç”Ÿ,è¯·å°½å¿«è±¡å·«å¸ˆæŠ¥å‘Šè¿™ä¸€é”™è¯¯ã€‚è°¢è°¢æ‚¨çš„åˆä½œï¼\n");
 	}
 		
 	do_my_dispear();
@@ -154,14 +154,14 @@ void award(object usr)
    isrobot=usr->query_body()->query_robot();
    if(isrobot)
    { this_object()->targetted_action(
-         "ÖÚ$N¶Ô$TµÀ£º¿´À´ÊÇ¸ö°×³Õ£¬Õæ²»ÄÜ¸ú$mÅÜ¡£\n",usr);
+         "ä¼—$Nå¯¹$Té“ï¼šçœ‹æ¥æ˜¯ä¸ªç™½ç—´ï¼ŒçœŸä¸èƒ½è·Ÿ$mè·‘ã€‚\n",usr);
       do_my_dispear(); 
       return;
    } 
 
    if(act=="followme")
    {    CHAR_D->set_char(p_id,"newqb",50);
-        tell_user(p_id,"%^H_GREEN%^¹§Ï²ÄãÓÖÕĞµ½ÎåÊ®ÃûÇ×±ø¡£%^RESET%^\n");
+        tell_user(p_id,"%^H_GREEN%^æ­å–œä½ åˆæ‹›åˆ°äº”ååäº²å…µã€‚%^RESET%^\n");
    }
    else if(act=="recruit")
    {
@@ -189,7 +189,7 @@ void award(object usr)
         CHAR_D->get_char(p_id,"reputation")+50);
         CHAR_D->set_char(p_id,"localcontribution",
           CHAR_D->get_char(p_id,"localcontribution")+2);
-        usr->simple_action("$NÕĞµ½ÎåÊ®ÃûĞÂ±ø£¬$NµÄ¾­ÑéÓëÉùÍûÌá¸ßÁË¡£\n");
+        usr->simple_action("$Næ‹›åˆ°äº”ååæ–°å…µï¼Œ$Nçš„ç»éªŒä¸å£°æœ›æé«˜äº†ã€‚\n");
         p_left=(PJOB+"recruit/recruit")->get_recruit_left(p_id);
         p_left-=50;
         usr->finish_job("recruit");
@@ -197,9 +197,9 @@ void award(object usr)
         {
            usr->add_job("recruit");
            usr->set_job("recruit","left",p_left);
-		   usr->set_job("recruit","memo","Õ÷"+p_left+"±ø");
-           tell_user(p_id,"Äã»¹ĞèÒªÕĞ"+chinese_number(p_left)+
-             "ÃûĞÂ±ø¡£\n");
+		   usr->set_job("recruit","memo","å¾"+p_left+"å…µ");
+           tell_user(p_id,"ä½ è¿˜éœ€è¦æ‹›"+chinese_number(p_left)+
+             "åæ–°å…µã€‚\n");
         }
 	p_area=usr->query_room()->get_area(); 
 	{
@@ -210,8 +210,8 @@ void award(object usr)
 		AREA_D->set_area(p_area,"safe",p_safe);
 		AREA_D->set_area(p_area,"population",p_population);
 		CHANNEL_D->deliver_tell("rumor","system",
-			usr->query_chinese_id()+"ÔÚ"+AREA_D->get_area(p_area,"name")+
-			"Õ÷±ø£¬µ±µØÈË¿ÚºÍ°²¶¨ÏÂ½µÁË¡£");
+			usr->query_chinese_id()+"åœ¨"+AREA_D->get_area(p_area,"name")+
+			"å¾å…µï¼Œå½“åœ°äººå£å’Œå®‰å®šä¸‹é™äº†ã€‚");
 	}
    }
    else if (act=="getppl") {
@@ -222,8 +222,8 @@ void award(object usr)
 	m_area=this_object()->query_room()->get_area();
 	bs=SGBASE(p_area,f_id);
 		AWARD(usr,20);
-        usr->simple_action("$NÓÖÀ­µ½ÎåÊ®Ãû"+BASE_D->get_base(f_id,"workername")+
-			"£¬$NµÃµ½ÁË½±Àø¡£\n");
+        usr->simple_action("$Nåˆæ‹‰åˆ°äº”åå"+BASE_D->get_base(f_id,"workername")+
+			"ï¼Œ$Nå¾—åˆ°äº†å¥–åŠ±ã€‚\n");
 
         usr->finish_job("getppl");
 		{
@@ -234,8 +234,8 @@ void award(object usr)
 			AREA_D->set_area(m_area,"safe",p_safe);
 			AREA_D->set_area(m_area,"population",p_population);
 			CHANNEL_D->deliver_tell("rumor","system",
-				usr->query_chinese_id()+"ÔÚ"+AREA_D->get_area(m_area,"name")+
-				"À­×ßÒ»Åú"+BASE_D->get_base(f_id,"workername")+"£¬µ±µØÈË¿ÚºÍ°²¶¨ÏÂ½µÁË¡£");
+				usr->query_chinese_id()+"åœ¨"+AREA_D->get_area(m_area,"name")+
+				"æ‹‰èµ°ä¸€æ‰¹"+BASE_D->get_base(f_id,"workername")+"ï¼Œå½“åœ°äººå£å’Œå®‰å®šä¸‹é™äº†ã€‚");
 		}
 		if(objectp(bs)) 
 			bs->add_ppl(r_id,50);

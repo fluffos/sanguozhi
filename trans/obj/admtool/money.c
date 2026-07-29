@@ -9,7 +9,7 @@
 */
 
 #include <daemons.h>
-#define ADMINS "´óÉñ"
+#define ADMINS "å¤§ç¥"
 void std_handler(string str);
 varargs void modal_simple(function input_func, int secure);
 varargs void modal_func(function input_func, mixed prompt_func, int secure);
@@ -23,16 +23,16 @@ void do_three_args(string arg1_prompt, string arg2_prompt,string arg3_prompt,
 
 private nomask void write_money_menu()
 {
-    write("¹ÜÀí¹¤¾ß: Ç®±Ò¹ÜÀí\n"
+    write("ç®¡ç†å·¥å…·: é’±å¸ç®¡ç†\n"
           "\n"
-          "    a [ar] [mat] [nic] - Ôö¼ÓĞÂÇ®±Ò ["+ADMINS+"]\n"
-          "    l [area]           - Ç®±ÒÁĞ±í\n"
-          "    r [area] [materi]  - É¾³ıÇ®±Ò ["+ADMINS+"]\n"
-          "    x [area] [amount]  - µ÷Õû¶Ò»»ÂÊ ["+ADMINS+"]\n"
+          "    a [ar] [mat] [nic] - å¢åŠ æ–°é’±å¸ ["+ADMINS+"]\n"
+          "    l [area]           - é’±å¸åˆ—è¡¨\n"
+          "    r [area] [materi]  - åˆ é™¤é’±å¸ ["+ADMINS+"]\n"
+          "    x [area] [amount]  - è°ƒæ•´å…‘æ¢ç‡ ["+ADMINS+"]\n"
           "\n"
-          "    m                  - Ö÷Ñ¡µ¥\n"
-          "    q                  - ÍË³ö\n"
-          "    ?                  - °ïÖú\n"
+          "    m                  - ä¸»é€‰å•\n"
+          "    q                  - é€€å‡º\n"
+          "    ?                  - å¸®åŠ©\n"
           "\n"
           );
 }
@@ -43,7 +43,7 @@ list_cur(string area)
   if (area=="") area=0;
   if (area && member_array(area,MONEY_D->query_currency_areas())==-1)
     {
-      write("*** Ã»ÓĞ¶¨ÒåÕâ¸öÇøÓò¡£\n");
+      write("*** æ²¡æœ‰å®šä¹‰è¿™ä¸ªåŒºåŸŸã€‚\n");
       return;
     }
   MONEY_D->stat_me(area,10000);
@@ -54,11 +54,11 @@ add_cur(string area,string material,string nickname)
 {
   if (!stringp(nickname) || !stringp(material) || !stringp(nickname))
     {
-      write("*** ¸ø³ö²ÎÊı´íÎó¡£\n");
+      write("*** ç»™å‡ºå‚æ•°é”™è¯¯ã€‚\n");
       return;
     }
   MONEY_D->add_currency(area,material,nickname);
-  write("Ôö¼ÓÇ®±Ò³É¹¦¡£\n");
+  write("å¢åŠ é’±å¸æˆåŠŸã€‚\n");
 }
 
 varargs private nomask void
@@ -66,13 +66,13 @@ adj_ex(string area,int amount)
 {
   if (!stringp(area) || !intp(amount))
     {
-      write("*** ¸ø³ö²ÎÊı´íÎó¡£\n");
+      write("*** ç»™å‡ºå‚æ•°é”™è¯¯ã€‚\n");
       return;
     }
   if (MONEY_D->adjust_exchange_rate(area,amount))
-    write("Ôö¼ÓÇ®±Ò³É¹¦¡£\n");
+    write("å¢åŠ é’±å¸æˆåŠŸã€‚\n");
   else
-    write("Ã»ÓĞ¸Ä¶¯¡£\n");
+    write("æ²¡æœ‰æ”¹åŠ¨ã€‚\n");
 }
 
 varargs private nomask void
@@ -80,10 +80,10 @@ rem_cur(string area,string material)
 {
   if (!stringp(area) || !stringp(material))
     {
-      write("*** ¸ø³ö²ÎÊı´íÎó¡£\n");
+      write("*** ç»™å‡ºå‚æ•°é”™è¯¯ã€‚\n");
       return;
     }
-  write("×¼±¸É¾³ı...\n");
+  write("å‡†å¤‡åˆ é™¤...\n");
   MONEY_D->remove_currency(area,material);
 }
 
@@ -101,31 +101,31 @@ private nomask void receive_money_input(string str)
     case "a":
       if (!adminp(this_body()))
         {
-          write("¶Ô²»Æğ£¬Ö»¶Ô"+ADMINS+"¿ª·Å¡£\n");
+          write("å¯¹ä¸èµ·ï¼Œåªå¯¹"+ADMINS+"å¼€æ”¾ã€‚\n");
           return;
         }
-      do_three_args("ÇøÓòÃû³Æ£¿","²ÄÁÏÃû³Æ£¿","Ê²Ã´Ãû×Ö£¿",
+      do_three_args("åŒºåŸŸåç§°ï¼Ÿ","ææ–™åç§°ï¼Ÿ","ä»€ä¹ˆåå­—ï¼Ÿ",
                     (:add_cur:),arg);
       break;
     case "r":
       if (!adminp(this_body()))
         {
-          write("¶Ô²»Æğ£¬Ö»¶Ô"+ADMINS+"¿ª·Å¡£\n");
+          write("å¯¹ä¸èµ·ï¼Œåªå¯¹"+ADMINS+"å¼€æ”¾ã€‚\n");
           return;
         }
-      do_two_args("ÇøÓòÃû³Æ£¿","²ÄÁÏÃû³Æ£¿",(:rem_cur:),arg);
+      do_two_args("åŒºåŸŸåç§°ï¼Ÿ","ææ–™åç§°ï¼Ÿ",(:rem_cur:),arg);
       break;
     case "x":
       if (!adminp(this_body()))
         {
-          write("¶Ô²»Æğ£¬Ö»¶Ô"+ADMINS+"¿ª·Å¡£\n");
+          write("å¯¹ä¸èµ·ï¼Œåªå¯¹"+ADMINS+"å¼€æ”¾ã€‚\n");
           return;
         }
       sscanf(arg,"%s %d",arg,i);
       adj_ex(arg,i);
       break;
     case "l":
-      do_one_arg("ÇøÓòÃû³Æ£¿[Ô¤ÉèÎªËùÓĞÇøÓò] ",(:list_cur:),arg);
+      do_one_arg("åŒºåŸŸåç§°ï¼Ÿ[é¢„è®¾ä¸ºæ‰€æœ‰åŒºåŸŸ] ",(:list_cur:),arg);
       break;
     default:
       std_handler(str);
@@ -133,7 +133,7 @@ private nomask void receive_money_input(string str)
     }
 }
 
-static nomask void begin_money_menu()
+protected nomask void begin_money_menu()
 {
   modal_func((: receive_money_input :), PROMPT_MONEY);
   write_money_menu();

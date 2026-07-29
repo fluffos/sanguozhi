@@ -12,14 +12,14 @@ void start(string arg)
         my_id=this_body()->query_id()[0];
         if(!CHAR_D->get_char(my_id,"nation"))
         {
-                write("������˸�һ�ٰ�ְ�Ժ��ٿ��������������ɡ�\n");
+                write("等你混了个一官半职以后，再考虑中立不中立吧。\n");
                 return;
         }
 	if(((file_name(environment(this_body())))!=
 ((AREA_D->get_area(p_area1,"path"))+(AREA_D->get_area(p_area1,"meeting"))))||(p_area1!=
 		environment(this_body())->get_area()))
 	{
-		write("�����������ڻ���֮�����ۡ�\n");
+		write("这个问题必须在会议之所讨论。\n");
 		return;
 	}
         my_task = TASK_D->get_char_task(my_id);
@@ -29,7 +29,7 @@ void start(string arg)
                 case TT_LOCALMEETING:
                         if(!TASK_D->get_task(task_id,"suggestion"))
                         {
-                    write("����û��ʲô������Ա�ʾ�����ġ�\n");
+                    write("现在没有什么议题可以表示中立的。\n");
                         return;
                         }
                         s_ret=(EV_LOCALMEETING)->neutral_sb(task_id,my_id,arg);
@@ -37,7 +37,7 @@ void start(string arg)
                       write(s_ret);
                         break;
                 default:
-                    write("����û��ʲô������Ա�ʾ�����ġ�\n");
+                    write("现在没有什么议题可以表示中立的。\n");
             return;
                 }
 }

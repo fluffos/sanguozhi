@@ -1,6 +1,6 @@
 #/std/race/human.c
 primary_id "zgl"
-chinese_id "Öí¸çö¦"
+chinese_id "çŒªå“¥é“"
 persist_flags ([0:0,])
 can_drop 1
 can_sell 1
@@ -13,14 +13,14 @@ main_prep "in"
 contained_light_added 1
 gender 1
 messages ([])
-def_messages (["invis":"$n´ÓÄãµÄÊÓÒ°ÖĞÍ»È»ÏûÊ§ÁË¡£","vis":"$nÍ»È»³öÏÖÔÚÄãÃæÇ°£¬ÓÖËÆºõÔÚÕâÀïºÜ¾ÃÁË¡£","menter":"$nÍ»È»³öÏÖÔÚÒ»ÕóÑÌÎíÖĞ¡£","enter":"$n×ßÁË¹ıÀ´¡£","home":"$n»Ø¼ÒÈ¥ÁË¡£","clone":"$nÉìÊÖÁè¿ÕÒ»Ö¸£¬±ä³öÁË$o¡£","destruct":"$nÅÛĞäÒ»»Ó£¬$o±»»¯³ÉÒ»¹ÉºÚÑÌ£¬´µÉ¢¿ªÈ¥¡£","mleave":"$nµÄÉíÓ°ÔÚÒ»ÕóÑÌÎíÖĞ½¥½¥ÒşÈ¥¡£","leave":"$n³¯$oÀë¿ªÁË¡£",])
-busy_msg "ÄãÏÖÔÚÕıÃ¦×Å£¡"
+def_messages (["invis":"$nä»ä½ çš„è§†é‡ä¸­çªç„¶æ¶ˆå¤±äº†ã€‚","vis":"$nçªç„¶å‡ºç°åœ¨ä½ é¢å‰ï¼Œåˆä¼¼ä¹åœ¨è¿™é‡Œå¾ˆä¹…äº†ã€‚","menter":"$nçªç„¶å‡ºç°åœ¨ä¸€é˜µçƒŸé›¾ä¸­ã€‚","enter":"$nèµ°äº†è¿‡æ¥ã€‚","home":"$nå›å®¶å»äº†ã€‚","clone":"$nä¼¸æ‰‹å‡Œç©ºä¸€æŒ‡ï¼Œå˜å‡ºäº†$oã€‚","destruct":"$nè¢è¢–ä¸€æŒ¥ï¼Œ$oè¢«åŒ–æˆä¸€è‚¡é»‘çƒŸï¼Œå¹æ•£å¼€å»ã€‚","mleave":"$nçš„èº«å½±åœ¨ä¸€é˜µçƒŸé›¾ä¸­æ¸æ¸éšå»ã€‚","leave":"$næœ$oç¦»å¼€äº†ã€‚",])
+busy_msg "ä½ ç°åœ¨æ­£å¿™ç€ï¼"
 busy 1305338489
 answer_list ({({"settle","settle",}),({"position","position",}),({"localmeeting","localmeeting",}),({"job","job",}),({"zgxy","zgxy",}),({"wxxy","wxxy",}),({"bfxy","bfxy",}),({"guoshi","guoshi",}),})
 ask_list ([])
 asklist ([])
 answer ([])
-sg_zi "Ä¬Éù"
+sg_zi "é»˜å£°"
 sg_wuli 14
 sg_zhimou 30
 sg_meili 16
@@ -50,13 +50,13 @@ ilog_time 1310013739
 money (["gold":5,"silver":40,"bank":0,"coin":0,])
 sg_home ([])
 name "zgl"
-invis_name "Ä³Ä³"
-chinese_name "Öí¸çö¦"
+invis_name "æŸæŸ"
+chinese_name "çŒªå“¥é“"
 response_queue ({})
-title2 "%^B_BLACK%^%^H_BLUE%^×Ô´ËÎŞÑÔ%^RESET%^"
+title2 "%^B_BLACK%^%^H_BLUE%^è‡ªæ­¤æ— è¨€%^RESET%^"
 reply "funnyboy"
 channel_list ({"gossip","newbie","weather","rumor","imud_imud_sgz",})
 saved_items "([\"#inventory#\":({\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/money/m_gold\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/money/m_silver\\\",])\",}),\"#base_name#\":\"/std/race/human\",])"
 ag_day 15
 ag_month 9
-jobs (["searchwise":(["finish_time":1305337833,"score":50,"status":"over","beg_time":0,"memo":"°İ·Ã%^H_CYAN%^Áõôí%^RESET%^(liu you)","topics":({1,2,3,6,7,8,9,}),"select":9,"count":21,"assignarea":"changan","lasttimes":({1305337461,1305337801,1305337833,}),]),"fanpeople":(["finish_time":1305119030,"score":18,"status":"over","beg_time":0,"memo":"É¿¶¯ÌìË®¾ÓÃñ","topics":({1,2,3,6,7,8,9,10,}),"select":10,"count":22,"assignarea":"changan","lasttimes":({}),]),"letter":(["finish_time":1304942158,"loyalty":48,"score":20,"status":"over","beg_time":0,"target":"han sui","memo":"ËÍĞÅ%^H_CYAN%^º«Ëì%^RESET%^(han sui)","count":1,"assignarea":"changan","lasttimes":({}),]),"choppork":(["finish_time":1304916894,"count":36,"beg_time":0,"lasttimes":({}),]),"patrol":(["finish_time":1305096415,"area":"changan","score":20,"status":"over","beg_time":0,"memo":"×¥Ğ¡Íµ","get_thief":-1,"count":22,"assignarea":"changan","lasttimes":({}),]),"askobj":(["finish_time":1304939960,"memo":"ÕÒäü¹ØµÄ%^H_CYAN%^²Ìçß%^RESET%^´ß0","obj_id":"test","count":11,"beg_time":0,"status":"over","assignarea":"changan","lasttimes":({}),]),"whisper":(["finish_time":1305339005,"score":20,"status":"over","beg_time":0,"memo":"²ß·´%^H_CYAN%^Ñòñø%^RESET%^(yang guo)","topics":({}),"count":90,"assignarea":"changan","lasttimes":({1305339005,}),]),"visitpeople":(["finish_time":1305338103,"score":9,"status":"over","beg_time":0,"memo":"Ì½·Ã³¤°²Ğ¡»ï","topics":({1,2,3,7,8,9,10,}),"select":10,"count":14,"assignarea":"changan","lasttimes":({1305338103,}),]),"findbody":(["finish_time":1304918432,"memo":"ÕÒ%^H_CYAN%^ÕÅ·É%^RESET%^(zhang fei)","count":13,"beg_time":0,"status":"over","assignarea":"changan","lasttimes":({}),]),"visitwise":(["finish_time":1305337937,"score":50,"status":"over","beg_time":0,"memo":"°İ·Ã%^H_CYAN%^Áõôí%^RESET%^(liu you)","topics":({1,2,3,6,7,8,9,}),"select":9,"count":70,"assignarea":"changan","lasttimes":({1305337019,1305337103,1305337137,1305337219,1305337511,1305337937,}),]),"visitofficer":(["finish_time":1305338047,"score":18,"status":"over","beg_time":0,"memo":"°²¸§%^H_CYAN%^³ÂÁÕ%^RESET%^(chen lin)","topics":({1,2,3,6,7,8,9,10,}),"select":10,"count":20,"assignarea":"changan","lasttimes":({1305338047,}),]),])
+jobs (["searchwise":(["finish_time":1305337833,"score":50,"status":"over","beg_time":0,"memo":"æ‹œè®¿%^H_CYAN%^åˆ˜ç¹‡%^RESET%^(liu you)","topics":({1,2,3,6,7,8,9,}),"select":9,"count":21,"assignarea":"changan","lasttimes":({1305337461,1305337801,1305337833,}),]),"fanpeople":(["finish_time":1305119030,"score":18,"status":"over","beg_time":0,"memo":"ç…½åŠ¨å¤©æ°´å±…æ°‘","topics":({1,2,3,6,7,8,9,10,}),"select":10,"count":22,"assignarea":"changan","lasttimes":({}),]),"letter":(["finish_time":1304942158,"loyalty":48,"score":20,"status":"over","beg_time":0,"target":"han sui","memo":"é€ä¿¡%^H_CYAN%^éŸ©é‚%^RESET%^(han sui)","count":1,"assignarea":"changan","lasttimes":({}),]),"choppork":(["finish_time":1304916894,"count":36,"beg_time":0,"lasttimes":({}),]),"patrol":(["finish_time":1305096415,"area":"changan","score":20,"status":"over","beg_time":0,"memo":"æŠ“å°å·","get_thief":-1,"count":22,"assignarea":"changan","lasttimes":({}),]),"askobj":(["finish_time":1304939960,"memo":"æ‰¾æ½¼å…³çš„%^H_CYAN%^è”¡é‚•%^RESET%^å‚¬0","obj_id":"test","count":11,"beg_time":0,"status":"over","assignarea":"changan","lasttimes":({}),]),"whisper":(["finish_time":1305339005,"score":20,"status":"over","beg_time":0,"memo":"ç­–å%^H_CYAN%^ç¾Šè’%^RESET%^(yang guo)","topics":({}),"count":90,"assignarea":"changan","lasttimes":({1305339005,}),]),"visitpeople":(["finish_time":1305338103,"score":9,"status":"over","beg_time":0,"memo":"æ¢è®¿é•¿å®‰å°ä¼™","topics":({1,2,3,7,8,9,10,}),"select":10,"count":14,"assignarea":"changan","lasttimes":({1305338103,}),]),"findbody":(["finish_time":1304918432,"memo":"æ‰¾%^H_CYAN%^å¼ é£%^RESET%^(zhang fei)","count":13,"beg_time":0,"status":"over","assignarea":"changan","lasttimes":({}),]),"visitwise":(["finish_time":1305337937,"score":50,"status":"over","beg_time":0,"memo":"æ‹œè®¿%^H_CYAN%^åˆ˜ç¹‡%^RESET%^(liu you)","topics":({1,2,3,6,7,8,9,}),"select":9,"count":70,"assignarea":"changan","lasttimes":({1305337019,1305337103,1305337137,1305337219,1305337511,1305337937,}),]),"visitofficer":(["finish_time":1305338047,"score":18,"status":"over","beg_time":0,"memo":"å®‰æŠš%^H_CYAN%^é™ˆç³%^RESET%^(chen lin)","topics":({1,2,3,6,7,8,9,10,}),"select":10,"count":20,"assignarea":"changan","lasttimes":({1305338047,}),]),])

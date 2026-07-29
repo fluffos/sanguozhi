@@ -18,15 +18,15 @@ inherit M_LOCKABLE;
 
 void setup()
 {
-    set_adj("¾Ş´óµÄ");
-    set_id("safe", "±£ÏÕ¹ñ");
+    set_adj("å·¨å¤§çš„");
+    set_id("safe", "ä¿é™©æŸœ");
 
-    set_in_room_desc( "\n·¿¼äÕıÖĞÓĞÒ»¸ö¾Ş´óµÄ±£ÏÕ¹ñ(safe)¡£");
+    set_in_room_desc( "\næˆ¿é—´æ­£ä¸­æœ‰ä¸€ä¸ªå·¨å¤§çš„ä¿é™©æŸœ(safe)ã€‚");
 
-    set_gettable("±£ÏÕ¹ñÌ«ÖØÁË£¬Äã°á²»¶¯¡£\n");
+    set_gettable("ä¿é™©æŸœå¤ªé‡äº†ï¼Œä½ æ¬ä¸åŠ¨ã€‚\n");
     set_locked("skeleton");
     set_closed(1);
-    set_long("ÕâÊÇÒ»¸ö¾Ş´óµÄ±£ÏÕ¹ñ¡£");
+    set_long("è¿™æ˜¯ä¸€ä¸ªå·¨å¤§çš„ä¿é™©æŸœã€‚");
     set_max_capacity(LARGE);
     // set_strength_vs_magic(0);
     set_objects (( [ "/domains/std/example_scroll.c" : 1 ] ));

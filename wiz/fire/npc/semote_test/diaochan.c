@@ -3,12 +3,12 @@
 inherit MONSTER;
 void setup()
 {
-    set_name("diao chan", "õõ²õ");
+    set_name("diao chan", "è²‚è‰");
     add_id("diao"); 
     add_id("chan");
     set_gender(2);
-    set_proper_name("õõ²õ");
-    set_in_room_desc("õõ²õ(diao chan)");
+    set_proper_name("è²‚è‰");
+    set_in_room_desc("è²‚è‰(diao chan)");
     set_age(13);
     set_sg_rongmao(31);
 }

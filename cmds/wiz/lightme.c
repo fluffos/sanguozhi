@@ -7,5 +7,5 @@ inherit CMD;
 private void main( mixed *arg)
 {
     this_body()->set_light(arg[0]);
-  outf("光线设成 %i.\n", arg[0]);
+  outf("鍏夌嚎璁炬垚 %i.\n", arg[0]);
 }

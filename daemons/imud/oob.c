@@ -22,10 +22,10 @@ int validate_auth(string mudname, int provided_key);
 string canon_mudname(string mudname);
 mapping query_mudlist();
 
-//void file_process_packet(object socket, mixed * message);
+//void file_process_packet(object socket, array message);
 void file_has_outgoing(string remote_mudname);
 void file_send_outgoing(string remote_mudname, object socket);
-//void mail_process_packet(object socket, mixed * message);
+//void mail_process_packet(object socket, array message);
 void mail_has_outgoing(string remote_mudname);
 void mail_send_outgoing(string remote_mudname, object socket);
 
@@ -53,10 +53,10 @@ class oob_info
 }
 
 /* map socket objects to oob connection information. */
-static private mapping  oob_socket_map = ([ ]);
+nosave private mapping  oob_socket_map = ([ ]);
 
 /* map remote (canonical) mudnames to oob connection information. */
-static private mapping  oob_mudname_map = ([ ]);
+nosave private mapping  oob_mudname_map = ([ ]);
 
 /*
 ** General OOB connection states: originator states and target states
@@ -74,8 +74,8 @@ static private mapping  oob_mudname_map = ([ ]);
 #define OOB_STATE_WAIT_CLOSE	"[t] sent oob-end; awaiting data or close"
 
 /* request and reply packets and their corresponding handlers */
-static private mapping oob_requests = ([ ]);
-static private mapping oob_replies = ([ ]);
+nosave private mapping oob_requests = ([ ]);
+nosave private mapping oob_replies = ([ ]);
 
 /* how long to wait between oob-req and connection */
 #define OOB_OPEN_DELAY	2
@@ -90,14 +90,14 @@ static private mapping oob_replies = ([ ]);
 #define OOB_CLEANUP_TIME	150	/* how often for timeout/cleanup */
 
 void oob_cleanup();
-static private function oob_cleanup_func = (: oob_cleanup :);
-static private int oob_cleanup_running;
+nosave private function oob_cleanup_func = (: oob_cleanup :);
+nosave private int oob_cleanup_running;
 
 //### driver can't remove a func ptr callout. need a string
 #define oob_cleanup_func "oob_cleanup"
 
 /* the OOB listening socket */
-static private object   oob_socket;
+nosave private object   oob_socket;
 
 
 private nomask void oob_close(class oob_info info)

@@ -43,19 +43,19 @@ private nomask void write_banish_menu()
           "\n"
           );
 */
-    write("¹ÜÀí¹¤¾ß£º½ûÁî¹ÜÀí\n"
+    write("ç®¡ç†å·¥å…·ï¼šç¦ä»¤ç®¡ç†\n"
           "\n"
-          "    L                - ÁĞ³ö±»½ûµÄÃû×Ö\n"
-          "    l                - ÁĞ³ö±»½ûµÄÍøÖ·\n"
-          "    B <Ãû×Ö> <Ô­Òò>  - ½ûÖ¹Ãû×Ö\n"
-          "    b <ÍøÖ·> <Ô­Òò>  - ½ûÖ¹ÍøÖ·\n"
-          "    U <Ãû×Ö>         - ½â½ûÃû×Ö\n"
-          "    u <ÍøÖ·>         - ½â½ûÍøÖ·\n"
-          "    n <Ãû×Ö>         - É¾³ı²¢½ûÖ¹Ò»¸öÓÃ»§\n"
+          "    L                - åˆ—å‡ºè¢«ç¦çš„åå­—\n"
+          "    l                - åˆ—å‡ºè¢«ç¦çš„ç½‘å€\n"
+          "    B <åå­—> <åŸå› >  - ç¦æ­¢åå­—\n"
+          "    b <ç½‘å€> <åŸå› >  - ç¦æ­¢ç½‘å€\n"
+          "    U <åå­—>         - è§£ç¦åå­—\n"
+          "    u <ç½‘å€>         - è§£ç¦ç½‘å€\n"
+          "    n <åå­—>         - åˆ é™¤å¹¶ç¦æ­¢ä¸€ä¸ªç”¨æˆ·\n"
           "\n"
-          "    m        - Ö÷Ñ¡µ¥\n"
-          "    q        - ÍË³ö\n"
-          "    ?        - °ïÖú\n"
+          "    m        - ä¸»é€‰å•\n"
+          "    q        - é€€å‡º\n"
+          "    ?        - å¸®åŠ©\n"
           "\n"
           );      
 }
@@ -80,7 +80,7 @@ private nomask void pave_user(string userid, int skip_save)
 
     if ( o = find_user(userid) )
     {
-        o->receive_private_msg("¶Ô²»Æğ... Äã±»É¾³ıÁË¡£\n");
+        o->receive_private_msg("å¯¹ä¸èµ·... ä½ è¢«åˆ é™¤äº†ã€‚\n");
         o->quit();
     }
 
@@ -103,8 +103,8 @@ private nomask void pave_user(string userid, int skip_save)
 //### in the wiz dir doesn't have priv 1 now.
     SECURE_D->set_protection(WIZ_DIR "/" + userid, 1, -1);
     
-    printf("'%s' ±»É¾³ıÁË¡£\n", userid);
-    BANISH_D->banish_name(userid, "É¾³ıÍê±Ï¡£");
+    printf("'%s' è¢«åˆ é™¤äº†ã€‚\n", userid);
+    BANISH_D->banish_name(userid, "åˆ é™¤å®Œæ¯•ã€‚");
 }
 
 
@@ -114,7 +114,7 @@ private nomask void confirm_paving(string name, string str)
     if ( str != "y" && str != "yes" )
     {
         //write("Nuke aborted!\n");
-        write("É¾³ıÖĞ¶Ï£¡\n");
+        write("åˆ é™¤ä¸­æ–­ï¼\n");
         return;
     }
 
@@ -125,7 +125,7 @@ private nomask void receive_name_for_paving(string name)
 {
     name = lower_case(name);
     printf(//"Are you sure you want to nuke '%s' ? "
-           "ÄãÈ·¶¨ÒªÉ¾³ı %s Âğ£¿", name);
+           "ä½ ç¡®å®šè¦åˆ é™¤ %s å—ï¼Ÿ", name);
     modal_simple((: confirm_paving, name :));
 }
 
@@ -148,15 +148,15 @@ private nomask void receive_banish_input(mixed str)
         break;
 
     case "B":
-        do_two_args("½ûÖ¹Ë­£¿",
-                    "ÎªÊ²Ã´£¿",
+        do_two_args("ç¦æ­¢è°ï¼Ÿ",
+                    "ä¸ºä»€ä¹ˆï¼Ÿ",
                     (: receive_banish_name :),
                     arg);
         break;
 
     case "b":
-        do_two_args("½ûÖ¹ÄÄ¸öÍøÖ·£¿",
-                    "ÎªÊ²Ã´£¿",
+        do_two_args("ç¦æ­¢å“ªä¸ªç½‘å€ï¼Ÿ",
+                    "ä¸ºä»€ä¹ˆï¼Ÿ",
                     (: receive_banish_site :),
                     arg);
         break;
@@ -172,7 +172,7 @@ private nomask void receive_banish_input(mixed str)
         break;
         
     case "n":
-                do_one_arg("ÒªÉ¾³ıË­£¿",//"Who should be nuked and paved? ",
+                do_one_arg("è¦åˆ é™¤è°ï¼Ÿ",//"Who should be nuked and paved? ",
                    (: receive_name_for_paving :),
                    arg);
         break;
@@ -188,12 +188,12 @@ private nomask void receive_banish_input(mixed str)
     }
 }
 
-static nomask void begin_banish_menu()
+protected nomask void begin_banish_menu()
 {
     if ( !check_privilege(1) )
     {
         //write("Sorry... admin only.\n");
-        write("¶Ô²»Æğ£¬Ö»¶Ô´óÉñ¿ª·Å¡£\n");
+        write("å¯¹ä¸èµ·ï¼Œåªå¯¹å¤§ç¥å¼€æ”¾ã€‚\n");
         return;
     }
     modal_func((: receive_banish_input :), PROMPT_BANISH);

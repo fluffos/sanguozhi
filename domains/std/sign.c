@@ -8,15 +8,15 @@ inherit M_GETTABLE;
 
 void setup()
 {
-    set_id("sign", "ÅÆ×Ó");
-    set_unit("¿é");
+    set_id("sign", "ç‰Œå­");
+    set_unit("å—");
     set_gettable(0);
 
-    set_in_room_desc("Ò»¸öĞ¡ÅÆ×Ó(sign)Ğü¸¡ÔÚ°ë¿ÕÖĞ¡£");
+    set_in_room_desc("ä¸€ä¸ªå°ç‰Œå­(sign)æ‚¬æµ®åœ¨åŠç©ºä¸­ã€‚");
 
-    set_long("Äã»òĞí¸Ã¶Á¶Á(read)ËüÉÏÃæµÄ×Ö\n"); 
+    set_long("ä½ æˆ–è®¸è¯¥è¯»è¯»(read)å®ƒä¸Šé¢çš„å­—\n"); 
     set_text( @ENDMARKER
-»¶Ó­À´µ½ LIMA Mudlib£¬ËÄ´¦ÂÒÆß°ËÔã£¬ÍòÍûº£º­...
+æ¬¢è¿æ¥åˆ° LIMA Mudlibï¼Œå››å¤„ä¹±ä¸ƒå…«ç³Ÿï¼Œä¸‡æœ›æµ·æ¶µ...
 ENDMARKER );   
 
 }

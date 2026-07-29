@@ -1,4 +1,4 @@
-//  ÒéÊÂÌü by benben
+//  è®®äº‹å… by benben
 // xy_ysht.c 
 #include <mudlib.h>
 #include "/wiz/fire/fire.h"
@@ -7,8 +7,8 @@ inherit ROOM;
 void setup(){
     set_area("xianyang");
     set_light(50);
-    set_brief(""+YEL+"ÒéÊÂÌü"+NOR+"");
-    set_long("    ÃèÊö¡£\n");
+    set_brief(""+YEL+"è®®äº‹å…"+NOR+"");
+    set_long("    æè¿°ã€‚\n");
     set_exits( ([
         "west" :  __DIR__+"xy_nst3.c",
     ]) );

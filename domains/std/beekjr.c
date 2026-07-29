@@ -6,6 +6,6 @@
 inherit LIVING;
 
 void setup() {
-    set_name("beekjr", "±È¿Ë");
+    set_name("beekjr", "æ¯”å…‹");
     set_in_room_desc("Beek Jr is here, standing off to one side of the room.");
 }

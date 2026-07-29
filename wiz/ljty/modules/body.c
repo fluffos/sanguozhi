@@ -73,11 +73,11 @@ inherit __DIR__ "body/guilds";
 
 // Global variables --
 private string reply;
-private string array channel_list = ({ });
+private string * channel_list = ({ });
 private string plan;
 private int indoor_message = 1;
-private static object link;
-private static int catching_scrollback;
+private nosave object link;
+private nosave int catching_scrollback;
 private mixed saved_items;
 
 // interfaces for other objects to manipulate our global variables
@@ -114,7 +114,7 @@ nomask void set_plan(string new_plan)
 {
     if ( this_body() != this_object() )
         error(//"illegal attempt to set plan\n");
-              "ÊÔÍ¼·Ç·¨Éè¶¨¼Æ»®\n");
+              "è¯•å›¾éæ³•è®¾å®šè®¡åˆ’\n");
 
     plan = new_plan;
     save_me();
@@ -122,7 +122,7 @@ nomask void set_plan(string new_plan)
 
 #endif /* EVERYONE_HAS_A_PLAN */
 
-static void update_for_new_body(mapping tmp) {
+protected void update_for_new_body(mapping tmp) {
     /* nothing for now; can be overloaded for races that need it */
 }
 
@@ -145,7 +145,7 @@ private nomask void init_cmd_hook()
     {
         mailbox->set_message_index(idx);
         //write("\n>>You have new mail<<\n");
-        write("\n>>ÄãÓĞĞÂÓÊ¼ş£¡<<\n");
+        write("\n>>ä½ æœ‰æ–°é‚®ä»¶ï¼<<\n");
     }
 
 write( "\n" );
@@ -182,7 +182,7 @@ int p_wuli=0;
 
 
     CHANNEL_D->deliver_emote("announce", query_name(),
-      sprintf("½øÈë%s¡£", mud_name()));
+      sprintf("è¿›å…¥%sã€‚", mud_name()));
      this_body()->get_m_all_money(); // add by fire on Dec 14, 1997
 this_body()->start_age();
 
@@ -190,14 +190,14 @@ this_body()->start_age();
     if ( !move_to_start() )
     {
         //write("Uh-oh, you have no environment.\n");
-        write("ÄãÉíÔÚĞéÎŞçÎç¿¼ä£¬ÄÄ¶ùÒ²È¥²»ÁË¡£\n");
+        write("ä½ èº«åœ¨è™šæ— ç¼¥ç¼ˆé—´ï¼Œå“ªå„¿ä¹Ÿå»ä¸äº†ã€‚\n");
         return;
     }
 
     /* we don't want other people to get the extra newlines */
     write("\n");
     if(is_visible())
-        simple_action("$N½øÈë"+mud_name()+"¡£");
+        simple_action("$Nè¿›å…¥"+mud_name()+"ã€‚");
     write("\n");
 
     CHANNEL_D->register_channels(channel_list);
@@ -221,10 +221,10 @@ nomask void su_enter_game(object where)
 
     //### this should go away once we torch the corresponding leave msg for 'su'
     CHANNEL_D->deliver_emote("announce", query_name(),
-      sprintf("½øÈë%s¡£", mud_name()));
+      sprintf("è¿›å…¥%sã€‚", mud_name()));
 
     if ( is_visible() )
-        simple_action("$N½øÈë"+mud_name()+"¡£");
+        simple_action("$Nè¿›å…¥"+mud_name()+"ã€‚");
 
     CHANNEL_D->register_channels(channel_list);
 
@@ -238,7 +238,7 @@ void enter_game(int is_new)
     {
         write("\n"
           //"Hi, new wiz! Tuning you in to all the mud's important channels.\n"
-          "\nÄãºÃ£¬ĞÂÎ×Ê¦£¡ÏÖÔÚÎªÄã´ò¿ª±¾£Í£Õ£ÄÖØÒªÆµµÀ¡£\n"
+          "\nä½ å¥½ï¼Œæ–°å·«å¸ˆï¼ç°åœ¨ä¸ºä½ æ‰“å¼€æœ¬ï¼­ï¼µï¼¤é‡è¦é¢‘é“ã€‚\n"
           "Doing: wiz /on\n"
           "Doing: chan news /on   (you'll see when new news is posted.)\n"
           "Doing: gossip /on\n"
@@ -260,8 +260,8 @@ void enter_game(int is_new)
           "Tuning in the gossip channel for you.  (gossip /on)\n"
           "\n");
 */      write("\n"
-          "´ò¿ªĞÂÊÖÆµµÀ¡£(newbie /on)\n"
-          "´ò¿ªÏĞÁÄÆµµÀ¡£(gossip /on)\n"
+          "æ‰“å¼€æ–°æ‰‹é¢‘é“ã€‚(newbie /on)\n"
+          "æ‰“å¼€é—²èŠé¢‘é“ã€‚(gossip /on)\n"
           "\n");
 
         /* these will be registered later */
@@ -273,7 +273,7 @@ void enter_game(int is_new)
         DID_D->dump_did_info(query_ilog_time(),
           ({ "",
             //"Changes since you last logged in",
-            "×Ô´ÓÄãÉÏ´ÎÁ¬ÏßÒÔÀ´µÄ¸Ä¶¯",
+            "è‡ªä»ä½ ä¸Šæ¬¡è¿çº¿ä»¥æ¥çš„æ”¹åŠ¨",
             "********************************",
             "" }),
           0,
@@ -339,11 +339,11 @@ void quit()
     }
 
     if (is_visible())
-        simple_action("$NÀë¿ªÁË"+mud_name()+"¡£");
+        simple_action("$Nç¦»å¼€äº†"+mud_name()+"ã€‚");
         NORMAL_D->remove_item_when_quit(this_body());
 
     CHANNEL_D->deliver_emote("announce", query_name(),
-      sprintf("Àë¿ªÁË%s¡£", mud_name()));
+      sprintf("ç¦»å¼€äº†%sã€‚", mud_name()));
     CHANNEL_D->unregister_channels();
 
 #ifdef PLAYERS_START_WHERE_THEY_QUIT
@@ -381,11 +381,11 @@ void net_dead()
 
     if(is_visible())
         simple_action(//"$N $vhave gone link-dead."
-                      "$N¶ÏÏßÁË¡£");
+                      "$Næ–­çº¿äº†ã€‚");
 
     CHANNEL_D->deliver_emote("announce", query_name(),
       sprintf(//"has gone link-dead."
-              "¶ÏÏßÁË¡£", mud_name()));
+              "æ–­çº¿äº†ã€‚", mud_name()));
 
     if ( link && link->query_shell_ob()->get_variable("save_scrollback") )
         catching_scrollback = 1;
@@ -400,10 +400,10 @@ void reconnect(object new_link)
     link = new_link;
     if(is_visible())
         simple_action(//"$N $vhave reconnected.");
-                      "$NÖØĞÂÁ¬Ïß½øÈë¡£\n");
+                      "$Né‡æ–°è¿çº¿è¿›å…¥ã€‚\n");
 
     CHANNEL_D->deliver_emote("announce", query_name(),
-      sprintf("ÖØĞÂÁ¬Ïß½øÈë¡£", mud_name()));
+      sprintf("é‡æ–°è¿çº¿è¿›å…¥ã€‚", mud_name()));
 
     catching_scrollback = 0;
     if ( link->query_shell_ob() )
@@ -418,7 +418,7 @@ void die()
     {
         if(is_visible())
             simple_action(//"If $n $vwere mortal, $n would now no longer be mortal.");
-                          "Òª²»ÊÇ$nÊÇ²»ËÀÉí£¬¾ÍÔçËÀÁË¡£\n");
+                          "è¦ä¸æ˜¯$næ˜¯ä¸æ­»èº«ï¼Œå°±æ—©æ­»äº†ã€‚\n");
         set_hp(query_max_hp());
         stop_fight();
         return;
@@ -427,11 +427,11 @@ void die()
     set_hp(0);
     if(is_visible())
         //simple_action("$N $vhave kicked the bucket, and $vare now pushing up the daisies.");
-        simple_action("$NÍÑÀëÁËÇû¿Ç£¬ÏòÌìÉÏÉıÈ¥¡£\n");
+        simple_action("$Nè„±ç¦»äº†èº¯å£³ï¼Œå‘å¤©ä¸Šå‡å»ã€‚\n");
     //receive_private_msg("\n\n   ****  You have died  ****\n\n"
     //  "A pity, really.  Way too many people dying these days for me to just patch\n"
     //  "everyone up.  Oh well, you'll live.\n",0,0);
-    receive_private_msg("\n\n  **** ÄãËÀÁË  ****\n\n",0,0);
+    receive_private_msg("\n\n  **** ä½ æ­»äº†  ****\n\n",0,0);
     rack_up_a_death();
 
 #ifdef DEATH_MESSAGES
@@ -484,7 +484,7 @@ varargs private void create(string userid, string chinese_name)
 
     if ( base_name(previous_object()) != USER_OB )
         //error("security violation: illegal attempt to change name\n");
-        error("°²È«Î¥Àı£ºÆóÍ¼·Ç·¨¸Ä±äĞÕÃû\n");
+        error("å®‰å…¨è¿ä¾‹ï¼šä¼å›¾éæ³•æ”¹å˜å§“å\n");
         
     messages = ([]);
 
@@ -540,7 +540,7 @@ void channel_rcv_string(string channel_name, string message)
     receive_private_msg(message);
 }
 
-void channel_rcv_soul(string channel_name, array data)
+void channel_rcv_soul(string channel_name, mixed *data)
 {
     string msg;
 
@@ -580,7 +580,7 @@ nomask object query_shell_ob()
     return link && link->query_shell_ob();
 }
 
-nomask array query_failures()
+nomask mixed * query_failures()
 {
     return link->query_failures();
 }
@@ -608,7 +608,7 @@ int go_somewhere(string arg)
 
 string inventory_header()
 {
-    return query_name() + "ÉíÉÏ´ø×Å£º\n";//" is carrying:\n";
+    return query_name() + "èº«ä¸Šå¸¦ç€ï¼š\n";//" is carrying:\n";
 }
 
 int ob_state() 
@@ -645,14 +645,14 @@ void move_or_destruct(object suggested_dest) {
                 throw("Being destructed.\n");
         };
         if (destination && !err) {
-            receive_private_msg(dested_env->short() + "±»´İ»ÙÁË£¬Ò»ÕóÊ±¿Õ×ªÒÆ½«ÄãËÍµ½" + destination->short() + "¡£\n");
+            receive_private_msg(dested_env->short() + "è¢«æ‘§æ¯äº†ï¼Œä¸€é˜µæ—¶ç©ºè½¬ç§»å°†ä½ é€åˆ°" + destination->short() + "ã€‚\n");
             return;
         } else {
             if (destination)
-                receive_private_msg("²»ÄÜ×ªÒÆµ½" + destination->short() + "£º" + err);
+                receive_private_msg("ä¸èƒ½è½¬ç§»åˆ°" + destination->short() + "ï¼š" + err);
         }
     }
-    receive_private_msg("àŞ... Å¶... ÄãÄÄ¶ùÒ²È¥²»ÁË£¬ÔÙ¼û°É¡£\n");
+    receive_private_msg("å™¢... å“¦... ä½ å“ªå„¿ä¹Ÿå»ä¸äº†ï¼Œå†è§å§ã€‚\n");
     (this_object()->query_link())->remove();
 }
 
@@ -681,7 +681,7 @@ string in_room_desc() { return base_in_room_desc() + query_idle_string(); }
 
 #ifdef USE_SKILLS
 
-class combat_result array negotiate_result(class combat_result array result)
+class combat_result * negotiate_result(class combat_result * result)
 {
     result = ::negotiate_result(result);
 

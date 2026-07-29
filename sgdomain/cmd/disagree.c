@@ -12,14 +12,14 @@ void start(string arg)
         my_id=this_body()->query_id()[0];
         if(!CHAR_D->get_char(my_id,"nation"))
         {
-                write("等你混了个一官半职之后，再来考虑同意不同意吧。\n");
+                write("绛変綘娣蜂簡涓竴瀹樺崐鑱屼箣鍚庯紝鍐嶆潵鑰冭檻鍚屾剰涓嶅悓鎰忓惂銆俓n");
                 return;
         }
 	if(((file_name(environment(this_body())))!=
 ((AREA_D->get_area(p_area,"path"))+(AREA_D->get_area(p_area,"meeting"))))||(p_area!=
 		environment(this_body())->get_area()))
 	{
-		write("同意不同意必须在会议之所讨论。\n");
+		write("鍚屾剰涓嶅悓鎰忓繀椤诲湪浼氳涔嬫墍璁ㄨ銆俓n");
 		return;
 	}
         my_task = TASK_D->get_char_task(my_id);
@@ -29,7 +29,7 @@ void start(string arg)
                 case TT_LOCALMEETING:
                         if(!TASK_D->get_task(task_id,"suggestion"))
                         {
-                    write("现在没有议题可以反对。\n");
+                    write("鐜板湪娌℃湁璁鍙互鍙嶅銆俓n");
                         return;
                         }
                         s_ret=(EV_LOCALMEETING)->disagree_sb(task_id,my_id,arg);
@@ -37,7 +37,7 @@ void start(string arg)
                       write(s_ret);
                         break;
                 default:
-            write("现在没有议题可以反对。\n");
+            write("鐜板湪娌℃湁璁鍙互鍙嶅銆俓n");
             return;
                 }
 }

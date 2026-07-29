@@ -70,7 +70,7 @@ int check_area_vacancy(string p_area,int o_id)
 	string* list_char;
 	int v_left;
 	string* a_tmp;
-	if (o_id==1000) return 0;  //ÏĞÖ°ÊıÄ¿²»ÏŞÖÆ
+	if (o_id==1000) return 0;  //é—²èŒæ•°ç›®ä¸é™åˆ¶
 	list_title=OFFICER_D->query_area_officer_title_all(AREA_D->get_area(p_area,"level"));
 	list_char=CHAR_D->check_char("area",p_area);
 	//printf("list = %O o_id = %d\n",list_title,o_id);
@@ -93,44 +93,44 @@ mixed check_whole(string p_id,int p_title) {
 	mapping assign = OFFICER_D->get_officer(p_title,"assign");
 	mapping req=OFFICER_D->query_requirement(p_title);
 	
-	if (!assign) ignore = 1;  //¹úÍõºöÂÔµØÇø¹±Ï×¶È
-	else if (assign["pos"]=="nation") ignore = 1; //¹ú¼Ò¹ÙÔ±ºöÂÔµØÇø¹±Ï×¶È
+	if (!assign) ignore = 1;  //å›½ç‹å¿½ç•¥åœ°åŒºè´¡çŒ®åº¦
+	else if (assign["pos"]=="nation") ignore = 1; //å›½å®¶å®˜å‘˜å¿½ç•¥åœ°åŒºè´¡çŒ®åº¦
 	
-	if (p_title==1000) ignore = 0 ;     //ÏĞÖ°Ã»ÓĞassign²ÎÊı,µ«ÊÇĞèÒª¿¼ÂÇµØÇø¹±Ï×
+	if (p_title==1000) ignore = 0 ;     //é—²èŒæ²¡æœ‰assignå‚æ•°,ä½†æ˜¯éœ€è¦è€ƒè™‘åœ°åŒºè´¡çŒ®
 	
 	p_area = CHAR_D->get_char(p_id,"area");
 	if (p_title==R_KING)
 	{
-	   ignore = 0 ; //¹úÍõĞèÒª¼ì²éµØÇø¹±Ï×
+	   ignore = 0 ; //å›½ç‹éœ€è¦æ£€æŸ¥åœ°åŒºè´¡çŒ®
 	   ratio = AREA_D->get_area(p_area,"level");
 	}
 	else
 	   ratio = 1;
-	if(CHAR_D->get_char(p_id,"reputation")<req["reputation"]*ratio) return "ÉùÍû";
-	if(CHAR_D->get_char(p_id,"loyalty")<req["loyalty"]) return "ÖÒ³Ï";
-	if(CHAR_D->get_skill(p_id,"sk_wuli")<req["sk_wuli"]) return "ÎäÑ§ĞŞÑø";
-	if(CHAR_D->get_skill(p_id,"sk_zhimou")<req["sk_zhimou"]) return "±ø·¨ĞŞÑø";
-	if(CHAR_D->get_skill(p_id,"sk_meili")<req["sk_meili"]) return "ÖÎ¹úĞŞÑø";
+	if(CHAR_D->get_char(p_id,"reputation")<req["reputation"]*ratio) return "å£°æœ›";
+	if(CHAR_D->get_char(p_id,"loyalty")<req["loyalty"]) return "å¿ è¯š";
+	if(CHAR_D->get_skill(p_id,"sk_wuli")<req["sk_wuli"]) return "æ­¦å­¦ä¿®å…»";
+	if(CHAR_D->get_skill(p_id,"sk_zhimou")<req["sk_zhimou"]) return "å…µæ³•ä¿®å…»";
+	if(CHAR_D->get_skill(p_id,"sk_meili")<req["sk_meili"]) return "æ²»å›½ä¿®å…»";
 
 	if(CHAR_D->get_char(p_id,"type")==TYPE_NPC) return 1;
-	if(CHAR_D->get_char(p_id,"literate")<req["literate"]) return "ÎÄÑ§";
+	if(CHAR_D->get_char(p_id,"literate")<req["literate"]) return "æ–‡å­¦";
 	if (!ignore)
-	   if(CHAR_D->get_char(p_id,"localcontribution")<req["localcontribution"]*ratio) return "µØÇø¹±Ï×";
-	if(CHAR_D->get_char(p_id,"nationcontribution")<req["nationcontribution"]*ratio) return "¹ú¼Ò¹±Ï×";
+	   if(CHAR_D->get_char(p_id,"localcontribution")<req["localcontribution"]*ratio) return "åœ°åŒºè´¡çŒ®";
+	if(CHAR_D->get_char(p_id,"nationcontribution")<req["nationcontribution"]*ratio) return "å›½å®¶è´¡çŒ®";
 	
 	if (p_title==R_KING)
 	{
-	if(AREA_D->get_area(p_area,"gold")< 3000*ratio) return "½ğÇ®";
-	if(AREA_D->get_area(p_area,"safe")< 150) return "µØÇø°²¶¨";
-	if(AREA_D->get_area(p_area,"train")< 150) return "¾ü¶ÓÑµÁ·¶È";
-	if(AREA_D->get_area(p_area,"morale")< 150) return "¾ü¶ÓÊ¿Æø";
-	if(AREA_D->get_area(p_area,"soldier")< 1000*ratio) return "¾ü¶ÓÊıÄ¿";
+	if(AREA_D->get_area(p_area,"gold")< 3000*ratio) return "é‡‘é’±";
+	if(AREA_D->get_area(p_area,"safe")< 150) return "åœ°åŒºå®‰å®š";
+	if(AREA_D->get_area(p_area,"train")< 150) return "å†›é˜Ÿè®­ç»ƒåº¦";
+	if(AREA_D->get_area(p_area,"morale")< 150) return "å†›é˜Ÿå£«æ°”";
+	if(AREA_D->get_area(p_area,"soldier")< 1000*ratio) return "å†›é˜Ÿæ•°ç›®";
 	ids=CHAR_D->check_char("area",p_area);
-	if(sizeof(ids)<3) return "Ğ§ÖÒ¹ÙÔ±Êı";
+	if(sizeof(ids)<3) return "æ•ˆå¿ å®˜å‘˜æ•°";
 	ids=filter_array(ids,(:CHAR_D->get_char($1,"level")>1:));
-	if(sizeof(ids)<3) return "Ğ§ÖÒ¹ÙÔ±Êı";
+	if(sizeof(ids)<3) return "æ•ˆå¿ å®˜å‘˜æ•°";
 	ids=filter_array(ids,(:CHAR_D->get_char($1,"fealty")==$(p_id):));
-	if(sizeof(ids)<3) return "Ğ§ÖÒ¹ÙÔ±Êı";
+	if(sizeof(ids)<3) return "æ•ˆå¿ å®˜å‘˜æ•°";
 	}
 	
 	return 1;
@@ -143,9 +143,9 @@ void give_position_n(string p_id,int p_title,string p_nation)
 	if(CHAR_D->get_char(p_id,"nation")!=p_nation) return ;
 
 	CHAR_D->set_char(p_id,"ranknation",p_title);
-	//CHAR_D->set_char(p_id,"sedulityn",100); //Added Suicide ³õÊ¼ÇÚ·ÜÖµ=100
+	//CHAR_D->set_char(p_id,"sedulityn",100); //Added Suicide åˆå§‹å‹¤å¥‹å€¼=100
       CHANNEL_D->deliver_tell("rumor","system",
-         sprintf("%s±»·âÎª%s%s¡£",CHAR_D->get_char(p_id,"name"),
+         sprintf("%sè¢«å°ä¸º%s%sã€‚",CHAR_D->get_char(p_id,"name"),
                COUNTRY_D->get_country(p_nation,"name"),
 		OFFICER_D->query_rank_name(p_title)));      
 }
@@ -159,9 +159,9 @@ void give_position(string p_id,int p_title,string p_area)
 	CHAR_D->set_char(p_id,"ranklocal",p_title);
 	CHAR_D->set_char(p_id,"nation",p_nation);
 	CHAR_D->set_char(p_id,"area",p_area);
-	//CHAR_D->set_char(p_id,"sedulityl",100); //Added Suicide ³õÊ¼ÇÚ·ÜÖµ=100
+	//CHAR_D->set_char(p_id,"sedulityl",100); //Added Suicide åˆå§‹å‹¤å¥‹å€¼=100
       CHANNEL_D->deliver_tell("rumor","system",
-         sprintf("%s±»·âÎª%s%s¡£",CHAR_D->get_char(p_id,"name"),
+         sprintf("%sè¢«å°ä¸º%s%sã€‚",CHAR_D->get_char(p_id,"name"),
             AREA_D->get_area(p_area,"name"),
 		OFFICER_D->query_rank_name(p_title)));      
 	if(oldnation!=p_nation) {
@@ -245,40 +245,40 @@ mixed check_first_step(object officer,object who,string a_id)
  
 
     if(!(CHAR_D->char_exist(y_id)))
-        return "$N¶Ô$TµÀ£º$R»¹Ã»ÓĞ¶¨¾ÓÑ½£¿\n";
+        return "$Nå¯¹$Té“ï¼š$Rè¿˜æ²¡æœ‰å®šå±…å‘€ï¼Ÿ\n";
 
     m_aid=CHAR_D->get_char(y_id,"area");
 
     if(AREA_D->get_area(m_aid,"nation")!=AREA_D->get_area(a_id,"nation"))
-	return "$N¿´ÁË$TÒ»ÑÛ£¬µÀ£º$RÄª·ÇÊÇÏëÔÚ´ËÎÔµ×²»³É£¿\n";
+	return "$Nçœ‹äº†$Tä¸€çœ¼ï¼Œé“ï¼š$Rè«éæ˜¯æƒ³åœ¨æ­¤å§åº•ä¸æˆï¼Ÿ\n";
 
     if(AREA_D->get_area(m_aid,"leader")==y_id)
-	return "$N¶Ô$TÒ¡Í·µÀ£º$m$RÔõÄÜÇáÆúÊôµØ£¿£¡\n";
+	return "$Nå¯¹$Tæ‘‡å¤´é“ï¼š$m$Ræ€èƒ½è½»å¼ƒå±åœ°ï¼Ÿï¼\n";
 
     if(m_aid!=a_id) {
 	if(CHAR_D->get_char(y_id,"nation")!=AREA_D->get_area(a_id,"nation"))
-	        return "$N¶Ô$TµÀ£ºÒªÔÚ´ËÎ»¹Ù£¬ĞèÒªÏÈÔÚ´ËµØ¶¨¾Ó¡£\n";
+	        return "$Nå¯¹$Té“ï¼šè¦åœ¨æ­¤ä½å®˜ï¼Œéœ€è¦å…ˆåœ¨æ­¤åœ°å®šå±…ã€‚\n";
 	if(!CHAR_D->get_char(y_id,"ranknation")) 
-	        return "$N¶Ô$TµÀ£ºÖ»ÓĞ¹ú¼Ò¹ÙÔ±²Å¿ÉÒÔ×ÔÓÉÒìµØÇó¹Ù¡£\n";
+	        return "$Nå¯¹$Té“ï¼šåªæœ‰å›½å®¶å®˜å‘˜æ‰å¯ä»¥è‡ªç”±å¼‚åœ°æ±‚å®˜ã€‚\n";
     }
     else {
 	if(CHAR_D->get_char(y_id,"ranklocal")) 
 	   {
 	   if ((CHAR_D->get_char(m_id,"type")==TYPE_NPC)&&
 	       (grant=CHAR_D->get_char(m_id,"grant")))
-	       return "$N¶Ô$TÒ¡Í·µÀ£ºÎÒÖ»ÊÇÔİ´úÌ«ÊØÖ®Ö°£¬$RÄã»¹ÊÇÈ¥ÎÊÕæÕıµÄÌ«ÊØ"+
-	       CHAR_D->get_char(grant["leader"],"name")+"("+grant["leader"]+")°É£¡\n";
+	       return "$Nå¯¹$Tæ‘‡å¤´é“ï¼šæˆ‘åªæ˜¯æš‚ä»£å¤ªå®ˆä¹‹èŒï¼Œ$Rä½ è¿˜æ˜¯å»é—®çœŸæ­£çš„å¤ªå®ˆ"+
+	       CHAR_D->get_char(grant["leader"],"name")+"("+grant["leader"]+")å§ï¼\n";
 	   
 	   if ((CHAR_D->get_char(m_id,"type")==TYPE_NPC)&&
 	       (CHAR_D->get_char(CHAR_D->get_char(m_id,"nation"),"type")==TYPE_PLAYER))
-	       return "$N¶Ô$TÒ¡Í·µÀ£ºÕâ¼şÊÂÎÒÒªÇëÖ÷¹«¶¨¶á£¬»òÕß$RÇ××ÔÅÜÒ»ÌËÈ¥½ú¼ûÖ÷¹«ÎÊÎÊ°É£®\n";
+	       return "$Nå¯¹$Tæ‘‡å¤´é“ï¼šè¿™ä»¶äº‹æˆ‘è¦è¯·ä¸»å…¬å®šå¤ºï¼Œæˆ–è€…$Räº²è‡ªè·‘ä¸€è¶Ÿå»æ™‹è§ä¸»å…¬é—®é—®å§ï¼\n";
 	   
 	   if ((CHAR_D->get_char(m_id,"type")==TYPE_NPC)&&
 	       (COUNTRY_D->get_country(CHAR_D->get_char(m_id,"nation"),"gs")))
-	       return "$N¶Ô$TÒ¡Í·µÀ£ºÕâ¼şÊÂÎÒÒªÇë¹úÊ¦¶¨¶á£¬»òÕß$RÇ××ÔÅÜÒ»ÌËÈ¥½ú¼û¹úÊ¦ÎÊÎÊ°É£®\n";
+	       return "$Nå¯¹$Tæ‘‡å¤´é“ï¼šè¿™ä»¶äº‹æˆ‘è¦è¯·å›½å¸ˆå®šå¤ºï¼Œæˆ–è€…$Räº²è‡ªè·‘ä¸€è¶Ÿå»æ™‹è§å›½å¸ˆé—®é—®å§ï¼\n";
         
 	   if (CHAR_D->get_char(m_id,"type")==TYPE_PLAYER)
-	       return "$N¶Ô$TĞ¦µÀ£ºÎÒÓÖ²»ÊÇ»úÆ÷ÈË½ÇÉ«£¬ÔõÃ´ÄÜËæ±ã´ğÓ¦ÄãµÄ×Ô¶¯ÉıÖ°ÇëÇóÄØ£¿\n";     
+	       return "$Nå¯¹$Tç¬‘é“ï¼šæˆ‘åˆä¸æ˜¯æœºå™¨äººè§’è‰²ï¼Œæ€ä¹ˆèƒ½éšä¾¿ç­”åº”ä½ çš„è‡ªåŠ¨å‡èŒè¯·æ±‚å‘¢ï¼Ÿ\n";     
 	      
 	   return 2;  
 	   }
@@ -295,13 +295,13 @@ void myconfirm(object who,object officer,string ans)
 	if ((ans=="yes")&&(mp_id==y_id))
 	{
               officer->targetted_action
-                  ("$N¶Ô$TĞ¦µÀ£º$RÕıºÏ´ËÖ°£¬¿ÉÏ²£¬¿ÉºØÑ½¡£\n",who);
+                  ("$Nå¯¹$Tç¬‘é“ï¼š$Ræ­£åˆæ­¤èŒï¼Œå¯å–œï¼Œå¯è´ºå‘€ã€‚\n",who);
        	        give_position(y_id,m_pos,CHAR_D->get_char(m_id,"area"));
 	}
 	else
 	{
               officer->targetted_action
-                  ("$N³ÁÒ÷°ëÉÎ£¬¶Ô$TµÀ£º´ËÊÂ»¹ĞëÔÙÉÌÒéÉÌÒé¡£\n",who);
+                  ("$Næ²‰åŸåŠæ™Œï¼Œå¯¹$Té“ï¼šæ­¤äº‹è¿˜é¡»å†å•†è®®å•†è®®ã€‚\n",who);
 	}
         who->clear_answer();
 }
@@ -322,13 +322,13 @@ void myposition(object officer,object who,int ans)
 	p_res=check_area_vacancy(p_area,p_ans);
 	if (p_res==-1) {
 	   officer->targetted_action
-	   ("$N¶Ô$TĞ¦µÀ£º$RÄã¹ÊÒâÎªÄÑ±¾¹Ù°É£¬Õâ¶ùÃ»ÓĞÕâ¸ö¹ÙÖ°"+
-	    "½ĞÎÒÈçºÎÊÇºÃ°¡£¿\n",who);
+	   ("$Nå¯¹$Tç¬‘é“ï¼š$Rä½ æ•…æ„ä¸ºéš¾æœ¬å®˜å§ï¼Œè¿™å„¿æ²¡æœ‰è¿™ä¸ªå®˜èŒ"+
+	    "å«æˆ‘å¦‚ä½•æ˜¯å¥½å•Šï¼Ÿ\n",who);
 	   return;}
 	if (p_res==-2) {
 	   officer->targetted_action
-	   ("$N¶Ô$TĞ¦µÀ£º$RÄã¹ÊÒâÎªÄÑ±¾¹Ù°É£¬Õâ¸ö¹ÙÖ°ÒÑ¾­Ã»ÓĞ¿ÕÈ±ÁË£¬"+
-	    "½ĞÎÒÈçºÎÊÇºÃ°¡£¿\n",who);
+	   ("$Nå¯¹$Tç¬‘é“ï¼š$Rä½ æ•…æ„ä¸ºéš¾æœ¬å®˜å§ï¼Œè¿™ä¸ªå®˜èŒå·²ç»æ²¡æœ‰ç©ºç¼ºäº†ï¼Œ"+
+	    "å«æˆ‘å¦‚ä½•æ˜¯å¥½å•Šï¼Ÿ\n",who);
 	   return;}
         //Added End
 	p_res=check_whole(y_id,p_ans);
@@ -336,7 +336,7 @@ void myposition(object officer,object who,int ans)
 	if(p_res==1) {
 	    	if(CHAR_D->get_char(m_id,"status")==STATUS_ONLINE)
 		{
-			tell_user(m_id,sprintf("´ËÈË¿´ÆğÀ´»¹ËãË³ÑÛ£¬Í¬ÒâµÄ»°ÇëÊäÈë answer yes to "+y_id+" ¡£\n"));
+			tell_user(m_id,sprintf("æ­¤äººçœ‹èµ·æ¥è¿˜ç®—é¡ºçœ¼ï¼ŒåŒæ„çš„è¯è¯·è¾“å…¥ answer yes to "+y_id+" ã€‚\n"));
 			m_pos=p_ans;
 			mp_id=y_id;
 		    	who->set_answer(m_id,(:myconfirm:));
@@ -347,20 +347,20 @@ void myposition(object officer,object who,int ans)
 			no_pos=CHAR_D->get_char(m_id,"no_pos");
 			if(no_pos>time()) {
 				officer->targetted_action
-					("$N¶Ô$TĞ¦µÀ£ºÎÒ±»ÎÒµÄÕæÉíÉè¶¨³É²»ÄÜ×Ô¶¯¸øÈËÖ°Î»¡£\n"+
-					"ÄãÈôÕæÏëÔÚ´ËµØÄ±Ö°£¬ÇëµÈÎÒÕæÉí»¹»ê£¡¹ş¹ş¡£¡£¡£\n",who);
+					("$Nå¯¹$Tç¬‘é“ï¼šæˆ‘è¢«æˆ‘çš„çœŸèº«è®¾å®šæˆä¸èƒ½è‡ªåŠ¨ç»™äººèŒä½ã€‚\n"+
+					"ä½ è‹¥çœŸæƒ³åœ¨æ­¤åœ°è°‹èŒï¼Œè¯·ç­‰æˆ‘çœŸèº«è¿˜é­‚ï¼å“ˆå“ˆã€‚ã€‚ã€‚\n",who);
 			}
 			else {
 				if(no_pos)
 					CHAR_D->set_char(m_id,"no_pos",0); // out of data
 				officer->targetted_action
-      	        	          ("$N¶Ô$TĞ¦µÀ£º$RÀ´µÄÕıºÃ£¬±¾µØÕıĞèÒªÈË²ÅÖÎÀí£¬¿ÉÏ²£¬¿ÉºØÑ½¡£\n",who);
+      	        	          ("$Nå¯¹$Tç¬‘é“ï¼š$Ræ¥çš„æ­£å¥½ï¼Œæœ¬åœ°æ­£éœ€è¦äººæ‰æ²»ç†ï¼Œå¯å–œï¼Œå¯è´ºå‘€ã€‚\n",who);
               	        	give_position(y_id,p_ans,CHAR_D->get_char(m_id,"area"));
 			}
 		 }
 	} else {
 	    officer->targetted_action
-		  ("$N¶Ô$TÒ¡Í·µÀ£º$RÇëÏ¢Å­£¬´ËÖ°Î»ĞèÒª½Ï¸ßµÄ"+p_res+"¡£\n",who);
+		  ("$Nå¯¹$Tæ‘‡å¤´é“ï¼š$Rè¯·æ¯æ€’ï¼Œæ­¤èŒä½éœ€è¦è¾ƒé«˜çš„"+p_res+"ã€‚\n",who);
 
 	}
 }
@@ -375,15 +375,15 @@ void confirm_position(object who, object officer)
     y_id=(who->query_id())[0];
     officer->set_answer(y_id,  (:myposition:) );
 	list=get_area_vacancy(CHAR_D->get_char(m_id,"area"));
-	p_dis="  ´úºÅ      ¹ÙÖ°\n";
+	p_dis="  ä»£å·      å®˜èŒ\n";
 	for(i=0;i<sizeof(list);++i)
 	{
-		p_dis+=sprintf("¡¾%4d¡¿    %s\n",list[i],
+		p_dis+=sprintf("ã€%4dã€‘    %s\n",list[i],
 			OFFICER_D->query_rank_name(list[i]));
 	}
     officer->targetted_action
-      (p_dis+"$N¶Ô$TµÀ£ºÄã¿¼ÂÇÍ×µ±ÁËÂğ£¿"+
-"ÏëºÃÁË¾ÍÇëÊäÈë answer <´úºÅ> to "+m_id+"\n",who);
+      (p_dis+"$Nå¯¹$Té“ï¼šä½ è€ƒè™‘å¦¥å½“äº†å—ï¼Ÿ"+
+"æƒ³å¥½äº†å°±è¯·è¾“å…¥ answer <ä»£å·> to "+m_id+"\n",who);
 }
 void ask_position(object who, object officer)
 {
@@ -400,7 +400,7 @@ void ask_position(object who, object officer)
         (OFFICER_D->query_area_officer_title(
          AREA_D->get_area(m_area,"level"),0,0))[0]);
           officer->targetted_action
-         ("$N¶Ô$TÒ¡Ò¡Í·£¬µÀ£º$RÏëÔÚ´ËµØÎª¹Ù£¬$s¿É×ö²»ÁËÖ÷£¬ÄãĞëÈ¥ÎÊ±¾µØ"+m_title+"¡£\n",who);
+         ("$Nå¯¹$Tæ‘‡æ‘‡å¤´ï¼Œé“ï¼š$Ræƒ³åœ¨æ­¤åœ°ä¸ºå®˜ï¼Œ$så¯åšä¸äº†ä¸»ï¼Œä½ é¡»å»é—®æœ¬åœ°"+m_title+"ã€‚\n",who);
         return;
     }
     p_check=check_first_step(officer,who,m_area);
@@ -408,13 +408,13 @@ void ask_position(object who, object officer)
     if(p_check==1) {
          officer->responda("consider "+y_id);
 	 myposition(officer,who,R_SG);
-	 if ((CHAR_D->get_char_level(y_id))<2)  //²»ÊÇ¹ú¼Ò¹ÙÔ±ask position
+	 if ((CHAR_D->get_char_level(y_id))<2)  //ä¸æ˜¯å›½å®¶å®˜å‘˜ask position
 	     CHAR_D->set_char(y_id,"tsx",200);
 	 return; 
     }
     else if(p_check==2) {                        //Suicide 
          officer->responda("consider "+y_id);    //2000.7
-         confirm_position(who,officer);      //ÏĞÖ°¹ÙÔ±ÏòNPCÌ«ÊØÒªÇóÉıÖ°
+         confirm_position(who,officer);      //é—²èŒå®˜å‘˜å‘NPCå¤ªå®ˆè¦æ±‚å‡èŒ
 	 return;                                 //
     }                                            //
     else {

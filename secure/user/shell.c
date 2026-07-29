@@ -18,7 +18,7 @@ void update_translations();
 /*
 ** The actuall shell object we're using
 */
-static private object   shell_ob;
+nosave private object   shell_ob;
 
 
 nomask object query_shell_ob()
@@ -26,7 +26,7 @@ nomask object query_shell_ob()
     return shell_ob;
 }
 
-static nomask void start_shell()
+protected nomask void start_shell()
 {
     if ( !shell_ob )
     {
@@ -39,13 +39,13 @@ static nomask void start_shell()
     update_translations();
 }
 
-static nomask void stop_shell()
+protected nomask void stop_shell()
 {
     if ( shell_ob )
         shell_ob->remove();
 }
 
-static nomask void run_login_script()
+protected nomask void run_login_script()
 {
     string login_file;
 

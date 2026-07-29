@@ -97,8 +97,8 @@ mixed check_move(object troop, mixed target)
         mixed p_soldier, t_here, pos;
 
         t_id = troop->get_id();
-        if( !stringp(target) ) return "Ç°ÃæÃ»Â·¡£\n";
-        if( !target->is_gridroom() ) return "²¿¶ÓÖ»ÄÜÔÚÕ½³¡ÉÏ×ß£®\n";
+        if( !stringp(target) ) return "å‰é¢æ²¡è·¯ã€‚\n";
+        if( !target->is_gridroom() ) return "éƒ¨é˜Ÿåªèƒ½åœ¨æˆ˜åœºä¸Šèµ°ï¼Ž\n";
         env = target;
         pos = env->query_pos();
         a_id = env->query_aid();
@@ -110,9 +110,9 @@ mixed check_move(object troop, mixed target)
 		foreach(tt in keys(p_soldier)){
 			forbiden = query_type(tt, "forbiden");
 			if( !arrayp(forbiden) || !sizeof(forbiden) )
-				forbiden = ({"¡ù", });
+				forbiden = ({"â€»", });
 			if( member_array(m_here, forbiden) != -1 )
-				return query_type(tt,"name")+ "²»ÄÜ½øÈë¡°"+m_here+"¡±µÄµØÐÎ¡£\n";
+				return query_type(tt,"name")+ "ä¸èƒ½è¿›å…¥â€œ"+m_here+"â€çš„åœ°å½¢ã€‚\n";
 		}
 	}
 
@@ -120,15 +120,15 @@ mixed check_move(object troop, mixed target)
         if(sizeof(t_here)){
            	m_side = TROOP_D->get_troops(t_id,"side");
            	if( m_side != (TROOP_D->get_troops(t_here[0],"side")) )
-                	return "ÓÐµÐ±ø£¬²»ÄÜÍ¨ÐÐ¡£\n";
+                	return "æœ‰æ•Œå…µï¼Œä¸èƒ½é€šè¡Œã€‚\n";
         }
 
         if(sizeof(t_here)>=2){
-               	return "Ç°ÃæÓÐ¶àÖ§²¿¶Ó£¬ÒªµÈËüÃÇÊèÍ¨ºó²ÅÄÜÐÐ¾ü¡£\n";
+               	return "å‰é¢æœ‰å¤šæ”¯éƒ¨é˜Ÿï¼Œè¦ç­‰å®ƒä»¬ç–é€šåŽæ‰èƒ½è¡Œå†›ã€‚\n";
         }
 	if (TROOP_D->get_troops(t_id, "conds"))
         { if (TROOP_D->get_troops(t_id, "conds")["confuse"])
-        return "»ìÂÒÖÐ£¬ÎÞ·¨ÐÐ¾ü¡£\n";
+        return "æ··ä¹±ä¸­ï¼Œæ— æ³•è¡Œå†›ã€‚\n";
         }	
         env = environment(troop);  // other check should be before this
         pos = env->query_pos();
@@ -141,7 +141,7 @@ TROOP_TYPE(tt)->query_energy_cost(m_here,weather,troop->query("zhenfa"))/2)
 // /2 is used temporily, need modify later ********************
 				too_tired = 1;
 		}
-                if(too_tired) return "²¿¶ÓÌ«ÀÛÁË£¬ÎÞ·¨ÐÐ¾ü£®\n";
+                if(too_tired) return "éƒ¨é˜Ÿå¤ªç´¯äº†ï¼Œæ— æ³•è¡Œå†›ï¼Ž\n";
 		foreach(tt in keys(p_soldier)){
 			if(TROOP_D->get_troops(t_id,"sugong"))
 			p_soldier[tt]["energy"]-=
@@ -153,7 +153,7 @@ TROOP_TYPE(tt)->query_energy_cost(m_here,weather,troop->query("zhenfa"))/4;
 		}
                 TROOP_D->set_troops(t_id,"soldier",p_soldier);
         }
-	troop_busy(t_id,MOV_BUSY_TIME,"²¿¶ÓÕýÐÐ¾üÄØ¡£\n");
+	troop_busy(t_id,MOV_BUSY_TIME,"éƒ¨é˜Ÿæ­£è¡Œå†›å‘¢ã€‚\n");
 	
         return 1;
 }
@@ -180,7 +180,7 @@ int recover_eng(mixed soldier)
 void troop_busy(int t_id,int p_time,string msg) {
 	string *chars;
 	object o;
-	if(!msg) msg="ÄãµÄ²¿¶ÓÕýÃ¦ÄØ¡£\n";
+	if(!msg) msg="ä½ çš„éƒ¨é˜Ÿæ­£å¿™å‘¢ã€‚\n";
 	chars=TROOP_D->get_troops(t_id,"chars");
 	if(!sizeof(chars)) return;
 	foreach(string ch in chars) {

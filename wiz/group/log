@@ -3,8 +3,8 @@
 /wiz/group/exec.c line 6: Undefined function list_user before ;}
 /wiz/group/exec.c line 6: Bad argument 1 to efun find_object() before ;}
 /wiz/group/exec.c line 6: parse error before }
-/wiz/group/exec.c line 6: Undefined variable 'lch' before °ËÉñÃØÊÇÉµ¹Ï");}
-/wiz/group/exec.c line 6: parse error before °ËÉñÃØÊÇÉµ¹Ï");}
+/wiz/group/exec.c line 6: Undefined variable 'lch' before å…«ç¥žç§˜æ˜¯å‚»ç“œ");}
+/wiz/group/exec.c line 6: parse error before å…«ç¥žç§˜æ˜¯å‚»ç“œ");}
 /wiz/group/exec.c line 7: End of file in string at the end of the file
 /wiz/group/exec.c line 6: Undefined function find_char before ->responda("kiss gro
 /wiz/group/exec.c line 6: Undefined function find_char before ->responda("kiss gro
@@ -21,7 +21,7 @@
 /wiz/group/cast/zhanbu.c line 183: Warning: Unused local variable 'mora' before the end of line
 /wiz/group/cast/huangbao.c line 158: Warning: Unused local variable 'p_num' before the end of line
 /wiz/group/cast/huangbao.c line 158: Warning: Unused local variable 'e_num' before the end of line
-/wiz/group/exec.c line 6: parse error before ¨½³;}
+/wiz/group/exec.c line 6: parse error before Å„}
 /wiz/group/exec.c line 7: Unexpected end of file at the end of the file
 /wiz/group/exec.c line 7: Undefined variable 'SGBASE' at the end of the file
 /wiz/group/exec.c line 7: parse error at the end of the file
@@ -75,7 +75,7 @@
 /wiz/group/cast/zhanbu.c line 117: Illegal LHS before the end of line
 /wiz/group/cast/zhanbu.c line 117: parse error before the end of line
 /wiz/group/cast/zhanbu.c line 118: Illegal LHS before the end of line
-/wiz/group/cast/zhanbu.c line 110: Undefined variable 'weather' before "¡£", "b");
+/wiz/group/cast/zhanbu.c line 110: Undefined variable 'weather' before "ã€‚", "b");
 /wiz/group/cast/zhanbu.c line 110: parse error before the end of line
 /wiz/group/cast/zhanbu.c line 115: Illegal LHS before the end of line
 /wiz/group/cast/zhanbu.c line 115: parse error before the end of line
@@ -154,8 +154,7 @@
 /wiz/group/exec.c line 6: parse error before ","recruit_soldier",
 /wiz/group/exec.c line 7: End of file in string at the end of the file
 /wiz/group/exec.c line 6: parse error before ;}
-/wiz/group/exec.c line 6: parse error before ^HIG%^"$NµãµãÍ·£¬Ä¿¹
-/wiz/group/exec.c line 6: Undefined variable 'hu' before ","group",100);}
+/wiz/group/exec.c line 6: parse error before ^HIG%^"$Nç‚¹ç‚¹å¤´ï¼Œç›®/wiz/group/exec.c line 6: Undefined variable 'hu' before ","group",100);}
 /wiz/group/exec.c line 6: parse error before ","group",100);}
 /wiz/group/exec.c line 7: End of file in string at the end of the file
 /wiz/group/exec.c line 6: parse error before ;}

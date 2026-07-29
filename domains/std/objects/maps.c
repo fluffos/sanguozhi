@@ -8,11 +8,11 @@ inherit M_GETTABLE;
 
 void setup()
 {
-    set_id("º£Í¼");
-    set_unit("º£Í¼");
-    set_long("Í¼ÉÏÓĞĞí¶àÁÊ²İµÄ×Ö¼£¡£");
+    set_id("æµ·å›¾");
+    set_unit("æµ·å›¾");
+    set_long("å›¾ä¸Šæœ‰è®¸å¤šæ½¦è‰çš„å­—è¿¹ã€‚");
     set_flag(ATTACHED);
-    set_gettable("Õâ·ùÍ¼±»ÀÎÀÎµÄÏâÔÚÁËÇ½ÉÏ¡£");
+    set_gettable("è¿™å¹…å›¾è¢«ç‰¢ç‰¢çš„é•¶åœ¨äº†å¢™ä¸Šã€‚");
     set_size(SMALL);
 }
 

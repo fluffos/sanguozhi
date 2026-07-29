@@ -19,21 +19,21 @@ void start(string arg)
         my_id=this_body()->query_id()[0];
         if(!CHAR_D->char_exist(my_id))
         {
-                write("ÄãÏÖÔÚ»¹²»ÊÇ½ÇÉ«ÎÞ·¨ÐûÊÄÐ§ÖÒ£¿£¡\n");
+                write("ä½ çŽ°åœ¨è¿˜ä¸æ˜¯è§’è‰²æ— æ³•å®£èª“æ•ˆå¿ ï¼Ÿï¼\n");
                 return;
         }
         if (arg=="")
            {if ((f_id=CHAR_D->get_char(my_id,"fealty"))!=my_id)
-               printf("ÄãÏÖÔÚÐûÊÄÐ§ÖÒµÄÊÇ%s(%s)¡£\n",
+               printf("ä½ çŽ°åœ¨å®£èª“æ•ˆå¿ çš„æ˜¯%s(%s)ã€‚\n",
                       CHAR_D->get_char(f_id,"name"),f_id);
 	    else
-	     write("ÄãÏÖÔÚÃ»ÓÐÐ§ÖÒÈÎºÎÈË°¡£¿£¡\n");
+	     write("ä½ çŽ°åœ¨æ²¡æœ‰æ•ˆå¿ ä»»ä½•äººå•Šï¼Ÿï¼\n");
 	   }
         else
           {
           if (arg=="none") 
              if ((f_id=CHAR_D->get_char(my_id,"fealty"))!=my_id)
-             {msg=sprintf("%sÓÉÓÚ¶Ô%s²»Âú£¬¾ö¶¨ÍÑÀë%sµÄÅÉÏµ¡£",
+             {msg=sprintf("%sç”±äºŽå¯¹%sä¸æ»¡ï¼Œå†³å®šè„±ç¦»%sçš„æ´¾ç³»ã€‚",
 	      CHAR_D->get_char(my_id,"name"),
 	      CHAR_D->get_char(f_id,"name"),
 	      CHAR_D->get_char(f_id,"name"));
@@ -43,17 +43,17 @@ void start(string arg)
 	     }
           	
           if(!CHAR_D->char_exist(arg))
-            {write("ÄãÒªÐûÊÄÐ§ÖÒµÄ½ÇÉ«²»´æÔÚ°¡£¬ÄãÊÇ²»ÊÇ¸ã´íÁË£¿£¡\n");
+            {write("ä½ è¦å®£èª“æ•ˆå¿ çš„è§’è‰²ä¸å­˜åœ¨å•Šï¼Œä½ æ˜¯ä¸æ˜¯æžé”™äº†ï¼Ÿï¼\n");
              return;}
           my_na   = CHAR_D->get_char(my_id,"nation");
           my_area = CHAR_D->get_char(my_id,"area");
-          if (((CHAR_D->get_char(my_id,"ranknation")>0)||     //¹ú¼Ò¹ÙÔ±ºÍÌ«ÊØÖ»ÄÜÏò¹úÍõ
+          if (((CHAR_D->get_char(my_id,"ranknation")>0)||     //å›½å®¶å®˜å‘˜å’Œå¤ªå®ˆåªèƒ½å‘å›½çŽ‹
                (is_real_taishou(my_id)))&&
                (my_na!=arg)&&
               (COUNTRY_D->get_country(my_na,"gs")!=arg))
-             write("¶Ô·½¼È²»ÊÇÄãµÄÖ÷¹«ÓÖ²»ÊÇÄã¹úµÄ¹úÊ¦£¬»¹·¸²»×ÅÐûÊÄÐ§ÖÒ°É£¡£¿\n"); 
+             write("å¯¹æ–¹æ—¢ä¸æ˜¯ä½ çš„ä¸»å…¬åˆä¸æ˜¯ä½ å›½çš„å›½å¸ˆï¼Œè¿˜çŠ¯ä¸ç€å®£èª“æ•ˆå¿ å§ï¼ï¼Ÿ\n"); 
           else
-            {msg=sprintf("%sÊÜµ½%sµÄ¸ÐÕÙ£¬¾ö¶¨¼ÓÈë%sµÄÅÉÏµ¡£",
+            {msg=sprintf("%så—åˆ°%sçš„æ„Ÿå¬ï¼Œå†³å®šåŠ å…¥%sçš„æ´¾ç³»ã€‚",
 	     CHAR_D->get_char(my_id,"name"),
 	     CHAR_D->get_char(arg,"name"),
 	     CHAR_D->get_char(arg,"name"));

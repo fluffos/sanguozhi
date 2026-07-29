@@ -60,7 +60,7 @@ mixed appear(string p_id,string p_area,string p_room,string p_action) // this is
        { o->simple_action(p_action);
        }
       else
-       o->simple_action("$N×ßÁË¹ýÀ´¡£\n");
+       o->simple_action("$Nèµ°äº†è¿‡æ¥ã€‚\n");
    } else {
      SGSYS("ERROR: can't find char of " + p_id +" after appear");
    }
@@ -89,6 +89,6 @@ void put_prison(string p_id,int p_time,string p_area, string p_msg)
     CHAR_D->set_char(p_id,"caught_area",p_area);
     p_prison=AREA_D->get_area(p_area,"prison");
     if((!p_msg)||(p_msg==""))
-      p_msg="$NÐÄÖÐÒ»Á¹£ºÕâ»Ø²ÒÁË¡£¡£¡£\n";
+      p_msg="$Nå¿ƒä¸­ä¸€å‡‰ï¼šè¿™å›žæƒ¨äº†ã€‚ã€‚ã€‚\n";
     appear(p_id,p_area,p_prison,p_msg);
 }

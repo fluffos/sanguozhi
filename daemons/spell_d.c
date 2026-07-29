@@ -17,11 +17,11 @@ inherit M_DAEMON_DATA;
 #define PRIV_REQUIRED   "Mudlib:daemons"
 
 // Save this....
-private string array  spell_dirs = ({});
+private string *  spell_dirs = ({});
 
 // Map the name of the spell to its object name.
 // We build this each create.
-private static mapping spell_table = ([ ]);
+private mapping spell_table = ([ ]);
 
 
 void add_spell_dir(string dir)
@@ -118,7 +118,7 @@ void create()
 /* strip leading "the/a/an"; strip trailing "spell" */
 private nomask string find_spell_obname(string spell)
 {
-    string array parts = explode(spell, " ");
+    string * parts = explode(spell, " ");
   
     if ( sizeof(parts) > 1 )
     {

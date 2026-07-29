@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is »¨¶ù¶ä¶ä
+// driver is èŠ±å„¿æœµæœµ
 // created date is Sun May  1 23:07:48 2011
 #include <mudlib.h>
 #include <ansi.h>
@@ -7,10 +7,10 @@ inherit OUTDOOR_ROOM;
 void setup() {
 set_area("tongguan");
 set_light(50);
-set_brief("%^YELLOW%^"+"Ğ£¾ü³¡"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"æ ¡å†›åœº"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "south":"/a/tongguan/dalu_right.c",
  ]));
-set_objects(([M_BOARD : ({ 1,"Ğ£¾ü³¡ÉÏÒ»Ô±Îä½«ÕıÑµÁ·Ê¿±øÃÇÅÅ³ö¸÷ÖÖ½ø¹¥ÕóĞÍ¡£\n\nÈë¿Ú´¦Á¢×ÅÒ»¿é"+"%^MAGENTA%^"+"³¤°²ÁôÑÔÅÆ"+"%^RESET%^", "city.tongguan" }) ]) );
+set_objects(([M_BOARD : ({ 1,"æ ¡å†›åœºä¸Šä¸€å‘˜æ­¦å°†æ­£è®­ç»ƒå£«å…µä»¬æ’å‡ºå„ç§è¿›æ”»é˜µå‹ã€‚\n\nå…¥å£å¤„ç«‹ç€ä¸€å—"+"%^MAGENTA%^"+"é•¿å®‰ç•™è¨€ç‰Œ"+"%^RESET%^", "city.tongguan" }) ]) );
 }

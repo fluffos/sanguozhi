@@ -9,7 +9,7 @@ string query_race() {
 
 string short_description() {
     return //"Elves get bonuses to charisma and wisdom.  Their strength is below average, their agility is average, their intelligence is above average, and thier willpower is slightly below average.  If this had been a real race instead of an example, this would have been much more interesting to read.\n";
-           "精灵有着很高的魅力与智慧，它们的膂力低于平均水平，身法中等，悟性略高，毅力略低。\n";                                                                                                                                                                                                                      
+           "绮剧伒鏈夌潃寰堥珮鐨勯瓍鍔涗笌鏅烘収锛屽畠浠殑鑶傚姏浣庝簬骞冲潎姘村钩锛岃韩娉曚腑绛夛紝鎮熸�х暐楂橈紝姣呭姏鐣ヤ綆銆俓n";                                                                                                                                                                                                                      
 }
 
 int racial_con_bonus() {

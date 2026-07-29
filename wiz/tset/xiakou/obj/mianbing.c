@@ -1,5 +1,5 @@
 //  mianbing.c
-//  Ãæ±ý
+//  é¢é¥¼
 //  created by tset 1/17/98
 //  last updated by tset 1/17/98
 
@@ -11,16 +11,16 @@ inherit M_GETTABLE;
 inherit M_EDIBLE;
 
 void setup() {
-        set_id("mianbing", "Ãæ±ý", "bing");
-        set_long("Ò»¿éÓÖÏãÓÖÌðµÄÃæ±ý");
-        set_unit("¿é");
+        set_id("mianbing", "é¢é¥¼", "bing");
+        set_long("ä¸€å—åˆé¦™åˆç”œçš„é¢é¥¼");
+        set_unit("å—");
         set_gettable(1);
         set_value(50);
         set_currency_type("coin");
         set_num_eats(2); 
-  set_eat_action((: this_body()->simple_action("$NÄÃÆðÃæ±ýÀ´³ÔÁË¼¸¿Ú¡£"+
+  set_eat_action((: this_body()->simple_action("$Næ‹¿èµ·é¢é¥¼æ¥åƒäº†å‡ å£ã€‚"+
         "\n") :));
-  set_last_eat_action((: this_body()->simple_action("$N°ÑÊ£ÏÂµÄÃæ±ý"+
-        "³ÔµÃ¸É¸É¾»¾»¡£\n") :));
+  set_last_eat_action((: this_body()->simple_action("$NæŠŠå‰©ä¸‹çš„é¢é¥¼"+
+        "åƒå¾—å¹²å¹²å‡€å‡€ã€‚\n") :));
 }
 

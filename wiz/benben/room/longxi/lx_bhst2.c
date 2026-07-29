@@ -1,4 +1,4 @@
-//  Ç°ÃÅ´ó½Ö by benben
+//  å‰é—¨å¤§è¡— by benben
 // lx_bhst2.c 
 #include <mudlib.h>
 #include "/wiz/fire/fire.h"
@@ -7,8 +7,8 @@ inherit OUTDOOR_ROOM;
 void setup(){
     set_area("longxi");
     set_light(50);
-    set_brief(""+YEL+"--±±å¾½Ö--"+NOR+"");
-    set_long("    ÃèÊö¡£\n");
+    set_brief(""+YEL+"--åŒ—å¯°è¡—--"+NOR+"");
+    set_long("    æè¿°ã€‚\n");
     set_exits( ([
         "east" :  __DIR__+"lx_photo.c",
         "south" : __DIR__+"lx_bhst1.c",

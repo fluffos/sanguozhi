@@ -18,17 +18,17 @@ void do_query(string str)
 	poped=0;
     	modal_pop();
 
-	if (!j) {slave->targetted_action("$N³¯$T¸£ÁËÒ»¸£µÀ£º$m£¬ÄãÏÖÔÚ»¹Ã»º¢×Ó¡£\n",master);return;}
+	if (!j) {slave->targetted_action("$Næœ$Tç¦äº†ä¸€ç¦é“ï¼š$mï¼Œä½ ç°åœ¨è¿˜æ²¡å­©å­ã€‚\n",master);return;}
 
 	k=0;
 	for(i=0;i<j;i++){
 		inf=o_h->get_npc(baby_list[i]);
 		if(inf["id"]==str) k=k+1;
 	}
-	if(!k){slave->targetted_action("$N³¯$T¸£ÁËÒ»¸£µÀ£º$m£¬ÄãÃ»Õâ¸ö¹«×Ó»òÕßĞ¡½ã¡£\n",master);return;}
+	if(!k){slave->targetted_action("$Næœ$Tç¦äº†ä¸€ç¦é“ï¼š$mï¼Œä½ æ²¡è¿™ä¸ªå…¬å­æˆ–è€…å°å§ã€‚\n",master);return;}
 	inf=o_h->get_npc(str);
-	if(inf["gender"]==1) msg="¹«×Ó";else msg="Ğ¡½ã";
-	slave->targetted_action("$N³¯$T¸£ÁËÒ»¸£µÀ£º$m£¬Äã¿ÉÒÔ¶ÔÕâÎ»"+msg+"×öÒÔÏÂÊÂÇé£º\n",master);
+	if(inf["gender"]==1) msg="å…¬å­";else msg="å°å§";
+	slave->targetted_action("$Næœ$Tç¦äº†ä¸€ç¦é“ï¼š$mï¼Œä½ å¯ä»¥å¯¹è¿™ä½"+msg+"åšä»¥ä¸‹äº‹æƒ…ï¼š\n",master);
 	new(__DIR__+"sn_baby_menu")->start_menu();
 }
 
@@ -46,8 +46,8 @@ void do_babylist() {
 	j=sizeof(baby_list);
 	modal_pop();
 	poped=0;
-	if (!j) {slave->targetted_action("$N¶Ô$TµÀ£ºÏÖÔÚÄã»¹Ã»º¢×Ó¡£\n",master);return;}
-	msg="$N¶Ô$T¹ªÉíµÀ£º»Ø$R£¬ÏÖÔÚ¸®Àï¹²ÓĞ"+chinese_number(j)+"¹«×ÓºÍĞ¡½ã¡£\n";
+	if (!j) {slave->targetted_action("$Nå¯¹$Té“ï¼šç°åœ¨ä½ è¿˜æ²¡å­©å­ã€‚\n",master);return;}
+	msg="$Nå¯¹$Tèº¬èº«é“ï¼šå›$Rï¼Œç°åœ¨åºœé‡Œå…±æœ‰"+chinese_number(j)+"å…¬å­å’Œå°å§ã€‚\n";
 
 	for(i=0;i<j;i++){
 		inf=o_h->get_npc(baby_list[i]);
@@ -61,8 +61,8 @@ void do_babylist() {
 void create( )
 {
     set_privilege(1);
-    toplevel = new_menu("\nÇë¶ÔÊÌÅ®ÏÂ´ïÖ¸Áî£º");
-    quit_item = new_menu_item("ÍËÏÂ", (:quit_old_place:), "q");
+    toplevel = new_menu("\nè¯·å¯¹ä¾å¥³ä¸‹è¾¾æŒ‡ä»¤ï¼š");
+    quit_item = new_menu_item("é€€ä¸‹", (:quit_old_place:), "q");
     seperator = new_seperator
     ("----------------------------------------------------------------------");
     space = new_seperator
@@ -70,27 +70,27 @@ void create( )
 
     add_menu_item(toplevel, seperator);
     add_menu_item(toplevel, space);
-    add_menu_item(toplevel, new_menu_item("ÔÚ´Ë¹§ºò",	(: do_stayhere :) ,"1"));
+    add_menu_item(toplevel, new_menu_item("åœ¨æ­¤æ­å€™",	(: do_stayhere :) ,"1"));
 
 
-    add_menu_item(toplevel, new_menu_item("Ñ¯ÎÊÇé¿ö",	(: do_getinfo :) ,"2"));
-    add_menu_item(toplevel, new_menu_item("ÉÍ´ÍÎïÆ·",	(: get_input_then_call,
-		(: do_praise :) ,"ÉÍ´ÍºÎÎï£º" :) ,"3"));
+    add_menu_item(toplevel, new_menu_item("è¯¢é—®æƒ…å†µ",	(: do_getinfo :) ,"2"));
+    add_menu_item(toplevel, new_menu_item("èµèµç‰©å“",	(: get_input_then_call,
+		(: do_praise :) ,"èµèµä½•ç‰©ï¼š" :) ,"3"));
 
 
-    add_menu_item(toplevel, new_menu_item("¸Ä±äID",	(: get_input_then_call,
-		(: do_changeid :) ,"±äÎªºÎID£º" :) ,"4"));
+    add_menu_item(toplevel, new_menu_item("æ”¹å˜ID",	(: get_input_then_call,
+		(: do_changeid :) ,"å˜ä¸ºä½•IDï¼š" :) ,"4"));
 
 
-    add_menu_item(toplevel, new_menu_item("Ñ¯ÎÊBABY",	(: get_input_then_call,
-		(: do_query :) ,"Ñ¯ÎÊÄÄ¸öBABY£º" :) ,"5"));
+    add_menu_item(toplevel, new_menu_item("è¯¢é—®BABY",	(: get_input_then_call,
+		(: do_query :) ,"è¯¢é—®å“ªä¸ªBABYï¼š" :) ,"5"));
 
-    add_menu_item(toplevel, new_menu_item("BABY»¨Ãû²á",	(: do_babylist :) ,"6"));
+    add_menu_item(toplevel, new_menu_item("BABYèŠ±åå†Œ",	(: do_babylist :) ,"6"));
 
 
     add_menu_item(toplevel, quit_item);
     add_menu_item(toplevel, space);
-    set_menu_prompt (toplevel, "ÊäÈëÖ¸Áî[123456q]: ");
+    set_menu_prompt (toplevel, "è¾“å…¥æŒ‡ä»¤[123456q]: ");
 }
 
 void start_menu(object m,object s)

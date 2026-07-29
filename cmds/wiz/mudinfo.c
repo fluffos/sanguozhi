@@ -23,7 +23,7 @@ private void main(string arg)
     matches = insensitive_regexp(muds, "^"+translate(arg));
     if(!sizeof(matches))
     {
-        printf("ÔÚ %d ¸ö MUD ÖĞ£¬Ã»ÓĞÓëÖ®¶ÔÓ¦µÄ¡£\n", sizeof(mudlist));
+        printf("åœ¨ %d ä¸ª MUD ä¸­ï¼Œæ²¡æœ‰ä¸ä¹‹å¯¹åº”çš„ã€‚\n", sizeof(mudlist));
         return;
     }
     matches = sort_array(matches,1);
@@ -32,36 +32,36 @@ private void main(string arg)
         mudinfo = mudlist[match];
        out(match + "\n");
         out("---------------------------\n");
-        out(sprintf("ÀàĞÍ: %s\n", mudinfo[8]));
-        out(sprintf("ÍøÖ·: %s %d\n", mudinfo[1], mudinfo[2]));
-        out(sprintf("Ä¿Ç° Mudlib: %s\n", mudinfo[5]));
-        out(sprintf("»ù´¡ Mudlib: %s\n", mudinfo[6]));
+        out(sprintf("ç±»å‹: %s\n", mudinfo[8]));
+        out(sprintf("ç½‘å€: %s %d\n", mudinfo[1], mudinfo[2]));
+        out(sprintf("ç›®å‰ Mudlib: %s\n", mudinfo[5]));
+        out(sprintf("åŸºç¡€ Mudlib: %s\n", mudinfo[6]));
         out(sprintf("Driver: %s\n", mudinfo[7]));
-        out("×´Ì¬:  ");
+        out("çŠ¶æ€:  ");
         if(mudinfo[0] == -1)
         {
-            out("ÔËĞĞÖĞ\n");
+            out("è¿è¡Œä¸­\n");
         }
         else if(!mudinfo[0])
         {
-            out("µ±»úÖĞ\n");
+            out("å½“æœºä¸­\n");
         }
         else
         {
-            out(sprintf("µ±»úÖĞ (¿ÉÄÜÔÚ %d ·ÖÖÓÄÚ»Ö¸´ÔËĞĞ)\n",
+            out(sprintf("å½“æœºä¸­ (å¯èƒ½åœ¨ %d åˆ†é’Ÿå†…æ¢å¤è¿è¡Œ)\n",
               (mudinfo[0]+60)/60));
         }
-        out(sprintf("¿ª·Å×´Ì¬: %s\n", mudinfo[9]));
+        out(sprintf("å¼€æ”¾çŠ¶æ€: %s\n", mudinfo[9]));
         out(sprintf("Admin email: %s\n", mudinfo[10]));
         out(sprintf("TCP Imud port: %d\n", mudinfo[3]));
         out(sprintf("UDP Imud port: %d\n", mudinfo[4]));
-        out("Ìá¹©µÄ·şÎñ: ");
+        out("æä¾›çš„æœåŠ¡: ");
         if(!sizeof(mudinfo[11]))
-            out("Ã»ÓĞ¾ßÌåÄÚÈİ\n");
+            out("æ²¡æœ‰å…·ä½“å†…å®¹\n");
         else
             out(implode(sort_array(keys(mudinfo[11]) - ({ 0 }), 1), ", ") + "\n");
         if ( mudinfo[12] )
-            out("ÆäËüÊı¾İ: " + implode(keys(mudinfo[12]), ", ") + "\n");
+            out("å…¶å®ƒæ•°æ®: " + implode(keys(mudinfo[12]), ", ") + "\n");
         out("\n");
     }
 }

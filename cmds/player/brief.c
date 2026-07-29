@@ -7,7 +7,7 @@
 */
 
 #include <playerflags.h>
-#define USAGE "ÓÃ·¨: brief [on|off]\n"
+#define USAGE "ç”¨æ³•: brief [on|off]\n"
 
 inherit CMD;
 
@@ -15,15 +15,15 @@ inherit CMD;
 
 private string query_setting()
 {
-    return this_body()->test_flag(F_BRIEF) ? "¿ªÆô" : "¹Ø±Õ";
+    return this_body()->test_flag(F_BRIEF) ? "å¼€å¯" : "å…³é—­";
 }
 
 nomask private void main(string arg)
 {
     if ( !arg || arg == "" )
     {
-	out("¶ÌĞÅÏ¢Ä£Ê½ÏÖÔÚÊÇ" + query_setting() +
-	      "×ÅµÄ¡£\n" + USAGE);
+	out("çŸ­ä¿¡æ¯æ¨¡å¼ç°åœ¨æ˜¯" + query_setting() +
+	      "ç€çš„ã€‚\n" + USAGE);
 	return;
     }
 
@@ -42,5 +42,5 @@ nomask private void main(string arg)
 	return;
     }
 
-    out("¶ÌĞÅÏ¢Ä£Ê½ÏÖÔÚ" + query_setting() + "¡£\n");
+    out("çŸ­ä¿¡æ¯æ¨¡å¼ç°åœ¨" + query_setting() + "ã€‚\n");
 }

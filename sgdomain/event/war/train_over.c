@@ -27,7 +27,7 @@ void force_over(int task_id)
 #endif  // _DEBUG_ID
 
         usr->simple_action
-            ("$NÎŞÄÎµØĞû²¼£ºÑµÁ·Òò¹ÊÖÕÖ¹¡£\n");
+            ("$Næ— å¥ˆåœ°å®£å¸ƒï¼šè®­ç»ƒå› æ•…ç»ˆæ­¢ã€‚\n");
     }
     
     TASK_D->set_task(task_id,"overduetimes", 0);
@@ -54,11 +54,11 @@ void train_over(int task_id)
    {
        if(objectp(usr))
          bdy->simple_action
-          ("$NÒ¡Í·µÀ£ººÜÒÅº¶£¬±¾´ÎÑµÁ·Ã»Ê²Ã´³ÉĞ§£¬´ó¼Ò»¹ÊÇÔçµã»ØÓªÈ¥°É¡£\n");
+          ("$Næ‘‡å¤´é“ï¼šå¾ˆé—æ†¾ï¼Œæœ¬æ¬¡è®­ç»ƒæ²¡ä»€ä¹ˆæˆæ•ˆï¼Œå¤§å®¶è¿˜æ˜¯æ—©ç‚¹å›è¥å»å§ã€‚\n");
        TASK_D->remove_task(task_id);
        return;
    }       
-   tell_user(p_leader,"ÑµÁ·½áÊø£¬Çë»Ø´ğÒ»¸ö¼òµ¥µÄÎÊÌâ¡£\n");
+   tell_user(p_leader,"è®­ç»ƒç»“æŸï¼Œè¯·å›ç­”ä¸€ä¸ªç®€å•çš„é—®é¢˜ã€‚\n");
    ROBOT->robot_test(usr,(:big_award:));
 }
 void big_award(object usr)
@@ -82,15 +82,15 @@ void big_award(object usr)
     succ=TASK_D->get_task(task_id,"successtimes");
     if(isrobot)
     {  usr->simple_action(
-          "$NµÀ£º½ñÌìÑµÁ·Ì«ÀÛÁË£¬¸ÄÈÕÔÙĞĞÉÍ°É¡£\n");
+          "$Né“ï¼šä»Šå¤©è®­ç»ƒå¤ªç´¯äº†ï¼Œæ”¹æ—¥å†è¡Œèµå§ã€‚\n");
        TASK_D->remove_task(task_id);
        return;
     }
     usr->simple_action(
-       "$NµÀ£º±¾´Î¹²½øĞĞÁË"+chinese_number(fail+succ)+
-       "¸öÏîÄ¿µÄÑµÁ·£¬ÆäÖĞ³É¹¦ÁË"+chinese_number(succ)+
-       "Ïî¡£\nÊ§°ÜÁË"+chinese_number(fail)+
-       "Ïî¡£×ÜÌåĞ§¹û·Ç³£³É¹¦£¬ÖîÎ»¶¼»áÓĞÉÍ¡£\n");
+       "$Né“ï¼šæœ¬æ¬¡å…±è¿›è¡Œäº†"+chinese_number(fail+succ)+
+       "ä¸ªé¡¹ç›®çš„è®­ç»ƒï¼Œå…¶ä¸­æˆåŠŸäº†"+chinese_number(succ)+
+       "é¡¹ã€‚\nå¤±è´¥äº†"+chinese_number(fail)+
+       "é¡¹ã€‚æ€»ä½“æ•ˆæœéå¸¸æˆåŠŸï¼Œè¯¸ä½éƒ½ä¼šæœ‰èµã€‚\n");
     succ-=fail;
 	succ=succ*15/10;
    AREA_D->set_area(p_area,"train",
@@ -102,14 +102,14 @@ void big_award(object usr)
     usr->award_exp(succ*20,"");
     CHAR_D->set_char(my_id,"localcontribution",
        CHAR_D->get_char(my_id,"localcontribution")+succ*2);
-//    tell_environment(usr,a_name+"Ê¿±øµÄÑµÁ·¶ÈÌá¸ßÁË¡£\n"); // this is done in the train
-//    tell_environment(usr,a_name+"Ê¿±øµÄÊ¿ÆøÌá¸ßÁË¡£\n");
-    tell_environment(usr,p_name+ "µÄÉùÍûÉÏÉıÁË¡£\n");
-    tell_environment(usr,p_name+ "µÄ¾­ÑéÔö¼ÓÁË¡£\n");
-    tell_environment(usr,p_name+ "µØÇø¹±Ï×Ôö´óÁË¡£\n");
-    usr->simple_action("$N¸ßĞËµØÌøÁËÆğÀ´¡£\n");
+//    tell_environment(usr,a_name+"å£«å…µçš„è®­ç»ƒåº¦æé«˜äº†ã€‚\n"); // this is done in the train
+//    tell_environment(usr,a_name+"å£«å…µçš„å£«æ°”æé«˜äº†ã€‚\n");
+    tell_environment(usr,p_name+ "çš„å£°æœ›ä¸Šå‡äº†ã€‚\n");
+    tell_environment(usr,p_name+ "çš„ç»éªŒå¢åŠ äº†ã€‚\n");
+    tell_environment(usr,p_name+ "åœ°åŒºè´¡çŒ®å¢å¤§äº†ã€‚\n");
+    usr->simple_action("$Né«˜å…´åœ°è·³äº†èµ·æ¥ã€‚\n");
     usr->simple_action
-("$N½Ó×ÅµÀ£º´ó¼Ò±ğ×ß£¬·²ÊÇ²Î¼ÓÑµÁ·µÄ¡¢ÔÚÕâ¶ùµÄ¡¢²»ÉµµÄ¶¼ÓĞ½±ÉÍ¡£\n");
+("$Næ¥ç€é“ï¼šå¤§å®¶åˆ«èµ°ï¼Œå‡¡æ˜¯å‚åŠ è®­ç»ƒçš„ã€åœ¨è¿™å„¿çš„ã€ä¸å‚»çš„éƒ½æœ‰å¥–èµã€‚\n");
     env=environment(usr);
     {
        int *party;
@@ -129,7 +129,7 @@ void big_award(object usr)
           }
        }
     }
-    usr->simple_action("$NµÀ£ºÁìÍêÉÍ£¬¸÷Î»¾Í¿ÉÒÔÀë¿ªÀ²¡£\n");
+    usr->simple_action("$Né“ï¼šé¢†å®Œèµï¼Œå„ä½å°±å¯ä»¥ç¦»å¼€å•¦ã€‚\n");
     TASK_D->remove_task(task_id);
 }
 void small_award(object usr ,int num)
@@ -145,13 +145,13 @@ void small_award(object usr ,int num)
     p_name=CHAR_D->get_char(my_id,"name");
     if(isrobot)
     {  
-usr->simple_action("$N×ŞÁË×ŞÃ¼Í·£ºÔõÃ´Ã»ÎÒµÄ½±ÉÍ£¿\n");
+usr->simple_action("$Né‚¹äº†é‚¹çœ‰å¤´ï¼šæ€ä¹ˆæ²¡æˆ‘çš„å¥–èµï¼Ÿ\n");
        usr->responda("heng");
        return;
     }
     CHAR_D->set_char(my_id,"reputation",
        CHAR_D->get_char(my_id,"reputation")+num*2);
     usr->award_exp(num*4,"");
-    tell_environment(usr,p_name+ "µÄÉùÍûÉÏÉıÁË¡£\n");
-    tell_environment(usr,p_name+ "µÄ¾­ÑéÔö¼ÓÁË¡£\n");
+    tell_environment(usr,p_name+ "çš„å£°æœ›ä¸Šå‡äº†ã€‚\n");
+    tell_environment(usr,p_name+ "çš„ç»éªŒå¢åŠ äº†ã€‚\n");
 }

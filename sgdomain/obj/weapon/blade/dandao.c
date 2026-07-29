@@ -5,13 +5,13 @@ inherit M_WEAPON;
 inherit M_VALUE;
 void setup()
 {
-set_unit("±ú");
-set_id("blade", "µ¥µ¶");
+set_unit("æŸ„");
+set_id("blade", "å•åˆ€");
 add_id("dao");
 add_id("dan dao");
-set_in_room_desc("µ¥µ¶(dan dao)");
-set_long("ÕâÊÇÒ»±úÆÕÍ¨µÄµ¥µ¶£¬¸÷´óµêÆÌ¶¼ÓĞ³öÊÛ£¬µ¶±ú
-ºó»¹´¹×ÅÒ»¶Îºì³ñ¡£\n");
+set_in_room_desc("å•åˆ€(dan dao)");
+set_long("è¿™æ˜¯ä¸€æŸ„æ™®é€šçš„å•åˆ€ï¼Œå„å¤§åº—é“ºéƒ½æœ‰å‡ºå”®ï¼Œåˆ€æŸ„
+åè¿˜å‚ç€ä¸€æ®µçº¢ç»¸ã€‚\n");
 set_size(MEDIUM);
 set_value(10);
 set_currency_type("silver");
@@ -19,6 +19,6 @@ set_attack_ability(50);
 set_attack_power(20);
 set_defence_ability(50);
 set_combat_messages("combat-blade");
-set_wield_message("$N¡ºÇºà¥¡»Ò»Éù³é³öÒ»±ú$o£¬ÎÕÔÚÊÖÖĞ¡£\n");
-set_unwield_message("$N»®ÁËÒ»¸öµ¶»¨£¬½«$o²å»ØÇÊÖĞ¡£\n");
+set_wield_message("$Nã€å‘›å•·ã€ä¸€å£°æŠ½å‡ºä¸€æŸ„$oï¼Œæ¡åœ¨æ‰‹ä¸­ã€‚\n");
+set_unwield_message("$Nåˆ’äº†ä¸€ä¸ªåˆ€èŠ±ï¼Œå°†$oæ’å›é˜ä¸­ã€‚\n");
 }

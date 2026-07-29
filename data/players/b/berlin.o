@@ -1,6 +1,6 @@
 #/std/race/human.c
 primary_id "berlin"
-chinese_id "ÀîÄÁ"
+chinese_id "æç‰§"
 persist_flags ([0:0,])
 can_drop 1
 can_sell 1
@@ -13,8 +13,8 @@ main_prep "in"
 contained_light_added 1
 gender 1
 messages ([])
-def_messages (["enter":"$n×ßÁË¹ıÀ´¡£","menter":"$nÍ»È»³öÏÖÔÚÒ»ÕóÑÌÎíÖĞ¡£","invis":"$n´ÓÄãµÄÊÓÒ°ÖĞÍ»È»ÏûÊ§ÁË¡£","vis":"$nÍ»È»³öÏÖÔÚÄãÃæÇ°£¬ÓÖËÆºõÔÚÕâÀïºÜ¾ÃÁË¡£","clone":"$nÉìÊÖÁè¿ÕÒ»Ö¸£¬±ä³öÁË$o¡£","destruct":"$nÅÛĞäÒ»»Ó£¬$o±»»¯³ÉÒ»¹ÉºÚÑÌ£¬´µÉ¢¿ªÈ¥¡£","leave":"$n³¯$oÀë¿ªÁË¡£","mleave":"$nµÄÉíÓ°ÔÚÒ»ÕóÑÌÎíÖĞ½¥½¥ÒşÈ¥¡£","home":"$n»Ø¼ÒÈ¥ÁË¡£",])
-busy_msg "ÄãÕıÃ¦×ÅÕì²ìÄØ¡£"
+def_messages (["enter":"$nèµ°äº†è¿‡æ¥ã€‚","menter":"$nçªç„¶å‡ºç°åœ¨ä¸€é˜µçƒŸé›¾ä¸­ã€‚","invis":"$nä»ä½ çš„è§†é‡ä¸­çªç„¶æ¶ˆå¤±äº†ã€‚","vis":"$nçªç„¶å‡ºç°åœ¨ä½ é¢å‰ï¼Œåˆä¼¼ä¹åœ¨è¿™é‡Œå¾ˆä¹…äº†ã€‚","clone":"$nä¼¸æ‰‹å‡Œç©ºä¸€æŒ‡ï¼Œå˜å‡ºäº†$oã€‚","destruct":"$nè¢è¢–ä¸€æŒ¥ï¼Œ$oè¢«åŒ–æˆä¸€è‚¡é»‘çƒŸï¼Œå¹æ•£å¼€å»ã€‚","leave":"$næœ$oç¦»å¼€äº†ã€‚","mleave":"$nçš„èº«å½±åœ¨ä¸€é˜µçƒŸé›¾ä¸­æ¸æ¸éšå»ã€‚","home":"$nå›å®¶å»äº†ã€‚",])
+busy_msg "ä½ æ­£å¿™ç€ä¾¦å¯Ÿå‘¢ã€‚"
 busy 1308165487
 answer_list ({({"settle","settle",}),({"position","position",}),({"localmeeting","localmeeting",}),({"job","job",}),({"zgxy","zgxy",}),({"wxxy","wxxy",}),({"bfxy","bfxy",}),({"guoshi","guoshi",}),})
 ask_list ([])
@@ -49,13 +49,13 @@ ilog_time 1308164049
 money (["coin":50,"silver":63,"gold":8,"bank":198000,])
 sg_home ([])
 name "berlin"
-invis_name "Ä³Ä³"
-chinese_name "ÀîÄÁ"
+invis_name "æŸæŸ"
+chinese_name "æç‰§"
 response_queue ({})
-title2 "%^H_CYAN%^ÆğôåÆÄÄÁÖ®%^RESET%^"
+title2 "%^H_CYAN%^èµ·ç¿¦é¢‡ç‰§ä¹‹%^RESET%^"
 reply "xigua"
 channel_list ({"gossip","newbie","weather","rumor","imud_imud_sgz",})
 saved_items "([\"#inventory#\":({\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/money/m_silver\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/money/m_coin\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/money/m_gold\\\",])\",}),\"#base_name#\":\"/std/race/human\",])"
 ag_day 13
 ag_month 10
-jobs (["patrol":(["get_thief":-1,"lasttimes":({}),"assignarea":"huayin","finish_time":1306918776,"area":"huayin","status":"over","memo":"×¥Ğ¡Íµ","count":1,"score":13,"beg_time":0,]),"bugao":(["finish_time":1306879942,"assignarea":"huayin","status":"over","memo":"Â¤Î÷µÄ%^YELLOW%^Ğ¡Ïï%^RESET%^","count":32,"beg_time":0,"lasttimes":({}),]),"choppork":(["finish_time":1306866510,"count":30,"beg_time":0,"lasttimes":({}),]),"findbody":(["finish_time":1306917866,"assignarea":"huayin","status":"over","memo":"ÕÒÇ°ÌïÇì´Î(qingci)","count":11,"beg_time":0,"lasttimes":({}),]),"basejob":(["lasttimes":({}),"finish_time":1307659982,"status":"begin","count":3,"score":0,"beg_time":0,]),"askobj":(["lasttimes":({}),"obj_id":"test","finish_time":1306881464,"assignarea":"huayin","status":"over","memo":"ÕÒ½­ÁêµÄ%^H_CYAN%^²Ìçß%^RESET%^´ß0","count":10,"beg_time":0,]),"visitpeople":(["topics":({1,2,3,9,6,8,7,10,}),"select":10,"lasttimes":({}),"assignarea":"huayin","finish_time":1306929580,"status":"over","memo":"Ì½·Ã»ªÒõÏĞÈË","count":2,"score":14,"beg_time":0,]),"searchwise":(["topics":({1,2,3,6,9,10,}),"select":10,"lasttimes":({}),"assignarea":"huayin","finish_time":1307139814,"status":"over","memo":"°İ·Ã%^H_CYAN%^Âú³è%^RESET%^(man chong)","count":3,"score":27,"beg_time":0,]),"spy":(["path":"/a/hongnong/","size":19,"catched":0,"lasttimes":({1308164111,1308164273,1308164945,1308165220,1308165964,}),"assignarea":"tongguan","spied":({}),"finish_time":1308165964,"area":"hongnong","status":"begin","memo":"Õì²ìºëÅ©","count":422,"done_time":1308165487,"beg_time":1308166004,]),"train":(["finish_time":1307472545,"count":1,"beg_time":0,"lasttimes":({1307472545,}),]),])
+jobs (["patrol":(["get_thief":-1,"lasttimes":({}),"assignarea":"huayin","finish_time":1306918776,"area":"huayin","status":"over","memo":"æŠ“å°å·","count":1,"score":13,"beg_time":0,]),"bugao":(["finish_time":1306879942,"assignarea":"huayin","status":"over","memo":"é™‡è¥¿çš„%^YELLOW%^å°å··%^RESET%^","count":32,"beg_time":0,"lasttimes":({}),]),"choppork":(["finish_time":1306866510,"count":30,"beg_time":0,"lasttimes":({}),]),"findbody":(["finish_time":1306917866,"assignarea":"huayin","status":"over","memo":"æ‰¾å‰ç”°åº†æ¬¡(qingci)","count":11,"beg_time":0,"lasttimes":({}),]),"basejob":(["lasttimes":({}),"finish_time":1307659982,"status":"begin","count":3,"score":0,"beg_time":0,]),"askobj":(["lasttimes":({}),"obj_id":"test","finish_time":1306881464,"assignarea":"huayin","status":"over","memo":"æ‰¾æ±Ÿé™µçš„%^H_CYAN%^è”¡é‚•%^RESET%^å‚¬0","count":10,"beg_time":0,]),"visitpeople":(["topics":({1,2,3,9,6,8,7,10,}),"select":10,"lasttimes":({}),"assignarea":"huayin","finish_time":1306929580,"status":"over","memo":"æ¢è®¿åé˜´é—²äºº","count":2,"score":14,"beg_time":0,]),"searchwise":(["topics":({1,2,3,6,9,10,}),"select":10,"lasttimes":({}),"assignarea":"huayin","finish_time":1307139814,"status":"over","memo":"æ‹œè®¿%^H_CYAN%^æ»¡å® %^RESET%^(man chong)","count":3,"score":27,"beg_time":0,]),"spy":(["path":"/a/hongnong/","size":19,"catched":0,"lasttimes":({1308164111,1308164273,1308164945,1308165220,1308165964,}),"assignarea":"tongguan","spied":({}),"finish_time":1308165964,"area":"hongnong","status":"begin","memo":"ä¾¦å¯Ÿå¼˜å†œ","count":422,"done_time":1308165487,"beg_time":1308166004,]),"train":(["finish_time":1307472545,"count":1,"beg_time":0,"lasttimes":({1307472545,}),]),])

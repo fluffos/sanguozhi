@@ -1,4 +1,4 @@
-//ÖìºìÏ»×Ó by benben
+//æœ±çº¢åŒ£å­ by benben
 #include <mudlib.h>
 #include <setbit.h>
 inherit COMPLEX_CONTAINER;
@@ -7,10 +7,10 @@ inherit M_LOCKABLE;
 inherit M_OPENABLE;
 void setup(){	
 ::mudlib_setup();
-  set_in_room_desc("ÖìºìÏ»×Ó");
-  set_adj( "Ò»¸öÖìºìÉ«µÄ" );
-  set_id( "box","Ï»×Ó", );
-  set_long("    Ò»¸öÖìºìÉ«Ğ¡Ï»£¬ÓÃ½ğËøËø×Å¡£\n");
+  set_in_room_desc("æœ±çº¢åŒ£å­");
+  set_adj( "ä¸€ä¸ªæœ±çº¢è‰²çš„" );
+  set_id( "box","åŒ£å­", );
+  set_long("    ä¸€ä¸ªæœ±çº¢è‰²å°åŒ£ï¼Œç”¨é‡‘é”é”ç€ã€‚\n");
   set_relations("in");
   set_max_capacity(MEDIUM);
 }

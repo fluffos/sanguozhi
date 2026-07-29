@@ -1,2 +1,2 @@
-rooms (["tmp":(["b":"æäÕ¾",]),"wg_dadao":(["b":"´óµÀ",]),"wg_dalu":(["b":"´óÂ·",]),"wg_daokou":(["b":"µÀ¿Ú",]),"wg_guankou":(["b":"¹Ø¿Ú",]),"wg_huangtulu":(["b":"»ÆÍÁÂ·",]),"wg_laofang":(["b":"ÀÎ·¿",]),"wg_xiaodian":(["b":"Ğ¡µê",]),"wg_yingfang":(["b":"Óª·¿",]),"wg_yingzhai":(["b":"ÓªÕ¯",]),"wg_zhongjunzhang":(["b":"ÖĞ¾üÕÊ",]),])
+rooms (["tmp":(["b":"é©¿ç«™",]),"wg_dadao":(["b":"å¤§é“",]),"wg_dalu":(["b":"å¤§è·¯",]),"wg_daokou":(["b":"é“å£",]),"wg_guankou":(["b":"å…³å£",]),"wg_huangtulu":(["b":"é»„åœŸè·¯",]),"wg_laofang":(["b":"ç‰¢æˆ¿",]),"wg_xiaodian":(["b":"å°åº—",]),"wg_yingfang":(["b":"è¥æˆ¿",]),"wg_yingzhai":(["b":"è¥å¯¨",]),"wg_zhongjunzhang":(["b":"ä¸­å†›å¸",]),])
 m_area "wuguan"

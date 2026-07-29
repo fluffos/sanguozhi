@@ -8,15 +8,15 @@ private int             light_level = 1;
 private int             is_lit;
 private int             fuel;
 private string          burned_out_msg = //"The $o is burned out.\n";
-                                         "$oÉÕ¹âÁË¡£\n";
+                                         "$oçƒ§å…‰äº†ã€‚\n";
 private string          die_msg = //"The light from the $o flickers and dies.\n";
-                                  "$oÉÏ»ğĞÇÉÁÁËÒ»ÉÁ£¬Ï¨ÃğÁË¡£\n";
+                                  "$oä¸Šç«æ˜Ÿé—ªäº†ä¸€é—ªï¼Œç†„ç­äº†ã€‚\n";
 private string          light_msg = //"$N $vlight a $o.\n";
-                                    "$NµãÁÁÁËÒ»¸ö$o\n";                    
+                                    "$Nç‚¹äº®äº†ä¸€ä¸ª$o\n";                    
 private string          light_with_msg = //"$N $vlight a $o with a $o1.\n";
-                                         "$NÓÃ$o1µãÁÁÁË$o¡£\n";
+                                         "$Nç”¨$o1ç‚¹äº®äº†$oã€‚\n";
 private string          extinguish_msg = //"$N $vextinguish a $o.\n";
-                                         "$N°Ñ$oÏ¨ÃğÁË¡£\n";
+                                         "$NæŠŠ$oç†„ç­äº†ã€‚\n";
 
 void set_light(int);
 mixed call_hooks(string, int);
@@ -83,7 +83,7 @@ mixed extinguish() {
 void do_extinguish() {
     mixed tmp = extinguish();
     if (!tmp) tmp = //"That doesn't seem possible.\n";
-                    "ÕâËÆºõ²»Ì«¿ÉÄÜ¡£\n";    
+                    "è¿™ä¼¼ä¹ä¸å¤ªå¯èƒ½ã€‚\n";    
     if (stringp(tmp)) {
         write(tmp);
         return;
@@ -122,7 +122,7 @@ varargs mixed light(object with) {
 void do_light(object with) {
     mixed tmp = light(with);
     if (!tmp) tmp = //"That doesn't seem possible.\n";
-                    "ÕâËÆºõ²»Ì«¿ÉÄÜ¡£\n";    
+                    "è¿™ä¼¼ä¹ä¸å¤ªå¯èƒ½ã€‚\n";    
     if (stringp(tmp)) {
         write(tmp);
         return;
@@ -144,13 +144,13 @@ void burn_out() {
 mixed direct_light_obj() {
     if (source_filter)
         return //"You need to light it with something.\n";
-               "ÄãÒªÓÃÁíÍâµÄ¶«Î÷À´µãÈ¼Ëü¡£\n"; 
+               "ä½ è¦ç”¨å¦å¤–çš„ä¸œè¥¿æ¥ç‚¹ç‡ƒå®ƒã€‚\n"; 
     return 1;
 }
 
 mixed direct_extinguish_obj() {
     if (!is_lit) return //"It isn't lit.\n";
-                        "Ëü²¢Ã»ÓĞ±»µãÈ¼¡£\n";
+                        "å®ƒå¹¶æ²¡æœ‰è¢«ç‚¹ç‡ƒã€‚\n";
     return 1;
 }
 
@@ -164,7 +164,7 @@ mixed direct_light_obj_with_obj(object ob, object with) {
 mixed indirect_light_obj_with_obj(object ob, object with) {
     if (is_lit) return 1;
     return with->short() + //" isn't lit.\n";
-                                           "²¢Ã»ÓĞµã×Å¡£\n";
+                                           "å¹¶æ²¡æœ‰ç‚¹ç€ã€‚\n";
 }
 int need_to_see()
 {

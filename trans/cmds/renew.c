@@ -13,15 +13,15 @@ private void main(mixed *arg) {
     file = base_name(ob);
     sscanf(file, "%s.c", file);
     if (file_size(file+".c")<0) {
-        outf("renew: ÎÄ¼þ " + file + ".c ²»´æÔÚ (»òÕßÊÇÒ»¸öÄ¿Â¼)¡£\n");
+        outf("renew: æ–‡ä»¶ " + file + ".c ä¸å­˜åœ¨ (æˆ–è€…æ˜¯ä¸€ä¸ªç›®å½•)ã€‚\n");
         return 0;
     }
     env = environment(ob);
     data = ob->save_to_string(1);
     ob->remove();
-    outf("¸üÐÂ " + file + ".c ...\n");
+    outf("æ›´æ–° " + file + ".c ...\n");
     if (CMD_OB_UPDATE->do_update(file + ".c", 3) < time())
-        out(file + ": ÎÞÐè¸üÐÂ¡£\n");
+        out(file + ": æ— éœ€æ›´æ–°ã€‚\n");
     ob = new(file);
     ob->load_from_string(data, 1);
     ob->move(env);

@@ -53,22 +53,22 @@ class menu {
 }
 
 
-static void goto_menu(MENU);
-static void display_current_menu();
-static void return_to_current_menu();
-static void prompt_then_return();
+protected void goto_menu(MENU);
+protected void display_current_menu();
+protected void return_to_current_menu();
+protected void prompt_then_return();
 private void finish_completion(int);
 
 
 MENU    current_menu, previous_menu;
 int     need_refreshing;
 
-static void remove()
+protected void remove()
 {
     destruct();
 }
 
-varargs static MENU
+varargs protected MENU
 new_menu(string title, string prompt, int allow_enter,
         function no_match_function)
 {
@@ -84,7 +84,7 @@ new_menu(string title, string prompt, int allow_enter,
   return new_menu;
 }
 
-varargs static MENU
+varargs protected MENU
 new_prompt(string prompt, function callback, string* completions)
 {
   MENU new_menu;
@@ -98,7 +98,7 @@ new_prompt(string prompt, function callback, string* completions)
 }
 
 
-varargs static MENU_ITEM
+varargs protected MENU_ITEM
 new_seperator (string description, function constraint)
 {
   MENU_ITEM new_menu_item;
@@ -112,7 +112,7 @@ new_seperator (string description, function constraint)
 }
 
 
-varargs static MENU_ITEM
+varargs protected MENU_ITEM
 new_menu_item(string description, mixed action, string choice_name,
           int prompt, function constraint)
 {
@@ -129,26 +129,26 @@ new_menu_item(string description, mixed action, string choice_name,
 }
 
 
-static void
+protected void
 add_menu_item(MENU menu, MENU_ITEM menu_item)
 {
   menu->items += ({ menu_item });
 }
 
-static void
+protected void
 set_menu_items(MENU menu, MENU_ITEM* menu_items)
 {
   menu->items = menu_items;
 }
 
 
-static void
+protected void
 set_menu_title(MENU menu, string title)
 {
   menu->title = title;
 }
 
-static void
+protected void
 set_menu_prompt(MENU menu, mixed prompt)
 {
   if(!(stringp(prompt) || functionp(prompt)))
@@ -160,49 +160,49 @@ set_menu_prompt(MENU menu, mixed prompt)
   menu->prompt = prompt;
 }
 
-static void
+protected void
 allow_empty_selection(MENU menu)
 {
   menu->allow_enter = 1;
 }
 
-static void
+protected void
 disallow_empty_selection(MENU menu)
 {
   menu->allow_enter = 0;
 }
 
-static void
+protected void
 set_no_match_function(MENU menu, function f)
 {
   menu->no_match_function = f;
 }
 
-static void
+protected void
 set_number_of_columns(MENU menu, int n)
 {
   menu->num_columns = n;
 }
 
-static void
+protected void
 disable_menu_item(MENU_ITEM item)
 {
   item->disabled = 1;
 }
 
-static void
+protected void
 enable_menu_item(MENU_ITEM item)
 {
   item->disabled = 0;
 }
 
-static void
+protected void
 set_menu_item_description(MENU_ITEM item, string description)
 {
   item->description = description;
 }
 
-static void
+protected void
 set_menu_item_action(MENU_ITEM item, mixed action)
 {
   //  Should type check here, but I can't figure out how
@@ -210,13 +210,13 @@ set_menu_item_action(MENU_ITEM item, mixed action)
   item->action = action;
 }
 
-static void
+protected void
 set_menu_item_choice_name (MENU_ITEM item, string choice_name)
 {
   item->choice_name = choice_name;
 }
 
-static void
+protected void
 constrain_menu_item (MENU_ITEM item, function f)
 {
   item->constraint = f;
@@ -229,7 +229,7 @@ constrain_menu_item (MENU_ITEM item, function f)
 // every single action
 private MENU menu_after_selection;
 
-static void
+protected void
 new_parse_menu_input(string input)
 {
   string*   matches;
@@ -257,7 +257,7 @@ new_parse_menu_input(string input)
       else
         {
           //write("Invalid selection.\n");
-          write("²»ºÏÀíµÄÑ¡Ôñ¡£\n");
+          write("ä¸åˆç†çš„é€‰æ‹©ã€‚\n");
         }
       return;
     }
@@ -267,7 +267,7 @@ new_parse_menu_input(string input)
   switch(sizeof(matches)){
     case 0:
       //write("Invalid selection.\n");
-      write("²»ºÏÀíµÄÑ¡Ôñ¡£\n");
+      write("ä¸åˆç†çš„é€‰æ‹©ã€‚\n");
       return;
     case 1:
       if(!sizeof(current_menu->items) || stringp(current_menu->items[0]))
@@ -302,7 +302,7 @@ new_parse_menu_input(string input)
       return;
     default:
       completion_menu = new_menu(//"Choose one by number:\n"
-                                 "ÇëÈÎÑ¡Ò»¸öÊı×Ö£º\n"
+                                 "è¯·ä»»é€‰ä¸€ä¸ªæ•°å­—ï¼š\n"
                  "---------------------\n");
       set_menu_items(completion_menu,
              filter_array(current_menu->items,
@@ -312,7 +312,7 @@ new_parse_menu_input(string input)
             member_array(((MENU_ITEM)$1)->choice_name, $2) != -1 :),
               matches));
       add_menu_item(completion_menu, new_menu_item(//"Return to previous menu",
-                                                   "·µ»ØÇ°ÃæµÄ²Ëµ¥",
+                                                   "è¿”å›å‰é¢çš„èœå•",
                            current_menu));
       goto_menu(completion_menu);
       menu_after_selection = current_menu;
@@ -321,7 +321,7 @@ new_parse_menu_input(string input)
 
 
 
-static void
+protected void
 parse_menu_input(mixed input)
 {
   string*   choices;
@@ -363,10 +363,10 @@ parse_menu_input(mixed input)
       evaluate (current_menu->no_match_function, input);
     else
       //write("Invalid selection.\n");
-      write("²»ºÏÀíµÄÑ¡Ôñ¡£\n");
+      write("ä¸åˆç†çš„é€‰æ‹©ã€‚\n");
 }
 
-static string
+protected string
 get_current_prompt()
 {
   mixed prompt;
@@ -416,7 +416,7 @@ get_current_prompt()
   return stringp(prompt) ? prompt : evaluate(prompt);
 }
 
-static void
+protected void
 init_menu_application(MENU toplevel)
 {
   modal_push((: parse_menu_input :), (: get_current_prompt :));
@@ -424,14 +424,14 @@ init_menu_application(MENU toplevel)
   goto_menu(toplevel);
 }
 
-static void
+protected void
 quit_menu_application()
 {
     modal_pop();
     destruct(this_object());
 }
 
-static void
+protected void
 goto_menu(MENU m)
 {
   previous_menu = current_menu;
@@ -439,20 +439,20 @@ goto_menu(MENU m)
   display_current_menu();
 }
 
-static void
+protected void
 goto_menu_silently(MENU m)
 {
   previous_menu = current_menu;
   current_menu = m;
 }
 
-static void
+protected void
 return_to_current_menu()
 {
   modal_func((: parse_menu_input :), (: get_current_prompt :));
 }
 
-static void
+protected void
 goto_previous_menu()
 {
   MENU swap;
@@ -461,7 +461,7 @@ goto_previous_menu()
   previous_menu = swap;
 }
 
-static void
+protected void
 display_current_menu()
 {
   int leftwidth;
@@ -475,7 +475,7 @@ display_current_menu()
   if(!sizeof(current_menu->items) && !current_menu->no_match_function)
     {
       //write("###Not implemented yet.\n");
-      write("ÕâÏî¹¦ÄÜ»¹Î´Íê³É¡£\n");
+      write("è¿™é¡¹åŠŸèƒ½è¿˜æœªå®Œæˆã€‚\n");
       current_menu = previous_menu;
       need_refreshing = 1;
       prompt_then_return();
@@ -555,7 +555,7 @@ display_current_menu()
 string*     cur_choices;
 function    completion_callback;
 
-varargs static void
+varargs protected void
 complete_choice(string input, string* choices, function f)
 {
   string*   matches;
@@ -571,14 +571,14 @@ complete_choice(string input, string* choices, function f)
     {
     case 0:
       //write("Invalid selection.\n");
-      write("²»ºÏÀíµÄÑ¡Ôñ¡£\n");
+      write("ä¸åˆç†çš„é€‰æ‹©ã€‚\n");
       return;
     case 1:
       evaluate(f, matches[0]);
       return;
     default:
       output = //"Select choice by number\n"
-               "ÇëÈÎÑ¡Ò»¸öÊı×Ö\n"
+               "è¯·ä»»é€‰ä¸€ä¸ªæ•°å­—\n"
            "-----------------------\n";
       for(i=1; i<= sizeof(matches); i++)
       output += sprintf("%=3d)  %s\n", i, matches[i-1]);
@@ -608,7 +608,7 @@ finish_completion(string input)
   if((i = to_int(input)) < 1 || i > sizeof(cur_choices))
     {
       //write("Invalid choice.\n");
-      write("²»ºÏÀíµÄÑ¡Ôñ¡£\n");
+      write("ä¸åˆç†çš„é€‰æ‹©ã€‚\n");
       return;
     }
   // Put this before the evaluate so that the callback can change things.
@@ -629,18 +629,18 @@ receive_string(function thencall, string input)
   evaluate(thencall, input);
 }
 
-static void
+protected void
 get_input_then_call(function thencall, string prompt)
 {
     modal_func((: receive_string, thencall :), prompt);
 }
 
-static void
+protected void
 prompt_then_return()
 {
     modal_func((: return_to_current_menu :),
            //"[Hit enter to return to menu] ");
-           "[ÓÃ ENTER ·µ»Ø²Ëµ¥] ");
+           "[ç”¨ ENTER è¿”å›èœå•] ");
 }
 
 //### probably should be static too

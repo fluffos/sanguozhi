@@ -30,12 +30,12 @@ private void main(mixed *arg, mapping flags)
 
             last = LAST_LOGIN_D->query_last(user);
             if ( !last )
-                outf("Ã»ÓĞ¹ØÓÚ %s µÄĞÅÏ¢¡£\n", user);
+                outf("æ²¡æœ‰å…³äº %s çš„ä¿¡æ¯ã€‚\n", user);
             else
             {
                 int is_on = find_user(user) != 0;
-                outf(is_on ? "%s ÓÚ %s Á¬Ïß½øÈë£¬µØÖ·£º %s\n" :
-                             "%s ÓÚ %s ÍË³öÁ¬Ïß£¬µØÖ·£º %s\n",
+                outf(is_on ? "%s äº %s è¿çº¿è¿›å…¥ï¼Œåœ°å€ï¼š %s\n" :
+                             "%s äº %s é€€å‡ºè¿çº¿ï¼Œåœ°å€ï¼š %s\n",
                      user, ctime(last[0]), last[1]);
             }
         }
@@ -53,7 +53,7 @@ private void main(mixed *arg, mapping flags)
 
     if ( minimum >= maximum )
     {
-        outf("´íÎó£º·¶Î§²»ÊÊºÏ¡£\n");
+        outf("é”™è¯¯ï¼šèŒƒå›´ä¸é€‚åˆã€‚\n");
         return;
     }
 
@@ -61,12 +61,12 @@ private void main(mixed *arg, mapping flags)
                    (: $1[0] >= $(minimum) && $1[0] <= $(maximum) :));
 
     if ( !flags["s"] )
-        outf("%d ÓÃ»§. ´Ó %s µ½ %s.\n%s\n",
+        outf("%d ç”¨æˆ·. ä» %s åˆ° %s.\n%s\n",
              sizeof(times), ctime(minimum), ctime(maximum),
              repeat_string("-", 75));
 
     if ( !flags["s"] && count && sizeof(times) > count )
-        outf("... Ìø¹ı %d Î»ÓÃ»§¡£\n", sizeof(times) - count);
+        outf("... è·³è¿‡ %d ä½ç”¨æˆ·ã€‚\n", sizeof(times) - count);
 
     i = count && (sizeof(times) - count);
     if ( i < 0 )
@@ -75,8 +75,8 @@ private void main(mixed *arg, mapping flags)
     {
         int is_on = find_user(times[i][1]) != 0;
 
-        outf(is_on ? "%s ÓÚ %s Á¬Ïß½øÈë£¬µØÖ·£º %s\n" :
-                     "%s ÓÚ %s ÍË³öÁ¬Ïß£¬µØÖ·£º %s\n",
+        outf(is_on ? "%s äº %s è¿çº¿è¿›å…¥ï¼Œåœ°å€ï¼š %s\n" :
+                     "%s äº %s é€€å‡ºè¿çº¿ï¼Œåœ°å€ï¼š %s\n",
               times[i][1], ctime(times[i][0]), times[i][2]);
     }
 }

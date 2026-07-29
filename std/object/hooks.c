@@ -11,7 +11,7 @@
 //of allowing keeping track of and calling hooks, along with a method if
 //specifying how multiple hooks should be resolved.
 
-private static mapping hooks = ([]);
+private mapping hooks = ([]);
 
 //:FUNCTION add_hook
 //add_hook(string tag, function hook) sets up the function 'hook' to be
@@ -28,7 +28,7 @@ private static mapping hooks = ([]);
 // remove_hook("foo", my_hook);
 //
 void add_hook(string tag, function hook) {
-    array tmp = ({ hook });
+    mixed * tmp = ({ hook });
     if (hooks[tag]) {
         // Make sure we only have one
         hooks[tag] -= tmp;
@@ -76,8 +76,8 @@ void hook_state(string tag, mixed hook, int state) {
 //see: add_hook
 
 varargs mixed call_hooks(string tag, mixed func, mixed start,
-                         array args...) {
-    array hooks_to_call;
+                         mixed * args...) {
+    mixed * hooks_to_call;
     mixed tmp;
     function hook;
 

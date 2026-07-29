@@ -7,15 +7,15 @@ void eat_dan()
 	this_body()->set_zhimou_pure(30);
 	
 	this_body()->simple_action(
-"$Nфх╡╩╪╟╢Щ╣ь║╦╧╬ЮЮ║╧р╩об╥Чобр╩ц╤%^H_MAGENTA%^жгд╠╣╓%^RESET%^ё╛╤ый╠╦п╣╫вт╪╨╣ддт╫Н╠Д╣ц╦Э╢оцВаИ╩Нак║ё\n");
+"$NХ©╚Д╦█Е▐┼Е╬┘Е°╟Ц─▄Е▓∙Е≥°Ц─█Д╦─Д╦▀Ф°█Д╦▀Д╦─Ф· %^H_MAGENTA%^Ф≥╨Х╟▀Д╦╧%^RESET%^О╪▄И║©Ф≈╤Ф└÷Е┬╟Х┤╙Е╥╠Г └Х└▒Г╜▀Е▐≤Е╬≈Ф⌡╢Х│╙Ф≤▌Г│╣Ф╢╩Д╨├Ц─┌\n");
 }
 void setup()
-{   set_id("zhimou dan", "%^H_MAGENTA%^жгд╠╣╓%^RESET%^");
-    set_long("р╩аёсухк╣д%^H_MAGENTA%^жгд╠╣╓%^RESET%^ё╛лЩк╣╥Чак©иртй╧хк╣джгд╠лЛ╦Ё╠Дн╙вН╢Сж╣30║ё");
+{   set_id("zhimou dan", "%^H_MAGENTA%^Ф≥╨Х╟▀Д╦╧%^RESET%^");
+    set_long("Д╦─Г╡▓Х╞╠Д╨╨Г └%^H_MAGENTA%^Ф≥╨Х╟▀Д╦╧%^RESET%^О╪▄Е░╛Х╞╢Ф°█Д╨├Е▐╞Д╩╔Д╫©Д╨╨Г └Ф≥╨Х╟▀Е╓╘Х╣▀Е▐≤Д╦╨Ф°─Е╓╖Е─╪30Ц─┌");
     set_size(VERY_SMALL);
     set_gettable(1);
     set_num_eats(1);
-    set_unit("аё");
+    set_unit("Г╡▓");
     set_eat_action((: eat_dan :));
     set_last_eat_action( (: eat_dan :));
 }

@@ -4,20 +4,20 @@
 string get_char_reputation(int sg_shengwang)
 {
         if(sg_shengwang<10)
-                return "Ä¬Ä¬ÎÞÎÅ" ;
+                return "é»˜é»˜æ— é—»" ;
         if(sg_shengwang<100)
-                return RED + "Ð¡ÓÐÃûÉù"+NOR ;
+                return RED + "å°æœ‰åå£°"+NOR ;
         if(sg_shengwang<1000)
-                return YEL + "³õÂ¶·æÃ¢" +NOR;
+                return YEL + "åˆéœ²é”‹èŠ’" +NOR;
         if(sg_shengwang<10000)
-                return GRN + "³Æ°ÔÒ»·½"+NOR ;
+                return GRN + "ç§°éœ¸ä¸€æ–¹"+NOR ;
         if(sg_shengwang<100000)
-                return HIY + "ÖðÂ¹ÖÐÔ­"+NOR ;
+                return HIY + "é€é¹¿ä¸­åŽŸ"+NOR ;
         if(sg_shengwang<1000000)
-                return HIR + "ÎÊ¶¦ÌìÏÂ"+NOR ;
+                return HIR + "é—®é¼Žå¤©ä¸‹"+NOR ;
         if(sg_shengwang<10000000)
-                return HIG + "ÖÚÐÄËù¹é"+NOR ;
-        return HIC+"Ò»Í³ÌìÏÂ"+NOR ;
+                return HIG + "ä¼—å¿ƒæ‰€å½’"+NOR ;
+        return HIC+"ä¸€ç»Ÿå¤©ä¸‹"+NOR ;
         
 }
 string query_status(int p_status)
@@ -25,14 +25,14 @@ string query_status(int p_status)
         switch(p_status)
         {
         case STATUS_NOTFINISHED:
-                return "Î´Íê";
+                return "æœªå®Œ";
         case STATUS_SLEEPING:
-                return"ÐÝÃß";
+                return"ä¼‘çœ ";
         case STATUS_ACTIVE:
-                return"»î¶¯";
+                return"æ´»åŠ¨";
         case STATUS_ONLINE:
-                return"ÔÚÏß";
+                return"åœ¨çº¿";
         default:
-                return"Î´Öª";
+                return"æœªçŸ¥";
         }
 }

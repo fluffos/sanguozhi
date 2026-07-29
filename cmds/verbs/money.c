@@ -32,50 +32,50 @@ private void money_print(object who)
     n_sum=n_withbody+n_bank+n_sal;
     if(!n_sum)
     {
-        printf("¹ş¹ş£¬Á½ĞäÇå·ç£¬Ò»ÎŞËùÓĞ£¬¸ß£¡¸ß£¡\n"); 
+        printf("å“ˆå“ˆï¼Œä¸¤è¢–æ¸…é£ï¼Œä¸€æ— æ‰€æœ‰ï¼Œé«˜ï¼é«˜ï¼\n"); 
     }
     else
     {
         if(n_withbody=0)
         {
-                printf("ÄãÉíÉÏÃ»ÓĞ×°Ç®¡£\n");
+                printf("ä½ èº«ä¸Šæ²¡æœ‰è£…é’±ã€‚\n");
         }
         else
         {
-                printf("ÄãÉíÉÏ´øÓĞ£º\n");
+                printf("ä½ èº«ä¸Šå¸¦æœ‰ï¼š\n");
                 if (n_gold)
                 {
-                        p_tmp=chinese_number(n_gold)+"Á½½ğ×Ó¡£";
+                        p_tmp=chinese_number(n_gold)+"ä¸¤é‡‘å­ã€‚";
                         printf("     %s\n",p_tmp);
                 }
                 if (n_silver)
                 {
-                        p_tmp=chinese_number(n_silver)+"Á½Òø×Ó¡£";
+                        p_tmp=chinese_number(n_silver)+"ä¸¤é“¶å­ã€‚";
                         printf("     %s\n",p_tmp);
                 }
                 if (n_coin)
                 {
-                        p_tmp=chinese_number(n_coin)+"ÎÄÇ®¡£";
+                        p_tmp=chinese_number(n_coin)+"æ–‡é’±ã€‚";
                         printf("     %s\n",p_tmp);
                 }
         }
         if (n_bank)
         {
-                printf("ÄãÔÚÇ®×¯´æÓĞ£º\n");
+                printf("ä½ åœ¨é’±åº„å­˜æœ‰ï¼š\n");
                 p_tmp=chinese_value(n_bank);
                 printf("     %s",p_tmp);
         }
         else
         {       
-                printf("ÄãÃ»ÓĞÔÚÇ®×¯´æÇ®£º\n");
+                printf("ä½ æ²¡æœ‰åœ¨é’±åº„å­˜é’±ï¼š\n");
         }
         if (n_sal)
         {
-                printf("ÄãµÄ¿â´æÙºÒøÓĞ£º\n");
+                printf("ä½ çš„åº“å­˜ä¿¸é“¶æœ‰ï¼š\n");
                 p_tmp=chinese_value(n_sal);
                 printf("     %s",p_tmp);
 	}
-        printf("Äã¹²ÓĞ²Æ²ú:\n");
+        printf("ä½ å…±æœ‰è´¢äº§:\n");
         p_tmp=chinese_value(n_sum);
         printf("     %s",p_tmp);
     }
@@ -91,7 +91,7 @@ mixed do_money_str(string liv)
         object ob;
         if(!(wizardp(this_body()->query_userid())))
         {
-                printf("Ö»ÓĞÎ×Ê¦²Å¿ÉÒÔÍ¸ÊÓ±ğÈËµÄ×´¿ö\n");
+                printf("åªæœ‰å·«å¸ˆæ‰å¯ä»¥é€è§†åˆ«äººçš„çŠ¶å†µ\n");
                 return;
         }
         else
@@ -99,13 +99,13 @@ mixed do_money_str(string liv)
                 ob = present(liv, environment(this_body()));
                 if (!ob) ob = find_body(liv);
                 if (!objectp(ob)) {
-                        write("ÄãÒª²ì¿´Ë­µÄ×´¿ö£¿\n"); 
+                        write("ä½ è¦å¯Ÿçœ‹è°çš„çŠ¶å†µï¼Ÿ\n"); 
                         return;
                 }
                 money_print(ob);
         }
 }
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ "", "STR", }), ({  }) });
 }

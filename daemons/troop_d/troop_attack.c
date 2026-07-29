@@ -167,7 +167,7 @@ int adj_num(int num) {
 //	return ret;
 }
 int get_army_attack_rate(mixed army,string a_type) {
-	int p_bzrate; // this is the ±øÖÖ²ÎÊı
+	int p_bzrate; // this is the å…µç§å‚æ•°
 	int p_engconsume;
 	int ret;
 	p_bzrate=WARAI_D->get_bz_attack_rate(army["type"],a_type);
@@ -175,19 +175,19 @@ int get_army_attack_rate(mixed army,string a_type) {
 	p_engconsume=WARAI_D->get_attack_consume(a_type);
 	if(p_engconsume>army["energy"])
 		return 0;
-	// »ù±¾É±ÉËÁ¦£º
+	// åŸºæœ¬æ€ä¼¤åŠ›ï¼š
 	ret=ADJ_SCALE*adj_num(army["number"])/KILL_RATE; // 100 in order to emit the effict of 
 	                                  // decimial small number
-	// Ê¿ÆøÑµÁ·µ÷Õû
+	// å£«æ°”è®­ç»ƒè°ƒæ•´
 	ret=ret*(army["morale"]+army["train"]+100)/400; //
-	// ½ø¹¥·½Ê½µ÷Õû
+	// è¿›æ”»æ–¹å¼è°ƒæ•´
 	ret=ret*p_bzrate/10;
 	return ret;
 }
 int get_attack_rate(int p_id,string a_type) {
 	int ret=0;
 	mixed p_soldiers;
-	string zf,*ts; // Õó·¨ºÍ±øÖÖ
+	string zf,*ts; // é˜µæ³•å’Œå…µç§
 	int zfrate,genrate,arearate;
 
 	p_soldiers=TROOP_D->get_troops(p_id,"soldier");
@@ -196,16 +196,16 @@ int get_attack_rate(int p_id,string a_type) {
 	foreach(string t in ts)
 		ret+=get_army_attack_rate(p_soldiers[t],a_type);
 	
-	// Õó·¨µ÷Õû£º
-	zf=TROOP_D->get_troops(p_id,"zf"); // Õó·¨£»
+	// é˜µæ³•è°ƒæ•´ï¼š
+	zf=TROOP_D->get_troops(p_id,"zf"); // é˜µæ³•ï¼›
 	zfrate=WARAI_D->get_zf(zf,"att_rate");
 	ret=ret*(zfrate+5)/10;
-	// ½«¾üÖ¸»ÓÁ¦µ÷Õû
+	// å°†å†›æŒ‡æŒ¥åŠ›è°ƒæ•´
 	genrate=get_leadrate(p_id);
 	ret=ret*(genrate+50)/150;
-	// ¼ÓÉÏ½«¾üÉ±ÈËÊı
+	// åŠ ä¸Šå°†å†›æ€äººæ•°
 	ret += (get_general_kills(p_id)*ADJ_SCALE);
-	// µØĞÎµ÷Õû
+	// åœ°å½¢è°ƒæ•´
 	arearate=get_troop_attack_area_rate(p_id);
 	ret=ret*(arearate+3)/10;
 	if(TROOP_D->get_troops(p_id,"side")=="d") 
@@ -215,13 +215,13 @@ int get_attack_rate(int p_id,string a_type) {
 }
 
 ////////////////////////////////////////////////////////////////////////
-// ¶ÔÒ»¸öµØÇøµÄ¹¥»÷£¬¹¥»÷Á¦ÊÇ p_kill
+// å¯¹ä¸€ä¸ªåœ°åŒºçš„æ”»å‡»ï¼Œæ”»å‡»åŠ›æ˜¯ p_kill
 ////////////////////////////////////////////////////////////////////////
 int attack_army(mixed army, int p_kill, string att_type) {
 	int def_rate;
-	// Ê¿ÆøÑµÁ·µ÷Õû
+	// å£«æ°”è®­ç»ƒè°ƒæ•´
 	p_kill=p_kill*400/(army["morale"]+army["train"]+100);
-	// ½ø¹¥·½Ê½µ÷Õû
+	// è¿›æ”»æ–¹å¼è°ƒæ•´
 	def_rate=WARAI_D->get_bz_defence_rate(army["type"],att_type);
 	p_kill=p_kill*10/def_rate;
 	p_kill/=ADJ_SCALE;
@@ -245,16 +245,16 @@ int attack_troop(int t, int p_kill,string att_type) {
 	if(total_num==0) return 0; // no one to kill
 
 
-	// ÕóĞÎ·ÀÊØµ÷Õû
-	zf=TROOP_D->get_troops(t,"zf"); // Õó·¨£»
+	// é˜µå½¢é˜²å®ˆè°ƒæ•´
+	zf=TROOP_D->get_troops(t,"zf"); // é˜µæ³•ï¼›
 	zfrate=WARAI_D->get_zf(zf,"def_rate");
 	p_kill=p_kill*10/(zfrate+5);
 
-	// ½«Áì¼¼ÄÜµ÷Õû£º
+	// å°†é¢†æŠ€èƒ½è°ƒæ•´ï¼š
 	genrate=get_leadrate(t);
 	p_kill=p_kill*150/(50+genrate);
 
-	// NPC ·ÀÊØµ÷Õû
+	// NPC é˜²å®ˆè°ƒæ•´
 	if(TROOP_D->get_troops(t,"side")=="d") {
 		int t_id,is_npc=1;
 		string d_leader, *chs;
@@ -302,7 +302,7 @@ int attack_troops(mixed t,int p_kill,string att_type) {
 	for(i=0;i<sum;++i) 
 		total_num+=(TROOP_D)->get_troops(t[i],"total_num");
 	
-	// µØĞÎ·ÀÊØµ÷Õû
+	// åœ°å½¢é˜²å®ˆè°ƒæ•´
 	area_def_rate=get_troop_defance_area_rate( t[0]);
 	p_kill=p_kill*10/(area_def_rate+3);
 

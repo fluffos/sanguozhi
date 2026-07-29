@@ -1,4 +1,4 @@
-// call.c  //ÕĞËæ´Ó Jan 1999
+// call.c  //æ‹›éšä» Jan 1999
 #include <mudlib.h>
 inherit CMD;
 inherit "/sgdomain/home/npc/free";
@@ -7,10 +7,10 @@ string get_type() {
 	return "sc";
 }
 string get_type_name() {
-	return "%^H_GREEN%^Ëæ´Ó%^RESET%^";
+	return "%^H_GREEN%^éšä»%^RESET%^";
 }
 void extra_init() {
-	add_ask_str("order","$N¶Ô$TÕĞÁËÕĞÊÖ¡£\n");
+	add_ask_str("order","$Nå¯¹$Tæ‹›äº†æ‹›æ‰‹ã€‚\n");
 	add_question("order","order" );
 }
 void special_answer(object who, string matt, object o_gj)
@@ -25,7 +25,7 @@ void special_answer(object who, string matt, object o_gj)
 				is_busy=1;
 
 			        o_gj->targetted_action(
-				"$NÉÏÇ°Ò»²½¾Ï¹ªµÀ£º$sÔÚ´Ë£¬$RÇë·Ô¸À¡£\n",who);
+				"$Nä¸Šå‰ä¸€æ­¥é èº¬é“ï¼š$såœ¨æ­¤ï¼Œ$Rè¯·å©å’ã€‚\n",who);
 				new("wiz/listen/sc/sc_menu")->start_menu(who,o_gj);
 				return;
 			}
@@ -45,14 +45,14 @@ void call_guanjia(string p_id) {
 	o_h=SGHOME(p_id);
 	gjs=o_h->check_npc("pos","gj");
 	if(!sizeof(gjs)) {
-		write("ÄãÏÖÔÚ»¹Ã»ÓĞ¹ÍÓ¶¹Ü¼Ò¡£\n");
+		write("ä½ ç°åœ¨è¿˜æ²¡æœ‰é›‡ä½£ç®¡å®¶ã€‚\n");
 		return;
 	}
 	gj=gjs[0];
 	o_gj=o_h->load_npc(gj);
 	if(environment(o_gj)!=(this_body()->query_room())) {
 		o_gj->move(environment(this_body()));
-		o_gj->simple_action("$N·ç·ç»ğ»ğµØÅÜÁË¹ıÀ´¡£\n");
+		o_gj->simple_action("$Né£é£ç«ç«åœ°è·‘äº†è¿‡æ¥ã€‚\n");
 	}
 	o_gj->special_answer(this_body(),"order");
 	return;
@@ -64,19 +64,19 @@ void call_suicong(string p_id) {
 	object o_gj;
 	o_h=SGHOME(p_id);
 	if(!objectp(o_h)) {
-		write("ÄãÏÖÔÚ»¹Ã»ÓĞ¼Ò£¬ÄÄÀïÀ´µÄËæ´Ó¡£\n");
+		write("ä½ ç°åœ¨è¿˜æ²¡æœ‰å®¶ï¼Œå“ªé‡Œæ¥çš„éšä»ã€‚\n");
 		return;
 	}
 	gjs=o_h->check_npc("pos","sc");
 	if(!sizeof(gjs)) {
-		write("ÄãÏÖÔÚ»¹Ã»ÓĞ¹ÍÓ¶Ëæ´Ó¡£\n");
+		write("ä½ ç°åœ¨è¿˜æ²¡æœ‰é›‡ä½£éšä»ã€‚\n");
 		return;
 	}
 	gj=gjs[0];
 	o_gj=o_h->load_npc(gj);
 	if(environment(o_gj)!=(this_body()->query_room())) {
 		o_gj->move(environment(this_body()));
-		o_gj->simple_action("$N·ç·ç»ğ»ğµØÅÜÁË¹ıÀ´¡£\n");
+		o_gj->simple_action("$Né£é£ç«ç«åœ°è·‘äº†è¿‡æ¥ã€‚\n");
 	}
 	special_answer(this_body(),"order",o_gj);
 	return;
@@ -90,7 +90,7 @@ void main(string arg)
 	string p_id,n_id,p_room;
     	p_id=this_body()->query_id()[0];
     	env=this_body()->query_room();
-        this_body()->simple_action("$N»ØÍ·º°ÁËÒ»Éù£ºÀ´ÈËÄÄ£¡");
+        this_body()->simple_action("$Nå›å¤´å–Šäº†ä¸€å£°ï¼šæ¥äººå“ªï¼");
 
 	if((env->is_home())&&(env->get_owner()==p_id)) {
 		call_guanjia(p_id);

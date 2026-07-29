@@ -94,7 +94,7 @@ object virtual_create(string arg)
 	        {
 			if(!rooms[arg]["o"]) rooms[arg]["o"]=([]);
 			rooms[arg]["o"][M_BOARD]=({1, COUNTRY_D->get_country(nat,"name")+
-				"通告","nation."+nat});
+				"閫氬憡","nation."+nat});
 		}
 	}
 	room->set_objects(rooms[arg]["o"]);
@@ -190,7 +190,7 @@ mixed trans() {
 mixed sethere(string s,mixed val) {
 	string area,room,f_name, *tmp;
 	f_name=file_name(this_body()->query_room());
-	if(f_name[0..2]!="/a/") return "这里不是三国常规地区。\n";
+	if(f_name[0..2]!="/a/") return "杩欓噷涓嶆槸涓夊浗甯歌鍦板尯銆俓n";
 	tmp=explode(f_name,"/");
 	area=tmp[1];
 	room=tmp[2];
@@ -199,7 +199,7 @@ mixed sethere(string s,mixed val) {
 mixed gethere(string s) {
 	string area,room,f_name, *tmp;
 	f_name=file_name(this_body()->query_room());
-	if(f_name[0..2]!="/a/") return "这里不是三国常规地区。\n";
+	if(f_name[0..2]!="/a/") return "杩欓噷涓嶆槸涓夊浗甯歌鍦板尯銆俓n";
 	tmp=explode(f_name,"/");
 	area=tmp[1];
 	room=tmp[2];

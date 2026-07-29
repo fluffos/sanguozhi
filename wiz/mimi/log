@@ -4,8 +4,7 @@
 /wiz/mimi/exec.c line 6: Undefined function all_inventroy before ;}
 /wiz/mimi/exec.c line 6: Undefined variable 'here' before ;}
 /wiz/mimi/exec.c line 6: parse error before hying->set_sg_skill(
-/wiz/mimi/exec.c line 6: Illegal character constant before ¾Îä    Á¦¡¿91      ¡
-/wiz/mimi/exec.c line 6: parse error before Îä    Á¦¡¿91      ¡¾
+/wiz/mimi/exec.c line 6: Illegal character constant before ç–š   åŠ›ã€‘91      /wiz/mimi/exec.c line 6: parse error before æ­¦    åŠ›ã€‘91      ã€
 /wiz/mimi/exec.c line 6: Too few arguments to debug_info before ;}
 /wiz/mimi/exec.c line 6: Bad argument 2 to efun debug_info() before ;}
 /wiz/mimi/exec.c line 6: Undefined variable 'should' before  find_user();}

@@ -29,7 +29,7 @@ inherit CLASS_MAILMSG;
 
 private class mail_msg saved_msg;
 
-private static mapping mailboxes = ([ ]);
+private mapping mailboxes = ([ ]);
 
 private int lock = 0;
 
@@ -102,12 +102,12 @@ nomask string * process_mail_list(string * list)
     return list;
 }
 
-private nomask mixed clean_addresses(string array list)
+private nomask mixed clean_addresses(string * list)
 {
     string      user, mudname;
     mixed       mudinf;
-    string      array local_recips = ({});
-    string      array recips = ({});
+    string * local_recips = ({});
+    string * recips = ({});
     string      listitem;
 
     foreach(listitem in list)
@@ -139,7 +139,7 @@ private nomask mixed clean_addresses(string array list)
     return ({local_recips, recips});
 }
 
-string array ungroup( string array list )
+string * ungroup( string * list )
 {
     mixed to;
 
@@ -173,7 +173,7 @@ varargs nomask string * send_mail(string        Sender,
     if ( !check_previous_privilege(1) &&
       ( !this_user() || this_user()->query_userid() != Sender ) )
         //error("insufficient priviledge to send mail as " + Sender + "\n");
-        error("ÄãÎŞÈ¨ÒÔ " + Sender + " µÄÃûÒå·¢ĞÅ\n");
+        error("ä½ æ— æƒä»¥ " + Sender + " çš„åä¹‰å‘ä¿¡\n");
     if ( stringp(Body) )
         Body = explode(Body, "\n");
     else if ( !pointerp(Body) )
@@ -188,7 +188,7 @@ varargs nomask string * send_mail(string        Sender,
 
     if ( !pointerp(msg->to_list) || !pointerp(msg->cc_list) )
         //error("send mail: invalid list of recipients");
-        error("ÊÕĞÅÈËÁĞ±í´íÎó\n");
+        error("æ”¶ä¿¡äººåˆ—è¡¨é”™è¯¯\n");
 
     /* 
     ** Pass it to the IMAIL_D for a second, let it see
@@ -248,11 +248,11 @@ nomask mixed get_one_message(int message_key)
 
     if ( base_name(previous_object()) != MAILBOX )
         //error("security violation: illegal attempt to read mail\n");
-        error("°²È«´íÎó£º·Ç·¨ÆóÍ¼¶ÁĞÅ\n");
+        error("å®‰å…¨é”™è¯¯ï¼šéæ³•ä¼å›¾è¯»ä¿¡\n");
     if ( !(msg = restore_msg(message_key)) )
     {
         LOG_D->log(LOG_MAIL_ERROR,
-          sprintf("%s ¶ªÊ§ÁËĞÅÏ¢ #%d", //"%s lost message #%d",
+          sprintf("%s ä¸¢å¤±äº†ä¿¡æ¯ #%d", //"%s lost message #%d",
             this_user()->query_userid(),
             message_key));
         return 0;
@@ -260,7 +260,7 @@ nomask mixed get_one_message(int message_key)
 
     if ( member_array(this_user()->query_userid(), msg->dels_pending) == -1 )
         //error("security violation: illegal attempt to read mail\n");
-        error("°²È«´íÎó£º·Ç·¨ÆóÍ¼¶ÁĞÅ\n");
+        error("å®‰å…¨é”™è¯¯ï¼šéæ³•ä¼å›¾è¯»ä¿¡\n");
 
     return msg;
 }
@@ -274,13 +274,13 @@ nomask void delete_mail(int message_key, string user)
     if ( base_name(previous_object()) != MAILBOX ||
       previous_object()->query_owner() != user )
         //error("security violation: illegal attempt to delete mail\n");
-        error("°²È«´íÎó£º·Ç·¨ÆóÍ¼É¾³ıĞÅ¼ş\n");
+        error("å®‰å…¨é”™è¯¯ï¼šéæ³•ä¼å›¾åˆ é™¤ä¿¡ä»¶\n");
 
     if ( !(msg = restore_msg(message_key)) )
         //error("lost the message\n");
-        //error("ĞÅÏ¢¶ªÊ§\n");
+        //error("ä¿¡æ¯ä¸¢å¤±\n");
        {
-       printf("ÓÃ»§%sµÄ%dÓÊ¼şĞÅÏ¢¶ªÊ§.\n",user,message_key);
+       printf("ç”¨æˆ·%sçš„%dé‚®ä»¶ä¿¡æ¯ä¸¢å¤±.\n",user,message_key);
        return;
        } 
         

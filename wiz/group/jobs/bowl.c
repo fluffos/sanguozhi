@@ -9,8 +9,8 @@ void status();
 
 void setup()
 {
-	set_id("bowl", "»¨Åè");
-	set_in_room_desc("Ò»¸ö»¨Åè(bowl)");	
+	set_id("bowl", "èŠ±ç›†");
+	set_in_room_desc("ä¸€ä¸ªèŠ±ç›†(bowl)");	
 	bowl_status = 0;
 	status();
 	return;
@@ -18,12 +18,12 @@ void setup()
 string long()
 {
 	if( bowl_status < 3 )
-		return "Ò»Åè¸Õ¸Õ·ÅÈëÁË»¨×ÑµÄ»¨Åè£¬ÕıµÈ×ÅÈËÀ´½½Ë®¡£";
+		return "ä¸€ç›†åˆšåˆšæ”¾å…¥äº†èŠ±ç±½çš„èŠ±ç›†ï¼Œæ­£ç­‰ç€äººæ¥æµ‡æ°´ã€‚";
 	else if( bowl_status < 7 )
-		return "Ò»¸ö»¨Åè£¬ÄÛÂÌµÄ»¨ÃçÔÚ·çÖĞ²ü¶¶¡£";
+		return "ä¸€ä¸ªèŠ±ç›†ï¼Œå«©ç»¿çš„èŠ±è‹—åœ¨é£ä¸­é¢¤æŠ–ã€‚";
 	else if( bowl_status < 14 )
-		return "Ò»¸ö»¨Åè£¬×Â×³µÄ»¨ÃçÏò×ÅÌ«ÑôÉìÕ¹×ÅË«±Û¡£";
-	else return "ÃÀÀöµÄ»¨°úĞß´ğ´ğµÄ¿¿ÔÚÖ¦Í·£¬¾ÍÒª¿ª»¨ÁË£¡";
+		return "ä¸€ä¸ªèŠ±ç›†ï¼ŒèŒå£®çš„èŠ±è‹—å‘ç€å¤ªé˜³ä¼¸å±•ç€åŒè‡‚ã€‚";
+	else return "ç¾ä¸½çš„èŠ±è‹ç¾ç­”ç­”çš„é åœ¨æå¤´ï¼Œå°±è¦å¼€èŠ±äº†ï¼";
 }
 
 void status()
@@ -32,7 +32,7 @@ void status()
 	if( bowl_status <= 0 ) return;
 	bowl_status = bowl_status - random(2) - 1;
 	if (bowl_status < 5)
-	tell_environment( this_object(), "»¨ÃçÓÉÓÚÈ±Ë®£¬µÍÏÂÁËÍ·¡£\n");
+	tell_environment( this_object(), "èŠ±è‹—ç”±äºç¼ºæ°´ï¼Œä½ä¸‹äº†å¤´ã€‚\n");
 	call_out("status", 30 );
 	return;
 }
@@ -45,7 +45,7 @@ int set_status()
 	bowl_status = bowl_status  + random(2);
 	if (bowl_status >= 20){
 tell_user(this_body()->query_id()[0],
-"»¨¿ªÁË£¡Äã²ÁÈ¥¶îÉÏµÄº¹Ë®£¬ÄãµÄÖÎ¹úĞŞÑø½ø²½ÁË£¡\n");
+"èŠ±å¼€äº†ï¼ä½ æ“¦å»é¢ä¸Šçš„æ±—æ°´ï¼Œä½ çš„æ²»å›½ä¿®å…»è¿›æ­¥äº†ï¼\n");
 	skill = player->query_sk_level("sk_meili");
         exp = player->query_sk_exp("sk_meili");
         if( skill < 51 )
@@ -74,7 +74,7 @@ int turn()
 	
 	hp = player->query_cur_hp();
 	if( hp < 40 ){
-                printf("ÄãÒÑ¾­Ì«ÀÛÁË£¬»¹ÊÇÏÈĞİÏ¢Ò»ÏÂÔÙ¸É°É¡£\n");
+                printf("ä½ å·²ç»å¤ªç´¯äº†ï¼Œè¿˜æ˜¯å…ˆä¼‘æ¯ä¸€ä¸‹å†å¹²å§ã€‚\n");
                 return 1;
         }; 
 	player->set_cur_hp( hp - 10 - random(10) );
@@ -82,11 +82,11 @@ int turn()
 	for( i = 0; i < sizeof( obs ); i++){
 		if( obs[i]->can_turn()&& obs[i]->set_water(0) ){
 			obs[i]->set_water(1);
-			player->simple_action("$N¶ËÆğË®ºø½½ÆğË®À´¡£\n");
+			player->simple_action("$Nç«¯èµ·æ°´å£¶æµ‡èµ·æ°´æ¥ã€‚\n");
 			set_status();
 			return 1;	
 		};
 	};
-	printf("ÄãÒªÄÃÊ²Ã´À´½½Ë®ÄØ£¿\n");
+	printf("ä½ è¦æ‹¿ä»€ä¹ˆæ¥æµ‡æ°´å‘¢ï¼Ÿ\n");
 	return 1;
 }			

@@ -12,7 +12,7 @@ void donate(string p_id,string p_where,int p_amt)
 	p_nation=CHAR_D->get_char(p_id,"nation");
 	if(p_where=="here")
 	{
- p_mess=sprintf("%sÏò%sµØÇø¾èÔùÁË%sÁ½»Æ½ğ£¬%sµÄÖÒ³ÏÓëÉùÍûÌá¸ßÁË¡£",
+ p_mess=sprintf("%så‘%såœ°åŒºæèµ äº†%sä¸¤é»„é‡‘ï¼Œ%sçš„å¿ è¯šä¸å£°æœ›æé«˜äº†ã€‚",
                 CHAR_D->get_char(p_id,"name"),
 		AREA_D->get_area(p_area,"name"),
 		CHINESE_D->chinese_number(p_amt),
@@ -22,7 +22,7 @@ void donate(string p_id,string p_where,int p_amt)
 	}
 	else
 	{
-               p_mess=sprintf("%sÏò%s¾èÔùÁË%sÁ½»Æ½ğ£¬%sµÄÖÒ³ÏÓëÉùÍûÌá¸ßÁË¡£",
+               p_mess=sprintf("%så‘%sæèµ äº†%sä¸¤é»„é‡‘ï¼Œ%sçš„å¿ è¯šä¸å£°æœ›æé«˜äº†ã€‚",
                 CHAR_D->get_char(p_id,"name"),
 		COUNTRY_D->get_country(p_nation,"name"),
 		CHINESE_D->chinese_number(p_amt),

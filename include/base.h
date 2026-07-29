@@ -6,7 +6,7 @@
 #define S_NOLEADER	-1	// no lead
 #define S_NOHEAD	-2	// no head
 #define S_NOPPL		-3	// no ppl
-#define S_NOSOURCESTUFF		-4	// »±∑¶‘≠¡œ
+#define S_NOSOURCESTUFF		-4	// Áº∫‰πèÂéüÊñô
 
 #define P_NORMAL	0
 #define P_ASKWINE	-1	// ppl want some wine

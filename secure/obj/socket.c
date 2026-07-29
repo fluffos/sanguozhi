@@ -17,7 +17,7 @@
 #include <log.h>
 
 //#define SKTLOG(x,y)	write_file("/log/sktlog",sprintf("%s: %O\n",x,y))
-//#define SKTLOG(strshow, value) LOG_D->log(LOG_SOCKET, sprintf(strshow + "%O\n", value)); 这个是好用的
+//#define SKTLOG(strshow, value) LOG_D->log(LOG_SOCKET, sprintf(strshow + "%O\n", value)); 杩欎釜鏄ソ鐢ㄧ殑
 #define SKTLOG(strshow, value)
 
 /*
@@ -26,17 +26,17 @@
 */
 #define REQUIRE_PRIV	"Mudlib:socket"
 
-static private int	style;
-static private int	fdOwned = -1;	/* no socket yet */
-static private function	read_func;
-static private function	close_func;
-static private function write_func;
+nosave private int	style;
+nosave private int	fdOwned = -1;	/* no socket yet */
+nosave private function	read_func;
+nosave private function	close_func;
+nosave private function write_func;
 
-static private mixed *	write_queue = ({ });
-static private int	blocked;
+nosave private mixed *	write_queue = ({ });
+nosave private int	blocked;
 
 /* For debug purposes only */
-static private mixed addr;
+nosave private mixed addr;
 
 void set_write_callback(function f)
 {
@@ -443,7 +443,7 @@ SKTLOG("create: SKT_STYLE_LISTEN_M",fdOwned);
 	if ( fdOwned < 0 )
 	    error("could not create socket: " + socket_error(fdOwned) + "\n");
 	//write("fdOwned = " + fdOwned + "\n");
-	//write("地址p1 = " + p1 + "\n");
+	//write("鍦板潃p1 = " + p1 + "\n");
 	err = socket_connect(fdOwned, p1, "read_callback", "write_callback");
 	if ( err < 0 )
 	    error("could not listen to socket: " + socket_error(err) + "\n");

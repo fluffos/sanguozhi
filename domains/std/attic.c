@@ -5,8 +5,8 @@
 inherit ROOM;
 
 void setup() {
-    set_brief("¸óÂ¥");
-    set_long("ÕâÀïÊÇÎ×Ê¦´óÌüµÄ¸óÂ¥¡£¿Õµ´µ´µÄ...");
+    set_brief("é˜æ¥¼");
+    set_long("è¿™é‡Œæ˜¯å·«å¸ˆå¤§å…çš„é˜æ¥¼ã€‚ç©ºè¡è¡çš„...");
     set_exits( ([
                  "down" : "/domains/std/wizroom.c"
     ]) );

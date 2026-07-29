@@ -14,7 +14,7 @@ inherit VERB_OB;
 
 mixed indirect_open_obj_with_obj(object ob1, object ob2) {
     if (!ob2) return 1;
-    if (ob2 == this_body()) return "¶àÃ´¹Å¹ÖµÄÏë·¨°¡...\n";
+    if (ob2 == this_body()) return "å¤šä¹ˆå¤æ€ªçš„æƒ³æ³•å•Š...\n";
     return ob2->is_weapon();
 } */
 
@@ -23,7 +23,7 @@ void open(object ob, object with)
     if (with) {
         try_to_acquire(with);
         if (with->is_weapon() && ob->test_flag(DESTROYABLE)) {
-            this_body()->simple_action("$NÊÔÍ¼´ò¿ª$o£¬È´±©Á¦µØÓÃ$p$o1°Ñ$oÇÃ³ÉÁËËéÆ¬¡£", ob, with);
+            this_body()->simple_action("$Nè¯•å›¾æ‰“å¼€$oï¼Œå´æš´åŠ›åœ°ç”¨$p$o1æŠŠ$oæ•²æˆäº†ç¢Žç‰‡ã€‚", ob, with);
             ob->remove();
             return;
         }
@@ -52,12 +52,12 @@ void do_open_str(string str) {
 		return;
 	}
 	if(!ret)
-		ret=o->short()+"ºÃÏóÃ»·¨´ò¿ª¡£\n";
+		ret=o->short()+"å¥½è±¡æ²¡æ³•æ‰“å¼€ã€‚\n";
 	write(ret);
 	return;
 }
 
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ "STR", }) });
 //    return ({ ({ "STR", "up OBJ", "OBJ with OBJ" }) });

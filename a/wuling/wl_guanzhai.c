@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is °ÍÉ½Ò¹Óê
+// driver is å·´å±±å¤œé›¨
 // created date is Sat May 28 19:33:34 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,11 +7,11 @@ inherit INDOOR_ROOM;
 void setup() {
 set_area("wuling");
 set_light(50);
-set_brief("%^YELLOW%^"+"¹ÙÕ¬"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"å®˜å®…"+"%^RESET%^");
 set_long("
-    ÕâÊÇÎäÁêµÄ¹ÙÕ¬£¬ÄÚ²¿°ÚÉè¼«¾¡ºÀ»ª£¬µ±ÖĞÒ»ÕÅºÚÉ«Ì´Ä¾
-Ìõ°¸£¬ÉÏÃæ³Â·Å×Å¾«ÃÀµÄ»¨Æ¿ºÍÒ»Ğ©Õä¹óµÄ´ÉÆ÷£¬ËÄ±Ú¹ÒÂúÃû
-¼ÒµÄ×Ö»­¡£\n\n");
+    è¿™æ˜¯æ­¦é™µçš„å®˜å®…ï¼Œå†…éƒ¨æ‘†è®¾æå°½è±ªåï¼Œå½“ä¸­ä¸€å¼ é»‘è‰²æª€æœ¨
+æ¡æ¡ˆï¼Œä¸Šé¢é™ˆæ”¾ç€ç²¾ç¾çš„èŠ±ç“¶å’Œä¸€äº›çè´µçš„ç“·å™¨ï¼Œå››å£æŒ‚æ»¡å
+å®¶çš„å­—ç”»ã€‚\n\n");
 set_exits( ([
 "east":"/a/wuling/wl_suishilu1.c",
  ]));

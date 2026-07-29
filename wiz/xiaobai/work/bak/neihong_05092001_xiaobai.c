@@ -1,4 +1,4 @@
-//ÄÚÚ§
+//å†…è®§
 #include <mudlib.h>
 #include <daemons.h>
 #include <ansi.h>
@@ -21,20 +21,20 @@ void main(object ob, string who)
 	p_name=CHAR_D->get_char(ob->query_primary_id(),"name");
 	where = TROOP_D->get_troop_area(p_id);
 	if(!(p_skill=CHAR_D->get_char(ob->query_primary_id(),"skills")["neihong"]))
-	{	write("Äã²»»áÄÚÚ§Ö®¼Æ¡£\n");
+	{	write("ä½ ä¸ä¼šå†…è®§ä¹‹è®¡ã€‚\n");
 		return;}
 	if( !p_id){
-                write("Ö»ÓĞÉíÔÚ¾üÖĞ²ÅÄÜÊ¹ÓÃÄÚÚ§Ö®¼Æ¡£\n");
+                write("åªæœ‰èº«åœ¨å†›ä¸­æ‰èƒ½ä½¿ç”¨å†…è®§ä¹‹è®¡ã€‚\n");
                 return;
         }	
 	// In the furture, We have to consider theplayer's ablility
 	// add the exp of this jimou, reduce mp, etc.
 	if ( !e_id || TROOP_D->get_troop_area(e_id)!=where)
-		{ write("¶Ô·½²»ÔÚ´ËÕ½³¡ÉÏ¡£\n");
+		{ write("å¯¹æ–¹ä¸åœ¨æ­¤æˆ˜åœºä¸Šã€‚\n");
 			return;
 		}
 	if (TROOP_D->get_troop_side(e_id) ==TROOP_D->get_troop_side(p_id))
-                {write ("²»¿ÉÏò¼º·½²¿¶ÓÊ©ÓÃ´Ë¼Æ¡£\n");
+                {write ("ä¸å¯å‘å·±æ–¹éƒ¨é˜Ÿæ–½ç”¨æ­¤è®¡ã€‚\n");
                         return;
                 }	
 	x =TROOP_D->get_troop_position(p_id)[0];
@@ -44,12 +44,12 @@ void main(object ob, string who)
                 y2 = TROOP_D->get_troop_position(e_id)[1];
 	
                 if( (x-x2)*(x-x2)+(y-y2)*(y-y2) > 4 ){
-			write("ÄãÀëµĞÈËÌ«Ô¶ÎŞ·¨Ê©¼Æ¡£\n");
+			write("ä½ ç¦»æ•Œäººå¤ªè¿œæ— æ³•æ–½è®¡ã€‚\n");
 			return;}
 		troops = TROOP_D->list_troops();
         troops = troops - ({ p_id }) - ({ e_id});
         if( !sizeof(troops) )
-	{ write ("ÎŞÆäËü²¿¶Ó¿É¹©ÄÚÚ§¡£\n");
+	{ write ("æ— å…¶å®ƒéƒ¨é˜Ÿå¯ä¾›å†…è®§ã€‚\n");
 	return;}
 	for( i = 0; i < sizeof(troops); i++ ){
                 r_id = troops[i];
@@ -61,21 +61,21 @@ void main(object ob, string who)
 		}
 		}
 	if (!t_id)
-	{	write("ÎŞÆäËü²¿¶Ó¿É¹©ÄÚÚ§¡£\n");
+	{	write("æ— å…¶å®ƒéƒ¨é˜Ÿå¯ä¾›å†…è®§ã€‚\n");
 		return;
 	}
 
                 tell(deep_inventory(TROOP_D->find_troop(e_id)),
-	"Ò»ÕóĞú»©ÖĞ£¬²¿ÏÂÀ´±¨£º¡°ÓĞµĞÀ´Ï®£¡¡±\n",
+	"ä¸€é˜µå–§å“—ä¸­ï¼Œéƒ¨ä¸‹æ¥æŠ¥ï¼šâ€œæœ‰æ•Œæ¥è¢­ï¼â€\n",
                         MSG_INDENT);
 		tell(deep_inventory(TROOP_D->find_troop(t_id)),
-        "Ò»ÕóĞú»©ÖĞ£¬²¿ÏÂÀ´±¨£º¡°ÓĞµĞÀ´Ï®£¡¡±\n",
+        "ä¸€é˜µå–§å“—ä¸­ï¼Œéƒ¨ä¸‹æ¥æŠ¥ï¼šâ€œæœ‰æ•Œæ¥è¢­ï¼â€\n",
                         MSG_INDENT);
                 // In future, we have to consider effects of the
                 // ablility of general, zhenxing, dixing, etc.
                 // Now the damage depends only on the No of bowman
 	ob->simple_action(SG_SKILL_D->query_use("neihong"));
-	ob->start_busy(10, "ÄãÕıÃ¦ÓÚÊ©¼ÆÄØ¡£\n");
+	ob->start_busy(10, "ä½ æ­£å¿™äºæ–½è®¡å‘¢ã€‚\n");
 	load_object("/daemons/cast_d.c")->reg_player(ob->query_primary_id(), "neihong");	
 	ob->award_exp(ob->query_sk_level("sk_zhimou")/2+20, "neihong");
 	call_out("show_result", 10+random(5), ob, who, p_skill, p_id, e_id, t_id);
@@ -93,7 +93,7 @@ void show_result(object ob, string who, int p_skill, int p_id, int e_id, int t_i
 	else {
 	e_skill=CHAR_D->get_char(who,"skills")["neihong"];}
 	if(!objectp(find_user(who)))
-	  e_skill = CHAR_D->get_skill(who,"sk_zhimou")*1.5;  //Ä¬ÈÏNPCµÄchenzhuo=zhimou
+	  e_skill = CHAR_D->get_skill(who,"sk_zhimou")*1.5;  //é»˜è®¤NPCçš„chenzhuo=zhimou
 	if(CHAR_D->get_skill(who,"chenzhuo"))
 	  e_skill = e_skill + 1.5*CHAR_D->get_skill(who,"chenzhuo");
 
@@ -104,10 +104,10 @@ kill = random(kill);
 	ob->stop_busy();
 	if( kill>50)
 	{	tell(deep_inventory(TROOP_D->find_troop(e_id)),
-                "Äã´óÉùºğµÀ£º¡°³å£¡³å£¡¡±\n",
+                "ä½ å¤§å£°å¼é“ï¼šâ€œå†²ï¼å†²ï¼â€\n",
                         MSG_INDENT);
 		tell(deep_inventory(TROOP_D->find_troop(t_id)),
-                "Äã´óÉùºğµÀ£º¡°³å£¡³å£¡¡±\n",
+                "ä½ å¤§å£°å¼é“ï¼šâ€œå†²ï¼å†²ï¼â€\n",
                         MSG_INDENT);
 		mora = random (-20) -10;
 		mora1 = random (6) +2;
@@ -118,10 +118,10 @@ kill = random(kill);
 	{     if(kill>20)
 		{
 	tell(deep_inventory(TROOP_D->find_troop(e_id)),
-        	"Äã½ĞµÀ£º¡°ÁĞ¶Ó£¬Ğ¡ĞÄµĞÈËÍµÏ®£¡¡±\n",
+        	"ä½ å«é“ï¼šâ€œåˆ—é˜Ÿï¼Œå°å¿ƒæ•Œäººå·è¢­ï¼â€\n",
                         MSG_INDENT);	
 	tell(deep_inventory(TROOP_D->find_troop(t_id)),
-                "Äã½ĞµÀ£º¡°ÁĞ¶Ó£¬Ğ¡ĞÄµĞÈËÍµÏ®£¡¡±\n",
+                "ä½ å«é“ï¼šâ€œåˆ—é˜Ÿï¼Œå°å¿ƒæ•Œäººå·è¢­ï¼â€\n",
                         MSG_INDENT);
 		mora = random (-10) - 5;
 		mora1 = random (3) + 1;
@@ -131,10 +131,10 @@ kill = random(kill);
 	      else if( kill>5)
 		{
 		tell(deep_inventory(TROOP_D->find_troop(e_id)),
-        	"Äã³ÙÒÉµÄËµµÀ£º¡°Ğ¡ĞÄÁĞ¶Ó£¬²»¿ÉÂÒÁË¾üĞÄ£¡¡±\n",
+        	"ä½ è¿Ÿç–‘çš„è¯´é“ï¼šâ€œå°å¿ƒåˆ—é˜Ÿï¼Œä¸å¯ä¹±äº†å†›å¿ƒï¼â€\n",
                         MSG_INDENT);
 		tell(deep_inventory(TROOP_D->find_troop(t_id)),
-                "Äã³ÙÒÉµÄËµµÀ£º¡°Ğ¡ĞÄÁĞ¶Ó£¬²»¿ÉÂÒÁË¾üĞÄ£¡¡±\n",
+                "ä½ è¿Ÿç–‘çš„è¯´é“ï¼šâ€œå°å¿ƒåˆ—é˜Ÿï¼Œä¸å¯ä¹±äº†å†›å¿ƒï¼â€\n",
                         MSG_INDENT);
 		mora = random(-5) - 1;
 		mora1 = 1;
@@ -144,10 +144,10 @@ kill = random(kill);
 	      else 
 		{
 		tell(deep_inventory(TROOP_D->find_troop(e_id)),
-        	"ÄãĞØÓĞ³ÉÖñµÄËµµÀ£º¡°²»»Å£¡´ËÄËÄÚÚ§Ö®¼Æ£¡¡±\n",
+        	"ä½ èƒ¸æœ‰æˆç«¹çš„è¯´é“ï¼šâ€œä¸æ…Œï¼æ­¤ä¹ƒå†…è®§ä¹‹è®¡ï¼â€\n",
                         MSG_INDENT);
 		tell(deep_inventory(TROOP_D->find_troop(t_id)),
-                "ÄãĞØÓĞ³ÉÖñµÄËµµÀ£º¡°²»»Å£¡´ËÄËÄÚÚ§Ö®¼Æ£¡¡±\n",
+                "ä½ èƒ¸æœ‰æˆç«¹çš„è¯´é“ï¼šâ€œä¸æ…Œï¼æ­¤ä¹ƒå†…è®§ä¹‹è®¡ï¼â€\n",
                         MSG_INDENT);
 		mora = random(8) + 3;
 		mora1 = random(-8) - 3;
@@ -172,7 +172,7 @@ damage = rate * kill * 2;
 	if(damage>0){
             task_id=TROOP_D->get_troops(e_id,"task_id");
             WARAI_D->war_inf(task_id,
-              TROOP_D->find_troop(e_id)->query_id()[1]+"ÖĞÁË"+p_name+"µÄÄÚÚ§Ö®¼Æ£¬Óë"+TROOP_D->find_troop(t_id)->query_id()[1]+"»¥Õ½ËğÊ§"+chinese_number(damage)+"ÈË¡£","b");
+              TROOP_D->find_troop(e_id)->query_id()[1]+"ä¸­äº†"+p_name+"çš„å†…è®§ä¹‹è®¡ï¼Œä¸"+TROOP_D->find_troop(t_id)->query_id()[1]+"äº’æˆ˜æŸå¤±"+chinese_number(damage)+"äººã€‚","b");
 	 WARAI_D->kill_troop(e_id,damage);
          WARAI_D->kill_troop(t_id,damage);	        
 	 WARAI_D->clear_empty_troop(({t_id}));
@@ -182,7 +182,7 @@ damage = rate * kill * 2;
 damage = random(200) + 100;
 	task_id=TROOP_D->get_troops(e_id,"task_id");
 	WARAI_D->war_inf(task_id,
-	TROOP_D->find_troop(p_id)->query_id()[1]+"Ê¹ÓÃÄÚÚ§Ö®¼ÆÊ§°Ü£¬±»µĞÈË³Ë»ú¼ßÃğ"+chinese_number(damage)+"ÈË¡£","b");
+	TROOP_D->find_troop(p_id)->query_id()[1]+"ä½¿ç”¨å†…è®§ä¹‹è®¡å¤±è´¥ï¼Œè¢«æ•Œäººä¹˜æœºæ­¼ç­"+chinese_number(damage)+"äººã€‚","b");
 	WARAI_D->kill_troop(p_id,damage);
          WARAI_D->clear_empty_troop(({p_id}));	
 	}

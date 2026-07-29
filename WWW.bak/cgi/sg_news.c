@@ -7,7 +7,7 @@ inherit CLASS_NEWSMSG;
 
 class news_msg news;
 
-mapping boards = (["caolu":"²İÂ®ÁôÑÔ°å","newbie":"ĞÂÊÖ°ïÖú", ]);
+mapping boards = (["caolu":"è‰åºç•™è¨€æ¿","newbie":"æ–°æ‰‹å¸®åŠ©", ]);
 
 string get_group_list(string group, int from)
 {
@@ -15,9 +15,9 @@ string get_group_list(string group, int from)
 	int i, *ids, end;
 		
 	if( member_array(group, keys(boards)) == -1 )
-		return "<br><br><h2>Ã»ÓĞ´ËĞÂÎÅ×é</h2><br>";
+		return "<br><br><h2>æ²¡æœ‰æ­¤æ–°é—»ç»„</h2><br>";
 	ids = NEWS_D->get_messages( group );
-	if( from > sizeof(ids) )return "<br><br><h2>Ã»ÓĞ´ËÌõĞÂÎÅ</h2><br>";
+	if( from > sizeof(ids) )return "<br><br><h2>æ²¡æœ‰æ­¤æ¡æ–°é—»</h2><br>";
 	if( from + 10 < sizeof(ids) )end = from + 10;
 	else end = sizeof( ids );
 
@@ -48,10 +48,10 @@ string get_one_msg(string group, int id)
         int *ids;
 
         if( member_array(group, keys(boards)) == -1 )
-                return "<br><br><h3>Ã»ÓĞ´ËĞÂÎÅ×é</h3><br>";
+                return "<br><br><h3>æ²¡æœ‰æ­¤æ–°é—»ç»„</h3><br>";
         ids = NEWS_D->get_messages( group );
 	if( member_array(id, ids) == -1 )
-		return "<br><br><h3>Ã»ÓĞ´ËÌõĞÂÎÅ</h3><br>";
+		return "<br><br><h3>æ²¡æœ‰æ­¤æ¡æ–°é—»</h3><br>";
 
 	news = NEWS_D->get_message(group, id);
 	msg = "<br><head><h2><center>"+boards[group]+"</center></h2><head><br>";
@@ -73,14 +73,14 @@ string main(string arg)
 <title> Reading news </title>
 <body background="http://sgz.yesite.com/images/desk5.gif" text=white link=yellow vlink=white>
 HEAD;
-	if( !arg || arg == "" || !stringp(arg) )html = html + "<br><h2><center>·Ç·¨¶ÁÈ¡£¬·µ»Ø¡£</center></h2>";
+	if( !arg || arg == "" || !stringp(arg) )html = html + "<br><h2><center>éæ³•è¯»å–ï¼Œè¿”å›ã€‚</center></h2>";
 	else if( sscanf(arg, "group:%s", group) == 1 ){
                 if ( sscanf(group,"%s&which:%d", group, id) == 2 )
 			html = html + get_one_msg(group, id);
 		else if( sscanf(group,"%s&from:%d", group, from) == 2 )
                         html = html + get_group_list(group, from);
 		else html = html + get_group_list(group, 0);
-	} else html = html + "<br><h2><center>·Ç·¨¶ÁÈ¡£¬·µ»Ø¡£</center></h2>";
+	} else html = html + "<br><h2><center>éæ³•è¯»å–ï¼Œè¿”å›ã€‚</center></h2>";
 
 	html = html + @END_HTML
 </body>

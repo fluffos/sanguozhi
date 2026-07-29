@@ -5,11 +5,11 @@
 // $N refers to itself and $n refers to enermy troop
 #include <ansi.h>
 private mapping *do_attack = ({
-	(["msg":HIB"²½±ø¶Ó·Ö³ÉÈıÁĞ£¬ÎÈÎÈµÄÏòµĞ¾ü³åÈ¥¡£"NOR,
+	(["msg":HIB"æ­¥å…µé˜Ÿåˆ†æˆä¸‰åˆ—ï¼Œç¨³ç¨³çš„å‘æ•Œå†›å†²å»ã€‚"NOR,
 	  "damage": 5,]),
-        (["msg":HIY"²½±ø¶ÓÊ¿Æø¸ß°ºµÄ³åÏòµĞ¾ü¡£"NOR,
+        (["msg":HIY"æ­¥å…µé˜Ÿå£«æ°”é«˜æ˜‚çš„å†²å‘æ•Œå†›ã€‚"NOR,
           "damage": 6,]),
-        (["msg":HIG"²½±ø¶ÓÉ¢ÂÒµÃÏòµĞ¾ü³åÈ¥¡£"NOR,
+        (["msg":HIG"æ­¥å…µé˜Ÿæ•£ä¹±å¾—å‘æ•Œå†›å†²å»ã€‚"NOR,
           "damage": 4,]),
 });
 mapping query_attack(string environment)
@@ -24,7 +24,7 @@ string query_id()
 }
 string query_name()
 {
-	return "²½±ø";
+	return "æ­¥å…µ";
 }
 string query_type()
 {
@@ -55,10 +55,10 @@ int query_energy_recover(string environment, int weather, int zhenfa)
 {
         int cost;
 
-        if( environment == "¡Ä" ) cost = 7;
-        else if ( environment == "¡«" ) cost = 4;
-        else if ( environment == "£®" ) cost = 7;
-        else if ( environment == "£ª" ) cost = 7;
+        if( environment == "âˆ§" ) cost = 7;
+        else if ( environment == "ï½" ) cost = 4;
+        else if ( environment == "ï¼" ) cost = 7;
+        else if ( environment == "ï¼Š" ) cost = 7;
         else cost = 7;
 
         if( weather == 0 ) cost = cost + 1;
@@ -75,10 +75,10 @@ int query_energy_cost(string environment, int weather, int zhenfa)
 {
 	int cost;
 
-	if( environment == "¡Ä" ) cost =18;
-	else if ( environment == "¡«" ) cost = 21;
-	else if ( environment == "£®" ) cost = 18;
-	else if ( environment == "£ª" ) cost = 18;
+	if( environment == "âˆ§" ) cost =18;
+	else if ( environment == "ï½" ) cost = 21;
+	else if ( environment == "ï¼" ) cost = 18;
+	else if ( environment == "ï¼Š" ) cost = 18;
 	else cost = 16;
 
 	if( weather == 0 ) cost = cost - 2;
@@ -101,7 +101,7 @@ int query_basic_attack(string environment, int weather, int zhenfa)
 // can not enter
 string *query_forbiden()
 {
-	return ({"¡ù", });
+	return ({"â€»", });
 }
 // Special abilily of the troop such as bowman can use
 // bow and arrow to attack

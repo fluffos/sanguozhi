@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is »¨¶ù¶ä¶ä
+// driver is èŠ±å„¿æœµæœµ
 // created date is Tue May  3 19:27:17 2011
 #include <mudlib.h>
 #include <ansi.h>
@@ -8,7 +8,7 @@ inherit OUTDOOR_ROOM;
 void setup() {
 set_area("changan");
 set_light(50);
-set_brief("%^YELLOW%^"+"³ÇÖĞĞÄ"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"åŸä¸­å¿ƒ"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "south":"/a/changan/ca_nandajie.c",
@@ -19,5 +19,5 @@ set_exits( ([
 
  ]));
         set_objects( ([        "sgdomain/event/ev_king/kingguard.c" : 1,]));
-set_objects(([M_BOARD : ({ 1,"ÕâÀïÊÇ³¤°²µÄÖĞĞÄ¹ã³¡¡£¹ã³¡¾¡Í·¾ÍÊÇÆøÊÆ»ÖºëµÄ»Ê¹¬´óµî¡£\n\nÒ»¸öÄ¾°å×öµÄ"+"%^MAGENTA%^"+"³¤°²ÁôÑÔ°ñ"+"%^RESET%^", "city.changan" }) ]) );
+set_objects(([M_BOARD : ({ 1,"è¿™é‡Œæ˜¯é•¿å®‰çš„ä¸­å¿ƒå¹¿åœºã€‚å¹¿åœºå°½å¤´å°±æ˜¯æ°”åŠ¿æ¢å¼˜çš„çš‡å®«å¤§æ®¿ã€‚\n\nä¸€ä¸ªæœ¨æ¿åšçš„"+"%^MAGENTA%^"+"é•¿å®‰ç•™è¨€æ¦œ"+"%^RESET%^", "city.changan" }) ]) );
 }

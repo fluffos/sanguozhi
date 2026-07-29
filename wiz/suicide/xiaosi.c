@@ -24,10 +24,10 @@ string * fooddrink = ({
 
 void setup()
 {
-        set_name("xiao si","Ğ¡ØË");
-        set_in_room_desc("¡¸"+YEL+"¸ºÔğ¶ËÅÌËÍ²Ë"+NOR+"¡¹Ğ¡ØË(xiao si)");
-        set_long("Ò»¸öÀïÀïÍâÍâÃ¦¸ö²»Í£µÄĞ¡ØË¡£\n"+
-        "ÕÒ²»µ½³ÔµÄÂğ£¿½ĞËûËÍÉÏÀ´ºÃÁË¡£(ask xiao si about food)¡£\n");
+        set_name("xiao si","å°å®");
+        set_in_room_desc("ã€Œ"+YEL+"è´Ÿè´£ç«¯ç›˜é€èœ"+NOR+"ã€å°å®(xiao si)");
+        set_long("ä¸€ä¸ªé‡Œé‡Œå¤–å¤–å¿™ä¸ªä¸åœçš„å°å®ã€‚\n"+
+        "æ‰¾ä¸åˆ°åƒçš„å—ï¼Ÿå«ä»–é€ä¸Šæ¥å¥½äº†ã€‚(ask xiao si about food)ã€‚\n");
         set_gender(1);
         set_age(14);
         add_id("waiter");
@@ -35,7 +35,7 @@ void setup()
         add_question("here","here");
         add_question("food","food");
         add_question("name","name");
-        add_ask_str("food","$N¶Ô$TÕĞÁËÕĞÊÖ£º$R£¬ÓĞÊ²Ã´³ÔºÈµÄ¿ìÄÃÉÏÀ´°É£¡\n");
+        add_ask_str("food","$Nå¯¹$Tæ‹›äº†æ‹›æ‰‹ï¼š$Rï¼Œæœ‰ä»€ä¹ˆåƒå–çš„å¿«æ‹¿ä¸Šæ¥å§ï¼\n");
 }
 
 void ask_food(object usr)
@@ -46,7 +46,7 @@ void ask_food(object usr)
         ob=OBJ_D->clone_obj(p_obj);
         ob->move(usr);
         this_object()->targetted_action(
-                "$NµãÁËµãÍ·£¬¶Ô$TËµµÀ£ººÃ°É£¬ÄúÉÔµÈ¡£\n",usr);
+                "$Nç‚¹äº†ç‚¹å¤´ï¼Œå¯¹$Tè¯´é“ï¼šå¥½å§ï¼Œæ‚¨ç¨ç­‰ã€‚\n",usr);
         usr->responda("pat xiao si");
         return;
 }
@@ -60,13 +60,13 @@ mixed special_answer(object ob, string str)
                 ask_food(player);
                 return;
         case "name":
-                this_object()->targetted_action("$NÎûÎûĞ¦×ÅµÀ£º"+
-"Æ«²»¸æËßÄã£¬ÎÒÖ»ÊÇÁÙÊ±À´°ïÃ¦µÄ¡£\n",ob);
+                this_object()->targetted_action("$Nå˜»å˜»ç¬‘ç€é“ï¼š"+
+"åä¸å‘Šè¯‰ä½ ï¼Œæˆ‘åªæ˜¯ä¸´æ—¶æ¥å¸®å¿™çš„ã€‚\n",ob);
                 return;
         case "here":
-                this_object()->targetted_action("$NËµµÀ£ºÕâÀï¾ÍÊÇÑç»áÌüÑ½
-£¬"+
-"ÕâÃ´¶àÈËÑ½£¬ÎÒ¶¼¿ìÃ¦ËÀÁË¡£\n",ob);
+                this_object()->targetted_action("$Nè¯´é“ï¼šè¿™é‡Œå°±æ˜¯å®´ä¼šå…å‘€
+ï¼Œ"+
+"è¿™ä¹ˆå¤šäººå‘€ï¼Œæˆ‘éƒ½å¿«å¿™æ­»äº†ã€‚\n",ob);
                 return;
         default:
                 return;

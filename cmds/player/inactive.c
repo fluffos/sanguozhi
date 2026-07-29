@@ -20,16 +20,16 @@ private nomask void become_active(int start_time, string str)
     int hours, minutes;
 
     num = time() - start_time;
-    printf("ÔÚ%sºó£¬ÄãÓÖ»Øµ½ÁËÓÎÏ·¡£\n", CHINESE_D->chinese_period(num));
-    this_body()->other_action("$NÖØĞÂ»Øµ½ÓÎÏ·¡£\n");
+    printf("åœ¨%såï¼Œä½ åˆå›åˆ°äº†æ¸¸æˆã€‚\n", CHINESE_D->chinese_period(num));
+    this_body()->other_action("$Né‡æ–°å›åˆ°æ¸¸æˆã€‚\n");
     this_body()->clear_flag(F_INACTIVE);
 }
 
 
 nomask private void main(string arg)
 {
-    out("ÄãÑ¡ÔñÔİÊ±Àë¿ªÓÎÏ·¡£µ±ÄãÒª»ØÀ´Ê±£¬°´Ò»ÏÂ<return>¾ÍĞĞÁË¡£\n");
-    this_body()->other_action("$N½øÈë°ëĞİÃß×´Ì¬¡£\n");
+    out("ä½ é€‰æ‹©æš‚æ—¶ç¦»å¼€æ¸¸æˆã€‚å½“ä½ è¦å›æ¥æ—¶ï¼ŒæŒ‰ä¸€ä¸‹<return>å°±è¡Œäº†ã€‚\n");
+    this_body()->other_action("$Nè¿›å…¥åŠä¼‘çœ çŠ¶æ€ã€‚\n");
     this_body()->set_flag(F_INACTIVE);
     modal_simple((: become_active, time() :));
 }

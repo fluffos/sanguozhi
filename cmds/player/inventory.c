@@ -6,7 +6,7 @@
 // inventory commands.  *boggle*
 #include <mudlib.h>
 inherit CMD;
-string my_disp(object me,array obs);
+string my_disp(object me,mixed *obs);
 
 private void main(string arg)
 {
@@ -16,18 +16,18 @@ private void main(string arg)
     {
 		ex = my_disp(this_body(),all_inventory(this_body()));
     	if (sizeof(ex)) {
-        	out("ÄãÉíÉÏ´ø×ÅÈçÏÂÎïÆ·(¸ºÖØ£º"+
+        	out("ä½ èº«ä¸Šå¸¦ç€å¦‚ä¸‹ç‰©å“(è´Ÿé‡ï¼š"+
 				this_body()->query_capacity("in")*100/
-				this_body()->query_max_capacity("in")+"%)£º\n" + ex);
+				this_body()->query_max_capacity("in")+"%)ï¼š\n" + ex);
     	} else {
-        	out("ÄãÉíÉÏÊ²Ã´Ò²Ã»ÓÐ¡£\n");
+        	out("ä½ èº«ä¸Šä»€ä¹ˆä¹Ÿæ²¡æœ‰ã€‚\n");
     	}
     }
     else 
     {
 	if (!wizardp(this_body()))
         {
-		out("Ö»ÓÐÎ×Ê¦²Å¿ÉÒÔÍ¸ÊÓËûÈË¡£\n");
+		out("åªæœ‰å·«å¸ˆæ‰å¯ä»¥é€è§†ä»–äººã€‚\n");
 		return;
         }
 	else
@@ -35,7 +35,7 @@ private void main(string arg)
 		user=find_body(arg);
 		if(!objectp(user))
 		{
-			out("Ã»ÓÐÕâ¸öÈË¡£\n");
+			out("æ²¡æœ‰è¿™ä¸ªäººã€‚\n");
 			return;
 		}
 		else
@@ -44,13 +44,13 @@ private void main(string arg)
 			ex = my_disp(user,all_inventory(user));
 			if (sizeof(ex))
 			{
-        			out(user->short()+"ÉíÉÏ´ø×ÅÈçÏÂÎïÆ·(¸ºÖØ£º"+
+        			out(user->short()+"èº«ä¸Šå¸¦ç€å¦‚ä¸‹ç‰©å“(è´Ÿé‡ï¼š"+
 				user->query_capacity("in")*100/
-				user->query_max_capacity("in")+"%)£º\n" + ex);
+				user->query_max_capacity("in")+"%)ï¼š\n" + ex);
 		    	} 
 			else
 			{
-        			out(user->short()+"ÉíÉÏÊ²Ã´Ò²Ã»ÓÐ¡£\n");
+        			out(user->short()+"èº«ä¸Šä»€ä¹ˆä¹Ÿæ²¡æœ‰ã€‚\n");
     			}
 		}
 	}
@@ -59,18 +59,18 @@ private void main(string arg)
 }
 
 
-string my_disp(object me,array obs)
+string my_disp(object me,mixed *obs)
 {
 	string ret="";
 	string stat;
 	string id;
 	int bef,aft;
 	object o;
-	array sg_ob,wear_ob;
+	mixed * sg_ob,wear_ob;
 	object obw=me->query_weapon();
 	if(!sizeof(obs)) return "";
 	if((objectp(obw))&&(obw!=me)){
-		ret="%^BLUE%^¡õ%^RESET%^"+obw->short()+"\n";
+		ret="%^BLUE%^â–¡%^RESET%^"+obw->short()+"\n";
 		obs-=({obw});
 	}
 	if(!sizeof(obs)) return ret;
@@ -80,7 +80,7 @@ string my_disp(object me,array obs)
        	stat=ob2-> ob_state() ;
         if(stringp(stat))
 		{
-			ret+="%^BLUE%^¡õ%^RESET%^"+ob2->short()+"\n";
+			ret+="%^BLUE%^â–¡%^RESET%^"+ob2->short()+"\n";
 			wear_ob+=({ob2});
 		}
 	}

@@ -31,18 +31,18 @@ private nomask void write_alias_menu()
           "\n"
           );
 */
-    write("¹ÜÀí¹¤¾ß£ºAlias ÏµÍ³Ñ¡µ¥\n"
+    write("ç®¡ç†å·¥å…·ï¼šAlias ç³»ç»Ÿé€‰å•\n"
           "\n"
-          "    l         - ÁĞ³öÍ¨ÓÃµÄÍæ¼Ò aliases\n"
-          "    L         - ÁĞ³öÍ¨ÓÃµÄÎ×Ê¦ aliases\n"
-          "    a [alias] - Ôö¼ÓÍ¨ÓÃµÄÍæ¼Ò aliases\n"
-          "    A [alias] - Ôö¼ÓÍ¨ÓÃµÄÎ×Ê¦ aliases\n" 
-          "    r [alias] - É¾³ıÍ¨ÓÃµÄÍæ¼Ò aliases\n"
-          "    R [alias] - É¾³ıÍ¨ÓÃµÄÎ×Ê¦ aliases\n"
+          "    l         - åˆ—å‡ºé€šç”¨çš„ç©å®¶ aliases\n"
+          "    L         - åˆ—å‡ºé€šç”¨çš„å·«å¸ˆ aliases\n"
+          "    a [alias] - å¢åŠ é€šç”¨çš„ç©å®¶ aliases\n"
+          "    A [alias] - å¢åŠ é€šç”¨çš„å·«å¸ˆ aliases\n" 
+          "    r [alias] - åˆ é™¤é€šç”¨çš„ç©å®¶ aliases\n"
+          "    R [alias] - åˆ é™¤é€šç”¨çš„å·«å¸ˆ aliases\n"
           "\n"
-          "    m         - Ö÷Ñ¡µ¥\n"
-          "    q         - ÍË³ö\n"
-          "    ?         - °ïÖú\n"
+          "    m         - ä¸»é€‰å•\n"
+          "    q         - é€€å‡º\n"
+          "    ?         - å¸®åŠ©\n"
           "\n"
           );   
 }                                                   
@@ -65,7 +65,7 @@ private nomask void add_alias(string name,
         break;
     default:
         //write("**Invalid selection.\n");
-        write("·Ç·¨Ñ¡Ïî...Çë´ÓĞÂÑ¡Ôñ¡£\n");
+        write("éæ³•é€‰é¡¹...è¯·ä»æ–°é€‰æ‹©ã€‚\n");
         return;
     }
 
@@ -156,10 +156,10 @@ private nomask void receive_alias_input(string cmd)
         {
             if(cmd == "r")
                 //printf("%s wasn't a player alias.\n", input);
-                printf("%s ²»ÊÇÒ»¸öÍæ¼Ò alias¡£\n", input);
+                printf("%s ä¸æ˜¯ä¸€ä¸ªç©å®¶ aliasã€‚\n", input);
             else 
                 //printf("%s wasn't a wizard alias.\n", input);
-                printf("%s ²»ÊÇÒ»¸öÎ×Ê¦ alias¡£\n", input);
+                printf("%s ä¸æ˜¯ä¸€ä¸ªå·«å¸ˆ aliasã€‚\n", input);
             return;
         }
         if(cmd == "r")
@@ -167,7 +167,7 @@ private nomask void receive_alias_input(string cmd)
         else
             ALIAS_D->remove_default_alias(input,1);
         //write("Done.\n");
-        write("Íê³É¡£\n");
+        write("å®Œæˆã€‚\n");
         return;
 
     case "?":
@@ -180,12 +180,12 @@ private nomask void receive_alias_input(string cmd)
     }
 }
 
-static nomask void begin_alias_menu()
+protected nomask void begin_alias_menu()
 {
     if ( !check_privilege(1) )
     {
         //write("Sorry... admin only.\n");
-        write("¶Ô²»Æğ£¬Ö»¶Ô´óÉñ¿ª·Å¡£\n");
+        write("å¯¹ä¸èµ·ï¼Œåªå¯¹å¤§ç¥å¼€æ”¾ã€‚\n");
         return;
     }
     modal_func((: receive_alias_input :), PROMPT_ALIAS);

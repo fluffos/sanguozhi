@@ -13,8 +13,8 @@ inherit CMD;
 
 nomask private void main()
 {
-  outf("%sÄ¿Ç°ÓĞÒÔÏÂµÄ quest £º\n", mud_name());
+  outf("%sç›®å‰æœ‰ä»¥ä¸‹çš„ quest ï¼š\n", mud_name());
   out(implode(QUEST_D->get_goals_for_quests_cmd(),"\n"));
-  out("\n\nÓÃ help <quest name> À´»ñÈ¡ quest µÄÏêÏ¸ÄÚÈİ¡£\n");
+  out("\n\nç”¨ help <quest name> æ¥è·å– quest çš„è¯¦ç»†å†…å®¹ã€‚\n");
 
 }

@@ -3,7 +3,7 @@ mapping elect()
 	int i, j, r1, r2, a1, a2;
 	string s, s1, *ss, *ppl,str;
 	mapping jury;
-	array *rank=OFFICER_D->query_nation_officer_title_all(1)-({1,10,11});
+	mixed * *rank=OFFICER_D->query_nation_officer_title_all(1)-({1,10,11});
 
 	ppl = filter_array(CHAR_D->list_chars(), (: CHAR_D->get_char($1,"ranknation")
 	&&CHAR_D->get_char($1, "type")==1 :));
@@ -37,24 +37,24 @@ mapping elect()
 	CHAR_D->set_char(o,"is_jury",1);                
 }
 
-	tell(users(),"%^H_YELLOW%^¡¾¶«ºº¹¬Í¢¡¿%^H_RED%^¹ú¾Ë%^H_CYAN%^¶­³Ğ£ºÎá»ÊÍòËêÍòÍòËê£¬³¼ÓĞÒ»±¾£¬Æô×à±İÏÂ¡£%^RESET%^\n");
-	tell(users(),"%^H_YELLOW%^¡¾¶«ºº¹¬Í¢¡¿%^H_CYAN%^ººÏ×µÛ£ºÄî¡£%^RESET%^\n");
-	tell(users(),"%^H_YELLOW%^¡¾¶«ºº¹¬Í¢¡¿%^H_RED%^¹ú¾Ë%^H_CYAN%^¶­³Ğ£ºÊÇ¡£%^RESET%^\n");
-	tell(users(),"%^H_YELLOW%^¡¾¶«ºº¹¬Í¢¡¿%^H_RED%^¹ú¾Ë%^H_CYAN%^¶­³Ğ£ºĞ¢Áé»ÊµÛ£¬ÔçÆú³¼Ãñ£¬»ÊµÛ³ĞËÃ£¬º£ÄÚÑöÍû¡£¶øµÛÄêÉÙ£¬ÍşÒÇ\n"+
-	             "                      ²»ã¡£¬ÄÑÃâ¾ÓÉ¥Âı¶è¡£ÒËÔñÁ¼³¼£¬ÎªÆä½õÄÒ£¬¸¨×ô³¯¸Ù£¬Ó¦Ìì\n"+
-	             "                      Ë³ÈË£¬ÒÔÎ¿ÉúÁéÖ®Íû¡£%^RESET%^\n");
-	tell(users(),"%^H_YELLOW%^¡¾¶«ºº¹¬Í¢¡¿%^H_CYAN%^ººÏ×µÛĞßµÃÂúÁ³Í¨ºì£¬ºŞ²»µÃÕÒ¸öµØ·ì×ê½øÈ¥¡£%^RESET%^\n");
-	tell(users(),"%^H_YELLOW%^¡¾¶«ºº¹¬Í¢¡¿%^H_CYAN%^ººÏ×µÛ£ºÉÆ£¬Èç´Ë¹ÑÈË±ã½µÒ»Ú¯£¬¹ú¾Ë´úÎªĞû¶Á°Õ¡£%^RESET%^\n");
-	tell(users(),"\n%^H_YELLOW%^¡¾¶«ºº¹¬Í¢¡¿%^H_CYAN%^Æ¬¿Ìºó¡£¡£¡£%^RESET%^\n\n");
-	tell(users(),"%^H_YELLOW%^¡¾¶«ºº¹¬Í¢¡¿%^H_RED%^¹ú¾Ë%^H_CYAN%^¶­³Ğ£º·îÌì³ĞÔË£¬»ÊµÛÚ¯Ô»¡£¹ÑÈËË³Ó¦ÌìÃü£¬ÔñÁ¼³¼¶øÎªëÅ¹É£¬ÖÚÇä\n"+
-	             "                      Ìı·â£º%^RESET%^\n\n");
+	tell(users(),"%^H_YELLOW%^ã€ä¸œæ±‰å®«å»·ã€‘%^H_RED%^å›½èˆ…%^H_CYAN%^è‘£æ‰¿ï¼šå¾çš‡ä¸‡å²ä¸‡ä¸‡å²ï¼Œè‡£æœ‰ä¸€æœ¬ï¼Œå¯å¥é™›ä¸‹ã€‚%^RESET%^\n");
+	tell(users(),"%^H_YELLOW%^ã€ä¸œæ±‰å®«å»·ã€‘%^H_CYAN%^æ±‰çŒ®å¸ï¼šå¿µã€‚%^RESET%^\n");
+	tell(users(),"%^H_YELLOW%^ã€ä¸œæ±‰å®«å»·ã€‘%^H_RED%^å›½èˆ…%^H_CYAN%^è‘£æ‰¿ï¼šæ˜¯ã€‚%^RESET%^\n");
+	tell(users(),"%^H_YELLOW%^ã€ä¸œæ±‰å®«å»·ã€‘%^H_RED%^å›½èˆ…%^H_CYAN%^è‘£æ‰¿ï¼šå­çµçš‡å¸ï¼Œæ—©å¼ƒè‡£æ°‘ï¼Œçš‡å¸æ‰¿å—£ï¼Œæµ·å†…ä»°æœ›ã€‚è€Œå¸å¹´å°‘ï¼Œå¨ä»ª\n"+
+	             "                      ä¸æªï¼Œéš¾å…å±…ä¸§æ…¢æƒ°ã€‚å®œæ‹©è‰¯è‡£ï¼Œä¸ºå…¶é”¦å›Šï¼Œè¾…ä½æœçº²ï¼Œåº”å¤©\n"+
+	             "                      é¡ºäººï¼Œä»¥æ…°ç”Ÿçµä¹‹æœ›ã€‚%^RESET%^\n");
+	tell(users(),"%^H_YELLOW%^ã€ä¸œæ±‰å®«å»·ã€‘%^H_CYAN%^æ±‰çŒ®å¸ç¾å¾—æ»¡è„¸é€šçº¢ï¼Œæ¨ä¸å¾—æ‰¾ä¸ªåœ°ç¼é’»è¿›å»ã€‚%^RESET%^\n");
+	tell(users(),"%^H_YELLOW%^ã€ä¸œæ±‰å®«å»·ã€‘%^H_CYAN%^æ±‰çŒ®å¸ï¼šå–„ï¼Œå¦‚æ­¤å¯¡äººä¾¿é™ä¸€è¯ï¼Œå›½èˆ…ä»£ä¸ºå®£è¯»ç½¢ã€‚%^RESET%^\n");
+	tell(users(),"\n%^H_YELLOW%^ã€ä¸œæ±‰å®«å»·ã€‘%^H_CYAN%^ç‰‡åˆ»åã€‚ã€‚ã€‚%^RESET%^\n\n");
+	tell(users(),"%^H_YELLOW%^ã€ä¸œæ±‰å®«å»·ã€‘%^H_RED%^å›½èˆ…%^H_CYAN%^è‘£æ‰¿ï¼šå¥‰å¤©æ‰¿è¿ï¼Œçš‡å¸è¯æ›°ã€‚å¯¡äººé¡ºåº”å¤©å‘½ï¼Œæ‹©è‰¯è‡£è€Œä¸ºè‚±è‚¡ï¼Œä¼—å¿\n"+
+	             "                      å¬å°ï¼š%^RESET%^\n\n");
 	foreach (string o in ppl ) {
-//	tell(users(),"                      %^H_CYAN%^´Í  %^H_GREEN%^"+CHAR_D->get_char(o,"name")+"%^H_CYAN%^¾ı  %^H_YELLOW%^"+OFFICER_D->query_rank_name(CHAR_D->get_char(o,"royalrank"))+"%^H_CYAN%^Ò»Ö°£»%^RESET%^\n");
-	str=sprintf("                      %%^H_CYAN%%^´Í  %%^H_GREEN%%^%-8s%%^H_CYAN%%^¾ı  %%^H_YELLOW%%^%-8s%%^H_CYAN%%^Ò»Ö°£»%%^RESET%%^\n",CHAR_D->get_char(o,"name"),OFFICER_D->query_rank_name(CHAR_D->get_char(o,"royalrank")));
+//	tell(users(),"                      %^H_CYAN%^èµ  %^H_GREEN%^"+CHAR_D->get_char(o,"name")+"%^H_CYAN%^å›  %^H_YELLOW%^"+OFFICER_D->query_rank_name(CHAR_D->get_char(o,"royalrank"))+"%^H_CYAN%^ä¸€èŒï¼›%^RESET%^\n");
+	str=sprintf("                      %%^H_CYAN%%^èµ  %%^H_GREEN%%^%-8s%%^H_CYAN%%^å›  %%^H_YELLOW%%^%-8s%%^H_CYAN%%^ä¸€èŒï¼›%%^RESET%%^\n",CHAR_D->get_char(o,"name"),OFFICER_D->query_rank_name(CHAR_D->get_char(o,"royalrank")));
 	tell(users(),str);
 	}
-	tell(users(),"\n                      %^H_CYAN%^»¹ÍûÖÚÇäÖØÕñººÊÒºéÒµ£¬ÎªÍòÊÀÍ³£¡%^RESET%^\n");
-	tell(users(),"                                                              %^H_CYAN%^Çä´Ë¡£%^RESET%^\n");
+	tell(users(),"\n                      %^H_CYAN%^è¿˜æœ›ä¼—å¿é‡æŒ¯æ±‰å®¤æ´ªä¸šï¼Œä¸ºä¸‡ä¸–ç»Ÿï¼%^RESET%^\n");
+	tell(users(),"                                                              %^H_CYAN%^å¿æ­¤ã€‚%^RESET%^\n");
 
 //	for(i=0; i<sizeof(ppl); i++){
 //	CHAR_D->set_char(ppl[i], "rankroyal", i);

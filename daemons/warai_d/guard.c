@@ -41,7 +41,7 @@ void do_command_guard(int t_id,mixed para)
             o_troop->go_somewhere(arg);
      }
      pos=TROOP_D->get_troops(t_id,"position");
-     if(!sizeof(pos)) {SGSYS(sprintf("troop %d û��λ�á�",t_id)); return;}
+     if(!sizeof(pos)) {SGSYS(sprintf("troop %d 没有位置。",t_id)); return;}
      tar=point_toint(para["position"]);
 	 if(!sizeof(tar)) {
 		SGSYS(sprintf("tar is %O\n",tar));

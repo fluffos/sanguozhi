@@ -15,8 +15,8 @@ private void main( mixed *arg )
     func = arg[0];
    ret = function_exists(func, target);
    if (ret) {
-      outf("此函数定义在 %s 中。\n", ret);
+      outf("姝ゅ嚱鏁板畾涔夊湪 %s 涓�俓n", ret);
    } else {
-      out("此函数在这个物件中没有定义。\n");
+      out("姝ゅ嚱鏁板湪杩欎釜鐗╀欢涓病鏈夊畾涔夈�俓n");
    }
 }

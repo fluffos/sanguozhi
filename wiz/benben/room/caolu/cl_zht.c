@@ -1,4 +1,4 @@
-//  中堂
+//  涓爞
 // cl_zht.c by benben
 #include <mudlib.h>
 #include <sanguo.h>
@@ -7,8 +7,8 @@ inherit OUTDOOR_ROOM;
 void setup(){
     set_area("caolu_area");
     set_light(50);
-    set_brief(""+YEL+"中堂"+NOR+"");
-    set_long("    这儿是诸葛草庐的中堂。\n");
+    set_brief(""+YEL+"涓爞"+NOR+"");
+    set_long("    杩欏効鏄钁涜崏搴愮殑涓爞銆俓n");
     set_exits( ([
         "east" :  __DIR__+"cl_wsh.c",
         "west" :  __DIR__+"cl_shuf.c",

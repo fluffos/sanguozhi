@@ -14,11 +14,11 @@ private void main() {
     string msg;
     if(!this_body()->is_visible())
     {
-        out("你已经隐身了。\n");
+        out("浣犲凡缁忛殣韬簡銆俓n");
         return;
     }
     this_body()->do_player_message("invis");
-    out("你现在开始隐身。\n");
+    out("浣犵幇鍦ㄥ紑濮嬮殣韬�俓n");
     this_body()->set_visibility(0);
 
     FINGER_D->update_me();

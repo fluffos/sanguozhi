@@ -5,11 +5,11 @@
 // $N refers to itself and $n refers to enermy troop
 #include <ansi.h>
 private mapping *do_attack = ({
-	(["msg":HIB"ĞÂ±ø¶ÓÉ¢ÂÒµÄ×é³ÉÒ»µÀÈËÇ½£¬ÏòµĞÈËÓ¿È¥¡£"NOR,
+	(["msg":HIB"æ–°å…µé˜Ÿæ•£ä¹±çš„ç»„æˆä¸€é“äººå¢™ï¼Œå‘æ•Œäººæ¶Œå»ã€‚"NOR,
 	  "damage": 3,]),
-        (["msg":HIY"ĞÂ±ø¶ÓÄÅº°×ÅÏòµĞ¾üÓÂÃÍµÄ³åÁË¹ıÈ¥¡£"NOR,
+        (["msg":HIY"æ–°å…µé˜Ÿå‘å–Šç€å‘æ•Œå†›å‹‡çŒ›çš„å†²äº†è¿‡å»ã€‚"NOR,
           "damage": 4,]),
-        (["msg":HIG"ĞÂ±ø¶Óµ¨ÇÓµÄ¾Û¼¯³ÉÈº£¬³¯µĞ¾üÓ¿È¥¡£"NOR,
+        (["msg":HIG"æ–°å…µé˜Ÿèƒ†æ€¯çš„èšé›†æˆç¾¤ï¼Œæœæ•Œå†›æ¶Œå»ã€‚"NOR,
           "damage": 2,]),
 });
 mapping query_attack(string environment)
@@ -23,7 +23,7 @@ string query_id()
 }
 string query_name()
 {
-	return "ĞÂ±ø";
+	return "æ–°å…µ";
 }
 string query_type()
 {
@@ -55,10 +55,10 @@ int query_energy_recover(string environment, int weather, int zhenfa)
 {
         int cost;
 
-        if( environment == "¡Ä" ) cost = 5;
-        else if ( environment == "¡«" ) cost = 3;
-        else if ( environment == "£®" ) cost = 5;
-        else if ( environment == "£ª" ) cost = 5;
+        if( environment == "âˆ§" ) cost = 5;
+        else if ( environment == "ï½" ) cost = 3;
+        else if ( environment == "ï¼" ) cost = 5;
+        else if ( environment == "ï¼Š" ) cost = 5;
         else cost = 5;
 
         if( weather == 0 ) cost = cost + 1;
@@ -75,10 +75,10 @@ int query_energy_cost(string environment, int weather, int zhenfa)
 {
 	int cost;
 
-	if( environment == "¡Ä" ) cost =20;
-	else if ( environment == "¡«" ) cost = 22;
-	else if ( environment == "£®" ) cost = 20;
-	else if ( environment == "£ª" ) cost = 20;
+	if( environment == "âˆ§" ) cost =20;
+	else if ( environment == "ï½" ) cost = 22;
+	else if ( environment == "ï¼" ) cost = 20;
+	else if ( environment == "ï¼Š" ) cost = 20;
 	else cost = 20;
 
 	if( weather == 0 ) cost = cost - 2;
@@ -101,7 +101,7 @@ int query_basic_attack(string environment, int weather, int zhenfa)
 // can not enter
 string *query_forbiden()
 {
-	return ({"¡ù", });
+	return ({"â€»", });
 }
 // Special abilily of the troop such as bowman can use
 // bow and arrow to attack

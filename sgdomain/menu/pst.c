@@ -29,19 +29,19 @@ private nomask void receive_post_text(string subject, string * text)
     int id;
     if ( !text )
     {
-        write("·ÅÆúÁôÑÔ¡£\n");
+        write("æ”¾å¼ƒç•™è¨€ã€‚\n");
 	destruct(this_object());
         return;
     }
     wrap_post(text);
     id = NEWS_D->post(ngroup, subject, implode(text, "\n") + "\n");
-    write("ÁôÑÔ½áÊø¡£\n");
+    write("ç•™è¨€ç»“æŸã€‚\n");
     destruct(this_object());
 }
 private void receive_post_subject(string subject)
 {
     if(subject==".")
-    {   write("·ÅÆúÁôÑÔ¡£\n");
+    {   write("æ”¾å¼ƒç•™è¨€ã€‚\n");
 	destruct(this_object());
 	return;
     }
@@ -49,7 +49,7 @@ private void receive_post_subject(string subject)
 	subject="";
     if ( subject == "" )
     {
-	subject="ÎŞÖ÷Ìâ¡£";
+	subject="æ— ä¸»é¢˜ã€‚";
     }
     new(EDIT_OB, EDIT_TEXT, 0, (: receive_post_text, subject :));
 }
@@ -58,21 +58,21 @@ mixed can_i_post() {
 //      ngroup=(this_body()->query_room())->query_board();
       if(ngroup=="caolu") return 1; // any one can post in there
       if(ngroup=="newbie") return 
-          "ÕâÊÇĞÂÊÖ°ïÖú°å£¬Ö»ÓĞÎ×Ê¦²Å¿ÉÒÔÔÚ´ËÁôÑÔ¡£\n";
+          "è¿™æ˜¯æ–°æ‰‹å¸®åŠ©æ¿ï¼Œåªæœ‰å·«å¸ˆæ‰å¯ä»¥åœ¨æ­¤ç•™è¨€ã€‚\n";
       if(ngroup=="war") return 
-          "ÕâÊÇÕ½ÕùÁôÑÔ°å£¬Ö»ÓĞÕ½Éñ²Å¿ÉÒÔÔÚ´ËÁôÑÔ¡£\n";
+          "è¿™æ˜¯æˆ˜äº‰ç•™è¨€æ¿ï¼Œåªæœ‰æˆ˜ç¥æ‰å¯ä»¥åœ¨æ­¤ç•™è¨€ã€‚\n";
       if(ngroup=="marriage") return 
-          "ÕâÊÇ»éÒöÁôÑÔ°å£¬Ö»ÓĞ°®Éñ²Å¿ÉÒÔÔÚ´ËÁôÑÔ¡£\n";
+          "è¿™æ˜¯å©šå§»ç•™è¨€æ¿ï¼Œåªæœ‰çˆ±ç¥æ‰å¯ä»¥åœ¨æ­¤ç•™è¨€ã€‚\n";
       if(ngroup=="ranks") return 
-          "ÕâÊÇÅÅÃûÁôÑÔ°å£¬Ö»ÓĞÍ³¼ÆÕß²Å¿ÉÒÔÔÚ´ËÁôÑÔ¡£\n";
+          "è¿™æ˜¯æ’åç•™è¨€æ¿ï¼Œåªæœ‰ç»Ÿè®¡è€…æ‰å¯ä»¥åœ¨æ­¤ç•™è¨€ã€‚\n";
       if(ngroup=="progress") return 
-          "ÕâÊÇÎ×Ê¦ÁôÑÔ°å£¬Ö»ÓĞÎ×Ê¦²Å¿ÉÒÔÔÚ´ËÁôÑÔ¡£\n";
+          "è¿™æ˜¯å·«å¸ˆç•™è¨€æ¿ï¼Œåªæœ‰å·«å¸ˆæ‰å¯ä»¥åœ¨æ­¤ç•™è¨€ã€‚\n";
       if(ngroup[0..6]=="nation.") {
 	 string p_id,p_nation;
          p_id=this_body()->query_id()[0];
          p_nation=ngroup[7..<1];
          if(p_nation!=CHAR_D->get_char(p_id,"nation"))
-             return "Ö»ÓĞ±¾¹ú¹ÙÔ±²ÅÄÜÔÚ´ËÁôÑÔ¡£\n";
+             return "åªæœ‰æœ¬å›½å®˜å‘˜æ‰èƒ½åœ¨æ­¤ç•™è¨€ã€‚\n";
       }
       return 1;
           
@@ -84,7 +84,7 @@ void do_post()
 	o=present("news board",this_body()->query_room());
 	if (!objectp(o))
         {
-              printf("Õâ¶ùÃ»µØ·½¿ÉÒÔÁôÑÔÑ½¡£\n");
+              printf("è¿™å„¿æ²¡åœ°æ–¹å¯ä»¥ç•™è¨€å‘€ã€‚\n");
 	      destruct(this_object());
               return;
         }
@@ -95,8 +95,8 @@ void do_post()
  	   destruct(this_object());
             return;
         }
-        write("ÇëÊäÈëÁôÑÔÖ÷Ìâ£¬ . ±íÊ¾·ÅÆú¡£\n");
-	write("ÁôÑÔÖ÷Ìâ£º");
+        write("è¯·è¾“å…¥ç•™è¨€ä¸»é¢˜ï¼Œ . è¡¨ç¤ºæ”¾å¼ƒã€‚\n");
+	write("ç•™è¨€ä¸»é¢˜ï¼š");
         modal_simple((: receive_post_subject :));
 }
 int clean_up() {

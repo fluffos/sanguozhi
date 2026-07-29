@@ -11,7 +11,7 @@ private void main(mixed * args)
     object * obs;
 
     //outf("Attempting to load %s/*.c...  ", args[0]);
-    outf("试图装入 %s/*.c ...   ", args[0]);
+    outf("璇曞浘瑁呭叆 %s/*.c ...   ", args[0]);
     /*
     ** Get all the files in the given directory.  If this command is in
     ** the directory, then remove it... we don't want to dest self.
@@ -33,7 +33,7 @@ private void main(mixed * args)
     map_array(files, (: load_object($1) :));
 
     //out("Succeeded.\n");
-    out("成功！\n");
+    out("鎴愬姛锛乗n");
 }
 
 

@@ -11,18 +11,18 @@ private void do_abandon(string sk, string ans);
 private void main(string arg)
 {
 	if( !arg||!stringp(arg)||arg=="" )
-		write("ÄãÒª·ÅÆúÄÄÖÖ¼¼ÄÜ£¿\n");
+		write("ä½ è¦æ”¾å¼ƒå“ªç§æŠ€èƒ½ï¼Ÿ\n");
 	else if( arg=="sk_wuli"||arg=="sk_zhimou"||arg=="sk_meili" )
-		write("²»ÄÜ·ÅÆú»ù±¾ÐÞÑø£¡\n");
+		write("ä¸èƒ½æ”¾å¼ƒåŸºæœ¬ä¿®å…»ï¼\n");
 	else if( member_array(arg, SG_SKILL_D->query_skills())==-1 )
-		write("²¢²»´æÔÚÕâÖÖ¼¼ÄÜ£¡\n");
+		write("å¹¶ä¸å­˜åœ¨è¿™ç§æŠ€èƒ½ï¼\n");
 	else if( member_array(arg, this_body()->query_self_skills())==-1 )
-		write("Äã²¢²»»áÕâÖÖ¼¼ÄÜ£¡\n");
+		write("ä½ å¹¶ä¸ä¼šè¿™ç§æŠ€èƒ½ï¼\n");
 	else 
 		
 		this_body()->modal_push( (: do_abandon, arg :), 
-			"Äã¾ö¶¨Òª·ÅÆú"+chinese_number(this_body()->query_sk_level(arg))
-			+"¼¶µÄ"+SG_SKILL_D->query_name(arg)+"Âð£¿\n¾ö¶¨ÁËµÄ»°ÇëÊäÈëyes¡£\n");
+			"ä½ å†³å®šè¦æ”¾å¼ƒ"+chinese_number(this_body()->query_sk_level(arg))
+			+"çº§çš„"+SG_SKILL_D->query_name(arg)+"å—ï¼Ÿ\nå†³å®šäº†çš„è¯è¯·è¾“å…¥yesã€‚\n");
 	return;
 }
 private void do_abandon(string sk, string ans)
@@ -32,11 +32,11 @@ private void do_abandon(string sk, string ans)
 	this_body()->modal_pop();
 
 	if( !ans||!stringp(ans)||ans!="yes" ){
-		write("Õâ¸öÎÊÌâÊÇÐèÒªÉ÷ÖØ¿¼ÂÇ¡£\n");
+		write("è¿™ä¸ªé—®é¢˜æ˜¯éœ€è¦æ…Žé‡è€ƒè™‘ã€‚\n");
 		return;
 	};
 
-	write("Äã·ÅÆúÁË"+SG_SKILL_D->query_name(sk)+"£¡\n");
+	write("ä½ æ”¾å¼ƒäº†"+SG_SKILL_D->query_name(sk)+"ï¼\n");
 
 	this_body()->remove_sg_skill(sk);
 	this_body()->save();

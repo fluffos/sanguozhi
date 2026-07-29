@@ -14,6 +14,6 @@ void create()
 private void main( string orig_input, mixed arg, mapping flags){
 
      string msg = orig_input[strsrch(orig_input," ")+1..];
-    outf("你对 %s 回应道：%s\n", arg[0]->query_name(), msg);
+    outf("浣犲 %s 鍥炲簲閬擄細%s\n", arg[0]->query_name(), msg);
     tell(arg[0], msg + "\n");
 }

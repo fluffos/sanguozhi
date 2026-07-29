@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is »¨¶ù¶ä¶ä
+// driver is èŠ±å„¿æœµæœµ
 // created date is Mon May  9 09:40:16 2011
 #include <mudlib.h>
 #include <ansi.h>
@@ -8,11 +8,11 @@ inherit M_BANK;
 void setup() {
 set_area("jiangling");
 set_light(50);
-set_brief("%^YELLOW%^"+"Ç®×¯"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"é’±åº„"+"%^RESET%^");
 set_long("
-    ÕâÀïÊÇ½­ÁêµÄÇ®×¯£¬ÃÅ¿ÚĞ´×ÅÒ»¸öÕĞÅÆ¡°ÕıÍ¨ÒøºÅ¡±£¬Ç®×¯ÀÏ°å
-Õı¶Ô×ÅÕÊ±¾´ò×ÅËãÅÌ¡£ÔÚÕâ¿ÉÒÔ¶Ò»»½ğÒø´æÇ®È¡Ç®¡£ÃÅ¿ÚÌù×ÅÒ»ÕÅ
-Ç®×¯µÄ¸æÊ¾(sign)\n\n");
+    è¿™é‡Œæ˜¯æ±Ÿé™µçš„é’±åº„ï¼Œé—¨å£å†™ç€ä¸€ä¸ªæ‹›ç‰Œâ€œæ­£é€šé“¶å·â€ï¼Œé’±åº„è€æ¿
+æ­£å¯¹ç€å¸æœ¬æ‰“ç€ç®—ç›˜ã€‚åœ¨è¿™å¯ä»¥å…‘æ¢é‡‘é“¶å­˜é’±å–é’±ã€‚é—¨å£è´´ç€ä¸€å¼ 
+é’±åº„çš„å‘Šç¤º(sign)\n\n");
 set_exits( ([
 "east":"/a/jiangling/jl_ruipinglu3.c",
  ]));

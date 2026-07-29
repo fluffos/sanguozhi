@@ -139,7 +139,7 @@ private int do_ls(mixed argv, mapping flags)
     }
   if (!sizeof(get_output()))
     {
-      out("没有对应文件。\n");
+      out("娌℃湁瀵瑰簲鏂囦欢銆俓n");
       return 0;
     }
   return 1;
@@ -155,7 +155,7 @@ private void main(mixed argv, mapping flags)
   do_ls(argv, flags);
 }
 
-string external_ls(string array files, mapping flags)
+string external_ls(string * files, mapping flags)
 {
   mixed         info;
 

@@ -2,8 +2,8 @@
 
 inherit M_INPUT;
 
-string refuse = "$NÂ¶³ö²»Ğ¼µÄ±íÇé£¬Ôã¸âËûµÄ¹¤×÷Ğ§ÂÊ½µµÍÁË¡£\n";
-string accept = "$N³ÁË¼ÁËÆ¬¿Ì£¬¼Ó±¶Å¬Á¦µÄ¸ÉÆğ»îÀ´¡£\n";
+string refuse = "$Néœ²å‡ºä¸å±‘çš„è¡¨æƒ…ï¼Œç³Ÿç³•ä»–çš„å·¥ä½œæ•ˆç‡é™ä½äº†ã€‚\n";
+string accept = "$Næ²‰æ€äº†ç‰‡åˆ»ï¼ŒåŠ å€åŠªåŠ›çš„å¹²èµ·æ´»æ¥ã€‚\n";
 object *workers;
 
 void get_input_from_main(string arg);
@@ -46,7 +46,7 @@ void get_input_from_main(string arg)
 	else if( tmp[0] == "v" )do_view();
 	else if( tmp[0] == "q" )quit_jobmenu();
 	else {
-		write("·Ç·¨ÃüÁî¡£\n");
+		write("éæ³•å‘½ä»¤ã€‚\n");
         	return;
 	};
 	return;
@@ -56,26 +56,26 @@ void do_distribute(string *str)
 	int who, job;
 	object ob;
 
-	mapping jobs = (["kanshu":"¿³Ê÷","zhengdi":"ÕûµØ","guangai":"¹à¸È"]);
+	mapping jobs = (["kanshu":"ç æ ‘","zhengdi":"æ•´åœ°","guangai":"çŒæº‰"]);
 
 	if( !this_body()->query_job("landlord", "start") ){
-                printf("Äã»¹Ã»ÓĞÕÙ¼¯Ò»¸öÊÖÏÂÄØ¡£\n");
+                printf("ä½ è¿˜æ²¡æœ‰å¬é›†ä¸€ä¸ªæ‰‹ä¸‹å‘¢ã€‚\n");
                 return;
         };
-	printf("¿ª·¢ĞÂÌïËù×öµÄ¹¤×÷ÓĞ£º\n1) ¿³Ê÷£ºÁ¦Æø»î¡£\n2) ÕûµØ£º¹¤·ò»î¡£\n3) ¹à¸È£ºÄÔÁ¦»î¡£\n");
+	printf("å¼€å‘æ–°ç”°æ‰€åšçš„å·¥ä½œæœ‰ï¼š\n1) ç æ ‘ï¼šåŠ›æ°”æ´»ã€‚\n2) æ•´åœ°ï¼šå·¥å¤«æ´»ã€‚\n3) çŒæº‰ï¼šè„‘åŠ›æ´»ã€‚\n");
 	if( sizeof(str) < 2 || sscanf(str[0], "%d", who) != 1|| sscanf(str[1], "%d", job) != 1
 		|| job < 1 || job > 3 || who < 1 || who > 3 ){
-		printf("¿´ÆğÀ´´ó¼ÒÌı²»¶®ÄãÔÚËµÊ²Ã´¡£\n");
+		printf("çœ‹èµ·æ¥å¤§å®¶å¬ä¸æ‡‚ä½ åœ¨è¯´ä»€ä¹ˆã€‚\n");
 		printf("d [No of worker] [No of job] \n");
 		return;
 	};
 	ob = workers[who-1];
 	if( ob->query("job")&&ob->query("job")!="none" ){
-		printf("ËûÕıÃ¦ÔÚÄØ¡£\n");
+		printf("ä»–æ­£å¿™åœ¨å‘¢ã€‚\n");
 		return;
 	};
 	ob->set("job", values(jobs)[job-1]);
-	this_body()->targetted_action("$NÏÂÁîÈÃ$TÈ¥"+values(jobs)[job-1]+"¡£\n", ob);
+	this_body()->targetted_action("$Nä¸‹ä»¤è®©$Tå»"+values(jobs)[job-1]+"ã€‚\n", ob);
 	return;
 }
 void do_view()
@@ -86,11 +86,11 @@ void do_view()
 	object ob;
 
 	if( !this_body()->query_job("landlord", "start") ){
-		printf("Äã»¹Ã»ÓĞÕÙ¼¯Ò»¸öÊÖÏÂÄØ¡£\n");
+		printf("ä½ è¿˜æ²¡æœ‰å¬é›†ä¸€ä¸ªæ‰‹ä¸‹å‘¢ã€‚\n");
 		return;
 	};
-	out = " ĞÕÃû      ´úºÅ    ÖÇÁ¦  ¾­Ñé  Á¦Á¿  Ğ§ÂÊ   ³É¼¨   ¹¤×÷\n";
-	out = out + "¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş\n";
+	out = " å§“å      ä»£å·    æ™ºåŠ›  ç»éªŒ  åŠ›é‡  æ•ˆç‡   æˆç»©   å·¥ä½œ\n";
+	out = out + "ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“\n";
 	for( i = 0; i < sizeof(workers); i++){
 		ob = workers[i];
 		if ( !ob->query_link() ){
@@ -114,12 +114,12 @@ void do_view()
 }
 void do_help()
 {
-	printf("1) a ¸øÊÖÏÂÎï×Ê½±Àø¡£\n");
-	printf("2) d ·ÖÅä¹¤×÷¸øÊÖÏÂ¡£\n");
-	printf("3) h ÏÔÊ¾±¾°ïÖúÎÄ¼ş¡£\n");
-	printf("4) p ³ÆÔŞÊÖÏÂµÄ¹¤×÷¡£\n");
-	printf("5) s ÔğÂîÊÖÏÂ°ìÊÂ²»Á¦¡£\n");
-	printf("6) v ²é¿´¹¤×÷×´¿ö¡£\n");
+	printf("1) a ç»™æ‰‹ä¸‹ç‰©èµ„å¥–åŠ±ã€‚\n");
+	printf("2) d åˆ†é…å·¥ä½œç»™æ‰‹ä¸‹ã€‚\n");
+	printf("3) h æ˜¾ç¤ºæœ¬å¸®åŠ©æ–‡ä»¶ã€‚\n");
+	printf("4) p ç§°èµæ‰‹ä¸‹çš„å·¥ä½œã€‚\n");
+	printf("5) s è´£éª‚æ‰‹ä¸‹åŠäº‹ä¸åŠ›ã€‚\n");
+	printf("6) v æŸ¥çœ‹å·¥ä½œçŠ¶å†µã€‚\n");
 	return;
 }
 void do_award(string *str)
@@ -129,23 +129,23 @@ void do_award(string *str)
 	object ob;
 
 	if( !this_body()->query_job("landlord", "start") ){
-                printf("Äã»¹Ã»ÓĞÕÙ¼¯Ò»¸öÊÖÏÂÄØ¡£\n");
+                printf("ä½ è¿˜æ²¡æœ‰å¬é›†ä¸€ä¸ªæ‰‹ä¸‹å‘¢ã€‚\n");
                 return;
         };	
 	if( sizeof(str) < 2 || sscanf(str[0], "%d", who) != 1|| sscanf(str[1], "%d", amount) != 1
                 || amount < 1 || who < 1 || who > sizeof(workers) ){
-                printf("¿´ÆğÀ´´ó¼ÒÌı²»¶®ÄãÔÚËµÊ²Ã´¡£\n");
+                printf("çœ‹èµ·æ¥å¤§å®¶å¬ä¸æ‡‚ä½ åœ¨è¯´ä»€ä¹ˆã€‚\n");
                 printf("a [No of worker] [amount of silver] \n");
                 return;
         };
 	hp = this_body()->query_cur_hp();
 	if( hp < 70 ){
-		printf("ÄãÒÑ¾­Ì«ÀÛÁË£¬»¹ÊÇÏÈĞİÏ¢Ò»ÏÂÔÙ¸É°É¡£\n");
+		printf("ä½ å·²ç»å¤ªç´¯äº†ï¼Œè¿˜æ˜¯å…ˆä¼‘æ¯ä¸€ä¸‹å†å¹²å§ã€‚\n");
                 return;
         };
 	this_body()->set_cur_hp( hp - 50 - random(10) );
 	if( amount*100 > this_body()->query_all_con_money() ){
-		write("ÔÚ¿´¿´ÄãÉíÉÏÓĞÄÇÃ´¶àÇ®Âğ£¿\n");
+		write("åœ¨çœ‹çœ‹ä½ èº«ä¸Šæœ‰é‚£ä¹ˆå¤šé’±å—ï¼Ÿ\n");
 	        return;
 	};
 
@@ -153,7 +153,7 @@ void do_award(string *str)
 	this_body()->set_all_con_money(this_body()->query_all_con_money()-amount*100);
 	if ( ob->query_link() ) ob->set_all_con_money(ob->query_all_con_money()+amount*100);
 
-	this_body()->targetted_action("$N¶Ô$TËµµÀ£ººÃºÃ¸É£¬$SÉÍÄã"+chinese_number(amount)+"Á½Òø×Ó¡£\n", ob);
+	this_body()->targetted_action("$Nå¯¹$Tè¯´é“ï¼šå¥½å¥½å¹²ï¼Œ$Sèµä½ "+chinese_number(amount)+"ä¸¤é“¶å­ã€‚\n", ob);
 	if( random(this_body()->query_sk_level("sk_zhimou")) >= 
 		random((50-amount<=0?0:50-amount)) ){
 		ob->simple_action( accept ); 
@@ -175,25 +175,25 @@ void do_praise(string str)
 	object ob;
 
         if( !this_body()->query_job("landlord", "start") ){
-                printf("Äã»¹Ã»ÓĞÕÙ¼¯Ò»¸öÊÖÏÂÄØ¡£\n");
+                printf("ä½ è¿˜æ²¡æœ‰å¬é›†ä¸€ä¸ªæ‰‹ä¸‹å‘¢ã€‚\n");
                 return;
         };
 	if( sscanf(str, "%d", who) != 1 || who < 1 || who > sizeof(workers) ){
-		printf("¿´ÆğÀ´´ó¼ÒÌı²»¶®ÄãÔÚËµÊ²Ã´¡£\n");
+		printf("çœ‹èµ·æ¥å¤§å®¶å¬ä¸æ‡‚ä½ åœ¨è¯´ä»€ä¹ˆã€‚\n");
 		printf("p [No of worker] \n");
 		return;
 	};
 	hp = this_body()->query_cur_hp();
         if( hp < 70 ){
-                printf("ÄãÒÑ¾­Ì«ÀÛÁË£¬»¹ÊÇÏÈĞİÏ¢Ò»ÏÂÔÙ¸É°É¡£\n");
+                printf("ä½ å·²ç»å¤ªç´¯äº†ï¼Œè¿˜æ˜¯å…ˆä¼‘æ¯ä¸€ä¸‹å†å¹²å§ã€‚\n");
                 return;
         };
 	ob = workers[who-1];
         this_body()->set_cur_hp( hp - 50 - random(10) );	
-	this_body()->targetted_action("$N´óÉùµÄ³ÆÔŞ$T£º¸ÉµÄºÃ¡£\n", ob);
+	this_body()->targetted_action("$Nå¤§å£°çš„ç§°èµ$Tï¼šå¹²çš„å¥½ã€‚\n", ob);
 
 	if( ob->query("eff") < 7 ){
-		ob->targetted_action("$N²»ÂúµÄ¿´ÁË$TÒ»ÑÛ¡£\n", this_body());
+		ob->targetted_action("$Nä¸æ»¡çš„çœ‹äº†$Tä¸€çœ¼ã€‚\n", this_body());
 		ob->simple_action( refuse );
 		if ( ob->query_link() ){
 			att2 = ob->query_job("land_dp", "att");
@@ -209,7 +209,7 @@ void do_praise(string str)
 			ob->set_job("land_dp", "att", att2);
 		} else ob->set("eff", ob->query("eff")+1);
 	} else {
-		ob->targetted_action("$N¸ù±¾²»Àí$T¡£\n", this_body()); 
+		ob->targetted_action("$Næ ¹æœ¬ä¸ç†$Tã€‚\n", this_body()); 
 	};
 	return;
 
@@ -221,24 +221,24 @@ void do_scold(string str)
         object ob;
 
         if( !this_body()->query_job("landlord", "start") ){
-                printf("Äã»¹Ã»ÓĞÕÙ¼¯Ò»¸öÊÖÏÂÄØ¡£\n");
+                printf("ä½ è¿˜æ²¡æœ‰å¬é›†ä¸€ä¸ªæ‰‹ä¸‹å‘¢ã€‚\n");
                 return;
         };
         if( sscanf(str, "%d", who) != 1 || who < 1 || who > 3 ){
-                printf("¿´ÆğÀ´´ó¼ÒÌı²»¶®ÄãÔÚËµÊ²Ã´¡£\n");
+                printf("çœ‹èµ·æ¥å¤§å®¶å¬ä¸æ‡‚ä½ åœ¨è¯´ä»€ä¹ˆã€‚\n");
                 printf("p [No of worker] \n");
 	        return;
         };
         hp = this_body()->query_cur_hp();
         if( hp < 70 ){
-                printf("ÄãÒÑ¾­Ì«ÀÛÁË£¬»¹ÊÇÏÈĞİÏ¢Ò»ÏÂÔÙ¸É°É¡£\n");
+                printf("ä½ å·²ç»å¤ªç´¯äº†ï¼Œè¿˜æ˜¯å…ˆä¼‘æ¯ä¸€ä¸‹å†å¹²å§ã€‚\n");
                 return;
         };
         ob = workers[who-1];
         this_body()->set_cur_hp( hp - 50 - random(10) );
-	this_body()->targetted_action("$NÔğÂî$T£ºÌìÄÄ£¬ÇÆÇÆÄã¶¼¸ÉÁËÊ²Ã´£¡\n", ob);
+	this_body()->targetted_action("$Nè´£éª‚$Tï¼šå¤©å“ªï¼Œç§ç§ä½ éƒ½å¹²äº†ä»€ä¹ˆï¼\n", ob);
 	if( ob->query("eff") > 7 ){
-		ob->targetted_action("$N²»ÂúµÄ¿´ÁË$TÒ»ÑÛ¡£\n", this_body());
+		ob->targetted_action("$Nä¸æ»¡çš„çœ‹äº†$Tä¸€çœ¼ã€‚\n", this_body());
                 ob->simple_action( refuse );
                 if ( ob->query_link() ){
                         att2 = ob->query_job("land_dp", "att");
@@ -254,7 +254,7 @@ void do_scold(string str)
                         ob->set_job("land_dp", "att", att2);
                 } else ob->set("eff", ob->query("eff")+1);
         } else {
-                ob->targetted_action("$N¸ù±¾²»Àí$T¡£\n", this_body());
+                ob->targetted_action("$Næ ¹æœ¬ä¸ç†$Tã€‚\n", this_body());
 	};
         return;
 

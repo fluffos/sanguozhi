@@ -1,17 +1,17 @@
-//by jiezhao on Dec 25 1996 changjian.c ³¤½£
+//by jiezhao on Dec 25 1996 changjian.c é•¿å‰‘
 #include <sanguo.h>
 inherit SWORD;
 inherit M_VALUE;
 void setup()
 {
-set_adj("³¤");
-set_unit("±ú");
-set_id("changjian", "½£");
+set_adj("é•¿");
+set_unit("æŸ„");
+set_id("changjian", "å‰‘");
 add_id("sword");
 add_id("jian");
 add_id("chang jian");
-set_long("Ò»±ú·æÀûµÄ³¤½££¬ÉÁ×Åµãµãº®¹â");
-set_in_room_desc("³¤½£(changjian)");
+set_long("ä¸€æŸ„é”‹åˆ©çš„é•¿å‰‘ï¼Œé—ªç€ç‚¹ç‚¹å¯’å…‰");
+set_in_room_desc("é•¿å‰‘(changjian)");
 set_weapon_class(5);
 set_size(MEDIUM);
 set_value(10);

@@ -1,4 +1,4 @@
-//mrope.c Ã©²İÉş by row
+//mrope.c èŒ…è‰ç»³ by row
 #include <sanguo.h>
 #include <ansi.h>
 #include <mudlib.h>
@@ -10,11 +10,11 @@ inherit "/std/modules/m_weaveable";
 void setup()
 {
 merge_setup();
-set_unit("¶Î");
-set_id("maocao sheng", YEL+"Ã©²İÉş"+NOR,);
+set_unit("æ®µ");
+set_id("maocao sheng", YEL+"èŒ…è‰ç»³"+NOR,);
 add_id("sheng","mrope");
-set_in_room_desc(YEL+"Ã©²İÉş"+NOR+"(maocao sheng)");
-set_long("ÕâÊÇ¶ÎÓÃ¼¸¹ÉÃ©²İ±à³ÉµÄÉş×Ó£¬¿´ÉÏÈ¥Ïàµ±½áÊµ¡£");
+set_in_room_desc(YEL+"èŒ…è‰ç»³"+NOR+"(maocao sheng)");
+set_long("è¿™æ˜¯æ®µç”¨å‡ è‚¡èŒ…è‰ç¼–æˆçš„ç»³å­ï¼Œçœ‹ä¸Šå»ç›¸å½“ç»“å®ã€‚");
 set_gettable(1);
 set_is_keeping(1);
 set_size(SMALL);
@@ -31,30 +31,30 @@ mixed weave()
 	ob=present("sheng",usr);
 	if(!objectp(ob))
 	{
-	write("ÄãÉíÉÏÃ»ÓĞÕâÑù¶«Î÷¡£\n");
+	write("ä½ èº«ä¸Šæ²¡æœ‰è¿™æ ·ä¸œè¥¿ã€‚\n");
 	return 1;
 	}
 	if(this_body()->query_job(JOBID,"beg_time")==0)
 	{
 	this_body()->simple_action(
-	"²»Öª´ÓÄÄÀï´Ü³öÒ»Ö»Ğ¡¹·£¬½«$NÊÖÖĞµÄ"+YEL+"Ã©²İÉş"+NOR+"µğÁË¾ÍÅÜ¡£\n");
+	"ä¸çŸ¥ä»å“ªé‡Œçªœå‡ºä¸€åªå°ç‹—ï¼Œå°†$Næ‰‹ä¸­çš„"+YEL+"èŒ…è‰ç»³"+NOR+"å¼äº†å°±è·‘ã€‚\n");
 	destruct(ob);
 	return 1;
 	}
 	if (m_hp<10)
-	{write("ÄãÌ«ÀÛÁË£¬ĞİÏ¢Ò»»á¶ù°É¡£\n");
+	{write("ä½ å¤ªç´¯äº†ï¼Œä¼‘æ¯ä¸€ä¼šå„¿å§ã€‚\n");
 	return 1;
 	}
 	if(ob->query_count()<4)
 	{
-	write("ÖÁÉÙĞèÒªËÄ¶Î"+YEL+"Ã©²İÉş"+NOR+"À´±àÖ¯¡£\n");
+	write("è‡³å°‘éœ€è¦å››æ®µ"+YEL+"èŒ…è‰ç»³"+NOR+"æ¥ç¼–ç»‡ã€‚\n");
 	return 1;
 	}
 	m_hp-=5;
 	this_body()->set_cur_hp(m_hp);
 	usr->simple_action(
-	"$N½«ËÄ¶Î"+YEL+"Ã©²İÉş"+NOR+"×óÓÒ°ÚÆë£¬È»ºó×óÈÆÓÒ£¬ÓÒ´©×ó£¬\nÀ´À´»Ø»Ø£¬Ò»ĞÄÒ»ÒâµØ±àÖ¯ÆğÀ´¡£\n");
-	usr->start_busy(10,"ÄãÕıÃ¦×Å±àĞ¬ÕÆÄØ¡£\n");
+	"$Nå°†å››æ®µ"+YEL+"èŒ…è‰ç»³"+NOR+"å·¦å³æ‘†é½ï¼Œç„¶åå·¦ç»•å³ï¼Œå³ç©¿å·¦ï¼Œ\næ¥æ¥å›å›ï¼Œä¸€å¿ƒä¸€æ„åœ°ç¼–ç»‡èµ·æ¥ã€‚\n");
+	usr->start_busy(10,"ä½ æ­£å¿™ç€ç¼–é‹æŒå‘¢ã€‚\n");
 	call_out("done",10);
 }
 void done(object ob)
@@ -66,13 +66,13 @@ void done(object ob)
 	num=mrope->query_count();
 	if(num==4)
 	{
-	write("³É¹¦ÁË£¡ÄãµÃµ½Ò»¿é"+YEL+"²İĞ¬ÕÆ"+NOR+"¡£\n");
+	write("æˆåŠŸäº†ï¼ä½ å¾—åˆ°ä¸€å—"+YEL+"è‰é‹æŒ"+NOR+"ã€‚\n");
 	ob=new(__DIR__+"mhalf");
 	ob->move(this_body());
 	destruct(mrope);
 	return;
 	}
-	write("³É¹¦ÁË£¡ÄãµÃµ½Ò»¿é"+YEL+"²İĞ¬ÕÆ"+NOR+"¡£\n");
+	write("æˆåŠŸäº†ï¼ä½ å¾—åˆ°ä¸€å—"+YEL+"è‰é‹æŒ"+NOR+"ã€‚\n");
 	ob=new(__DIR__+"mhalf");
 	ob->move(this_body());
 	mrope->set_count(num-4);

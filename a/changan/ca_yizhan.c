@@ -5,7 +5,7 @@ inherit BASE_ROOM;
 void setup() {
 set_area("changan");
 set_light(50);
-set_brief("%^YELLOW%^"+"³¤°²æäÕ¾"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"é•¿å®‰é©¿ç«™"+"%^RESET%^");
 set_long("");
 set_objects( (["/sgdomain/yizhan/mafu.c" : 1 ]) );
 // connection added by buzzer 

@@ -27,16 +27,16 @@ string get_need_gift(string p_sk)
 {
 	int basej;
 	switch( SG_SKILL_D->query_type(p_sk) ) {
-                case 2  : return "meili";       // ÌØÊâÕÐ·¨
-                case 3  : return "wuli";        // ËùÑ§Õó·¨
+                case 2  : return "meili";       // ç‰¹æ®Šæ‹›æ³•
+                case 3  : return "wuli";        // æ‰€å­¦é˜µæ³•
                 case 4  : 
 			switch(CAST_D->get_cast(p_sk)["base"])
 			{ case 1: return "wuli";
 			  case 2: return "zhimou";
 			  case 3: return "meili";
 		   	  default : return "zhimou"; 
-			}			// ËùÑ§¼ÆÄ±
-                case 5  : return "wuli";        // »ù±¾Îä¹¦
+			}			// æ‰€å­¦è®¡è°‹
+                case 5  : return "wuli";        // åŸºæœ¬æ­¦åŠŸ
     		default : switch(p_sk) {
       			case "sk_meili": 	return "meili";
       			case "sk_wuli":  	return "wuli";
@@ -72,7 +72,7 @@ int check_number_of_skills(string sk, object who)
 	if( sizeof(skills)>num ) return 0;
 	else return 1;
 }
-int check_learn(int mas_level,string sk,string gft) // ±ø·¨ÐÞÑø
+int check_learn(int mas_level,string sk,string gft) // å…µæ³•ä¿®å…»
 {
   	int p_hp,p_sjlev,p_sjexp,p_expneed;
   	int p_gift, p_literate, l_level;
@@ -127,7 +127,7 @@ int level_to_exp( int par_nLevel, int par_nGift )
     
     if ( par_nGift <= 0 || par_nGift > 30 )
     {
-        write( "Ìì¸³ÊýÖµ³¬³öÕý³£·¶Î§¡£\n" );
+        write( "å¤©èµ‹æ•°å€¼è¶…å‡ºæ­£å¸¸èŒƒå›´ã€‚\n" );
         return 0;
     }
     
@@ -157,7 +157,7 @@ int exp_to_level( int par_nExp, int par_nGift )
     
     if ( par_nGift <= 0 || par_nGift > 30 )
     {
-        write( "Ìì¸³ÊýÖµ³¬³öÕý³£·¶Î§¡£\n" );
+        write( "å¤©èµ‹æ•°å€¼è¶…å‡ºæ­£å¸¸èŒƒå›´ã€‚\n" );
         return 0;
     }
     
@@ -167,7 +167,7 @@ int exp_to_level( int par_nExp, int par_nGift )
     }
     else
     {
-        // ´Ó 31 ¼¶¿ªÊ¼ÐèÒª¾­Ñé
+        // ä»Ž 31 çº§å¼€å§‹éœ€è¦ç»éªŒ
         nNeed = nLevel * nLevel * 20 / par_nGift;
         
         while ( par_nExp >= nNeed )

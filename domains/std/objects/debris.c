@@ -6,10 +6,10 @@ inherit OBJ;
 inherit M_GETTABLE;
 
 void setup() {
-    set_id("rock", "ËéÊ¯", "rocks", "debris", "rubble");
-    set_unit("¿é");
+    set_id("rock", "ç¢ŽçŸ³", "rocks", "debris", "rubble");
+    set_unit("å—");
     set_attached(1);
-    set_long("ËéÊ¯Ã»Ê²Ã´ÒâË¼¡£");
+    set_long("ç¢ŽçŸ³æ²¡ä»€ä¹ˆæ„æ€ã€‚");
     set_gettable(1);
     set_size(TOO_LARGE);
 }
@@ -21,7 +21,7 @@ mixed get()
 
     if((r = ::get()) == MOVE_OK)
     {
-        this_body()->simple_action ("$NÊ°ÆðÒ»¿éÊ¯Í·¡£");
+        this_body()->simple_action ("$Næ‹¾èµ·ä¸€å—çŸ³å¤´ã€‚");
         new(__DIR__+  "rock")->move(this_body());
         return MOVE_NO_ERROR;
     }

@@ -10,7 +10,7 @@
 inherit M_ACCESS;
 private mapping build_info=([]);
 
-static mixed opdirs=(["east":"west", "south":"north", "north":"south",
+nosave protected mixed opdirs=(["east":"west", "south":"north", "north":"south",
 "west":"east","southeast":"northwest","southwest":"northeast","up":"down",
 "enter":"out","northeast":"southwest","northwest":"southeast","down":"up",
 "out":"enter",]);
@@ -23,7 +23,7 @@ void save_data()
 mixed set_city_build_info(string p_id,string para,mixed data)
 {
 if (!undefinedp(build_info[p_id])) 
-   {if (para=="baseinfo") return "¸Ã³ÇÒÑ¾­ÔÚ½¨ÉèÖĞ£¬ÎŞ·¨¶ş´ÎÉèÖÃ£¡\n";}
+   {if (para=="baseinfo") return "è¯¥åŸå·²ç»åœ¨å»ºè®¾ä¸­ï¼Œæ— æ³•äºŒæ¬¡è®¾ç½®ï¼\n";}
 else
     build_info[p_id]=([]);
 build_info[p_id][para]=data;
@@ -66,14 +66,14 @@ AREA_SERVER->set_area(0);
 void init_city_info(string p_id,string p_name,string p_zhou,string sht,int level)
 {string tmp;
 
- if (!get_city_build_info(p_id,"prison")) tmp=RED"Õâ¸ö³ÇÊĞÃ»ÓĞ¼àÓü£¬ËùÒÔÔİÊ±²»ÄÜ¿ª·Å£¡\n";
- if (!get_city_build_info(p_id,"go"))     tmp+="Õâ¸ö³ÇÊĞÃ»ÓĞ³ÇÃÅÈë¿Ú£¬ËùÒÔÔİÊ±²»ÄÜ¿ª·Å£¡\n";
- if (!get_city_build_info(p_id,"meeting")) tmp+="Õâ¸ö³ÇÊĞÃ»ÓĞÒéÊÂÌü£¬ËùÒÔÔİÊ±²»ÄÜ¿ª·Å£¡\n";
- if (!get_city_build_info(p_id,"fly")) tmp+="Õâ¸ö³ÇÊĞÃ»ÓĞĞ£³¡£¬ËùÒÔÔİÊ±²»ÄÜ¿ª·Å£¡\n";
- if (!get_city_build_info(p_id,"yizhan")) tmp+="Õâ¸ö³ÇÊĞÃ»ÓĞæäÕ¾£¬ËùÒÔÔİÊ±²»ÄÜ¿ª·Å£¡\n"NOR;
+ if (!get_city_build_info(p_id,"prison")) tmp=RED"è¿™ä¸ªåŸå¸‚æ²¡æœ‰ç›‘ç‹±ï¼Œæ‰€ä»¥æš‚æ—¶ä¸èƒ½å¼€æ”¾ï¼\n";
+ if (!get_city_build_info(p_id,"go"))     tmp+="è¿™ä¸ªåŸå¸‚æ²¡æœ‰åŸé—¨å…¥å£ï¼Œæ‰€ä»¥æš‚æ—¶ä¸èƒ½å¼€æ”¾ï¼\n";
+ if (!get_city_build_info(p_id,"meeting")) tmp+="è¿™ä¸ªåŸå¸‚æ²¡æœ‰è®®äº‹å…ï¼Œæ‰€ä»¥æš‚æ—¶ä¸èƒ½å¼€æ”¾ï¼\n";
+ if (!get_city_build_info(p_id,"fly")) tmp+="è¿™ä¸ªåŸå¸‚æ²¡æœ‰æ ¡åœºï¼Œæ‰€ä»¥æš‚æ—¶ä¸èƒ½å¼€æ”¾ï¼\n";
+ if (!get_city_build_info(p_id,"yizhan")) tmp+="è¿™ä¸ªåŸå¸‚æ²¡æœ‰é©¿ç«™ï¼Œæ‰€ä»¥æš‚æ—¶ä¸èƒ½å¼€æ”¾ï¼\n"NOR;
  if (tmp) {write(tmp);return;}
  
- if (AREA_D->area_exist(p_id)) {write(RED"¸ÃµØÇøÒÑ¾­´æÔÚ£¬ÎŞ·¨×·¼Ó!\n"NOR);return;}
+ if (AREA_D->area_exist(p_id)) {write(RED"è¯¥åœ°åŒºå·²ç»å­˜åœ¨ï¼Œæ— æ³•è¿½åŠ !\n"NOR);return;}
  AREA_D->add_area(p_id); 
  AREA_D->set_area(p_id,"creator",this_body()->query_primary_id());
  AREA_D->set_area(p_id,"path","/a/"+p_id+"/");
@@ -100,7 +100,7 @@ void init_city_info(string p_id,string p_name,string p_zhou,string sht,int level
  AREA_D->set_area(p_id,"fly",get_city_build_info(p_id,"fly"));
  AREA_D->set_area(p_id,"go",get_city_build_info(p_id,"go"));
  AREA_D->set_area(p_id,"meeting",get_city_build_info(p_id,"meeting"));
- write("%^CYAN%^¿ª·Å³ÇÊĞ³É¹¦!%^RESET%^\n");
+ write("%^CYAN%^å¼€æ”¾åŸå¸‚æˆåŠŸ!%^RESET%^\n");
 }
 
 void update_room(string p_id,string r_id)
@@ -128,26 +128,26 @@ void create_first_room_of_city(string p_id,string sht)
     AREA_SERVER->set_area(p_id);
     if (AREA_SERVER->get_room(sht+"_lsjlg","b"))
        {
-       write("%^RED%^³ÇÊĞÒÑ¾­´´½¨¹ı£¬ÎŞ·¨¶ş´Î´´½¨¡£%^RESET%^\n");
+       write("%^RED%^åŸå¸‚å·²ç»åˆ›å»ºè¿‡ï¼Œæ— æ³•äºŒæ¬¡åˆ›å»ºã€‚%^RESET%^\n");
        return;
        }
     AREA_SERVER->add_room(sht+"_lsjlg");
-    AREA_SERVER->set_room(sht+"_lsjlg","b","%^YELLOW%^ÀúÊ·¼ÍÂ¼¹İ%^RESET%^");
+    AREA_SERVER->set_room(sht+"_lsjlg","b","%^YELLOW%^å†å²çºªå½•é¦†%^RESET%^");
     AREA_SERVER->set_room(sht+"_lsjlg","e",([]));
     AREA_SERVER->set_room(sht+"_lsjlg","l","
-    ÕâÀïÊÇÕâ×ù³ÇÊĞµÄÀúÊ·¼ÍÂ¼¹İ£¬ÕıÃæÇ½ÉÏµÄ¾Ş´óÊ¯±®£¨shibei£©
-¼ÍÂ¼×ÅÕâ¸ö³ÇÊĞ´´½¨³É³¤µÄÀúÊ·¼°ÆäÏÈ±²µÄ¹â»ÔÊÂ¼£¡£
+    è¿™é‡Œæ˜¯è¿™åº§åŸå¸‚çš„å†å²çºªå½•é¦†ï¼Œæ­£é¢å¢™ä¸Šçš„å·¨å¤§çŸ³ç¢‘ï¼ˆshibeiï¼‰
+çºªå½•ç€è¿™ä¸ªåŸå¸‚åˆ›å»ºæˆé•¿çš„å†å²åŠå…¶å…ˆè¾ˆçš„å…‰è¾‰äº‹è¿¹ã€‚
 ");
     AREA_SERVER->set_room(sht+"_lsjlg","o",([
   "/sgdomain/obj/other/shibei.c" : ({
       1,
-      "Ê¯±®",
+      "çŸ³ç¢‘",
       "city."+p_id,
     }),
 ]));
    update_room(p_id,sht+"_lsjlg");
    AREA_SERVER->set_area(0);
-   write("%^CYAN%^´´½¨³ÇÊĞ³É¹¦!%^RESET%^\n");
+   write("%^CYAN%^åˆ›å»ºåŸå¸‚æˆåŠŸ!%^RESET%^\n");
 }
 
 void trans_room(string sp_id,string sr_id,string dp_id,string dr_id)
@@ -160,7 +160,7 @@ exits=AREA_SERVER->get_room(dr_id,"e");
 //printf("%O\n",exits);
 AREA_SERVER->set_room(dr_id,"",data);
 if (exits&&exits!=([]))
-   {AREA_SERVER->set_room(dr_id,"e",exits);  //¸´ÖÆroomÊ±,ÈçÔ´roomÓĞ³ö¿Ú,±£Áô²»¸²¸Ç,·ñÔò¸²¸Ç
+   {AREA_SERVER->set_room(dr_id,"e",exits);  //å¤åˆ¶roomæ—¶,å¦‚æºroomæœ‰å‡ºå£,ä¿ç•™ä¸è¦†ç›–,å¦åˆ™è¦†ç›–
     update_room(dp_id,dr_id);}
 AREA_SERVER->set_area(0);
 }
@@ -169,7 +169,7 @@ AREA_SERVER->set_area(0);
 void add_room(string p_id,string r_id) {
     AREA_SERVER->set_area(p_id);
     AREA_SERVER->add_room(r_id);
-    AREA_SERVER->set_room(r_id,"b","%^YELLOW%^¿Õ·¿¼ä("+r_id+")%^RESET%^");
+    AREA_SERVER->set_room(r_id,"b","%^YELLOW%^ç©ºæˆ¿é—´("+r_id+")%^RESET%^");
     AREA_SERVER->set_room(r_id,"l","");
     AREA_SERVER->set_room(r_id,"e",([]));
     AREA_SERVER->set_room(r_id,"t",0);
@@ -230,7 +230,7 @@ int insert_connection(string p_id,string source,string dir,string dest) {
     if (!exits) exits=([]);
     if (member_array(dir,keys(exits))!=-1)
        {
-       write("¸Ã·½ÏòÒÑ¾­ÓĞ·¿¼äÁ¬½Ó¡£\n");
+       write("è¯¥æ–¹å‘å·²ç»æœ‰æˆ¿é—´è¿æ¥ã€‚\n");
        return;
        }
     exits[dir] = dest;
@@ -245,7 +245,7 @@ void del_connection(string p_id,string source,string dir){
     if (!exits) return;
     if (member_array(dir,keys(exits))==-1)
        {
-       write("¸Ã·½ÏòÃ»ÓĞ·¿¼äÁ¬½Ó¡£\n");
+       write("è¯¥æ–¹å‘æ²¡æœ‰æˆ¿é—´è¿æ¥ã€‚\n");
        return;
        }
     map_delete(exits,dir);

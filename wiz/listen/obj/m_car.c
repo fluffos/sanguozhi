@@ -4,10 +4,10 @@ inherit M_SMARTMOVE;
 inherit M_MESSAGES;
 string short();
 string get_riders_as_string();
-private string mount_msg = "$NÌøÈë³µÖĞ¡£" ;
-private string dismount_msg= "$N´ò¿ª³µÃÅ£¬×ßÏÂ³µÀ´¡£";
-private string arrival_msg= "¿ª×ÅÒ»Á¾³µ·É³Û¶øÀ´¡£\n";
-private string departure_msg="¿ª×Å³µÏòÔ¶·½ÀëÈ¥¡£\n";
+private string mount_msg = "$Nè·³å…¥è½¦ä¸­ã€‚" ;
+private string dismount_msg= "$Næ‰“å¼€è½¦é—¨ï¼Œèµ°ä¸‹è½¦æ¥ã€‚";
+private string arrival_msg= "å¼€ç€ä¸€è¾†è½¦é£é©°è€Œæ¥ã€‚\n";
+private string departure_msg="å¼€ç€è½¦å‘è¿œæ–¹ç¦»å»ã€‚\n";
 
 private int m_att_abi=0;
 
@@ -17,9 +17,9 @@ private int can_ride_two = 0;
 int get_the_number_on_horse()
 {
   // Get the inventory of the horse.
-  object array inv = all_inventory(this_object());
+  object * inv = all_inventory(this_object());
   // Filter out anything that isn't living.
-  object array riders = filter(inv, (: $1->is_living() :));
+  object * riders = filter(inv, (: $1->is_living() :));
   return sizeof(riders);
 }
 
@@ -33,10 +33,10 @@ int query_attack_ability()
 	return m_att_abi;
 }
 
-static void set_arrival_msg(string s){
+protected void set_arrival_msg(string s){
   arrival_msg = s;
 }
-static void set_departure_msg(string s){
+protected void set_departure_msg(string s){
   departure_msg = s;
 }
 string get_arrival_msg(){
@@ -72,7 +72,7 @@ int can_travel(){
   return 1;
 }
 
-object array get_riders(){
+object * get_riders(){
   return filter(all_inventory(this_object()), (:$1->is_living():));
 }
 string show_contents(){
@@ -84,9 +84,9 @@ string show_contents(){
 string get_riders_as_string()
 {
   // Get the inventory of the horse.
-  object array inv = all_inventory(this_object());
+  object * inv = all_inventory(this_object());
   // Filter out anything that isn't living.
-  object array riders = filter(inv, (: $1->is_living() :));
+  object * riders = filter(inv, (: $1->is_living() :));
   if(!sizeof(riders))
     {
       return "";
@@ -96,7 +96,7 @@ string get_riders_as_string()
     {
       return riders[0]->short();
     }
-  return implode(map(riders[0..<2], (: $1->short() :)), "¡¢")+ "ºÍ" +
+  return implode(map(riders[0..<2], (: $1->short() :)), "ã€")+ "å’Œ" +
     riders[<1]->short();
 }
 string query_in_room_desc()
@@ -110,35 +110,35 @@ string query_in_room_desc()
       switch(random(5))
       {
                 case 0:
-                        p_tmp="ĞÛôñôñµØ";
+                        p_tmp="é›„èµ³èµ³åœ°";
                         break;
                 case 1:
-                        p_tmp="µÃÒâÑóÑóµØ";
+                        p_tmp="å¾—æ„æ´‹æ´‹åœ°";
                         break;
                 case 2:
-                        p_tmp="³äÂú×ÔĞÅµØ";
+                        p_tmp="å……æ»¡è‡ªä¿¡åœ°";
                         break;
                 case 3:
-                        p_tmp="´ó´ó·½·½µØ";
+                        p_tmp="å¤§å¤§æ–¹æ–¹åœ°";
                         break;
                 default:
-                        p_tmp="ÊæÊæ·ş·şµØ";
+                        p_tmp="èˆ’èˆ’æœæœåœ°";
                         break;
       }
       if(sizeof(get_riders())==2)
       switch(random(3))
       {
              case 0:
-                    p_tmp="µÃÒâÑóÑóµØ";
+                    p_tmp="å¾—æ„æ´‹æ´‹åœ°";
                         break;
              case 1:
-                    p_tmp="´ó´ó·½·½µØ";
+                    p_tmp="å¤§å¤§æ–¹æ–¹åœ°";
                     break;
              default:
-                    p_tmp="ÊæÊæ·ş·şµØ";
+                    p_tmp="èˆ’èˆ’æœæœåœ°";
                     break;
       }
-      return get_riders_as_string()+p_tmp+"×øÔÚ"+short()+"ÉÏ\n";
+      return get_riders_as_string()+p_tmp+"ååœ¨"+short()+"ä¸Š\n";
     }
 }
 void notify_move()
@@ -157,10 +157,10 @@ int is_vehicle(){
 int is_horse() {
   return 1;
 }
-static void set_ride_msg(string s){
+protected void set_ride_msg(string s){
   mount_msg = s;
 }
-static void set_unride_msg(string s){
+protected void set_unride_msg(string s){
   dismount_msg = s;
 }
 string query_ride_msg() {
@@ -171,33 +171,33 @@ string query_unride_msg() {
 }
 string handle_exit_msgs(object last_loc) {
   return query_ride_msg() || //"$N $vget on "+short()+".\n";
-                               "$N×øÉÏÁË"+short()+"¡£\n";  
+                               "$Nåä¸Šäº†"+short()+"ã€‚\n";  
 }
 private void mount_it_already()
 {
   if(environment(this_body()) == this_object())  {
-      write("ÄãÒÑ¾­×øÔÚ³µÉÏÁË¡£\n");
+      write("ä½ å·²ç»ååœ¨è½¦ä¸Šäº†ã€‚\n");
       return;
     }
   if(this_body()->move(this_object())==MOVE_OK)
 	  this_body()->simple_action(mount_msg);
   else
       this_body()->simple_action(
-"$NÏëÌøÉÏ"+short()+"£¬½á¹ûÃ»ÉÏÈ¥µôÁËÏÂÀ´¡£\n");
+"$Næƒ³è·³ä¸Š"+short()+"ï¼Œç»“æœæ²¡ä¸Šå»æ‰äº†ä¸‹æ¥ã€‚\n");
 }
 
 private void mount_it_already_other(object o)
 {
 	string p_id=o->query_id()[0];
 	if(environment(o) == this_object())  {
-      tell_user(p_id,"ÄãÒÑ¾­×øÔÚ³µÉÏÁË¡£\n");
+      tell_user(p_id,"ä½ å·²ç»ååœ¨è½¦ä¸Šäº†ã€‚\n");
       return;
     }
   if(o->move(this_object())==MOVE_OK)
 	  o->simple_action(mount_msg);
   else
       o->simple_action(
-"$NÏëÌøÉÏ"+short()+"£¬½á¹ûÃ»ÉÏÈ¥µôÁËÏÂÀ´¡£\n");
+"$Næƒ³è·³ä¸Š"+short()+"ï¼Œç»“æœæ²¡ä¸Šå»æ‰äº†ä¸‹æ¥ã€‚\n");
 }
 
 void agree(object me,object own,string ans)
@@ -206,12 +206,12 @@ void agree(object me,object own,string ans)
         switch(ans)
         {
                 case "up":
-own->targetted_action("$N¶Ô$TµÀ£º$m$c¾ÍÇëÉÏÀ´°É¡£\n",me);
+own->targetted_action("$Nå¯¹$Té“ï¼š$m$cå°±è¯·ä¸Šæ¥å§ã€‚\n",me);
             mount_it_already_other(me);
         me->clear_answer();
                         return;
                 default:
-    own->targetted_action("$N¶Ô$TµÀ£º²»ĞĞ£¬²»ĞĞ£¬³µ×ÓÌ«¼·ÁË¡£\n",me);
+    own->targetted_action("$Nå¯¹$Té“ï¼šä¸è¡Œï¼Œä¸è¡Œï¼Œè½¦å­å¤ªæŒ¤äº†ã€‚\n",me);
 		me->responda("kick "+owner);
         me->clear_answer();
         return;
@@ -221,7 +221,7 @@ own->targetted_action("$N¶Ô$TµÀ£º$m$c¾ÍÇëÉÏÀ´°É¡£\n",me);
 void ride()
 {
   string p_id;
-  object array rids;
+  object * rids;
   int s;
   p_id = this_body()->query_id()[0];
   if((p_id==owner)||(owner==""))
@@ -233,24 +233,24 @@ void ride()
   s=sizeof(rids);
   if((s==0)||( (s==1)&&(rids[0]->query_id()[0]!=owner ) )) {
   	this_body()->simple_action(
-		"$NÉìÊÖÏë´ò¿ª"+short()+"µÄ³µÃÅ£¬È´±»µçÁËÒ»ÏÂ¡£\n");
+		"$Nä¼¸æ‰‹æƒ³æ‰“å¼€"+short()+"çš„è½¦é—¨ï¼Œå´è¢«ç”µäº†ä¸€ä¸‹ã€‚\n");
 	this_body()->simple_action( short()
- 	     +"¶Ô×Å$N·¢³ö¾çÁÒµÄ¾¯±¨Éù£º´ó¼Ò¿ìÀ´°¡£¬ÓĞÈËÍµ³µ°¡!\n");
+ 	     +"å¯¹ç€$Nå‘å‡ºå‰§çƒˆçš„è­¦æŠ¥å£°ï¼šå¤§å®¶å¿«æ¥å•Šï¼Œæœ‰äººå·è½¦å•Š!\n");
         return;
   }
 /*
   if(s>=4)  {
-	  write("³µÉÏÒÑ¾­Ã»Î»ÖÃÁË¡£\n");
+	  write("è½¦ä¸Šå·²ç»æ²¡ä½ç½®äº†ã€‚\n");
 	  return;
   }
 */
   // now seem ok to ask
   this_body()->targetted_action(
-	  "$N¶Ô$TµÀ£º$m$c£¬¿É·ñÈÃ$CÓë$cÒ»Í¬×ø³µ£¿\n",rids[0]);
+	  "$Nå¯¹$Té“ï¼š$m$cï¼Œå¯å¦è®©$Cä¸$cä¸€åŒåè½¦ï¼Ÿ\n",rids[0]);
 
   this_body()->set_answer(owner, (: agree :));
   rids[0]->responda("consider");
-  tell_user(owner,"Í¬ÒâÂğ£¿Í¬Òâ¾ÍÇëÊäÈë answer up to "+p_id+"\n");
+  tell_user(owner,"åŒæ„å—ï¼ŸåŒæ„å°±è¯·è¾“å…¥ answer up to "+p_id+"\n");
 
 }
 mixed stand()
@@ -272,7 +272,7 @@ int direct_ride_obj()
   return 1;
 }
 int stat_me() {
-    printf("·¿¼ä: %s [ %s ]\n\n",
+    printf("æˆ¿é—´: %s [ %s ]\n\n",
       short(), implode(query_exit_directions(1), ", "));
     ::stat_me();
     return 1;
@@ -287,11 +287,11 @@ void do_looking(int forced_look)
     }
     if ( environment(this_object())->query_light() < 1 )
     {
-    write("ÕâÀïºÜºÚ£¬Ê²Ã´Ò²¿´²»Çå³ş¡£\n");
+    write("è¿™é‡Œå¾ˆé»‘ï¼Œä»€ä¹ˆä¹Ÿçœ‹ä¸æ¸…æ¥šã€‚\n");
     }
     else
     {
-        object array riders = filter(all_inventory(this_object()), (:
+        object * riders = filter(all_inventory(this_object()), (:
 $1->is_living() :));
 
 	printf("%s [exits: %s]\n",
@@ -300,7 +300,7 @@ $1->is_living() :));
 	write(wrap(get_location_description()));
         if(sizeof(riders) == 1)
         {
-                printf("Äã×øÔÚ%sÉÏ¡£\n",short());
+                printf("ä½ ååœ¨%sä¸Šã€‚\n",short());
         }
         else 
         {
@@ -309,7 +309,7 @@ $1->is_living() :));
                         oth=riders[1];
                 else
                         oth=riders[0];
-                printf("ÄãºÍ%s×øÔÚ%sÉÏ¡£\n",oth->short(),short());
+                printf("ä½ å’Œ%sååœ¨%sä¸Šã€‚\n",oth->short(),short());
         }
     }
 }

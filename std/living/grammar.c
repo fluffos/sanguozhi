@@ -20,17 +20,17 @@ int query_gender() { return gender; }
 //:FUNCTION query_pronoun
 //return the (subjective) pronoun of a object (he, she, it)
 string query_pronoun() { switch (gender) {
-    case 0: return "Ëü"; //"it";
-    case 1: return "Ëû"; //"he";
-    case 2: return "Ëý"; //"she";
+    case 0: return "å®ƒ"; //"it";
+    case 1: return "ä»–"; //"he";
+    case 2: return "å¥¹"; //"she";
     }}
 
 //:FUNCTION query_objective
 //return the objective pronoun of an object (it, him, her)
 string query_objective() {switch (gender) {
-    case 0: return "Ëü"; //"it";
-    case 1: return "Ëû"; //"he";
-    case 2: return "Ëý"; //"she";
+    case 0: return "å®ƒ"; //"it";
+    case 1: return "ä»–"; //"he";
+    case 2: return "å¥¹"; //"she";
     }
 }
 
@@ -42,9 +42,9 @@ string query_subjective() { return query_pronoun(); }
 //:FUNCTION query_possessive
 //return the possessive pronoun of an object (his, her, its)
 string query_possessive() { switch (gender) {
-    case 0: return "ËüµÄ"; //"its";
-    case 1: return "ËûµÄ"; //"his";
-    case 2: return "ËýµÄ"; //"her";
+    case 0: return "å®ƒçš„"; //"its";
+    case 1: return "ä»–çš„"; //"his";
+    case 2: return "å¥¹çš„"; //"her";
     }}
 
 //:FUNCTION query_named_possessive
@@ -54,16 +54,16 @@ string query_named_possessive() {
     res = this_object()->query_name();
 //    if (res[<1]=='s') return res+"'";
 //    else return res+"'s";
-    return res+"µÄ";
+    return res+"çš„";
 }
 
 //:FUNCTION query_reflexive
 //return the reflexive pronoun of an object (himself, herself, itself)
 string query_reflexive(){
     switch(gender){
-    case 0: return "Ëü×ÔÒÑ";//"itself";
-    case 1: return "Ëû×ÔÒÑ"; //"himself";
-    case 2: return "Ëý×ÔÒÑ"; //"herself";
+    case 0: return "å®ƒè‡ªå·²";//"itself";
+    case 1: return "ä»–è‡ªå·²"; //"himself";
+    case 2: return "å¥¹è‡ªå·²"; //"herself";
     }
 }
 

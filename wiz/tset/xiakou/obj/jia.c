@@ -1,5 +1,5 @@
 //  jia.c
-//  Ìú¼×
+//  é“ç”²
 //  created by tset 1/23/98
 //  last updated by tset 1/23/98
 
@@ -15,9 +15,9 @@ inherit M_DAMAGE_SINK;
 void setup()
 {
         ::mudlib_setup();
-        set_unit("¼ş");
-        set_id("armor", "Ìú¼×", "jia"); 
-        set_in_room_desc("Ìú¼×(armor)");
+        set_unit("ä»¶");
+        set_id("armor", "é“ç”²", "jia"); 
+        set_in_room_desc("é“ç”²(armor)");
         set_gettable(1);
         set_slot(TORSO);
         set_value(30);

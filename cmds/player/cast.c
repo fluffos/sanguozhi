@@ -21,9 +21,9 @@ private void main(string arg)
 	whoid  	= player->query_primary_id();
 
 	if( !arg||!stringp(arg)||arg=="" )
-                write("ÄãÒªÊ¹ÓÃÊ²Ã´¼ÆÄ±£¿\n");
+                write("ä½ è¦ä½¿ç”¨ä»€ä¹ˆè®¡è°‹ï¼Ÿ\n");
 	else if( player->query_cur_hp()*4 <= player->query_cur_max_hp() )
-                write("ÄãµÄÉíÌåÌ«ÐéÈõÁË£¬²»ÄÜÊ¹ÓÃÈÎºÎ¼ÆÄ±¡£\n");
+                write("ä½ çš„èº«ä½“å¤ªè™šå¼±äº†ï¼Œä¸èƒ½ä½¿ç”¨ä»»ä½•è®¡è°‹ã€‚\n");
 	else {
 		if( sscanf(arg, "%s on %s", jm, who) != 2 ){
                 	if( sscanf(arg, "%s %s", jm, what) != 2 ){
@@ -46,7 +46,7 @@ private void main(string arg)
 
 			mp = 10 + 5*CAST_D->get_cast(jm, "level");
                 	if( player->query_cur_mp() < mp ) {
-                        	write("Äã¾«Éñ²»×ã£¬²»ÄÜÊ¹ÓÃÕâÖÖ¼ÆÄ±£¡\n");
+                        	write("ä½ ç²¾ç¥žä¸è¶³ï¼Œä¸èƒ½ä½¿ç”¨è¿™ç§è®¡è°‹ï¼\n");
                         	return;
                 	} else
                         	player->set_cur_mp(player->query_cur_mp()-mp);
@@ -57,7 +57,7 @@ private void main(string arg)
         		else jmob->main(player);
         	tmp = DAY_D->query_date();
         	if(arrayp(tmp))
-        	LOG_D->log(LOG_CAST, sprintf("£Í£Õ£ÄÊ±¼ä£ºÈý¹úÖ¾%sÄê%sÔÂ%s:%s cast[%s] µ±µØÊ±¼ä:%s\n", 
+        	LOG_D->log(LOG_CAST, sprintf("ï¼­ï¼µï¼¤æ—¶é—´ï¼šä¸‰å›½å¿—%så¹´%sæœˆ%s:%s cast[%s] å½“åœ°æ—¶é—´:%s\n", 
         	CHINESE_DA->chinese_number(tmp[3]), 
         	CHINESE_DA->chinese_number(tmp[2]), 
         	DAY_D->query_string_day(),

@@ -24,8 +24,9 @@ private void hp_print(object who)
     else
 	p_tmp=0;
 	s_tmp=get_disp_color(p_tmp);
-    printf("%^ORANGE%^¡ş¡ş¡ş¡ş%^H_CYAN%^×´%^RESET%^%^ORANGE%^¡ş¡ş¡ş¡ş%^H_CYAN%^Ì¬%^RESET%^%^ORANGE%^¡ş¡ş¡ş¡ş%^RESET%^\n\n"),
-    printf("%s%^H_YELLOW%^¡Ñ%^H_RED%^ÆøÑª%^H_YELLOW%^¡Ñ%^RESET%^  %s%4d /%4d (%4d )  %s\n",
+    printf("%^ORANGE%^ã€“ã€“ã€“ã€“%^H_CYAN%^çŠ¶%^RESET%^%^ORANGE%^ã€“ã€“ã€“ã€“%^H_CYAN%^æ€%^RESET%^%^ORANGE%^ã€“ã€“ã€“ã€“%^RESET%^\n\n"),
+
+    printf("%s%^H_YELLOW%^âŠ™%^H_RED%^æ°”è¡€%^H_YELLOW%^âŠ™%^RESET%^  %s%4d /%4d (%4d )  %s\n",
 	 NOR ,s_tmp, p_hp,p_cur_max_hp,	p_max_hp,NOR);
 
     p_hp = who->query_cur_mp();
@@ -35,7 +36,7 @@ private void hp_print(object who)
     else p_tmp=0;
     s_tmp=get_disp_color(p_tmp);
 
-    printf("%s%^H_YELLOW%^¡Ñ%^MAGENTA%^¾«Éñ%^H_YELLOW%^¡Ñ%^RESET%^  %s%4d /%4d (%4d )  %s\n",
+    printf("%s%^H_YELLOW%^âŠ™%^MAGENTA%^ç²¾ç¥%^H_YELLOW%^âŠ™%^RESET%^  %s%4d /%4d (%4d )  %s\n",
          NOR ,s_tmp, p_hp,p_cur_max_hp, p_max_hp,NOR);
 
 	p_food=who->query_sg_food();
@@ -43,10 +44,11 @@ private void hp_print(object who)
 	p_maxfood=200; p_maxdrink=200;
 	s_tmp=get_disp_color(p_food*100/p_maxfood);
 
-    printf("%^H_YELLOW%^¡Ñ%^H_WHITE%^Ê³Îï%^H_YELLOW%^¡Ñ%^RESET%^  %s%4d /%4d  %s\n", s_tmp, p_food,p_maxfood,NOR);
+    printf("%^H_YELLOW%^âŠ™%^H_WHITE%^é£Ÿç‰©%^H_YELLOW%^âŠ™%^RESET%^  %s%4d /%4d  %s\n", s_tmp, p_food,p_maxfood,NOR);
 	s_tmp=get_disp_color(p_drink*100/p_maxdrink);
-    printf("%^H_YELLOW%^¡Ñ%^H_WHITE%^ÒûË®%^H_YELLOW%^¡Ñ%^RESET%^  %s%4d /%4d  %s\n\n", s_tmp, p_drink,p_maxdrink,NOR);
-	printf("%^ORANGE%^¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş%^B_RED%^%^H_YELLOW%^Èı¹úÖ¾%^RESET%^%^ORANGE%^¡ş%^RESET%^\n");
+    printf("%^H_YELLOW%^âŠ™%^H_WHITE%^é¥®æ°´%^H_YELLOW%^âŠ™%^RESET%^  %s%4d /%4d  %s\n\n", s_tmp, p_drink,p_maxdrink,NOR);
+	printf("%^ORANGE%^ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“%^B_RED%^%^H_YELLOW%^ä¸‰å›½å¿—%^RESET%^%^ORANGE%^ã€“%^RESET%^\n");
+
 }
 void do_hp()
 {
@@ -59,7 +61,7 @@ void do_hp_str(string str)
    object ob;
    if(!(wizardp(this_body()->query_userid())))
    {
-      printf("Ö»ÓĞÎ×Ê¦²Å¿ÉÒÔÍ¸ÊÓ±ğÈËµÄ×´¿ö\n");
+      printf("åªæœ‰å·«å¸ˆæ‰å¯ä»¥é€è§†åˆ«äººçš„çŠ¶å†µ\n");
       return;
    }
    else
@@ -67,17 +69,17 @@ void do_hp_str(string str)
        ob = present(str, environment(this_body()));
        if (!ob) ob = find_body(str);
        if (!ob) {
-             write("ÄãÒª²ì¿´Ë­µÄ×´¿ö£¿\n"); 
+             write("ä½ è¦å¯Ÿçœ‹è°çš„çŠ¶å†µï¼Ÿ\n"); 
              return;
        }
        if (!ob->is_living()) {
-            write("²ì¿´Îï¼şµÄ½¡¿µ£¿\n"); 
+            write("å¯Ÿçœ‹ç‰©ä»¶çš„å¥åº·ï¼Ÿ\n"); 
             return;
 	   }
         hp_print(ob);
    }
 }
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ "", "STR", }),({  }) });
 }

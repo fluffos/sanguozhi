@@ -9,20 +9,20 @@ void setup(string p_id)
 {
 	master=p_id;
 	master_name=CHAR_D->get_char(p_id,"name");
-	set_name(p_id+" dgj","´ó¹Ü¼Ò");
+	set_name(p_id+" dgj","å¤§ç®¡å®¶");
 	set_gender(1);
-    	set_proper_name("´ó¹Ü¼Ò");
-    	set_in_room_desc(master_name+"¼ÒµÄ%^H_GREEN%^´ó¹Ü¼Ò%^RESET%^("+p_id+ " dgj)");
+    	set_proper_name("å¤§ç®¡å®¶");
+    	set_in_room_desc(master_name+"å®¶çš„%^H_GREEN%^å¤§ç®¡å®¶%^RESET%^("+p_id+ " dgj)");
 	add_id("dgj");
 	set_age(45);
 
-	add_ask_str("order","$N»Ø¹ýÍ·¿´ÁË$TÒ»ÑÛ¡£\n");
+	add_ask_str("order","$Nå›žè¿‡å¤´çœ‹äº†$Tä¸€çœ¼ã€‚\n");
 	add_question("order","order" );
 	is_busy=0;
 }
 
 string long() {
-	return master_name+"¼ÒµÄ%^H_GREEN%^´ó¹Ü¼Ò%^RESET%^("+master+ " dgj)";
+	return master_name+"å®¶çš„%^H_GREEN%^å¤§ç®¡å®¶%^RESET%^("+master+ " dgj)";
 }
 
 void special_answer(object who, string matt)
@@ -34,11 +34,11 @@ void special_answer(object who, string matt)
                 case "order" :
 			if(p_id==master) {
 			        this_object()->targetted_action(
-				"$NÃ¦ÉÏÇ°¾Ï¹ªµÀ£º$RÓÐºÎ·Ô¸À£¿\n",who);
+				"$Nå¿™ä¸Šå‰éž èº¬é“ï¼š$Ræœ‰ä½•å©å’ï¼Ÿ\n",who);
 				return;
 			}
 		        this_object()->targetted_action(
-				"$NµÉÁË$TÒ»ÑÛ¡£\n",who);
+				"$Nçžªäº†$Tä¸€çœ¼ã€‚\n",who);
 				return;
         }
 }

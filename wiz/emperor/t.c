@@ -3,6 +3,6 @@ inherit INDOOR_ROOM;
 void setup(){
     set_area("westside");
     set_light(50);
-        set_brief(""+YEL+"青青的小木屋"+NOR+"");
+        set_brief(""+YEL+"闈掗潚鐨勫皬鏈ㄥ眿"+NOR+"");
     write(sprintf("%O\n",file_name(previous_object())));
 }

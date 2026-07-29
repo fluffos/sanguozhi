@@ -5,12 +5,12 @@ inherit LIVING;
 inherit M_VENDOR;
 
 void setup() {
-    set_name("Biff", "±È·ğ");
+    set_name("Biff", "æ¯”ä½›");
     add_id("shopkeeper");
     set_gender(1);
-    set_proper_name("ÊÛ»õÔ±±È·ğ");
-    set_in_room_desc("ÊÛ»õÔ±±È·ğ");
-    set_long("±È·ğ¿´ÉÏÈ¥ÏóÊÇÉ±¼Û¸ßÊÖ¡£\n");
+    set_proper_name("å”®è´§å‘˜æ¯”ä½›");
+    set_in_room_desc("å”®è´§å‘˜æ¯”ä½›");
+    set_long("æ¯”ä½›çœ‹ä¸Šå»è±¡æ˜¯æ€ä»·é«˜æ‰‹ã€‚\n");
     set_for_sale(1);
     set_will_buy(1);
     set_currency_type("gold");

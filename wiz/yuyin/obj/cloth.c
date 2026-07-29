@@ -1,4 +1,4 @@
-//buyi.c ²¼ÒÂ by row
+//buyi.c å¸ƒè¡£ by row
 #include <sanguo.h>
 #include <mudlib.h>
 #include <bodyslots.h>
@@ -8,11 +8,11 @@ inherit M_DAMAGE_SINK;
 void setup()
 {
 ::mudlib_setup();
-set_unit("¼þ");
-set_id("cloth", "²¼ÒÂ");
+set_unit("ä»¶");
+set_id("cloth", "å¸ƒè¡£");
 add_id("buyi");
-set_long("Ò»¼þÆÕÆÕÍ¨Í¨µÄ²¼ÒÂ¡£");
-set_in_room_desc("²¼ÒÂ(cloth)");
+set_long("ä¸€ä»¶æ™®æ™®é€šé€šçš„å¸ƒè¡£ã€‚");
+set_in_room_desc("å¸ƒè¡£(cloth)");
 set_gettable(1);
 set_slot(TORSO);
 }

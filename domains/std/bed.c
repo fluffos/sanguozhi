@@ -9,12 +9,12 @@ inherit FURNITURE;
 
 void setup()
 {
-  set_id("bed", "´²");
-  set_unit("ÕÅ");
-  set_in_room_desc("·¿¼äµÄÒ»½ÇÓĞÒ»ÕÅ´²¡£");
-  set_get_on_msg("$NÔÚ´²ÉÏ×øÏÂ¡£\n");
-  set_get_off_msg("$N´Ó´²ÉÏÕ¾ÆğÀ´¡£\n");
-  set_long("ÕâÊÇÒ»ÕÅ´²¡£");
+  set_id("bed", "åºŠ");
+  set_unit("å¼ ");
+  set_in_room_desc("æˆ¿é—´çš„ä¸€è§’æœ‰ä¸€å¼ åºŠã€‚");
+  set_get_on_msg("$Nåœ¨åºŠä¸Šåä¸‹ã€‚\n");
+  set_get_off_msg("$Nä»åºŠä¸Šç«™èµ·æ¥ã€‚\n");
+  set_long("è¿™æ˜¯ä¸€å¼ åºŠã€‚");
   set_preposition("on");
   set_relations("on","under");
   set_max_capacity(VERY_LARGE*3, "on");

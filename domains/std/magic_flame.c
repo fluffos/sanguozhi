@@ -4,11 +4,11 @@
 inherit OBJ;
 
 void setup() {
-    set_adj("À¶É«µÄ");
-    set_id("flame", "»ğÑæ", "fire");
-    set_unit("¹É");
-    set_in_room_desc("Ò»¹ÉÀ¶É«µÄ»ğÃç(flame)ÔÚÊÒÖĞÑëÌø¶¯×Å¡£\n");
-    set_long("ºÃÏóÊÇ¿ÕÆø×ÔÉíÔÚÈ¼ÉÕ£¬ËÆºõÊÇ³öÓÚÄ³ÖÖÄ§Á¦¡£\n");
+    set_adj("è“è‰²çš„");
+    set_id("flame", "ç«ç„°", "fire");
+    set_unit("è‚¡");
+    set_in_room_desc("ä¸€è‚¡è“è‰²çš„ç«è‹—(flame)åœ¨å®¤ä¸­å¤®è·³åŠ¨ç€ã€‚\n");
+    set_long("å¥½è±¡æ˜¯ç©ºæ°”è‡ªèº«åœ¨ç‡ƒçƒ§ï¼Œä¼¼ä¹æ˜¯å‡ºäºæŸç§é­”åŠ›ã€‚\n");
 }
 
 int can_light_the_magic_torch() {

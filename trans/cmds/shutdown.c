@@ -10,7 +10,7 @@
 
 inherit CMD;
 
-static void do_shutdown(string s)
+protected void do_shutdown(string s)
 {
     if (!check_privilege(1)) 	//"Admin:system"
 	{
@@ -34,23 +34,23 @@ nomask void count_down(int num, string s) {
     int interval;
     if(!num)
     {
-        tell(users(), "ÏµÍ³ºËĞÄ¸æËßÄã£ºÏµÍ³Á¢¿Ì £Ó£È£Õ£Ô £Ä£Ï£×£Î£¡\n");
+        tell(users(), "ç³»ç»Ÿæ ¸å¿ƒå‘Šè¯‰ä½ ï¼šç³»ç»Ÿç«‹åˆ» ï¼³ï¼¨ï¼µï¼´ ï¼¤ï¼¯ï¼·ï¼®ï¼\n");
         do_shutdown(s);
         return;
     }
     if (num >= 60) {
-    	time = CHINESE_D->chinese_number(num/60) + "·ÖÖÓ";
+    	time = CHINESE_D->chinese_number(num/60) + "åˆ†é’Ÿ";
     	if (num == 60) interval = 30;
     	else interval = 60;
     }
     else {
-    	time = CHINESE_D->chinese_number(num) + "ÃëÖÓ";
+    	time = CHINESE_D->chinese_number(num) + "ç§’é’Ÿ";
     	if (num > 10) interval = 10;
     	else interval = 1;
     }
-    CHANNEL_D->deliver_tell("gossip","¹Üã¡",
-       "²İÃñÒ¹¹ÛÌìÏó£¬µÛĞÇ´óÒì£¬Óî¼äÊ±ÏÔĞ×ÏÕÖ®Õ×£¬ÌìµØ±ØÔÚ" +
-       time + "ºóÏİÂä£¬Ì¾ì¨£¬±¯ì¨¡£");
+    CHANNEL_D->deliver_tell("gossip","ç®¡æª",
+       "è‰æ°‘å¤œè§‚å¤©è±¡ï¼Œå¸æ˜Ÿå¤§å¼‚ï¼Œå®‡é—´æ—¶æ˜¾å‡¶é™©ä¹‹å…†ï¼Œå¤©åœ°å¿…åœ¨" +
+       time + "åé™·è½ï¼Œå¹æ­™ï¼Œæ‚²æ­™ã€‚");
     
     call_out("count_down", interval, num - interval, s);
 }
@@ -60,9 +60,9 @@ private void main(mixed args, mapping flags)
     int num;
     string s;
      
-    if ( !check_privilege(1) )	//Ô­À´ÊÇ"Admin:system"
+    if ( !check_privilege(1) )	//åŸæ¥æ˜¯"Admin:system"
     {
-        outf("ÄãÒÔÎªÄãÊÇË­Ñ½£¿Äã²»¹»×Ê¸ñ£¡\n");
+        outf("ä½ ä»¥ä¸ºä½ æ˜¯è°å‘€ï¼Ÿä½ ä¸å¤Ÿèµ„æ ¼ï¼\n");
         return;
     }
 
@@ -71,13 +71,13 @@ private void main(mixed args, mapping flags)
     // handle cancelation checking first!
     if(flags["c"]) {
         if (remove_call_out("count_down") == -1) {
-            write("Ä¿Ç°Ã»ÓĞ shutdown µÄ½ø³ÌÔÚÔË×÷ÖĞ¡£\n");
+            write("ç›®å‰æ²¡æœ‰ shutdown çš„è¿›ç¨‹åœ¨è¿ä½œä¸­ã€‚\n");
             return;
         }
         LOG_D->log(LOG_SHUTDOWN,
                    sprintf( "Shutdown cancelled %s by %s [%s]\n",
                             ctime(time()), this_body()->query_userid(), s));
-        tell(users(), "ÏµÍ³ºËĞÄ¸æËßÄã£ºÏµÍ³ £Ó£È£Õ£Ô £Ä£Ï£×£Î ±»ÖĞÖ¹ÁË¡£\n");
+        tell(users(), "ç³»ç»Ÿæ ¸å¿ƒå‘Šè¯‰ä½ ï¼šç³»ç»Ÿ ï¼³ï¼¨ï¼µï¼´ ï¼¤ï¼¯ï¼·ï¼® è¢«ä¸­æ­¢äº†ã€‚\n");
         return;
     }
 
@@ -89,13 +89,13 @@ private void main(mixed args, mapping flags)
                            ctime(time()), this_body()->query_userid(), s));
         num = to_int(flags["t"]);
         count_down(num * 60, s);
-        write("ÏµÍ³ shutdown ½ø³Ì¿ªÊ¼...\n");
+        write("ç³»ç»Ÿ shutdown è¿›ç¨‹å¼€å§‹...\n");
         return;
     }
     LOG_D->log(LOG_SHUTDOWN,
                sprintf("Immediate shutdown requested by %s\n",
                        this_user()->query_userid()));
-    tell(users(), "ÏµÍ³ºËĞÄ¸æËßÄã£ºÏµÍ³Á¢¿Ì £Ó£È£Õ£Ô £Ä£Ï£×£Î£¡\n");
+    tell(users(), "ç³»ç»Ÿæ ¸å¿ƒå‘Šè¯‰ä½ ï¼šç³»ç»Ÿç«‹åˆ» ï¼³ï¼¨ï¼µï¼´ ï¼¤ï¼¯ï¼·ï¼®ï¼\n");
     do_shutdown(s);
 }
 

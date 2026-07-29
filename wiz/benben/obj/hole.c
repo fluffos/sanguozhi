@@ -1,4 +1,4 @@
-//小洞 hole.c by benben 
+//灏忔礊 hole.c by benben 
 
 #include <size.h>
 
@@ -8,8 +8,8 @@ void
 setup()
 {
 
-    set_id("hole","小洞");
-    set_long("你往洞里看了看，到底里面有什么东西呢？\n");
+    set_id("hole","灏忔礊");
+    set_long("浣犲線娲為噷鐪嬩簡鐪嬶紝鍒板簳閲岄潰鏈変粈涔堜笢瑗垮憿锛焅n");
     set_size(MEDIUM);
     set_max_capacity(LARGE);
 }

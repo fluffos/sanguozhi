@@ -16,13 +16,13 @@ void npc_move(string c_id)
 	p_o=CHAR_D->find_char(c_id);
         if(objectp(p_o))
         {
-                p_o->simple_action("$NÌ¾ÁË¿ÚÆø£¬µÀ£º¿´À´´Ë´¦·ÇÎÒ·¢Õ¹Ö®µØ¡£\n");
-                p_o->simple_action("$N´Ò´ÒÀë¿ªÁË¡£\n");
+                p_o->simple_action("$Nå¹äº†å£æ°”ï¼Œé“ï¼šçœ‹æ¥æ­¤å¤„éæˆ‘å‘å±•ä¹‹åœ°ã€‚\n");
+                p_o->simple_action("$NåŒ†åŒ†ç¦»å¼€äº†ã€‚\n");
         }
 	CHAR_D->set_char(c_id,"area",p_desarea);
 	CHAR_D->appear(c_id,p_desarea);
         CHANNEL_D->deliver_tell("rumor","system",
-                sprintf("%sÍ¶±¼%sÈ¥ÁË¡£",CHAR_D->get_char(c_id,"name"),
+                sprintf("%sæŠ•å¥”%så»äº†ã€‚",CHAR_D->get_char(c_id,"name"),
                         AREA_D->get_area(p_desarea,"name")));
 
 }

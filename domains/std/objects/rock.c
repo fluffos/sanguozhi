@@ -6,11 +6,11 @@ inherit M_THROWABLE;
 
 void setup() 
 {
-    set_unit("¿é");
-    set_id("rock", "ÑÒÊ¯");
+    set_unit("å—");
+    set_id("rock", "å²©çŸ³");
     set_weapon_class(5);
-    set_long("Ëü²»¹ıÊÇÒ»¿éÔÙÆÕÍ¨²»¹ıµÄÊ¯Í·°ÕÁË¡£");
-    set_in_room_desc("ÕâÀïÓĞÒ»¿éÑÒÊ¯¡£\n");
+    set_long("å®ƒä¸è¿‡æ˜¯ä¸€å—å†æ™®é€šä¸è¿‡çš„çŸ³å¤´ç½¢äº†ã€‚");
+    set_in_room_desc("è¿™é‡Œæœ‰ä¸€å—å²©çŸ³ã€‚\n");
     set_size(SMALL);
 }
 

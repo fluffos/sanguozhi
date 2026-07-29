@@ -1,4 +1,4 @@
-// cutter.c by fire Èı¹úÏúµ¶
+// cutter.c by fire ä¸‰å›½é”€åˆ€
 // this cmd is used create quick char
 inherit CMD;
    
@@ -27,7 +27,7 @@ void create_char() {
 
    CHAR_D->set_char(p_id,"area",p_area);
    CHANNEL_D->deliver_tell("rumor","system",
-   p_name+"ÔÚ"+AREA_D->get_area(p_area,"name")+"µ®Éú¡£");
+   p_name+"åœ¨"+AREA_D->get_area(p_area,"name")+"è¯ç”Ÿã€‚");
 
 }
 void input_area(string s) {
@@ -39,16 +39,16 @@ void input_area(string s) {
       s=ars[random(sizeof(ars))];
    }
    p_area=s;
-   write("IDÊÇ£º"+p_id+"\n");
-   write("Ãû³ÆÊÇ£º"+p_name+"\n");
-   write("ÄêÁäÊÇ£º"+p_age+"\n");
-   write("ĞÔ±ğÊÇ£º"+(p_gender==1 ? "ÄĞ": "Å®")+"\n");
-   write("ÈİÃ²ÊÇ£º"+p_rongmao+"\n");
-   write("×ÖÊÇ£º"+ p_zi+"\n");
-   write("ÎäÁ¦ÊÇ"+p_wuli+"\n");
-   write("ÖÇÄ±ÊÇ"+p_zhimou+"\n");
-   write("÷ÈÁ¦ÊÇ"+p_meili+"\n");
-   write("µØÇøÊÇ"+p_area+"\n");
+   write("IDæ˜¯ï¼š"+p_id+"\n");
+   write("åç§°æ˜¯ï¼š"+p_name+"\n");
+   write("å¹´é¾„æ˜¯ï¼š"+p_age+"\n");
+   write("æ€§åˆ«æ˜¯ï¼š"+(p_gender==1 ? "ç”·": "å¥³")+"\n");
+   write("å®¹è²Œæ˜¯ï¼š"+p_rongmao+"\n");
+   write("å­—æ˜¯ï¼š"+ p_zi+"\n");
+   write("æ­¦åŠ›æ˜¯"+p_wuli+"\n");
+   write("æ™ºè°‹æ˜¯"+p_zhimou+"\n");
+   write("é­…åŠ›æ˜¯"+p_meili+"\n");
+   write("åœ°åŒºæ˜¯"+p_area+"\n");
    create_char();  
    over();
 }
@@ -59,7 +59,7 @@ void input_meili(string s) {
    p_meili=to_int(s);
    if((p_meili<1)||(p_meili>30))
      p_meili=10+random(20);
-   write("ÊäÈë½ÇÉ«µÄµØÇø£¬È±Ê¡ÎªËæ»ú¡£\n");
+   write("è¾“å…¥è§’è‰²çš„åœ°åŒºï¼Œç¼ºçœä¸ºéšæœºã€‚\n");
    p_usr->modal_push((:input_area:),"",0,0);
 }
 
@@ -69,7 +69,7 @@ void input_zhimou(string s) {
    p_zhimou=to_int(s);
    if((p_zhimou<1)||(p_zhimou>30))
      p_zhimou=10+random(20);
-   write("ÊäÈë½ÇÉ«µÄ÷ÈÁ¦£¬[1-30]£¬È±Ê¡ÎªËæ»ú¡£\n");
+   write("è¾“å…¥è§’è‰²çš„é­…åŠ›ï¼Œ[1-30]ï¼Œç¼ºçœä¸ºéšæœºã€‚\n");
    p_usr->modal_push((:input_meili:),"",0,0);
 }
 
@@ -79,7 +79,7 @@ void input_wuli(string s) {
    p_wuli=to_int(s);
    if((p_wuli<1)||(p_wuli>30))
      p_wuli=10+random(20);
-   write("ÊäÈë½ÇÉ«µÄÖÇÄ±£¬[1-30]£¬È±Ê¡ÎªËæ»ú¡£\n");
+   write("è¾“å…¥è§’è‰²çš„æ™ºè°‹ï¼Œ[1-30]ï¼Œç¼ºçœä¸ºéšæœºã€‚\n");
    p_usr->modal_push((:input_zhimou:),"",0,0);
 }
 
@@ -89,7 +89,7 @@ void input_rongmao(string s) {
    p_rongmao=to_int(s);
    if((p_rongmao<10)||(p_rongmao>30))
      p_rongmao=10+random(20);
-   write("ÊäÈë½ÇÉ«µÄÎäÁ¦£¬[1-30]£¬È±Ê¡ÎªËæ»ú¡£\n");
+   write("è¾“å…¥è§’è‰²çš„æ­¦åŠ›ï¼Œ[1-30]ï¼Œç¼ºçœä¸ºéšæœºã€‚\n");
    p_usr->modal_push((:input_wuli:),"",0,0);
 }
 
@@ -97,7 +97,7 @@ void input_zi(string s) {
    p_usr->modal_pop();
    if(s=="q") {over(); return;} //  
    p_zi=s;
-   write("ÊäÈë½ÇÉ«µÄÈİÃ²£¬[10-30]:È±Ê¡ÎªËæ»ú¡£\n");
+   write("è¾“å…¥è§’è‰²çš„å®¹è²Œï¼Œ[10-30]:ç¼ºçœä¸ºéšæœºã€‚\n");
    p_usr->modal_push((:input_rongmao:),"",0,0);
 }
 
@@ -109,7 +109,7 @@ void input_gender(string s) {
    }
    p_gender=to_int(s);
    if(p_gender!=2) p_gender=1;
-   write("ÊäÈë½ÇÉ«µÄ×Ö£¬¿ÉÒÔÈ±Ê¡¡£\n");
+   write("è¾“å…¥è§’è‰²çš„å­—ï¼Œå¯ä»¥ç¼ºçœã€‚\n");
    p_usr->modal_push((:input_zi:),"",0,0);
 }
 
@@ -119,7 +119,7 @@ void input_age(string s) {
    p_age=to_int(s);
 
    if((p_age>70)||(p_age<10)) p_age=random(50)+10;
-   write("ÊäÈë½ÇÉ«ĞÔ±ğ[1 ÄĞ|2 Å®]£¬È±Ê¡ÄĞ¡£\n");
+   write("è¾“å…¥è§’è‰²æ€§åˆ«[1 ç”·|2 å¥³]ï¼Œç¼ºçœç”·ã€‚\n");
    p_usr->modal_push((:input_gender:),"",0,0);
 }
 
@@ -127,12 +127,12 @@ void input_name(string s) {
    p_usr->modal_pop();
    if(s=="q") {over(); return;} //
    if(!sizeof(s)) {
-     write("Ã»ÓĞ½ÇÉ«ĞÕÃû¡£\n");
+     write("æ²¡æœ‰è§’è‰²å§“åã€‚\n");
      over();
      return;
    }
    p_name=s;
-     write("ÊäÈë½ÇÉ«ÄêÁä[10-70],È±Ê¡ÎªËæ»ú¡£\n");
+     write("è¾“å…¥è§’è‰²å¹´é¾„[10-70],ç¼ºçœä¸ºéšæœºã€‚\n");
    p_usr->modal_push((:input_age:),"",0,0);
 }
 
@@ -141,22 +141,22 @@ void input_id(string s) {
    p_usr->modal_pop();
    if(s=="q") {over(); return;} //
    if(!sizeof(s)) {
-     write("Ã»ÓĞ½ÇÉ«ID¡£\n");
+     write("æ²¡æœ‰è§’è‰²IDã€‚\n");
 	over();
      return;
    }
    if(sscanf(s, "%s %s", fn,sn)!=2) {
-     write("½ÇÉ«ID±ØĞèÓĞÒ»¿Õ¸ñ¡£\n");
+     write("è§’è‰²IDå¿…éœ€æœ‰ä¸€ç©ºæ ¼ã€‚\n");
 	over();
      return;
    }
    if(CHAR_D->char_exist(s)) {
-     write("¸Ã½ÇÉ«ÒÑ¾­´æÔÚ¡£\n");
+     write("è¯¥è§’è‰²å·²ç»å­˜åœ¨ã€‚\n");
 	over();
      return;
    }
    p_id=s;
-   write("ÇëÊäÈë½ÇÉ«Ãû³Æ£º\n");
+   write("è¯·è¾“å…¥è§’è‰²åç§°ï¼š\n");
    p_usr->modal_push((:input_name:),"",0,0);
 }
 
@@ -165,8 +165,8 @@ void main(object usr)
    object o;
    p_usr=usr;
    CHANNEL_D->deliver_tell("rumor","system",
-   usr->query_body()->short()+"ÊÖ³ÖLIMAÏ÷µ¶£¬àê£¬àêÏ÷ÁËÆğÀ´¡£");
-   write("ÇëÊäÈë½ÇÉ«ID¡£\n");
+   usr->query_body()->short()+"æ‰‹æŒLIMAå‰Šåˆ€ï¼Œåš“ï¼Œåš“å‰Šäº†èµ·æ¥ã€‚");
+   write("è¯·è¾“å…¥è§’è‰²IDã€‚\n");
    p_usr->modal_push((:input_id:),"",0,0);
 }
 

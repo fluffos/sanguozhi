@@ -9,9 +9,9 @@ private string key_type = "changan_dong";
 
 void setup()
 {
-  set_unit("°Ñ");
-   set_id("key","½ğÔ¿³×");
-  set_in_room_desc("½ğÔ¿³×(key)");
+  set_unit("æŠŠ");
+   set_id("key","é‡‘é’¥åŒ™");
+  set_in_room_desc("é‡‘é’¥åŒ™(key)");
   set_gettable(1);
 }
 

@@ -11,7 +11,7 @@
 
 #define MAX_DROP    20
 
-static int p_month;
+nosave protected int p_month;
 void area_pay(string p_id)
 {
     string *list,*listn,*listall;
@@ -80,7 +80,7 @@ void area_pay(string p_id)
         }
         if(p_nopay&&(CHAR_D->get_char(p_nation,"type")!=TYPE_NPC))//2001.4.13 
         {
-                mess=sprintf("%s¹ÙÔ±Î´ÄÜÁì¹»ÙºÂ»£¬ÖÒ³Ï¶ÈÏÂ½µ¡£\n",
+                mess=sprintf("%så®˜å‘˜æœªèƒ½é¢†å¤Ÿä¿¸ç¦„ï¼Œå¿ è¯šåº¦ä¸‹é™ã€‚\n",
                         AREA_D->get_area(p_id,"name"));
                 CHANNEL_D->deliver_tell("rumor","system",
                         mess);
@@ -99,19 +99,19 @@ void area_income(int a_index)
 	int p_bing;
 	int p_ran;
 	int train, mol;
-    int IF_DECREASE=1;  //2001.4.13 Éè¶¨±êÖ¾ÓÃÓÚÅĞ¶ÏÊÇ·ñÎªNPC¹ú
-                            //NPC¹ú¿ØÖÆµÄµØÇøµÄÊ¿±øÊ¿ÆøºÍÑµÁ·¶È²»½µ£¬ÊıÁ¿Ò²²»¼õÉÙ
+    int IF_DECREASE=1;  //2001.4.13 è®¾å®šæ ‡å¿—ç”¨äºåˆ¤æ–­æ˜¯å¦ä¸ºNPCå›½
+                            //NPCå›½æ§åˆ¶çš„åœ°åŒºçš„å£«å…µå£«æ°”å’Œè®­ç»ƒåº¦ä¸é™ï¼Œæ•°é‡ä¹Ÿä¸å‡å°‘
 
 	string p_id;
 
-    int nTaskId;    // µ±µØµÄÈÎÎñ£¬¿´ÓĞÃ»ÓĞÔÚÑµÁ·
+    int nTaskId;    // å½“åœ°çš„ä»»åŠ¡ï¼Œçœ‹æœ‰æ²¡æœ‰åœ¨è®­ç»ƒ
     int nDrop;
 
 	p_id=AREA_D->list_areas_id(a_index);
 	if(!stringp(p_id))
 	    return;
 	
-	// xiaobai: ³ÇÊĞÀïµÄÈÎÎñ£¬Èç¹ûÃ»ÓĞÈÎÎñID£¬·µ»Ø -1
+	// xiaobai: åŸå¸‚é‡Œçš„ä»»åŠ¡ï¼Œå¦‚æœæ²¡æœ‰ä»»åŠ¡IDï¼Œè¿”å› -1
 	nTaskId = TASK_D->get_area_task_id( p_id );
 	    	
 	a_index++;
@@ -135,12 +135,12 @@ void area_income(int a_index)
 	{
 
 // xiaobai: Nov. 12, 2001
-// Èç¹ûÓĞÑµÁ·ÈÎÎñ£¬Ç¿ÆÈÑµÁ·Í£Ö¹
+// å¦‚æœæœ‰è®­ç»ƒä»»åŠ¡ï¼Œå¼ºè¿«è®­ç»ƒåœæ­¢
         if ( nTaskId > 0 && TASK_D->get_task( nTaskId, "type" ) == TT_TRAIN )
         {
             EV_WAR->force_over( nTaskId );
             CHANNEL_D->deliver_tell("rumor","system",
-    			sprintf("%sµÄÑµÁ·ÈÎÎñÒò²¹¸ø²»×ã±»ÆÈÖĞÖ¹¡£",
+    			sprintf("%sçš„è®­ç»ƒä»»åŠ¡å› è¡¥ç»™ä¸è¶³è¢«è¿«ä¸­æ­¢ã€‚",
         		AREA_D->get_area(p_id,"name")));
     
         	p_bing = AREA_D->get_area(p_id, "soldier");
@@ -148,7 +148,7 @@ void area_income(int a_index)
         	mol = AREA_D->get_area(p_id, "morale");
         }    
 
-/* xiaobai: µ±±¾ÉíÖµ½ÏĞ¡Ê±£¬Ò²°´±ÈÀı¼ÆËã£¬ÄÑÒÔµøµ½10ÒÔÏÂ
+/* xiaobai: å½“æœ¬èº«å€¼è¾ƒå°æ—¶ï¼Œä¹ŸæŒ‰æ¯”ä¾‹è®¡ç®—ï¼Œéš¾ä»¥è·Œåˆ°10ä»¥ä¸‹
 		train = to_int(train*(1+p_food/p_bing/4))-1;
 		mol = to_int(mol*(1+p_food/p_bing/3))-3;
 */
@@ -161,7 +161,7 @@ void area_income(int a_index)
 		if( train <= 0 ) train = 0;
 		if( mol <= 0 ) mol = 0;
 		CHANNEL_D->deliver_tell("rumor","system",
-			sprintf("%sÁ¸²İ¶ÌÈ±£¬Ê¿±øÊ¿Æø£¬ÑµÁ·¶ÈÏÂ½µ¡£¡£¡£¡£",
+			sprintf("%sç²®è‰çŸ­ç¼ºï¼Œå£«å…µå£«æ°”ï¼Œè®­ç»ƒåº¦ä¸‹é™ã€‚ã€‚ã€‚ã€‚",
 			AREA_D->get_area(p_id,"name")));
 	}
 	AREA_D->set_area(p_id,"food",p_food);
@@ -191,13 +191,13 @@ void area_income(int a_index)
 	{
 
 // xiaobai: Nov. 12, 2001
-// Èç¹ûÓĞÑµÁ·ÈÎÎñ£¬Ç¿ÆÈÑµÁ·Í£Ö¹
+// å¦‚æœæœ‰è®­ç»ƒä»»åŠ¡ï¼Œå¼ºè¿«è®­ç»ƒåœæ­¢
         if ( nTaskId > 0 && TASK_D->get_task( nTaskId, "type" ) == TT_TRAIN )
         {
             EV_WAR->force_over( nTaskId );
             
             CHANNEL_D->deliver_tell("rumor","system",
-    			sprintf("%sµÄÑµÁ·ÈÎÎñÒò²¹¸ø²»×ã±»ÆÈÖĞÖ¹¡£",
+    			sprintf("%sçš„è®­ç»ƒä»»åŠ¡å› è¡¥ç»™ä¸è¶³è¢«è¿«ä¸­æ­¢ã€‚",
         		AREA_D->get_area(p_id,"name")));
     
         	p_bing = AREA_D->get_area(p_id, "soldier");
@@ -205,7 +205,7 @@ void area_income(int a_index)
         	mol = AREA_D->get_area(p_id, "morale");
         }    
 
-/* xiaobai: µ±±¾ÉíÖµ½ÏĞ¡Ê±£¬Ò²°´±ÈÀı¼ÆËã£¬ÄÑÒÔµøµ½10ÒÔÏÂ
+/* xiaobai: å½“æœ¬èº«å€¼è¾ƒå°æ—¶ï¼Œä¹ŸæŒ‰æ¯”ä¾‹è®¡ç®—ï¼Œéš¾ä»¥è·Œåˆ°10ä»¥ä¸‹
 		train = to_int(train*(1+p_food/p_bing/4))-1;
 		mol = to_int(mol*(1+p_food/p_bing/3))-3;
 */
@@ -219,7 +219,7 @@ void area_income(int a_index)
         if( train <= 0 ) train = 0;
         if( mol <= 0 ) mol = 0;
         CHANNEL_D->deliver_tell("rumor","system",
-			sprintf("%s»Æ½ğ¶ÌÈ±£¬Ê¿±øÊ¿Æø£¬ÑµÁ·¶ÈÏÂ½µ¡£¡£¡£¡£",
+			sprintf("%sé»„é‡‘çŸ­ç¼ºï¼Œå£«å…µå£«æ°”ï¼Œè®­ç»ƒåº¦ä¸‹é™ã€‚ã€‚ã€‚ã€‚",
 		AREA_D->get_area(p_id,"name")));
 	}
 	AREA_D->set_area(p_id,"gold",p_gold);
@@ -232,12 +232,12 @@ void area_income(int a_index)
 	{
 
 // xiaobai: Nov. 12, 2001
-// Èç¹ûÓĞÑµÁ·ÈÎÎñ£¬Ç¿ÆÈÑµÁ·Í£Ö¹
+// å¦‚æœæœ‰è®­ç»ƒä»»åŠ¡ï¼Œå¼ºè¿«è®­ç»ƒåœæ­¢
         if ( nTaskId > 0 && TASK_D->get_task( nTaskId, "type" ) == TT_TRAIN )
         {
             EV_WAR->force_over( nTaskId );
             CHANNEL_D->deliver_tell("rumor","system",
-    			sprintf("%sµÄÑµÁ·ÈÎÎñÒò²¹¸ø²»×ã±»ÆÈÖĞÖ¹¡£",
+    			sprintf("%sçš„è®­ç»ƒä»»åŠ¡å› è¡¥ç»™ä¸è¶³è¢«è¿«ä¸­æ­¢ã€‚",
         		AREA_D->get_area(p_id,"name")));
     
         	p_bing = AREA_D->get_area(p_id, "soldier");
@@ -245,7 +245,7 @@ void area_income(int a_index)
         	mol = AREA_D->get_area(p_id, "morale");
         }    
 
-/* xiaobai: µ±±¾ÉíÖµ½ÏĞ¡Ê±£¬Ò²°´±ÈÀı¼ÆËã£¬ÄÑÒÔµøµ½10ÒÔÏÂ
+/* xiaobai: å½“æœ¬èº«å€¼è¾ƒå°æ—¶ï¼Œä¹ŸæŒ‰æ¯”ä¾‹è®¡ç®—ï¼Œéš¾ä»¥è·Œåˆ°10ä»¥ä¸‹
 		train = to_int(train*(1+p_food/p_bing/4))-1;
 		mol = to_int(mol*(1+p_food/p_bing/3))-3;
 */
@@ -258,7 +258,7 @@ void area_income(int a_index)
        if( train <= 0 ) train = 0;
        if( mol <= 0 ) mol = 0;
        CHANNEL_D->deliver_tell("rumor","system",
-			sprintf("%s¾üĞè¶ÌÈ±£¬Ê¿±øÊ¿Æø£¬ÑµÁ·¶ÈÏÂ½µ¡£¡£¡£¡£",
+			sprintf("%så†›éœ€çŸ­ç¼ºï¼Œå£«å…µå£«æ°”ï¼Œè®­ç»ƒåº¦ä¸‹é™ã€‚ã€‚ã€‚ã€‚",
 		AREA_D->get_area(p_id,"name")));
 	}
 	
@@ -282,11 +282,11 @@ void area_income(int a_index)
 			foreach ( t in ts )
 			{
 				p_b=AREA_D->get_area_soldier(p_id,t);
-				p_b=p_b*(random(8)+10)/20; // xiaobai:ÅÜµô 10%-50%
+				p_b=p_b*(random(8)+10)/20; // xiaobai:è·‘æ‰ 10%-50%
 				AREA_D->set_area_soldier(p_id,t,p_b);
 	        }
 	        CHANNEL_D->deliver_tell("rumor","system",
-			    sprintf("%sÊ¿ÆøÌ«µÍ£¬Ê¿±ø·×·×ÌÓ×ß ¡£¡£¡£",
+			    sprintf("%så£«æ°”å¤ªä½ï¼Œå£«å…µçº·çº·é€ƒèµ° ã€‚ã€‚ã€‚",
 			    AREA_D->get_area(p_id,"name")));
 		}
 	}
@@ -294,7 +294,7 @@ void area_income(int a_index)
 }
 void local_income()
 {
-	array p_date;
+	mixed * p_date;
 	p_date=DAY_D->query_date();
 	p_month=p_date[2];
 	area_income(0);

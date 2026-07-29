@@ -1,4 +1,4 @@
-//  ÑÃÃÅ by benben
+//  è¡™é—¨ by benben
 // xy_ym.c 
 #include <mudlib.h>
 #include "/wiz/fire/fire.h"
@@ -7,8 +7,8 @@ inherit ROOM;
 void setup(){
     set_area("xianyang");
     set_light(50);
-    set_brief(""+YEL+"ÑÃÃÅ"+NOR+"");
-    set_long("    ÃèÊö¡£\n");
+    set_brief(""+YEL+"è¡™é—¨"+NOR+"");
+    set_long("    æè¿°ã€‚\n");
     set_exits( ([
         "east" :  __DIR__+"xy_nst1.c",
         "west" :  __DIR__+"xy_dt.c",

@@ -11,7 +11,7 @@ private nomask void done_editing(string verb, string *lines)
 {
     if (!lines) {
         //printf("\"%s\" entry aborted.\n", verb);
-        printf("'%s' 条目取消。\n", verb);
+        printf("'%s' 鏉＄洰鍙栨秷銆俓n", verb);
         return;
     }
 
@@ -22,11 +22,11 @@ private nomask void main(string arg)
 {
     if (!arg || arg == "") {
         //write("No verb supplied.\n");
-        write("缺少动词。\n");
+        write("缂哄皯鍔ㄨ瘝銆俓n");
         return;
     }
 
     //printf("** Enter args to \"%s\". **\n", arg);
-    printf("** 请给 %s 输入参数：\n", arg);
+    printf("** 璇风粰 %s 杈撳叆鍙傛暟锛歕n", arg);
     new(EDIT_OB, EDIT_TEXT, 0, (: done_editing, arg :));
 }

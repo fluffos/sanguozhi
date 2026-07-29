@@ -28,14 +28,14 @@ inherit M_MEETPLACE;
 inherit __DIR__ "room/exits";
 inherit __DIR__ "room/roomdesc";
 
-private static string area_name;
+private nosave string area_name;
 private int height = 0;
 
 //:FUNCTION stat_me
 //Writes some debugging info about the object.  Shows the container info,
 //as well as the short and exits.
 int stat_me() {
-    printf("房间: %s [ %s ]\n\n",
+    printf("鎴块棿: %s [ %s ]\n\n",
       short(), implode(query_exit_directions(1), ", "));
     container::stat_me();
     return 1;
@@ -54,13 +54,13 @@ void create_board()
         {
              NEWS_D->add_nation_group("nation."+nation);
              this_object()->set_objects(([M_BOARD : 
-               ({ 1,COUNTRY_D->get_country(nation,"name")+"通告", "nation."+nation })]) );
+               ({ 1,COUNTRY_D->get_country(nation,"name")+"閫氬憡", "nation."+nation })]) );
              return;
         }
    }
    p_room=AREA_D->get_area(p_area,"path")+AREA_D->get_area(p_area,"fly");
    if(p_room==file_name()) 
-        this_object()->set_objects(([M_BOARD : ({ 1,"三国榜文", "caolu" }) ]) );
+        this_object()->set_objects(([M_BOARD : ({ 1,"涓夊浗姒滄枃", "caolu" }) ]) );
 }
 */
 //:FUNCTION set_brief
@@ -119,9 +119,9 @@ void mudlib_setup()
     ::mudlib_setup();
     set_light(DEFAULT_LIGHT_LEVEL);
     set_max_capacity(1000000);
-    add_id("environment", "空地");
+    add_id("environment", "绌哄湴");
     //set_getmsg( "A surreal notion.\n");
-    set_getmsg( "幻像。\n");
+    set_getmsg( "骞诲儚銆俓n");
     set_gettable( -1 );
     set_flag( ATTACHED );
 }
@@ -152,7 +152,7 @@ string get_area()
 string query_name ()
 {
     //return "the ground";
-    return "地面。\n";
+    return "鍦伴潰銆俓n";
 }
 
 // Conflict resolution
@@ -171,7 +171,7 @@ mixed direct_get_obj( object ob, string name )
 {
     if( this_object() == environment( this_body()))
         //return "A surreal idea.\n";
-        return "幻像。\n";
+        return "骞诲儚銆俓n";
     return ::direct_get_obj( ob, name );
 }
 /*

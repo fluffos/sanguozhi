@@ -32,15 +32,15 @@ private nomask void write_news_menu()
           "\n"
           );
 */
-    write("¹ÜÀí¹¤¾ß£ºĞÂÎÅ¹ÜÀí\n"
+    write("ç®¡ç†å·¥å…·ï¼šæ–°é—»ç®¡ç†\n"
           "\n"
-          "    l        - ĞÂÎÅ×éÁĞ±í\n"
-          "    a        - Ôö¼ÓĞÂÎÅ×é\n"
-          "    r <Ãû³Æ> - É¾³ıĞÂÎÅ×é\n"
+          "    l        - æ–°é—»ç»„åˆ—è¡¨\n"
+          "    a        - å¢åŠ æ–°é—»ç»„\n"
+          "    r <åç§°> - åˆ é™¤æ–°é—»ç»„\n"
           "\n"
-          "    m        - Ö÷Ñ¡µ¥\n"
-          "    q        - ÍË³ö\n"
-          "    ?        - °ïÖú\n"
+          "    m        - ä¸»é€‰å•\n"
+          "    q        - é€€å‡º\n"
+          "    ?        - å¸®åŠ©\n"
           "\n"  
           );    
 }
@@ -52,7 +52,7 @@ private nomask void list_newsgroups()
     if ( sizeof(grouplist) == 0 )
     {
         //write("    <none>\n");
-        write("         <ÎŞ>\n");
+        write("         <æ— >\n");
         return;
     }
     grouplist = sort_array(grouplist, 1);
@@ -70,12 +70,12 @@ private nomask void rcv_newsgroup_name(string str)
     if ( member_array(str,NEWS_D->get_groups()) != -1)
     {
         //write("** That group already exists.\n");
-        write("** Õâ¸öĞÂÎÅ×éÔçÒÑ´æÔÚÁË¡£\n");
+        write("** è¿™ä¸ªæ–°é—»ç»„æ—©å·²å­˜åœ¨äº†ã€‚\n");
         return;
     }
     NEWS_D->add_group(str);
     printf(//"** Group '%s' added.\n",
-           "** ĞÂÎÅ×é %s ½¨Á¢¡£\n", str);
+           "** æ–°é—»ç»„ %s å»ºç«‹ã€‚\n", str);
     
     modal_func((:receive_news_input:), PROMPT_NEWS);
 }
@@ -83,7 +83,7 @@ private nomask void rcv_newsgroup_name(string str)
 private nomask void add_newsgroup()
 {
     //write("New group name? ");
-    write("ĞÂµÄĞÂÎÅ×éÃû³Æ£¿");
+    write("æ–°çš„æ–°é—»ç»„åç§°ï¼Ÿ");
     modal_simple((: rcv_newsgroup_name :));
 }
 
@@ -94,20 +94,20 @@ private nomask void remove_newsgroup(string group_name)
     if(!group_name)
       {
         //write("** no group name supplied.\n");
-        write("** È±ÉÙĞÂÎÅ×éÃû³Æ¡£\n");
+        write("** ç¼ºå°‘æ–°é—»ç»„åç§°ã€‚\n");
         return;
       }
     group_name = lower_case(group_name);
     if ( member_array(group_name, grouplist) == -1 )
     {
         //write("** That newsgroup does not exist.\n");
-        write("** Õâ¸öĞÂÎÅ×é²¢²»´æÔÚ¡£\n");
+        write("** è¿™ä¸ªæ–°é—»ç»„å¹¶ä¸å­˜åœ¨ã€‚\n");
         return;
     }
 
     NEWS_D->remove_group(group_name);
     printf(//"** Group '%s' removed.\n",
-           "** ĞÂÎÅ×é %s É¾³ıÁË¡£\n", group_name);
+           "** æ–°é—»ç»„ %s åˆ é™¤äº†ã€‚\n", group_name);
 }
 
 private nomask void receive_news_input(string str)
@@ -140,12 +140,12 @@ private nomask void receive_news_input(string str)
     }
 }
 
-static nomask void begin_news_menu()
+protected nomask void begin_news_menu()
 {
     if( !check_privilege(1) )
     {
         //write("Sorry... admin only.\n");
-        write("¶Ô²»Æğ£¬Ö»¶Ô´óÉñ¿ª·Å¡£\n");
+        write("å¯¹ä¸èµ·ï¼Œåªå¯¹å¤§ç¥å¼€æ”¾ã€‚\n");
         return;
     }
     modal_func((: receive_news_input :), PROMPT_NEWS);

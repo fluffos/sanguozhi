@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is »¨¶ù¶ä¶ä
+// driver is èŠ±å„¿æœµæœµ
 // created date is Mon May  9 11:04:26 2011
 #include <mudlib.h>
 #include <ansi.h>
@@ -9,14 +9,14 @@ inherit STORE;
 void setup() {
 set_area("jiangling");
 set_light(50);
-set_brief("%^YELLOW%^"+"¾Æ¹İ"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"é…’é¦†"+"%^RESET%^");
 set_long("
-    ÕâÀïÊÇ½­Áê¾Æ¹İ,ÃÅ¿ÚĞ´×ÅÒ»¸öÕĞÅÆ¡°Ì«°×Â¥¡±,ËÄÖÜµÄ×°ÊÎ
-½ğ±Ú»Ô»Í£¬ÁîÈËÑÛ»¨çÔÂÒ,ÈËÀ´ÈËÍùºÜÊÇÈÈÄÖ¡£\n\n");
+    è¿™é‡Œæ˜¯æ±Ÿé™µé…’é¦†,é—¨å£å†™ç€ä¸€ä¸ªæ‹›ç‰Œâ€œå¤ªç™½æ¥¼â€,å››å‘¨çš„è£…é¥°
+é‡‘å£è¾‰ç…Œï¼Œä»¤äººçœ¼èŠ±ç¼­ä¹±,äººæ¥äººå¾€å¾ˆæ˜¯çƒ­é—¹ã€‚\n\n");
 set_exits( ([
 "south":"/a/jiangling/jl_shibanlu.c",
  ]));
-//set_objects((["/sgdomain/obj/other/board.c" : ({ 1,"½­ÁêµÄ¾Æ¹İ£¬ÃÅ¿Ú¹Ò×ÅÒ»°×²¼¡°¾Æ¡±×ÖÕĞÅÆ¡£listÁĞ³ö»õÆ·£¬buy¹ºÂò¡£\n\n"}) ]) );
+//set_objects((["/sgdomain/obj/other/board.c" : ({ 1,"æ±Ÿé™µçš„é…’é¦†ï¼Œé—¨å£æŒ‚ç€ä¸€ç™½å¸ƒâ€œé…’â€å­—æ‹›ç‰Œã€‚liståˆ—å‡ºè´§å“ï¼Œbuyè´­ä¹°ã€‚\n\n"}) ]) );
 
 add_object("/sgdomain/obj/foodanddrink/mantou.c");
 add_object("/sgdomain/obj/foodanddrink/ypjd.c");

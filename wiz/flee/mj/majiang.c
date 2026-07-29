@@ -70,10 +70,10 @@ string look_pai(mapping *ptemp)
         str = "\n";
         for(j = 0; j < (int)(k/10)+1; j++){
                 for(i = j*10; i < ( (j+1)*10 > k ? k : (j+1)*10 ); i++)
-                        str = str + "°æ"+get_first( ptemp[i] )+"°ø";
+                        str = str + "„Äê"+get_first( ptemp[i] )+"„Äë";
                 str = str + "\n";
                 for(i = j*10; i < ( (j+1)*10 > k ? k : (j+1)*10 ); i++)
-                        str = str + "°æ"+get_second( ptemp[i] )+"°ø";
+                        str = str + "„Äê"+get_second( ptemp[i] )+"„Äë";
                 str = str + "\n";
                 for(i = j*10; i < ( (j+1)*10 > k ? k : (j+1)*10 ); i++)
 		str = str+"  "+((i + 1)>9?(i+1+""):((i+1)+" "))+"  ";
@@ -85,24 +85,24 @@ string look_pai(mapping *ptemp)
 string get_first(mapping ptemp)
 {
         if( ptemp["row"] == 3 ){
-                if( ptemp["col"] == 0) return HIW"∞◊"NOR;
-                else if( ptemp["col"] == 1) return HIR"∫Ï"NOR;
-                else if( ptemp["col"] == 2) return HIG"¬Ã"NOR;
-                else if( ptemp["col"] == 3) return HIY"∂´"NOR;
-                else if( ptemp["col"] == 4) return HIY"Œ˜"NOR;
-                else if( ptemp["col"] == 5) return HIY"ƒœ"NOR;
-                else if( ptemp["col"] == 6) return HIY"±±"NOR;
+                if( ptemp["col"] == 0) return HIW"ÁôΩ"NOR;
+                else if( ptemp["col"] == 1) return HIR"Á∫¢"NOR;
+                else if( ptemp["col"] == 2) return HIG"Áªø"NOR;
+                else if( ptemp["col"] == 3) return HIY"‰∏ú"NOR;
+                else if( ptemp["col"] == 4) return HIY"Ë•ø"NOR;
+                else if( ptemp["col"] == 5) return HIY"Âçó"NOR;
+                else if( ptemp["col"] == 6) return HIY"Âåó"NOR;
                 else {
                         if( ptemp["col"] == 7){
-                        if( ptemp["deep"] == 0)return HIY"¥∫"NOR;
-                        else if( ptemp["deep"] == 1)return HIY"œƒ"NOR;
-                        else if( ptemp["deep"] == 2)return HIY"«Ô"NOR;
-                        else return HIY"∂¨"NOR;
+                        if( ptemp["deep"] == 0)return HIY"Êò•"NOR;
+                        else if( ptemp["deep"] == 1)return HIY"Â§è"NOR;
+                        else if( ptemp["deep"] == 2)return HIY"Áßã"NOR;
+                        else return HIY"ÂÜ¨"NOR;
                         } else {
-                                if( ptemp["deep"] == 0)return HIY"√∑"NOR;
-                                else if( ptemp["deep"] == 1)return HIY"¿º"NOR;
-                                else if( ptemp["deep"] == 2)return HIY"÷Ò"NOR;
-                                else return HIY"æ’"NOR;
+                                if( ptemp["deep"] == 0)return HIY"Ê¢Ö"NOR;
+                                else if( ptemp["deep"] == 1)return HIY"ÂÖ∞"NOR;
+                                else if( ptemp["deep"] == 2)return HIY"Á´π"NOR;
+                                else return HIY"Ëèä"NOR;
                         };
                 };
         };
@@ -110,28 +110,28 @@ string get_first(mapping ptemp)
 }
 string get_second(mapping ptemp)
 {
-        if( ptemp["row"] == 0 )return HIR"±˝"NOR;
-        else if( ptemp["row"] == 1 )return HIG"Ãı"NOR;
-        else if( ptemp["row"] == 2 )return HIC"ÕÚ"NOR;
+        if( ptemp["row"] == 0 )return HIR"È•º"NOR;
+        else if( ptemp["row"] == 1 )return HIG"Êù°"NOR;
+        else if( ptemp["row"] == 2 )return HIC"‰∏á"NOR;
         else {
-                if( ptemp["col"] == 0) return HIW"∞Â"NOR;
-                else if( ptemp["col"] == 1) return HIR"÷–"NOR;
-                else if( ptemp["col"] == 2) return HIG"∑¢"NOR;
-                else if( ptemp["col"] == 3) return HIY"∑Á"NOR;
-                else if( ptemp["col"] == 4) return HIY"∑Á"NOR;
-                else if( ptemp["col"] == 5) return HIY"∑Á"NOR;
-                else if( ptemp["col"] == 6) return HIY"∑Á"NOR;
+                if( ptemp["col"] == 0) return HIW"Êùø"NOR;
+                else if( ptemp["col"] == 1) return HIR"‰∏≠"NOR;
+                else if( ptemp["col"] == 2) return HIG"Âèë"NOR;
+                else if( ptemp["col"] == 3) return HIY"È£é"NOR;
+                else if( ptemp["col"] == 4) return HIY"È£é"NOR;
+                else if( ptemp["col"] == 5) return HIY"È£é"NOR;
+                else if( ptemp["col"] == 6) return HIY"È£é"NOR;
                 else {
                         if( ptemp["col"] == 7){
-                                if( ptemp["deep"] == 0)return HIY"¥∫"NOR;
-                                else if( ptemp["deep"] == 1)return HIY"œƒ"NOR;
-                                else if( ptemp["deep"] == 2)return HIY"«Ô"NOR;
-                                else return HIY"∂¨"NOR;
+                                if( ptemp["deep"] == 0)return HIY"Êò•"NOR;
+                                else if( ptemp["deep"] == 1)return HIY"Â§è"NOR;
+                                else if( ptemp["deep"] == 2)return HIY"Áßã"NOR;
+                                else return HIY"ÂÜ¨"NOR;
                         } else {
-                                if( ptemp["deep"] == 0)return HIY"√∑"NOR;
-                                else if( ptemp["deep"] == 1)return HIY"¿º"NOR;
-                                else if( ptemp["deep"] == 2)return HIY"÷Ò"NOR;
-                                else return HIY"æ’"NOR;
+                                if( ptemp["deep"] == 0)return HIY"Ê¢Ö"NOR;
+                                else if( ptemp["deep"] == 1)return HIY"ÂÖ∞"NOR;
+                                else if( ptemp["deep"] == 2)return HIY"Á´π"NOR;
+                                else return HIY"Ëèä"NOR;
                         };
                 };
         };

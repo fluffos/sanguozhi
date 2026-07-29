@@ -9,9 +9,9 @@ int get_newjob(object who);
 int succ_job(object who);
 
 void setup() {
-        set_id("zhu bang", "ÇàÖñ°ô", "bamboo");
-        set_unit("¸ù");
-        set_in_room_desc("Ò»¸ùÇàÖñ°ô£¬¿´ÉÏÈ¥³ÁµéµéµÄ");
+        set_id("zhu bang", "é’ç«¹æ£’", "bamboo");
+        set_unit("æ ¹");
+        set_in_room_desc("ä¸€æ ¹é’ç«¹æ£’ï¼Œçœ‹ä¸ŠåŽ»æ²‰ç”¸ç”¸çš„");
         set_attack_ability(20);
         set_attack_power(10);
         set_defence_ability(1);
@@ -36,15 +36,15 @@ int do_use_it()
 	hp   = who->query_cur_hp();
 	job  = who->query_job("yu ji", "");
 
-	who->start_busy(2, "ÄãÕýÃ¦×Å»ÓÎèÇàÖñ°ôÄØ¡£");
+	who->start_busy(2, "ä½ æ­£å¿™ç€æŒ¥èˆžé’ç«¹æ£’å‘¢ã€‚");
 
 	if( who->query_cur_hp() < 30 ){
-		write("»¹ÊÇÐÝÏ¢Ò»»áÔÙ¸É°É¡£\n");
+		write("è¿˜æ˜¯ä¼‘æ¯ä¸€ä¼šå†å¹²å§ã€‚\n");
 		return 1;
 	} else who->set_cur_hp(who->query_cur_hp()-25);
 
 	if( !job || !mapp(job) || job["beg_time"] <= 0 || job["stage"] == "over" ){
-		who->simple_action("$NÓÃÁ¦µÄÇÃ´ò×ÅÖñ°ô£¬´ó¼Ò¶¼Ææ¹ÖµÄ¶¢×Å$N¡£\n");
+		who->simple_action("$Nç”¨åŠ›çš„æ•²æ‰“ç€ç«¹æ£’ï¼Œå¤§å®¶éƒ½å¥‡æ€ªçš„ç›¯ç€$Nã€‚\n");
 		return 1;
 	}
 
@@ -72,24 +72,24 @@ int check_place(object who, mixed arg)
 		t_obj  = arg[1];
 	};
 
-	who->simple_action("$NÍµÍµµÄ»Î¶¯ÁËÒ»ÏÂ"+this_object()->short()+"·¢³öÇå´àµÄ°ð°ðÉù¡£\n");
+	who->simple_action("$Nå·å·çš„æ™ƒåŠ¨äº†ä¸€ä¸‹"+this_object()->short()+"å‘å‡ºæ¸…è„†çš„æ¢†æ¢†å£°ã€‚\n");
 //	if( room + ".c" != t_room )
 	if( room != t_room )
-		write("¿ÉÊÇÃ»ÈË×¢Òâµ½Äã¡£\n");
+		write("å¯æ˜¯æ²¡äººæ³¨æ„åˆ°ä½ ã€‚\n");
 	else if( !t_obj ){
-		write("Ò»¸öÈË²»Öª´ÓºÎ´¦Ã°ÁË³öÀ´£¬´ÓÄãÉí±ß²ÁÉí¶ø¹ý£¬ÏûÊ§²»¼ûÁË¡£\n");
+		write("ä¸€ä¸ªäººä¸çŸ¥ä»Žä½•å¤„å†’äº†å‡ºæ¥ï¼Œä»Žä½ èº«è¾¹æ“¦èº«è€Œè¿‡ï¼Œæ¶ˆå¤±ä¸è§äº†ã€‚\n");
 		if( random(num) >= 2 || num >= 4 ) succ_job(who);
 		else get_newjob(who);
 	} else {
 		all = all_inventory(who);
 		foreach(object oo in all){
 			if( oo->query_id()[0] != t_obj || !oo->sg_obj() )continue;
-			write("Ò»¸öÈËÊÖÄÃ×ÅÒ»"+oo->query_unit()+oo->query_id()[1]+"´ÓÄãÉí±ß×ß¹ý£¬»¹ÏòÄãµãÁËµãÍ·¡£\n");
+			write("ä¸€ä¸ªäººæ‰‹æ‹¿ç€ä¸€"+oo->query_unit()+oo->query_id()[1]+"ä»Žä½ èº«è¾¹èµ°è¿‡ï¼Œè¿˜å‘ä½ ç‚¹äº†ç‚¹å¤´ã€‚\n");
 			if( random(num) >= 2 || num >= 4 )succ_job(who);
                 	else get_newjob(who);
 			return 1;
 		}
-		write("Ò»¸öÈË½¡²½×ßÁË¹ýÀ´£¬¿´ÁËÄãÒ»ÑÛ£¬Àë¿ªÁË¡£\n");
+		write("ä¸€ä¸ªäººå¥æ­¥èµ°äº†è¿‡æ¥ï¼Œçœ‹äº†ä½ ä¸€çœ¼ï¼Œç¦»å¼€äº†ã€‚\n");
 	};
 
 	return 2;
@@ -110,12 +110,12 @@ int check_who(object who, mixed arg)
                 t_obj  = arg[1];
         };
 
-	who->simple_action("$N×°×÷²»¾­ÒâµÄÑù×Ó»Î¶¯×Å"+this_object()->short()+"·¢³öÇå´àµÄ°ð°ðÉù¡£\n");
+	who->simple_action("$Nè£…ä½œä¸ç»æ„çš„æ ·å­æ™ƒåŠ¨ç€"+this_object()->short()+"å‘å‡ºæ¸…è„†çš„æ¢†æ¢†å£°ã€‚\n");
 
 	foreach(npc in all){
 		if( npc->query_id()[0] == t_who ){
 			if( !t_obj ){
-				npc->targetted_action("$NÂý²½×ßµ½ÁË$T¸úÇ°£¬ÓÖÂýÂýµÄ×ßÁË»ØÈ¥¡£\n",who);
+				npc->targetted_action("$Næ…¢æ­¥èµ°åˆ°äº†$Tè·Ÿå‰ï¼Œåˆæ…¢æ…¢çš„èµ°äº†å›žåŽ»ã€‚\n",who);
 				if( random(num) >= 2 || num >= 4 )succ_job(who);
                 		else get_newjob(who);
 				return 2;
@@ -123,22 +123,22 @@ int check_who(object who, mixed arg)
 			obj = all_inventory(who);
 			foreach(object oo in obj){
 				if( oo->query_id()[0] != t_obj || !oo->sg_obj() )continue;
-				who->targetted_action("$NÃæ¶Ô$T×ÅÄÃ³öÒ»"+oo->query_unit()+oo->query_id()[1]+"¡£\n", npc);
-				npc->targetted_action("$N¶Ô×Å$TÇÄÇÄµÄµãÁËµãÍ·¡£\n", who);
+				who->targetted_action("$Né¢å¯¹$Tç€æ‹¿å‡ºä¸€"+oo->query_unit()+oo->query_id()[1]+"ã€‚\n", npc);
+				npc->targetted_action("$Nå¯¹ç€$Tæ‚„æ‚„çš„ç‚¹äº†ç‚¹å¤´ã€‚\n", who);
 				if( random(num) >= 2 || num >= 4 )succ_job(who);
                                 else get_newjob(who);
                                 return 3;
 			};
-			npc->targetted_action("$NÏò$T´òÁ¿ÁËÁ½ÑÛ£¬³ÁÄ¬²»Óï¡£\n", who);
+			npc->targetted_action("$Nå‘$Tæ‰“é‡äº†ä¸¤çœ¼ï¼Œæ²‰é»˜ä¸è¯­ã€‚\n", who);
 		};
 	};
-	write("¿ÉÊÇÊ²Ã´Ò²Ã»ÓÐ·¢Éú¡£\n");
+	write("å¯æ˜¯ä»€ä¹ˆä¹Ÿæ²¡æœ‰å‘ç”Ÿã€‚\n");
 	return 1;
 }
 int succ_job(object who)
 {
-	write("ÄãÖ»¾õµÄ"+this_object()->short()+"±äµÄ³ÁµéµéµÄ£¬ºÃÏó×°ÁËÊ²Ã´¶«Î÷¡£\n");
-	write("ÄãµÄÈÎÎñÍê³ÉÁË£¬¸Ï½ô»ØÈ¥¼ûÓÚ¼ª°É¡£\n");
+	write("ä½ åªè§‰çš„"+this_object()->short()+"å˜çš„æ²‰ç”¸ç”¸çš„ï¼Œå¥½è±¡è£…äº†ä»€ä¹ˆä¸œè¥¿ã€‚\n");
+	write("ä½ çš„ä»»åŠ¡å®Œæˆäº†ï¼Œèµ¶ç´§å›žåŽ»è§äºŽå‰å§ã€‚\n");
 	this_object()->set(who->query_id()[0], "ok");
 	who->set_job("yu ji", "stage", "over");
 	return 1;
@@ -159,13 +159,13 @@ int get_newjob(object who)
         	rooms = AREA(area)->get_room("list");
         	room  = rooms[random(sizeof(rooms))];
 		
-        	memo  = AREA_D->get_area(area,"name")+"Ö®"+AREA(area)->get_room(room,"b");
+        	memo  = AREA_D->get_area(area,"name")+"ä¹‹"+AREA(area)->get_room(room,"b");
 	} else {
 		type  = 2;
 		chars = CHAR_D->check_char("area", area);
 		chars = chars - ({ who->query_id()[0] });
 		char  = chars[random(sizeof(chars))];
-		memo  = AREA_D->get_area(area,"name")+"Ö®"+CHAR_D->get_char(char, "name")+"("+char+")";
+		memo  = AREA_D->get_area(area,"name")+"ä¹‹"+CHAR_D->get_char(char, "name")+"("+char+")";
 	};
 	if( random(3) == 1){
 		ob   = 1;
@@ -185,9 +185,9 @@ int get_newjob(object who)
 	}
 
 	if( ob == 1 ){
-		write("ÄãÖ»Ìýµ½ÓÐÈËµÍÉù¶ÔÄãËµ£ºÏÖÔÚÄãµÄÈÎÎñÊÇÕÒµ½"+memo+"£¬°µºÅÊÇ£º"+OBJ_D->get_obj(obj, "name")+"¡£\n");
+		write("ä½ åªå¬åˆ°æœ‰äººä½Žå£°å¯¹ä½ è¯´ï¼šçŽ°åœ¨ä½ çš„ä»»åŠ¡æ˜¯æ‰¾åˆ°"+memo+"ï¼Œæš—å·æ˜¯ï¼š"+OBJ_D->get_obj(obj, "name")+"ã€‚\n");
 		memo = memo + "--(" + OBJ_D->get_obj(obj, "name")+ ")";
-	} else write("ÄãÖ»Ìýµ½ÓÐÈËµÍÉù¶ÔÄãËµ£ºÏÖÔÚÄãµÄÈÎÎñÊÇÕÒµ½"+memo+"¡£\n");
+	} else write("ä½ åªå¬åˆ°æœ‰äººä½Žå£°å¯¹ä½ è¯´ï¼šçŽ°åœ¨ä½ çš„ä»»åŠ¡æ˜¯æ‰¾åˆ°"+memo+"ã€‚\n");
 
 	who->set_job("yu ji", "memo", memo);
 	who->set_job("yu ji", "num", who->query_job("yu ji", "num")+1);

@@ -16,7 +16,7 @@
 varargs mixed move(mixed dest, string where);
 string *get_player_message(string message, mixed arg);
 int test_flag(int which);
-string array action(object array x, string s);
+string * action(object * x, string s);
 void simple_action(string s);
 
 
@@ -34,28 +34,28 @@ private nomask int move_me_there(string dest, string arg, object last_loc)
             if(r == MOVE_NO_ERROR) 
                 return 1;
 
-            write("ÄãÍ£ÁôÔÚÔ­µØ£¬×¤×ã²»Ç°¡£\n");
+            write("ä½ åœç•™åœ¨åŽŸåœ°ï¼Œé©»è¶³ä¸å‰ã€‚\n");
             return 0;
         }
 
         switch(r) {
         case MOVE_NO_DEST:
-            write("Äã±»×èµ²×¡ÁË£¬Õâ¸ö·½ÏòÃ»ÓÐÂ·¡£\n");
+            write("ä½ è¢«é˜»æŒ¡ä½äº†ï¼Œè¿™ä¸ªæ–¹å‘æ²¡æœ‰è·¯ã€‚\n");
             return 0;
         case MOVE_NO_ROOM:
             d = load_object(dest);
             if(d->query_max_capacity()-d->query_capacity()-VERY_LARGE < 0) {
                 if(sizeof(filter(all_inventory(d),(:$1->is_living():)))) {
-                    write("ÄÇÀïÒÑ¾­ÓÐ¶«Î÷£¬ÈÝ²»ÏÂÄãµÄÉíÌåÁË¡£");
+                    write("é‚£é‡Œå·²ç»æœ‰ä¸œè¥¿ï¼Œå®¹ä¸ä¸‹ä½ çš„èº«ä½“äº†ã€‚");
                 } else {
-                    write("ÄãÈ¥²»³ÉÄÇÀï¡£\n");
+                    write("ä½ åŽ»ä¸æˆé‚£é‡Œã€‚\n");
                 }
             } else {
-                write("ÄãµÄ¸ººÉ³¬ÖØÁË£¬ÄÄ¶ùÒ²È¥²»³É¡£\n");
+                write("ä½ çš„è´Ÿè·è¶…é‡äº†ï¼Œå“ªå„¿ä¹ŸåŽ»ä¸æˆã€‚\n");
             }
             return 0;
         default:
-            write("Äã»¹ÁôÔÚÔ­µØ¡£\n");
+            write("ä½ è¿˜ç•™åœ¨åŽŸåœ°ã€‚\n");
             return 0;
         }
     }
@@ -68,7 +68,7 @@ private nomask int move_me_there(string dest, string arg, object last_loc)
     }
 
     if ( !arg )
-        arg = "Ä³´¦";
+        arg = "æŸå¤„";
     else arg = DIRECTION_D->cdir(arg);
 
     env = environment();
@@ -192,7 +192,7 @@ void do_go_somewhere( string arg )
             			{
 					if((environment(this_object())==this_object()->query_room())
 						&&(!this_object()->query_room()->is_troop())) {
-				                set_this_player(inv[i]);
+				                // set_this_player(inv[i]); // set_this_player() unavailable in this driver build (no NO_ADD_ACTION) -- no-op'd, this_player() is whatever it naturally is here
 				                this_user()->do_go_somewhere(arg);
 					}
 				}

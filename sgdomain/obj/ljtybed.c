@@ -3,12 +3,12 @@
 inherit FURNITURE;
 void setup()
 {
-  set_id("bed", HIG+"Ë«ÈË´²"+NOR);
-  set_unit("ÕÅ");
-  set_in_room_desc("Ë«ÈË´²(bed)");
+  set_id("bed", HIG+"åŒäººåºŠ"+NOR);
+  set_unit("å¼ ");
+  set_in_room_desc("åŒäººåºŠ(bed)");
   set_get_on_msg("");
-  set_get_off_msg("$N´Ó´²ÉÏÕ¾ÆğÀ´¡£\n");
-  set_long("ÕâÊÇÀË¼£ÌìÑÄÆ½³£ĞİÏ¢ÓÃµÄ´²¡£");
+  set_get_off_msg("$Nä»åºŠä¸Šç«™èµ·æ¥ã€‚\n");
+  set_long("è¿™æ˜¯æµªè¿¹å¤©æ¶¯å¹³å¸¸ä¼‘æ¯ç”¨çš„åºŠã€‚");
   set_preposition("on");
   set_relations("on","under");
   set_max_capacity(VERY_LARGE*2, "on");
@@ -28,11 +28,11 @@ int mount_it_already()
   string stat;
   if(environment(this_body()) == this_object())
     {
-      write("ÄãÒÑ¾­ÌÉÔÚ´²ÉÏÁË¡£\n");
+      write("ä½ å·²ç»èººåœ¨åºŠä¸Šäº†ã€‚\n");
       return 1;
     }
   this_body()->move(this_object());
-  this_body()->simple_action("$NÍÑÏÂÒÂ·ş£¬ÊæÊæ·ş·şµØÌÉÔÚ"+short()+"ÉÏ¡£\n");
+  this_body()->simple_action("$Nè„±ä¸‹è¡£æœï¼Œèˆ’èˆ’æœæœåœ°èººåœ¨"+short()+"ä¸Šã€‚\n");
   foreach (object ob2 in all_inventory(this_body())) 
   {
 		

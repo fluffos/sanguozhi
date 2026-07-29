@@ -13,13 +13,13 @@ inherit M_SHELLFUNCS;
 inherit M_SAVE;
 inherit M_SCROLLBACK;
 
-private static object owner;
+private nosave object owner;
 
 varargs void execute_command();
 string query_shellname();
 string query_save_path(string userid);
 
-static function arg_to_words_func = (: explode($1," ") :);
+nosave protected function arg_to_words_func = (: explode($1," ") :);
 
 //### goofy fucking hack cuz the shell doesn't save for shit. only M_SAVE,
 //### even though in the alias code it professes to "not require it to be
@@ -45,7 +45,7 @@ void save_me()
     save_info = save_to_string();
     unguarded(1, (: save_object, query_save_path(owner->query_userid()) :));
 }
-static void restore_me(string userid)
+protected void restore_me(string userid)
 {
     unguarded(1, (: restore_object, query_save_path(userid) :));
     if ( save_info )
@@ -59,12 +59,12 @@ void remove()
 {
     if ( origin() != ORIGIN_LOCAL && owner && previous_object() != owner )
     //error("illegal attempt to remove shell object\n");
-    error("ÆóÍ¼·Ç·¨É¾³ıÃüÁîĞĞÎï¼ş\n");
+    error("ä¼å›¾éæ³•åˆ é™¤å‘½ä»¤è¡Œç‰©ä»¶\n");
     save_me();
     destruct();
 }
 
-static void shell_input(mixed input)
+protected void shell_input(mixed input)
 {
     mixed argv;
     string original_input;
@@ -140,7 +140,7 @@ private void cmd_exit()
     return;
     }
     printf(//"Exiting %s\n",
-           "ÍË³ö %s\n",
+           "é€€å‡º %s\n",
             query_shellname());
     modal_pop();
     remove();
@@ -156,7 +156,7 @@ protected void create()
     {
     destruct();
     //error("illegal shell object creation\n");
-    error( sprintf("ÃüÁîĞĞÎÄ¼ş½¨Á¢Ê§°Ü previous_obj=%O this_usr=%O\n",
+    error( sprintf("å‘½ä»¤è¡Œæ–‡ä»¶å»ºç«‹å¤±è´¥ previous_obj=%O this_usr=%O\n",
     	owner,this_user()));
     }
 
@@ -172,7 +172,7 @@ protected void create()
 ** Subclasses will typically override to set up bindings and variables
 ** with shell_bind_if_undefined() or set_if_undefined(), respectively.
 */
-static void prepare_shell()
+protected void prepare_shell()
 {
     shell_bind_if_undefined("alias",    (: cmd_alias :));
     shell_bind_if_undefined("unalias",  (: cmd_remove_alias($1,1) :));
@@ -181,7 +181,7 @@ static void prepare_shell()
 //    shell_bind_if_undefined("exit",   (: cmd_exit :));
 }
 
-static mixed what_prompt()
+protected mixed what_prompt()
 {
     return "> ";
 }
@@ -190,7 +190,7 @@ void start_shell()
 {
     if ( owner != this_user() || previous_object() != owner )
     //error("illegal attempt to take over shell\n");
-    error("ÆóÍ¼·Ç·¨³¬Ô½ÃüÁîĞĞ\n");
+    error("ä¼å›¾éæ³•è¶…è¶Šå‘½ä»¤è¡Œ\n");
     modal_push((: shell_input :), what_prompt());
 
     prepare_shell();

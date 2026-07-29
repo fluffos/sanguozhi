@@ -1,4 +1,4 @@
-// Ì«Ñ§ÌÃ  by Benben
+// å¤ªå­¦å ‚  by Benben
 // ty_taixue.c 
 #include <mudlib.h>
 #include "/wiz/fire/fire.h"
@@ -7,8 +7,8 @@ inherit ROOM;
 void setup(){
     set_area("ty_area");
     set_light(50);
-    set_brief(""+YEL+"Ì«Ñ§ÌÃ"+NOR+"");
-    set_long("    ÃèÊö¡£\n");
+    set_brief(""+YEL+"å¤ªå­¦å ‚"+NOR+"");
+    set_long("    æè¿°ã€‚\n");
     set_exits( ([
         "east" :  __DIR__+"ty_nst2.c",
     ]) );

@@ -37,7 +37,7 @@
 */
 
 #include <ansi.h>
-#define CHANNEL_FORMAT "%%^%s_CHANNEL%%^¡¾%s¡¿%s%%^RESET%%^\n"
+#define CHANNEL_FORMAT "%%^%s_CHANNEL%%^ã€%sã€‘%s%%^RESET%%^\n"
 
 #include <mudlib.h>
 #include <security.h>
@@ -56,7 +56,7 @@ inherit __DIR__ "channel/moderation";
 /*
 ** This channel information.  It specifies channel_name -> channel_info.
 */
-private static mapping info;
+private nosave mapping info;
 
 /*
 ** This mapping contains which channels should not be auto-purged (keys)
@@ -89,12 +89,12 @@ private nomask string extract_channel_name(string channel_name)
     return channel_name[idx+1..];
 }
 
-static nomask class channel_info query_channel_info(string channel_name)
+protected nomask class channel_info query_channel_info(string channel_name)
 {
     return info[channel_name];
 }
 
-static nomask void create_channel(string channel_name)
+protected nomask void create_channel(string channel_name)
 {
     class channel_info  ci;
 
@@ -183,7 +183,7 @@ private void register_body(object body)
     map_array(names, (: register_one, 0, body :));
 }
 
-static nomask void set_permanent(string channel_name, int is_perm)
+protected nomask void set_permanent(string channel_name, int is_perm)
 {
     int no_exist = undefinedp(permanent_channels[channel_name]);
 
@@ -201,7 +201,7 @@ static nomask void set_permanent(string channel_name, int is_perm)
     }
 }
 
-static nomask void set_flags(string channel_name, int flags)
+protected nomask void set_flags(string channel_name, int flags)
 {
     class channel_info ci = info[channel_name];
 
@@ -270,7 +270,7 @@ private nomask string find_sender_name(string sender_name)
 
     if ( !(sender_name = previous_object()->query_name()) )
     sender_name = //"<unknown>";
-                  "<Ä³ÈË>";
+                  "<æŸäºº>";
     return sender_name;
 }
 
@@ -309,9 +309,9 @@ nomask void deliver_channel(string channel_name, string str)
     string cname = query_channel_name(channel_name);
     if (channel_name == "imud_imud_sgz") {
     	string sender, mud, msg;
-    	if (sscanf(str, "%s@%s£º%s", sender, mud, msg) == 3) {
+    	if (sscanf(str, "%s@%sï¼š%s", sender, mud, msg) == 3) {
     	    cname = mud;
-    	    str = sender + "£º" + msg;
+    	    str = sender + "ï¼š" + msg;
     	}
     	else if (sscanf(str, "%s+%s", mud, msg) == 2) {
     	    cname = mud;
@@ -357,7 +357,7 @@ private nomask void deliver_data(string channel_name,
 {
     class channel_info ci = info[channel_name];
 
-	//tell_user("huaer",sprintf("½øÁËchannel_d.c/deliver_data(),ci = %O\n",ci));
+	//tell_user("huaer",sprintf("è¿›äº†channel_d.c/deliver_data(),ci = %O\n",ci));
     if ( !ci || sizeof(ci->listeners) == 0 )
     return;
 	//tell_user("huaer",sprintf("ci->listeners = %O\n",ci->listeners));
@@ -377,15 +377,15 @@ string message)
 string tmp;
     sender_name = find_sender_name(sender_name);
     if (channel_name=="rumor") {
-// deliver_notice("announce", sprintf("Ò¥ÑÔ£º%s¡£", sender_name));
+// deliver_notice("announce", sprintf("è°£è¨€ï¼š%sã€‚", sender_name));
 tmp = sender_name;
-	sender_name="Ä³ÈË";
+	sender_name="æŸäºº";
     }
 
     deliver_data(channel_name, sender_name, "tell", message);
-    deliver_channel(channel_name, sender_name + "£º" + message);
+    deliver_channel(channel_name, sender_name + "ï¼š" + message);
  if(channel_name == "rumor"&& tmp!="system"){
-deliver_notice("announce", sprintf("Ò¥ÑÔ£º%s¡£", tmp));
+deliver_notice("announce", sprintf("è°£è¨€ï¼š%sã€‚", tmp));
 }
 }
 
@@ -401,20 +401,20 @@ nomask void deliver_emote(string channel_name,
 //    string tmp;
 
     if( !sizeof( message )) {
-    write( "×öÄÄÒ»¸ö EMOTE £¿\n" ); //"Emote what?\n" );
+    write( "åšå“ªä¸€ä¸ª EMOTE ï¼Ÿ\n" ); //"Emote what?\n" );
         return;
     }
     sender_name = find_sender_name(sender_name);
     if (channel_name=="rumor") {
-        //deliver_notice("announce", sprintf("Ò¥ÑÔ£º%s", sender_name));
+        //deliver_notice("announce", sprintf("è°£è¨€ï¼š%s", sender_name));
 //        tmp = sender_name;
-	sender_name="Ä³ÈË";
+	sender_name="æŸäºº";
     }
 
     deliver_data(channel_name, sender_name, "emote", message);
     deliver_channel(channel_name, sender_name + message);
 //    if(channel_name == "rumor"&& tmp!="system"){
-//	deliver_notice("announce", sprintf("Ò¥ÑÔ£º%s¡£", tmp));
+//	deliver_notice("announce", sprintf("è°£è¨€ï¼š%sã€‚", tmp));
 //	}
 }
 

@@ -1,34 +1,34 @@
 // sleeper.c
 inherit __DIR__+"worker";
 string get_room_desc() {
-	return "ÕıÃ¦×Åº¹Á÷ä¤±³µÄ"+p_workername+c_name+"("+my_id+")";
+	return "æ­£å¿™ç€æ±—æµæµƒèƒŒçš„"+p_workername+c_name+"("+my_id+")";
 }
 
 mixed extra_init() {
 	set_steps(2); // just two judge way
 
 	create_scenario("noise1");
-	add_act("noise1","n1","WTO",1,"$N²Á²Áº¹£¬ÓÖÃ¦×Å¸ÉÁËÆğÀ´¡£\n");
+	add_act("noise1","n1","WTO",1,"$Næ“¦æ“¦æ±—ï¼Œåˆå¿™ç€å¹²äº†èµ·æ¥ã€‚\n");
 
 	create_scenario("noise2");
-	add_act("noise2","n1","WTM",1,"$N¶Ô$T¾ÏÁË¸ö¹ª£¬ÓÖÔÚÒ»±ßÃ¦ÆğÀ´ÁË¡£\n");
+	add_act("noise2","n1","WTM",1,"$Nå¯¹$Té äº†ä¸ªèº¬ï¼Œåˆåœ¨ä¸€è¾¹å¿™èµ·æ¥äº†ã€‚\n");
 
 	create_scenario("noise3");
 	add_act("noise3","n1","HEW",1,"sweat");
 }
 
 string get_prompt() {
-	return "ÔõÃ´°ì£¿ÎÊÇé¿ö(a) ¿´(l) ½ÒÂ¶(0) ¹ÄÀø(1)\n";
+	return "æ€ä¹ˆåŠï¼Ÿé—®æƒ…å†µ(a) çœ‹(l) æ­éœ²(0) é¼“åŠ±(1)\n";
 }
 
 string get_desc(int lv) {
 	if(random(lv)<30)
-		return "$mÓëÆäËû"+p_workername+"Ã»ÓĞÊ²Ã´²»Í¬¡£\n";
+		return "$mä¸å…¶ä»–"+p_workername+"æ²¡æœ‰ä»€ä¹ˆä¸åŒã€‚\n";
 	if(status<4)
-		return "$mÆ½Ê±ÊÇÒ»¸öÀÁÉ¢µÄ¼Ò»ïÂï¡£\n";
+		return "$må¹³æ—¶æ˜¯ä¸€ä¸ªæ‡’æ•£çš„å®¶ä¼™å˜›ã€‚\n";
 	if(status<6)
-		return "$mÓëÆäËû"+p_workername+"Ã»ÓĞÊ²Ã´²»Í¬¡£\n";
-	return "$m¹¤×÷Ò»Ö±¶¼·Ç³£ÇÚ·Ü¡£\n";
+		return "$mä¸å…¶ä»–"+p_workername+"æ²¡æœ‰ä»€ä¹ˆä¸åŒã€‚\n";
+	return "$må·¥ä½œä¸€ç›´éƒ½éå¸¸å‹¤å¥‹ã€‚\n";
 }
 string get_look_desc() {
 	int sk;
@@ -63,11 +63,11 @@ void final_act(int sel,int err) {
 	create_scenario("bye");
 	switch(sel) {
 	case 0:
-		add_act("bye","kick","MTW",0,"$N¶Ô$TÀäĞ¦Ò»Éù£¬Æ½Ê±ÕâÃ´Å¬Á¦¾ÍºÃÁË£¬±ğÎÒÀ´²ÅÕâÃ´×°Ñù×Ó¡£\n");
+		add_act("bye","kick","MTW",0,"$Nå¯¹$Tå†·ç¬‘ä¸€å£°ï¼Œå¹³æ—¶è¿™ä¹ˆåŠªåŠ›å°±å¥½äº†ï¼Œåˆ«æˆ‘æ¥æ‰è¿™ä¹ˆè£…æ ·å­ã€‚\n");
 		add_act("bye","wake","WEO",1,"fear");
 		if(score>0) 
 			add_act("bye","run","WTM",2,
-				"$N¶Ô$TÆËµ¹ÔÚµØµÀ£º$s¸ÃËÀ£¬ÏÂ´ÎÔÙ²»¸ÒÁË¡£\n");
+				"$Nå¯¹$Tæ‰‘å€’åœ¨åœ°é“ï¼š$sè¯¥æ­»ï¼Œä¸‹æ¬¡å†ä¸æ•¢äº†ã€‚\n");
 		else
 			add_act("bye","run","WEO",2,
 				"doue");
@@ -77,13 +77,13 @@ void final_act(int sel,int err) {
 		add_act("bye","wake","WEO",1,"sweat");
 		if(score>0) {
 			add_act("bye","run","WTM",2,
-				"$N¶Ô$TµÀ£¬$R·ÅĞÄ£¬$sÒ»¶¨¸ü¼ÓÅ¬Á¦¡£\n");
+				"$Nå¯¹$Té“ï¼Œ$Ræ”¾å¿ƒï¼Œ$sä¸€å®šæ›´åŠ åŠªåŠ›ã€‚\n");
 			add_act("bye","leave","WTO",3,
-				"$NÀë¿ª¸É»îÈ¥ÁË¡£\n");
+				"$Nç¦»å¼€å¹²æ´»å»äº†ã€‚\n");
 		}
 		else {
 			add_act("bye","run","WEO",2,"grin");
-			add_act("bye","leave","WTM",3,"$NÍµĞ¦µÀ£ºÕâ¸ö°×³Õ¡£\n");
+			add_act("bye","leave","WTM",3,"$Nå·ç¬‘é“ï¼šè¿™ä¸ªç™½ç—´ã€‚\n");
 		}
 		break;
 	}
@@ -91,10 +91,10 @@ void final_act(int sel,int err) {
 }
 void show_start() {
 	create_scenario("start");
-	add_act("start","1","HTM",1,"$N¶Ô$TµÀ£º$RÇë¿´¡£\n");
-	add_act("start","2","MTH",2,"$NË³×Å$TÊÖÖ¸µÄ·½ÏòÒ»¿´¡£");
-	add_act("start","5","MTW",3,"·¢ÏÖÁËÕıÔÚ¿à¸ÉµÄ$m¡£\n");
+	add_act("start","1","HTM",1,"$Nå¯¹$Té“ï¼š$Rè¯·çœ‹ã€‚\n");
+	add_act("start","2","MTH",2,"$Né¡ºç€$Tæ‰‹æŒ‡çš„æ–¹å‘ä¸€çœ‹ã€‚");
+	add_act("start","5","MTW",3,"å‘ç°äº†æ­£åœ¨è‹¦å¹²çš„$mã€‚\n");
 
-	add_act("start","3","HTO",4,"$NµÃÒâµØÍËµ½Ò»±ß¡£\n");
+	add_act("start","3","HTO",4,"$Nå¾—æ„åœ°é€€åˆ°ä¸€è¾¹ã€‚\n");
 	do_scenario("start");
 }

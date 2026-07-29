@@ -29,7 +29,7 @@ private void main( mixed *arg, mapping flags, string stdin ) {
 int help() {
   //printf("Usage: tail [file]\n"
   //  "Description: display the last lines of a file\n");
-  write("用法：tail <文件> [-n <行数>]\n"
-        "说明：显示文件的最后几行。\n");
+  write("鐢ㄦ硶锛歵ail <鏂囦欢> [-n <琛屾暟>]\n"
+        "璇存槑锛氭樉绀烘枃浠剁殑鏈�鍚庡嚑琛屻�俓n");
   return 1;
 }

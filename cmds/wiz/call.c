@@ -51,7 +51,7 @@ private mixed query_map() {
 }
 private mixed query_array() {
 	string inp;
-	array ret=({});
+	mixed * ret=({});
 	while (sizeof(inps)) {
 		inp=inps[0];
 		if(inp=="[/ar]") {
@@ -78,12 +78,12 @@ private mixed super_query() {
 private void main(string inp)
 {
 	object own;
-	array para;
+	mixed * para;
 	int sum,i;
 	mixed ret;
     if( !inp )
     {
-        write( "ÓÃ·¨£ºcall <obj>,<fun> [,paras]\n");
+        write( "ç”¨æ³•ï¼šcall <obj>,<fun> [,paras]\n");
         return;
     }
 	if(sizeof(inps)) {

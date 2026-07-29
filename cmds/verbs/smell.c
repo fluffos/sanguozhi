@@ -16,12 +16,12 @@ void do_smell_obj(object ob)
 {
     if ( !ob->smell() )
     {
-        printf("ÕâÎÅÆðÀ´ºÃÏóÊÇ%s.\n", ob->a_short());
+        printf("è¿™é—»èµ·æ¥å¥½è±¡æ˜¯%s.\n", ob->a_short());
     }
 }
 
 
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ "OBJ" }), ({ "sniff" }) });
 }

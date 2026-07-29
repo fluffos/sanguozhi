@@ -20,9 +20,9 @@ inherit M_SMARTMOVE;
 
 void follow_callback(string);
 
-private static object target, target_where;
-private static function f_follow = (: follow_callback :);
-private string array masters = ({ "Beek", "Zifnab", "Rackain" });
+private nosave object target, target_where;
+private function f_follow = (: follow_callback :);
+private string * masters = ({ "Beek", "Zifnab", "Rackain" });
 
 void i_moved() {
     if (target_where)
@@ -81,8 +81,8 @@ void setup()
 {
     int *handle;
     
-    set_name("Wolf", "ÀÇ");
-    set_unit("Æ¥");
+    set_name("Wolf", "ç‹¼");
+    set_unit("åŒ¹");
     set_gender(1);
     set_in_room_desc("A White Timber Wolf");
     set_adj("White Timber", "timber", "white");

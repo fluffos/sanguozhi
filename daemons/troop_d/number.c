@@ -24,7 +24,7 @@ string chinese_soldier_number(int n) {
     return CHINESE_D->chinese_number2(9);
   else
     return CHINESE_D->chinese_number2(10);
-  return "¢ú";
+  return "â…©";
 }
 #endif  // xiaobai: comment out
 
@@ -32,5 +32,5 @@ string chinese_soldier_number(int n)
 {
     if ( n <= 20000 )
         return CHINESE_D->chinese_number3(to_int(n/1000.+0.5));
-    return "¢ú";
+    return "â…©";
 }

@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is »¨¶ù¶ä¶ä
+// driver is èŠ±å„¿æœµæœµ
 // created date is Mon May  9 09:19:20 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,11 +7,11 @@ inherit OUTDOOR_ROOM;
 void setup() {
 set_area("jiangling");
 set_light(50);
-set_brief("%^YELLOW%^"+"Ğ£³¡"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"æ ¡åœº"+"%^RESET%^");
 set_long("
-    ÕâÀïÊÇ½­ÁêĞ£³¡,ÔÚ´ËÄã¿ÉÒÔ¿´µ½Ò»¶Ó¶Ó¹Ù±øÕıÔÚ²ÙÁ·£¬
-ËûÃÇÊÇ´òÊ¤ÕÌµÄ¸ù±¾¡£Ö»ÒªÄãÓĞ±ø·û£¬Äã¾Í¿ÉÒÔµ÷¶¯ÊıÍò´ó
-¾üÉÏÕóÉ±µĞ¡£\n\n");
+    è¿™é‡Œæ˜¯æ±Ÿé™µæ ¡åœº,åœ¨æ­¤ä½ å¯ä»¥çœ‹åˆ°ä¸€é˜Ÿé˜Ÿå®˜å…µæ­£åœ¨æ“ç»ƒï¼Œ
+ä»–ä»¬æ˜¯æ‰“èƒœä»—çš„æ ¹æœ¬ã€‚åªè¦ä½ æœ‰å…µç¬¦ï¼Œä½ å°±å¯ä»¥è°ƒåŠ¨æ•°ä¸‡å¤§
+å†›ä¸Šé˜µæ€æ•Œã€‚\n\n");
 set_exits( ([
 "west":"/a/jiangling/jl_ruipinglu2.c",
  ]));

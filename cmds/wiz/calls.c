@@ -14,7 +14,7 @@ private void main()
 
     call_out_stuff = filter_array(call_out_info(), (: sizeof :));
 
-    outf("%-50s%-20s%-10s\n","Îï¼ş","º¯Êı","ÑÓ³Ù" );
+    outf("%-50s%-20s%-10s\n","ç‰©ä»¶","å‡½æ•°","å»¶è¿Ÿ" );
     outf("%77'-'s\n", "");
 
     foreach ( data in call_out_stuff )
@@ -25,8 +25,8 @@ private void main()
             outf("%-50s%-20s%-10d\n", file_name(data[0]),
                    data[1], data[2]);
         else
-            outf("%-50s%-20s%-10d\n", "<ÒÑ´İ»Ù>", data[1], data[2]);
+            outf("%-50s%-20s%-10d\n", "<å·²æ‘§æ¯>", data[1], data[2]);
     }
 
-    outf("\nÄ¿Ç°ÓĞ %d ¸ö call_outs ÔÚ¼¤»î×´Ì¬ÖĞ¡£\n", sizeof(call_out_stuff));
+    outf("\nç›®å‰æœ‰ %d ä¸ª call_outs åœ¨æ¿€æ´»çŠ¶æ€ä¸­ã€‚\n", sizeof(call_out_stuff));
 }

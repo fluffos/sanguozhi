@@ -12,25 +12,25 @@ void answer_yes(object target, object me,string ans) {
 	int money;
 	if(ans!="yes") {
 		target->targetted_action(
-		"$N²»ÂúµØ¶Ô$TËµµÀ£º¶¨½ğ¶¼²»¿Ï¸ø£¬$rÒ²Ì«Ğ¡ÆøÁË¡£\n",me);
-		target->simple_action("$N×ªÉíÀë¿ªÁË¡£\n");
+		"$Nä¸æ»¡åœ°å¯¹$Tè¯´é“ï¼šå®šé‡‘éƒ½ä¸è‚¯ç»™ï¼Œ$rä¹Ÿå¤ªå°æ°”äº†ã€‚\n",me);
+		target->simple_action("$Nè½¬èº«ç¦»å¼€äº†ã€‚\n");
 		destruct(target);
 		return;
 	}
 	if(MONEY_D->sub_poket_money(me,10000)!=1) {
 		me->targetted_action(
-			"$NÒ»Ä£¿Ú´ü£¬Á³Ò»ºì£¬¶Ô$T²»ºÃÒâË¼µØËµ£¬¶Ô²»Æğ£¬ÉíÉÏÃ»ÓĞÄÇÃ´¶àÇ®¡£\n",target);
+			"$Nä¸€æ¨¡å£è¢‹ï¼Œè„¸ä¸€çº¢ï¼Œå¯¹$Tä¸å¥½æ„æ€åœ°è¯´ï¼Œå¯¹ä¸èµ·ï¼Œèº«ä¸Šæ²¡æœ‰é‚£ä¹ˆå¤šé’±ã€‚\n",target);
 		target->responda("ack");
-		target->simple_action("$N×ªÉíÀë¿ªÁË¡£\n");
+		target->simple_action("$Nè½¬èº«ç¦»å¼€äº†ã€‚\n");
 		destruct(target);
-		me->simple_action("$NÏóÒ»Ö»Ä¾¼¦Ò»Ñù´ôÔÚÂ·µ±ÖĞ¡£\n");
+		me->simple_action("$Nè±¡ä¸€åªæœ¨é¸¡ä¸€æ ·å‘†åœ¨è·¯å½“ä¸­ã€‚\n");
 		return;
 	}
 	me->targetted_action(
-		"$N¸ø$TÒ»Á½½ğ×Ó¡£\n",target);
+		"$Nç»™$Tä¸€ä¸¤é‡‘å­ã€‚\n",target);
 	target->responda("rich");
 	target->targetted_action(
-		"$N¶Ô$TËµµÀ£ºÎÒ×¼±¸Ò»ÏÂ£¬Ëæºó¾ÍÈ¥¡£\n",me);
+		"$Nå¯¹$Tè¯´é“ï¼šæˆ‘å‡†å¤‡ä¸€ä¸‹ï¼Œéšåå°±å»ã€‚\n",me);
 
 
 	p_area=me->query_job(job_id,"area");
@@ -40,7 +40,7 @@ void answer_yes(object target, object me,string ans) {
 	if(objectp(bs)) {
 		bs->add_head(target);
 	}
-	target->simple_action("$N×ªÉíÀë¿ªÁË¡£\n");
+	target->simple_action("$Nè½¬èº«ç¦»å¼€äº†ã€‚\n");
 	destruct(target);
 	ROBOT->robot_test(find_user(me->query_primary_id()),(:award:));
 
@@ -58,17 +58,17 @@ void answer_salary(object target, object me,string ans) {
 	p_salary=info["salary"];
 	if(m_salary<p_salary) {
 		target->targetted_action(
-		"$N²»ÂúµØ¶Ô$TËµµÀ£ºÒ»ÔÂ²Å"+CHINESE_D->chinese_value(m_salary*100)+
-		"£¬$rÒ²Ì«Ğ¡ÆøÁË¡£\n",me);
-		target->simple_action("$N×ªÉíÀë¿ªÁË¡£\n");
+		"$Nä¸æ»¡åœ°å¯¹$Tè¯´é“ï¼šä¸€æœˆæ‰"+CHINESE_D->chinese_value(m_salary*100)+
+		"ï¼Œ$rä¹Ÿå¤ªå°æ°”äº†ã€‚\n",me);
+		target->simple_action("$Nè½¬èº«ç¦»å¼€äº†ã€‚\n");
 		destruct(target);
 		return;
 	}
 	target->set_salary(m_salary);
 	target->responda("jump");
 	target->targetted_action(
-		"$N¶Ô$TµÀ£º$RÕæÊÇÌ«ºÃÁË£¬²»¹ıÎÒ»¹ĞèÒªÒ»Á½½ğ×Ó×÷Îª¶¨½ğ£¬¿ÉÒÔ¸øÎÒÂğ£¿\n",me);
-	tell(me,"ÓÃ answer yes to "+p_id+" ±íÊ¾Í¬Òâ¡£\n");
+		"$Nå¯¹$Té“ï¼š$RçœŸæ˜¯å¤ªå¥½äº†ï¼Œä¸è¿‡æˆ‘è¿˜éœ€è¦ä¸€ä¸¤é‡‘å­ä½œä¸ºå®šé‡‘ï¼Œå¯ä»¥ç»™æˆ‘å—ï¼Ÿ\n",me);
+	tell(me,"ç”¨ answer yes to "+p_id+" è¡¨ç¤ºåŒæ„ã€‚\n");
 
 	target->set_answer(me->query_primary_id(), (:answer_yes:) ); 
 }
@@ -78,11 +78,11 @@ mixed basic_check(string p_area,string f_id) {
 	object bs;
 	bs=SGBASE(p_area,f_id);
 	if(!objectp(bs)) 
-		return "$N¶Ô$TÒÉ»óµØÎÊ£ºÌıËµ"+AREA_D->get_area(p_area,"name")+
-			"µÄ"+BASE_D->get_base(f_id,"name")+"ÒÑ¾­µ¹±ÕÁË¡£\n";
+		return "$Nå¯¹$Tç–‘æƒ‘åœ°é—®ï¼šå¬è¯´"+AREA_D->get_area(p_area,"name")+
+			"çš„"+BASE_D->get_base(f_id,"name")+"å·²ç»å€’é—­äº†ã€‚\n";
 	if(!stringp(bs->no_head_room()))
-		return "$N¶Ô$TÒÉ»óµØÎÊ£ºÌıËµ"+AREA_D->get_area(p_area,"name")+
-			"µÄ"+BASE_D->get_base(f_id,"name")+"ÒÑ¾­Ã»ÓĞ¿ÕÈ±ÁË¡£\n";
+		return "$Nå¯¹$Tç–‘æƒ‘åœ°é—®ï¼šå¬è¯´"+AREA_D->get_area(p_area,"name")+
+			"çš„"+BASE_D->get_base(f_id,"name")+"å·²ç»æ²¡æœ‰ç©ºç¼ºäº†ã€‚\n";
 	return 1;
 }
 void ask_gethead(object me, object target)
@@ -99,10 +99,10 @@ void ask_gethead(object me, object target)
 		me->finish_job(job_id);
 		bs=SGBASE(p_area,f_id);
         me->targetted_action(
-			"$N¶Ô$TĞ¦×ÅËµµÀ£º"+AREA_D->get_area(p_area,"name")+
-			"µÄ"+BASE_D->get_base(f_id,"name")+"ĞèÒªÒ»¸öĞÂµÄ"+
-			BASE_D->get_base(f_id,"headname")+"£¬\n"+
-			"$s¾ÃÎÅ$R´óÃû£¬¿É·ñÇë$RÇü¾Í´ËÖ°£¿\n",target);
+			"$Nå¯¹$Tç¬‘ç€è¯´é“ï¼š"+AREA_D->get_area(p_area,"name")+
+			"çš„"+BASE_D->get_base(f_id,"name")+"éœ€è¦ä¸€ä¸ªæ–°çš„"+
+			BASE_D->get_base(f_id,"headname")+"ï¼Œ\n"+
+			"$sä¹…é—»$Rå¤§åï¼Œå¯å¦è¯·$Rå±ˆå°±æ­¤èŒï¼Ÿ\n",target);
 
 		target->responda("consider");
 		ret=basic_check(p_area,f_id);
@@ -113,7 +113,7 @@ void ask_gethead(object me, object target)
 		}
 
 		target->targetted_action(
-			"$N¶Ô$TµÀ£ºÒ»¸öÔÂµÄÓ¶½ğÊÇ¶àÉÙ£¿\n",me);
-		tell(me,"ÓÃ answer <Êı×Ö> to "+t_id+" À´»Ø´ğ <Êı×Ö> ´ú±íÃ¿ÔÂ¶àÉÙÁ½Òø×Ó(1-100)¡£\n");
+			"$Nå¯¹$Té“ï¼šä¸€ä¸ªæœˆçš„ä½£é‡‘æ˜¯å¤šå°‘ï¼Ÿ\n",me);
+		tell(me,"ç”¨ answer <æ•°å­—> to "+t_id+" æ¥å›ç­” <æ•°å­—> ä»£è¡¨æ¯æœˆå¤šå°‘ä¸¤é“¶å­(1-100)ã€‚\n");
 		target->set_answer(p_id, (:answer_salary:) );
 }

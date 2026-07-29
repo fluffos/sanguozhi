@@ -1,10 +1,10 @@
-// well_bottom.c 井底 by benben
+// well_bottom.c 浜曞簳 by benben
 
 inherit OBJ;
 inherit M_CLIMBABLE;
 void setup() {
-    set_id("bottom", "井底");
-    set_in_room_desc("井底\n");
-    set_long("井底的枯枝有些腐烂了，发出难闻的气味，你几乎被熏昏过去。\n");
+    set_id("bottom", "浜曞簳");
+    set_in_room_desc("浜曞簳\n");
+    set_long("浜曞簳鐨勬灟鏋濇湁浜涜厫鐑備簡锛屽彂鍑洪毦闂荤殑姘斿懗锛屼綘鍑犱箮琚啅鏄忚繃鍘汇�俓n");
     set_up_destination("well.c");
 }                                  

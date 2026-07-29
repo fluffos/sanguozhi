@@ -1,5 +1,5 @@
 //  jiangfu.c
-//  ÏÄ¿Ú½«¸®
+//  å¤å£å°†åºœ
 //  created by tset 1/23/98
 //  last updated by tset 1/23/98
 
@@ -11,12 +11,12 @@ void setup(){
         object door;
         set_area("xiakoujf");
         set_light(20);
-        set_brief("½«¸®");
+        set_brief("å°†åºœ");
         set_long("
-½«¸®ÄÚÀäÀäÇåÇå£¬ËÄÉ¢·ÅÁËÐ©×ÀÒÎ¡£±±±ßºÃÏñÓÐÈËÔÚ´òËãÅÌ£¬ÄÏ±ß
-ÊÇ¸ö´óÌü£¬Î÷±ßµÄÐ¡ÃÅÕý");
-set_state_description( "jf_door_off", "¹Ø×Å¡£\n\n");
-set_state_description( "jf_door_on", "¿ª×Å¡£\n\n"); 
+å°†åºœå†…å†·å†·æ¸…æ¸…ï¼Œå››æ•£æ”¾äº†äº›æ¡Œæ¤…ã€‚åŒ—è¾¹å¥½åƒæœ‰äººåœ¨æ‰“ç®—ç›˜ï¼Œå—è¾¹
+æ˜¯ä¸ªå¤§åŽ…ï¼Œè¥¿è¾¹çš„å°é—¨æ­£");
+set_state_description( "jf_door_off", "å…³ç€ã€‚\n\n");
+set_state_description( "jf_door_on", "å¼€ç€ã€‚\n\n"); 
 
   set_exits( ([
         "north": __DIR__"jfzhang",
@@ -29,7 +29,7 @@ set_state_description( "jf_door_on", "¿ª×Å¡£\n\n");
          __DIR__"obj/jf_door" : ({ "west" }),
                 ]) );
                 
-  set_default_exit( "´©Ç½¶ø¹ý£¿»¹ÊÇ×ßÕýÂ·µÄºÃ¡£\n");
+  set_default_exit( "ç©¿å¢™è€Œè¿‡ï¼Ÿè¿˜æ˜¯èµ°æ­£è·¯çš„å¥½ã€‚\n");
   door = present( "door");
   if( !door->query_closed())
   door->do_on_open();

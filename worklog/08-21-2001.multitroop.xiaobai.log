@@ -1,23 +1,23 @@
 21.08.2001
-* bug fixed ²¿¶ÓÔÚÄ³µØĞÎµÄ¹¥»÷ÂÊ
+* bug fixed éƒ¨é˜Ÿåœ¨æŸåœ°å½¢çš„æ”»å‡»ç‡
     /daemons/map_d.c
     function "mixed get_map_cell(string city_name, int y, int x,string what)"
-    what == "attack_rate" µÄÊ±ºò£¬Ô­À´¾ÓÈ»ÊÇºô½Ğ
-    int get_defence_rate(string p_type) µÄ£¬
-    ¶ÔÓ¦µÄÓ¦¸ÃÊÇºô½Ğ
+    what == "attack_rate" çš„æ—¶å€™ï¼ŒåŸæ¥å±…ç„¶æ˜¯å‘¼å«
+    int get_defence_rate(string p_type) çš„ï¼Œ
+    å¯¹åº”çš„åº”è¯¥æ˜¯å‘¼å«
     int get_attack_rate(string p_type)
 
 * changed /daemons/warai_d/array_attack.c
-    1) function "mixed do_array_attack(int p_id,string dir)" Àï
-        ½«¾ßÌåµØÍ¼µ¥ÔªÉÏ¶Ô¹­±øµÄ·´»÷·Åµ½£º
-        /daemons/warai_d/kill.c µÄ 
-        void general_attack_kill_back( int p_id,string dir ) Àï
-    2) ÒòÎª½µµÍÁË¶Ô¹­±ø·´»÷µÄÇ¿¶È£¬¿¼ÂÇ¹­±ø¹¥»÷Ê±Í¨³£²»
-       »áÓĞËğÊ§(¶Ô·Ç npc), ½«¹­±øµÄÉ±ÉËÁ¦µ÷µÍÁË 1/5.
+    1) function "mixed do_array_attack(int p_id,string dir)" é‡Œ
+        å°†å…·ä½“åœ°å›¾å•å…ƒä¸Šå¯¹å¼“å…µçš„åå‡»æ”¾åˆ°ï¼š
+        /daemons/warai_d/kill.c çš„ 
+        void general_attack_kill_back( int p_id,string dir ) é‡Œ
+    2) å› ä¸ºé™ä½äº†å¯¹å¼“å…µåå‡»çš„å¼ºåº¦ï¼Œè€ƒè™‘å¼“å…µæ”»å‡»æ—¶é€šå¸¸ä¸
+       ä¼šæœ‰æŸå¤±(å¯¹é npc), å°†å¼“å…µçš„æ€ä¼¤åŠ›è°ƒä½äº† 1/5.
     
 * changed /daemons/warai_d/kill.c
-    void general_attack_kill_back( int p_id,string dir ) Àï
-    1) ¶Ô¹­±øµÄ·´»÷ÎªÆÕÍ¨µÄÒ»°ë
-    2) Ö»ÓĞµ±±»Éä»÷²¿¶Ó·ÇÈË¿Ø(ÇÒ·ÀÊØ·½Ö÷Ë§·ÇÈË¿Ø)Ê±£¬²Å¶Ô
-       ¹­±ø½øĞĞ·´»÷
+    void general_attack_kill_back( int p_id,string dir ) é‡Œ
+    1) å¯¹å¼“å…µçš„åå‡»ä¸ºæ™®é€šçš„ä¸€åŠ
+    2) åªæœ‰å½“è¢«å°„å‡»éƒ¨é˜Ÿéäººæ§(ä¸”é˜²å®ˆæ–¹ä¸»å¸…éäººæ§)æ—¶ï¼Œæ‰å¯¹
+       å¼“å…µè¿›è¡Œåå‡»
     

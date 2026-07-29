@@ -3,11 +3,11 @@
 #include <mudlib.h>
 #include <ansi.h>
 #include <sanguo.h>
-#define p_sep "¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ¡þ"
+#define p_sep "ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“"
 inherit CHINESE_DA;
 inherit CMD;
-static array bkc=({ BBLK,BRED,BGRN,BYEL,BBLU,BMAG,BCYN,BWHT});
-static array fkc= ({ BLK,RED,GRN,ORG,BLU,MAG,CYN,WHT,
+nosave protected mixed * bkc=({ BBLK,BRED,BGRN,BYEL,BBLU,BMAG,BCYN,BWHT});
+nosave protected mixed * fkc= ({ BLK,RED,GRN,ORG,BLU,MAG,CYN,WHT,
 			 HIR,HIG,HIY,HIB,HIM,HIC,HIW});
 private string line="     BBLK  BRED  BGRN  BYEL  BBLU  BMAG  BCYN  BWHT";
 private string *row=({ "BLK","RED","GRN","ORG","BLU","MAG","CYN","WHT",
@@ -18,14 +18,14 @@ void main()
 {
 	int i,j;
 	string p_color;
-	printf("¡¶Èý¹úÑÝÒå¡·ÑÕÉ«²âÊÔ£º\n");
+	printf("ã€Šä¸‰å›½æ¼”ä¹‰ã€‹é¢œè‰²æµ‹è¯•ï¼š\n");
 	
 	printf("%s\n",p_sep);
 	printf("%s\n",line);
 	for(j=0;j<sizeof(fkc);++j) {
 		write(row[j]+" ");
 		for(i=0;i<sizeof(bkc);++i) {
-			write(bkc[i]+fkc[j]+"¡ï¡ö¡ò"+NOR); 
+			write(bkc[i]+fkc[j]+"â˜…â– â—Ž"+NOR); 
 		}
 		write("\n");
 	}

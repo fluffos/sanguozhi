@@ -14,12 +14,12 @@ inherit M_INPUT;
 
 inherit CLASS_ALIAS;
 
-private static object shell_ob; /* which shell ob we're editing aliases for */
-private static string * display_menu_options;
-private static class alias new_alias_in_progress;
-private static string new_alias_name;
-private static int num_defaults;
-private static int default_index;
+private nosave object shell_ob; /* which shell ob we're editing aliases for */
+private nosave string * display_menu_options;
+private nosave class alias new_alias_in_progress;
+private nosave string new_alias_name;
+private nosave int num_defaults;
+private nosave int default_index;
 
 
 /*
@@ -31,7 +31,7 @@ private static int default_index;
 void input_from_main_menu(string);
 string main_menu_prompt();
 void display_main_menu();
-static void init_alias_editor();
+protected void init_alias_editor();
 
 nomask void begin_menu(object for_shell_ob)
 {
@@ -49,7 +49,7 @@ private void goto_main_menu()
 private void quit_alias_editor()
 {
 //    write("Exiting alias editor.\n");
-    write("ÍË³ö alias ±à¼­Æ÷¡£\n");
+    write("é€€å‡º alias ç¼–è¾‘å™¨ã€‚\n");
     modal_pop();
     destruct(this_object());
 }
@@ -65,13 +65,13 @@ private void display_main_menu()
           "\n"
           "q - quit\n");
 */
-    write("Alias ±à¼­Æ÷\n\n"
-          "   l         - ÁĞ³öËùÓĞµÄ aliases\n"
-          "   s         - ÏÔÊ¾Ò»¸ö alias\n"
-          "   a         - Ôö¼Ó»òĞŞ¸ÄÒ»¸ö alias\n"
-          "   r         - É¾³ıÒ»¸ö alias\n"
+    write("Alias ç¼–è¾‘å™¨\n\n"
+          "   l         - åˆ—å‡ºæ‰€æœ‰çš„ aliases\n"
+          "   s         - æ˜¾ç¤ºä¸€ä¸ª alias\n"
+          "   a         - å¢åŠ æˆ–ä¿®æ”¹ä¸€ä¸ª alias\n"
+          "   r         - åˆ é™¤ä¸€ä¸ª alias\n"
           "\n"
-          "   q         - ÍË³ö\n");
+          "   q         - é€€å‡º\n");
 }
 
 private string main_menu_prompt()
@@ -92,16 +92,16 @@ varargs nomask void display_one_alias(string alias_name, object shell_to_use)
     if(!this_alias)
     {
         printf(//"You have no alias for %s.\n"
-               "Äã²¢Î´Éè¶¨ %s ÕâÑùµÄ alias¡£\n" , alias_name);
+               "ä½ å¹¶æœªè®¾å®š %s è¿™æ ·çš„ aliasã€‚\n" , alias_name);
         return;
     }
 
-    output += sprintf("Alias: %-15s Õ¹¿ª: %s\n",
+    output += sprintf("Alias: %-15s å±•å¼€: %s\n",
                       alias_name, this_alias->template);
 
     if(sizeof(this_alias->defaults) > 1 || this_alias->defaults[0] != "")
     {
-        output += sprintf("\tÔ¤ÉèÖµ:\n"
+        output += sprintf("\té¢„è®¾å€¼:\n"
                           "  $*: %s\n", this_alias->defaults[0]);
         if(sizeof(this_alias->defaults) > 1)
             for(i=1;i<sizeof(this_alias->defaults);i++)
@@ -110,7 +110,7 @@ varargs nomask void display_one_alias(string alias_name, object shell_to_use)
 
     if ( shell_to_use->is_xalias(alias_name) )
         output += //"You don't have to type a space after you type this alias.\n\n";
-                  "Äã²»±ØÔÚÊäÈëÍê alias Ö®ºóÔÙ¼üÈë¿Õ¸ñ¡£\n\n";
+                  "ä½ ä¸å¿…åœ¨è¾“å…¥å®Œ alias ä¹‹åå†é”®å…¥ç©ºæ ¼ã€‚\n\n";
     write(output);
 }
 
@@ -123,7 +123,7 @@ private void display_all_aliases()
     string output;
     int i;
 
-    output = sprintf("Alias:%9sÕ¹¿ª:%29sÔ¤Éè:\n","","");
+    output = sprintf("Alias:%9så±•å¼€:%29sé¢„è®¾:\n","","");
     output += sprintf("%77'-'s\n", "");
 
     names = sort_array(shell_ob->query_alias_names(), 1);
@@ -159,7 +159,7 @@ private void process_display_alias_menu_choice(string input)
        index > sizeof(display_menu_options))
     {
         //write("Invalid selection.\n");
-        write("·Ç·¨Ñ¡Ïî¡£\n");
+        write("éæ³•é€‰é¡¹ã€‚\n");
         return;
     }
     display_one_alias(display_menu_options[index-1]);
@@ -173,7 +173,7 @@ private void display_alias_menu()
 
     display_menu_options = sort_array(shell_ob->query_alias_names(), 1);
     //write("Select alias to display:\n");
-    write("ÇëÑ¡ÔñÄãÒªÏÔÊ¾µÄ alias£º\n");
+    write("è¯·é€‰æ‹©ä½ è¦æ˜¾ç¤ºçš„ aliasï¼š\n");
     for(i=0; i<sizeof(display_menu_options); i++)
     {
         printf("%-4d%-6s  ", i+1, display_menu_options[i]);
@@ -195,7 +195,7 @@ private void display_alias(string s)
     {
     case 0:
         //write("No such alias.\n");
-        write("ÎŞ´Ë alias¡£\n");
+        write("æ— æ­¤ aliasã€‚\n");
         goto_main_menu();
         return;
 
@@ -206,14 +206,14 @@ private void display_alias(string s)
 
     default:
         //write("Possible completions are:\n");
-        write("·ûºÏµÄÓĞ£º\n");
+        write("ç¬¦åˆçš„æœ‰ï¼š\n");
         matches = sort_array(matches,1);
         for(i = 0; i<sizeof(matches); i++)
             printf("  %-4d%s\n",i,matches[i]);
         display_menu_options = matches;   
         modal_func((:process_display_alias_menu_choice:),
                    //"Select one by number, or q to quit: "
-                   "ÓÃÊı×ÖÑ¡Ôñ£¬»ò q ÍË³ö£º");
+                   "ç”¨æ•°å­—é€‰æ‹©ï¼Œæˆ– q é€€å‡ºï¼š");
         return;
     }
 }
@@ -221,7 +221,7 @@ private void display_alias(string s)
 private string get_arg_default_prompt()
 {
     return sprintf(//"What's the default for $%d (enter for none)? ", 
-                   "$%d µÄÔ¤ÉèÖµÊÇÊ²Ã´£¿(»Ø³µ´ú±íÎŞ)",
+                   "$%d çš„é¢„è®¾å€¼æ˜¯ä»€ä¹ˆï¼Ÿ(å›è½¦ä»£è¡¨æ— )",
                    default_index + 1);
 }
 
@@ -241,9 +241,9 @@ private void get_xverb_status(string s)
             "between the ' and the foo??\n");
         */
         write(
-            "ÄãÏ£ÍûÊ¡È¥ alias ºÍÓàÏÂ²¿·ÖÖ®¼äµÄ¿Õ¸ñÂğ£¿\n"
-            "±ÈÈç£º'foo\n"
-            "ÄãÒªÔÚ ' ºÍ foo Ö®¼ä×Ô¶¯Ê¡È¥¿Õ¸ñÂğ£¿(y/n)\n");
+            "ä½ å¸Œæœ›çœå» alias å’Œä½™ä¸‹éƒ¨åˆ†ä¹‹é—´çš„ç©ºæ ¼å—ï¼Ÿ\n"
+            "æ¯”å¦‚ï¼š'foo\n"
+            "ä½ è¦åœ¨ ' å’Œ foo ä¹‹é—´è‡ªåŠ¨çœå»ç©ºæ ¼å—ï¼Ÿ(y/n)\n");
            
         return;
     case 'y':
@@ -253,13 +253,13 @@ private void get_xverb_status(string s)
         break;
     default:
         //write("Invalid response.\n");
-        write("·Ç·¨»Ø´ğ¡£\n");
+        write("éæ³•å›ç­”ã€‚\n");
         return;
     }
     shell_ob->add_alias_simple(new_alias_name, new_alias_in_progress);
 
     printf(//"Alias %s defined.\n",
-           "Alias %s ¶¨ÒåÁË¡£\n", new_alias_name);
+           "Alias %s å®šä¹‰äº†ã€‚\n", new_alias_name);
     goto_main_menu();
 }
   
@@ -267,7 +267,7 @@ private void get_xverb_status(string s)
 private void ask_for_xverb_status()
 {
     modal_func((: get_xverb_status :), //"Allow space ommision? [yn?] "
-                                       "ÔÊĞíÊ¡È¥¿Õ¸ñÂğ£¿[yn?]" );
+                                       "å…è®¸çœå»ç©ºæ ¼å—ï¼Ÿ[yn?]" );
 }
 
 private void set_arg_default(string s)
@@ -331,26 +331,26 @@ private void new_template(string s)
             "added to the end of the alias for you.\n");
       */
         write(
-            "Ò»¸ö alias ¿ÉÒÔÔÚÃ¿´ÎÀ©Õ¹Ê±²úÉú²»Í¬µÄÀ©Õ¹½á¹û£º\n"
-            "$1  -- µ±ÄãÔÚ alias ¶¨ÒåÖĞÊ¹ÓÃËüÊ±£¬$1 »á±»¸úÔÚÄãµÄ alias ºóµÄ\n"
-            "       µÚÒ»¸ö²ÎÊıÈ¡´ú¡£Í¬Àí¿ÉÍÆ $2 $3 $4 µÈ¡£\n"
-            "       Èç¹ıÄãÃ»ÓĞÔÚÊ¹ÓÃÕâ¸ö alias Ê±¸ø³öµÚÒ»¸ö²ÎÊı£¬ÄÇÃ´ËüµÄÔ¤\n"
-            "       ÉèÖµ¾Í»á±»²ÉÓÃ¡£\n"
-            "       Äã¿ÉÒÔÔÚÉè¶¨ alias ºóÒ²Éè¶¨ $1 µÈµÄÔ¤ÉèÖµ£¬\n\n"
-            "       ±ÈÈç£ºÈç¹ûÄã°Ñ you're Éè¶¨Îª£º\n"
+            "ä¸€ä¸ª alias å¯ä»¥åœ¨æ¯æ¬¡æ‰©å±•æ—¶äº§ç”Ÿä¸åŒçš„æ‰©å±•ç»“æœï¼š\n"
+            "$1  -- å½“ä½ åœ¨ alias å®šä¹‰ä¸­ä½¿ç”¨å®ƒæ—¶ï¼Œ$1 ä¼šè¢«è·Ÿåœ¨ä½ çš„ alias åçš„\n"
+            "       ç¬¬ä¸€ä¸ªå‚æ•°å–ä»£ã€‚åŒç†å¯æ¨ $2 $3 $4 ç­‰ã€‚\n"
+            "       å¦‚è¿‡ä½ æ²¡æœ‰åœ¨ä½¿ç”¨è¿™ä¸ª alias æ—¶ç»™å‡ºç¬¬ä¸€ä¸ªå‚æ•°ï¼Œé‚£ä¹ˆå®ƒçš„é¢„\n"
+            "       è®¾å€¼å°±ä¼šè¢«é‡‡ç”¨ã€‚\n"
+            "       ä½ å¯ä»¥åœ¨è®¾å®š alias åä¹Ÿè®¾å®š $1 ç­‰çš„é¢„è®¾å€¼ï¼Œ\n\n"
+            "       æ¯”å¦‚ï¼šå¦‚æœä½ æŠŠ you're è®¾å®šä¸ºï¼š\n"
             "             say Hey, $2, you're $1!\n"
-            "       Ö®ºó£¬µ±ÄãÊäÈë£º\n"
+            "       ä¹‹åï¼Œå½“ä½ è¾“å…¥ï¼š\n"
             "             your're studly Rust\n"
-            "       Äã¾Í»áËµµÀ£ºHey, Rust, you're studly!\n\n"
-            "$*  -- ËüºÍ $1 ÀàËÆ£¬Ëü´ú±íÊ£ÓàµÄËùÓĞ²ÎÊı¡£\n"
-            "       ±ÈÈç£ºÈç¹ûÄã°Ñ you're Éè¶¨Îª£º\n"
+            "       ä½ å°±ä¼šè¯´é“ï¼šHey, Rust, you're studly!\n\n"
+            "$*  -- å®ƒå’Œ $1 ç±»ä¼¼ï¼Œå®ƒä»£è¡¨å‰©ä½™çš„æ‰€æœ‰å‚æ•°ã€‚\n"
+            "       æ¯”å¦‚ï¼šå¦‚æœä½ æŠŠ you're è®¾å®šä¸ºï¼š\n"
             "             say $2, you're $1! Do you $*?\n"
-            "       Ö®ºó£¬µ±ÄãÊäÈë£º\n"
+            "       ä¹‹åï¼Œå½“ä½ è¾“å…¥ï¼š\n"
             "             you're studly Rost excercise much\n"
-            "       Äã¾Í»áËµµÀ£ºHey, Rust, your're studly! Do you exercise much?\n\n"
+            "       ä½ å°±ä¼šè¯´é“ï¼šHey, Rust, your're studly! Do you exercise much?\n\n"
             
-            "Çë×¢Òâ $* ´ú±íÈÎºÎÊıÄ¿µÄ´Ê»ã£¬¶ø $1 $2 µÈÖ»ÄÜ´ú±íÒ»¸ö´Ê¡£\n"
-            "Èç¹ûÄãÃ»ÓĞÔÚÄãµÄ alias À©Õ¹ÖĞÊ¹ÓÃ $*£¬Ëü»á±»×Ô¶¯¼ÓÔÚÄãµÄÀ©Õ¹Ö®ºó¡£\n");
+            "è¯·æ³¨æ„ $* ä»£è¡¨ä»»ä½•æ•°ç›®çš„è¯æ±‡ï¼Œè€Œ $1 $2 ç­‰åªèƒ½ä»£è¡¨ä¸€ä¸ªè¯ã€‚\n"
+            "å¦‚æœä½ æ²¡æœ‰åœ¨ä½ çš„ alias æ‰©å±•ä¸­ä½¿ç”¨ $*ï¼Œå®ƒä¼šè¢«è‡ªåŠ¨åŠ åœ¨ä½ çš„æ‰©å±•ä¹‹åã€‚\n");
         return;
     }
 
@@ -371,7 +371,7 @@ private void new_template(string s)
 
     modal_func((: set_star_default :), 
                //"What's the default for $* (enter for none)? "
-               "ÇëÊäÈë $* µÄÔ¤ÉèÖµ£º(»Ø³µ±íÊ¾Ã»ÓĞ)");
+               "è¯·è¾“å…¥ $* çš„é¢„è®¾å€¼ï¼š(å›è½¦è¡¨ç¤ºæ²¡æœ‰)");
 }
 
 
@@ -380,7 +380,7 @@ private void rcv_new_alias_name(string s)
     if(strsrch(s," ") != -1)
     {
         write(//"Aliases may not have spaces.  Try again.\n"
-              "×÷ÎªÒ»¸ö alias µÄÃû×Ö£¬²»ÔÊĞíÓĞ¿Õ¸ñ¡£ÇëÖØĞÂÊäÈë¡£\n");
+              "ä½œä¸ºä¸€ä¸ª alias çš„åå­—ï¼Œä¸å…è®¸æœ‰ç©ºæ ¼ã€‚è¯·é‡æ–°è¾“å…¥ã€‚\n");
         return;
     }
     if(s=="")
@@ -389,9 +389,9 @@ private void rcv_new_alias_name(string s)
     new_alias_in_progress = new(class alias);
     new_alias_name = s;
     //write("Type in the expansion for this alias.\n");
-    write("ÇëÊäÈëÕâ¸ö alias µÄÀ©Õ¹½á¹û£º\n");
+    write("è¯·è¾“å…¥è¿™ä¸ª alias çš„æ‰©å±•ç»“æœï¼š\n");
     modal_func((: new_template :), //"Expansion (? for help): "
-                                   "À©Õ¹£º(? ¿É»ñÈ¡°ïÖú)");
+                                   "æ‰©å±•ï¼š(? å¯è·å–å¸®åŠ©)");
 }
 
   
@@ -400,15 +400,15 @@ private void cmd_adjust_alias(string s)
     if(strsrch(s," ") != -1)
     {
         write(//"Aliases may not have spaces.  Try again.\n");
-              "×÷ÎªÒ»¸ö alias µÄÃû×Ö£¬²»ÔÊĞíÓĞ¿Õ¸ñ¡£ÇëÖØĞÂÊäÈë¡£\n");
+              "ä½œä¸ºä¸€ä¸ª alias çš„åå­—ï¼Œä¸å…è®¸æœ‰ç©ºæ ¼ã€‚è¯·é‡æ–°è¾“å…¥ã€‚\n");
         modal_func((: rcv_new_alias_name :), //"Name of alias: "
-                                             "Alias µÄÃû×Ö£º");
+                                             "Alias çš„åå­—ï¼š");
         return;
     }
     if(s=="")
     {
         modal_func((: rcv_new_alias_name :), //"Name of alias: "
-                                             "Alias µÄÃû×Ö£º");
+                                             "Alias çš„åå­—ï¼š");
         return;
     }
     rcv_new_alias_name(s);
@@ -419,13 +419,13 @@ private varargs void process_remove_alias(mixed s, int not_using_menu)
     if ( !shell_ob->query_one_alias(s) )
     {
         printf(//"You don't have '%s' as an alias.\n"
-               "Äã²¢Î´Éè¶¨ %s ÕâÑùµÄ alias¡£\n" ,s);
+               "ä½ å¹¶æœªè®¾å®š %s è¿™æ ·çš„ aliasã€‚\n" ,s);
     }
     else
     {
         shell_ob->remove_alias(s);
         printf(//"Alias '%s' removed.\n"
-               "Alias %s ±»É¾³ıÁË¡£\n", s);
+               "Alias %s è¢«åˆ é™¤äº†ã€‚\n", s);
     }
 
     goto_main_menu();
@@ -450,7 +450,7 @@ private void input_from_main_menu(string arg)
         if(arg[1] != ' ')
         {
             //write("Invalid command.\n");
-            write("·Ç·¨ÃüÁî¡£\n");
+            write("éæ³•å‘½ä»¤ã€‚\n");
             display_main_menu();
             return;
         }
@@ -468,7 +468,7 @@ private void input_from_main_menu(string arg)
         if( !shell_ob->query_alias_count() )
         {
             //write("You currently have no aliases defined.\n");
-            write("ÄãÏÖÔÚÃ»ÓĞÈÎºÎ alias¡£\n");
+            write("ä½ ç°åœ¨æ²¡æœ‰ä»»ä½• aliasã€‚\n");
             goto_main_menu();
             return;
         }
@@ -478,7 +478,7 @@ private void input_from_main_menu(string arg)
         if( !shell_ob->query_alias_count() )
         {
             //write("You currently have no aliases defined.\n");
-            write("ÄãÏÖÔÚÃ»ÓĞÈÎºÎ alias¡£\n");
+            write("ä½ ç°åœ¨æ²¡æœ‰ä»»ä½• aliasã€‚\n");
             goto_main_menu();
             return;
         }
@@ -490,7 +490,7 @@ private void input_from_main_menu(string arg)
     case 'a':
         if(!arg)
             modal_func((: cmd_adjust_alias :), //"Alias name? "
-                                               "Alias µÄÃû×Ö£º" );
+                                               "Alias çš„åå­—ï¼š" );
         else
             cmd_adjust_alias(arg);
         return;
@@ -498,19 +498,19 @@ private void input_from_main_menu(string arg)
         if( !shell_ob->query_alias_count() )
         {
             //write("You currently have no aliases defined.\n");
-            write("ÄãÏÖÔÚÃ»ÓĞÈÎºÎ alias¡£\n");
+            write("ä½ ç°åœ¨æ²¡æœ‰ä»»ä½• aliasã€‚\n");
             goto_main_menu();
             return;
         }
         if(!arg)
             modal_func((: process_remove_alias :), //"Alias name? "
-                                                   "Alias µÄÃû×Ö£º");
+                                                   "Alias çš„åå­—ï¼š");
         else
             process_remove_alias(arg);
         return;
     default:
         //write("Invalid command.\n");
-        write("·Ç·¨ÃüÁî¡£\n");
+        write("éæ³•å‘½ä»¤ã€‚\n");
         return;
     }
 }

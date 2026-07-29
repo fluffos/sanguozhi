@@ -16,13 +16,13 @@ void do_check_guard();
 void setup()
 {
 	int i;
-	set_name("officer", "¹ÙÔ±");
-	set_in_room_desc("Ò»Î»Éñ²É·ÉÑïµÄ¹ÙÔ±(officer)");
-	set_long("Ò»Î»Éñ²É·ÉÑïµÄ¹ÙÔ±(officer)");
+	set_name("officer", "å®˜å‘˜");
+	set_in_room_desc("ä¸€ä½ç¥é‡‡é£æ‰¬çš„å®˜å‘˜(officer)");
+	set_long("ä¸€ä½ç¥é‡‡é£æ‰¬çš„å®˜å‘˜(officer)");
 	set_gender(1);
 	add_question("job", "job");
 	add_question("guard", "guard");
-	add_question("ÊØÎÀ", "ÊØÎÀ");
+	add_question("å®ˆå«", "å®ˆå«");
 	guard = ([ ]);
 	for( i = 0; i < sizeof(GUARD_P); i++)
 		guard[GUARD_P[i]] = "";
@@ -34,7 +34,7 @@ mixed special_answer(object ob, string str)
 	player = this_body();
 
 	if( !str || !stringp(str) )return ::special_answer(ob, str);
-	if( str == "ÊØÎÀ" || str == "job" || str == "guard" )
+	if( str == "å®ˆå«" || str == "job" || str == "guard" )
 		ask_guard( player );
 	else return ::special_answer(ob, str);
 }
@@ -49,8 +49,8 @@ int ask_guard(object player)
 	for( i = 0; i < sizeof(rooms); i++){
 		room = load_object( __CITY__DIR__ + rooms[i] );
 		if( !guarder = find_body( guard[rooms[i]] ) ){
-			printf("%sµãÁËµãÍ·¡£\n", this_object()->query_name());
-			printf("%s¶Ô×Å%sËµµÀ£º%sÕıÉÙ¸öÈË£¬¿ìÈ¥°É¡£\n",
+			printf("%sç‚¹äº†ç‚¹å¤´ã€‚\n", this_object()->query_name());
+			printf("%så¯¹ç€%sè¯´é“ï¼š%sæ­£å°‘ä¸ªäººï¼Œå¿«å»å§ã€‚\n",
 				this_object()->query_name(), player->query_name(),
 				room->short());
 			guard[rooms[i]] = player->query_id()[0];
@@ -58,7 +58,7 @@ int ask_guard(object player)
 			return 1;
 		};
 	};
-	this_object()->simple_action("¹ÙÔ±Ğ¦µÀ£ºÎÒÃÇÈËÊÖÒÑ¾­¹»ÁË£¬ÇëÉÔµÈÔÙÀ´°É¡£\n");	
+	this_object()->simple_action("å®˜å‘˜ç¬‘é“ï¼šæˆ‘ä»¬äººæ‰‹å·²ç»å¤Ÿäº†ï¼Œè¯·ç¨ç­‰å†æ¥å§ã€‚\n");	
 	return 1;
 }
 void do_check_guard(){
@@ -72,15 +72,15 @@ void do_check_guard(){
 		if( !guarder )continue;
 		if( time() - guarder->query("guard_time") >= 300){
 			guard[rooms[i]] = "";
-			tell( guarder, "Ê±¼ä²î²»¶àÁË£¬Äã¿ÉÒÔÈ¥ĞİÏ¢ĞİÏ¢ÁË¡£\n");
+			tell( guarder, "æ—¶é—´å·®ä¸å¤šäº†ï¼Œä½ å¯ä»¥å»ä¼‘æ¯ä¼‘æ¯äº†ã€‚\n");
 			continue;
 		};
 		if( base_name( environment( guarder ) ) + ".c"
 			!= __CITY__DIR__ + rooms[i]){
-			tell( guarder, "¸ÉÂğÄÄ£¬¿ìÈ¥Äã¸ÃÈ¥µÄµØ·½¡£\n");	
+			tell( guarder, "å¹²å—å“ªï¼Œå¿«å»ä½ è¯¥å»çš„åœ°æ–¹ã€‚\n");	
 			continue;
 		} else {
-			guarder->simple_action("$NÈ«Éñ¹á×¢µÄ¶¢×ÅÃ¿Ò»¸ö¹ıÍùµÄĞĞÈË¡£ \n");
+			guarder->simple_action("$Nå…¨ç¥è´¯æ³¨çš„ç›¯ç€æ¯ä¸€ä¸ªè¿‡å¾€çš„è¡Œäººã€‚ \n");
 			skill = guarder->query_sk_level("sk_zhimou");
 		        exp = guarder->query_sk_exp("sk_zhimou");
 			if( skill < 41 ) guarder->set_sg_skill("sk_zhimou", skill, 

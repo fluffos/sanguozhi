@@ -19,7 +19,7 @@ void do_weave_str(string str) {
 		return;
 	}
 	if(!ret)
-		ret=o->short()+"好象没法编织。\n";
+		ret=o->short()+"濂借薄娌℃硶缂栫粐銆俓n";
 	write(ret);
 	return;
 }
@@ -28,7 +28,7 @@ void do_weave_str(string str) {
     ob2->use("weave", ob1);
 } */
  
-array query_verb_info()
+mixed * query_verb_info()
 {
   return ({ ({ "STR",  }) });
 //  return ({ ({ "OBJ", "OBJ with OBJ" }) });

@@ -1,4 +1,4 @@
-// ³Â²ÖĞ¡µÀ by lcm
+// é™ˆä»“å°é“ by lcm
 // cc_xd1.c
 #include <mudlib.h>
 #include <sanguo.h>
@@ -8,10 +8,10 @@ inherit OUTDOOR_ROOM;
 void setup(){
     set_area("chencang");
     set_light(50);
-    set_brief(""+YEL+"Ğ¡µÀ"+NOR+"");
+    set_brief(""+YEL+"å°é“"+NOR+"");
     set_long("
-    ´Ë´¦ÒÀÉ½°øË®£¬±ø¶Ó¿ÉÔÚ´ËÏÂÕ¯£¬ÖşÆğÖØ³Ç£¬ÒÔ¾ÜÊØµĞÈË¡£¾İËµ
-¼¸Ç§¾«±øÒ²¿ÉµÖµÃ×¡¼¸Ê®ÍòµĞ±ø¡£\n\n");
+    æ­¤å¤„ä¾å±±å‚æ°´ï¼Œå…µé˜Ÿå¯åœ¨æ­¤ä¸‹å¯¨ï¼Œç­‘èµ·é‡åŸï¼Œä»¥æ‹’å®ˆæ•Œäººã€‚æ®è¯´
+å‡ åƒç²¾å…µä¹Ÿå¯æŠµå¾—ä½å‡ åä¸‡æ•Œå…µã€‚\n\n");
     set_exits( ([
         "west" :  __DIR__+"cc_sjds.c",
         "east" :  __DIR__+"cc_htdd.c",

@@ -20,7 +20,7 @@ inherit MAILER;
 private nomask string query_prompt()
 {
     return sprintf(//"[%d of %d] mail: ",
-                   "[%d of %d] ĞÅ¼ş£º",
+                   "[%d of %d] ä¿¡ä»¶ï¼š",
       mailbox_ob->query_message_index() + 1,
       mailbox_ob->query_message_count());
 }
@@ -30,7 +30,7 @@ private void stdmail_cmd_replyall(mixed cmd_args)
     if ( cmd_args && !(cmd_args = to_int(cmd_args)) )
     {
     //write("Usage: R #\n");
-    write("ÓÃ·¨£ºR <number>\n");
+    write("ç”¨æ³•ï¼šR <number>\n");
     return;
     }
 
@@ -42,7 +42,7 @@ private void stdmail_cmd_reply(mixed cmd_args)
     if ( cmd_args && !(cmd_args = to_int(cmd_args)) )
     {
     //write("Usage: r #\n");
-    write("ÓÃ·¨£ºr <number>\n");
+    write("ç”¨æ³•ï¼šr <number>\n");
     return;
     }
 
@@ -56,46 +56,46 @@ private void stdmail_cmd_help()
     output =
     //"?                  This help screen\n"
     "\n"
-    "?                              ±¾ËµÃ÷ÆÁÄ»\n"
+    "?                              æœ¬è¯´æ˜å±å¹•\n"
     //"m <name1> [name2] [name3]...       Send mail.\n"
-    "m <name1> [name2] [name3]...   ¼ÄĞÅ¡£\n"
+    "m <name1> [name2] [name3]...   å¯„ä¿¡ã€‚\n"
     //"h [# or range (1-4,6 for example)] Show the headers for the specified\n"
     //"                   range of messages, or all messages\n"
     //"                   if no range is specified.\n"
-    "h [# or ·¶Î§ (±ÈÈç 1-4,6)]     ÏÔÊ¾Ö¸¶¨µÄ»òÈ«²¿ĞÅ¼şµÄ¿ªÍ·¡£\n"
+    "h [# or èŒƒå›´ (æ¯”å¦‚ 1-4,6)]     æ˜¾ç¤ºæŒ‡å®šçš„æˆ–å…¨éƒ¨ä¿¡ä»¶çš„å¼€å¤´ã€‚\n"
     //"#                  Read a message.\n"
-    "#                              ¶ÁÈ¡ĞÅ¼ş¡£\n"
+    "#                              è¯»å–ä¿¡ä»¶ã€‚\n"
     //"r #                    Reply to message\n"
-    "r #                            »Ø¸´ĞÅ¼ş¡£\n"
+    "r #                            å›å¤ä¿¡ä»¶ã€‚\n"
     //"R #                    Reply to message, all\n"
     //"                   originial recipients receive the mail\n"
-    "R #                            »Ø¸´ĞÅ¼ş¸øËùÓĞ¼ÄĞÅÈË¡£\n"
+    "R #                            å›å¤ä¿¡ä»¶ç»™æ‰€æœ‰å¯„ä¿¡äººã€‚\n"
     //"f #                    Forward message\n"
-    "f #                            ×ª¼ÄĞÅ¼ş¡£\n"
+    "f #                            è½¬å¯„ä¿¡ä»¶ã€‚\n"
     //"d # or range               Delete message(s)\n"
-    "d # or ·¶Î§                    É¾³ıĞÅ¼ş¡£\n"
+    "d # or èŒƒå›´                    åˆ é™¤ä¿¡ä»¶ã€‚\n"
     //"$                  Show the number of messages in your box.\n"
-    "$                              ÏÔÊ¾ĞÅ¼ş×ÜÊı¡£\n"
+    "$                              æ˜¾ç¤ºä¿¡ä»¶æ€»æ•°ã€‚\n"
     //"= [#]                  Set current message if # is provided\n"
     //"                   else shows the current message #\n"
-    "= [#]                          ÏÔÊ¾ÏÖÔÚĞÅ¼şµÄºÅÂë¡£Èç¹ûÓĞ²ÎÊı # £¬\n"
-    "                               ÔòÉè¶¨¶ÁÈ¡ĞÅ¼şµÄºÅÂë\n"
+    "= [#]                          æ˜¾ç¤ºç°åœ¨ä¿¡ä»¶çš„å·ç ã€‚å¦‚æœæœ‰å‚æ•° # ï¼Œ\n"
+    "                               åˆ™è®¾å®šè¯»å–ä¿¡ä»¶çš„å·ç \n"
     //"+                  increment the current message number\n"
-    "+                              ¶ÁÈ¡ĞÅ¼şµÄºÅÂë¼ÓÒ»£¬²¢²»ÏÔÊ¾¡£\n"
+    "+                              è¯»å–ä¿¡ä»¶çš„å·ç åŠ ä¸€ï¼Œå¹¶ä¸æ˜¾ç¤ºã€‚\n"
     //"                   but do not read.\n"
     //"-                  decrement the current message number\n"
-    "-                              ¶ÁÈ¡ĞÅ¼şµÄºÅÂë¼õÒ»£¬²¢²»ÏÔÊ¾¡£\n"
+    "-                              è¯»å–ä¿¡ä»¶çš„å·ç å‡ä¸€ï¼Œå¹¶ä¸æ˜¾ç¤ºã€‚\n"
     //"                   but do not read.\n"
     //"n                  read the next message.\n"
-    "n                              ÏÔÊ¾ÏÂÒ»·âĞÅ¼ş¡£\n"
+    "n                              æ˜¾ç¤ºä¸‹ä¸€å°ä¿¡ä»¶ã€‚\n"
     ;
 
     if( wizardp(this_user()) )
     output +=
     //"s [#] <filename>           Save message w/ header intact to file.\n"
     //"w [#] <filename>           Save message but no header to file.\n";
-    "s [#] <filename>               ½«ĞÅ¼şÍ·ÒÔ¼°ĞÅ¼şÄÚÈİ´æµµ¡£\n"
-    "w [#] <filename>               ½«ĞÅ¼şÄÚÈİ´æµµ£¬²»°üÀ¨ĞÅ¼şÍ·¡£\n";
+    "s [#] <filename>               å°†ä¿¡ä»¶å¤´ä»¥åŠä¿¡ä»¶å†…å®¹å­˜æ¡£ã€‚\n"
+    "w [#] <filename>               å°†ä¿¡ä»¶å†…å®¹å­˜æ¡£ï¼Œä¸åŒ…æ‹¬ä¿¡ä»¶å¤´ã€‚\n";
 
    output +=
     "\n"
@@ -104,7 +104,7 @@ private void stdmail_cmd_help()
     //"Groups may also be mailed to, see help for groups on how to set them\n"
     //"up.... you can mail to them by enclosing "
     //"The group in ().  Eg, Mm (admin) rust  will mail all the admins and rust.\n";
-    "¿ÉÒÔ¼ÄĞÅ¸øÒ»×éÈË£¬±ÈÈç m (admin) rust »á¼Ä¸øËùÓĞ admins ºÍ rust¡£\n";
+    "å¯ä»¥å¯„ä¿¡ç»™ä¸€ç»„äººï¼Œæ¯”å¦‚ m (admin) rust ä¼šå¯„ç»™æ‰€æœ‰ admins å’Œ rustã€‚\n";
     more(output);
 }
 
@@ -117,7 +117,7 @@ private void stdmail_cmd_forward(string cmd_args)
     (sscanf(cmd_args,"%s",newto)!=1)))
     {
     //write("Usage: f # <name1> [name2] ...\n");
-    write("ÓÃ·¨£ºf # <name1> [name2] ...\n");
+    write("ç”¨æ³•ï¼šf # <name1> [name2] ...\n");
     return;
     }
 
@@ -133,7 +133,7 @@ private void stdmail_cmd_save(string cmd_args)
     sscanf(cmd_args,"%s",fname)!=1))
     {
     //write("Usage: s # <filename>\n");
-    write("ÓÃ·¨£ºs # <filename>\n");
+    write("ç”¨æ³•ï¼šs # <filename>\n");
     return;
     }
 
@@ -149,7 +149,7 @@ private void stdmail_cmd_write(string cmd_args)
     sscanf(cmd_args,"%s",fname)!=1))
     {
     //write("Usage: w # <filename>\n");
-    write("ÓÃ·¨£ºw # <filename>\n");
+    write("ç”¨æ³•ï¼šw # <filename>\n");
     return;
     }
 
@@ -222,7 +222,7 @@ private nomask void mail_prompt(string input)
         idx = mailbox_ob->first_unread_message() + 1;
         if ( !idx )
         //printf("No more messages.\n");
-        printf("Ã»ÓĞ¸ü¶àµÄĞÅ¼şÁË¡£\n");
+        printf("æ²¡æœ‰æ›´å¤šçš„ä¿¡ä»¶äº†ã€‚\n");
         else
         cmd_read(idx, 0, 0);
         break;
@@ -235,7 +235,7 @@ private nomask void mail_prompt(string input)
     break;
     case '$':
     printf(//"You have %d messages.\n",
-           "Äã¹²ÓĞ %d ·âĞÅ¼ş¡£\n",
+           "ä½ å…±æœ‰ %d å°ä¿¡ä»¶ã€‚\n",
             mailbox_ob->query_message_count());
     break;
     default:
@@ -243,7 +243,7 @@ private nomask void mail_prompt(string input)
         cmd_read(to_int(input), 0, 0);
     else
         //write("Type ? for help\n");
-        write("ÓÃ ? À´ÏÔÊ¾¸¨ÖúËµÃ÷\n");
+        write("ç”¨ ? æ¥æ˜¾ç¤ºè¾…åŠ©è¯´æ˜\n");
     break;
     }
 }
@@ -263,7 +263,7 @@ nomask void begin_mail(string arg)
     if (!idx)
     {
     //write( "No Unread Messages.\n" );
-        write("Ã»ÓĞÎ´¶ÁµÄĞÅ¼ş¡£\n");
+        write("æ²¡æœ‰æœªè¯»çš„ä¿¡ä»¶ã€‚\n");
         write( "(h for old headers)\n" );
     }
     else

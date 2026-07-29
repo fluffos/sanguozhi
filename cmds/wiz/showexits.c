@@ -14,11 +14,11 @@ private void main(){
 
     directions = room->query_exit_directions(1);
     if(!sizeof(directions)) {
-        out("Õâ¸ö·¿¼äÃ»ÓÐÈÎºÎ³ö¿Ú¡£\n");
+        out("è¿™ä¸ªæˆ¿é—´æ²¡æœ‰ä»»ä½•å‡ºå£ã€‚\n");
         return;
     }
 
-    out("Ä¿Ç°µÄ³ö¿ÚÊÇ£º\n");
+    out("ç›®å‰çš„å‡ºå£æ˜¯ï¼š\n");
 
     foreach (string dir in directions) {
         mixed dest;
@@ -34,9 +34,9 @@ private void main(){
             if (o = load_object(dest))
                 Short = o->short() || "";
             else
-                Short = "½¨ÉèÖÐ";
+                Short = "å»ºè®¾ä¸­";
         } else
-            Short = "ÎÞ";
+            Short = "æ— ";
         outf("%s:  %s (%s)\n", dir, Short, dest);
     }
 }

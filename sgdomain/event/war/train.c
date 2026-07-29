@@ -5,7 +5,7 @@
 void release_army(int p_id);
 void def_pre_arrange(int task_id,string def_area);
 
-//Îä½«ÅÅĞò
+//æ­¦å°†æ’åº
 void train_arrange(int task_id)
 {
    string def_area,def_leader,*def_general;
@@ -60,10 +60,10 @@ void train_collect(int task_id)
 	p_flyroom=AREA_D->get_area(def_area,"path")+AREA_D->get_area(def_area,"fly");
 	p_short=load_object(p_flyroom)->short();
 	if(objectp(o_char))
-	{ 	o_char->simple_action("$NµÀ£ºÖîÎ»½«¾ü¡¢´óÈË£¬ËÙµ½"+
-			p_short+"µã±øÑµÁ·¡£\n");
+	{ 	o_char->simple_action("$Né“ï¼šè¯¸ä½å°†å†›ã€å¤§äººï¼Œé€Ÿåˆ°"+
+			p_short+"ç‚¹å…µè®­ç»ƒã€‚\n");
 		CHAR_D->put_char(def_leader,p_flyroom);
-		o_char->simple_action("$NÀ´µ½ÁË"+p_short+"¡£\n");
+		o_char->simple_action("$Næ¥åˆ°äº†"+p_short+"ã€‚\n");
 		o_char->resign_job("train");
 		o_char->add_job("train");
 	}
@@ -76,13 +76,13 @@ void train_collect(int task_id)
 		CHAR_D->put_char(p_id,p_flyroom);
 		if(objectp(o_char))
 		{
-			o_char->simple_action("$NÀ´µ½ÁË"+p_short+"¡£\n");
+			o_char->simple_action("$Næ¥åˆ°äº†"+p_short+"ã€‚\n");
 		}
    }
 }
 
 
-//³õÊ¼»¯ÑµÁ·ÈÎÎñµÄ¸÷²ÎÊı
+//åˆå§‹åŒ–è®­ç»ƒä»»åŠ¡çš„å„å‚æ•°
 void train(string p_area,string leader,string* group)
 {
     string att_name,att_id;
@@ -96,16 +96,16 @@ void train(string p_area,string leader,string* group)
     t_num=TASK_D->add_task(TT_TRAIN);
         
     att_id="train aim";
-    att_name="Ä¿±ê²¿¶Ó";
+    att_name="ç›®æ ‡éƒ¨é˜Ÿ";
     CHANNEL_D->deliver_tell("rumor","system",
-      CHAR_D->get_char(leader,"name")+"ÔÚ"+
-      AREA_D->get_area(p_area,"name")+"´ó¹æÄ£²ÙÁ·±øÊ¿¡£");
+      CHAR_D->get_char(leader,"name")+"åœ¨"+
+      AREA_D->get_area(p_area,"name")+"å¤§è§„æ¨¡æ“ç»ƒå…µå£«ã€‚");
     TASK_D->set_task(t_num,"def_area",p_area);
     TASK_D->set_task(t_num,"area",p_area);
     TASK_D->set_task(t_num,"att_area",p_area);
     TASK_D->set_task(t_num,"att_id",att_id);
     TASK_D->set_task(t_num,"att_name",att_name);
-    WARAI_D->create_inf(t_num);	//³õÊ¼»¯Õ½¶·ÖĞÏÔÊ¾µÄĞÅÏ¢
+    WARAI_D->create_inf(t_num);	//åˆå§‹åŒ–æˆ˜æ–—ä¸­æ˜¾ç¤ºçš„ä¿¡æ¯
     u_list=group;
     TASK_D->set_task(t_num,"def_party",u_list);     
     m_us=([]);

@@ -9,14 +9,14 @@ inherit VERB_OB;
 
 /* default */
 mixed indirect_pour_obj_in_obj(object ob1, object ob2) {
-    return "你无法把任何东西倒在" + ob2->short() + "里面。\n";
+    return "浣犳棤娉曟妸浠讳綍涓滆タ鍊掑湪" + ob2->short() + "閲岄潰銆俓n";
 }
 
 void do_pour_obj_in_obj(object ob1, object ob2) {
     ob1->pour_into(ob2);
 }
 
-array query_verb_info(string rule)
+mixed * query_verb_info(string rule)
 {
 return ({ ({ "OBJ in OBJ" }) });
 }

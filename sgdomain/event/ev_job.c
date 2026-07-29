@@ -8,17 +8,17 @@
 #define SIMPLE_OFFER 4 // leader to unofficer
 #define MINRESIGNTIME 7200 // if you don't like this job need at least
                            // this time to resign it
-static mapping king_offer=(["zhaoxiang" : "ÕĞ½µËü¹ú"]);
-static mapping leader_offer=([ "letter" : "ËÍĞÅ" , "spy" : "µØÇøÕì²é",
-	"searchwise" : "ËÑË÷ÏÍÈË","visitwise" : "·ÃÎÊÏÍÈË",
-	"patrol" : "Ñ²Âß","visitpeople" : "Ìå²ì°ÙĞÕ",
-	"fanpeople" : "É¿¶¯°ÙĞÕ","whisper":"²ß·´µĞ½«",
-//	"landlord" : "¿ª·¢ĞÂÌï",
-	"visitofficer" : "°²¸§¹ÙÔ±",
+nosave protected mapping king_offer=(["zhaoxiang" : "æ‹›é™å®ƒå›½"]);
+nosave protected mapping leader_offer=([ "letter" : "é€ä¿¡" , "spy" : "åœ°åŒºä¾¦æŸ¥",
+	"searchwise" : "æœç´¢è´¤äºº","visitwise" : "è®¿é—®è´¤äºº",
+	"patrol" : "å·¡é€»","visitpeople" : "ä½“å¯Ÿç™¾å§“",
+	"fanpeople" : "ç…½åŠ¨ç™¾å§“","whisper":"ç­–åæ•Œå°†",
+//	"landlord" : "å¼€å‘æ–°ç”°",
+	"visitofficer" : "å®‰æŠšå®˜å‘˜",
 // Add by listen
-	"setppl" : "ÉèÖÃ¼äµı"]);
-static mapping simple_offer=(["findbody" : "ÕÒÈË","askobj" : "´ßÎï",
-                              "bugao" : "ÕÅÌù²¼¸æ",]);
+	"setppl" : "è®¾ç½®é—´è°"]);
+nosave protected mapping simple_offer=(["findbody" : "æ‰¾äºº","askobj" : "å‚¬ç‰©",
+                              "bugao" : "å¼ è´´å¸ƒå‘Š",]);
 private mapping jobs;
 void confirm_job(object who, object officer);
 void myjob(object officer,object who,string ans);
@@ -82,14 +82,14 @@ void ask_job(object who, object officer)
         (OFFICER_D->query_area_officer_title(
          AREA_D->get_area(m_area,"level"),0,0))[0]);
           officer->targetted_action
-         ("$N¶Ô$TĞ¦µÀ£º$RÏëÕÒµãÊÂ¸É£¿Õâ¸ö$s¿É×ö²»ÁËÖ÷£¬µÃÈ¥ÎÊ±¾µØ"+m_title+"¡£\n",who);
+         ("$Nå¯¹$Tç¬‘é“ï¼š$Ræƒ³æ‰¾ç‚¹äº‹å¹²ï¼Ÿè¿™ä¸ª$så¯åšä¸äº†ä¸»ï¼Œå¾—å»é—®æœ¬åœ°"+m_title+"ã€‚\n",who);
          return;
     }
     //added by suicide in 2001.6.7 for avoiding dummy with low lit to work
     if (CHAR_D->char_exist(y_id)&&(CHAR_D->get_char(y_id,"literate")<30))
     {
     officer->targetted_action
-         ("$N¶Ô$TĞ¦µÀ£º$R´ó×ÖÈÏ²»ÁË¼¸¸ö£¬»¹ÊÇ»ØÈ¥½øĞŞ½øĞŞÔÙÀ´£¬ÃâµÃÎóÁË¹ú¼Ò´óÊÂ£¡\n",who);
+         ("$Nå¯¹$Tç¬‘é“ï¼š$Rå¤§å­—è®¤ä¸äº†å‡ ä¸ªï¼Œè¿˜æ˜¯å›å»è¿›ä¿®è¿›ä¿®å†æ¥ï¼Œå…å¾—è¯¯äº†å›½å®¶å¤§äº‹ï¼\n",who);
     return;
 
     }
@@ -98,7 +98,7 @@ void ask_job(object who, object officer)
 ((AREA_D->get_area(m_area,"path"))+(AREA_D->get_area(m_area,"meeting"))))||(m_area!=
 		environment(this_body())->get_area()))
 	{
-		officer->targetted_action("$N¶Ô$TÒ¡Ò¡Í·µÀ£ºÕâ¸ö»¹ÊÇ»Øµ½»áÒéÖ®ËùºóÔÙËµ°É¡£\n",who);
+		officer->targetted_action("$Nå¯¹$Tæ‘‡æ‘‡å¤´é“ï¼šè¿™ä¸ªè¿˜æ˜¯å›åˆ°ä¼šè®®ä¹‹æ‰€åå†è¯´å§ã€‚\n",who);
 		return;
 	}
 	p_check=check_situation(m_id,y_id);
@@ -106,7 +106,7 @@ void ask_job(object who, object officer)
     {
 	case CANT_OFFER:
 		officer->targetted_action
-         ("$N¶Ô$TÒ¡Ò¡Í·£¬µÀ£º$R²»ÊÇ³¤¾Ó´ËµØ°É£¿±¾µØÊÂÎñÍâÈË²»±ã²åÊÖ£¬Èç´Ë¡£¡£Õâ¸ö¡£¡£¡£\n",who);
+         ("$Nå¯¹$Tæ‘‡æ‘‡å¤´ï¼Œé“ï¼š$Rä¸æ˜¯é•¿å±…æ­¤åœ°å§ï¼Ÿæœ¬åœ°äº‹åŠ¡å¤–äººä¸ä¾¿æ’æ‰‹ï¼Œå¦‚æ­¤ã€‚ã€‚è¿™ä¸ªã€‚ã€‚ã€‚\n",who);
 		return;
 	case KING_OFFER:
 		jobs=king_offer;
@@ -124,13 +124,13 @@ void ask_job(object who, object officer)
 	if(sizeof(jobs))
 	{
 		officer->targetted_action
-         ("$N¶Ô$TµãµãÍ·£¬µÀ£º$RÖ÷¶¯Ñ°Ö°Ñû¹¦£¬¾«Éñ¿É¼Î£¬¾«Éñ¿É¼ÎÑ½¡£\n"+
-		 "ÏÖÓĞÒÔÏÂ¹¤×÷£º\n",who);
+         ("$Nå¯¹$Tç‚¹ç‚¹å¤´ï¼Œé“ï¼š$Rä¸»åŠ¨å¯»èŒé‚€åŠŸï¼Œç²¾ç¥å¯å˜‰ï¼Œç²¾ç¥å¯å˜‰å‘€ã€‚\n"+
+		 "ç°æœ‰ä»¥ä¸‹å·¥ä½œï¼š\n",who);
          confirm_job(who,officer);
          return;
 	}
     officer->targetted_action
-    ("$NÖ±Ò¡Í·£ºÏÖÔÚÁ¬$s¶¼ÎŞÊÂ¿É×ö£¬°¦£¬ÕæÎŞÁÄ¡£\n",who);
+    ("$Nç›´æ‘‡å¤´ï¼šç°åœ¨è¿$séƒ½æ— äº‹å¯åšï¼Œå”‰ï¼ŒçœŸæ— èŠã€‚\n",who);
                     return;
 }
 void confirm_job(object who, object officer)
@@ -145,9 +145,9 @@ void confirm_job(object who, object officer)
 	jobs=suitable_job(m_id,y_id);
     officer->set_answer(y_id,  (:myjob:) );
 	list=keys(jobs);
-	p_dis="¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş\n"+
-		  "¹¤×÷´úºÅ    ¹¤×÷Ãû³Æ    ¹¤×÷´úºÅ    ¹¤×÷Ãû³Æ\n"+
-		  "¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş\n";
+	p_dis="ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“\n"+
+		  "å·¥ä½œä»£å·    å·¥ä½œåç§°    å·¥ä½œä»£å·    å·¥ä½œåç§°\n"+
+		  "ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“\n";
 	for(i=0;i<sizeof(list);++i)
 	{
 		p_dis+=sprintf("%-12s%-12s",list[i],
@@ -156,11 +156,11 @@ void confirm_job(object who, object officer)
 			p_dis+="\n";
 	}
 	if(p_dis[<1]!=10) p_dis+="\n";
-	p_dis+="¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş\n";
+	p_dis+="ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“\n";
 	tell_user(y_id,p_dis);
     officer->targetted_action
-      ("$N¶Ô$TµÀ£ºÄã¿¼ÂÇÇå³şÁËÂğ£¿\n"+
-"ÏëºÃÁË¾ÍÇëÊäÈë answer <´úºÅ> to "+m_id+"\n",who);
+      ("$Nå¯¹$Té“ï¼šä½ è€ƒè™‘æ¸…æ¥šäº†å—ï¼Ÿ\n"+
+"æƒ³å¥½äº†å°±è¯·è¾“å…¥ answer <ä»£å·> to "+m_id+"\n",who);
 }
 void myjob(object officer,object who,string ans)
 {
@@ -177,7 +177,7 @@ void myjob(object officer,object who,string ans)
 	    || (!JOB_D->query_job(ans)))
 	{
 	    officer->targetted_action
-		  ("$N¶Ô$TÒ¡Ò¡Í·µÀ£º$RÒªÇóµÄ¹¤×÷ÎÒÃÇÕâÀïÃ»ÓĞÑ½¡£\n",who);
+		  ("$Nå¯¹$Tæ‘‡æ‘‡å¤´é“ï¼š$Rè¦æ±‚çš„å·¥ä½œæˆ‘ä»¬è¿™é‡Œæ²¡æœ‰å‘€ã€‚\n",who);
 		return;
 	}
 	m_area=CHAR_D->get_char(m_id,"area");
@@ -198,14 +198,14 @@ void myjob(object officer,object who,string ans)
 	if(p_begtime&&((p_curtime-p_begtime)<MINRESIGNTIME)&&(ans!="setppl"))
 	{
 		officer->targetted_action
-			("$N¶Ô$TµÀ£º$Rµ±Ç°µÄ"+job_name+"¹¤×÷ÉĞÎ´Íê³É£¬¼´±ãÊÇ¾õµÃÌ«À§ÄÑ£¬\nÖÁÉÙÒ²Òª»¨µãÊ±¼äÈ¥ÊÔÊÔ¡£\n",who);
+			("$Nå¯¹$Té“ï¼š$Rå½“å‰çš„"+job_name+"å·¥ä½œå°šæœªå®Œæˆï¼Œå³ä¾¿æ˜¯è§‰å¾—å¤ªå›°éš¾ï¼Œ\nè‡³å°‘ä¹Ÿè¦èŠ±ç‚¹æ—¶é—´å»è¯•è¯•ã€‚\n",who);
 		return;
 	}
 	//setppl do not limit how many for a day
 	if(who->query_job(ans,"count_lasttimes") > 
            JOB_D->query_job(ans,"count_lasttimes") && ans!="setppl" ){
 		officer->targetted_action
-			("$N¶Ô$TµÀ£º$R½ñÌìµÄ"+job_name+"¹¤×÷ÒÑ¾­×öµÃ¹»¶àÁË£¬¸Ã»»»»»¨ÑùÁË¡£\n",who);
+			("$Nå¯¹$Té“ï¼š$Rä»Šå¤©çš„"+job_name+"å·¥ä½œå·²ç»åšå¾—å¤Ÿå¤šäº†ï¼Œè¯¥æ¢æ¢èŠ±æ ·äº†ã€‚\n",who);
 		return;
 	}
 //add By Joey to check positionn for setppl job
@@ -215,7 +215,7 @@ void myjob(object officer,object who,string ans)
 	if(file_size(file_name)<1)
 	{
 	    officer->targetted_action
-		  ("$N¶Ô$TĞ¦µÀ£º"+job_name+"¹¤×÷»¹Ã»ÓĞÍê³É£¬¹ı»á¶ùÔÙÀ´ÊÔÊÔ°É¡£\n",who);
+		  ("$Nå¯¹$Tç¬‘é“ï¼š"+job_name+"å·¥ä½œè¿˜æ²¡æœ‰å®Œæˆï¼Œè¿‡ä¼šå„¿å†æ¥è¯•è¯•å§ã€‚\n",who);
 		return;
 	}
 	if(p_begtime) // resign job first
@@ -225,14 +225,14 @@ void myjob(object officer,object who,string ans)
 	if(!ret)
 	{
 	    officer->targetted_action
-		  ("$N¶Ô$TĞ¦µÀ£º"+job_name+"¹¤×÷»¹Ã»ÓĞÍê³É£¬¹ı»á¶ùÔÙÀ´ÊÔÊÔ°É¡£\n",who);
+		  ("$Nå¯¹$Tç¬‘é“ï¼š"+job_name+"å·¥ä½œè¿˜æ²¡æœ‰å®Œæˆï¼Œè¿‡ä¼šå„¿å†æ¥è¯•è¯•å§ã€‚\n",who);
 		return;
 	}
 
-/* emperor add. ¼ÓÈëËùÓĞask jobÊ±¾ÍÏÈ½øĞĞrobottest */
+/* emperor add. åŠ å…¥æ‰€æœ‰ask jobæ—¶å°±å…ˆè¿›è¡Œrobottest */
 
 	officer->targetted_action(
-		"$N¶Ô$TµÀ£º$R¾«Éñ¿É¼Î£¬²»¹ıµÃ°ïÎÒ½â¾ö¸öÎÊÌâ£¬ÍêÁË²ÅÄÜÁìÈ¡"+jobs[ans]+"¹¤×÷¡£\n",who);
+		"$Nå¯¹$Té“ï¼š$Rç²¾ç¥å¯å˜‰ï¼Œä¸è¿‡å¾—å¸®æˆ‘è§£å†³ä¸ªé—®é¢˜ï¼Œå®Œäº†æ‰èƒ½é¢†å–"+jobs[ans]+"å·¥ä½œã€‚\n",who);
 	pre_myjob(officer,who,job_name,ans,m_area,ret);
 /* emperor add it on 2003.5.12 */
 /*emperor omit it on 2003.5.12 
@@ -240,7 +240,7 @@ void myjob(object officer,object who,string ans)
 	if(!ret)
 	{
 	    officer->targetted_action
-		  ("$N¶Ô$TĞ¦µÀ£º"+job_name+"¹¤×÷»¹Ã»ÓĞÍê³É£¬¹ı»á¶ùÔÙÀ´ÊÔÊÔ°É¡£\n",who);
+		  ("$Nå¯¹$Tç¬‘é“ï¼š"+job_name+"å·¥ä½œè¿˜æ²¡æœ‰å®Œæˆï¼Œè¿‡ä¼šå„¿å†æ¥è¯•è¯•å§ã€‚\n",who);
 		return;
 	}
 
@@ -253,7 +253,7 @@ void myjob(object officer,object who,string ans)
 		return; 
 	}
 	officer->targetted_action
-		  ("$N¶Ô$TĞ¦µÀ£ºÈç´Ë¾Í¸øÄã°²ÅÅ¸ö"+job_name+"¹¤×÷£¬¿ìÈ¥°É¡£\n",who);
+		  ("$Nå¯¹$Tç¬‘é“ï¼šå¦‚æ­¤å°±ç»™ä½ å®‰æ’ä¸ª"+job_name+"å·¥ä½œï¼Œå¿«å»å§ã€‚\n",who);
 */
 }
 
@@ -294,19 +294,19 @@ void pre_award(object usr ,mixed p)
 		usr->add_job(ans);
 		usr->finish_job(ans);
 		if(objectp(officer)) {
-			officer->targetted_action("$N¶Ô$T×ŞÁË×ŞÃ¼£º»Ø´ğ´íÎó£¬Ã»Ï·¡£\n",usr);
+			officer->targetted_action("$Nå¯¹$Té‚¹äº†é‚¹çœ‰ï¼šå›ç­”é”™è¯¯ï¼Œæ²¡æˆã€‚\n",usr);
 		}
 		else {
-			usr->simple_action("$NÎÊÌâ»Ø´ğ´íÎó¡£\n");
+			usr->simple_action("$Né—®é¢˜å›ç­”é”™è¯¯ã€‚\n");
 		}
-		DELAY_D->delay_simple_action(usr,"$NºßÁËÒ»Éù£¬Ò»¸±²»ÂúµÄÑù×Ó¡£\n",1);
+		DELAY_D->delay_simple_action(usr,"$Nå“¼äº†ä¸€å£°ï¼Œä¸€å‰¯ä¸æ»¡çš„æ ·å­ã€‚\n",1);
 		return;
     }
 	if(objectp(officer))
-	    officer->targetted_action("$N¶Ô$TµÀ£º²»´í£¬²»´í£¬¿´ÉÍ£¡\n",usr);
+	    officer->targetted_action("$Nå¯¹$Té“ï¼šä¸é”™ï¼Œä¸é”™ï¼Œçœ‹èµï¼\n",usr);
 	else
-		usr->simple_action("$NÎÊÌâ»Ø´ğÕıÈ·¡£\n");
-    usr->simple_action("$N¸ßĞËµØÌøÁËÆğÀ´¡£\n");
+		usr->simple_action("$Né—®é¢˜å›ç­”æ­£ç¡®ã€‚\n");
+    usr->simple_action("$Né«˜å…´åœ°è·³äº†èµ·æ¥ã€‚\n");
     
 	if(usr->query_job(ans,"beg_time")) // assign succ
 		usr->set_job(ans,"assignarea",m_area); // assign area in case player
@@ -317,14 +317,14 @@ void pre_award(object usr ,mixed p)
 		return; 
 	}
 	if(officer) officer->targetted_action
-		  ("$N¶Ô$TĞ¦µÀ£ºÈç´Ë¾Í¸øÄã°²ÅÅ¸ö"+job_name+"¹¤×÷£¬¿ìÈ¥°É¡£\n",usr);
+		  ("$Nå¯¹$Tç¬‘é“ï¼šå¦‚æ­¤å°±ç»™ä½ å®‰æ’ä¸ª"+job_name+"å·¥ä½œï¼Œå¿«å»å§ã€‚\n",usr);
 }
 
 void finish_myjob(object officer,object who,string job)
 {
 	object o;
 	officer->targetted_action(
-		"$N¶Ô$TµÀ£ºÈÎÎñÍê³ÉµÄ²»´í£¬²»¹ı»¹µÃ°ïÎÒ½â¾ö¸öÎÊÌâ£¬ÍêÁË²ÅÄÜÁìÉÍ¡£\n",who);
+		"$Nå¯¹$Té“ï¼šä»»åŠ¡å®Œæˆçš„ä¸é”™ï¼Œä¸è¿‡è¿˜å¾—å¸®æˆ‘è§£å†³ä¸ªé—®é¢˜ï¼Œå®Œäº†æ‰èƒ½é¢†èµã€‚\n",who);
 	o=find_user(who->query_id()[0]);
 	who->finish_job(job);
    	who->set_job(job,"status","over");
@@ -353,18 +353,18 @@ void my_award(object usr ,mixed para)
     if(isrobot)
     {  
 		if(objectp(officer)) {
-			officer->targetted_action("$N¶Ô$T×ŞÁË×ŞÃ¼£º»Ø´ğ´íÎó£¬Ã»Ï·¡£\n",usr);
+			officer->targetted_action("$Nå¯¹$Té‚¹äº†é‚¹çœ‰ï¼šå›ç­”é”™è¯¯ï¼Œæ²¡æˆã€‚\n",usr);
 		}
 		else {
-			usr->simple_action("$NÎÊÌâ»Ø´ğ´íÎó¡£\n");
+			usr->simple_action("$Né—®é¢˜å›ç­”é”™è¯¯ã€‚\n");
 		}
-	   DELAY_D->delay_simple_action(usr,"$NºßÁËÒ»Éù£¬Ò»¸±²»ÂúµÄÑù×Ó¡£\n",1);
+	   DELAY_D->delay_simple_action(usr,"$Nå“¼äº†ä¸€å£°ï¼Œä¸€å‰¯ä¸æ»¡çš„æ ·å­ã€‚\n",1);
        return;
     }
 	if(objectp(officer))
-	    officer->targetted_action("$N¶Ô$TµÀ£º²»´í£¬²»´í£¬¿´ÉÍ£¡\n",usr);
+	    officer->targetted_action("$Nå¯¹$Té“ï¼šä¸é”™ï¼Œä¸é”™ï¼Œçœ‹èµï¼\n",usr);
 	else
-		usr->simple_action("$NÎÊÌâ»Ø´ğÕıÈ·¡£\n");
+		usr->simple_action("$Né—®é¢˜å›ç­”æ­£ç¡®ã€‚\n");
 
 	job_level=JOB_D->query_job(job,"level");
 	if(job_level==1)
@@ -394,29 +394,29 @@ void my_award(object usr ,mixed para)
 			case "findbody" :
 				CHAR_D->set_char(my_id,"reputation",
 					CHAR_D->get_char(my_id,"reputation")+1);
-				usr->simple_action("$NµÄÉùÍûÉÏÉıÁË¡£\n");
+				usr->simple_action("$Nçš„å£°æœ›ä¸Šå‡äº†ã€‚\n");
                                 ob=new(M_SILVER);
                                 ob->set_m_num(random(8)+3);
                                 ob->move(usr);
-                                usr->simple_action("$NµÃµ½¼¸Á½ÉÍÒø¡£\n");
+                                usr->simple_action("$Nå¾—åˆ°å‡ ä¸¤èµé“¶ã€‚\n");
 				break ;		
 			case "askobj" :
 			    CHAR_D->set_char(my_id,"localcontribution",
 		              CHAR_D->get_char(my_id,"localcontribution")+1);
-			    usr->simple_action("$NµÄµØÇø¹±Ï×Ôö¼ÓÁË¡£\n");
+			    usr->simple_action("$Nçš„åœ°åŒºè´¡çŒ®å¢åŠ äº†ã€‚\n");
 	        		ob=new(M_SILVER);
 		        	ob->set_m_num(random(20)+5);
 			        ob->move(usr);
-			        usr->simple_action("$NµÃµ½¼¸Á½ÉÍÒø¡£\n");
+			        usr->simple_action("$Nå¾—åˆ°å‡ ä¸¤èµé“¶ã€‚\n");
 			   break;
 			case "bugao" :
 			    CHAR_D->set_char(my_id,"loyalty",
 		              CHAR_D->get_char(my_id,"loyalty")+1);
-			    usr->simple_action("$NµÄÖÒ³Ï¶ÈÔö¼ÓÁË¡£\n");
+			    usr->simple_action("$Nçš„å¿ è¯šåº¦å¢åŠ äº†ã€‚\n");
 	        		ob=new(M_SILVER);
 		        	ob->set_m_num(random(10)+5);
 			        ob->move(usr);
-			        usr->simple_action("$NµÃµ½¼¸Á½ÉÍÒø¡£\n");
+			        usr->simple_action("$Nå¾—åˆ°å‡ ä¸¤èµé“¶ã€‚\n");
 			   break;
 
                         default:
@@ -431,9 +431,9 @@ void my_award(object usr ,mixed para)
 		usr->award_exp(N*val,"");
 		CHAR_D->set_char(my_id,"localcontribution",
 		   CHAR_D->get_char(my_id,"localcontribution")+N*val/10+1);
-		usr->simple_action("$NµÄÉùÍûÉÏÉıÁË¡£\n");
-		usr->simple_action("$NµÄ¾­ÑéÔö¼ÓÁË¡£\n");
-		usr->simple_action("$NµØÇø¹±Ï×Ôö¼ÓÁË¡£\n");
+		usr->simple_action("$Nçš„å£°æœ›ä¸Šå‡äº†ã€‚\n");
+		usr->simple_action("$Nçš„ç»éªŒå¢åŠ äº†ã€‚\n");
+		usr->simple_action("$Nåœ°åŒºè´¡çŒ®å¢åŠ äº†ã€‚\n");
 */
 	        AWARD(usr,N*val);  // no change all the middle level job
   		    	         // reward credit
@@ -455,5 +455,5 @@ void my_award(object usr ,mixed para)
 	default:
 		usr->simple_action("not finish yet.\n");
 	}
-    usr->simple_action("$N¸ßĞËµØÌøÁËÆğÀ´¡£\n");
+    usr->simple_action("$Né«˜å…´åœ°è·³äº†èµ·æ¥ã€‚\n");
 }

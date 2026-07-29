@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is 花儿朵朵
+// driver is 鑺卞効鏈垫湹
 // created date is Sun May  8 21:16:59 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,10 +7,10 @@ inherit INDOOR_ROOM;
 void setup() {
 set_area("tianshui");
 set_light(50);
-set_brief("%^YELLOW%^"+"军营"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"鍐涜惀"+"%^RESET%^");
 set_long("
-    这里是天水的驻军大营。这里几乎都是官兵，一队官兵正在那里操
-练，傍边有一个军官摸样的在那里指手画脚，好象是官军的头子。\n\n");
+    杩欓噷鏄ぉ姘寸殑椹诲啗澶ц惀銆傝繖閲屽嚑涔庨兘鏄畼鍏碉紝涓�闃熷畼鍏垫鍦ㄩ偅閲屾搷
+缁冿紝鍌嶈竟鏈変竴涓啗瀹樻懜鏍风殑鍦ㄩ偅閲屾寚鎵嬬敾鑴氾紝濂借薄鏄畼鍐涚殑澶村瓙銆俓n\n");
 set_exits( ([
 "north":"/a/tianshui/ts_yishiting.c",
 

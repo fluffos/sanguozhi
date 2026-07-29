@@ -14,8 +14,8 @@ void do_fate(string city,int r)
                     "business"   :-10
                   ]);
 FATE_D->area_effect(city,effect,r);
-  msg = "%^B_RED%^%^H_YELLOW%^¡¾ÌìµÀ¡¿"+AREA_D->get_area(city,"name")+
-               "Òò·À»ğ²»×ã£¬µ±µØ·¢ÉúÑÏÖØ»ğÔÖ£¬¼¶±ğÎª"+chinese_number(r)+"¼¶£¬ËğÊ§²ÒÖØ¡£\n%^RESET%^";
+  msg = "%^B_RED%^%^H_YELLOW%^ã€å¤©é“ã€‘"+AREA_D->get_area(city,"name")+
+               "å› é˜²ç«ä¸è¶³ï¼Œå½“åœ°å‘ç”Ÿä¸¥é‡ç«ç¾ï¼Œçº§åˆ«ä¸º"+chinese_number(r)+"çº§ï¼ŒæŸå¤±æƒ¨é‡ã€‚\n%^RESET%^";
  tell(users(),msg);
  //SGSYS(msg);
 }

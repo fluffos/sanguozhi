@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is »¨¶ù¶ä¶ä
+// driver is èŠ±å„¿æœµæœµ
 // created date is Thu May 26 20:05:24 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,7 +7,7 @@ inherit INDOOR_ROOM;
 void setup() {
 set_area("taiyuan");
 set_light(50);
-set_brief("%^YELLOW%^"+"¶Ä³¡"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"èµŒåœº"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "south":"/a/taiyuan/ty_xidajie1.c",

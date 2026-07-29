@@ -1,4 +1,4 @@
-// xiaoer.c »ï¼Æ by row
+// xiaoer.c ä¼™è®¡ by row
 #include <mudlib.h>
 #include <sanguo.h>
 inherit LIVING;
@@ -15,17 +15,17 @@ string *query_channel_list() {
 }
 void setup() 
 {
-	set_name("huo ji", "»ï¼Æ");
+	set_name("huo ji", "ä¼™è®¡");
 	add_id("waiter","ji");
 	set_gender(1);
-	set_proper_name("»ï¼Æ");
-	set_in_room_desc("»ï¼Æ(huo ji)");
-	set_long("Ò»¸öÄêÇáµÄ¿ÍÕ»»ï¼Æ£¬Ê±²»Ê±µÄÓÃÄ¨²¼²ÁÊÃ¹ñÌ¨¡£\n\n");
+	set_proper_name("ä¼™è®¡");
+	set_in_room_desc("ä¼™è®¡(huo ji)");
+	set_long("ä¸€ä¸ªå¹´è½»çš„å®¢æ ˆä¼™è®¡ï¼Œæ—¶ä¸æ—¶çš„ç”¨æŠ¹å¸ƒæ“¦æ‹­æŸœå°ã€‚\n\n");
 	set_sg_rongmao(15);
 	add_question("rumors","rumors" );
-	add_pattern("%s×ßÁË¹ıÀ´¡£",function()
+	add_pattern("%sèµ°äº†è¿‡æ¥ã€‚",function()
 	{
-		respond("say ÕâÎ»£¬×¡µêÂğ£¿");
+		respond("say è¿™ä½ï¼Œä½åº—å—ï¼Ÿ");
 	});
 }
 void special_answer(object who, string matt)
@@ -33,7 +33,7 @@ void special_answer(object who, string matt)
 	switch(matt)
 	{
 		case "rumors" :
-			this_object()->targetted_action("$NÑ¹µÍÁËÉ¤ÃÅµÀ£ºÂåÑô³ÇÀïÈËÈË¶¼Âî¶­¡£¡£¡£\n",who);
+			this_object()->targetted_action("$Nå‹ä½äº†å—“é—¨é“ï¼šæ´›é˜³åŸé‡Œäººäººéƒ½éª‚è‘£ã€‚ã€‚ã€‚\n",who);
 			return;
 	}
 }

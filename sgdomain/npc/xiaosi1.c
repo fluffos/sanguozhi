@@ -27,10 +27,10 @@ string * fooddrink = ({
 
 void setup()
 {
-        set_name("may sc","Ğ¡À±½·µÄĞ¡¸ú°à");
-        set_in_room_desc("¡¸"+YEL+"Ğ¡À±½·µÄ×¨Ö°"+NOR+"¡¹Ğ¡¸ú°à(may sc)");
-        set_long("Ğ¡À±½·µÄ×¨Ö°Ğ¡¸ú°à£¬½ñÌìĞ¡À±½·ÉúÈÕ£¬ËùÒÔ×¨ÃÅÇëÁË¸ö¸ú°à¡£\n"+
-        "ÕÒ²»µ½³ÔµÄÂğ£¿½ĞËûËÍÉÏÀ´ºÃÁË¡£(ask may sc about food)¡£\n");
+        set_name("may sc","å°è¾£æ¤’çš„å°è·Ÿç­");
+        set_in_room_desc("ã€Œ"+YEL+"å°è¾£æ¤’çš„ä¸“èŒ"+NOR+"ã€å°è·Ÿç­(may sc)");
+        set_long("å°è¾£æ¤’çš„ä¸“èŒå°è·Ÿç­ï¼Œä»Šå¤©å°è¾£æ¤’ç”Ÿæ—¥ï¼Œæ‰€ä»¥ä¸“é—¨è¯·äº†ä¸ªè·Ÿç­ã€‚\n"+
+        "æ‰¾ä¸åˆ°åƒçš„å—ï¼Ÿå«ä»–é€ä¸Šæ¥å¥½äº†ã€‚(ask may sc about food)ã€‚\n");
         set_gender(1);
         set_age(14);
 //        add_id("waiter");
@@ -38,7 +38,7 @@ void setup()
         add_question("here","here");
         add_question("food","food");
         add_question("name","name");
-        add_ask_str("food","$N¶Ô$TÕĞÁËÕĞÊÖ£º$R£¬ÓĞÊ²Ã´³ÔºÈµÄ¿ìÄÃÉÏÀ´°É£¡\n");
+        add_ask_str("food","$Nå¯¹$Tæ‹›äº†æ‹›æ‰‹ï¼š$Rï¼Œæœ‰ä»€ä¹ˆåƒå–çš„å¿«æ‹¿ä¸Šæ¥å§ï¼\n");
 }
 
 void ask_food(object usr)
@@ -49,7 +49,7 @@ void ask_food(object usr)
         ob=OBJ_D->clone_obj(p_obj);
         ob->move(usr);
         this_object()->targetted_action(
-                "$NµãÁËµãÍ·£¬¶Ô$TËµµÀ£ººÃ°É£¬ÄúÉÔµÈ¡£\n$N°Ñ"+ob->short()+"ÄÃÁË³öÀ´£¬$TÂúĞÄ»¶Ï²µØÒ»°ÑÇÀ¹ı¡£\n",usr);
+                "$Nç‚¹äº†ç‚¹å¤´ï¼Œå¯¹$Tè¯´é“ï¼šå¥½å§ï¼Œæ‚¨ç¨ç­‰ã€‚\n$NæŠŠ"+ob->short()+"æ‹¿äº†å‡ºæ¥ï¼Œ$Tæ»¡å¿ƒæ¬¢å–œåœ°ä¸€æŠŠæŠ¢è¿‡ã€‚\n",usr);
         usr->responda("pat may sc");
         usr->responda("birthday awhite");
         usr->responda("birthday1 awhite");
@@ -65,11 +65,11 @@ mixed special_answer(object ob, string str)
                 ask_food(player);
                 return;
         case "name":
-                this_object()->targetted_action("$NÎûÎûĞ¦×ÅµÀ£º"+
-"½ñÌìĞ¡À±½·ÉúÈÕ£¬Ëı²ÅÊÇÖ÷½Ç¡£\n",ob);
+                this_object()->targetted_action("$Nå˜»å˜»ç¬‘ç€é“ï¼š"+
+"ä»Šå¤©å°è¾£æ¤’ç”Ÿæ—¥ï¼Œå¥¹æ‰æ˜¯ä¸»è§’ã€‚\n",ob);
                 return;
         case "here":
-                this_object()->targetted_action("$NËµµÀ£ºÕâÀï¾ÍÊÇéÅÊ÷ÉÏÑ½£¬"+"²»¹ı¸úÉÏº£ÄÇ¸öéÅÊ÷ÏÂÃ»ÓĞÊ²Ã´¹ØÏµ¾ÍÊÇÁË¡£\n",ob);
+                this_object()->targetted_action("$Nè¯´é“ï¼šè¿™é‡Œå°±æ˜¯æ¦•æ ‘ä¸Šå‘€ï¼Œ"+"ä¸è¿‡è·Ÿä¸Šæµ·é‚£ä¸ªæ¦•æ ‘ä¸‹æ²¡æœ‰ä»€ä¹ˆå…³ç³»å°±æ˜¯äº†ã€‚\n",ob);
                 return;
         default:
                 return;

@@ -18,9 +18,9 @@ void setup()
 	int i;
 	string *dest;
 
-	set_name("ma fu", "Âí·ò");
-	set_in_room_desc("Ò»Î»ÀÁÑóÑóµÄÂí·ò(ma fu)");
-	set_long("Âí·òÌ§Í·¿´ÁËÄãÒ»ÑÛ£ºÒªµ½ÄÄ¶ùÈ¥£¬ÎÊÎÒºÃÁË¡£\nask ma fu about destination\n");
+	set_name("ma fu", "é©¬å¤«");
+	set_in_room_desc("ä¸€ä½æ‡’æ´‹æ´‹çš„é©¬å¤«(ma fu)");
+	set_long("é©¬å¤«æŠ¬å¤´çœ‹äº†ä½ ä¸€çœ¼ï¼šè¦åˆ°å“ªå„¿åŽ»ï¼Œé—®æˆ‘å¥½äº†ã€‚\nask ma fu about destination\n");
 	set_gender(1);
 	set_age(25);
 	set_sg_rongmao(15);
@@ -34,14 +34,14 @@ void setup()
 	dest = AREA_D->list_areas();
 	for( i = 0; i < sizeof(dest); i++){
 		add_question(dest[i], "dest");
-		add_ask_str(dest[i], "$NÏò$T´òÌý£ºÄú¿ÉÒÔËÍÎÒµ½" + 
-			AREA_D->get_area(dest[i], "name") + "Âð£¿\n");
+		add_ask_str(dest[i], "$Nå‘$Tæ‰“å¬ï¼šæ‚¨å¯ä»¥é€æˆ‘åˆ°" + 
+			AREA_D->get_area(dest[i], "name") + "å—ï¼Ÿ\n");
 	};		
 	add_question("destination", "destination");
-	add_ask_str("destination", "$NÏò$T´òÌý£ºÄú¿ÉÒÔËÍÎÒµ½ÄÄ¶ù°¡£¿\n");
+	add_ask_str("destination", "$Nå‘$Tæ‰“å¬ï¼šæ‚¨å¯ä»¥é€æˆ‘åˆ°å“ªå„¿å•Šï¼Ÿ\n");
 }
 string long() {
-	return "Ò»¸ö³îÃÆ¿àÁ³µÄÂí·ò¡£\n";
+	return "ä¸€ä¸ªæ„é—·è‹¦è„¸çš„é©¬å¤«ã€‚\n";
 }
 mixed special_answer(object ob, string dest)
 {
@@ -62,7 +62,7 @@ mixed special_answer(object ob, string dest)
         from = path[sizeof(path)-2];
 	if( dest == "destination" ){
 		this_object()->responda("ah");
-		this_object()->simple_action("$NµÀ£ºÄú¿ÉÒÔÈ¥ÕâÐ©µØ·½£º\n");		
+		this_object()->simple_action("$Né“ï¼šæ‚¨å¯ä»¥åŽ»è¿™äº›åœ°æ–¹ï¼š\n");		
 		count = 0;
 		tmp = 1;
 		out = "\n";
@@ -70,7 +70,7 @@ mixed special_answer(object ob, string dest)
 			if( dests[i] == from )continue;
 			out = out + sprintf("%-2d)%-6s - %-10s - %-14s", tmp,
 				AREA_D->get_area(dests[i], "name"), dests[i],
-				chinese_number(AREA_D->get_distance(from,dests[i])) + "Á½Òø×Ó");
+				chinese_number(AREA_D->get_distance(from,dests[i])) + "ä¸¤é“¶å­");
 			count++;
 			tmp++;
 			if( count == 2 ){
@@ -81,23 +81,23 @@ mixed special_answer(object ob, string dest)
 		printf("%s\n\n", out);
 	} else {
 		if( from == dest ){
-			printf("Âí·òÒÉ»óµÄÎÊ%s£ºÄúÏÖÔÚ¾ÍÔÚ%sÑ½¡£\n",
+			printf("é©¬å¤«ç–‘æƒ‘çš„é—®%sï¼šæ‚¨çŽ°åœ¨å°±åœ¨%så‘€ã€‚\n",
 				ob->query_name(), AREA_D->get_area(from,"name"));
 			return;
 		};
 		cost = AREA_D->get_distance( from, dest ) * __COST__;
 		time = AREA_D->get_distance( from, dest ) * __TIME__ * K +5;
 		if( ob->query_all_con_money() < cost ){
-			this_object()->simple_action("$NºßÁËÒ»Éù£ºÇî¹âµ°£¬Ò»±ßÈ¥¡£\n");
+			this_object()->simple_action("$Nå“¼äº†ä¸€å£°ï¼šç©·å…‰è›‹ï¼Œä¸€è¾¹åŽ»ã€‚\n");
 			return;
 		};
 		ob->set_all_con_money( ob->query_all_con_money() - cost );
 		mache = new( MACHE );
-		printf("Äã¸¶¸ø³µ·ò%sÁ½Òø×Ó¡£\n", chinese_number(cost/100));
-		this_object()->simple_action("$N»ÓÁË»ÓÊÖ£¬Ò»Á¾´ó³µ»º»ºµÄ¿ªÁË¹ýÀ´¡£");
-		ob->simple_action("$NÒ»¹°Éí£¬×ê½øÁË³µÀï¡£");
+		printf("ä½ ä»˜ç»™è½¦å¤«%sä¸¤é“¶å­ã€‚\n", chinese_number(cost/100));
+		this_object()->simple_action("$NæŒ¥äº†æŒ¥æ‰‹ï¼Œä¸€è¾†å¤§è½¦ç¼“ç¼“çš„å¼€äº†è¿‡æ¥ã€‚");
+		ob->simple_action("$Nä¸€æ‹±èº«ï¼Œé’»è¿›äº†è½¦é‡Œã€‚");
 		ob->move( mache );
-		this_object()->simple_action("$NÓÃÁ¦»ÓÁËÒ»ÏÂÆ¤±Þ£¬´ó³µÂýÂýµÄÀë¿ªÁË¡£");
+		this_object()->simple_action("$Nç”¨åŠ›æŒ¥äº†ä¸€ä¸‹çš®éž­ï¼Œå¤§è½¦æ…¢æ…¢çš„ç¦»å¼€äº†ã€‚");
 		mache->move( VOID );
 		mache->destruct_itself(ob, time, dest);	
 	};

@@ -7,9 +7,9 @@ usage: rmarea <area_id>
 example: rmarea luoyang
 */
 // last modified by xiaobai at Oct. 22, 2001
-//      Õâ¸öÃüÁîÓĞµãÎ£ÏÕ£¬ÎªÁË·ÀÖ¹Îó²Ù×÷£¬×öÁËĞ©¸Ä¶¯
-//          1¡£admin ²ÅÓĞÖ´ĞĞÈ¨ÏŞ
-//          2¡£¾­¹ıÈ·ÈÏ²ÅÖ´ĞĞ
+//      è¿™ä¸ªå‘½ä»¤æœ‰ç‚¹å±é™©ï¼Œä¸ºäº†é˜²æ­¢è¯¯æ“ä½œï¼Œåšäº†äº›æ”¹åŠ¨
+//          1ã€‚admin æ‰æœ‰æ‰§è¡Œæƒé™
+//          2ã€‚ç»è¿‡ç¡®è®¤æ‰æ‰§è¡Œ
 //
 
 #include <mudlib.h>
@@ -17,11 +17,11 @@ example: rmarea luoyang
 
 inherit CMD;
 
-//! ÌáĞÑÊ¹ÓÃÕßÈ·¶¨£¬Ö»ÓĞÊäÈë "y" Ê±£¬ ²ÅÖ´ĞĞ²Ù×÷
+//! æé†’ä½¿ç”¨è€…ç¡®å®šï¼Œåªæœ‰è¾“å…¥ "y" æ—¶ï¼Œ æ‰æ‰§è¡Œæ“ä½œ
 private int confirm( string par_strId, string par_strInput );
-//! ¾­È·ÈÏºó£¬Ö´ĞĞ²Ù×÷
+//! ç»ç¡®è®¤åï¼Œæ‰§è¡Œæ“ä½œ
 private void execute( string par_strCityId );
-//£¡ÖÕÖ¹²Ù×÷
+//ï¼ç»ˆæ­¢æ“ä½œ
 private void abort();
 
 nomask private void main(string str)
@@ -30,15 +30,15 @@ nomask private void main(string str)
     string extra = 0;
     
     if ( !adminp(this_body()) )
-    // Ö»ÓĞ admin ²ÅÓĞÈ¨ÏŞ
+    // åªæœ‰ admin æ‰æœ‰æƒé™
     {
-        write( "±§Ç¸£¬Ö»ÓĞ admin ²ÅÓĞÈ¨Ö´ĞĞÕâ¸öÃüÁî¡£\n" );
+        write( "æŠ±æ­‰ï¼Œåªæœ‰ admin æ‰æœ‰æƒæ‰§è¡Œè¿™ä¸ªå‘½ä»¤ã€‚\n" );
         return;
     }
  
     if (!str)
     {
-        write("ÓÃ·¨£ºrmarea <area_id>\n");
+        write("ç”¨æ³•ï¼šrmarea <area_id>\n");
         return;
     }
     
@@ -46,18 +46,18 @@ nomask private void main(string str)
     
     if ( extra )
     {
-        write("µØÇøÃûÖ®¼ä²»µÃÓĞ¿Õ¸ñ£®\n");
+        write("åœ°åŒºåä¹‹é—´ä¸å¾—æœ‰ç©ºæ ¼ï¼\n");
 		return;
 	}
 
-    write( "\nÕâ¸öÃüÁîÓÃÓÚÉ¾³ıÄ³Ò»¸öÈı¹ú³ÇÊĞ£¬ÃüÁîÖ´ĞĞºó£¬¸Ã³ÇÊĞµÄËùÓĞÊı¾İ½«»á¶ªÊ§¡£\n\n" );
+    write( "\nè¿™ä¸ªå‘½ä»¤ç”¨äºåˆ é™¤æŸä¸€ä¸ªä¸‰å›½åŸå¸‚ï¼Œå‘½ä»¤æ‰§è¡Œåï¼Œè¯¥åŸå¸‚çš„æ‰€æœ‰æ•°æ®å°†ä¼šä¸¢å¤±ã€‚\n\n" );
     
-    this_body()->modal_push((: confirm, p_id :),"Òª¼ÌĞøµÄ»°£¬ÇëÊäÈë ¡°y¡±£»·ñÔò£¬ÇëÊäÈë¡°n¡±£º");
+    this_body()->modal_push((: confirm, p_id :),"è¦ç»§ç»­çš„è¯ï¼Œè¯·è¾“å…¥ â€œyâ€ï¼›å¦åˆ™ï¼Œè¯·è¾“å…¥â€œnâ€ï¼š");
     call_out( "abort", 60 );
 
 }
 
-//! ÌáĞÑÊ¹ÓÃÕßÈ·¶¨£¬Ö»ÓĞÊäÈë "y" Ê±£¬ ²ÅÖ´ĞĞ²Ù×÷
+//! æé†’ä½¿ç”¨è€…ç¡®å®šï¼Œåªæœ‰è¾“å…¥ "y" æ—¶ï¼Œ æ‰æ‰§è¡Œæ“ä½œ
 private int confirm( string par_strId, string par_strInput )
 {
     if ( par_strInput == "y" )
@@ -70,20 +70,20 @@ private int confirm( string par_strId, string par_strInput )
     
 }
 
-//! ¾­È·ÈÏºó£¬Ö´ĞĞ²Ù×÷
+//! ç»ç¡®è®¤åï¼Œæ‰§è¡Œæ“ä½œ
 private void execute( string par_strCityId )
 {
     string extra = 0;
 	
-	write( "ÃüÁî±»Ö´ĞĞ¡£\n" );
+	write( "å‘½ä»¤è¢«æ‰§è¡Œã€‚\n" );
 //	extra=AREA_D->remove_area( par_strCityId );
 //	write( extra );
 }
 
-//£¡ÖÕÖ¹²Ù×÷
+//ï¼ç»ˆæ­¢æ“ä½œ
 private void abort()
 {
     remove_call_out("abort");
-    write( "ÃüÁîÖÕÖ¹¡£Ğ¡ĞÄ½÷É÷ÊÇÒ»¸öÁ¼ºÃµÄÏ°¹ß¡£\n" );
+    write( "å‘½ä»¤ç»ˆæ­¢ã€‚å°å¿ƒè°¨æ…æ˜¯ä¸€ä¸ªè‰¯å¥½çš„ä¹ æƒ¯ã€‚\n" );
     this_body()->modal_pop();
 }

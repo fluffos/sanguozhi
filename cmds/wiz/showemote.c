@@ -12,12 +12,12 @@ private void main(string str) {
     int i;
 
     if (!str) {
-        out("用法：showemote verb\n");
+        out("鐢ㄦ硶锛歴howemote verb\n");
         return;
     }
     data = SOUL_D->query_emote(str);
     if (!data) {
-        out("没有这个 emote.\n");
+        out("娌℃湁杩欎釜 emote.\n");
         return;
     }
     m = keys(data);

@@ -26,6 +26,6 @@ private void main(mixed *arg) {
         this_body()->move(old);
     else
         //outf("Could not move back to old room.\n");
-        outf("回不去原来的房间了。\n");
+        outf("鍥炰笉鍘诲師鏉ョ殑鎴块棿浜嗐�俓n");
     return;
 }

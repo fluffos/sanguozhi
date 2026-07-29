@@ -1,4 +1,4 @@
-//strawsandals.c ²İĞ¬µ× by row
+//strawsandals.c è‰é‹åº• by row
 #include <sanguo.h>
 #include <ansi.h>
 #include <mudlib.h>
@@ -8,11 +8,11 @@ inherit M_GETTABLE;
 void setup()
 {
 merge_setup();
-set_unit("Ö»");
-set_id("caoxie di", YEL+"²İĞ¬µ×"+NOR,);
+set_unit("åª");
+set_id("caoxie di", YEL+"è‰é‹åº•"+NOR,);
 add_id("di");
-set_in_room_desc(YEL+"²İĞ¬µ×"+NOR+"(caoxie di)");
-set_long("ÕâÊÇÓÃ·¢»ÆµÄÃ©²İ±àÖ¯¶ø³ÉµÄĞ¬µ×£¬Èç¹ûÔÙ¼ÓÉÏÁ½¸ö¿Û»·¾Í¿ÉÒÔ´©ÁË¡£");
+set_in_room_desc(YEL+"è‰é‹åº•"+NOR+"(caoxie di)");
+set_long("è¿™æ˜¯ç”¨å‘é»„çš„èŒ…è‰ç¼–ç»‡è€Œæˆçš„é‹åº•ï¼Œå¦‚æœå†åŠ ä¸Šä¸¤ä¸ªæ‰£ç¯å°±å¯ä»¥ç©¿äº†ã€‚");
 set_gettable(1);
 set_is_keeping(1);
 set_size(SMALL);

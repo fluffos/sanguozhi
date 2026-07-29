@@ -1,5 +1,5 @@
 /* workroom.c
-** Coded by Öñ¸Í@Èı¹úÖ¾
+** Coded by ç«¹ç«¿@ä¸‰å›½å¿—
 ** Code generated with RoomMaker v0.9.1 coded by Onyx@RedDragon
 ** Do not remove this header.
 */
@@ -9,9 +9,9 @@ inherit ROOM;
 
 void setup(){
     set_light(1);
-    set_brief("ÑÅÖñĞù");
+    set_brief("é›…ç«¹è½©");
     set_long(
-"ÕâÀïÊÇÖñ¸ÍµÄ¼Ò."
+"è¿™é‡Œæ˜¯ç«¹ç«¿çš„å®¶."
 );
     set_exits( ([
     ]) );

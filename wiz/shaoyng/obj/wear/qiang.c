@@ -5,9 +5,9 @@ inherit M_WEAPON;
 inherit M_VALUE;
 void setup()
 {
-    set_unit("Ö§");
-    set_id("jqiang", HIY+"½ª¼ÒöÉ½ğÇ¹"+NOR);
-    set_in_room_desc(HIY+"½ª¼ÒöÉ½ğÇ¹"+NOR+"(ji)");
+    set_unit("æ”¯");
+    set_id("jqiang", HIY+"å§œå®¶éŒ¾é‡‘æª"+NOR);
+    set_in_room_desc(HIY+"å§œå®¶éŒ¾é‡‘æª"+NOR+"(ji)");
     set_size(MEDIUM);
     set_value(5000);
     set_currency_type("gold");

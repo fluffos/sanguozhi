@@ -42,7 +42,7 @@ string main (string pattern)
   mapping	upmuds;
   int		nummuds = sizeof (mudlist);
   string	mudname;
-  mixed array	data;
+  mixed *	data;
 
   if (!pattern)
     {

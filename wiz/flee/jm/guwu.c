@@ -1,4 +1,4 @@
-// ¹ÄÎè
+// é¼“èˆž
 #include <mudlib.h>
 #include <daemons.h>
 #include <ansi.h>
@@ -15,22 +15,22 @@ void main(object ob)
 	p_id=TROOP_D->get_char_troop(this_body()->query_id()[0]);
 	p_name=this_body()->query_id()[0];
         if(!(CHAR_D->get_char(p_name,"skills")))
-        {       write("Äã²»»á¹ÄÎèÖ®¼Æ¡£\n");
+        {       write("ä½ ä¸ä¼šé¼“èˆžä¹‹è®¡ã€‚\n");
                 return;
 	}
 	if(!p_skill=CHAR_D->get_char(p_name,"skills")["guwu"])
-        {       write("Äã²»»á¹ÄÎèÖ®¼Æ¡£\n");
+        {       write("ä½ ä¸ä¼šé¼“èˆžä¹‹è®¡ã€‚\n");
                 return;
         }
 	if(!p_id){
-                write("Ö»ÓÐÉíÔÚ¾üÖÐ²ÅÄÜ¹ÄÎèÊ¿Æø¡£\n");
+                write("åªæœ‰èº«åœ¨å†›ä¸­æ‰èƒ½é¼“èˆžå£«æ°”ã€‚\n");
                 return;
         };	
 	// In the furture, We have to consider theplayer's ablility
 	// add the exp of this jimou, reduce mp, etc.
 
 	ob->simple_action(SG_SKILL_D->query_use("guwu"));
-	ob->start_busy(10, "ÄãÕýÃ¦ÓÚ¹ÄÎèÊ¿ÆøÄØ¡£");
+	ob->start_busy(10, "ä½ æ­£å¿™äºŽé¼“èˆžå£«æ°”å‘¢ã€‚");
 
 	call_out("show_result", 5+random(5), ob);
 }

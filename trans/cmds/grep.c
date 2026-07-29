@@ -12,13 +12,13 @@ inherit M_GLOB;
 private void 
 stdin_grep(string pattern, mapping flags, string stdin)
 {
-  string array lines;
+  string * lines;
   int   bits = 0;
   int   i;
 
   if(!stdin)
     {
-      out("²ÎÊı²»×ã¡£\nÓÃ·¨: grep -inv string file(s)\n");
+      out("å‚æ•°ä¸è¶³ã€‚\nç”¨æ³•: grep -inv string file(s)\n");
       return;
     }
 
@@ -32,7 +32,7 @@ stdin_grep(string pattern, mapping flags, string stdin)
   if(!sizeof(lines))
     {  
       //out("No matches.\n");
-      out("Ã»ÓĞÕÒµ½¡£\n");
+      out("æ²¡æœ‰æ‰¾åˆ°ã€‚\n");
     }
   else
     {
@@ -85,7 +85,7 @@ main(mixed argv, mapping flags, string stdin)
         if (catch(this_output = ed_cmd("1,$g/"+pattern+"/p")))
         {
          printf(//"Warning: %s was too large for LPC to grep.\n"
-                "¾¯¸æ£º%s Ì«´ó£¬³¬¹ıÁË LPC µÄ´¦ÀíÄÜÁ¦¡£", file);
+                "è­¦å‘Šï¼š%s å¤ªå¤§ï¼Œè¶…è¿‡äº† LPC çš„å¤„ç†èƒ½åŠ›ã€‚", file);
          continue;
         }
         if(this_output && strlen(this_output))
@@ -93,5 +93,5 @@ main(mixed argv, mapping flags, string stdin)
         ed_cmd("q");
     }
     if(!strlen(get_output()))
-        out("Ã»ÓĞÕÒµ½¡£\n"); //"No matches found.\n");
+        out("æ²¡æœ‰æ‰¾åˆ°ã€‚\n"); //"No matches found.\n");
 }

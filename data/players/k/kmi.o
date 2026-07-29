@@ -1,6 +1,6 @@
 #/std/race/human.c
 primary_id "kmi"
-chinese_id "´óÊ¦ĞÖ"
+chinese_id "å¤§å¸ˆå…„"
 persist_flags ([0:0,])
 can_drop 1
 can_sell 1
@@ -13,8 +13,8 @@ main_prep "in"
 contained_light_added 1
 gender 1
 messages ([])
-def_messages (["invis":"$n´ÓÄãµÄÊÓÒ°ÖĞÍ»È»ÏûÊ§ÁË¡£","home":"$n»Ø¼ÒÈ¥ÁË¡£","clone":"$nÉìÊÖÁè¿ÕÒ»Ö¸£¬±ä³öÁË$o¡£","menter":"$nÍ»È»³öÏÖÔÚÒ»ÕóÑÌÎíÖĞ¡£","vis":"$nÍ»È»³öÏÖÔÚÄãÃæÇ°£¬ÓÖËÆºõÔÚÕâÀïºÜ¾ÃÁË¡£","enter":"$n×ßÁË¹ıÀ´¡£","destruct":"$nÅÛĞäÒ»»Ó£¬$o±»»¯³ÉÒ»¹ÉºÚÑÌ£¬´µÉ¢¿ªÈ¥¡£","leave":"$n³¯$oÀë¿ªÁË¡£","mleave":"$nµÄÉíÓ°ÔÚÒ»ÕóÑÌÎíÖĞ½¥½¥ÒşÈ¥¡£",])
-busy_msg "ÄãÏÖÔÚÕıÃ¦×ÅÄØ¡£"
+def_messages (["invis":"$nä»ä½ çš„è§†é‡ä¸­çªç„¶æ¶ˆå¤±äº†ã€‚","home":"$nå›å®¶å»äº†ã€‚","clone":"$nä¼¸æ‰‹å‡Œç©ºä¸€æŒ‡ï¼Œå˜å‡ºäº†$oã€‚","menter":"$nçªç„¶å‡ºç°åœ¨ä¸€é˜µçƒŸé›¾ä¸­ã€‚","vis":"$nçªç„¶å‡ºç°åœ¨ä½ é¢å‰ï¼Œåˆä¼¼ä¹åœ¨è¿™é‡Œå¾ˆä¹…äº†ã€‚","enter":"$nèµ°äº†è¿‡æ¥ã€‚","destruct":"$nè¢è¢–ä¸€æŒ¥ï¼Œ$oè¢«åŒ–æˆä¸€è‚¡é»‘çƒŸï¼Œå¹æ•£å¼€å»ã€‚","leave":"$næœ$oç¦»å¼€äº†ã€‚","mleave":"$nçš„èº«å½±åœ¨ä¸€é˜µçƒŸé›¾ä¸­æ¸æ¸éšå»ã€‚",])
+busy_msg "ä½ ç°åœ¨æ­£å¿™ç€å‘¢ã€‚"
 busy 1309337945
 answer_list ({({"settle","settle",}),({"position","position",}),({"localmeeting","localmeeting",}),({"job","job",}),({"zgxy","zgxy",}),({"wxxy","wxxy",}),({"bfxy","bfxy",}),({"guoshi","guoshi",}),})
 ask_list ([])
@@ -48,11 +48,11 @@ ilog_time 1311239335
 money (["gold":1,"silver":19,"coin":50,"bank":10000,])
 sg_home ([])
 name "kmi"
-invis_name "Ä³Ä³"
-chinese_name "´óÊ¦ĞÖ"
+invis_name "æŸæŸ"
+chinese_name "å¤§å¸ˆå…„"
 response_queue ({})
 channel_list ({"gossip","newbie","weather","rumor","imud_imud_sgz",})
 saved_items "([\"#inventory#\":({\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/money/m_gold\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/money/m_coin\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/money/m_silver\\\",])\",}),\"#base_name#\":\"/std/race/human\",])"
 ag_day 7
 ag_month 2
-jobs (["choppork":(["beg_time":1308887871,"lasttimes":({1308884105,1308884303,1308884521,1308884915,1308885187,1308885696,1308885934,1308886364,1308886616,1308887008,1308887637,1308887859,}),"count":32,"finish_time":1308887859,]),"chopwoods":(["beg_time":1308812793,]),"askobj":(["beg_time":0,"memo":"ÕÒÂ¤Î÷µÄ%^H_CYAN%^²Ìçß%^RESET%^´ß0","obj_id":"test","lasttimes":({1308888305,}),"count":1,"assignarea":"wuling","finish_time":1308888305,"status":"over",]),"bugao":(["beg_time":0,"memo":"ºëÅ©µÄ%^YELLOW%^³ÉÒÂÆÌ%^RESET%^","lasttimes":({1309337835,1309338063,}),"count":8,"assignarea":"wuling","finish_time":1309338063,"status":"over",]),])
+jobs (["choppork":(["beg_time":1308887871,"lasttimes":({1308884105,1308884303,1308884521,1308884915,1308885187,1308885696,1308885934,1308886364,1308886616,1308887008,1308887637,1308887859,}),"count":32,"finish_time":1308887859,]),"chopwoods":(["beg_time":1308812793,]),"askobj":(["beg_time":0,"memo":"æ‰¾é™‡è¥¿çš„%^H_CYAN%^è”¡é‚•%^RESET%^å‚¬0","obj_id":"test","lasttimes":({1308888305,}),"count":1,"assignarea":"wuling","finish_time":1308888305,"status":"over",]),"bugao":(["beg_time":0,"memo":"å¼˜å†œçš„%^YELLOW%^æˆè¡£é“º%^RESET%^","lasttimes":({1309337835,1309338063,}),"count":8,"assignarea":"wuling","finish_time":1309338063,"status":"over",]),])

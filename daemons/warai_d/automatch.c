@@ -18,25 +18,25 @@ mixed get_neighbor(string p_point,string p_area,string p_side)
    ret=([]);
    me=point_toint(p_point);x=me[0];y=me[1];
    m=MAP_D->get_map_cell(p_area,y,x-1,"m");
-   if (m&&(m!="0")&&(m!="¡ù"))
+   if (m&&(m!="0")&&(m!="â€»"))
    {   newpoint=point_tostring(({x-1,y}));
        ret[newpoint]=([]);
        ret[newpoint]["step"]=MAP_D->get_consume("m",p_side);
    }
    m=MAP_D->get_map_cell(p_area,y,x+1,"m");
-   if (m&&(m!="0")&&(m!="¡ù"))
+   if (m&&(m!="0")&&(m!="â€»"))
    {  newpoint=point_tostring(({x+1,y}));
       ret[newpoint]=([]);
       ret[newpoint]["step"]=MAP_D->get_consume("m",p_side);
     }
     m=MAP_D->get_map_cell(p_area,y-1,x,"m");
-    if (m&&(m!="0")&&(m!="¡ù"))
+    if (m&&(m!="0")&&(m!="â€»"))
     {   newpoint=point_tostring(({x,y-1}));
         ret[newpoint]=([]);
         ret[newpoint]["step"]=MAP_D->get_consume("m",p_side);
     }
     m=MAP_D->get_map_cell(p_area,y+1,x,"m");
-    if (m&&(m!="0")&&(m!="¡ù"))
+    if (m&&(m!="0")&&(m!="â€»"))
     {   newpoint=point_tostring(({x,y+1}));
         ret[newpoint]=([]);
         ret[newpoint]["step"]=MAP_D->get_consume("m",p_side);

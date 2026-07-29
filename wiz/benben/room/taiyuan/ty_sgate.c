@@ -1,4 +1,4 @@
-//  ÄÏ³ÇÃÅ  by Benben
+//  å—åŸé—¨  by Benben
 // ty_sgate.c 
 #include <mudlib.h>
 #include "/wiz/fire/fire.h"
@@ -7,8 +7,8 @@ inherit OUTDOOR_ROOM;
 void setup(){
     set_area("ty_area");
     set_light(50);
-    set_brief(""+YEL+"ÄÏ³ÇÃÅ"+NOR+"");
-    set_long("    ÃèÊö¡£\n");
+    set_brief(""+YEL+"å—åŸé—¨"+NOR+"");
+    set_long("    æè¿°ã€‚\n");
     set_exits( ([
         "south" : __DIR__+"ty_sbridge.c",
         "north" : __DIR__+"ty_sst2.c"

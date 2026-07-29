@@ -27,7 +27,7 @@ private void main(string arg)
     int chan_type;
 
     if(this_body()->chan_disabled()) {
-            out("ÄãµÄÆµµÀ½»Á÷ÌØÈ¨±»È¡ÏûÁË£¬ÇëÔÚÏßWIZ°ïÄã»Ö¸´¡£\n");
+            out("ä½ çš„é¢‘é“äº¤æµç‰¹æƒè¢«å–æ¶ˆäº†ï¼Œè¯·åœ¨çº¿WIZå¸®ä½ æ¢å¤ã€‚\n");
             return;
 
     }
@@ -37,14 +37,14 @@ private void main(string arg)
 
         channel_list = this_body()->query_channel_list();
         if ( sizeof(channel_list) == 0 )
-            out("ÄãÄ¿Ç°Ã»ÓĞÊÕÌıÈÎºÎÆµµÀ¡£\n");
+            out("ä½ ç›®å‰æ²¡æœ‰æ”¶å¬ä»»ä½•é¢‘é“ã€‚\n");
         else
         {
             if ( arg != "-d" )
                 channel_list = map(channel_list,
                                    (: CHANNEL_D->user_channel_name($1) :));
 
-            out("ÄãÄ¿Ç°ÔÚÊÕÌıµÄÆµµÀÓĞ£º" +
+            out("ä½ ç›®å‰åœ¨æ”¶å¬çš„é¢‘é“æœ‰ï¼š" +
                   implode(channel_list, ", ") + ".\n");
         }
                                      

@@ -35,8 +35,8 @@ string q1(string p_id)
    ismin=random(2); // 1 min, 0 max
 
    ismin=1;
-   question="ÏÂÁĞµØÇøÖĞ£¬¾àÀë"+HZK2ASC_D->hzk2asc(AREA_D->get_area(a,"name"))+
-    "×î"+ (ismin==1 ? "½ü" : "Ô¶" )+"µÄÊÇµÚ¼¸¸öµØÇø£º\n";
+   question="ä¸‹åˆ—åœ°åŒºä¸­ï¼Œè·ç¦»"+HZK2ASC_D->hzk2asc(AREA_D->get_area(a,"name"))+
+    "æœ€"+ (ismin==1 ? "è¿‘" : "è¿œ" )+"çš„æ˜¯ç¬¬å‡ ä¸ªåœ°åŒºï¼š\n";
    md=ds[0];
    ret="1";
    question+="1 "+AREA_D->get_area(as[0],"name")+"  ";
@@ -53,8 +53,8 @@ string q1(string p_id)
 	md=ds[i];
       }
    }
-//   question+="²»ÖªµÀÇëÓÃ <%^RED%^ !map northwest, map southwest, map northeast or map southeast %^RESET%^ >²éÑ¯\nÈçÓÃZMUD£¬ÇëÏÈÓÃCtrl-R¹Ø±Õparse\n";
-	question+="\nÌáÊ¾£º±ê×¼´ğ°¸Îª"+HZK2ASC_D->hzk2asc(AREA_D->get_area(as[(to_int(ret)-1)],"name"));
+//   question+="ä¸çŸ¥é“è¯·ç”¨ <%^RED%^ !map northwest, map southwest, map northeast or map southeast %^RESET%^ >æŸ¥è¯¢\nå¦‚ç”¨ZMUDï¼Œè¯·å…ˆç”¨Ctrl-Rå…³é—­parse\n";
+	question+="\næç¤ºï¼šæ ‡å‡†ç­”æ¡ˆä¸º"+HZK2ASC_D->hzk2asc(AREA_D->get_area(as[(to_int(ret)-1)],"name"));
    tell_user(p_id,question);
    return ret;
 }
@@ -64,7 +64,7 @@ string test(string p_id)
    string ret;
    switch(random(2))
    {
-      case 0:  // ÄÄÒ»Àà
+      case 0:  // å“ªä¸€ç±»
         ret=q1(p_id);
         return ret;
       case 1: 

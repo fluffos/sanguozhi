@@ -29,7 +29,7 @@ private void main( mixed *arg, mapping flags, string stdin ) {
 int help() {
   //printf("Usage: tail [file]\n"
   //  "Description: display the last lines of a file\n");
-  printf("ÓÃ·¨£ºhead <ÎÄ¼şÃû>\n"
-         "ËµÃ÷£ºÏÔÊ¾ÎÄ¼şÇ°¼¸ĞĞ¡£\n" );
+  printf("ç”¨æ³•ï¼šhead <æ–‡ä»¶å>\n"
+         "è¯´æ˜ï¼šæ˜¾ç¤ºæ–‡ä»¶å‰å‡ è¡Œã€‚\n" );
   return 1;
 }

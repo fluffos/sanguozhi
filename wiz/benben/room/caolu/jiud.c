@@ -1,4 +1,4 @@
-//  酒店 jiud.c
+//  閰掑簵 jiud.c
 // made by benben
 // cl_jiud.c 
 #include <mudlib.h>
@@ -8,9 +8,9 @@ inherit OUTDOOR_ROOM;
 void setup(){
     set_area("caolu_area");
     set_light(50);
-    set_brief(""+YEL+"乡村酒店"+NOR+"");
-    set_long("    酒店里两人对饮，上座的白面长须，乃是颖州石广元，下座的清
-奇古貌，乃是汝南孟公威。二人都是孔明的朋友，想来是访客途中，饮酒歇息吧。\n\n");
+    set_brief(""+YEL+"涔℃潙閰掑簵"+NOR+"");
+    set_long("    閰掑簵閲屼袱浜哄楗紝涓婂骇鐨勭櫧闈㈤暱椤伙紝涔冩槸棰栧窞鐭冲箍鍏冿紝涓嬪骇鐨勬竻
+濂囧彜璨岋紝涔冩槸姹濆崡瀛熷叕濞併�備簩浜洪兘鏄瓟鏄庣殑鏈嬪弸锛屾兂鏉ユ槸璁垮閫斾腑锛岄ギ閰掓瓏鎭惂銆俓n\n");
     set_exits( ([
         "south" :  __DIR__+"cl_road4.c",
     ]) );

@@ -97,7 +97,7 @@ void init() {
 string house_list() {
 	string ret="";
 	string *ls;
-	ret="ID           Ãû    ³Æ    µÈ¼¶  ¼ÛÇ®   ·¿¼ä\n";
+	ret="ID           å    ç§°    ç­‰çº§  ä»·é’±   æˆ¿é—´\n";
 	ret+="-------------------------------------------\n";
 	ls=keys(houses);
 	foreach(string h in ls) {
@@ -120,10 +120,10 @@ string stat_me(string rm) {
 	if((!rm)||(rm=="")) rm="list";
 	if(rm=="list")
 		return house_list();
-	if(!houses[rm]) return "Ã»ÓĞÕâÖÖ·¿×Ó¡£\n";
+	if(!houses[rm]) return "æ²¡æœ‰è¿™ç§æˆ¿å­ã€‚\n";
 	h=rm;
 	ret=show_house_pic(h);
-	ret+="ID           Ãû    ³Æ    µÈ¼¶  ¼ÛÇ®   ·¿¼ä\n";
+	ret+="ID           å    ç§°    ç­‰çº§  ä»·é’±   æˆ¿é—´\n";
 	ret+="-------------------------------------------\n";
 	ret+=sprintf("%-12s %-10s %2d   %6d   %2d\n",
 		h,houses[h]["name"],

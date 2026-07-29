@@ -5,14 +5,14 @@ inherit M_WEAPON;
 inherit M_VALUE;
 void setup()
 {
-set_unit("¸Ë");
-set_id("fangtianhua ji", HIG+"·½Ìì»­êª"+NOR);
+set_unit("æ†");
+set_id("fangtianhua ji", HIG+"æ–¹å¤©ç”»æˆŸ"+NOR);
 add_id("fangtianhua ji");
 add_id("ji");
 add_id("fangtianhua");
-set_in_room_desc(HIG+"·½Ìì»­êª"+NOR+"(fangtianhua ji)");
-set_long("µÚÒ»ÓÂÊ¿¡¸ÎÂºî¡¹ÂÀ²¼Ö®¶ÀÃÅ±øÆ÷£¬³¤Ò»ÕÉÆß³ß£¬Ç¹Í·
-Á½²àÉúÓĞÔÂÑÀĞÎµÄµ¶·æ¡£\n");
+set_in_room_desc(HIG+"æ–¹å¤©ç”»æˆŸ"+NOR+"(fangtianhua ji)");
+set_long("ç¬¬ä¸€å‹‡å£«ã€Œæ¸©ä¾¯ã€å•å¸ƒä¹‹ç‹¬é—¨å…µå™¨ï¼Œé•¿ä¸€ä¸ˆä¸ƒå°ºï¼Œæªå¤´
+ä¸¤ä¾§ç”Ÿæœ‰æœˆç‰™å½¢çš„åˆ€é”‹ã€‚\n");
 set_size(MEDIUM);
 set_value(-1);
 set_currency_type("gold");
@@ -20,6 +20,6 @@ set_attack_ablity(180);
 set_attack_power(140);
 set_defence_ablity(180);
 set_combat_messages("combat-ji");
-set_wield_message("$NË«ÊÖÒ»°Ú£¬ÒÑ½«$oÇæÔÚÊÖÖĞ£¬î¢íş×óÓÒ£¬ÎŞÈË¿Éµ±¡£\n");
-set_unwield_message("$NÆø¶¨ÉñÓÎ£¬ÓÒÊÖÒ»Ñï£¬ÒÑ½«$o²å»ØàÎÍ·¡£\n");
+set_wield_message("$NåŒæ‰‹ä¸€æ‘†ï¼Œå·²å°†$oæ“åœ¨æ‰‹ä¸­ï¼Œç¥ç¨å·¦å³ï¼Œæ— äººå¯å½“ã€‚\n");
+set_unwield_message("$Næ°”å®šç¥æ¸¸ï¼Œå³æ‰‹ä¸€æ‰¬ï¼Œå·²å°†$oæ’å›è¾”å¤´ã€‚\n");
 }

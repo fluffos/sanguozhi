@@ -13,7 +13,7 @@
 
 #define PRIV_REQUIRED	"Mudlib:daemons"
 
-static private int      filter_msg;
+nosave private int      filter_msg;
 
 private int		chanlist_id;
 private mapping		chanlist = ([ ]);
@@ -50,7 +50,7 @@ nomask void channel_rcv_data(string channel_name,
 	filter_msg = 0;
 	return;
     }
-	/*tell_user("huaer",sprintf("½øÁË/imud/channel.c/channel_rcv_data()\n"));
+	/*tell_user("huaer",sprintf("è¿›äº†/imud/channel.c/channel_rcv_data()\n"));
 	tell_user("huaer",sprintf("channel_name = %O\n",channel_name));
 	tell_user("huaer",sprintf("sender_name = %O\n",sender_name));
 	tell_user("huaer",sprintf("type = %O\n",type));
@@ -114,8 +114,8 @@ protected nomask void rcv_chanlist_reply(string orig_mud, string orig_user,
     string channel_name;
     mixed channel_data;
 	int i;
-	string array added_channels = keys(message[1]) - keys(chanlist);
-	string array removed_channels = keys(chanlist) - keys(message[1]);
+	string * added_channels = keys(message[1]) - keys(chanlist);
+	string * removed_channels = keys(chanlist) - keys(message[1]);
 	//tc("orig_mud: "+orig_mud+", orig_user: "+orig_user+", targ_user: "+
 	  //targ_user+", message: "+identify(message)+" ...");
 	
@@ -165,18 +165,18 @@ protected nomask void rcv_chan_who_reply(string orig_mud, string orig_user,
     if ( !p )
     {
 	return_error(orig_mud, orig_user, "unk-user",
-		     sprintf("Ã»ÓĞ¡¸%s¡¹Õâ¸öÍæ¼Ò", targ_user));
+		     sprintf("æ²¡æœ‰ã€Œ%sã€è¿™ä¸ªç©å®¶", targ_user));
     }
     else
     {
-	tell(p, sprintf("¡¸%s@%s¡¹µÄÊÕÌıÕßÓĞ£º",
+	tell(p, sprintf("ã€Œ%s@%sã€çš„æ”¶å¬è€…æœ‰ï¼š",
 				    message[0], orig_mud) +
-			    implode(message[1], ", ") + "¡£\n");
+			    implode(message[1], ", ") + "ã€‚\n");
     }
 }
 
 /* ### to support the April Fool's stuff below... */
-static private string * april_phrases = ({
+nosave private string * april_phrases = ({
     // "yes, you are!",
     "not you... Ohara is the fool!",
     "but Zakk is a bigger fool!",
@@ -206,7 +206,7 @@ string query_userid()
 protected nomask void rcv_channel_m(string orig_mud, string orig_user,
 				 string targ_user, mixed * message)
 {
-	/*tell_user("huaer",sprintf("½øÁË/imud/channel.c/rcv_channel_m()\n"));
+	/*tell_user("huaer",sprintf("è¿›äº†/imud/channel.c/rcv_channel_m()\n"));
 	tell_user("huaer",sprintf("orig_mud = %O\n",orig_mud));
 	tell_user("huaer",sprintf("orig_user = %O\n",orig_user));
 	tell_user("huaer",sprintf("targ_user = %O\n",targ_user));
@@ -225,11 +225,11 @@ protected nomask void rcv_channel_m(string orig_mud, string orig_user,
 /*    if ( message[2] == "I am a fool!" )
     {
 	object tu = this_user();
-	set_this_player(this_object());
+	// set_this_player(this_object()); // set_this_player() unavailable in this driver build (no NO_ADD_ACTION) -- no-op'd, this_player() is whatever it naturally is here
 	CHANNEL_D->deliver_tell("imud_" + message[0],
 				"Lima Bean",
 				choice(april_phrases));
-	set_this_player(tu);
+	// set_this_player(tu); // set_this_player() unavailable in this driver build (no NO_ADD_ACTION) -- no-op'd, this_player() is whatever it naturally is here
     }*/
 //#endif
 
@@ -246,7 +246,7 @@ protected nomask void rcv_channel_e(string orig_mud, string orig_user,
     if ( sizeof(message) != 3 )
     {
 	return_error(orig_mud, orig_user, "bad-pkt",
-		     "´íÎó channel-e ¸ñÊ½£¬ÇëÍ¨ÖªÄúËùÔÚÄàÌ¶µÄÎ×Ê¦¡£");
+		     "é”™è¯¯ channel-e æ ¼å¼ï¼Œè¯·é€šçŸ¥æ‚¨æ‰€åœ¨æ³¥æ½­çš„å·«å¸ˆã€‚");
 	return;
     }
 
@@ -310,7 +310,7 @@ protected nomask void rcv_chan_user_req(string orig_mud, string orig_user,
     if ( !p )
     {
 	return_error(orig_mud, orig_user, "unk-user",
-		     sprintf("Ã»ÓĞ¡¸%s¡¹Õâ¸öÍæ¼Ò", message[0]));
+		     sprintf("æ²¡æœ‰ã€Œ%sã€è¿™ä¸ªç©å®¶", message[0]));
     }
     else
     {

@@ -11,7 +11,7 @@ int priority = -1;
 int level = 0;  
 string p_id;
 mapping bet=([]);
-array data = ({0,0,0,0,0,0});
+mixed * data = ({0,0,0,0,0,0});
 
 void init_race()
 {
@@ -27,20 +27,20 @@ data = ({0,0,0,0,0,0});
 
 string stat_me()
 {
-return sprintf("Èü¾Ö×´Ì¬(status)  :%d      ±ÈÈü²½·¥(round) :%d\n"+
-               "Ê©ÊõÈüÂí(priority):%d      Ê©Êõ¼¶±ğ(level) :%d      Ê©ÊõÈË(p_id):%s\n"+
-               "ÈüÂíÎ»ÖÃ(data)    :%O\n"+
-               "Ñº×¢Çé¿ö(bet)     :%O\n",
+return sprintf("èµ›å±€çŠ¶æ€(status)  :%d      æ¯”èµ›æ­¥ä¼(round) :%d\n"+
+               "æ–½æœ¯èµ›é©¬(priority):%d      æ–½æœ¯çº§åˆ«(level) :%d      æ–½æœ¯äºº(p_id):%s\n"+
+               "èµ›é©¬ä½ç½®(data)    :%O\n"+
+               "æŠ¼æ³¨æƒ…å†µ(bet)     :%O\n",
                status,round,priority,level,p_id,data,bet);
 }
 
 string cmd_example()
 {
-return "Àı×Ó£º\n"
-       "bet bid s 1 10      ¶Äµ¥Âí£±ºÅÊ¤³ö£¬¶Ä½ğ£±£°Á½£¬ÅâÂÊ£±Åâ£´\n"
-       "bet bid d 1+4 10    ¶ÄË«Âí£±ºÅºÍ£´ºÅÊ¤³ö£¬¶Ä½ğ£±£°Á½£¬ÅâÂÊ£±Åâ£±£¶£¬´ÎĞò´í£±Åâ£¸\n"
-       "bet do  p 3         ÀûÓÃÇ§ÊõÖ®Ô¤¼ûÊõÔ¤¼û£³ºÅÂí¶ÀÓ®\n"
-       "bet do  s 3         ÀûÓÃÇ§ÊõÖ®¸ÉÈÅÊõÓ°Ïì£³ºÅÂíµÄ·¢»Ó\n";
+return "ä¾‹å­ï¼š\n"
+       "bet bid s 1 10      èµŒå•é©¬ï¼‘å·èƒœå‡ºï¼ŒèµŒé‡‘ï¼‘ï¼ä¸¤ï¼Œèµ”ç‡ï¼‘èµ”ï¼”\n"
+       "bet bid d 1+4 10    èµŒåŒé©¬ï¼‘å·å’Œï¼”å·èƒœå‡ºï¼ŒèµŒé‡‘ï¼‘ï¼ä¸¤ï¼Œèµ”ç‡ï¼‘èµ”ï¼‘ï¼–ï¼Œæ¬¡åºé”™ï¼‘èµ”ï¼˜\n"
+       "bet do  p 3         åˆ©ç”¨åƒæœ¯ä¹‹é¢„è§æœ¯é¢„è§ï¼“å·é©¬ç‹¬èµ¢\n"
+       "bet do  s 3         åˆ©ç”¨åƒæœ¯ä¹‹å¹²æ‰°æœ¯å½±å“ï¼“å·é©¬çš„å‘æŒ¥\n";
 }
 
 
@@ -62,7 +62,7 @@ void deal_bet()
          me->set_con_money("gold",me->query_con_money("gold")+gainer[ids[i]]*4);
       else
          me->add_money("bank",gainer[ids[i]]*4*10000);
-      tell_environment(me,sprintf("%%^YELLOW%%^%sÂòÖĞ%dºÅÂí¶ÀÓ®£¬Ï²»ñ²Ê½ğ%dÁ½%%^RESET%%^\n",
+      tell_environment(me,sprintf("%%^YELLOW%%^%sä¹°ä¸­%då·é©¬ç‹¬èµ¢ï¼Œå–œè·å½©é‡‘%dä¸¤%%^RESET%%^\n",
                           me->query_primary_name(),winner,gainer[ids[i]]*4));
      }
 }
@@ -84,7 +84,7 @@ int have_enough_gold(object who,int tamt)
 
 
 mixed do_bet(string para)
-{array paras;
+{mixed * paras;
  int h_id1,h_id2,tamt,p_level,p_mp,pre_id;
  string tmp1,tmp2,tmp3;
  object me = this_body();
@@ -103,18 +103,18 @@ mixed do_bet(string para)
             return cmd_example();
          else
             {
-        if (round!=1) return "ÏÖÔÚ²»ÊÇÑº×¢µÄÊ±ºò!\n";
+        if (round!=1) return "ç°åœ¨ä¸æ˜¯æŠ¼æ³¨çš„æ—¶å€™!\n";
             if ((h_id1<0)||(h_id1>=sizeof(data)))
-               return  "ÓĞÕâ¸öºÅÂëµÄÂíÂğ£¿\n";
+               return  "æœ‰è¿™ä¸ªå·ç çš„é©¬å—ï¼Ÿ\n";
             if ((tamt<1)||(tamt>100))
-               return "Ò»´ÎÑº×¢µÄ½ğ¶î·¶Î§Ó¦ÔÚ1-100goldÖ®¼ä£¡\n";
+               return "ä¸€æ¬¡æŠ¼æ³¨çš„é‡‘é¢èŒƒå›´åº”åœ¨1-100goldä¹‹é—´ï¼\n";
             if (!have_enough_gold(me,tamt))
-               return "ÄãÉíÉÏºÃÏñÃ»ÓĞÕâÃ´¶àÇ®£¡»¹ÊÇ¶àÈ¡µãÇ®À´°É£¡\n";
+               return "ä½ èº«ä¸Šå¥½åƒæ²¡æœ‰è¿™ä¹ˆå¤šé’±ï¼è¿˜æ˜¯å¤šå–ç‚¹é’±æ¥å§ï¼\n";
             else
                me->set_con_money("gold",me->query_con_money("gold")-tamt);
             if (!bet[h_id1]) bet[h_id1]=([]);
             bet[h_id1][m_id]+=tamt;
-            return sprintf("ÄãÑº×¢%dºÅÂí¶ÀÓ®£¬¶Ä½ğ%dÁ½»Æ½ğ£¡\n",h_id1,tamt);
+            return sprintf("ä½ æŠ¼æ³¨%då·é©¬ç‹¬èµ¢ï¼ŒèµŒé‡‘%dä¸¤é»„é‡‘ï¼\n",h_id1,tamt);
             }
       return;
  case "do":
@@ -123,15 +123,15 @@ mixed do_bet(string para)
           {
            if (sscanf(tmp3,"%d",pre_id)<1) 
                return cmd_example();
-           if (round<25) return "ÏÖÔÚ±ÈÈü¸Õ¸Õ¿ªÊ¼£¬ÄãÎŞ·¨Ê©Êõ£¬µÈÒ»»á°É£¡\n";	
+           if (round<25) return "ç°åœ¨æ¯”èµ›åˆšåˆšå¼€å§‹ï¼Œä½ æ— æ³•æ–½æœ¯ï¼Œç­‰ä¸€ä¼šå§ï¼\n";	
            p_level=this_body()->query_sk_level("qmdj");
            if (p_level<10)
-               return "ÄãµÄÇ§ÍõÔ¤¼ûÊõµÈ¼¶Ì«µÍÁË£¬»¹ÊÇÔÙÑ§Ñ§°É£¬ÃâµÃÏ×³ó£¡\n";
+               return "ä½ çš„åƒç‹é¢„è§æœ¯ç­‰çº§å¤ªä½äº†ï¼Œè¿˜æ˜¯å†å­¦å­¦å§ï¼Œå…å¾—çŒ®ä¸‘ï¼\n";
            p_mp=this_body()->query_cur_mp();
            if (p_mp<40)
-               return "ÄãÏÖÔÚ¾«Éñ²»¹»£¬»¹ÊÇĞİÏ¢ĞİÏ¢ÔÙËµ°É¡£\n";
+               return "ä½ ç°åœ¨ç²¾ç¥ä¸å¤Ÿï¼Œè¿˜æ˜¯ä¼‘æ¯ä¼‘æ¯å†è¯´å§ã€‚\n";
            if ((pre_id<0)||(pre_id>=sizeof(data)))
-               return  "ÓĞÕâ¸öºÅÂëµÄÂíÂğ£¿\n";
+               return  "æœ‰è¿™ä¸ªå·ç çš„é©¬å—ï¼Ÿ\n";
            if (priority==-1)
               {priority = pre_id;
                level = p_level;
@@ -140,13 +140,13 @@ mixed do_bet(string para)
            else
               {
               if (p_level<=level)
-                 return "Äã×Ü¾õµÃÓĞµã²»¶Ô¾¢£¬ÎŞ·¨Ê©Êõ\n";
+                 return "ä½ æ€»è§‰å¾—æœ‰ç‚¹ä¸å¯¹åŠ²ï¼Œæ— æ³•æ–½æœ¯\n";
               priority = pre_id;
               level = p_level;
               p_id = this_body()->query_primary_id();
               }
            this_body()->set_cur_mp(this_body()->query_cur_mp()-40);
-           write("ÄãµÄÇ§ÍõÔ¤¼ûÊõÊ©Êõ³É¹¦!\n");
+           write("ä½ çš„åƒç‹é¢„è§æœ¯æ–½æœ¯æˆåŠŸ!\n");
                  
         }
       return ;     
@@ -160,17 +160,17 @@ mixed do_bet(string para)
 }
 
 
-string get_run_info(array data)
+string get_run_info(mixed *data)
 {string result;
  int i,j;
-result="\nÆğµã¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡    ¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡                     ÖÕµã\n";
+result="\nèµ·ç‚¹ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€    ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€                     ç»ˆç‚¹\n";
 for(i=0;i<sizeof(data);i++)
 {
   string tmp;
   tmp = "|";
   for (j=0;j<data[i];j++)
     tmp+="-";
-  tmp+= sprintf("%dºÅÂí",i);
+  tmp+= sprintf("%då·é©¬",i);
   for (j=0;j<(80-data[i]-5);j++)
     tmp+="-";
   tmp+="|\n";
@@ -211,7 +211,7 @@ if (!is_running)
     is_running = 1;}
 
 if (boss=present("turf boss",this_object()))
-    DELAY_D->delay_simple_action(boss,"$N´óÉùÈÂÈÂµÀ£ºĞ¡¶ÄâùÇé£¬´ó¶ÄĞË¼Ò£¬´ó¼Ò¿ìÀ´²©Ò»°Ñ°É!\n",1);
+    DELAY_D->delay_simple_action(boss,"$Nå¤§å£°åš·åš·é“ï¼šå°èµŒæ€¡æƒ…ï¼Œå¤§èµŒå…´å®¶ï¼Œå¤§å®¶å¿«æ¥åšä¸€æŠŠå§!\n",1);
    
 }
 
@@ -227,7 +227,7 @@ if (!boss=present("turf boss",this_object()))
 switch(round){
   case 0 : //this time get bet.
     init_race();
-    boss->simple_action("%^CYAN%^$N´óÉùËµµÀ£º¿ìÀ´Âò°¢£¬¿ìÀ´Âò°¢£¬ÂíÉÏÂí¶ù¾ÍÒª¿ªÅÜÁË£¡\n%^RESET%^");
+    boss->simple_action("%^CYAN%^$Nå¤§å£°è¯´é“ï¼šå¿«æ¥ä¹°é˜¿ï¼Œå¿«æ¥ä¹°é˜¿ï¼Œé©¬ä¸Šé©¬å„¿å°±è¦å¼€è·‘äº†ï¼\n%^RESET%^");
     round++;
     call_out("game_run",20);
     return;
@@ -240,12 +240,12 @@ switch(round){
        }
     if (round==1)
        {status =1;
-        boss->simple_action("%^CYAN%^$N´óÉùËµµÀ£ºÕâÒ»³¡±ÈÈü¿ªÊ¼£¬ÏÖÔÚ²»ÔÚ½ÓÊÜÏÂ×¢£¡\n%^RESET%^");
+        boss->simple_action("%^CYAN%^$Nå¤§å£°è¯´é“ï¼šè¿™ä¸€åœºæ¯”èµ›å¼€å§‹ï¼Œç°åœ¨ä¸åœ¨æ¥å—ä¸‹æ³¨ï¼\n%^RESET%^");
        }
     round++;
     rad = random(sizeof(data));
     
-    if ((priority!=-1)&&(random(2)==0))  //Õâ¶ùÊÇÇ§ÍõÔ¤¼ûÊõµÄ×÷±×code
+    if ((priority!=-1)&&(random(2)==0))  //è¿™å„¿æ˜¯åƒç‹é¢„è§æœ¯çš„ä½œå¼Šcode
        if (random(100)<level)
           rad = priority;
           
@@ -254,7 +254,7 @@ switch(round){
     if (data[rad]>72) 
        {
         winner=rad;
-        boss->simple_action(sprintf("%%^CYAN%%^$N´óÉùËµµÀ£º±ÈÈü½áÊø£¬%dºÅÂíÊ¤³ö£¡\n%%^RESET%%^",winner));
+        boss->simple_action(sprintf("%%^CYAN%%^$Nå¤§å£°è¯´é“ï¼šæ¯”èµ›ç»“æŸï¼Œ%då·é©¬èƒœå‡ºï¼\n%%^RESET%%^",winner));
         status = 2;
         round = 0;
         deal_bet();
@@ -271,17 +271,17 @@ switch(round){
 string get_extra_long()
 {
 if (!present("turf boss",this_object()))
-   return "ÕâÊÇÒ»¸öÕıÔÚĞË½¨ÖĞµÄÈüÂí³¡!\n\n";
+   return "è¿™æ˜¯ä¸€ä¸ªæ­£åœ¨å…´å»ºä¸­çš„èµ›é©¬åœº!\n\n";
 else
   {switch(status){
    case 0:
-      return "ÕâÊÇÒ»¸öÈÈÄÖµÄÈüÂí³¡£¬ÏÖÔÚ±ÈÈü»¹Ã»ÕıÊ½¿ªÊ¼£¬ÀÏ°åÕıÔÚĞ¦Á³Ó¯Ó¯µØ½ÓÊÜ¶Ä¿ÍµÄÏÂ×¢¡£\n"+
+      return "è¿™æ˜¯ä¸€ä¸ªçƒ­é—¹çš„èµ›é©¬åœºï¼Œç°åœ¨æ¯”èµ›è¿˜æ²¡æ­£å¼å¼€å§‹ï¼Œè€æ¿æ­£åœ¨ç¬‘è„¸ç›ˆç›ˆåœ°æ¥å—èµŒå®¢çš„ä¸‹æ³¨ã€‚\n"+
               get_run_info(data);
    case 1:
-      return "ÕâÊÇÒ»¸öÈÈÄÖµÄÈüÂí³¡£¬ÏÖÔÚ±ÈÈüÕıÔÚ¼¤ÁÒµÄ½øĞĞ×Å£¬¶Ä¿ÍÃÇÕıÔÚ¾Û¾«»áÉñµØ¹Û¿´×Å±ÈÈüµØÇé¿ö¡£\n"+
+      return "è¿™æ˜¯ä¸€ä¸ªçƒ­é—¹çš„èµ›é©¬åœºï¼Œç°åœ¨æ¯”èµ›æ­£åœ¨æ¿€çƒˆçš„è¿›è¡Œç€ï¼ŒèµŒå®¢ä»¬æ­£åœ¨èšç²¾ä¼šç¥åœ°è§‚çœ‹ç€æ¯”èµ›åœ°æƒ…å†µã€‚\n"+
               get_run_info(data);
    case 2:
-      return "ÕâÊÇÒ»¸öÈÈÄÖµÄÈüÂí³¡£¬ÏÖÔÚ±ÈÈü¸Õ¸Õ½áÊø£¬ÀÏ°åÕıÔÚĞ¦Á³Ó¯Ó¯ºÍ¶Ä¿Í½áËã¶Ä½ğ¡£\n"+
+      return "è¿™æ˜¯ä¸€ä¸ªçƒ­é—¹çš„èµ›é©¬åœºï¼Œç°åœ¨æ¯”èµ›åˆšåˆšç»“æŸï¼Œè€æ¿æ­£åœ¨ç¬‘è„¸ç›ˆç›ˆå’ŒèµŒå®¢ç»“ç®—èµŒé‡‘ã€‚\n"+
              get_run_info(data);
    default:
       return  "\n";
@@ -296,7 +296,7 @@ void setup(){
 	"/sgdomain/npc/turfboss" : 1
       ]) );
     set_area("wiz_area");
-    set_brief("ÈüÂí³¡");
+    set_brief("èµ›é©¬åœº");
     set_long("                                  ");
     set_exits( ([
                 "north" : START,

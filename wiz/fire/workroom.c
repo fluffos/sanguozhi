@@ -3,7 +3,7 @@ void setup(){
     string st1,st2,st3;
     set_area("fire_home");
     set_light(50);
-    set_brief("--¿ÍÌü--");
+    set_brief("--å®¢å…--");
 st1=
 "  _______     
  /  12   \\
@@ -35,7 +35,7 @@ st3=
         "studyroom" :  __DIR__+"room/study.c"
             ]) );
 }                
-/*¶«Î÷Ì«¶àÁË£¬¿´ÆğÀ´ºÜÂÒ£¬Äã¿´Ê²Ã´²»ÒªµÃ£¬¾Í¶ªÁË°É¡£*/
+/*ä¸œè¥¿å¤ªå¤šäº†ï¼Œçœ‹èµ·æ¥å¾ˆä¹±ï¼Œä½ çœ‹ä»€ä¹ˆä¸è¦å¾—ï¼Œå°±ä¸¢äº†å§ã€‚*/
 string query_board()
 {
 }
@@ -43,6 +43,6 @@ mixed can_go_bedroom() {
 	string p_id;
 	p_id=this_body()->query_id()[0];
 	if((p_id!="fire")&&(p_id!="lili")&&(p_id!="benben"))
-		return "Ö÷ÈËË¯·¿£¬²»ÄÜÂÒ½ø¡£\n";
+		return "ä¸»äººç¡æˆ¿ï¼Œä¸èƒ½ä¹±è¿›ã€‚\n";
 	return 1;
 }

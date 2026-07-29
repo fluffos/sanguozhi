@@ -37,7 +37,7 @@ nomask void create(string name, string group) {
         error("No linked newsgroup in board.\n");
     set_group(group);
     board_name = name;
-    set_id("board", "ÁôÑÔ°å");
+    set_id("board", "ç•™è¨€æ¿");
     set_in_room_desc( (: do_desc :) );
     set_long( (: list_headers :) );
 }
@@ -59,26 +59,26 @@ private nomask varargs string format_message_line(int id) {
         return 0;                      // Do not display removed messages.
     else
         subject = msg->subject;
-    return sprintf( "%-35s ¡¾%-10s on %s¡¿",           // Display message subject/poster/time
+    return sprintf( "%-35s ã€%-10s on %sã€‘",           // Display message subject/poster/time
       subject[0..34],
       msg->poster,
       intp(msg->time) ? ctime(msg->time)[4..9] : msg->time);
 }
 // Format all message lines.
-private nomask string array query_message_lines() {
-    int array ids = sort_array(filter_array(
+private nomask string * query_message_lines() {
+    int * ids = sort_array(filter_array(
       NEWS_D->get_messages(linked_group), (: filter_removed :)), 1);
     int i;
-    string array tmp;
+    string * tmp;
     tmp = map_array(ids, (: format_message_line($1) :));
     for (i = 1; i < sizeof(tmp) + 1; i++)
-        tmp[i-1] = sprintf("%4d£º", i) + tmp[i-1];
+        tmp[i-1] = sprintf("%4dï¼š", i) + tmp[i-1];
     return tmp;
 }
 // Make the long description.
 private nomask string list_headers() {
-    return "  ĞòºÅ   ±êÌâ                               ÁôÑÔÈË      ÈÕÆÚ\n" +
-      repeat_string("¡ş", 34) + "\n" + implode(query_message_lines(), "\n");
+    return "  åºå·   æ ‡é¢˜                               ç•™è¨€äºº      æ—¥æœŸ\n" +
+      repeat_string("ã€“", 34) + "\n" + implode(query_message_lines(), "\n");
 }
 // Needed for M_READABLE
 nomask int has_entries() {
@@ -88,18 +88,18 @@ nomask int has_entries() {
 nomask mixed read_entry(string str) {
     class news_msg msg;
     int id;
-    int array ids = sort_array(filter_array(NEWS_D->get_messages(linked_group),
+    int * ids = sort_array(filter_array(NEWS_D->get_messages(linked_group),
       (: filter_removed :)), 1);
     if (str == "next") {
         id = this_body()->get_news_group_id(board_name) + 1;
         if (id > sizeof(ids))
-            return "Ã»ÓĞĞÂµÄÁôÑÔÁË¡£\n";
+            return "æ²¡æœ‰æ–°çš„ç•™è¨€äº†ã€‚\n";
     }
     else
         if (sscanf(str, "%d", id) != 1)
-            return "ÄãÒªÔÄ¶ÁµÚ¼¸ÌõÁôÑÔ£¿\n";
+            return "ä½ è¦é˜…è¯»ç¬¬å‡ æ¡ç•™è¨€ï¼Ÿ\n";
     if (id <= 0 || id > sizeof(ids))
-        return "ÁôÑÔ°åÉÏÃ»ÓĞÕâÌõÁôÑÔ¡£\n";
+        return "ç•™è¨€æ¿ä¸Šæ²¡æœ‰è¿™æ¡ç•™è¨€ã€‚\n";
     this_body()->set_news_group_id(board_name, id);
     id = ids[id - 1];                  // Translate to NEWS_D id
     msg = NEWS_D->get_message(linked_group, id);
@@ -107,13 +107,13 @@ nomask mixed read_entry(string str) {
 }
 // Helpful text for those used to type 'read 1'.
 nomask mixed direct_read_obj(object ob) {
-    return "ÓÃ·¨£ºread about <number> £º¶ÁµÚ¼¸ºÅÁôÑÔ£¬\n
-read about next £º¶ÁÏÂÒ»ÌõÁôÑÔ¡£\n";
+    return "ç”¨æ³•ï¼šread about <number> ï¼šè¯»ç¬¬å‡ å·ç•™è¨€ï¼Œ\n
+read about next ï¼šè¯»ä¸‹ä¸€æ¡ç•™è¨€ã€‚\n";
 }
 // Short description.
 private nomask string do_desc() {
     string tmp;
-    int array ids = sort_array(filter_array(NEWS_D->get_messages(linked_group),
+    int * ids = sort_array(filter_array(NEWS_D->get_messages(linked_group),
       (: filter_removed :)), 1);
     int curr_id = this_body()->get_news_group_id(board_name);
     if (curr_id <= 0)
@@ -121,9 +121,9 @@ private nomask string do_desc() {
     if (curr_id > sizeof(ids))
         this_body()->set_news_group_id(board_name, curr_id = sizeof(ids));
     if(curr_id==sizeof(ids))
-	tmp=sprintf("¡¾¹²ÓĞ%dÌõÁôÑÔ¡¿",sizeof(ids));
+	tmp=sprintf("ã€å…±æœ‰%dæ¡ç•™è¨€ã€‘",sizeof(ids));
     else
-        tmp=sprintf("¡¾¹²ÓĞ%dÌõÁôÑÔ£¬ÆäÖĞ%dÌõÎ´¶Á¡¿",sizeof(ids),sizeof(ids)-curr_id);
+        tmp=sprintf("ã€å…±æœ‰%dæ¡ç•™è¨€ï¼Œå…¶ä¸­%dæ¡æœªè¯»ã€‘",sizeof(ids),sizeof(ids)-curr_id);
     return board_name + tmp;
 }
 // For board commands like post etc.

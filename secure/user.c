@@ -46,7 +46,7 @@ private string          name;
 private string          owner;
 private int isnetdead = 0;
 
-static nomask void save_me()
+protected nomask void save_me()
 {
     unguarded(1, (: save_object, LINK_PATH(userid) :));
 }
@@ -54,7 +54,7 @@ static nomask void save_me()
 nomask string set_owner(string id)
 {
 if (wizardp(this_object()))
-   error("��ʦID�����趨ӵ���ߡ�\n");
+   error("巫师ID不能设定拥有者。\n");
 owner=id;
 save_me();
 return owner;
@@ -80,12 +80,12 @@ nomask string query_chinese_id()
     return chinese_id;
 }
 
-static nomask void set_userid(string new_userid)
+protected nomask void set_userid(string new_userid)
 {
     userid = new_userid;
 }
 
-static nomask void set_chinese_id(string new_cname)
+protected nomask void set_chinese_id(string new_cname)
 {
     chinese_id = new_cname;
 }
@@ -115,16 +115,16 @@ void quit()
 mixed force_change_passwd(string owner_userid,string some_userid,string new_passwd)
 {
 if (find_user(some_userid))
-   return "����Ҵ�ʱ���ߣ����޷�ǿ�и���������!\n";
+   return "该玩家此时在线，你无法强行更改其密码!\n";
 if (!unguarded(1, (: restore_object, LINK_PATH(some_userid), 0:)))
-    return "���û������ڣ��޷��޸������롣\n";
+    return "该用户不存在，无法修改其密码。\n";
 printf("%s\n",query_userid());
 if (query_owner()!=owner_userid)
-    return "�㲻��ӵ���ߣ��޷��޸������롣\n";
+    return "你不是拥有者，无法修改其密码。\n";
 set_password(new_passwd);
 return 1;
 }
-static nomask void restore_me(string some_userid, int preserve_vars)
+protected nomask void restore_me(string some_userid, int preserve_vars)
 {
 //### always "read" this variable
     data_version = 0;

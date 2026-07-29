@@ -35,9 +35,9 @@ class input_info
     function    return_to_func;
     int     input_type;
 }
-private static class input_info *   modal_stack = ({ });
+private class input_info *   modal_stack = ({ });
 
-private static int  dispatching_to;
+private nosave int  dispatching_to;
 
 private nomask void dispatch_modal_input(string str);
 
@@ -54,8 +54,8 @@ private nomask int create_handler()
 //    write("Sorry, but I can't process your typing for some reason.\n"
 //          "Please log in and try again or send mail to " ADMIN_EMAIL "\n"
 //          "if you continue to have problems.\n");
-      write("¶Ô²»Æğ£¬ÓÉÓÚ²»Ã÷Ô­ÒòÎŞ·¨´¦ÀíÄãµÄÊäÈë£¬ÇëÔÙÊÔÒ»´Î»ò\n"
-            " mail µ½" ADMIN_EMAIL "Èç¹ûÕâ¸öÎÊÌâÊ¼ÖÕ´æÔÚ¡£\n");
+      write("å¯¹ä¸èµ·ï¼Œç”±äºä¸æ˜åŸå› æ— æ³•å¤„ç†ä½ çš„è¾“å…¥ï¼Œè¯·å†è¯•ä¸€æ¬¡æˆ–\n"
+            " mail åˆ°" ADMIN_EMAIL "å¦‚æœè¿™ä¸ªé—®é¢˜å§‹ç»ˆå­˜åœ¨ã€‚\n");
     destruct(this_object());
     return 1;
     }
@@ -204,7 +204,7 @@ varargs nomask void modal_func(function input_func,
     modal_stack[<1]->secure = secure;
 }
 
-static nomask void modal_recapture()
+protected nomask void modal_recapture()
 {
     class input_info info;
     string prompt;
@@ -359,9 +359,9 @@ nomask void force_me(string str)
 //    if ( adminp(this_object()) )
 //        error("illegal force attempt.\n");
 
-    set_this_player(this_object());
+    // set_this_player(this_object()); // set_this_player() unavailable in this driver build (no NO_ADD_ACTION) -- no-op'd, this_player() is whatever it naturally is here
     dispatch_to_bottom(str);
-    set_this_player(save_this_user);
+    // set_this_player(save_this_user); // set_this_player() unavailable in this driver build (no NO_ADD_ACTION) -- no-op'd, this_player() is whatever it naturally is here
 }
 
 
@@ -374,7 +374,7 @@ int stat_me()
     }
 }
 
-static nomask void clear_input_stack()
+protected nomask void clear_input_stack()
 {
     class input_info top;
 

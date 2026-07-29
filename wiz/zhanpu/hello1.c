@@ -1,16 +1,16 @@
 //**********************************************
-// write by fire 10/12/97 xiaoer.c µêĞ¡¶ş
+// write by fire 10/12/97 xiaoer.c åº—å°äºŒ
 #include <mudlib.h>
 inherit LIVING;
 void setup() 
 {
     add_id("hel","lo")
-    set_name("xiaoer", "°×ÀæÔÆÁé»ê")
+    set_name("xiaoer", "ç™½æ¢¨äº‘çµé­‚")
     set_gender(1)
-    set_proper_name("¾«Áé¹Å¹ÖµÄ°×ÀæÔÆÁé»ê")
-    set_in_room_desc("³äÂú÷ÈÁ¦µÄ°×ÀæÔÆÁé»ê")
-    set_long("°×ÀæÔÆÁé»ê³Õ³ÕµØÍû×ÅÄã£¬\n"+"Äã¿É±ğÂÒ´³Å¶£¿\n\n")
-    set_sg_zi("´óÓŞ")
+    set_proper_name("ç²¾çµå¤æ€ªçš„ç™½æ¢¨äº‘çµé­‚")
+    set_in_room_desc("å……æ»¡é­…åŠ›çš„ç™½æ¢¨äº‘çµé­‚")
+    set_long("ç™½æ¢¨äº‘çµé­‚ç—´ç—´åœ°æœ›ç€ä½ ï¼Œ\n"+"ä½ å¯åˆ«ä¹±é—¯å“¦ï¼Ÿ\n\n")
+    set_sg_zi("å¤§æ„š")
         add_question("zhanpu","zhanpu" )
         add_question("money","money")
 }
@@ -19,10 +19,10 @@ void special_answer(object who, string matt)
         switch(matt)
         {
                 case "zhanpu" :
-                        this_object()->targetted_action("$N¶Ô$T´óÉùµØËµ£º¡°²»¿É¶ÔÎÒµÄÖ÷ÈË²»¾´£¡²»È»ÎÒÅüËÀÄã£¡¡±\n",who)
+                        this_object()->targetted_action("$Nå¯¹$Tå¤§å£°åœ°è¯´ï¼šâ€œä¸å¯å¯¹æˆ‘çš„ä¸»äººä¸æ•¬ï¼ä¸ç„¶æˆ‘åŠˆæ­»ä½ ï¼â€\n",who)
                         return
                 case "money" :
-                        this_object()->simple_action("°×ÀæÔÆÁé»ê±ÉÊÓµØ¿´×ÅÄã£º¡°ÄãÃ»ÊÖÃ»½Å°¡£¬Òªµ±½Ğ»¨×Ó£¡¡±\n")
+                        this_object()->simple_action("ç™½æ¢¨äº‘çµé­‚é„™è§†åœ°çœ‹ç€ä½ ï¼šâ€œä½ æ²¡æ‰‹æ²¡è„šå•Šï¼Œè¦å½“å«èŠ±å­ï¼â€\n")
  return
         }
 }

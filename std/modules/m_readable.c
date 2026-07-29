@@ -24,7 +24,7 @@ string
 read()
 {
     this_body()->simple_action(//"$N $vread the $o.\n"
-                               "$N¶ÁÁËÒ»»á¶ù$o¡£", this_object());
+                               "$Nè¯»äº†ä¸€ä¼šå„¿$oã€‚", this_object());
 
     return read_text;
 }
@@ -59,7 +59,7 @@ mixed direct_read_obj(object ob) {
     if (!read_text) {
       if (entries)
           return //"It has a number of entries about various topics.\n";
-                 "ÉÏÃæÓĞºÃ¼¸Ïî¹ØÓÚ²»Í¬»°ÌâµÄÄÚÈİ¡£\n";
+                 "ä¸Šé¢æœ‰å¥½å‡ é¡¹å…³äºä¸åŒè¯é¢˜çš„å†…å®¹ã€‚\n";
       return 0;
     }
     return 1;
@@ -73,8 +73,8 @@ mixed direct_read_str_word_obj(string str, string p, object ob) {
     if (!entries) {
       if (read_text)
           return //"It's fairly short.  Just read it all.\n";
-                 "ËüºÜ¶Ì£¬¾Í¶ÁÍêÁË°É¡£\n";
-      return "ËüÉÏÃæÃ»ÓĞ×Ö¡£\n";
+                 "å®ƒå¾ˆçŸ­ï¼Œå°±è¯»å®Œäº†å§ã€‚\n";
+      return "å®ƒä¸Šé¢æ²¡æœ‰å­—ã€‚\n";
     }
     return 1;
 }

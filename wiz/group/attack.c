@@ -23,18 +23,18 @@ mixed can_general_attack(int p_id,string direction)
         int dis;
         dis=get_neighbor_distance(p_id,direction);
         if(dis!=1)
-                return "¹¥²»µ½ÄÇ¶ù¡£";
+                return "æ”»ä¸åˆ°é‚£å„¿ã€‚";
         p_side=TROOP_D->get_troops(p_id,"side");
         p_otherside=get_neighbor_side(p_id, direction);
         if(!p_otherside)
-                return "´ËÏòÃ»ÓĞµĞ¾ü£®\n";
+                return "æ­¤å‘æ²¡æœ‰æ•Œå†›ï¼\n";
         if(p_side==p_otherside)
-                return "ÔõÃ´ÄÜÏòÓÑ¾ü½ø¹¥£¿\n";
+                return "æ€ä¹ˆèƒ½å‘å‹å†›è¿›æ”»ï¼Ÿ\n";
         if(TROOP_D->get_soldier_kills(p_id)==-1)
-                return "Ê¿±øÌ«ÀÛÁË£¬ÎŞ·¨½ø¹¥¡£\n";
+                return "å£«å…µå¤ªç´¯äº†ï¼Œæ— æ³•è¿›æ”»ã€‚\n";
         if (TROOP_D->get_troops(p_id, "conds"))
         { if (TROOP_D->get_troops(p_id, "conds")["confuse"])
-        return "»ìÂÒÖĞ£¬ÎŞ·¨¹¥»÷¡£\n";
+        return "æ··ä¹±ä¸­ï¼Œæ— æ³•æ”»å‡»ã€‚\n";
         }
 	return 1;
 }
@@ -55,29 +55,29 @@ mixed attack_target(int p_id, string direction, string method)
     {
         case "general attack":
            do_general_attack(p_id,direction);
-		   troop_busy( p_id,ATTACK_BUSY_TIME,"²¿¶ÓÕıÔÚ½ø¹¥¡£\n") ;
+		   troop_busy( p_id,ATTACK_BUSY_TIME,"éƒ¨é˜Ÿæ­£åœ¨è¿›æ”»ã€‚\n") ;
            return 1;
-        case "array attack":
+        case "mixed * attack":
 			do_array_attack(p_id,direction);
-		   troop_busy( p_id,ARRAY_BUSY_TIME,"²¿¶ÓÕıÔÚ¹­¼ı½ø¹¥¡£\n") ;
+		   troop_busy( p_id,ARRAY_BUSY_TIME,"éƒ¨é˜Ÿæ­£åœ¨å¼“ç®­è¿›æ”»ã€‚\n") ;
            return 1;
         case "horse attack":
            do_horse_attack(p_id,direction);
-		   troop_busy( p_id,HORSE_BUSY_TIME,"²¿¶ÓÕıÔÚ³å·æ¡£\n") ;
+		   troop_busy( p_id,HORSE_BUSY_TIME,"éƒ¨é˜Ÿæ­£åœ¨å†²é”‹ã€‚\n") ;
            return 1;
         case "siege attack":
            do_siege_attack(p_id,direction);
-		   troop_busy( p_id,SIEGE_BUSY_TIME,"²¿¶ÓÕıÔÚÎ§¹¥¡£\n") ;
+		   troop_busy( p_id,SIEGE_BUSY_TIME,"éƒ¨é˜Ÿæ­£åœ¨å›´æ”»ã€‚\n") ;
 	   return 1;
     }
-    SGSYS("Ã»ÓĞ"+method+"ÕâÖÖ½ø¹¥·½Ê½¡£");
+    SGSYS("æ²¡æœ‰"+method+"è¿™ç§è¿›æ”»æ–¹å¼ã€‚");
 	return 0;
 }
 // to find all the attack target and the way to attack
 mixed find_attack_target(int p_id)
 {
-   array ret=({});
-   array dir=({"e","w","s","n"});
+   mixed * ret=({});
+   mixed * dir=({"e","w","s","n"});
    mixed res;
    int tmp;
    foreach(string d in dir)
@@ -116,7 +116,7 @@ mixed find_attack_target(int p_id)
            if(res==1)
            {
               mtmp["target"]=d;
-              mtmp["method"]="array attack";
+              mtmp["method"]="mixed * attack";
               ret+=({mtmp});
            }
          }

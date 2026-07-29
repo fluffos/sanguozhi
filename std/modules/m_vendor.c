@@ -12,7 +12,7 @@ string query_subjective();
 private mixed for_sale;
 private mixed will_buy;
 private mixed currency_type = //"gold";
-                              "½ğ×Ó";  
+                              "é‡‘å­";  
 
 private string *stored_items = ({});
 
@@ -85,7 +85,7 @@ void buy_object(object ob) {
     if (ob->move(this_object()) != MOVE_OK)
         //write("You can't seem to give " + ob->short() + " to " + short() +
         //  ".\n");
-        write("ÄãÎŞ·¨°Ñ" + ob->short() + "½»¸ø" + short() + "\n");
+        write("ä½ æ— æ³•æŠŠ" + ob->short() + "äº¤ç»™" + short() + "\n");
     else {
         int exchange_rate = MONEY_D->query_exchange_rate(currency_type);
         int object_value;
@@ -99,8 +99,8 @@ void buy_object(object ob) {
         object_ids += ({ ob->short() });
         stored_items += ({ ({ item_state }) + ({ item_name }) + ({ object_cost }) + ({object_ids }) });
         this_body()->my_action(//"$N $vsell a $o for "
-                               "$NÒÔ" + object_value + currency_type +"ÂôµôÒ»"+ob->query_unit()+"$o¡£\n", ob);
-        this_body()->other_action("$NÂôµôÒ»"+ob->query_unit()+"$o.\n", ob);
+                               "$Nä»¥" + object_value + currency_type +"å–æ‰ä¸€"+ob->query_unit()+"$oã€‚\n", ob);
+        this_body()->other_action("$Nå–æ‰ä¸€"+ob->query_unit()+"$o.\n", ob);
         ob->remove();
 
     }
@@ -115,20 +115,20 @@ void sell_object(object ob) {
     if(object_cost > this_body()->query_amt_money(currency_type))
     {
         write( short() +//" laughs in your face saying, that costs  "
-               "Ö¸×ÅÄãµÄ±Ç×Ó³°Ğ¦µÀ£ºÕâ¿ÉÖµ" + object_cost +" "+ currency_type +"£¬ÄãµÄÇ®²»¹»£¡\n");
+               "æŒ‡ç€ä½ çš„é¼»å­å˜²ç¬‘é“ï¼šè¿™å¯å€¼" + object_cost +" "+ currency_type +"ï¼Œä½ çš„é’±ä¸å¤Ÿï¼\n");
         return 0;
     }
     if (ob->move(this_body()) != MOVE_OK)
         write(query_subjective() + //" can't seem to give " 
-              "ÎŞ·¨½«"  + ob->short() + "½»¸øÄã¡£\n");
+              "æ— æ³•å°†"  + ob->short() + "äº¤ç»™ä½ ã€‚\n");
     else {
         this_body()->subtract_money(currency_type, object_cost);
         this_body()->my_action(//"$N $vbuy a $o for "+ 
-                               "$NÓÃ" + object_cost +" "+ currency_type 
-                               +"Ïò$oÂòÏÂÒ»"+ob->query_unit()+"$o¡£\n",ob);
+                               "$Nç”¨" + object_cost +" "+ currency_type 
+                               +"å‘$oä¹°ä¸‹ä¸€"+ob->query_unit()+"$oã€‚\n",ob);
 
         this_body()->other_action(//"$N $vbuy a $o.\n"
-                                  "$NÂòÏÂÒ»¸ö$o",ob);
+                                  "$Nä¹°ä¸‹ä¸€ä¸ª$o",ob);
     }
 }
 
@@ -148,7 +148,7 @@ void query_items(string item)
 if(!i)
 {
    this_body()->my_action(//"The shopkeeper says, \"I currently have no items in inventory.\"\n");
-                          "ÂôÖ÷ËµµÀ£º¡°ÎÒÏÖÔÚÊÖÍ·Ã»ÓĞ»õ¡£¡±\n");
+                          "å–ä¸»è¯´é“ï¼šâ€œæˆ‘ç°åœ¨æ‰‹å¤´æ²¡æœ‰è´§ã€‚â€\n");
 }
 else
 {
@@ -171,7 +171,7 @@ else
     if (j)
     {
         this_body()->my_action(//"The shopkeeper says, \"I have the following items that match your request.\"\n");
-                               "ÂôÖ÷ËµµÀ£º¡°ÎÒÓĞÏÂÁĞµÄ»õÎï³öÊÛ£º¡±\n"); 
+                               "å–ä¸»è¯´é“ï¼šâ€œæˆ‘æœ‰ä¸‹åˆ—çš„è´§ç‰©å‡ºå”®ï¼šâ€\n"); 
         for( m=0; m < j; m++)
         {
             printf("%10d%20s %30d\n", m + 1 ,items_available[m][0],items_available[m][1]);
@@ -180,7 +180,7 @@ else
     else
     {
         this_body()->my_action(//"The shopkeeper says, \"I have no items that match your request.\"\n");
-                               "ÂôÖ÷ËµµÀ£º¡°ÄãÒªµÄ¶«Î÷ÎÒÃ»ÂôµÄ¡£¡±\n");  
+                               "å–ä¸»è¯´é“ï¼šâ€œä½ è¦çš„ä¸œè¥¿æˆ‘æ²¡å–çš„ã€‚â€\n");  
     }
 }
 }
@@ -218,8 +218,8 @@ while (i--)
 
                     if (ob=present(item, this_object())) {
                         ob->move(this_body());
-                        this_body()->simple_action("$NÏòÂôÖ÷ÂòÏÂÁËÒ»"+
-                                        ob->query_unit()+ob->short()+"¡£\n"); 
+                        this_body()->simple_action("$Nå‘å–ä¸»ä¹°ä¸‹äº†ä¸€"+
+                                        ob->query_unit()+ob->short()+"ã€‚\n"); 
                     }                        
                     stored_items -= ({ stored_items[i] });
                     break;

@@ -3,7 +3,7 @@
 // modified by edc at 08/04/2001
 
 string def_get_position(string p_area,string p_dir);
-array make_unique(array inp);
+mixed * make_unique(mixed *inp);
 mixed get_def_val(int task_id);
 mixed valid_start_point(string p_area,string p_side,int x,int y);
 void put_def_troop(int task_id);
@@ -40,7 +40,7 @@ string get_valid_def(int task_id)
         		if(!sizeof(tmp)) return ""; // impossible now it is possible
         		return implode(tmp,",");
 	      	case "position":
-        		return "³Ç¶«£ºe ³ÇÎ÷£ºw ³Ç±±£ºn ³ÇÄÏ£ºs ³ÇÖĞ£ºc";
+        		return "åŸä¸œï¼še åŸè¥¿ï¼šw åŸåŒ—ï¼šn åŸå—ï¼šs åŸä¸­ï¼šc";
       		case "newtroop":
         		return "Yes|No";
 // edc  08/04/2001
@@ -97,32 +97,32 @@ string def_prompt(int task_id)
 
    	switch(p_stage){
        		case "general":
-          		ret="×é³ÉĞÂ¾üÍÅ¡£ÇëÊäÈë¸Ã¾üÍÅ½«¾ü¡£\n";
-          		ret+="ÓĞĞ§ÖµÓĞ£º¡¸"+p_valid+"¡¹\n";
-          		ret+="È±Ê¡ÖµÊÇ£º¡¸"+def_val+"¡¹\n";
+          		ret="ç»„æˆæ–°å†›å›¢ã€‚è¯·è¾“å…¥è¯¥å†›å›¢å°†å†›ã€‚\n";
+          		ret+="æœ‰æ•ˆå€¼æœ‰ï¼šã€Œ"+p_valid+"ã€\n";
+          		ret+="ç¼ºçœå€¼æ˜¯ï¼šã€Œ"+def_val+"ã€\n";
           		return ret;
        		case "position":
-          		ret+="ÇëÊäÈë²¿¶Ó×¤ÊØÎ»ÖÃ¡£\n";
-          		ret+="ÓĞĞ§ÖµÓĞ£º¡¸"+p_valid+"¡¹\n";
-          		ret+="È±Ê¡ÖµÊÇ£º¡¸"+def_val+"¡¹\n";
+          		ret+="è¯·è¾“å…¥éƒ¨é˜Ÿé©»å®ˆä½ç½®ã€‚\n";
+          		ret+="æœ‰æ•ˆå€¼æœ‰ï¼šã€Œ"+p_valid+"ã€\n";
+          		ret+="ç¼ºçœå€¼æ˜¯ï¼šã€Œ"+def_val+"ã€\n";
           		return ret;
        		case "newtroop":
-          		ret+="ÊÇ·ñ³ÉÁ¢ĞÂ±øÍÅ£¿\n";
-          		ret+="ÓĞĞ§ÖµÓĞ£º¡¸"+p_valid+"¡¹\n";
-          		ret+="È±Ê¡ÖµÊÇ£º¡¸"+def_val+"¡¹\n";
+          		ret+="æ˜¯å¦æˆç«‹æ–°å…µå›¢ï¼Ÿ\n";
+          		ret+="æœ‰æ•ˆå€¼æœ‰ï¼šã€Œ"+p_valid+"ã€\n";
+          		ret+="ç¼ºçœå€¼æ˜¯ï¼šã€Œ"+def_val+"ã€\n";
           		return ret;
 // edc   08/01/2001
        		case "troopIdx":
-          		ret+="ÇëÑ¡Ôñ±øÖÖ¡£\n";
-          		ret+="ÓĞĞ§ÖµÓĞ£º¡¸"+p_valid+"¡¹\n";
-          		ret+="È±Ê¡ÖµÊÇ£º¡¸"+def_val+"¡¹\n";
+          		ret+="è¯·é€‰æ‹©å…µç§ã€‚\n";
+          		ret+="æœ‰æ•ˆå€¼æœ‰ï¼šã€Œ"+p_valid+"ã€\n";
+          		ret+="ç¼ºçœå€¼æ˜¯ï¼šã€Œ"+def_val+"ã€\n";
           		return ret;
 ////
 		
 		default:
-			ret+="ÇëÊäÈë"+WARAI_D->get_soldier_name(p_stage)+"ÈËÊı¡£\n";
-                        ret+="ÓĞĞ§·¶Î§£º¡¸"+p_valid+"¡¹\n";
-                        ret+="È±Ê¡ÖµÊÇ£º¡¸"+def_val+"¡¹\n";
+			ret+="è¯·è¾“å…¥"+WARAI_D->get_soldier_name(p_stage)+"äººæ•°ã€‚\n";
+                        ret+="æœ‰æ•ˆèŒƒå›´ï¼šã€Œ"+p_valid+"ã€\n";
+                        ret+="ç¼ºçœå€¼æ˜¯ï¼šã€Œ"+def_val+"ã€\n";
                         return ret;
     	}
 }
@@ -141,10 +141,10 @@ mixed check_def_answer(int task_id,string str)
 
 			if(!sizeof(tmp)) return 1; // no general left
           		tmp2 = explode(str,",");
-          		if( !sizeof(tmp2) ) return "ÔõÃ´»áµ½Õâ¶ù£¿\n";
-			if(sizeof(tmp2)>3) return "×î¶à·ÖÅäÈıÎ»½«¾ü¡£\n";
+          		if( !sizeof(tmp2) ) return "æ€ä¹ˆä¼šåˆ°è¿™å„¿ï¼Ÿ\n";
+			if(sizeof(tmp2)>3) return "æœ€å¤šåˆ†é…ä¸‰ä½å°†å†›ã€‚\n";
           		foreach (string t in tmp2){
-             			if( member_array(t,tmp) ==-1 ) return "Ã»ÓĞ"+t+"ÕâÎ»½«¾ü£¿\n";
+             			if( member_array(t,tmp) ==-1 ) return "æ²¡æœ‰"+t+"è¿™ä½å°†å†›ï¼Ÿ\n";
           		}
           		return 1;
        		case "position":
@@ -152,7 +152,7 @@ mixed check_def_answer(int task_id,string str)
        		case "newtroop": 
           		str = lower_case(str);
           		if( (str=="yes")||(str=="y")||(str=="n")||(str=="no") )return 1;
-          		else return "ÇëÊäÈëYes»òNo¡£\n";
+          		else return "è¯·è¾“å…¥Yesæˆ–Noã€‚\n";
 // edc  08/01/2001
 		case "troopIdx":
 			return 1;
@@ -160,11 +160,11 @@ mixed check_def_answer(int task_id,string str)
 		default:
 			tmp = TASK_D->get_task(task_id,"def_troop_left")[p_stage];
                         tmp2 = to_int(str);
-                	if( tmp2 > tmp ) return "ÄãÃ»ÓĞÄÇÃ´¶à±ø¡£\n";
-                	if( tmp2 < 0 ) return "¸ÉÂğ£¿\n";
+                	if( tmp2 > tmp ) return "ä½ æ²¡æœ‰é‚£ä¹ˆå¤šå…µã€‚\n";
+                	if( tmp2 < 0 ) return "å¹²å—ï¼Ÿ\n";
 			tmp=TASK_D->get_task(task_id,"def_curent_arrange_troop");
 			if(tmp2>tmp["max_av_soldier"])
-				return "´ø²»ÁËÄÇÃ´¶à±ø¡£\n";
+				return "å¸¦ä¸äº†é‚£ä¹ˆå¤šå…µã€‚\n";
                 	return 1;
    	}
 }

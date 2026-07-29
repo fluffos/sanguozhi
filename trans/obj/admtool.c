@@ -54,28 +54,28 @@ private nomask void write_main_menu()
           "\n"
           );
 */
-    write("¹ÜÀí¹¤¾ß\n"
+    write("ç®¡ç†å·¥å…·\n"
           "\n"
-          "    u        - ÓÃ»§¹ÜÀí              [´óÉñ]\n"
-          "    s        - °²È«¹ÜÀí\n"
-          "    d        - ÇøÓò¹ÜÀí\n"
-          "    c        - Ç®±Ò¹ÜÀí\n"
-          "    Q        - QUEST ¹ÜÀí\n"
-          "    b        - ÍøÖ·/ĞÕÃû ½ûÁî¹ÜÀí    [´óÉñ]\n"
-          "    i        - Intermud ÆµµÀ¹ÜÀí     [´óÉñ]\n"
-          "    n        - ĞÂÎÅ¹ÜÀí              [´óÉñ]\n"
-          "    a        - Alias ¹ÜÀí            [´óÉñ]\n"
-          "    g        - ×éÈº¹ÜÀí\n"
-          "    h        - °ïÖúÊı¾İÖØ½¨\n"
+          "    u        - ç”¨æˆ·ç®¡ç†              [å¤§ç¥]\n"
+          "    s        - å®‰å…¨ç®¡ç†\n"
+          "    d        - åŒºåŸŸç®¡ç†\n"
+          "    c        - é’±å¸ç®¡ç†\n"
+          "    Q        - QUEST ç®¡ç†\n"
+          "    b        - ç½‘å€/å§“å ç¦ä»¤ç®¡ç†    [å¤§ç¥]\n"
+          "    i        - Intermud é¢‘é“ç®¡ç†     [å¤§ç¥]\n"
+          "    n        - æ–°é—»ç®¡ç†              [å¤§ç¥]\n"
+          "    a        - Alias ç®¡ç†            [å¤§ç¥]\n"
+          "    g        - ç»„ç¾¤ç®¡ç†\n"
+          "    h        - å¸®åŠ©æ•°æ®é‡å»º\n"
           "\n"
-          "    q        - ÍË³ö\n"
-          "    ?        - °ïÖú\n"
+          "    q        - é€€å‡º\n"
+          "    ?        - å¸®åŠ©\n"
           "\n"
           );  
 }
 
 
-static nomask void std_handler(string str)
+protected nomask void std_handler(string str)
 {
     switch ( str )
     {
@@ -125,7 +125,7 @@ private nomask void receive_main_input(string str)
         if ( !check_privilege(1) )
         {
             //write("Sorry... admin only.\n");
-            write("¶Ô²»Æğ... Ö»¶Ô´óÉñ¿ª·Å¡£\n");
+            write("å¯¹ä¸èµ·... åªå¯¹å¤§ç¥å¼€æ”¾ã€‚\n");
             return;
         }
         begin_banish_menu();
@@ -174,7 +174,7 @@ tell_user("fire","a clonep\n");
         if ( file_name(previous_object()) != CMD_OB_ADMTOOL )
         {
             //write("Illegal attempt to clone ADMTOOL\n");
-            write("ÊÔÍ¼·Ç·¨¸´ÖÆ ADMTOOL\n");
+            write("è¯•å›¾éæ³•å¤åˆ¶ ADMTOOL\n");
             destruct(this_object());
             return;
         }
@@ -185,7 +185,7 @@ tell_user("fire","a clonep\n");
     }
 }
 
-static nomask void do_one_arg(string arg_prompt,
+protected nomask void do_one_arg(string arg_prompt,
                                function fp,
                                string arg)
 {
@@ -208,7 +208,7 @@ private nomask void rcv_first_of_two(string arg2_prompt,
     if ( arg1 == "" )
     {
         //write("Aborted.\n");
-        write("È¡Ïû¡£\n");
+        write("å–æ¶ˆã€‚\n");
         return;
     }
 
@@ -231,7 +231,7 @@ private nomask void rcv_last_of_three(string arg3_prompt,
   
   if ( arg1 == "" )
     {
-      write("·ÅÆú¡£\n");
+      write("æ”¾å¼ƒã€‚\n");
       return;
     }
     if ( sscanf(arg2, "%s %s", arg2, arg3) == 2 )
@@ -267,7 +267,7 @@ private nomask void rcv_second_of_three(string arg2_prompt,
   }
 }
 
-static nomask void do_two_args(string arg1_prompt,
+protected nomask void do_two_args(string arg1_prompt,
                                 string arg2_prompt,
                                 function fp,
                                 string arg)
@@ -292,7 +292,7 @@ static nomask void do_two_args(string arg1_prompt,
     }
 }
 
-static nomask void do_three_args(string arg1_prompt,
+protected nomask void do_three_args(string arg1_prompt,
                                  string arg2_prompt,
                                  string arg3_prompt,
                                  function fp,
@@ -325,7 +325,7 @@ static nomask void do_three_args(string arg1_prompt,
     }
 }
 
-static nomask int write_error(string err)
+protected nomask int write_error(string err)
 {
     if ( err )
     {

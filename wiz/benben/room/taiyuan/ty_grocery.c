@@ -1,4 +1,4 @@
-// ÔÓ»õÆÌ  by Benben
+// æ‚è´§é“º  by Benben
 // ty_grocery.c 
 #include <mudlib.h>
 #include "/wiz/fire/fire.h"
@@ -7,8 +7,8 @@ inherit ROOM;
 void setup(){
     set_area("ty_area");
     set_light(50);
-    set_brief(""+YEL+"ÔÓ»õÆÌ"+NOR+"");
-    set_long("    ÃèÊö¡£\n");
+    set_brief(""+YEL+"æ‚è´§é“º"+NOR+"");
+    set_long("    æè¿°ã€‚\n");
     set_exits( ([
         "west" :  __DIR__+"ty_sst1.c",
     ]) );

@@ -20,10 +20,10 @@ void do_use_str(string str)
                 write(ret);
                 return;
         }
-        write("ÄãÎÞ·¨Ê¹ÓÃ"+o->short()+"¡£\n");
+        write("ä½ æ— æ³•ä½¿ç”¨"+o->short()+"ã€‚\n");
         return;
 }
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ "STR", }) });
 }

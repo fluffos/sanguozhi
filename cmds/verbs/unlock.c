@@ -18,7 +18,7 @@ void do_unlock_str_with_str(string door,string key)
 	ret=ob_d->direct_unlock_obj_with_obj(ob_d, ob_k);
 	if(!ret)
 	{
-		ret="你不能用"+ob_k->short()+"打开"+ob_d->short()+"。\n";
+		ret="浣犱笉鑳界敤"+ob_k->short()+"鎵撳紑"+ob_d->short()+"銆俓n";
 	}
 	if(stringp(ret))
 	{
@@ -33,7 +33,7 @@ void do_unlock_str(string str) {
 	do_unlock_str_with_str(str,"key");
 }
 
-array query_verb_info()
+mixed * query_verb_info()
 {
   return ({ ({ "STR", "STR with STR" }) });
 }

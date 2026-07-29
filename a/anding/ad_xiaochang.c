@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is 巴山夜雨
+// driver is 宸村北澶滈洦
 // created date is Fri May 27 19:33:55 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,7 +7,7 @@ inherit OUTDOOR_ROOM;
 void setup() {
 set_area("anding");
 set_light(50);
-set_brief("%^YELLOW%^"+"校场"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"鏍″満"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "north":"/a/anding/ad_yishiting.c",

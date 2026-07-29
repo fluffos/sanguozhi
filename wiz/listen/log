@@ -22,7 +22,7 @@
 /wiz/listen/exec.c line 6: Undefined function findobj before ->query_ids();}
 /wiz/listen/exec.c line 6: Undefined function deliever_tell before ;}
 /wiz/listen/exec.c line 6: parse error before }
-/wiz/listen/exec.c line 6: parse error before /nat Àî´ó bzd test;}
+/wiz/listen/exec.c line 6: parse error before /nat æå¤§ bzd test;}
 /wiz/listen/exec.c line 6: Undefined function deliever_tell before ;}
 /wiz/listen/exec.c line 6: Undefined function deliever_string before ;}
 /wiz/listen/exec.c line 6: Undefined function exec_fool before ;}
@@ -61,25 +61,25 @@
 /wiz/listen/exec.c line 6: parse error before }
 /wiz/listen/exec.c line 6: parse error before }
 /wiz/listen/exec.c line 6: parse error before }
-/wiz/listen/exec.c line 6: Undefined variable 'bailangshan' before ªÕ¯);}
-/wiz/listen/exec.c line 6: parse error before ªÕ¯);}
-/wiz/listen/exec.c line 6: Undefined variable 'bailangshan' before  ÓªÕ¯;}
-/wiz/listen/exec.c line 6: parse error before ªÕ¯;}
+/wiz/listen/exec.c line 6: Undefined variable 'bailangshan' before î€´;}
+/wiz/listen/exec.c line 6: parse error before î€´;}
+/wiz/listen/exec.c line 6: Undefined variable 'bailangshan' before  è¥å¯¨;}
+/wiz/listen/exec.c line 6: parse error before î€´}
 /wiz/listen/exec.c line 6: Undefined variable 'horse' before mzb);}
 /wiz/listen/exec.c line 6: Undefined variable 'mzb' before ;}
 /wiz/listen/exec.c line 6: parse error before ("horse","mzb")]);}
 /wiz/listen/exec.c line 6: parse error before "mzb"}));}
-/wiz/listen/exec.c line 6: parse error before º"mzb"}));}
+/wiz/listen/exec.c line 6: parse error before mzb"}));}
 /wiz/listen/exec.c line 6: Undefined variable 't_need' before 0));}
 /wiz/listen/exec.c line 6: parse error before 0));}
 /wiz/listen/exec.c line 6: Undefined variable 't_need' before  0));}
 /wiz/listen/exec.c line 6: parse error before  0));}
-/wiz/listen/exec.c line 6: Undefined variable 't_need' before º0));}
-/wiz/listen/exec.c line 6: parse error before º0));}
-/wiz/listen/exec.c line 6: parse error before º0]));}
+/wiz/listen/exec.c line 6: Undefined variable 't_need' before );}
+/wiz/listen/exec.c line 6: parse error before );}
+/wiz/listen/exec.c line 6: parse error before ));}
 /wiz/listen/exec.c line 6: parse error before include/F_IN_EDIT);}
-/wiz/listen/exec.c line 6: parse error before Í³É;}
-/wiz/listen/exec.c line 6: parse error before Í³É¡±;}
+/wiz/listen/exec.c line 6: parse error before ç»Ÿ}
+/wiz/listen/exec.c line 6: parse error before ç»Ÿä¼}
 /wiz/listen/exec.c line 6: Too many arguments to time before ;}
 /wiz/listen/exec.c line 6: parse error before }
 /wiz/listen/exec.c line 6: Undefined variable 'a' before }
@@ -98,30 +98,30 @@
 /wiz/listen/ring.c line 22: Undefined function set_attack_power before ;
 /wiz/listen/ring.c line 25: Undefined function set_combat_messages before ;
 /wiz/listen/ring.c line 22: Undefined function set_defence_power before ;
-/wiz/listen/exec.c line 6: Undefined variable 'HIG' before "Ğ¡²İ"+NOR+"ÀÏ");}
-/wiz/listen/exec.c line 6: Undefined variable 'NOR' before "ÀÏ");}
+/wiz/listen/exec.c line 6: Undefined variable 'HIG' before "å°è‰"+NOR+"è€");}
+/wiz/listen/exec.c line 6: Undefined variable 'NOR' before "è€");}
 /wiz/listen/exec.c line 6: Undefined variable 'id' before beach,t_need:0,st:bu
 /wiz/listen/exec.c line 6: parse error before beach,t_need:0,st:bu
 /wiz/listen/exec.c line 6: parse error before ({100,0,}));}
-/wiz/listen/exec.c line 6: parse error before "Í»È»ÑïÆğÒ»Õó³¾ÍÁ£¬$
-/wiz/listen/exec.c line 6: parse error before "Í»È»ÑïÆğÒ»Õó³¾ÍÁ£¬$
+/wiz/listen/exec.c line 6: parse error before "çªç„¶æ‰¬èµ·ä¸€é˜µå°˜åœŸï¼Œ$
+/wiz/listen/exec.c line 6: parse error before "çªç„¶æ‰¬èµ·ä¸€é˜µå°˜åœŸï¼Œ$
 /wiz/listen/exec.c line 6: Undefined variable 'horse' before ;}
 /wiz/listen/exec.c line 6: parse error before }
 /wiz/listen/exec.c line 6: parse error before wiz/listen/drive xia
 /wiz/listen/obj/car.c line 14: Undefined function query_owner before ;
 /wiz/listen/obj/car.c line 70: Undefined function set_ride_msg before ;
 /wiz/listen/obj/car.c line 71: Undefined function set_unride_msg before ;
-/wiz/listen/exec.c line 6: parse error before ©;}
-/wiz/listen/exec.c line 6: parse error before ©;}
-/wiz/listen/exec.c line 6: parse error before ¬"$NÇáÇáµØÈà´ê×Ô¼ºµÄ
-/wiz/listen/exec.c line 6: parse error before ¬"$NÇáÇáµØÈà´ê×Ô¼ºµÄ
-/wiz/listen/exec.c line 6: parse error before ¬"$NÇáÇáµØÈà´ê×Ô¼ºµÄ
-/wiz/listen/exec.c line 6: parse error before ¬"$NÇáÇáµØÈà´ê×Ô¼ºµÄ
-/wiz/listen/exec.c line 6: parse error before ¬"ÕâÊÇÒ»ÕÅ±¡±¡µÄÃæ¾ß
-/wiz/listen/exec.c line 6: parse error before ¬"ÕâÊÇÒ»ÕÅ±¡±¡µÄÃæ¾ß
-/wiz/listen/exec.c line 6: parse error before ","$N´©ÉÏÒ»¼ş±ÊÍ¦µÄ$
-/wiz/listen/exec.c line 6: $var illegal outside of function pointer. before N´©ÉÏÒ»¼ş±ÊÍ¦µÄ$o¡£"
-/wiz/listen/exec.c line 6: $var illegal outside of function pointer. before o¡£");}
+/wiz/listen/exec.c line 6: parse error before }
+/wiz/listen/exec.c line 6: parse error before }
+/wiz/listen/exec.c line 6: parse error before $Nè½»è½»åœ°æ‰æ“è‡ªå·±çš„
+/wiz/listen/exec.c line 6: parse error before $Nè½»è½»åœ°æ‰æ“è‡ªå·±çš„
+/wiz/listen/exec.c line 6: parse error before $Nè½»è½»åœ°æ‰æ“è‡ªå·±çš„
+/wiz/listen/exec.c line 6: parse error before $Nè½»è½»åœ°æ‰æ“è‡ªå·±çš„
+/wiz/listen/exec.c line 6: parse error before è¿™æ˜¯ä¸€å¼ è–„è–„çš„é¢å…·
+/wiz/listen/exec.c line 6: parse error before è¿™æ˜¯ä¸€å¼ è–„è–„çš„é¢å…·
+/wiz/listen/exec.c line 6: parse error before ","$Nç©¿ä¸Šä¸€ä»¶ç¬”æŒºçš„$
+/wiz/listen/exec.c line 6: $var illegal outside of function pointer. before Nç©¿ä¸Šä¸€ä»¶ç¬”æŒºçš„$oã€‚"
+/wiz/listen/exec.c line 6: $var illegal outside of function pointer. before oã€‚");}
 /wiz/listen/exec.c line 7: End of file in string at the end of the file
 /wiz/listen/exec.c line 7: End of file in string at the end of the file
 /wiz/listen/exec.c line 7: parse error at the end of the file
@@ -133,12 +133,8 @@
 /wiz/listen/obj/m_car.c line 247: Undefined variable 'rids' before 0]);
 /wiz/listen/obj/m_car.c line 251: Undefined variable 'p_id' before "\n");
 /wiz/listen/call.c line 10: parse error before wiz/listen/qb")->sta
-/wiz/listen/call.c line 39: $var illegal outside of function pointer. before N·ç·ç»ğ»ğµØÅÜÁË¹ıÀ´¡
-/wiz/listen/call.c line 63: $var illegal outside of function pointer. before N·ç·ç»ğ»ğµØÅÜÁË¹ıÀ´¡
-/wiz/listen/call.c line 77: $var illegal outside of function pointer. before N»ØÍ·º°ÁËÒ»Éù£ºÀ´ÈËÄ
-/wiz/listen/call.c line 104: $var illegal outside of function pointer. before NÉÁÉí½øÈë¡£\n");
-/wiz/listen/call.c line 105: $var illegal outside of function pointer. before N¶Ô$T¹ªÉíµÀ£º$RÓĞºÎ·
-/wiz/listen/cmd/call.c line 104: parse error before the end of file
+/wiz/listen/call.c line 39: $var illegal outside of function pointer. before Né£é£ç«ç«åœ°è·‘äº†è¿‡æ¥/wiz/listen/call.c line 63: $var illegal outside of function pointer. before Né£é£ç«ç«åœ°è·‘äº†è¿‡æ¥/wiz/listen/call.c line 77: $var illegal outside of function pointer. before Nå›å¤´å–Šäº†ä¸€å£°ï¼šæ¥äºº/wiz/listen/call.c line 104: $var illegal outside of function pointer. before Né—ªèº«è¿›å…¥ã€‚\n");
+/wiz/listen/call.c line 105: $var illegal outside of function pointer. before Nå¯¹$Tèº¬èº«é“ï¼š$Ræœ‰ä½•/wiz/listen/cmd/call.c line 104: parse error before the end of file
 /wiz/listen/cmd/call.c line 34: parse error before 
 /wiz/listen/exec.c line 6: Undefined variable 'me' before ;}
 /wiz/listen/exec.c line 6: Undefined function envirment before ;}

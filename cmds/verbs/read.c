@@ -44,7 +44,7 @@ mixed can_read_word_str_word_obj(string p1, string str, string p2, object ob) {
     if (p2 != "in" && p2 != "from") return 0;
     return check_vision();
 }
-static void read_it(object ob, string str) {
+protected void read_it(object ob, string str) {
     string text;
     if(ob->is_gettable() && !try_to_acquire(ob))
         return;
@@ -73,14 +73,14 @@ void do_read_str(string str)
     switch(sizeof(assumptions))
       {
       case 0:
-        write("����û��ʲô���Զ��ġ�\n");
+        write("这里没有什么可以读的。\n");
         return;
       case 1:
         printf("[from %s]\n", assumptions[0]->short());
         read_it(assumptions[0], str);
         return;
       default:
-        write("��Ҫ��ʲô������أ�\n");
+        write("你要从什么上面读呢？\n");
         return;
       }
 }
@@ -90,18 +90,18 @@ void do_read_word_str(string p, string str) {
     switch(sizeof(assumptions))
       {
       case 0:
-        write("����û��ʲô���Զ��ġ�\n");
+        write("这里没有什么可以读的。\n");
         return;
       case 1:
         printf("[from %s]\n", assumptions[0]->short());
         read_it(assumptions[0], str);
         return;
       default:
-        write("��Ҫ��ʲô������أ�\n");
+        write("你要从什么上面读呢？\n");
         return;
       }
 }
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ "OBJ:v", "from OBJ:v", "in OBJ:v", "about STR",
                      "about STR in OBJ:v", "about STR from OBJ:v",

@@ -1,4 +1,4 @@
-//  前门大街 by benben
+//  鍓嶉棬澶ц by benben
 // lx_qmst4.c 
 #include <mudlib.h>
 #include "/wiz/fire/fire.h"
@@ -7,8 +7,8 @@ inherit OUTDOOR_ROOM;
 void setup(){
     set_area("longxi");
     set_light(50);
-    set_brief(""+YEL+"--前门大街--"+NOR+"");
-    set_long("    描述。\n");
+    set_brief(""+YEL+"--鍓嶉棬澶ц--"+NOR+"");
+    set_long("    鎻忚堪銆俓n");
     set_exits( ([
         "east" :  __DIR__+"lx_qmst5.c",
         "west" :  __DIR__+"lx_qmst3.c",

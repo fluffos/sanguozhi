@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is 巴山夜雨
+// driver is 宸村北澶滈洦
 // created date is Sat May 28 11:49:34 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,7 +7,7 @@ inherit INDOOR_ROOM;
 void setup() {
 set_area("xianyang");
 set_light(50);
-set_brief("%^YELLOW%^"+"小庙"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"灏忓簷"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "west":"/a/xianyang/xy_nanchengxiang1.c",

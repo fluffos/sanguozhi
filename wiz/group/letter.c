@@ -1,6 +1,6 @@
 // the job of send a letter to wise people
 // by group on Mar 1999
-static private string *sug=({
+nosave private string *sug=({
 });
 
 void judge_select(mixed obs);
@@ -25,7 +25,7 @@ mixed job(string m_id,string officer_id)
 	  :) );
    if(!mlist) mlist=({});
    if(!sizeof(mlist))
-		return "$N¶Ô$TµÀ£º×î½üÃ»Ê²Ã´ÈËÐèÒªËÍÐÅµÄ\n";
+		return "$Nå¯¹$Té“ï¼šæœ€è¿‘æ²¡ä»€ä¹ˆäººéœ€è¦é€ä¿¡çš„\n";
    target=mlist[random(sizeof(mlist))];   	   
   o->set_asklist("letter","target",target);
    o->set_asklist("letter","filename",PJOB+"letter/letter");
@@ -33,11 +33,11 @@ mixed job(string m_id,string officer_id)
   o->add_job("letter");
   o->set_job("letter","status","begin");
 
-o->set_job("letter","memo","ËÍÐÅ"+CHAR_D->get_char(target,"name")+"("+target+")");
-   return "$N¶Ô$TµÀ£ºÇë½«´ËÐÅËÍÓë"+
+o->set_job("letter","memo","é€ä¿¡"+CHAR_D->get_char(target,"name")+"("+target+")");
+   return "$Nå¯¹$Té“ï¼šè¯·å°†æ­¤ä¿¡é€ä¸Ž"+
 	  COUNTRY_D->get_country(CHAR_D->get_char(target,"nation"),"name")
-	  +"µÄ"+CHAR_D->get_char(target,"name")+"\n"+
-	   "¾ÍÂé·³$RÈ¥Ì½·ÃÒ»ÏÂ£¬¼ûÃæ¾ÍËµask "+target+" about letter¡£\n"
+	  +"çš„"+CHAR_D->get_char(target,"name")+"\n"+
+	   "å°±éº»çƒ¦$RåŽ»æŽ¢è®¿ä¸€ä¸‹ï¼Œè§é¢å°±è¯´ask "+target+" about letterã€‚\n"
 	   ;
 }
 
@@ -53,10 +53,10 @@ void ask_letter(object me, object target)
         (OFFICER_D->query_area_officer_title(
          AREA_D->get_area(t_area,"level"),0,0))[0]);
 	me->targetted_action(
-      "$N¶Ô$TÐ¦×ÅËµµÀ£º±¾µØ"+m_title+"Óë$s¾ÃÑö$m$R´óÃû£¬\n"
-	  +"½ñÈÕÌØ³ÊÉÏÊéÐÅÒ»·â\n",target);
+      "$Nå¯¹$Tç¬‘ç€è¯´é“ï¼šæœ¬åœ°"+m_title+"ä¸Ž$sä¹…ä»°$m$Rå¤§åï¼Œ\n"
+	  +"ä»Šæ—¥ç‰¹å‘ˆä¸Šä¹¦ä¿¡ä¸€å°\n",target);
 	DELAY_D->delay_targetted_action(
-		target,me,"$N¶Ô$TµÀ£ºàÞ£¿´ýÎÒÒ»¹Û\n",1);
+		target,me,"$Nå¯¹$Té“ï¼šå™¢ï¼Ÿå¾…æˆ‘ä¸€è§‚\n",1);
 	me->clear_asklist("letter");
 	me->set_job("letter","status","done");
 	target->special_heart(600); // will now go around or do semote
@@ -73,29 +73,29 @@ void ask_letter(object me, object target)
 {       case 0:
         case 1:
 	DELAY_D->delay_targetted_action(
-	target,me,"$N¶Ô$TÅ­µÀ£º´ËÊÂ¾ø²»¿ÉÎª£¡Èô²»ÊÇ¿´²»Õ¶À´Ê¹£¬Îá±ØÕ¶Èê£¡\n",1); 
+	target,me,"$Nå¯¹$Tæ€’é“ï¼šæ­¤äº‹ç»ä¸å¯ä¸ºï¼è‹¥ä¸æ˜¯çœ‹ä¸æ–©æ¥ä½¿ï¼Œå¾å¿…æ–©æ±ï¼\n",1); 
         m_loyalty= m_loyalty -5;
         break;
         case 2:
         DELAY_D->delay_targetted_action(
-        target,me,"$N¶Ô$TµÀ£ºËäÊÇÈç´Ë£¬Ë¡ÎÒ²»ÄÜ½ÓÊÜ¡£´óÈËÇë»Ø¡£\n",1);
+        target,me,"$Nå¯¹$Té“ï¼šè™½æ˜¯å¦‚æ­¤ï¼Œæ•æˆ‘ä¸èƒ½æŽ¥å—ã€‚å¤§äººè¯·å›žã€‚\n",1);
 	m_loyalty= m_loyalty +1;
         break;
         case 3:
         DELAY_D->delay_targetted_action(
-        target,me,"$N¶Ô$TµÀ£º´óÈËÑÔÖ®ÓÐÀí£¬´ýÎÒ×ÐÏ¸Ë¼Á¿\n",1);
+        target,me,"$Nå¯¹$Té“ï¼šå¤§äººè¨€ä¹‹æœ‰ç†ï¼Œå¾…æˆ‘ä»”ç»†æ€é‡\n",1);
 	m_loyalty= m_loyalty +5;
         break;
 	case 4:
         case 5:
         DELAY_D->delay_targetted_action(
-        target,me,"$N¶Ô$TµÀ£º´óÈËÑÔÖ®ÓÐÀí£¬Çë»Ø¸´´óÈË£¬Îá×Ôµ±Èç´Ë¡£\n",1);
+        target,me,"$Nå¯¹$Té“ï¼šå¤§äººè¨€ä¹‹æœ‰ç†ï¼Œè¯·å›žå¤å¤§äººï¼Œå¾è‡ªå½“å¦‚æ­¤ã€‚\n",1);
 	m_loyalty =m_loyalty +5;
         call_out("big_success",2,({ me, target}));
 	break;
 }       
         CHAR_D->set_char_loyalty(t_id,mnation,m_loyalty); 
-tell_user(p_id,"%^H_GREEN%^ÈÎÎñÍê³É²»´í£¬¿ìÈ¥Ì«ÊØ´¦ÁìÉÍ°É¡£\n%^RESET%^");
+tell_user(p_id,"%^H_GREEN%^ä»»åŠ¡å®Œæˆä¸é”™ï¼Œå¿«åŽ»å¤ªå®ˆå¤„é¢†èµå§ã€‚\n%^RESET%^");
 return;
 }
 
@@ -111,7 +111,7 @@ void big_success(mixed obs)
         if(objectp(tar)) {
                 t_id=tar->query_id()[0];
                 tar->responda("wave");
-                tar->simple_action("$NÀë¿ªÁË¡£\n");
+                tar->simple_action("$Nç¦»å¼€äº†ã€‚\n");
                 CHAR_D->remove_npc_char(t_id);
         }
         switch(random(3))
@@ -119,7 +119,7 @@ void big_success(mixed obs)
         p_area=CHAR_D->get_char(p_id,"area");
         CHAR_D->set_char(t_id,"area",p_area);
         CHANNEL_D->deliver_tell("rumor","system",
-  	sprintf("%sºÃÏóµ½%sÈ¥ÁË£®",CHAR_D->get_char(t_id,"name"),
+  	sprintf("%så¥½è±¡åˆ°%såŽ»äº†ï¼Ž",CHAR_D->get_char(t_id,"name"),
  		AREA_D->get_area(p_area,"name")));
 	break;
 	case 1:          
@@ -141,5 +141,5 @@ void big_success(mixed obs)
 }
 me->set_job("letter","score",50);
 
-tell_user(p_id,"%^H_BLUE%^ÈÎÎñÍêÈ«³É¹¦£¬¿ìÈ¥Ì«ÊØ´¦ÁìÉÍ°É¡£\n%^RESET%^");
+tell_user(p_id,"%^H_BLUE%^ä»»åŠ¡å®Œå…¨æˆåŠŸï¼Œå¿«åŽ»å¤ªå®ˆå¤„é¢†èµå§ã€‚\n%^RESET%^");
 }

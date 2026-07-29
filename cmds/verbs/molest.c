@@ -12,12 +12,12 @@ inherit VERB_OB;
 
 string can_molest_obj(object ob) {
     if (ob && ob->is_living())
-        return "���ڣ����ڣ��ú��档\n";
+        return "现在，现在，好好玩。\n";
     else
-        return "��ô���˻��ɵľٶ�����\n";
+        return "多么令人怀疑的举动啊。\n";
 }
 
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ "OBJ" }) });
 }

@@ -13,7 +13,7 @@ void no_answer(object usr,function f,mixed p)
     o=usr->query_body();
     if(!objectp(o)) return;
      p_id=o->query_id()[0];
-    tell_user(p_id,"³¬Ê±Ëã´í\n");
+    tell_user(p_id,"è¶…æ—¶ç®—é”™\n");
    o->set("test_time",0);
    if(!random(10)) o->set_robot(1);
    find_user(p_id)->modal_pop();
@@ -49,11 +49,11 @@ void input_answer(object usr,function f,mixed p,string right_answer,string str)
         return;
     }
     if (str=="n") 
-        {int tmp = usr->query_body()->query("test_time");//test_timeÊÇÁÙÊ±²ÎÊı
+        {int tmp = usr->query_body()->query("test_time");//test_timeæ˜¯ä¸´æ—¶å‚æ•°
          if (tmp ) 
             {
-            write("ÄãÒÑ¾­ÖØĞÂÌôÑ¡¹ıÒ»´ÎÎÊÌâÁË£¬Èç¹ûÕâ´ÎµÄÎÊÌâÈÔÈ»ÈÃÄãÎªÄÑ£¬ÇëÑ¡Ôñc·ÅÆú£¡\n");
-            write("Çë»Ø´ğ1,2,3,4»òc\n");
+            write("ä½ å·²ç»é‡æ–°æŒ‘é€‰è¿‡ä¸€æ¬¡é—®é¢˜äº†ï¼Œå¦‚æœè¿™æ¬¡çš„é—®é¢˜ä»ç„¶è®©ä½ ä¸ºéš¾ï¼Œè¯·é€‰æ‹©cæ”¾å¼ƒï¼\n");
+            write("è¯·å›ç­”1,2,3,4æˆ–c\n");
             return;
          }
          else
@@ -75,7 +75,7 @@ void input_answer(object usr,function f,mixed p,string right_answer,string str)
           o->set_perm("robot_cancel",tmp+1);
           find_user(usr->query_body()->query_id()[0])->modal_pop();
 	  remove_call_out("no_answer");
-	  printf("Äã·ÅÆúÁËÕâ´Î»úÆ÷ÈË²âÊÔ,»¹ÓĞ%d´Î·ÅÆúµÄ»ú»á!\n",2-tmp);
+	  printf("ä½ æ”¾å¼ƒäº†è¿™æ¬¡æœºå™¨äººæµ‹è¯•,è¿˜æœ‰%dæ¬¡æ”¾å¼ƒçš„æœºä¼š!\n",2-tmp);
           return;
         }
        else
@@ -88,20 +88,20 @@ void input_answer(object usr,function f,mixed p,string right_answer,string str)
              o->set_perm("robot_cancel",0);
              find_user(usr->query_body()->query_id()[0])->modal_pop();
   	     remove_call_out("no_answer");
-	     printf("Äã·ÅÆúÁËÕâ´Î»úÆ÷ÈË²âÊÔ,»¹ÓĞ%d´Î·ÅÆúµÄ»ú»á!\n",2-tmp);
+	     printf("ä½ æ”¾å¼ƒäº†è¿™æ¬¡æœºå™¨äººæµ‹è¯•,è¿˜æœ‰%dæ¬¡æ”¾å¼ƒçš„æœºä¼š!\n",2-tmp);
              return;
         } 
           else
             {
-            write("Äã½ñÌì·ÅÆú»Ø´ğ»úÆ÷ÈËÎÊÌâµÄ»ú»áÒÑ¾­È«²¿ÓÃÍêÁË,²»ÄÜ·ÅÆú»Ø´ğ£¡\n");
-            write("Çë»Ø´ğ1,2,3»ò4\n");
+            write("ä½ ä»Šå¤©æ”¾å¼ƒå›ç­”æœºå™¨äººé—®é¢˜çš„æœºä¼šå·²ç»å…¨éƒ¨ç”¨å®Œäº†,ä¸èƒ½æ”¾å¼ƒå›ç­”ï¼\n");
+            write("è¯·å›ç­”1,2,3æˆ–4\n");
             return;
             }
         
         }
         return;
        }     
-    write("Çë»Ø´ğ1,2,3,4»òn\n");
+    write("è¯·å›ç­”1,2,3,4æˆ–n\n");
 }
 void robot_test(object usr,function f,mixed p)
 {
@@ -118,7 +118,7 @@ void robot_test(object usr,function f,mixed p)
    {       
    	   string p_id=o_id->query_id()[0];
 	   o_id->set("test_time",0);
-	   tell_user(p_id,"ÓÉÓÚÄã¼ÍÂ¼Á¼ºÃ£¬Ãâ³ıÖÇÄÜ²âÊÔ¡£\n");
+	   tell_user(p_id,"ç”±äºä½ çºªå½•è‰¯å¥½ï¼Œå…é™¤æ™ºèƒ½æµ‹è¯•ã€‚\n");
        evaluate(f,usr,p);
 	   destruct(this_object());
 	   return;
@@ -164,7 +164,7 @@ void robot_test(object usr,function f,mixed p)
 		case 0..1 :
 	          right_answer=(__DIR__+"zi")->test(usr->query_body()->query_id()[0]);
 		  break;
-		case 2..8:          //Ô­À´ÊÇ2..6£¬ÒòÎªµØÇø»¹Ã»ÓĞ¸ãÍê£¬ÔİÊ±ÆÁ±ÎµØÇøµÄrobot
+		case 2..8:          //åŸæ¥æ˜¯2..6ï¼Œå› ä¸ºåœ°åŒºè¿˜æ²¡æœ‰æå®Œï¼Œæš‚æ—¶å±è”½åœ°åŒºçš„robot
 	          right_answer=(__DIR__+"queitem")->test(usr->query_body()->query_id()[0]);
 		  break;
 		default:
@@ -173,11 +173,10 @@ void robot_test(object usr,function f,mixed p)
 
 	}
 
-   set_this_player(find_user(usr->query_body()->query_id()[0]));
-
+   // set_this_player(find_user(usr->query_body()->query_id()[0])); // set_this_player() unavailable in this driver build (no NO_ADD_ACTION) -- no-op'd, this_player() is whatever it naturally is here
    find_user(usr->query_body()->query_id()[0])->
      modal_push((: input_answer,usr,f,p,right_answer :),
-        "ÇëÊäÈëÕıÈ·´ğ°¸(1,2,3,4 or n)£º");
+        "è¯·è¾“å…¥æ­£ç¡®ç­”æ¡ˆ(1,2,3,4 or n)ï¼š");
    return;
 }
 void create() {

@@ -7,10 +7,10 @@ include npc and players
 #include <obj.h>
 inherit M_ACCESS;
 private mapping objs;
-static private string *ks; // this is key
+nosave private string *ks; // this is key
 #define SAVE_FILE "/data/daemons/obj"
-static private int m_modified;
-static private mapping mks=([]); //the makers
+nosave private int m_modified;
+nosave private mapping mks=([]); //the makers
 void set_obj_modified(){  
 	m_modified=1;
 }
@@ -71,7 +71,7 @@ string add_obj(string p_id,string p_type)
         return "new object added\n";
     }
     else
-    {  return "this object exits already£®\n";
+    {  return "this object exits alreadyï¼\n";
     }
 }
 
@@ -173,29 +173,29 @@ string type_name(string s)
 {
 	switch(s)
 	{
-	case "food": return "Ê³Îï";
-	case "drink": return "ÒûÆ·";
-	case "weapon": return "ÎäÆ÷";
-	case "blade": return "µ¶Àà";
-	case "ji": return "êªÀà";
-	case "sword": return "½£Àà";
-	case "hammer": return "´¸Àà";
-	case "spear": return "Ç¹Àà";
-	case "axe": return "¸«Àà";
-	case "cloth": return "ÒÂ·şîø¼×";
+	case "food": return "é£Ÿç‰©";
+	case "drink": return "é¥®å“";
+	case "weapon": return "æ­¦å™¨";
+	case "blade": return "åˆ€ç±»";
+	case "ji": return "æˆŸç±»";
+	case "sword": return "å‰‘ç±»";
+	case "hammer": return "é”¤ç±»";
+	case "spear": return "æªç±»";
+	case "axe": return "æ–§ç±»";
+	case "cloth": return "è¡£æœé“ ç”²";
 
 
-	case "armors": return "îø¼×";
-	case "brest": return "ĞØÊÎ";
-	case "torso": return "ÍâÒÂ";
-	case "head": return "Í·¿ø";
-	case "legs": return "ÏÂ×°";
-	case "hands": return "ÊÖÊÎ";
-	case "arms": return "ÍëÊÎ";
-	case "feet": return "Ğ¬";
-	case "book": return "Êé¼ò";
-	case "horse": return "ÂíÆ¥";
-	default : return "²»Ïê";
+	case "armors": return "é“ ç”²";
+	case "brest": return "èƒ¸é¥°";
+	case "torso": return "å¤–è¡£";
+	case "head": return "å¤´ç›”";
+	case "legs": return "ä¸‹è£…";
+	case "hands": return "æ‰‹é¥°";
+	case "arms": return "ç¢—é¥°";
+	case "feet": return "é‹";
+	case "book": return "ä¹¦ç®€";
+	case "horse": return "é©¬åŒ¹";
+	default : return "ä¸è¯¦";
 	}
 }
 mixed find_obj(string s)

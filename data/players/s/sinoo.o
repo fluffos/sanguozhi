@@ -1,6 +1,6 @@
 #/std/race/human.c
 primary_id "sinoo"
-chinese_id "¿ÚË®³æ"
+chinese_id "å£æ°´è™«"
 persist_flags ([0:0,])
 can_drop 1
 can_sell 1
@@ -13,14 +13,14 @@ main_prep "in"
 contained_light_added 1
 gender 1
 messages ([])
-def_messages (["invis":"$n´ÓÄãµÄÊÓÒ°ÖĞÍ»È»ÏûÊ§ÁË¡£","clone":"$nÉìÊÖÁè¿ÕÒ»Ö¸£¬±ä³öÁË$o¡£","vis":"$nÍ»È»³öÏÖÔÚÄãÃæÇ°£¬ÓÖËÆºõÔÚÕâÀïºÜ¾ÃÁË¡£","menter":"$nÍ»È»³öÏÖÔÚÒ»ÕóÑÌÎíÖĞ¡£","enter":"$n×ßÁË¹ıÀ´¡£","destruct":"$nÅÛĞäÒ»»Ó£¬$o±»»¯³ÉÒ»¹ÉºÚÑÌ£¬´µÉ¢¿ªÈ¥¡£","mleave":"$nµÄÉíÓ°ÔÚÒ»ÕóÑÌÎíÖĞ½¥½¥ÒşÈ¥¡£","leave":"$n³¯$oÀë¿ªÁË¡£","home":"$n»Ø¼ÒÈ¥ÁË¡£",])
-busy_msg "ÄãÒ»´ÎÊäÈëÌ«¶àÃüÁîÁË.."
+def_messages (["invis":"$nä»ä½ çš„è§†é‡ä¸­çªç„¶æ¶ˆå¤±äº†ã€‚","clone":"$nä¼¸æ‰‹å‡Œç©ºä¸€æŒ‡ï¼Œå˜å‡ºäº†$oã€‚","vis":"$nçªç„¶å‡ºç°åœ¨ä½ é¢å‰ï¼Œåˆä¼¼ä¹åœ¨è¿™é‡Œå¾ˆä¹…äº†ã€‚","menter":"$nçªç„¶å‡ºç°åœ¨ä¸€é˜µçƒŸé›¾ä¸­ã€‚","enter":"$nèµ°äº†è¿‡æ¥ã€‚","destruct":"$nè¢è¢–ä¸€æŒ¥ï¼Œ$oè¢«åŒ–æˆä¸€è‚¡é»‘çƒŸï¼Œå¹æ•£å¼€å»ã€‚","mleave":"$nçš„èº«å½±åœ¨ä¸€é˜µçƒŸé›¾ä¸­æ¸æ¸éšå»ã€‚","leave":"$næœ$oç¦»å¼€äº†ã€‚","home":"$nå›å®¶å»äº†ã€‚",])
+busy_msg "ä½ ä¸€æ¬¡è¾“å…¥å¤ªå¤šå‘½ä»¤äº†.."
 busy 1311511893
 answer_list ({({"settle","settle",}),({"position","position",}),({"localmeeting","localmeeting",}),({"job","job",}),({"zgxy","zgxy",}),({"wxxy","wxxy",}),({"bfxy","bfxy",}),({"guoshi","guoshi",}),})
 ask_list ([])
 asklist (["come":(["target":"qiong","filename":"/sgdomain/job/findbody/findbody","funname":"ask_come",]),"whisper":(["target":"huang gai","filename":"/sgdomain/job/whisper/whisper","funname":"ask_whisper",]),])
 answer ([])
-sg_zi "ÃùÔê"
+sg_zi "é¸£èº"
 sg_wuli 19
 sg_zhimou 21
 sg_meili 20
@@ -48,8 +48,8 @@ ilog_time 1312467833
 money (["gold":20,"silver":33,"coin":50,"bank":9780000,])
 sg_home ([])
 name "sinoo"
-invis_name "Ä³Ä³"
-chinese_name "¿ÚË®³æ"
+invis_name "æŸæŸ"
+chinese_name "å£æ°´è™«"
 response_queue ({})
 title2 "laugh"
 reply "qfzhang"
@@ -57,4 +57,4 @@ channel_list ({"gossip","newbie","weather","rumor","imud_imud_sgz",})
 saved_items "([\"#inventory#\":({\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/money/m_coin\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/money/m_gold\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/money/m_silver\\\",])\",}),\"#base_name#\":\"/std/race/human\",])"
 ag_day 2
 ag_month 2
-jobs (["whisper":(["status":"begin","memo":"²ß·´%^H_CYAN%^»Æ¸Ç%^RESET%^(huang gai)","lasttimes":({}),"assignarea":"huayin","count":1,"beg_time":0,]),"visitwise":(["topics":({1,2,3,6,7,8,10,}),"assignarea":"huayin","lasttimes":({1310639390,1310639424,1310639486,1310639538,1310639548,1310640010,}),"beg_time":0,"select":10,"finish_time":1310640010,"status":"over","memo":"°İ·Ã%^H_CYAN%^ÅÓÍ³%^RESET%^(pang tong)","score":22,"count":143,]),"spy":(["area":"changan","spied":({}),"size":44,"path":"/a/changan/","assignarea":"huayin","lasttimes":({}),"beg_time":1308382593,"finish_time":1308285726,"status":"begin","done_time":1308239103,"memo":"Õì²ì³¤°²","count":97,"catched":0,]),"patrol":(["area":"huayin","assignarea":"huayin","get_thief":1,"lasttimes":({}),"beg_time":0,"finish_time":1308133302,"status":"over","memo":"µ½%^YELLOW%^Ğ¡Ïï%^RESET%^","score":20,"count":7,]),"findbody":(["status":"begin","memo":"ÕÒ¾²¾²(qiong)","lasttimes":({}),"count":1,"beg_time":0,"finish_time":1307942100,]),"searchwise":(["topics":({9,1,2,7,6,3,8,10,}),"assignarea":"huayin","lasttimes":({}),"beg_time":0,"select":10,"finish_time":1308009014,"status":"over","memo":"°İ·Ã%^H_CYAN%^Ëï»¸%^RESET%^(sun huan)","score":31,"count":1,]),"chopwoods":(["beg_time":1307920703,]),"choppork":(["lasttimes":({}),"count":53,"beg_time":1307938856,"finish_time":1307938808,]),"visitofficer":(["topics":({1,2,3,5,6,7,8,9,10,}),"assignarea":"huayin","lasttimes":({}),"beg_time":0,"select":10,"finish_time":1308284902,"status":"over","memo":"°²¸§%^H_CYAN%^ÕÅÁÉ%^RESET%^(zhang liao)","score":20,"count":2,]),"askobj":(["obj_id":"test","lasttimes":({}),"assignarea":"huayin","beg_time":0,"finish_time":1307944904,"status":"over","memo":"ÕÒÂ¤Î÷µÄ%^H_CYAN%^²Ìçß%^RESET%^´ß0","count":11,]),"bugao":(["status":"over","memo":"äü¹ØµÄ%^YELLOW%^¹Ø¿Ú%^RESET%^","lasttimes":({}),"assignarea":"huayin","count":6,"beg_time":0,"finish_time":1307940908,]),])
+jobs (["whisper":(["status":"begin","memo":"ç­–å%^H_CYAN%^é»„ç›–%^RESET%^(huang gai)","lasttimes":({}),"assignarea":"huayin","count":1,"beg_time":0,]),"visitwise":(["topics":({1,2,3,6,7,8,10,}),"assignarea":"huayin","lasttimes":({1310639390,1310639424,1310639486,1310639538,1310639548,1310640010,}),"beg_time":0,"select":10,"finish_time":1310640010,"status":"over","memo":"æ‹œè®¿%^H_CYAN%^åºç»Ÿ%^RESET%^(pang tong)","score":22,"count":143,]),"spy":(["area":"changan","spied":({}),"size":44,"path":"/a/changan/","assignarea":"huayin","lasttimes":({}),"beg_time":1308382593,"finish_time":1308285726,"status":"begin","done_time":1308239103,"memo":"ä¾¦å¯Ÿé•¿å®‰","count":97,"catched":0,]),"patrol":(["area":"huayin","assignarea":"huayin","get_thief":1,"lasttimes":({}),"beg_time":0,"finish_time":1308133302,"status":"over","memo":"åˆ°%^YELLOW%^å°å··%^RESET%^","score":20,"count":7,]),"findbody":(["status":"begin","memo":"æ‰¾é™é™(qiong)","lasttimes":({}),"count":1,"beg_time":0,"finish_time":1307942100,]),"searchwise":(["topics":({9,1,2,7,6,3,8,10,}),"assignarea":"huayin","lasttimes":({}),"beg_time":0,"select":10,"finish_time":1308009014,"status":"over","memo":"æ‹œè®¿%^H_CYAN%^å­™æ¡“%^RESET%^(sun huan)","score":31,"count":1,]),"chopwoods":(["beg_time":1307920703,]),"choppork":(["lasttimes":({}),"count":53,"beg_time":1307938856,"finish_time":1307938808,]),"visitofficer":(["topics":({1,2,3,5,6,7,8,9,10,}),"assignarea":"huayin","lasttimes":({}),"beg_time":0,"select":10,"finish_time":1308284902,"status":"over","memo":"å®‰æŠš%^H_CYAN%^å¼ è¾½%^RESET%^(zhang liao)","score":20,"count":2,]),"askobj":(["obj_id":"test","lasttimes":({}),"assignarea":"huayin","beg_time":0,"finish_time":1307944904,"status":"over","memo":"æ‰¾é™‡è¥¿çš„%^H_CYAN%^è”¡é‚•%^RESET%^å‚¬0","count":11,]),"bugao":(["status":"over","memo":"æ½¼å…³çš„%^YELLOW%^å…³å£%^RESET%^","lasttimes":({}),"assignarea":"huayin","count":6,"beg_time":0,"finish_time":1307940908,]),])

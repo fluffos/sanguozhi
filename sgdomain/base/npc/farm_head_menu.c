@@ -17,11 +17,11 @@ void do_query() {
     call_out("quit_menu_application",5);
 
 	if(objectp(slave)&&objectp(master)) {
-	    master->targetted_action("$N¶Ô$TµÀ£ºÕâÀïÇé¿öÔõÃ´Ñù°¡£¿\n",slave);
+	    master->targetted_action("$Nå¯¹$Té“ï¼šè¿™é‡Œæƒ…å†µæ€ä¹ˆæ ·å•Šï¼Ÿ\n",slave);
 	    DELAY_D->delay_targetted_action(slave,master,
-			"$N¶Ô$TµÀ£º"+get_master()->stat_me(r_id),2);
+			"$Nå¯¹$Té“ï¼š"+get_master()->stat_me(r_id),2);
 		DELAY_D->delay_simple_action(master,
-			"$NÇáÇáµÄ¡¸Å¶¡¹ÁËÒ»Éù£¬ËÆºõÃ÷°×ÁËÊ²Ã´£¬ÓÖºÃÏñÃ»¶®¡£\n",3);
+			"$Nè½»è½»çš„ã€Œå“¦ã€äº†ä¸€å£°ï¼Œä¼¼ä¹æ˜ç™½äº†ä»€ä¹ˆï¼Œåˆå¥½åƒæ²¡æ‡‚ã€‚\n",3);
 	}
 }
 
@@ -36,36 +36,36 @@ void do_addworker() {
 
 	if(objectp(slave)&&objectp(master)) 
 	{
-	    master->targetted_action("$N¶Ô$TµÀ£ºÕâ¸ö"+p_roomname+
-			"µÄ"+p_workername+"ÈËÊı²»¹»£¬»¹ĞèÒªÔÚÔö¼ÓÒ»Ğ©"+p_workername+
-			"¡£\n",slave);
+	    master->targetted_action("$Nå¯¹$Té“ï¼šè¿™ä¸ª"+p_roomname+
+			"çš„"+p_workername+"äººæ•°ä¸å¤Ÿï¼Œè¿˜éœ€è¦åœ¨å¢åŠ ä¸€äº›"+p_workername+
+			"ã€‚\n",slave);
 //Modified by Listen on Aug 20th,2001
 //A rank checker is added in case of get fake ppl to destory the farm
 //Level to do getppl is setted at >= level 3
 	    if((CHAR_D->get_char(p_id,"level")<3) && (!wizardp(p_id)))
 	    {
 		DELAY_D->delay_targetted_action(slave,master,
-			"$N¶Ô$TµÀ£º$RµÄ¹ÙÖ°µÈ¼¶²»¹»£¬²»ÄÜ×ö"+JOB_D->query_job(job_id,"name")
-			+"µÄ¹¤×÷¡£\n",2);
+			"$Nå¯¹$Té“ï¼š$Rçš„å®˜èŒç­‰çº§ä¸å¤Ÿï¼Œä¸èƒ½åš"+JOB_D->query_job(job_id,"name")
+			+"çš„å·¥ä½œã€‚\n",2);
 		DELAY_D->delay_simple_action(master,
-			"$NÇáÇáµÄ¡¸Å¶¡¹ÁËÒ»Éù£¬ËÆºõÃ÷°×ÁËÊ²Ã´£¬ÓÖºÃÏñÃ»¶®¡£\n",3);
+			"$Nè½»è½»çš„ã€Œå“¦ã€äº†ä¸€å£°ï¼Œä¼¼ä¹æ˜ç™½äº†ä»€ä¹ˆï¼Œåˆå¥½åƒæ²¡æ‡‚ã€‚\n",3);
 		return;
 	    }
 //End of modification
 	    ret=get_master()->can_have_more_ppl( r_id);
 	    if(stringp(ret)) {
 		DELAY_D->delay_targetted_action(slave,master,
-			"$N¶Ô$TµÀ£º"+ret,2);
+			"$Nå¯¹$Té“ï¼š"+ret,2);
 		DELAY_D->delay_simple_action(master,
-			"$NÇáÇáµÄ¡¸Å¶¡¹ÁËÒ»Éù£¬ËÆºõÃ÷°×ÁËÊ²Ã´£¬ÓÖºÃÏñÃ»¶®¡£\n",3);
+			"$Nè½»è½»çš„ã€Œå“¦ã€äº†ä¸€å£°ï¼Œä¼¼ä¹æ˜ç™½äº†ä»€ä¹ˆï¼Œåˆå¥½åƒæ²¡æ‡‚ã€‚\n",3);
 		return;
 	    } else if ( master->query_job(job_id,"count_lasttimes") > 
             JOB_D->query_job(job_id,"count_lasttimes")){
 		DELAY_D->delay_targetted_action(slave,master,
-			"$N¶Ô$TµÀ£º$R½ñÌì×öµÄ"+JOB_D->query_job(job_id,"name")+
-			"ÒÑ¾­¹»¶àµÄÁË£¬Ó¦¸ÃĞİÏ¢Ò»ÏÂÁË¡£\n",2);
+			"$Nå¯¹$Té“ï¼š$Rä»Šå¤©åšçš„"+JOB_D->query_job(job_id,"name")+
+			"å·²ç»å¤Ÿå¤šçš„äº†ï¼Œåº”è¯¥ä¼‘æ¯ä¸€ä¸‹äº†ã€‚\n",2);
 		DELAY_D->delay_simple_action(master,
-			"$NÇáÇáµÄ¡¸Å¶¡¹ÁËÒ»Éù£¬ËÆºõÃ÷°×ÁËÊ²Ã´£¬ÓÖºÃÏñÃ»¶®¡£\n",3);
+			"$Nè½»è½»çš„ã€Œå“¦ã€äº†ä¸€å£°ï¼Œä¼¼ä¹æ˜ç™½äº†ä»€ä¹ˆï¼Œåˆå¥½åƒæ²¡æ‡‚ã€‚\n",3);
 		return;
 	    } else {
 		master->resign_job(job_id);
@@ -73,10 +73,10 @@ void do_addworker() {
 		master->set_job(job_id,"p_area",p_area);
 		master->set_job(job_id,"f_id",f_id);
 		master->set_job(job_id,"r_id",r_id);
-		DELAY_D->delay_targetted_action(slave,master,"$N¶Ô$TµÀ£º$RÖ®ÑÔÉõÊÇÓĞÀí£¬\n"+
-			"ÄÇ¾ÍÂé·³$RÔÙÈ¥ÕĞÒ»Ğ©"+p_workername+"°É¡£\n¾ßÌå·½·¨ÏêÏ¸¼û help getppl\n",2);
+		DELAY_D->delay_targetted_action(slave,master,"$Nå¯¹$Té“ï¼š$Rä¹‹è¨€ç”šæ˜¯æœ‰ç†ï¼Œ\n"+
+			"é‚£å°±éº»çƒ¦$Rå†å»æ‹›ä¸€äº›"+p_workername+"å§ã€‚\nå…·ä½“æ–¹æ³•è¯¦ç»†è§ help getppl\n",2);
 		DELAY_D->delay_simple_action(master,
-			"$NÇáÇáµÄ¡¸Å¶¡¹ÁËÒ»Éù£¬ËÆºõÃ÷°×ÁËÊ²Ã´£¬ÓÖºÃÏñÃ»¶®¡£\n",3);
+			"$Nè½»è½»çš„ã€Œå“¦ã€äº†ä¸€å£°ï¼Œä¼¼ä¹æ˜ç™½äº†ä»€ä¹ˆï¼Œåˆå¥½åƒæ²¡æ‡‚ã€‚\n",3);
 		return;
 	    }
 	}
@@ -94,29 +94,29 @@ void do_orderworker() {
 	call_out("sp_quit_menu_application",5);
 
     if(objectp(slave)&&objectp(master)) {
-        master->targetted_action("$N¶Ô$TµÀ£ºÉú²ú»¹²»¹»Å¬Á¦Âï¡£ÈÃ$SÀ´Ç××ÔÖ¸»ÓÒ»ÏÂ¡£\n",slave);
+        master->targetted_action("$Nå¯¹$Té“ï¼šç”Ÿäº§è¿˜ä¸å¤ŸåŠªåŠ›å˜›ã€‚è®©$Sæ¥äº²è‡ªæŒ‡æŒ¥ä¸€ä¸‹ã€‚\n",slave);
 		if ( master->query_job(job_id,"count_lasttimes") > 
 			JOB_D->query_job(job_id,"count_lasttimes")){
             DELAY_D->delay_targetted_action(slave,master,
-                    "$N¶Ô$TµÀ£º$R½ñÌì×öµÄ"+JOB_D->query_job(job_id,"name")+
-                    "ÒÑ¾­¹»¶àµÄÁË£¬Ó¦¸ÃĞİÏ¢Ò»ÏÂÁË¡£\n",2);
+                    "$Nå¯¹$Té“ï¼š$Rä»Šå¤©åšçš„"+JOB_D->query_job(job_id,"name")+
+                    "å·²ç»å¤Ÿå¤šçš„äº†ï¼Œåº”è¯¥ä¼‘æ¯ä¸€ä¸‹äº†ã€‚\n",2);
             DELAY_D->delay_simple_action(master,
-                    "$NÇáÇáµÄ¡¸Å¶¡¹ÁËÒ»Éù£¬ËÆºõÃ÷°×ÁËÊ²Ã´£¬ÓÖºÃÏñÃ»¶®¡£\n",3);
+                    "$Nè½»è½»çš„ã€Œå“¦ã€äº†ä¸€å£°ï¼Œä¼¼ä¹æ˜ç™½äº†ä»€ä¹ˆï¼Œåˆå¥½åƒæ²¡æ‡‚ã€‚\n",3);
             return;
         } else {
             master->resign_job(job_id);
             master->add_job(job_id);
             master->set_job(job_id,"status","begin");
             master->set_job(job_id,"score",0);
-            master->set_job("buildbase","memo","Ö¸»Ó"+AREA_D->get_area(p_area,"name")+p_workername);
+            master->set_job("buildbase","memo","æŒ‡æŒ¥"+AREA_D->get_area(p_area,"name")+p_workername);
 
             DELAY_D->delay_targetted_action(slave,master,
-                    "$N¶Ô$TÒ»±ßÁ¬Ã¦¾Ï¹ªµÀ£º$RÇ××ÔÖ¸»Ó£¬ÄÇÕæÊÇÌ«ºÃ²»¹ıÁË¡£\n"+
-					"Ò»±ß°µ×ÔµÀ£ºÕâ¸ö$r£¬ÕæÊÇ³Ô±¥ÁË³ÅµÄ¡£\n",2);
+                    "$Nå¯¹$Tä¸€è¾¹è¿å¿™é èº¬é“ï¼š$Räº²è‡ªæŒ‡æŒ¥ï¼Œé‚£çœŸæ˜¯å¤ªå¥½ä¸è¿‡äº†ã€‚\n"+
+					"ä¸€è¾¹æš—è‡ªé“ï¼šè¿™ä¸ª$rï¼ŒçœŸæ˜¯åƒé¥±äº†æ’‘çš„ã€‚\n",2);
             DELAY_D->delay_targetted_action(master,slave,
-                    "$N¶Ô$TµÉÁËÒ»ÑÛµÀ£ºÄãËµÊ²Ã´£¿\n",3);
+                    "$Nå¯¹$Tçªäº†ä¸€çœ¼é“ï¼šä½ è¯´ä»€ä¹ˆï¼Ÿ\n",3);
             DELAY_D->delay_simple_action(slave,
-                    "$NÁ¬Ã¦ÅâĞ¦µÀ£ºÃ»ËµÊ²Ã´£¬Ã»ËµÊ²Ã´£¬Ğ¡µÄÕâ¾ÍÈ¥½ĞÈË¡£\n",4);
+                    "$Nè¿å¿™èµ”ç¬‘é“ï¼šæ²¡è¯´ä»€ä¹ˆï¼Œæ²¡è¯´ä»€ä¹ˆï¼Œå°çš„è¿™å°±å»å«äººã€‚\n",4);
 			{
 				object job=new(__DIR__+"basejob");
 				job->init(master,slave);
@@ -140,14 +140,14 @@ void create( )
 mixed can_sub_worker(int val) {
 	int pplnum;
 	if(val<10) 
-		return "Ò»´ÎÖÁÉÙ²Ã¼õÊ®Ãû¡£";
+		return "ä¸€æ¬¡è‡³å°‘è£å‡ååã€‚";
 
 	pplnum=get_master()->get_room(r_id,"pplnum");
 	if(val>pplnum)
-		return "±¾"+p_roomname+"Ã»ÓĞÄÇÃ´¶à"+p_workername+"¡£";
+		return "æœ¬"+p_roomname+"æ²¡æœ‰é‚£ä¹ˆå¤š"+p_workername+"ã€‚";
 
 	if(CHAR_D->get_char(p_id,"level")<3)
-		return "$RÖ°Î»²»¸ß£¬ÕâÑùµÄÊÂ£¬ÏÂÈËÒ²×ö²»µÃÖ÷Ñ½¡£";
+		return "$RèŒä½ä¸é«˜ï¼Œè¿™æ ·çš„äº‹ï¼Œä¸‹äººä¹Ÿåšä¸å¾—ä¸»å‘€ã€‚";
 	return 1;
 	
 }
@@ -159,15 +159,15 @@ void do_subworker(int val) {
    	modal_pop();
     call_out("quit_menu_application",5);
 
-    master->targetted_action("$N¶Ô$TµÀ£ºÎÒ¿´ÕâÀï"+p_workername+"¹ıÊ££¬Ó¦¸Ã²Ã¼õ"+val+"Ãû"
-			"¡£\n",slave);
+    master->targetted_action("$Nå¯¹$Té“ï¼šæˆ‘çœ‹è¿™é‡Œ"+p_workername+"è¿‡å‰©ï¼Œåº”è¯¥è£å‡"+val+"å"
+			"ã€‚\n",slave);
 	val=to_int(val);
 	ret=can_sub_worker(val);
 	if(stringp(ret)) {
 		DELAY_D->delay_targetted_action(slave,master,
-			"$N¶Ô$TµÀ£º"+ret+"\n",2);
+			"$Nå¯¹$Té“ï¼š"+ret+"\n",2);
 		DELAY_D->delay_simple_action(master,
-			"$NÇáÇáµÄ¡¸Å¶¡¹ÁËÒ»Éù£¬ËÆºõÃ÷°×ÁËÊ²Ã´£¬ÓÖºÃÏñÃ»¶®¡£\n",3);
+			"$Nè½»è½»çš„ã€Œå“¦ã€äº†ä¸€å£°ï¼Œä¼¼ä¹æ˜ç™½äº†ä»€ä¹ˆï¼Œåˆå¥½åƒæ²¡æ‡‚ã€‚\n",3);
 		return;
 	}
 	pplnum=get_master()->get_room(r_id,"pplnum");
@@ -175,19 +175,19 @@ void do_subworker(int val) {
 	get_master()->set_room(r_id,"pplnum",pplnum);
 
 	DELAY_D->delay_targetted_action(slave,master,
-		"$N¶Ô$TµÀ£ºÕâĞ©"+p_workername+"»áÄÖÊÂµÄ¡£\n",2);
+		"$Nå¯¹$Té“ï¼šè¿™äº›"+p_workername+"ä¼šé—¹äº‹çš„ã€‚\n",2);
 	DELAY_D->delay_targetted_action(master,slave,
-		"$N¶Ô$TµÀ£º¸øËûÃÇÃ¿ÈËÒ»Á½½ğ×ÓµÄÇ²É¢·Ñ¡£\n",3);
+		"$Nå¯¹$Té“ï¼šç»™ä»–ä»¬æ¯äººä¸€ä¸¤é‡‘å­çš„é£æ•£è´¹ã€‚\n",3);
 	DELAY_D->delay_targetted_action(slave,master,
-		"$N¶Ô$TµÀ£º$R·ÅĞÄ£¬$sÕâ¾ÍÈ¥°ì¡£\n",4);
+		"$Nå¯¹$Té“ï¼š$Ræ”¾å¿ƒï¼Œ$sè¿™å°±å»åŠã€‚\n",4);
 	DELAY_D->delay_simple_action(master,
-		"$NÂúÒâµØµãÁËµãÍ·¡£\n",5);
+		"$Næ»¡æ„åœ°ç‚¹äº†ç‚¹å¤´ã€‚\n",5);
 
 	gold=AREA_D->get_area(p_area,"gold");
 	gold-=val;
 	AREA_D->set_area(p_area,"gold",gold);
-	set_rumor(AREA_D->get_area(p_area,"name")+"½â¹ÍÁËÒ»Åú"+p_workername+"¡£");
-	log_me(AREA_D->get_area(p_area,"name")+"½â¹ÍÁËÒ»Åú"+p_workername+"¡£");
+	set_rumor(AREA_D->get_area(p_area,"name")+"è§£é›‡äº†ä¸€æ‰¹"+p_workername+"ã€‚");
+	log_me(AREA_D->get_area(p_area,"name")+"è§£é›‡äº†ä¸€æ‰¹"+p_workername+"ã€‚");
 	return;
 
 }
@@ -199,18 +199,18 @@ mixed can_sub_stuff(string stf,int val) {
 	mapping consume;
 	mapping src;
 	if(!BASE_D->stuff_exist(stf))
-		return "Ã»ÓĞ"+stf+"ÕâÖÖÎï×Ê¡£";
+		return "æ²¡æœ‰"+stf+"è¿™ç§ç‰©èµ„ã€‚";
 	stfname=BASE_D->get_stuff(stf,"name");
 	if(val<=0) 
-		return "Òª¼õÉÙ¶àÉÙ"+stfname+"£¿";
+		return "è¦å‡å°‘å¤šå°‘"+stfname+"ï¼Ÿ";
 
 	src=get_master()->get_room(r_id,"src");
 	if(!mapp(src)) src=([]);
 	
-	if(src[stf]["num"]<val) return "¿âÀïÃ»ÓĞÕâÃ´¶à"+stfname+"¡£";//suicide 2000.02.26
+	if(src[stf]["num"]<val) return "åº“é‡Œæ²¡æœ‰è¿™ä¹ˆå¤š"+stfname+"ã€‚";//suicide 2000.02.26
 
 	if(CHAR_D->get_char(p_id,"level")<3)
-		return "$RÖ°Î»²»¸ß£¬ÕâÑùµÄÊÂ£¬ÏÂÈËÒ²×ö²»µÃÖ÷Ñ½¡£";
+		return "$RèŒä½ä¸é«˜ï¼Œè¿™æ ·çš„äº‹ï¼Œä¸‹äººä¹Ÿåšä¸å¾—ä¸»å‘€ã€‚";
 	return 1;
 	
 }
@@ -228,15 +228,15 @@ void done_substuff(string stf, int val) {
 	if(!stringp(stfname)) stfname=stf; 
 	else stfname=BASE_D->get_stuff(stf,"unit")+stfname;
 
-    master->targetted_action("$N¶Ô$TµÀ£ºÎÒ¿´ÕâÀïÔ­ÁÏ¹ıÊ££¬Ó¦¸ÃÔÙµ÷³ö"+val +stfname+
-			"¡£\n",slave);
+    master->targetted_action("$Nå¯¹$Té“ï¼šæˆ‘çœ‹è¿™é‡ŒåŸæ–™è¿‡å‰©ï¼Œåº”è¯¥å†è°ƒå‡º"+val +stfname+
+			"ã€‚\n",slave);
 	val=to_int(val);
 	ret=can_sub_stuff(stf,val);
 	if(stringp(ret)) {
 		DELAY_D->delay_targetted_action(slave,master,
-			"$N¶Ô$TµÀ£º"+ret+"\n",2);
+			"$Nå¯¹$Té“ï¼š"+ret+"\n",2);
 		DELAY_D->delay_simple_action(master,
-			"$NÇáÇáµÄ¡¸Å¶¡¹ÁËÒ»Éù£¬ËÆºõÃ÷°×ÁËÊ²Ã´£¬ÓÖºÃÏñÃ»¶®¡£\n",3);
+			"$Nè½»è½»çš„ã€Œå“¦ã€äº†ä¸€å£°ï¼Œä¼¼ä¹æ˜ç™½äº†ä»€ä¹ˆï¼Œåˆå¥½åƒæ²¡æ‡‚ã€‚\n",3);
 		return;
 	}
 	area_have=AREA_D->get_area(p_area,stf);
@@ -252,15 +252,15 @@ void done_substuff(string stf, int val) {
 	get_master()->set_room(r_id,"src",src);
 
 	DELAY_D->delay_targetted_action(slave,master,
-		"$N¶Ô$TµÀ£º$R·ÅĞÄ£¬$sÕâ¾ÍÈ¥°ì¡£\n",2);
+		"$Nå¯¹$Té“ï¼š$Ræ”¾å¿ƒï¼Œ$sè¿™å°±å»åŠã€‚\n",2);
 	DELAY_D->delay_simple_action(master,
-		"$NÂúÒâµØµãÁËµãÍ·¡£\n",3);
+		"$Næ»¡æ„åœ°ç‚¹äº†ç‚¹å¤´ã€‚\n",3);
 	return;
 }
 
 void do_substuff(string stf) {
 	get_input_then_call
-     ((: done_substuff, stf:), "¼õÉÙ¶àÉÙ£¿");
+     ((: done_substuff, stf:), "å‡å°‘å¤šå°‘ï¼Ÿ");
 }
 mixed can_add_stuff(string stf,int val) {
 	string stfname,prod,prodname;
@@ -268,22 +268,22 @@ mixed can_add_stuff(string stf,int val) {
 	mapping src;
 	int areahave;
 	if(!BASE_D->stuff_exist(stf))
-		return "Ã»ÓĞ"+stf+"ÕâÖÖÎï×Ê¡£";
+		return "æ²¡æœ‰"+stf+"è¿™ç§ç‰©èµ„ã€‚";
 	stfname=BASE_D->get_stuff(stf,"name");
 	if(val<=0) 
-		return "ÒªÔö¼Ó¶àÉÙ"+stfname+"£¿";
+		return "è¦å¢åŠ å¤šå°‘"+stfname+"ï¼Ÿ";
 	prod=get_master()->get_product(r_id);
 	prodname=BASE_D->get_stuff(prod,"name");
 	consume=BASE_D->get_stuff(prod,"consume");
 	if(!sizeof(consume))
-		return "Éú²ú"+prodname+"²»ĞèÒªÈÎºÎÆäËûÎï×Ê¡£";
+		return "ç”Ÿäº§"+prodname+"ä¸éœ€è¦ä»»ä½•å…¶ä»–ç‰©èµ„ã€‚";
 	if(!consume[stf])
-		return "Éú²ú"+prodname+"²»ĞèÒª"+stfname+"¡£";
+		return "ç”Ÿäº§"+prodname+"ä¸éœ€è¦"+stfname+"ã€‚";
 	areahave=AREA_D->get_area(p_area,stf);
 	if(areahave<val)
-		return "±¾µØÇøÃ»ÓĞÄÇÃ´¶àµÄ"+stfname+"´¢±¸¡£";
+		return "æœ¬åœ°åŒºæ²¡æœ‰é‚£ä¹ˆå¤šçš„"+stfname+"å‚¨å¤‡ã€‚";
 	if(CHAR_D->get_char(p_id,"level")<2)
-		return "$RÖ°Î»²»¸ß£¬ÕâÑùµÄÊÂ£¬ÏÂÈËÒ²×ö²»µÃÖ÷Ñ½¡£";
+		return "$RèŒä½ä¸é«˜ï¼Œè¿™æ ·çš„äº‹ï¼Œä¸‹äººä¹Ÿåšä¸å¾—ä¸»å‘€ã€‚";
 
 	return 1;
 	
@@ -301,15 +301,15 @@ void done_addstuff(string stf, int val) {
 	if(!stringp(stfname)) stfname=stf; 
 	else stfname=BASE_D->get_stuff(stf,"unit")+stfname;
 
-    master->targetted_action("$N¶Ô$TµÀ£ºÎÒ¿´ÕâÀïÔ­ÁÏ²»×ã£¬Ó¦¸ÃÔÙµ÷½ø"+val +stfname+
-			"¡£\n",slave);
+    master->targetted_action("$Nå¯¹$Té“ï¼šæˆ‘çœ‹è¿™é‡ŒåŸæ–™ä¸è¶³ï¼Œåº”è¯¥å†è°ƒè¿›"+val +stfname+
+			"ã€‚\n",slave);
 	val=to_int(val);
 	ret=can_add_stuff(stf,val);
 	if(stringp(ret)) {
 		DELAY_D->delay_targetted_action(slave,master,
-			"$N¶Ô$TµÀ£º"+ret+"\n",2);
+			"$Nå¯¹$Té“ï¼š"+ret+"\n",2);
 		DELAY_D->delay_simple_action(master,
-			"$NÇáÇáµÄ¡¸Å¶¡¹ÁËÒ»Éù£¬ËÆºõÃ÷°×ÁËÊ²Ã´£¬ÓÖºÃÏñÃ»¶®¡£\n",3);
+			"$Nè½»è½»çš„ã€Œå“¦ã€äº†ä¸€å£°ï¼Œä¼¼ä¹æ˜ç™½äº†ä»€ä¹ˆï¼Œåˆå¥½åƒæ²¡æ‡‚ã€‚\n",3);
 		return;
 	}
 	area_have=AREA_D->get_area(p_area,stf);
@@ -325,33 +325,33 @@ void done_addstuff(string stf, int val) {
 	get_master()->set_room(r_id,"src",src);
 
 	DELAY_D->delay_targetted_action(slave,master,
-		"$N¶Ô$TµÀ£º$R·ÅĞÄ£¬$sÕâ¾ÍÈ¥°ì¡£\n",2);
+		"$Nå¯¹$Té“ï¼š$Ræ”¾å¿ƒï¼Œ$sè¿™å°±å»åŠã€‚\n",2);
 	DELAY_D->delay_simple_action(master,
-		"$NÂúÒâµØµãÁËµãÍ·¡£\n",3);
+		"$Næ»¡æ„åœ°ç‚¹äº†ç‚¹å¤´ã€‚\n",3);
 	return;
 
 	
 }
 void do_addstuff (string stf) {
 	get_input_then_call
-     ((: done_addstuff, stf:), "Ôö¼Ó¶àÉÙ£¿");
+     ((: done_addstuff, stf:), "å¢åŠ å¤šå°‘ï¼Ÿ");
 }
 mixed can_changestuff (string stf) {
 	string stfname;
 	string curstf;
 	int lv,mylv;
 	if(!BASE_D->stuff_exist(stf))
-		return "Ã»ÓĞÌıËµ¹ı"+stf+"ÕâÖÖ¶«Î÷£¬ÄÇÊÇÊ²Ã´¶«Î÷Ñ½£¿";
+		return "æ²¡æœ‰å¬è¯´è¿‡"+stf+"è¿™ç§ä¸œè¥¿ï¼Œé‚£æ˜¯ä»€ä¹ˆä¸œè¥¿å‘€ï¼Ÿ";
 	stfname=BASE_D->get_stuff(stf,"name");
 	lv=BASE_D->get_product_level(f_id,stf);
-	if(lv==0) return p_basename+"²»ÄÜÉú²ú"+stfname+"¡£";
+	if(lv==0) return p_basename+"ä¸èƒ½ç”Ÿäº§"+stfname+"ã€‚";
 	mylv=get_master()->get_level();
 	curstf=get_master()->get_room(r_id,"pro");
-	if(curstf==stf) return "Ä¿Ç°±¾"+p_roomname+"µÄ²úÆ·ÕıÊÇ"+stfname+"Âï¡£";
+	if(curstf==stf) return "ç›®å‰æœ¬"+p_roomname+"çš„äº§å“æ­£æ˜¯"+stfname+"å˜›ã€‚";
 	if(mylv<lv)
-		return "±¾"+p_basename+"µÈ¼¶Ì«µÍ£¬ÎŞ·¨Éú²ú"+stfname;
+		return "æœ¬"+p_basename+"ç­‰çº§å¤ªä½ï¼Œæ— æ³•ç”Ÿäº§"+stfname;
 	if(CHAR_D->get_char(p_id,"level")<2)
-		return "$RÖ°Î»²»¸ß£¬ÕâÑùµÄÊÂ£¬ÏÂÈËÒ²×ö²»µÃÖ÷Ñ½¡£";
+		return "$RèŒä½ä¸é«˜ï¼Œè¿™æ ·çš„äº‹ï¼Œä¸‹äººä¹Ÿåšä¸å¾—ä¸»å‘€ã€‚";
 	return 1;
 
 }
@@ -365,36 +365,36 @@ void do_changestuff (string stf) {
 	stfname=BASE_D->get_stuff(stf,"name");
 	if(!stringp(stfname)) stfname=stf; 
 
-    master->targetted_action("$N¶Ô$TµÀ£ºÎÒ½¨Òé±¾"+p_roomname+"¸ÄÉú²ú"+stfname+"¡£\n",slave);
+    master->targetted_action("$Nå¯¹$Té“ï¼šæˆ‘å»ºè®®æœ¬"+p_roomname+"æ”¹ç”Ÿäº§"+stfname+"ã€‚\n",slave);
 	ret=can_changestuff(stf);
 
 	if(stringp(ret)) {
 		DELAY_D->delay_targetted_action(slave,master,
-			"$N¶Ô$TµÀ£º"+ret+"\n",2);
+			"$Nå¯¹$Té“ï¼š"+ret+"\n",2);
 		DELAY_D->delay_simple_action(master,
-			"$NÇáÇáµÄ¡¸Å¶¡¹ÁËÒ»Éù£¬ËÆºõÃ÷°×ÁËÊ²Ã´£¬ÓÖºÃÏñÃ»¶®¡£\n",3);
+			"$Nè½»è½»çš„ã€Œå“¦ã€äº†ä¸€å£°ï¼Œä¼¼ä¹æ˜ç™½äº†ä»€ä¹ˆï¼Œåˆå¥½åƒæ²¡æ‡‚ã€‚\n",3);
 		return;
 	}
 	get_master()->set_room(r_id,"pro",stf);
 	get_master()->set_room(r_id,"work",0);
 
 	DELAY_D->delay_targetted_action(slave,master,
-		"$N¶Ô$TµÀ£ºÄÇÕâÀïÒÔÇ°»ıÀÛµÄÉú²ú¾Í×÷·ÏÁË¡£\n",2);
+		"$Nå¯¹$Té“ï¼šé‚£è¿™é‡Œä»¥å‰ç§¯ç´¯çš„ç”Ÿäº§å°±ä½œåºŸäº†ã€‚\n",2);
 	DELAY_D->delay_targetted_action(master,slave,
-		"$N¶Ô$TµÀ£ºÃ»ÓĞ°ì·¨£¬Éú²ú"+stfname+"¸üÖØÒª¡£\n",3);
+		"$Nå¯¹$Té“ï¼šæ²¡æœ‰åŠæ³•ï¼Œç”Ÿäº§"+stfname+"æ›´é‡è¦ã€‚\n",3);
 	
 	DELAY_D->delay_targetted_action(slave,master,
-		"$N¶Ô$TµÀ£º$R·ÅĞÄ£¬$sÕâ¾ÍÈ¥°ì¡£\n",4);
+		"$Nå¯¹$Té“ï¼š$Ræ”¾å¿ƒï¼Œ$sè¿™å°±å»åŠã€‚\n",4);
 	DELAY_D->delay_simple_action(master,
-		"$NÂúÒâµØµãÁËµãÍ·¡£\n",5);
-	set_rumor(AREA_D->get_area(p_area,"name")+p_basename+"¿ªÊ¼Éú²ú"+stfname+"¡£");
+		"$Næ»¡æ„åœ°ç‚¹äº†ç‚¹å¤´ã€‚\n",5);
+	set_rumor(AREA_D->get_area(p_area,"name")+p_basename+"å¼€å§‹ç”Ÿäº§"+stfname+"ã€‚");
 
 	return;
 
 }
 void init_base_menu() {
-    toplevel = new_menu("\nÇëÎÊÓĞºÍ¹ó¸É£º");
-    quit_item = new_menu_item("ÍËÏÂ", (:quit_menu_application:), "q");
+    toplevel = new_menu("\nè¯·é—®æœ‰å’Œè´µå¹²ï¼š");
+    quit_item = new_menu_item("é€€ä¸‹", (:quit_menu_application:), "q");
     seperator = new_seperator
     ("----------------------------------------------------------------------");
     space = new_seperator
@@ -402,28 +402,28 @@ void init_base_menu() {
 
     add_menu_item(toplevel, seperator);
     add_menu_item(toplevel, space);
-    add_menu_item(toplevel, new_menu_item("Ñ¯ÎÊÇé¿ö",	(: do_query :) ,"1"));
-    add_menu_item(toplevel, new_menu_item("Ôö¼Ó"+p_workername,	(: do_addworker :) ,"2"));
+    add_menu_item(toplevel, new_menu_item("è¯¢é—®æƒ…å†µ",	(: do_query :) ,"1"));
+    add_menu_item(toplevel, new_menu_item("å¢åŠ "+p_workername,	(: do_addworker :) ,"2"));
 
-    add_menu_item(toplevel, new_menu_item("²Ã¼õ"+p_workername,	(: get_input_then_call,
-		(: do_subworker :) ,"²Ã¼õ¶àÉÙ"+p_workername :), "3"));
+    add_menu_item(toplevel, new_menu_item("è£å‡"+p_workername,	(: get_input_then_call,
+		(: do_subworker :) ,"è£å‡å¤šå°‘"+p_workername :), "3"));
 
-	add_menu_item(toplevel, new_menu_item("Ö¸»Ó"+p_workername,	(: do_orderworker :)  ,"4"));
+	add_menu_item(toplevel, new_menu_item("æŒ‡æŒ¥"+p_workername,	(: do_orderworker :)  ,"4"));
 
-    add_menu_item(toplevel, new_menu_item("´¦ÀíÎÊÌâ",	(: do_dealworker :)  ,"5"));
+    add_menu_item(toplevel, new_menu_item("å¤„ç†é—®é¢˜",	(: do_dealworker :)  ,"5"));
 
-    add_menu_item(toplevel, new_menu_item("Ôö¼ÓÔ­ÁÏ",	(: get_input_then_call,
-		(: do_addstuff :) ,"Ôö¼ÓºÎÖÖÔ­ÁÏ£º" :), "6"));
+    add_menu_item(toplevel, new_menu_item("å¢åŠ åŸæ–™",	(: get_input_then_call,
+		(: do_addstuff :) ,"å¢åŠ ä½•ç§åŸæ–™ï¼š" :), "6"));
 
-    add_menu_item(toplevel, new_menu_item("¼õÉÙÔ­ÁÏ",	(: get_input_then_call,
-		(: do_substuff :) ,"¼õÉÙºÎÖÖÔ­ÁÏ£º" :), "7"));
+    add_menu_item(toplevel, new_menu_item("å‡å°‘åŸæ–™",	(: get_input_then_call,
+		(: do_substuff :) ,"å‡å°‘ä½•ç§åŸæ–™ï¼š" :), "7"));
 
-    add_menu_item(toplevel, new_menu_item("¸Ä±ä²úÆ·",	(: get_input_then_call,
-		(: do_changestuff :) ,"¸ÄÎªºÎÖÖ²úÆ·£º" :), "8"));
+    add_menu_item(toplevel, new_menu_item("æ”¹å˜äº§å“",	(: get_input_then_call,
+		(: do_changestuff :) ,"æ”¹ä¸ºä½•ç§äº§å“ï¼š" :), "8"));
     
 	add_menu_item(toplevel, quit_item);
     add_menu_item(toplevel, space);
-    set_menu_prompt (toplevel, "ÊäÈëÖ¸Áî[1234568q]: ");
+    set_menu_prompt (toplevel, "è¾“å…¥æŒ‡ä»¤[1234568q]: ");
 
 }
 void start_head_menu (object m, object s, string a, string f, string r) {

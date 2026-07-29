@@ -1,4 +1,4 @@
-//by ljty. ±øÆ÷ÉÌ.
+//by ljty. å…µå™¨å•†.
 #include <mudlib.h>
 #define CHINESE_DA "sgdomain/modules/chinese_da.c"
 
@@ -9,13 +9,13 @@ inherit M_TRIGGERS;
 void setup() {
         object jia;
 
-        set_name("bingqishang", "±øÆ÷ÉÌ");
+        set_name("bingqishang", "å…µå™¨å•†");
         add_id("bingqi", "shang", "boss");
         set_gender(1);
-        set_proper_name("±øÆ÷ÉÌ");
-        set_in_room_desc("±øÆ÷ÉÌ(bingqishang)");
+        set_proper_name("å…µå™¨å•†");
+        set_in_room_desc("å…µå™¨å•†(bingqishang)");
         set_age(45);
-        set_long("Ò»¸öËÄÊ®³öÍ·µÄ±øÆ÷ÉÌÈË\n");
+        set_long("ä¸€ä¸ªå››åå‡ºå¤´çš„å…µå™¨å•†äºº\n");
 
         jia = new("/sgdomain/obj/cloth/torso/buyi.c");
         jia->move(this_object());
@@ -30,17 +30,17 @@ void special_answer(object who, string matter)
         switch(matter)
         {
             case "rumors":
-                    this_object()->targetted_action("$N¸Ï¿ì´Õ¹ıÀ´Ëµ£º"+
-                    "¡°Èç½ñ±ø»ÄÂíÂÒµÄ£¬¿ìÂò¼¸¼ş³ÆÊÖµÄ±øÈĞ°É¡£¡±\n", who);
+                    this_object()->targetted_action("$Nèµ¶å¿«å‡‘è¿‡æ¥è¯´ï¼š"+
+                    "â€œå¦‚ä»Šå…µè’é©¬ä¹±çš„ï¼Œå¿«ä¹°å‡ ä»¶ç§°æ‰‹çš„å…µåˆƒå§ã€‚â€\n", who);
                     return;
             case "buy":
-                    this_object()->targetted_action("$NÁ¢¿Ì½ĞÆğÀ´£º"+
-                    "¡°ºÃ°¡£¬Äã¿ÉÒÔÏÈ¿´¿´»õ£¬£ì£é£ó£ô¾ÍĞĞÁË¡£¡±\n",
+                    this_object()->targetted_action("$Nç«‹åˆ»å«èµ·æ¥ï¼š"+
+                    "â€œå¥½å•Šï¼Œä½ å¯ä»¥å…ˆçœ‹çœ‹è´§ï¼Œï½Œï½‰ï½“ï½”å°±è¡Œäº†ã€‚â€\n",
                     who);
                     return;
             default:
-                    this_object()->targetted_action("$NºÜ±§Ç¸µØ¶Ô$T"+
-                    "ËµµÀ£º¡°¿Í¹ÙµÄÎÊÌâ£¬$sÊµÔÚÊÇÒ»µã¶¼²»ÖªµÀ¡£¡±\n",
+                    this_object()->targetted_action("$Nå¾ˆæŠ±æ­‰åœ°å¯¹$T"+
+                    "è¯´é“ï¼šâ€œå®¢å®˜çš„é—®é¢˜ï¼Œ$så®åœ¨æ˜¯ä¸€ç‚¹éƒ½ä¸çŸ¥é“ã€‚â€\n",
                     who);
 
                     return;

@@ -10,7 +10,7 @@ inherit CMD;
 private void main(mixed argv)
 {
   map(argv[0], (: rm($1) ? outf(//"%s: removed.\n"
-                                "É¾³ı %s ³É¹¦¡£\n", $1) : 
+                                "åˆ é™¤ %s æˆåŠŸã€‚\n", $1) : 
                 outf(//"failed to remove: %s\n",
-                     "É¾³ı %s Ê§°Ü¡£\n", $1) :));
+                     "åˆ é™¤ %s å¤±è´¥ã€‚\n", $1) :));
 }

@@ -1,4 +1,4 @@
-// µÒµÀĞüÑÂÉ½Ñü
+// ç‹„é“æ‚¬å´–å±±è…°
 // dd_xy.c
 #include <mudlib.h>
 #include <sanguo.h>
@@ -8,14 +8,14 @@ inherit OUTDOOR_ROOM;
 void setup(){
     set_area("didao");
     set_light(50);
-    set_brief(""+YEL+"É½Ñü"+NOR+"");
+    set_brief(""+YEL+"å±±è…°"+NOR+"");
     set_long(
 @LONG 
-  °ëÃæÑÂ±ÚÉÏÑªºì´ó×Ö
+  åŠé¢å´–å£ä¸Šè¡€çº¢å¤§å­—
 
-                   µÒµÀ
+                   ç‹„é“
 
-	       ±ØËÀÍòÈËÓÚ´Ë
+	       å¿…æ­»ä¸‡äººäºæ­¤
 	        	
 LONG
 );

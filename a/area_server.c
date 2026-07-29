@@ -105,7 +105,7 @@ object virtual_create(string arg)
 	        {
 			if(!rooms[arg]["o"]) rooms[arg]["o"]=([]);
 			rooms[arg]["o"][M_BOARD]=({1, COUNTRY_D->get_country(nat,"name")+
-				"通告","nation."+nat});
+				"閫氬憡","nation."+nat});
 		}
 	}
 	room->set_objects(rooms[arg]["o"]);
@@ -124,7 +124,7 @@ object virtual_create(string arg)
     return room;
 }
 // Disappear if no longer needed
-static void clean_up() {
+protected void clean_up() {
 	return 0; // don't want it is destroyed
 }
 
@@ -202,7 +202,7 @@ mixed trans() {
 mixed sethere(string s,mixed val) {
 	string area,room,f_name, *tmp;
 	f_name=file_name(this_body()->query_room());
-	if(f_name[0..2]!="/a/") return "这里不是三国常规地区。\n";
+	if(f_name[0..2]!="/a/") return "杩欓噷涓嶆槸涓夊浗甯歌鍦板尯銆俓n";
 	tmp=explode(f_name,"/");
 	area=tmp[1];
 	room=tmp[2];
@@ -211,7 +211,7 @@ mixed sethere(string s,mixed val) {
 mixed gethere(string s) {
 	string area,room,f_name, *tmp;
 	f_name=file_name(this_body()->query_room());
-	if(f_name[0..2]!="/a/") return "这里不是三国常规地区。\n";
+	if(f_name[0..2]!="/a/") return "杩欓噷涓嶆槸涓夊浗甯歌鍦板尯銆俓n";
 	tmp=explode(f_name,"/");
 	area=tmp[1];
 	room=tmp[2];
@@ -222,7 +222,7 @@ mixed gethere(string s) {
 
 //added by suicide in 20001.03.16 for enter random place by guard
 string get_random_room()
-{array r_ids;
+{mixed * r_ids;
  r_ids = keys(rooms);
  return r_ids[random(sizeof(rooms))];
 }

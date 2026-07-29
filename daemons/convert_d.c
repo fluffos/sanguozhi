@@ -1,4 +1,4 @@
-// Éñ»°ÊÀ½ç¡¤Î÷ÓÎ¼Ç¡¤°æ±¾£´£®£µ£°
+// ç¥è¯ä¸–ç•ŒÂ·è¥¿æ¸¸è®°Â·ç‰ˆæœ¬ï¼”ï¼ï¼•ï¼
 /* <SecCrypt CPL V3R05> */
  
 /* rewritten by Snowcat */
@@ -37,8 +37,8 @@ mixed *GtoB;
 mixed *mBtoG;
 mixed *mGtoB;
 
-static int b5_default_code = BIGbox;
-static int gb_default_code = GBbox;
+nosave protected int b5_default_code = BIGbox;
+nosave protected int gb_default_code = GBbox;
 
 int DB(int hi, int lo)
 {
@@ -158,7 +158,7 @@ void sc_add_tab_entry(int mode, int code, int cmapping)
 
 /*
   Look up the code in the single/multiple mapping table for index i,
-  and put the result in the result array of size n.
+  and put the result in the result mixed * of size n.
 */
 int cvrt(int *a1, mixed *am, int i, int *result, int n)
 {
@@ -202,7 +202,7 @@ string to_str (int i)
     return s;
 }
 
-static mixed *result = allocate (BUFSIZE);
+nosave protected mixed *result = allocate (BUFSIZE);
 
 string sc_convert_fp(string sin, int mode, int do_mult)
 {

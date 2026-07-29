@@ -13,70 +13,70 @@ string *query_channel_list() {
 
 void setup()
 {
-    set_name("Harry", "¹şÀï");
+    set_name("Harry", "å“ˆé‡Œ");
     set_gender(1);
-    set_proper_name("´È°®µÄ¹şÀï");
-    set_in_room_desc("´È°®µÄ¹şÀï(harry)");
+    set_proper_name("æ…ˆçˆ±çš„å“ˆé‡Œ");
+    set_in_room_desc("æ…ˆçˆ±çš„å“ˆé‡Œ(harry)");
     add_id("dude");
-    set_long("¹şÀï³¤µÃ»¹²»Àµ...");
+    set_long("å“ˆé‡Œé•¿å¾—è¿˜ä¸èµ–...");
     set_actions( 10, ({
-	"say ÄãÔÚµÈÊ²Ã´ÄØ£¿",
-	    "say ¸÷Î»ÓĞÀñÁË£¡",
-	    "say ÎÒ²»Ï²»¶¶¬Ìì...",
-	    "say ÎÒ²»Ï²»¶ÏÂÑ©¡£",
-	    "say ÎÒ²»Ï²»¶Óê¼¾...",
-	    "say ÄãÊÇË­£¿",
-	    "say ÄãÔõÃ´³¤³ÉÕâÑù£¿",
-	    "say ÄãÔÚÕâ¶ù¸ÉÂïÄØ£¿",
-	    "say ½ñÌìÌìÆø¾ÍÊÇºÃ...¾ÍÊÇºÃ£¡",
+	"say ä½ åœ¨ç­‰ä»€ä¹ˆå‘¢ï¼Ÿ",
+	    "say å„ä½æœ‰ç¤¼äº†ï¼",
+	    "say æˆ‘ä¸å–œæ¬¢å†¬å¤©...",
+	    "say æˆ‘ä¸å–œæ¬¢ä¸‹é›ªã€‚",
+	    "say æˆ‘ä¸å–œæ¬¢é›¨å­£...",
+	    "say ä½ æ˜¯è°ï¼Ÿ",
+	    "say ä½ æ€ä¹ˆé•¿æˆè¿™æ ·ï¼Ÿ",
+	    "say ä½ åœ¨è¿™å„¿å¹²å˜›å‘¢ï¼Ÿ",
+	    "say ä»Šå¤©å¤©æ°”å°±æ˜¯å¥½...å°±æ˜¯å¥½ï¼",
 	    "smile",
 	    "lsfbog",
 	    "ack",
 //      "chan gossip Is this thing on?",
 	    "rock"
 	    }) );
-    add_pattern("%s¿ìÀÖµØÎ¢Ğ¦×Å¡£", (: $1 != "´È°®µÄ¹şÀï" ? "smile" : 0 :));
-    add_pattern("%s has left the game.", (: "say ÎªÊ²Ã´" + $1
-					  + "Àë¿ªÁËÓÎÏ·£¿" :));
-    add_pattern("%sÊ°Æğ%s¡£", (: "say ÎªÊ²Ã´" + $1
-				+ "Òª¼ğÆğ" + $2 + "£¿" :));
-    add_pattern("%s¶ªÏÂ%s¡£", (: "say " + $1
-				 + "ÎªÊ²Ã´°Ñ" + $2 + "¶ªÔÚµØÉÏ£¿" :));
+    add_pattern("%så¿«ä¹åœ°å¾®ç¬‘ç€ã€‚", (: $1 != "æ…ˆçˆ±çš„å“ˆé‡Œ" ? "smile" : 0 :));
+    add_pattern("%s has left the game.", (: "say ä¸ºä»€ä¹ˆ" + $1
+					  + "ç¦»å¼€äº†æ¸¸æˆï¼Ÿ" :));
+    add_pattern("%sæ‹¾èµ·%sã€‚", (: "say ä¸ºä»€ä¹ˆ" + $1
+				+ "è¦æ‹£èµ·" + $2 + "ï¼Ÿ" :));
+    add_pattern("%sä¸¢ä¸‹%sã€‚", (: "say " + $1
+				 + "ä¸ºä»€ä¹ˆæŠŠ" + $2 + "ä¸¢åœ¨åœ°ä¸Šï¼Ÿ" :));
     add_pattern("%s kicks you.", (: "kick " + $1 :));
     add_pattern("%s kisses you.", "blush");
-    add_pattern("%sµãÁËµãÍ·¡£", function() {
+    add_pattern("%sç‚¹äº†ç‚¹å¤´ã€‚", function() {
 	respond("nod sol*");
-	respond("say ÎÒ´í¹ıÁËÊ²Ã´ÖØÒªµÄÊÂÂğ£¿");
+	respond("say æˆ‘é”™è¿‡äº†ä»€ä¹ˆé‡è¦çš„äº‹å—ï¼Ÿ");
     } );
-    add_pattern("%s¿ª»³´óĞ¦¡£", "say ÊÇÓĞÊ²Ã´ºÃĞ¦µÄÊÂÂğ£¿");
+    add_pattern("%så¼€æ€€å¤§ç¬‘ã€‚", "say æ˜¯æœ‰ä»€ä¹ˆå¥½ç¬‘çš„äº‹å—ï¼Ÿ");
     add_pattern("%s chuckles.", "smirk");
     add_pattern("%s boggles.", "bog");
-    add_pattern("%s×ßÁË¹ıÀ´¡£", (: "say " + $1 + "£¬ÄãºÃ£¡·Ç³£¸ßĞË¼ûµ½Äã£¡" :) );
-    add_pattern("%s³¯%sÀë¿ªÁË¡£", (: "go " + $2 :));
+    add_pattern("%sèµ°äº†è¿‡æ¥ã€‚", (: "say " + $1 + "ï¼Œä½ å¥½ï¼éå¸¸é«˜å…´è§åˆ°ä½ ï¼" :) );
+    add_pattern("%sæœ%sç¦»å¼€äº†ã€‚", (: "go " + $2 :));
 
     // This subrule says that the right hand side will give us a string
     // we should sprintf() the name into, with the additional stipulation
     // that we ignore other Harry's
-    add_pattern("%sËµµÀ£º%s.", (: ($2 && $1 != "¹şÀï")
+    add_pattern("%sè¯´é“ï¼š%s.", (: ($2 && $1 != "å“ˆé‡Œ")
 				 ? sprintf($2, $1)
 				 : 0 :),
 		0, "say_rule");
-    add_sub_pattern("say_rule", "yes", "say ÎÒ²»Í¬Òâ¡£");
-    add_sub_pattern("say_rule", "right", "no", "say ÎÒ²»Í¬Òâ¡£");
+    add_sub_pattern("say_rule", "yes", "say æˆ‘ä¸åŒæ„ã€‚");
+    add_sub_pattern("say_rule", "right", "no", "say æˆ‘ä¸åŒæ„ã€‚");
     add_sub_pattern("say_rule", "shut up",
-                    "say ÄãÆ¾Ê²Ã´½ÌÎÒ×¡×ì£¿");
+                    "say ä½ å‡­ä»€ä¹ˆæ•™æˆ‘ä½å˜´ï¼Ÿ");
     add_sub_pattern("say_rule", 
-		    "%shello%s", "say ĞÒ»á¡¢ĞÒ»á£¡");
+		    "%shello%s", "say å¹¸ä¼šã€å¹¸ä¼šï¼");
     add_sub_pattern("say_rule", 
 		    "%sLPC%s", "turing %s");
     add_sub_pattern("say_rule", 
-                    "%sstay here%s", "say ÄÇºÃ°É...");
+                    "%sstay here%s", "say é‚£å¥½å§...");
     add_sub_pattern("say_rule", 
-                    "%snot follow%s", "say ÄÇºÃ°É...");
+                    "%snot follow%s", "say é‚£å¥½å§...");
     add_sub_pattern("say_rule", 
-                    "%sget lost%s", "say ÄÇºÃ°É...");
+                    "%sget lost%s", "say é‚£å¥½å§...");
     add_sub_pattern("say_rule", 
                     "%s", (: random(5) == 0 
-			   ? "say ÄãÎªÊ²Ã´Ëµ'" + $1 + "'???" 
+			   ? "say ä½ ä¸ºä»€ä¹ˆè¯´'" + $1 + "'???" 
 			   : 0 :));
 }

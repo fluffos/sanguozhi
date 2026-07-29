@@ -5,8 +5,8 @@ void start(string arg)
 	mapping bn;
 	string p_id;
 	if(!AREA_D->area_exist(arg)){
-		write("ÓÃ·¨£ºcmd bl <a_id>, ÀıÈç£ºcmd bl changan"+
-			"ÓÃ info a list ²éÔÄµØÇøÁĞ±í¡£\n");
+		write("ç”¨æ³•ï¼šcmd bl <a_id>, ä¾‹å¦‚ï¼šcmd bl changan"+
+			"ç”¨ info a list æŸ¥é˜…åœ°åŒºåˆ—è¡¨ã€‚\n");
 		return;
 	}
 	bn=AREA_D->get_area(arg,"bn");
@@ -14,8 +14,8 @@ void start(string arg)
 	if(!mapp(bn)) bn=([]);
 	p_id=this_body()->query_primary_id();
 	if(!bn[p_id]) {
-		write ("Äã²»ÔÚ"+AREA_D->get_area(arg,"name")+"µÄºÚÃûµ¥ÉÏ¡£\n");
+		write ("ä½ ä¸åœ¨"+AREA_D->get_area(arg,"name")+"çš„é»‘åå•ä¸Šã€‚\n");
 		return;
 	}
-	write (AREA_D->get_area(arg,"name")+"µÄºÚÃûµ¥ÉÏÓĞÄãµÄ×ğĞÕ´óÃû\n");
+	write (AREA_D->get_area(arg,"name")+"çš„é»‘åå•ä¸Šæœ‰ä½ çš„å°Šå§“å¤§å\n");
 }

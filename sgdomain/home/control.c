@@ -202,7 +202,7 @@ mixed add_room( string here_id,string h_dir,string opp_dir,string typ,string nam
 void init_rooms() {
 	rooms=([]);
 	rooms["front"]=([]);
-	rooms["front"]["b"]="%^H_GREEN%^"+CHAR_D->get_char(p_id,"name")+"µÄ¼Ò%^RESET%^";
+	rooms["front"]["b"]="%^H_GREEN%^"+CHAR_D->get_char(p_id,"name")+"çš„å®¶%^RESET%^";
 	rooms["front"]["l"]=read_file(PIC_PATH+h_id+".pic" );
 
 	rooms["front"]["e"]= ([
@@ -216,9 +216,9 @@ void init_rooms() {
 	rooms["front"]["o"]= (["/sgdomain/home/out_door" : ({1,p_id,"enter"}) ]);
 
 	rooms["enter"]=([]);
-	rooms["enter"]["b"]="%^H_GREEN%^ÃÅÌü%^RESET%^";
-	rooms["enter"]["l"]="ÕâÀïÊÇ"+CHAR_D->get_char(p_id,"name")+
-	  "¼ÒµÄÃÅÌü¡£\n";
+	rooms["enter"]["b"]="%^H_GREEN%^é—¨å…%^RESET%^";
+	rooms["enter"]["l"]="è¿™é‡Œæ˜¯"+CHAR_D->get_char(p_id,"name")+
+	  "å®¶çš„é—¨å…ã€‚\n";
 	rooms["enter"]["e"]= (["out" : "front"]);
 	rooms["enter"]["t"] = "hall" ;
 	rooms["enter"]["o"]= (["/sgdomain/home/out_door" : ({1,p_id,"out"}) ]);
@@ -329,15 +329,15 @@ mixed has_zhangfang() {
 	int st;
 	tmp=check_room("t", "zhangfang");
 	if(!sizeof(tmp)) 
-		return "Ã»ÓĞÕÊ·¿¡£";
+		return "æ²¡æœ‰å¸æˆ¿ã€‚";
 	st=get_room(tmp[0],"status");
 	if((st>0)&&(st<50)) 
-		return "ÕÊ·¿Ì«ÆÆ¾ÉÁË¡£";
+		return "å¸æˆ¿å¤ªç ´æ—§äº†ã€‚";
 	tmp2=check_npc("pos","zfxs");
 	if(!sizeof(tmp2))
-		return "Ã»ÓĞÕÊ·¿ÏÈÉú¡£";
+		return "æ²¡æœ‰å¸æˆ¿å…ˆç”Ÿã€‚";
 	if(get_npc(tmp2[0],"room")!=tmp[0])
-		return "ÕÊ·¿ÏÈÉú²»ÔÚÕÊ·¿Àï¡£";
+		return "å¸æˆ¿å…ˆç”Ÿä¸åœ¨å¸æˆ¿é‡Œã€‚";
 	return 1;
 }
 mixed has_chufang() {
@@ -345,14 +345,14 @@ mixed has_chufang() {
 	int st;
 	tmp=check_room("t", "kitchen");
 	if(!sizeof(tmp)) 
-		return "Ã»ÓĞ³ø·¿¡£";
+		return "æ²¡æœ‰å¨æˆ¿ã€‚";
 	st=get_room(tmp[0],"status");
 	if((st>0)&&(st<50)) 
-		return "³ø·¿Ì«ÆÆ¾ÉÁË¡£";
+		return "å¨æˆ¿å¤ªç ´æ—§äº†ã€‚";
 	tmp2=check_npc("pos","dcs");
 	if(!sizeof(tmp2))
-		return "Ã»ÓĞ´ó³øÊ¦¡£";
+		return "æ²¡æœ‰å¤§å¨å¸ˆã€‚";
 	if(get_npc(tmp2[0],"room")!=tmp[0])
-		return "´ó³øÊ¦²»ÔÚ³ø·¿Àï¡£";
+		return "å¤§å¨å¸ˆä¸åœ¨å¨æˆ¿é‡Œã€‚";
 	return 1;
 }

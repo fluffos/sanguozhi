@@ -14,7 +14,7 @@ private void main(string arg)
 {
 this_body()->set_start_location(file_name(environment(this_body())));
     this_body()->save_me();
-    out("´æ´¢Íê±Ï¡£\nfinished saving place.");
+    out("å­˜å‚¨å®Œæ¯•ã€‚\nfinished saving place.");
 
     return;
 }

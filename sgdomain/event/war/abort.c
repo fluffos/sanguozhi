@@ -35,8 +35,8 @@ void release_army(int p_id)
             // commado is people
     	    map_delete(troop, "commando");
 	   }
-	TASK_D->set_task(p_id,"msg_att_left","½ø¹¥·½Ê£Óà±øÁ¦£º"+chinese_number(att_left));
-	TASK_D->set_task(p_id,"msg_def_left","·ÀÊØ·½Ê£Óà±øÁ¦£º"+chinese_number(def_left));
+	TASK_D->set_task(p_id,"msg_att_left","è¿›æ”»æ–¹å‰©ä½™å…µåŠ›ï¼š"+chinese_number(att_left));
+	TASK_D->set_task(p_id,"msg_def_left","é˜²å®ˆæ–¹å‰©ä½™å…µåŠ›ï¼š"+chinese_number(def_left));
 }
 		
 void abort_war(int p_id)
@@ -45,8 +45,8 @@ void abort_war(int p_id)
 	string p_dis;
 	att_name=TASK_D->get_task(p_id,"att_name");
 	def_area=TASK_D->get_task(p_id,"def_area");
-        p_dis=att_name+"È¡ÏûÁË½ø¹¥"+AREA_D->get_area(def_area,"name")+
-                "µÄ¼Æ»®¡£";
+        p_dis=att_name+"å–æ¶ˆäº†è¿›æ”»"+AREA_D->get_area(def_area,"name")+
+                "çš„è®¡åˆ’ã€‚";
         CHANNEL_D->deliver_tell("rumor","system",p_dis);
        release_army(p_id);
 	TASK_D->remove_task(p_id);

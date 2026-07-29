@@ -10,15 +10,15 @@ inherit M_VALUE;
 void setup()
 {
 ::mudlib_setup();
-set_unit("¼ş");
-set_id("yinjia", "Òø¼×");
+set_unit("ä»¶");
+set_id("yinjia", "é“¶ç”²");
 add_id("cloth");
-set_in_room_desc("Òø¼×(yinjia)");
-set_long("Ò»¼şÉÁÉÁ·¢ÁÁµÄÁÁÒø¼×¡£");
+set_in_room_desc("é“¶ç”²(yinjia)");
+set_long("ä¸€ä»¶é—ªé—ªå‘äº®çš„äº®é“¶ç”²ã€‚");
 set_gettable(1);
 set_slot(ARMORS);
-set_wearmsg("$NÅúÉÏÒ»¼ş$o£¬Ê®·ÖÓ¢Îä£¬ÈË²Å³öÖÚ¡£ºÃÒ»¸öÉÙÄê½«¾ü£¡\n");
-set_removemsg("$NÍÑÏÂ$o¡£\n");
+set_wearmsg("$Næ‰¹ä¸Šä¸€ä»¶$oï¼Œååˆ†è‹±æ­¦ï¼Œäººæ‰å‡ºä¼—ã€‚å¥½ä¸€ä¸ªå°‘å¹´å°†å†›ï¼\n");
+set_removemsg("$Nè„±ä¸‹$oã€‚\n");
 set_attack_ablity(-10);                           
 set_defence_power(40);
 set_defence_ablity(-5);

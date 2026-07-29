@@ -32,15 +32,15 @@ mixed make_map(string type, int city)
 	if( city!=0 ){
 		i = to_int(H_SIZE/4)+random(1+H_SIZE/4)+1;
 		j = to_int(W_SIZE/4)+random(1+W_SIZE/4)+1;
-		amap[""+(i-1)+"/"+(j-1)+""] = "©∞";
-		amap[""+(i)+"/"+(j-1)+""]   = "©¶";
-		amap[""+(i+1)+"/"+(j-1)+""] = "©∏";
-		amap[""+(i-1)+"/"+(j)+""]   = "©§"; 
-		amap[""+(i)+"/"+(j)+""]     = "°Ú";
-		amap[""+(i+1)+"/"+(j)+""]   = "©§";
-		amap[""+(i-1)+"/"+(j+1)+""] = "©¥";
-		amap[""+(i)+"/"+(j+1)+""]   = "©¶";
-		amap[""+(i+1)+"/"+(j+1)+""] = "©º";
+		amap[""+(i-1)+"/"+(j-1)+""] = "‚îå";
+		amap[""+(i)+"/"+(j-1)+""]   = "‚îÇ";
+		amap[""+(i+1)+"/"+(j-1)+""] = "‚îî";
+		amap[""+(i-1)+"/"+(j)+""]   = "‚îÄ"; 
+		amap[""+(i)+"/"+(j)+""]     = "‚óé";
+		amap[""+(i+1)+"/"+(j)+""]   = "‚îÄ";
+		amap[""+(i-1)+"/"+(j+1)+""] = "‚îê";
+		amap[""+(i)+"/"+(j+1)+""]   = "‚îÇ";
+		amap[""+(i+1)+"/"+(j+1)+""] = "‚îò";
 	}
 	tmp = ({ });
 	for( i=0; i<H_SIZE; i++ ){
@@ -61,12 +61,12 @@ mixed main(mapping *info, string main, int city)
         init_map();
 	if( !info||!arrayp(info)||!sizeof(info) ) info = ({ });
 	foreach(mapping m in info) {
-		if( !m["type"]||!stringp(m["type"]) ) m["type"] = "£Æ";
+		if( !m["type"]||!stringp(m["type"]) ) m["type"] = "Ôºé";
 		if( !m["size"]||!intp(m["size"])    ) m["size"] = 20;
 		if( !m["shape"]||!intp(m["shape"])  ) m["shape"]= 3;
 		make_bulk(m["type"], m["size"], m["shape"]);
 	}
-	if( !main||main==""||!stringp(main) ) main = "£Æ";
+	if( !main||main==""||!stringp(main) ) main = "Ôºé";
 	if( !city||!intp(city) ) city = 0;
 
         return make_map(main, city);

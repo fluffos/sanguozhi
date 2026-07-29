@@ -1,4 +1,4 @@
-//  Î÷³ÇÃÅ by benben
+//  è¥¿åŸé—¨ by benben
 // xy_wgate.c 
 #include <mudlib.h>
 #include "/wiz/fire/fire.h"
@@ -7,8 +7,8 @@ inherit OUTDOOR_ROOM;
 void setup(){
     set_area("xianyang");
     set_light(50);
-    set_brief(""+YEL+"Î÷³ÇÃÅ"+NOR+"");
-    set_long("Î÷³ÇÃÅ¡£Í¨Ïò³Â²Ö¡£\n\n");
+    set_brief(""+YEL+"è¥¿åŸé—¨"+NOR+"");
+    set_long("è¥¿åŸé—¨ã€‚é€šå‘é™ˆä»“ã€‚\n\n");
     set_exits( ([
         "east" :  __DIR__+"xy_wst2.c",
         "west" :  __DIR__+"?_?.c",

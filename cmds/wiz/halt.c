@@ -8,5 +8,5 @@ inherit CMD;
 private void main()
 {
     all_inventory(environment(this_body()))->stop_fight();
-    this_body()->simple_action("$Nмёж╧акуБюО╣др╩гпу╫╤╥║ё");
+    this_body()->simple_action("$NЕ│°Ф╜╒Д╨├Х©≥И┤▄Г └Д╦─Е┬┤Ф┬≤Ф√≈Ц─┌");
 }

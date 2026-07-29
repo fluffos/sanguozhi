@@ -13,8 +13,8 @@ void dis(string a_id) {
    o_c=CHAR_D->find_npc_char(c_id);
    if(objectp(o_c))
    {
-      o_c->simple_action("$Nһ���ֵ���ʱ�����磬��λ����������̸��\n");
-      o_c->simple_action("$N�����첽�뿪�ˡ�\n");
+      o_c->simple_action("$N一拱手道：时辰不早，诸位有事明日再谈。\n");
+      o_c->simple_action("$N起身快步离开了。\n");
       CHAR_D->remove_npc_char(c_id);
    }
     

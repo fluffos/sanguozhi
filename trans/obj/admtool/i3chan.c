@@ -31,15 +31,15 @@ private nomask void write_i3chan_menu()
           "\n"
           );
 */
-    write("¹ÜÀí¹¤¾ß£ºIntermud ÆµµÀ¹ÜÀí¡£\n"
+    write("ç®¡ç†å·¥å…·ï¼šIntermud é¢‘é“ç®¡ç†ã€‚\n"
           "\n"
-          "    l        - ËùÓµÓĞµÄÆµµÀÁĞ±í\n"
-          "    a        - Ôö¼ÓÓµÓĞµÄÆµµÀ\n"
-          "    r <Ãû³Æ> - É¾³ıÓµÓĞµÄÆµµÀ\n"
+          "    l        - æ‰€æ‹¥æœ‰çš„é¢‘é“åˆ—è¡¨\n"
+          "    a        - å¢åŠ æ‹¥æœ‰çš„é¢‘é“\n"
+          "    r <åç§°> - åˆ é™¤æ‹¥æœ‰çš„é¢‘é“\n"
           "\n"
-          "    m        - Ö÷Ñ¡µ¥\n"
-          "    q        - ÍË³ö\n"
-          "    ?        - °ïÖú\n"
+          "    m        - ä¸»é€‰å•\n"
+          "    q        - é€€å‡º\n"
+          "    ?        - å¸®åŠ©\n"
           "\n"
           );
                      
@@ -53,11 +53,11 @@ private nomask void list_channels()
                               (: $(chanlist)[$1][0] == mud_name() :));
 
     //write("Owned Channels:");
-    write("ËùÓµÓĞµÄÆµµÀ£º");
+    write("æ‰€æ‹¥æœ‰çš„é¢‘é“ï¼š");
     if ( sizeof(chanlist) == 0 )
     {
         //write("    <none>\n");
-        write("    <ÎŞ>\n");     
+        write("    <æ— >\n");     
         return;
     }
 
@@ -86,7 +86,7 @@ private nomask void rcv_channel_name(string str)
     if ( IMUD_D->query_chanlist()[str] )
     {
         //write("** That channel already exists.\n");
-        write("** Õâ¸öÆµµÀÔçÒÑ´æÔÚ¡£\n");
+        write("** è¿™ä¸ªé¢‘é“æ—©å·²å­˜åœ¨ã€‚\n");
         return;
     }
 
@@ -96,7 +96,7 @@ private nomask void rcv_channel_name(string str)
 private nomask void add_channel()
 {
     //write("New channel name? ");
-    write("ĞÂÆµµÀÃû³Æ£¿");
+    write("æ–°é¢‘é“åç§°ï¼Ÿ");
     modal_simple((: rcv_channel_name :));
 }
 
@@ -108,7 +108,7 @@ private nomask void remove_channel(string channel_name)
     if ( undefinedp(chanlist[channel_name]) )
     {
         //write("** That channel does not exist.\n");
-        write("** Õâ¸öÆµµÀ²¢²»´æÔÚ¡£\n");
+        write("** è¿™ä¸ªé¢‘é“å¹¶ä¸å­˜åœ¨ã€‚\n");
         return;
     }
 
@@ -145,12 +145,12 @@ private nomask void receive_i3chan_input(string str)
     }
 }
 
-static nomask void begin_i3chan_menu()
+protected nomask void begin_i3chan_menu()
 {
     if ( !check_privilege(1) )
     {
         //write("Sorry... admin only.\n");
-        write("¶Ô²»Æğ£¬Ö»¶Ô´óÉñ¿ª·Å¡£\n");
+        write("å¯¹ä¸èµ·ï¼Œåªå¯¹å¤§ç¥å¼€æ”¾ã€‚\n");
         return;
     }
     modal_func((: receive_i3chan_input :), PROMPT_I3CHAN);

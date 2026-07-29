@@ -21,7 +21,7 @@ apropos(string s)
   topics=HELP_D->query_topics();
   if(!topics)
     {
-      error("help_d Ã»ÓĞ¸ø³ö¹ØÓÚÈÎºÎÌâÄ¿µÄ°ïÖú\n");
+      error("help_d æ²¡æœ‰ç»™å‡ºå…³äºä»»ä½•é¢˜ç›®çš„å¸®åŠ©\n");
       return;
     }
   foreach (string key,string *files in topics)
@@ -52,18 +52,18 @@ main(string s)
   string yt;
   if (!s) 
     {
-      write("ÓÃ·¨£ºapropos <string>\n"
-            "·µ°üº¬¸ø³öµÄ¹Ø¼ü×ÖµÄ mudlib º¯ÊıµÄĞÅÏ¢¡£°üÀ¨Ò»¶ÎĞ¡ËµÃ÷¡£\n");
+      write("ç”¨æ³•ï¼šapropos <string>\n"
+            "è¿”åŒ…å«ç»™å‡ºçš„å…³é”®å­—çš„ mudlib å‡½æ•°çš„ä¿¡æ¯ã€‚åŒ…æ‹¬ä¸€æ®µå°è¯´æ˜ã€‚\n");
       return;
     }
   if (strlen(s)<MIN_LEN)
     {
-      write("ÇëÓÃ¸ü³¤Ò»Ğ©µÄ×ÖÀ´²éÑ¯ (×îÉÙ "+MIN_LEN+
-            " ¸öÓ¢ÎÄ×ÖÄ¸).\n");
+      write("è¯·ç”¨æ›´é•¿ä¸€äº›çš„å­—æ¥æŸ¥è¯¢ (æœ€å°‘ "+MIN_LEN+
+            " ä¸ªè‹±æ–‡å­—æ¯).\n");
       return;
     }
   yt=apropos(s);
   if (yt=="\n")
-    write("Ã»ÓĞÕÒµ½¶ÔÓ¦µÄ°ïÖúÎÄ¼ş¡£\n");
+    write("æ²¡æœ‰æ‰¾åˆ°å¯¹åº”çš„å¸®åŠ©æ–‡ä»¶ã€‚\n");
   out(yt);
 }

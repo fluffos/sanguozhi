@@ -1,36 +1,36 @@
 // sleeper.c
 inherit __DIR__+"worker";
 string get_room_desc() {
-	return "ÕıÔÚºôºô´óË¯µÄ"+p_workername+c_name+"("+my_id+")";
+	return "æ­£åœ¨å‘¼å‘¼å¤§ç¡çš„"+p_workername+c_name+"("+my_id+")";
 }
 
 mixed extra_init() {
 	set_steps(2); // just two judge way
 
 	create_scenario("noise1");
-	add_act("noise1","n1","WTO",1,"$N·­ÁË¸öÉí£¬ÓÖºôºôµØË¯ÁË¡£\n");
+	add_act("noise1","n1","WTO",1,"$Nç¿»äº†ä¸ªèº«ï¼Œåˆå‘¼å‘¼åœ°ç¡äº†ã€‚\n");
 
 	create_scenario("noise2");
-	add_act("noise2","n1","WTO",1,"$N²»ÖªµÀÃÎµ½ÁËÊ²Ã´£¬ºÙºÙºÙµØĞ¦ÁË¡£\n");
+	add_act("noise2","n1","WTO",1,"$Nä¸çŸ¥é“æ¢¦åˆ°äº†ä»€ä¹ˆï¼Œå˜¿å˜¿å˜¿åœ°ç¬‘äº†ã€‚\n");
 
 	create_scenario("noise3");
-	add_act("noise3","n1","WTO",1,"$NµÄºôààÉùÒıÆğÁËÆäËû"+p_workername+
-		"µÄ×¢Òâ¡£´ó¼Ò·×·××ª¹ıÍ·À´¿´¡£\n");
-	add_act("noise3","n2","HTO",2,"$NµÉÁËËûÃÇÒ»ÑÛ£¬´ó¼ÒÏÅµÃ¸Ï¿ì×ª¹ıÉí¼ÌĞø¸É»î¡£\n");
+	add_act("noise3","n1","WTO",1,"$Nçš„å‘¼å™œå£°å¼•èµ·äº†å…¶ä»–"+p_workername+
+		"çš„æ³¨æ„ã€‚å¤§å®¶çº·çº·è½¬è¿‡å¤´æ¥çœ‹ã€‚\n");
+	add_act("noise3","n2","HTO",2,"$Nçªäº†ä»–ä»¬ä¸€çœ¼ï¼Œå¤§å®¶å“å¾—èµ¶å¿«è½¬è¿‡èº«ç»§ç»­å¹²æ´»ã€‚\n");
 }
 
 string get_prompt() {
-	return "ÔõÃ´°ì£¿ÎÊÇé¿ö(a) ¿´(l) Ò»½ÅÌßĞÑ(0) ÈÃ"+query_pronoun()+"Ë¯(1)\n";
+	return "æ€ä¹ˆåŠï¼Ÿé—®æƒ…å†µ(a) çœ‹(l) ä¸€è„šè¸¢é†’(0) è®©"+query_pronoun()+"ç¡(1)\n";
 }
 
 string get_desc(int lv) {
 	if(random(lv)<20)
-		return "$mÓëÆäËû"+p_workername+"Ã»ÓĞÊ²Ã´²»Í¬¡£\n";
+		return "$mä¸å…¶ä»–"+p_workername+"æ²¡æœ‰ä»€ä¹ˆä¸åŒã€‚\n";
 	if(status<4)
-		return "$mÆ½Ê±¾ÍÊÇÒ»¸öÀÁÉ¢µÄ¼Ò»ï¡£\n";
+		return "$må¹³æ—¶å°±æ˜¯ä¸€ä¸ªæ‡’æ•£çš„å®¶ä¼™ã€‚\n";
 	if(status<6)
-		return "$mÓëÆäËû"+p_workername+"Ã»ÓĞÊ²Ã´²»Í¬¡£\n";
-	return "$mÆ½Ê±ÊÇÒ»¸ö·Ç³£ÇÚ·ÜµÄ"+p_workername+"¡£\n";
+		return "$mä¸å…¶ä»–"+p_workername+"æ²¡æœ‰ä»€ä¹ˆä¸åŒã€‚\n";
+	return "$må¹³æ—¶æ˜¯ä¸€ä¸ªéå¸¸å‹¤å¥‹çš„"+p_workername+"ã€‚\n";
 }
 string get_look_desc() {
 	int sk;
@@ -69,24 +69,24 @@ void final_act(int sel,int err) {
 		add_act("bye","wake","WEO",1,"pain");
 		if(score>0) 
 			add_act("bye","run","WTM",2,
-				"$NÒ»¿´ÊÇ$T£¬ÏÅµÃµ÷Í·¾ÍÅÜÈ¥¸É»îÈ¥ÁË¡£\n");
+				"$Nä¸€çœ‹æ˜¯$Tï¼Œå“å¾—è°ƒå¤´å°±è·‘å»å¹²æ´»å»äº†ã€‚\n");
 		else
 			add_act("bye","run","WTM",2,
-				"$N²»ÂúµØà½àì×Å£ºÈıÌì¶¼Ã»ºÏÑÛÁË£¬ºß¡£$MÂıÂıÌÚÌÚµØ¸É»îÈ¥ÁË¡£\n");
+				"$Nä¸æ»¡åœ°å˜Ÿå›”ç€ï¼šä¸‰å¤©éƒ½æ²¡åˆçœ¼äº†ï¼Œå“¼ã€‚$Mæ…¢æ…¢è…¾è…¾åœ°å¹²æ´»å»äº†ã€‚\n");
 		break;
 	case 1:
-		add_act("bye","kick","MTH",0,"$N¶Ô$TĞ¡ÉùµÀ£º"+c_name+
-			"¹¤×÷ĞÁ¿à£¬ÈÃ"+query_pronoun()+"¶àË¯»á¶ù¡£\n");
+		add_act("bye","kick","MTH",0,"$Nå¯¹$Tå°å£°é“ï¼š"+c_name+
+			"å·¥ä½œè¾›è‹¦ï¼Œè®©"+query_pronoun()+"å¤šç¡ä¼šå„¿ã€‚\n");
 		add_act("bye","wake","WEO",1,"wake");
 		if(score>0) {
 			add_act("bye","run","WTM",2,
-				"$NÒ»¿´ÊÇ$T£¬Á¬Ã¦¾Ï¹ªµÀ£º\n"+"$RÌåĞô$s£¬$s¶¨½«¸ü¼ÓÅ¬Á¦¡£\n");
+				"$Nä¸€çœ‹æ˜¯$Tï¼Œè¿å¿™é èº¬é“ï¼š\n"+"$Rä½“æ¤$sï¼Œ$så®šå°†æ›´åŠ åŠªåŠ›ã€‚\n");
 			add_act("bye","leave","WTO",3,
-				"$NÀë¿ª¸É»îÈ¥ÁË¡£\n");
+				"$Nç¦»å¼€å¹²æ´»å»äº†ã€‚\n");
 		}
 		else {
 			add_act("bye","run","WEO",2,"hehe");
-			add_act("bye","leave","WTO",3,"$NÄ¥Ä¥²ä²äµØÀë¿ª¸É»îÈ¥ÁË¡£\n");
+			add_act("bye","leave","WTO",3,"$Nç£¨ç£¨è¹­è¹­åœ°ç¦»å¼€å¹²æ´»å»äº†ã€‚\n");
 		}
 		break;
 	}
@@ -94,9 +94,9 @@ void final_act(int sel,int err) {
 }
 void show_start() {
 	create_scenario("start");
-	add_act("start","1","MTH",1,"$NÕıºÍ$TÔÚ"+p_roomname+
-		"ÖĞÑ²ÊÓ£¬Í»È»Ìıµ½µØÉÏ´«À´Ò»ÕóºôààÉù¡£\n");
-	add_act("start","2","MTO",2,"$NÁ³Ò»³Á¡£µÍÍ·Ò»¿´£¬µØÉÏÕıÌÉ×ÅÒ»¸öÈËÔÚË¯´ó¾õ¡£\n");
-	add_act("start","3","HTO",3,"$NŞÏŞÎµØÍËµ½Ò»±ß¡£\n");
+	add_act("start","1","MTH",1,"$Næ­£å’Œ$Tåœ¨"+p_roomname+
+		"ä¸­å·¡è§†ï¼Œçªç„¶å¬åˆ°åœ°ä¸Šä¼ æ¥ä¸€é˜µå‘¼å™œå£°ã€‚\n");
+	add_act("start","2","MTO",2,"$Nè„¸ä¸€æ²‰ã€‚ä½å¤´ä¸€çœ‹ï¼Œåœ°ä¸Šæ­£èººç€ä¸€ä¸ªäººåœ¨ç¡å¤§è§‰ã€‚\n");
+	add_act("start","3","HTO",3,"$Nå°´å°¬åœ°é€€åˆ°ä¸€è¾¹ã€‚\n");
 	do_scenario("start");
 }

@@ -2,7 +2,7 @@ inherit OUTDOOR_ROOM;
 void setup(){
     string st1,st2,st3;
     set_light(50);
-    set_brief(mud_name()+"²©Îï¹İ");
+    set_brief(mud_name()+"åšç‰©é¦†");
     set_long(read_file("/sgdomain/museum/yard.pic"));
     set_exits( ([
         "out" :  "/a/huayin/vhall",

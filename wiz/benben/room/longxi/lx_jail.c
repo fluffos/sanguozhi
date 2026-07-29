@@ -1,4 +1,4 @@
-//  ÀÎÓü by benben
+//  ç‰¢ç‹± by benben
 // lx_jail.c 
 #include <mudlib.h>
 #include "/wiz/fire/fire.h"
@@ -7,8 +7,8 @@ inherit ROOM;
 void setup(){
     set_area("longxi");
     set_light(50);
-    set_brief(""+YEL+"--ÀÎÓü--"+NOR+"");
-    set_long("    ÃèÊö¡£\n");
+    set_brief(""+YEL+"--ç‰¢ç‹±--"+NOR+"");
+    set_long("    æè¿°ã€‚\n");
     set_exits( ([
         "east" :  __DIR__+"lx_dt.c",
     ]) );

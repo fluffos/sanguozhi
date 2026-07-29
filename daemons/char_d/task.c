@@ -6,11 +6,11 @@ string get_taskstr(string p_id)
    p_task=CHAR_D->get_char(p_id,"task");
   switch(p_task)
   {
-    case TASK_NONE: return ("正常");
-    case TASK_MEETING: return ("会议");
-    case TASK_WAR: return("战争");
-   case TASK_TRAIN: return("练兵");
-   default: return ("未知");
+    case TASK_NONE: return ("姝ｅ父");
+    case TASK_MEETING: return ("浼氳");
+    case TASK_WAR: return("鎴樹簤");
+   case TASK_TRAIN: return("缁冨叺");
+   default: return ("鏈煡");
   }
 }
 int get_task(string p_id)

@@ -21,10 +21,10 @@ void send_room_guard(string p_area,int task_id,string p_room,string p_dir) {
 void send_guard(string p_area,int task_id) {
 	string p_path,p_room;
 	mapping exs,exp;
-          this_body()->simple_action("$N´óºÈÒ»Éù£ºÎÀ±øºÎÔÚ£¿\n");
-          DELAY_D->delay_simple_action(this_body(),"¼¸ÃûÎÀ±øÓ¦µÀ£ºÔÚ£¡\n",1);
-          DELAY_D->delay_simple_action(this_body(),"$NµÀ£ºµ½ÃÅÍâ×ĞÏ¸°ÑÊØ£¬²»Òª·Å½øÒ»¸ö¼éÏ¸¡£\n",2);
-          DELAY_D->delay_simple_action(this_body(),"ÖÚÎÀ±øµÀ£ºµÃÁî£¡\n¼¸ÃûÎÀ±ø×ß³öÃÅÍâ¡£\n",3);
+          this_body()->simple_action("$Nå¤§å–ä¸€å£°ï¼šå«å…µä½•åœ¨ï¼Ÿ\n");
+          DELAY_D->delay_simple_action(this_body(),"å‡ åå«å…µåº”é“ï¼šåœ¨ï¼\n",1);
+          DELAY_D->delay_simple_action(this_body(),"$Né“ï¼šåˆ°é—¨å¤–ä»”ç»†æŠŠå®ˆï¼Œä¸è¦æ”¾è¿›ä¸€ä¸ªå¥¸ç»†ã€‚\n",2);
+          DELAY_D->delay_simple_action(this_body(),"ä¼—å«å…µé“ï¼šå¾—ä»¤ï¼\nå‡ åå«å…µèµ°å‡ºé—¨å¤–ã€‚\n",3);
 	p_room=AREA_D->get_area(p_area,"meeting");
 	p_path=AREA_D->get_area(p_area,"path");
 	exs=AREA(p_area)->get_room(p_room,"e");
@@ -42,10 +42,10 @@ void clean_room(string p_area) {
 	string p_exit,p_room,p_id,p_nation,p_name;
 	object o_room,o_exit;
 	object *pps;
-          this_body()->simple_action("$N´óºÈÒ»Éù£ºÎÀ±øºÎÔÚ£¿\n");
-          DELAY_D->delay_simple_action(this_body(),"¼¸ÃûÎÀ±øÓ¦µÀ£ºÔÚ£¡\n",1);
-          DELAY_D->delay_simple_action(this_body(),"$NµÀ£º°ÑÎİÀïÕâĞ©ÏĞÔÓÈËÔ±¶¼ºå³öÈ¥£¡\n",2);
-          DELAY_D->delay_simple_action(this_body(),"ÖÚÎÀ±øµÀ£ºµÃÁî£¡\n",3);
+          this_body()->simple_action("$Nå¤§å–ä¸€å£°ï¼šå«å…µä½•åœ¨ï¼Ÿ\n");
+          DELAY_D->delay_simple_action(this_body(),"å‡ åå«å…µåº”é“ï¼šåœ¨ï¼\n",1);
+          DELAY_D->delay_simple_action(this_body(),"$Né“ï¼šæŠŠå±‹é‡Œè¿™äº›é—²æ‚äººå‘˜éƒ½å“„å‡ºå»ï¼\n",2);
+          DELAY_D->delay_simple_action(this_body(),"ä¼—å«å…µé“ï¼šå¾—ä»¤ï¼\n",3);
 	p_room=AREA_D->get_area(p_area,"meeting");
 
 	p_exit=values(AREA(p_area)->get_room(p_room,"e"))[0];
@@ -61,9 +61,9 @@ void clean_room(string p_area) {
 			p_id=p->query_primary_id();
 			if(CHAR_D->get_char(p_id,"nation")!=p_nation) {
 				p_name=p->short();
-                                  DELAY_D->delay_simple_action(this_body(),"ÖÚÎÀ±øÁ¬ÍÆ´øÀ­µØ½«"+p_name+"ÈÓÁË³öÈ¥¡£\n",4);
+                                  DELAY_D->delay_simple_action(this_body(),"ä¼—å«å…µè¿æ¨å¸¦æ‹‰åœ°å°†"+p_name+"æ‰”äº†å‡ºå»ã€‚\n",4);
 				p->move(o_exit);
-                                  DELAY_D->delay_simple_action(p,"$N±»Ò»ÈºÎÀ±øÁ¬ÍÆ´øÀ­µØÈÓÁË³öÀ´¡£\n",4);
+                                  DELAY_D->delay_simple_action(p,"$Nè¢«ä¸€ç¾¤å«å…µè¿æ¨å¸¦æ‹‰åœ°æ‰”äº†å‡ºæ¥ã€‚\n",4);
 			}
 		}
 				
@@ -84,14 +84,14 @@ void start(string arg)
 ((AREA_D->get_area(p_area,"path"))+(AREA_D->get_area(p_area,"meeting"))))||(p_area!=
 		environment(this_body())->get_area()))
 	{
-                  write("Ö»ÓĞÔÚ»áÒéÖ®Ëù²Å¿ÉÒÔÅÉÎÀ±ø¡£\n");
+                  write("åªæœ‰åœ¨ä¼šè®®ä¹‹æ‰€æ‰å¯ä»¥æ´¾å«å…µã€‚\n");
 		return;
 	}
 
 	my_task = TASK_D->get_char_task(p_id);
         if(my_task[1]!=TT_LOCALMEETING)
         {
-                    write("Ö»ÓĞÔÚ¾ÙĞĞµØÇø»áÒéÊ±²ÅÓĞ±ØÒªÅÉÎÀ±ø¡£\n");
+                    write("åªæœ‰åœ¨ä¸¾è¡Œåœ°åŒºä¼šè®®æ—¶æ‰æœ‰å¿…è¦æ´¾å«å…µã€‚\n");
                 return;
         }
         task_id=my_task[0];
@@ -102,7 +102,7 @@ void start(string arg)
 		}
         if(TASK_D->get_task(task_id,"send_guard"))
         {
-                  write("ÎÀ±øÒÑ¾­ÅÉ¹ıÁË¡£\n");
+                  write("å«å…µå·²ç»æ´¾è¿‡äº†ã€‚\n");
                 return;
         }
 		TASK_D->set_task(task_id,"send_guard",1);

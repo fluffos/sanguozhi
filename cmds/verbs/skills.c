@@ -38,13 +38,13 @@ private void skills_print(object who)
         }
 
 printf(
-"%%^CYAN%%^¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş%%^H_YELLOW%%^¼¼%%^RESET%%^%%^CYAN%%^¡ş¡ş¡ş¡ş¡ş¡ş%%^H_YELLOW%%^ÄÜ%%^RESET%%^%%^CYAN%%^¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş%%^RESET%%^\n\n");
-printf("              %%^H_CYAN%%^¡¼Ãû³Æ¡½ ¡¼£É£Ä¡½    ¡¼µÈ¼¶¡½¡¼¾­Ñé¡½%%^RESET%%^\n");
-printf("%%^H_MAGENTA%%^¡¼»ù±¾ĞŞÑø¡½%%^RESET%%^\n");
+"%%^CYAN%%^ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“%%^H_YELLOW%%^æŠ€%%^RESET%%^%%^CYAN%%^ã€“ã€“ã€“ã€“ã€“ã€“%%^H_YELLOW%%^èƒ½%%^RESET%%^%%^CYAN%%^ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“%%^RESET%%^\n\n");
+printf("              %%^H_CYAN%%^ã€–åç§°ã€— ã€–ï¼©ï¼¤ã€—    ã€–ç­‰çº§ã€—ã€–ç»éªŒã€—%%^RESET%%^\n");
+printf("%%^H_MAGENTA%%^ã€–åŸºæœ¬ä¿®å…»ã€—%%^RESET%%^\n");
 out_skill("sk_wuli",who);
 out_skill("sk_zhimou",who);
 out_skill("sk_meili",who);
-printf("%%^H_GREEN%%^¡¼ËùÑ§Õó·¨¡½%%^RESET%%^\n");
+printf("%%^H_GREEN%%^ã€–æ‰€å­¦é˜µæ³•ã€—%%^RESET%%^\n");
         self_skills=who->query_self_skills();
         i=sizeof(self_skills);
         for(j=0 ; j<i ; ++j)
@@ -53,7 +53,7 @@ printf("%%^H_GREEN%%^¡¼ËùÑ§Õó·¨¡½%%^RESET%%^\n");
                 if((SG_SKILL_D->query_type(s_tmp))==SK_ZHENG)
                         out_skill(s_tmp , who);
         }
-printf("%%^H_RED%%^¡¼ËùÑ§¼ÆÄ±¡½%%^RESET%%^\n");
+printf("%%^H_RED%%^ã€–æ‰€å­¦è®¡è°‹ã€—%%^RESET%%^\n");
         for(j=0 ; j<i ; ++j)
         {
                 s_tmp=self_skills[j];
@@ -62,7 +62,7 @@ printf("%%^H_RED%%^¡¼ËùÑ§¼ÆÄ±¡½%%^RESET%%^\n");
         }
 
 
-printf("%%^H_YELLOW%%^¡¼»ù±¾Îä¹¦¡½%%^RESET%%^\n");
+printf("%%^H_YELLOW%%^ã€–åŸºæœ¬æ­¦åŠŸã€—%%^RESET%%^\n");
         for(j=0 ; j<i ; ++j)
         {
                 s_tmp=self_skills[j];
@@ -70,7 +70,7 @@ printf("%%^H_YELLOW%%^¡¼»ù±¾Îä¹¦¡½%%^RESET%%^\n");
                 	out_skill(s_tmp , who);
         }
 
-printf("%%^H_WHITE%%^¡¼ÌØÊâÕĞ·¨¡½%%^RESET%%^\n");
+printf("%%^H_WHITE%%^ã€–ç‰¹æ®Šæ‹›æ³•ã€—%%^RESET%%^\n");
         for(j=0 ; j<i ; ++j)
         {
                 s_tmp=self_skills[j];
@@ -79,7 +79,7 @@ printf("%%^H_WHITE%%^¡¼ÌØÊâÕĞ·¨¡½%%^RESET%%^\n");
         }
 
 printf(
-"\n%%^CYAN%%^¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş%%^B_YELLOW%%^%%^H_GREEN%%^Èı¹úÖ¾%%^RESET%%^%%^CYAN%%^¡ş¡ş¡ş%%^RESET%%^\n");
+"\n%%^CYAN%%^ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“%%^B_YELLOW%%^%%^H_GREEN%%^ä¸‰å›½å¿—%%^RESET%%^%%^CYAN%%^ã€“ã€“ã€“%%^RESET%%^\n");
 return;  
 }
 void do_skills()
@@ -93,7 +93,7 @@ void do_skills_str(string liv)
         object ob;
         if(!(wizardp(this_body()->query_userid())))
         {
-                printf("Ö»ÓĞÎ×Ê¦²Å¿ÉÒÔÍ¸ÊÓ±ğÈËµÄ×´¿ö¡£\n");
+                printf("åªæœ‰å·«å¸ˆæ‰å¯ä»¥é€è§†åˆ«äººçš„çŠ¶å†µã€‚\n");
                 return;
         }
         else
@@ -101,17 +101,17 @@ void do_skills_str(string liv)
                 ob = present(liv, environment(this_body()));
                 if (!ob) ob = find_body(liv);
                 if (!ob) {
-                        write("ÄãÒª²ì¿´Ë­µÄ¼¼ÄÜ£¿\n");
+                        write("ä½ è¦å¯Ÿçœ‹è°çš„æŠ€èƒ½ï¼Ÿ\n");
                         return;
                 }
 		if (!ob->is_living()) {
-			write("Äã²ì²»³öÎï¼şÄÜÓĞÊ²Ã´¼¼ÄÜ¡£\n");
+			write("ä½ å¯Ÿä¸å‡ºç‰©ä»¶èƒ½æœ‰ä»€ä¹ˆæŠ€èƒ½ã€‚\n");
 			return;
 		}
                 skills_print(ob);
         }
 }
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ "", "STR", }),({  }) });
 }

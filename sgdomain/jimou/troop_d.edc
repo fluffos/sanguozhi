@@ -129,8 +129,8 @@ string get_troop_name(int p_id)
 	p_nationname=COUNTRY_D->get_country(p_nation,"name");
 	if(!p_nationname)
 		p_nationname=p_nation;
-	p_ret=p_nationname+"µÚ"+
-CHINESE_D->chinese_number(troops[p_id]["ser"])+"¾üÍÅ";
+	p_ret=p_nationname+"ç¬¬"+
+CHINESE_D->chinese_number(troops[p_id]["ser"])+"å†›å›¢";
 	return p_ret;
 }
 int get_troop_canbeseen(int t_id)
@@ -185,13 +185,13 @@ int get_soldier_total_number(int p_id)
 }
 
 string get_troop_side(int p_id) {
-  if (!mapp(troops[p_id])) return "£Õ";
+  if (!mapp(troops[p_id])) return "ï¼µ";
   if ( troops[p_id]["side"] == "a" )
-    return "£Á";
+    return "ï¼¡";
   else if ( troops[p_id]["side"] == "d" )
-    return "£Ä";
+    return "ï¼¤";
   else
-    return "£Õ";
+    return "ï¼µ";
 }
 
 mixed get_troop_area(int p_id)
@@ -333,7 +333,7 @@ void remove_troop(int p_id)
 				  AREA_D->get_area(p_area,"meeting"));
 			o_char=CHAR_D->find_char(char);
 			if(objectp(o_char))
-			  o_char->simple_action("$N´ÓÕ½³¡ÉÏ³·ÁËÏÂÀ´¡£\n");
+			  o_char->simple_action("$Nä»Žæˆ˜åœºä¸Šæ’¤äº†ä¸‹æ¥ã€‚\n");
 		 }
      }
   }
@@ -347,7 +347,7 @@ void remove_troop(int p_id)
 			if(o->is_living())
 			{
 				o->move(VOID_ROOM); // should be wiz
-				o->simple_action("$N±»Ò»½Åõßµ½ÁËÐéÎÞ¡£\n");
+				o->simple_action("$Nè¢«ä¸€è„šè¸¹åˆ°äº†è™šæ— ã€‚\n");
 			}
 			else
 				o->remove();

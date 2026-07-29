@@ -1,12 +1,12 @@
-// pound.c "鱼塘"
+// pound.c "楸煎"
 #include <ansi.h>
 inherit OBJ;
 
 void setup()
 {
-        set_id("pound", "鱼塘");
+        set_id("pound", "楸煎");
         add_id("water", "yu tang", "fishpound");
-        set_in_room_desc("河边的一个养鱼塘(pound)");
-        set_long("你看见一些鱼儿在鱼塘里游来游去。\n");
+        set_in_room_desc("娌宠竟鐨勪竴涓吇楸煎(pound)");
+        set_long("浣犵湅瑙佷竴浜涢奔鍎垮湪楸煎閲屾父鏉ユ父鍘汇�俓n");
         return;
 }

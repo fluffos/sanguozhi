@@ -10,64 +10,64 @@ inherit __DIR__+"free_menu";
 protected mapping r_typ=
 ([ 
   "path" : ([
-		"name" : "%^YELLOW%^×ßÀÈ%^RESET%^",
+		"name" : "%^YELLOW%^èµ°å»Š%^RESET%^",
 		"money" : 2, // 2 gold each
 	   ]),
   "bedroom" : ([
-		"name" : "%^YELLOW%^ÎÔ·¿%^RESET%^",
+		"name" : "%^YELLOW%^å§æˆ¿%^RESET%^",
 		"money" : 10, // 2 gold each
 		"num" : 1,
 	   ]),
 
   "bingying" : ([
-		"name" : "%^BLUE%^±øÓª%^RESET%^",
+		"name" : "%^BLUE%^å…µè¥%^RESET%^",
 		"money" : 50, // 2 gold each
 		"num" : 4,
 	   ]),
 
   "kitchen" : ([
-		"name" : "%^GREEN%^³ø·¿%^RESET%^",
+		"name" : "%^GREEN%^å¨æˆ¿%^RESET%^",
 		"money" : 10, // 2 gold each
 		"num" : 1,
 	   ]),
 
   "malang" : ([
-		"name" : "%^GREEN%^ÂíÀÈ%^RESET%^",
+		"name" : "%^GREEN%^é©¬å»Š%^RESET%^",
 		"money" : 10, // 2 gold each
 		"num" : 1,
 	   ]),
   "liangcang" : ([
-		"name" : "%^GREEN%^Á¸²Ö%^RESET%^",
+		"name" : "%^GREEN%^ç²®ä»“%^RESET%^",
 		"money" : 30, // 2 gold each
 		"num" : 4,
 	   ]),
 
   "cangku" : ([
-		"name" : "%^RED%^²Ö¿â%^RESET%^",
+		"name" : "%^RED%^ä»“åº“%^RESET%^",
 		"money" : 20, // 2 gold each
 		"num" : 1,
 	   ]),
 
   "zhangfang" : ([
-		"name" : "%^RED%^ÕÊ·¿%^RESET%^",
+		"name" : "%^RED%^å¸æˆ¿%^RESET%^",
 		"money" : 10, // 2 gold each
 		"num" : 1,
 	   ]),
 
   "shufang" : ([
-		"name" : "%^RED%^Êé·¿%^RESET%^",
+		"name" : "%^RED%^ä¹¦æˆ¿%^RESET%^",
 		"money" : 20, // 2 gold each
 		"num" : 1,
 	   ]),
 
   "lianwuting" : ([
-		"name" : "%^RED%^Á·ÎäÌü%^RESET%^",
+		"name" : "%^RED%^ç»ƒæ­¦å…%^RESET%^",
 		"money" : 30, // 2 gold each
 		"num" : 1,
 	   ]),
 
   "keting" : ([
-		"name" : "%^GREEN%^¿ÍÌü%^RESET%^",
+		"name" : "%^GREEN%^å®¢å…%^RESET%^",
 		"money" : 40, // 2 gold each
 		"num" : 1,
 	   ]),
@@ -77,11 +77,11 @@ protected mapping r_typ=
 string show_typ() {
 	string ret,*ps;
 	ps=keys(r_typ);
-	ret="Ä¿Ç°¿É½¨ÉèµÄ·¿¼äÀàĞÍÓĞ£º\n";
+	ret="ç›®å‰å¯å»ºè®¾çš„æˆ¿é—´ç±»å‹æœ‰ï¼š\n";
 	foreach(string p in ps) {
 		ret+=r_typ[p]["name"]+"("+p+")   ";
 	}
-	ret+="\nÇëÊäÈëÒª½¨ÉèµÄ·¿¼äÀàĞÍµÄID£º";
+	ret+="\nè¯·è¾“å…¥è¦å»ºè®¾çš„æˆ¿é—´ç±»å‹çš„IDï¼š";
 	return ret;
 }		
 
@@ -93,13 +93,13 @@ void done_addroom(string dir,string typ) {
 	ps=keys(r_typ);
 	if(member_array(typ,ps)==-1)
 	{
-		write("Ã»ÓĞ"+typ+"ÕâÀà·¿¼ä¡£\n");
+		write("æ²¡æœ‰"+typ+"è¿™ç±»æˆ¿é—´ã€‚\n");
 		return;
 	}
 	curs=sizeof(o_h->check_room("t",typ));
 
 	if(r_typ[typ]["num"]&&(curs>=r_typ[typ]["num"])) {
-		write("Ä¿Ç°"+r_typ[typ]["name"]+"ÀàĞÍ·¿¼äÒÑ¾­½¨ÉèÂúÁË¡£\n");
+		write("ç›®å‰"+r_typ[typ]["name"]+"ç±»å‹æˆ¿é—´å·²ç»å»ºè®¾æ»¡äº†ã€‚\n");
 		return;
 	}
 	path_num=sizeof(o_h->check_room("t","path"));	
@@ -107,18 +107,18 @@ void done_addroom(string dir,string typ) {
 	max_num="/daemons/house_d"->get_house(h_id,"room");
 	if(typ=="path") {
 		if(path_num>max_num) {
-			write("²»ÄÜÔÙ½¨Éè¸ü¶àµÄ×ßÀÈÁË¡£\n");
+			write("ä¸èƒ½å†å»ºè®¾æ›´å¤šçš„èµ°å»Šäº†ã€‚\n");
 			return;
 		}
 	}
 	else {
 		if((o_h->get_room("size")-path_num-2)>=max_num) {
-			write("ÄãµÄ·¿×Ó²»ÄÜÔÙ½¨Éè¸ü¶àµÄ¹¦ÄÜ·¿¼äÁË¡£\n");
+			write("ä½ çš„æˆ¿å­ä¸èƒ½å†å»ºè®¾æ›´å¤šçš„åŠŸèƒ½æˆ¿é—´äº†ã€‚\n");
 			return;
 		}
 	}
 	if(MONEY_D->sub_all_money(master,r_typ[typ]["money"]*10000)==-1) {
-		write("ÄãµÄÇ®²»¹»½¨ÉèĞÂ·¿¼äÁË¡£\n");
+		write("ä½ çš„é’±ä¸å¤Ÿå»ºè®¾æ–°æˆ¿é—´äº†ã€‚\n");
 		return;
 	}
 	here_id=master->query_room()->get_id();
@@ -129,12 +129,12 @@ void done_addroom(string dir,string typ) {
 	modal_pop();
 	call_out("quit_menu_application",7);
 
-	master->targetted_action("$N¶Ô$TµÀ£º$SÒª´ÓÕâÀïÏò"+DIRECTION_D->cdir(dir)+
-		"ÔÙ½¨ÉèÒ»¸ö"+r_typ[typ]["name"]+"¡£\n",slave);
-	DELAY_D->delay_targetted_action(slave,master,"$N¶Ô$TËµ£ºÒª»¨"+
-		chinese_number(r_typ[typ]["money"])+"Á½½ğ×Ó¡£\n",2);
-	DELAY_D->delay_targetted_action(master,slave,"$N¶Ô$TµÀ£ºÃ»ÎÊÌâ¡£\n",3);
-	DELAY_D->delay_targetted_action(slave,master,"$N¶Ô$TµÀ£ºĞÂ·¿¼äÓ¦¸ÃºÜ¿ì¾Í½¨ºÃ¡£\n",4);
+	master->targetted_action("$Nå¯¹$Té“ï¼š$Sè¦ä»è¿™é‡Œå‘"+DIRECTION_D->cdir(dir)+
+		"å†å»ºè®¾ä¸€ä¸ª"+r_typ[typ]["name"]+"ã€‚\n",slave);
+	DELAY_D->delay_targetted_action(slave,master,"$Nå¯¹$Tè¯´ï¼šè¦èŠ±"+
+		chinese_number(r_typ[typ]["money"])+"ä¸¤é‡‘å­ã€‚\n",2);
+	DELAY_D->delay_targetted_action(master,slave,"$Nå¯¹$Té“ï¼šæ²¡é—®é¢˜ã€‚\n",3);
+	DELAY_D->delay_targetted_action(slave,master,"$Nå¯¹$Té“ï¼šæ–°æˆ¿é—´åº”è¯¥å¾ˆå¿«å°±å»ºå¥½ã€‚\n",4);
 
 
 }
@@ -144,17 +144,17 @@ void do_addroom(string dir) {
 	string here_id;
 	opdir=DIRECTION_D->oppdir(dir);
 	if(!sizeof(opdir)) {
-		write(dir+"ÊÇÎŞ·¨Àí½âµÄ·½Ïò¡£\n");
+		write(dir+"æ˜¯æ— æ³•ç†è§£çš„æ–¹å‘ã€‚\n");
 		return;
 	}
 	t=master->query_room()->get_type();
 	if((t!="path")&&(t!="hall")) {
-		write("Ö»ÓĞ´ÓÃÅÌü»ò×ßÀÈ²Å¿ÉÒÔ½¨ÉèĞÂ·¿¼ä¡£\n");
+		write("åªæœ‰ä»é—¨å…æˆ–èµ°å»Šæ‰å¯ä»¥å»ºè®¾æ–°æˆ¿é—´ã€‚\n");
 		return;
 	}
 	here_id=master->query_room()->get_id();
 	if(stringp(SGHOME(p_id)->get_room(here_id,"e")[dir])) {
-		write("Õâ¸ö·½ÏòÒÔ¾­ÓĞ·¿¼äÁË¡£\n");
+		write("è¿™ä¸ªæ–¹å‘ä»¥ç»æœ‰æˆ¿é—´äº†ã€‚\n");
 		return;
 	}
 
@@ -166,7 +166,7 @@ void do_changeroomname(string nam) {
 	string here_id;
 	here_id=master->query_room()->get_id();
 	if(sizeof(nam)<1) {	
-		write("±ØĞèÒªÓĞ¸öÃû×Ö¡£\n");
+		write("å¿…éœ€è¦æœ‰ä¸ªåå­—ã€‚\n");
 		return;
 	}
 	o_h->set_room(here_id,"b",nam);
@@ -176,9 +176,9 @@ void do_changeroomname(string nam) {
 	modal_pop();
 	call_out("quit_menu_application",5);
 
-	master->targetted_action("$N¶Ô$TµÀ£º$SÒª°Ñ´Ë·¿¼äµÄÃû³Æ¸ÄÎª"+nam+"¡£\n",slave);
-	DELAY_D->delay_targetted_action(slave,master,"$N¶Ô$TµÀ£ºÃ»ÎÊÌâ¡£\n",2);
-	DELAY_D->delay_targetted_action(master,slave,"$N¶Ô$TÂúÒâµØµãÁËµãÍ·¡£\n",3);
+	master->targetted_action("$Nå¯¹$Té“ï¼š$Sè¦æŠŠæ­¤æˆ¿é—´çš„åç§°æ”¹ä¸º"+nam+"ã€‚\n",slave);
+	DELAY_D->delay_targetted_action(slave,master,"$Nå¯¹$Té“ï¼šæ²¡é—®é¢˜ã€‚\n",2);
+	DELAY_D->delay_targetted_action(master,slave,"$Nå¯¹$Tæ»¡æ„åœ°ç‚¹äº†ç‚¹å¤´ã€‚\n",3);
 
 }
 
@@ -192,7 +192,7 @@ void done_changeroomdesc( string *lines)
 	here_id=master->query_room()->get_id();
     if ( !lines )
     {
-	    printf("ÊäÈëÖĞ¶Ï¡£\n");
+	    printf("è¾“å…¥ä¸­æ–­ã€‚\n");
 		return;
     }
 	nam=implode(lines, "\n");
@@ -204,9 +204,9 @@ void done_changeroomdesc( string *lines)
 	modal_pop();
 	call_out("quit_menu_application",5);
 
-	master->targetted_action("$N¶Ô$TµÀ£º$SÒª°Ñ´Ë·¿¼äµÄ²¼¾Ö¸ÄÒ»ÏÂ¡£\n",slave);
-	DELAY_D->delay_targetted_action(slave,master,"$N¶Ô$TµÀ£ºÃ»ÎÊÌâ¡£\n",2);
-	DELAY_D->delay_targetted_action(master,slave,"$N¶Ô$TÂúÒâµØµãÁËµãÍ·¡£\n",3);
+	master->targetted_action("$Nå¯¹$Té“ï¼š$Sè¦æŠŠæ­¤æˆ¿é—´çš„å¸ƒå±€æ”¹ä¸€ä¸‹ã€‚\n",slave);
+	DELAY_D->delay_targetted_action(slave,master,"$Nå¯¹$Té“ï¼šæ²¡é—®é¢˜ã€‚\n",2);
+	DELAY_D->delay_targetted_action(master,slave,"$Nå¯¹$Tæ»¡æ„åœ°ç‚¹äº†ç‚¹å¤´ã€‚\n",3);
     
     
 }
@@ -216,10 +216,10 @@ void do_changeroomdesc() {
 	string here_id;
 	here_id=master->query_room()->get_id();
 	if(here_id=="front") {
-		write("Õâ¶ùµÄÃèÊö²»ÄÜ¸Ä¡£\n");
+		write("è¿™å„¿çš„æè¿°ä¸èƒ½æ”¹ã€‚\n");
 		return;
 	}
-    printf("ÇëÊäÈëÃèÊö\n");
+    printf("è¯·è¾“å…¥æè¿°\n");
 
     new(EDIT_OB, EDIT_TEXT, 0, (: done_changeroomdesc:));
 
@@ -230,27 +230,27 @@ void do_repairroom() {
 	o_here=master->query_room();
 	p_state=o_here->get_status();
 	if(p_state>80) {
-		write("ÕâÀïÏÖÔÚÇé¿öÁ¼ºÃ£¬²»ĞèÒªĞŞÀí¡£\n");
+		write("è¿™é‡Œç°åœ¨æƒ…å†µè‰¯å¥½ï¼Œä¸éœ€è¦ä¿®ç†ã€‚\n");
 		return;
 	}
 	if(p_state==1) {
-		write("ÕâÀïÒÑ¾­Ã»·¨ĞŞÁË¡£\n");
+		write("è¿™é‡Œå·²ç»æ²¡æ³•ä¿®äº†ã€‚\n");
 		return;
 	}
 	p_money=(100-p_state)/20;
 
 	if(MONEY_D->sub_all_money(master,p_money*10000)==-1) {
-		write("ÄãµÄÇ®²»¹»ĞŞÀí·¿¼ä¡£\n");
+		write("ä½ çš„é’±ä¸å¤Ÿä¿®ç†æˆ¿é—´ã€‚\n");
 		return;
 	}
 	poped=0;
 	modal_pop();
 	o_here->repair();
 	call_out("quit_menu_application",7);
-	master->targetted_action("$N¶Ô$TµÀ£ºÕâ¼äÎİ×Ó³¤¾ÃÊ§ĞŞ£¬Äã°ÑËüºÃºÃĞŞÀíÒ»ÏÂ¡£\n",slave);
-	DELAY_D->delay_targetted_action(slave,master,"$N¶Ô$TËµ£ºÒª»¨"+p_money+"Á½½ğ×Ó¡£\n",2);
-	DELAY_D->delay_targetted_action(master,slave,"$N¶Ô$TµÀ£ºÃ»ÎÊÌâ¡£\n",3);
-	DELAY_D->delay_targetted_action(slave,master,"$N¶Ô$TµÀ£º·¿¼äÓ¦¸ÃºÜ¿ì¾ÍĞŞºÃ¡£\n",4);
+	master->targetted_action("$Nå¯¹$Té“ï¼šè¿™é—´å±‹å­é•¿ä¹…å¤±ä¿®ï¼Œä½ æŠŠå®ƒå¥½å¥½ä¿®ç†ä¸€ä¸‹ã€‚\n",slave);
+	DELAY_D->delay_targetted_action(slave,master,"$Nå¯¹$Tè¯´ï¼šè¦èŠ±"+p_money+"ä¸¤é‡‘å­ã€‚\n",2);
+	DELAY_D->delay_targetted_action(master,slave,"$Nå¯¹$Té“ï¼šæ²¡é—®é¢˜ã€‚\n",3);
+	DELAY_D->delay_targetted_action(slave,master,"$Nå¯¹$Té“ï¼šæˆ¿é—´åº”è¯¥å¾ˆå¿«å°±ä¿®å¥½ã€‚\n",4);
 }
 void do_destoryroom(string con) {
 	object o_h=SGHOME(p_id);
@@ -258,23 +258,23 @@ void do_destoryroom(string con) {
 	string *nbs;
 
 	if(con!="y") {
-		write("Õâ¸öÎÊÌâÊÇÒª¿¼ÂÇÇå³ş¡£\n");
+		write("è¿™ä¸ªé—®é¢˜æ˜¯è¦è€ƒè™‘æ¸…æ¥šã€‚\n");
 		return;
 	}
 	here_id=master->query_room()->get_id();
 	nbs=o_h->get_room(here_id,"e");
 	if(sizeof(nbs)>1) {
-		write("Õâ¸ö·¿¼äÓĞÁ½¸öÒÔÉÏ³ö¿Ú£¬²»ÄÜ²ğ¡£\n");
+		write("è¿™ä¸ªæˆ¿é—´æœ‰ä¸¤ä¸ªä»¥ä¸Šå‡ºå£ï¼Œä¸èƒ½æ‹†ã€‚\n");
 		return;
 	}
 	nb_id=nbs[0];
 	if((here_id=="front")||(here_id=="enter")) {
-		write("Õâ¸ö·¿¼äÊÇÕû×ø·¿µÄÈë¿Ú£¬²»ÄÜ²ğ¡£\n");
+		write("è¿™ä¸ªæˆ¿é—´æ˜¯æ•´åæˆ¿çš„å…¥å£ï¼Œä¸èƒ½æ‹†ã€‚\n");
 		return;
 	}
 
 	if(MONEY_D->sub_all_money(master,20000)==-1) {
-		write("ÄãµÄÇ®²»¹»²ğ·¿¼ä¡£\n");
+		write("ä½ çš„é’±ä¸å¤Ÿæ‹†æˆ¿é—´ã€‚\n");
 		return;
 	}
 	poped=0;
@@ -283,18 +283,18 @@ void do_destoryroom(string con) {
 
 	o_h->remove_room(here_id);
 
-	master->targetted_action("$N¶Ô$TµÀ£º$SÒª°ÑÕâ¼ä·¿²ğµô¡£\n",slave);
-	DELAY_D->delay_targetted_action(slave,master,"$N¶Ô$TËµ£ºÒª»¨"+
-		chinese_number(2)+"Á½½ğ×Ó¡£\n",2);
-	DELAY_D->delay_targetted_action(master,slave,"$N¶Ô$TµÀ£ºÃ»ÎÊÌâ¡£\n",3);
-	DELAY_D->delay_targetted_action(slave,master,"$N¶Ô$TµÀ£º·¿¼äÒÑ¾­²ğÁË¡£\n",4);
+	master->targetted_action("$Nå¯¹$Té“ï¼š$Sè¦æŠŠè¿™é—´æˆ¿æ‹†æ‰ã€‚\n",slave);
+	DELAY_D->delay_targetted_action(slave,master,"$Nå¯¹$Tè¯´ï¼šè¦èŠ±"+
+		chinese_number(2)+"ä¸¤é‡‘å­ã€‚\n",2);
+	DELAY_D->delay_targetted_action(master,slave,"$Nå¯¹$Té“ï¼šæ²¡é—®é¢˜ã€‚\n",3);
+	DELAY_D->delay_targetted_action(slave,master,"$Nå¯¹$Té“ï¼šæˆ¿é—´å·²ç»æ‹†äº†ã€‚\n",4);
 
 }
 void create( )
 {
     set_privilege(1);
-    toplevel = new_menu("\nÇë¶ÔÄàÍß½³ÏÂ´ïÖ¸Áî£º");
-    quit_item = new_menu_item("ÍËÏÂ", (:quit_old_place:), "q");
+    toplevel = new_menu("\nè¯·å¯¹æ³¥ç“¦åŒ ä¸‹è¾¾æŒ‡ä»¤ï¼š");
+    quit_item = new_menu_item("é€€ä¸‹", (:quit_old_place:), "q");
     seperator = new_seperator
     ("----------------------------------------------------------------------");
     space = new_seperator
@@ -302,35 +302,35 @@ void create( )
 
     add_menu_item(toplevel, seperator);
     add_menu_item(toplevel, space);
-    add_menu_item(toplevel, new_menu_item("ÔÚ´Ë¹§ºò",	(: do_stayhere :) ,"1"));
+    add_menu_item(toplevel, new_menu_item("åœ¨æ­¤æ­å€™",	(: do_stayhere :) ,"1"));
 
-    add_menu_item(toplevel, new_menu_item("ÉÍ´ÍÎïÆ·",	(: get_input_then_call,
-		(: do_praise :) ,"ÉÍ´ÍºÎÎï£º" :) ,"2"));
+    add_menu_item(toplevel, new_menu_item("èµèµç‰©å“",	(: get_input_then_call,
+		(: do_praise :) ,"èµèµä½•ç‰©ï¼š" :) ,"2"));
 
-    add_menu_item(toplevel, new_menu_item("Ñ¯ÎÊÇé¿ö",	(: do_getinfo :) ,"3"));
+    add_menu_item(toplevel, new_menu_item("è¯¢é—®æƒ…å†µ",	(: do_getinfo :) ,"3"));
 
-    add_menu_item(toplevel, new_menu_item("½¨ÉèĞÂ·¿¼ä",	(: get_input_then_call,
-		(: do_addroom :) ,"ĞÂ·¿¼äµÄ·½Ïò£º" :) ,"4"));
+    add_menu_item(toplevel, new_menu_item("å»ºè®¾æ–°æˆ¿é—´",	(: get_input_then_call,
+		(: do_addroom :) ,"æ–°æˆ¿é—´çš„æ–¹å‘ï¼š" :) ,"4"));
 
-    add_menu_item(toplevel, new_menu_item("¸Ä±ä·¿¼äÃû³Æ",	(: get_input_then_call,
-		(: do_changeroomname :) ,"ĞÂµÄ·¿¼äÃû³Æ£º" :) ,"5"));
+    add_menu_item(toplevel, new_menu_item("æ”¹å˜æˆ¿é—´åç§°",	(: get_input_then_call,
+		(: do_changeroomname :) ,"æ–°çš„æˆ¿é—´åç§°ï¼š" :) ,"5"));
 
-    add_menu_item(toplevel, new_menu_item("¸Ä±ä·¿¼äÃèÊö",	(: do_changeroomdesc :) ,"6"));
+    add_menu_item(toplevel, new_menu_item("æ”¹å˜æˆ¿é—´æè¿°",	(: do_changeroomdesc :) ,"6"));
 
-    add_menu_item(toplevel, new_menu_item("²ğ³ı·¿¼ä",	(: get_input_then_call,
-		(: do_destoryroom :) ,"È·ÈÏ²ğ³ıÂğ(y/n)£¿" :) ,"7"));
+    add_menu_item(toplevel, new_menu_item("æ‹†é™¤æˆ¿é—´",	(: get_input_then_call,
+		(: do_destoryroom :) ,"ç¡®è®¤æ‹†é™¤å—(y/n)ï¼Ÿ" :) ,"7"));
 
-    add_menu_item(toplevel, new_menu_item("ĞŞÀí·¿¼ä",	(: do_repairroom :) ,"8"));
+    add_menu_item(toplevel, new_menu_item("ä¿®ç†æˆ¿é—´",	(: do_repairroom :) ,"8"));
 
-    add_menu_item(toplevel, new_menu_item("¸Ä±äID",	(: get_input_then_call,
-		(: do_changeid :) ,"±äÎªºÎID£º" :) ,"9"));
+    add_menu_item(toplevel, new_menu_item("æ”¹å˜ID",	(: get_input_then_call,
+		(: do_changeid :) ,"å˜ä¸ºä½•IDï¼š" :) ,"9"));
 
-    add_menu_item(toplevel, new_menu_item("³·Ö°", 	(: get_input_then_call,
-	(: do_demote :) ,"È·ÈÏ³·Ö°Âğ(y/n)£¿" :) ,"a"));
+    add_menu_item(toplevel, new_menu_item("æ’¤èŒ", 	(: get_input_then_call,
+	(: do_demote :) ,"ç¡®è®¤æ’¤èŒå—(y/n)ï¼Ÿ" :) ,"a"));
 
     add_menu_item(toplevel, quit_item);
     add_menu_item(toplevel, space);
-    set_menu_prompt (toplevel, "ÊäÈëÖ¸Áî[12349q]: ");
+    set_menu_prompt (toplevel, "è¾“å…¥æŒ‡ä»¤[12349q]: ");
 }
 
 void start_menu(object m,object s)

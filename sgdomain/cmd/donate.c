@@ -10,7 +10,7 @@ void confirm_donate(mixed p_input)
         if(p_input=="yes")
                 (EV_DONATE)->donate(my_id,p_where,i_amt);
         else
-                write("ÕâÖÖÊÂµÃÉ÷ÖØ¿¼ÂÇ¿¼ÂÇ¡£\n");
+                write("è¿™ç§äº‹å¾—æ…Žé‡è€ƒè™‘è€ƒè™‘ã€‚\n");
         this_user()->modal_pop();
 }
 void start(string arg)
@@ -22,11 +22,11 @@ void start(string arg)
         my_id=this_body()->query_id()[0];
         if(!CHAR_D->get_char(my_id,"nation"))
         {
-                write("µÈÄã»ìÁË¸öÒ»¹Ù°ëÖ°Ö®ºó£¬ÔÙ¿¼ÂÇ¾èÔù²»¾èÔù°É¡£\n");
+                write("ç­‰ä½ æ··äº†ä¸ªä¸€å®˜åŠèŒä¹‹åŽï¼Œå†è€ƒè™‘æèµ ä¸æèµ å§ã€‚\n");
                 return;
         }
 if(CHAR_D->get_char(my_id,"ranknation")==R_KING) {
-    write ("ÉíÎªÒ»¹úÖ®Ö÷ÔõÃ´ÄÜÏò×Ô¼º¾èÇ®ÄØ£¿»¹ÊÇ¶à¿¼ÂÇ¿¼ÂÇ°ÙÐÕ°É¡£\n");
+    write ("èº«ä¸ºä¸€å›½ä¹‹ä¸»æ€Žä¹ˆèƒ½å‘è‡ªå·±æé’±å‘¢ï¼Ÿè¿˜æ˜¯å¤šè€ƒè™‘è€ƒè™‘ç™¾å§“å§ã€‚\n");
 
     return;
 }
@@ -40,18 +40,18 @@ if(CHAR_D->get_char(my_id,"ranknation")==R_KING) {
 	i_amt=to_int(p_amt);
 	if((i_amt<5)||((p_where!="here")&&(p_where!="nation")))
 	{
-                write("ÓÃ·¨´íÎó£¡");
-                write("ÓÃ cmd help donate ²é¿´ÏêÏ¸°ïÖú¡£\n");
+                write("ç”¨æ³•é”™è¯¯ï¼");
+                write("ç”¨ cmd help donate æŸ¥çœ‹è¯¦ç»†å¸®åŠ©ã€‚\n");
                 return;
         }
 	n_bank=this_body()->query_amt_money("bank")/10000;
 	n_salary=CHAR_D->get_char(my_id,"gold");
 	if(i_amt>(n_bank+n_salary))
 	{
-		write("ÄãÕÊ»§ÉÏÃ»ÓÐÄÇÃ´¶à½ð¿ÉÒÔ¾èÔù£¬ÇëÓÃmoney²éÕÊ¡£\n");
+		write("ä½ å¸æˆ·ä¸Šæ²¡æœ‰é‚£ä¹ˆå¤šé‡‘å¯ä»¥æèµ ï¼Œè¯·ç”¨moneyæŸ¥å¸ã€‚\n");
                 return;
 	}
-        write("Äã¾ö¶¨ÁËÒª¾èÔùÂð£¿Èç¹û¾ö¶¨ÁËÇëÊäÈëyes¡£\n");
+        write("ä½ å†³å®šäº†è¦æèµ å—ï¼Ÿå¦‚æžœå†³å®šäº†è¯·è¾“å…¥yesã€‚\n");
         this_user()->modal_push((: confirm_donate :),
                                "",0,0);
 }

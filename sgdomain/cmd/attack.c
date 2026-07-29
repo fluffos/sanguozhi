@@ -11,19 +11,19 @@ void start(string arg)
         env=environment(this_body());
         if(!arg||arg=="")
         {
-          write("用法错误，请用cmd help attack查看详细帮助。\n");
+          write("鐢ㄦ硶閿欒锛岃鐢╟md help attack鏌ョ湅璇︾粏甯姪銆俓n");
 	  return;
         }
         if(!env->is_troop())
         {
-           write("只有身在军中才能指挥进攻。\n");
+           write("鍙湁韬湪鍐涗腑鎵嶈兘鎸囨尌杩涙敾銆俓n");
 	   return ;
         }
 	t_id=TROOP_D->get_char_troop(p_id);
         if (TROOP_D->get_troops(t_id, "conds"))
 	{ if (TROOP_D->get_troops(t_id, "conds")["confuse"])
 	  {
-	write ("混乱中，无法攻击。\n");
+	write ("娣蜂贡涓紝鏃犳硶鏀诲嚮銆俓n");
 	return;
 	}
 	}	
@@ -34,7 +34,7 @@ void start(string arg)
            write(ret);
            return;
         }
-        this_body()->simple_action("$N率军发动进攻。\n");
+        this_body()->simple_action("$N鐜囧啗鍙戝姩杩涙敾銆俓n");
 //	WARAI_D->do_general_attack(t_id,arg);
     WARAI_D->attack_target(t_id, arg, "general attack");
 	return;

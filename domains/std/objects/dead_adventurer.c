@@ -5,13 +5,13 @@ inherit CORPSE;
 
 void create()
 {
-    ::create("Ì½ÏÕÕß");
+    ::create("æ¢é™©è€…");
 }
 
 void setup()
 {
     set_proper_name(0);
-    set_adj("Ì½ÏÕÕßµÄ");
+    set_adj("æ¢é™©è€…çš„");
     set_objects(([ 
       "/domains/std/objects/pac_sword" : 1,
       "/domains/std/objects/platemail" : 1,

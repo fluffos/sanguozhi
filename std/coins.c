@@ -28,17 +28,17 @@ string long_descr()
 
 add_id(long_type);
     //descr = "A pile of ";
-    descr = "Ò»¶Ñ";
+    descr = "ä¸€å †";
     descr += coins[long_type];
     descr += " ";
     descr += types[0];
   //descr += " coins.\n";
-    descr += "Ç®¡£\n";
+    descr += "é’±ã€‚\n";
     }
     else
     {
    //descr = "A pile of various types of coins including: \n ";
-   descr = "Ò»¶Ñ²»ÖªÃûµÄÇ®£¬°üÀ¨£º\n";
+   descr = "ä¸€å †ä¸çŸ¥åçš„é’±ï¼ŒåŒ…æ‹¬ï¼š\n";
    while (i--)
    {
 descr += "          ";
@@ -77,7 +77,7 @@ mixed get(string amount, string type)
         this_body()->add_money(types[0], coin_value);
         remove();
         //return "You take the pile of coins.\n";
-        return "Äã¼ñÆğÁËÒ»¶ÑÇ®¡£\n";
+        return "ä½ æ¡èµ·äº†ä¸€å †é’±ã€‚\n";
     }
     else
     {
@@ -88,7 +88,7 @@ mixed get(string amount, string type)
         }
         remove();
         //return "You take the pile of coins.\n";
-        return "Äã¼ñÆğÁËÒ»¶ÑÇ®¡£\n";
+        return "ä½ æ¡èµ·äº†ä¸€å †é’±ã€‚\n";
     }
     }
 
@@ -105,7 +105,7 @@ mixed get(string amount, string type)
     else
     {
         //write("Which type of coins do you wnat to get?\n");
-        write("ÄãÒªÄÄÒ»ÖÖÇ®£¿\n");
+        write("ä½ è¦å“ªä¸€ç§é’±ï¼Ÿ\n");
     }
     }
     else
@@ -113,7 +113,7 @@ mixed get(string amount, string type)
     if(!coins[type])
     {
         write("There are no coins of that type here.\n");
-        write("ÕâÀïÃ»ÓĞÄãÒªµÄÄÇÖÖÇ®¡£\n");
+        write("è¿™é‡Œæ²¡æœ‰ä½ è¦çš„é‚£ç§é’±ã€‚\n");
     }
     else
     {
@@ -134,7 +134,7 @@ void split_coins(string type, int amount)
     this_body()->add_money(type,amount);
     coins[type] -= amount;
     //this_body()->simple_action("$N $vtake some coins.\n");
-    this_body()->simple_action("$N $vÄÃÆğÁËÒ»Ğ©Ç®¡£\n");
+    this_body()->simple_action("$N $væ‹¿èµ·äº†ä¸€äº›é’±ã€‚\n");
     if (coins[type] == 0)
     {
         map_delete(coins,type);
@@ -149,7 +149,7 @@ void split_coins(string type, int amount)
     else
     {
     write("There aren't that many coins of that type here.\n");
-    write("ÕâÖÖÇ®ËùÊ£ÎŞ¼¸¡£\n");
+    write("è¿™ç§é’±æ‰€å‰©æ— å‡ ã€‚\n");
     }
 }
 
@@ -175,7 +175,7 @@ void setup(int amount, string type)
     set_id("coins");
     add_adj(type);
     //set_in_room_desc("A pile of coins");
-    set_in_room_desc("Ò»¶ÑÇ®");
+    set_in_room_desc("ä¸€å †é’±");
     add_id(   "coin", "pile", "pile of coins" );
     set_long( (: long_descr :) );
 

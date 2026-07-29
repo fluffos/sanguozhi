@@ -3,7 +3,7 @@
 
 private int max_char = 100;
 private int char_left = 100;
-string array msgs;
+string * msgs;
 string extra;
 
 void add_hook(string, mixed);
@@ -37,12 +37,12 @@ void add_text(string str) {
     if (msgs) {
         msgs += ({ str });
         extra = //"There are " + sizeof(msgs) + " things written on it:\n\t'"
-                "������д��һЩ�֣�\n\t'" +
+                "那上面写着一些字：\n\t'" +
             implode(msgs, "'\n\t'") + "'\n";
     } else {
         msgs = ({ str });
         extra = //"There is 1 thing written on it:\n\t'"
-                "������д��Щ�֣�\n\t'" + str + "'\n";
+                "那上面写着些字：\n\t'" + str + "'\n";
     }
     add_hook("extra_long", extra);
 }
@@ -51,13 +51,13 @@ void add_text(string str) {
 mixed direct_write_str_on_obj(string str, object ob) {
     if (strlen(str) > query_space_left())
         return //"There isn't enough room.\n";
-               "������û��ʣ��ĵط��ˡ�\n";
+               "那上面没有剩余的地方了。\n";
     return 1;
 }
 
 mixed direct_write_obj_with_str(object ob, string str) {
     if (strlen(str) > query_space_left())
         return //"There isn't enough room.\n";
-               "������û��ʣ��ĵط��ˡ�\n"; 
+               "那上面没有剩余的地方了。\n"; 
     return 1;
 }

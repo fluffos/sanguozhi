@@ -10,15 +10,15 @@ inherit M_VALUE;
 void setup()
 {
 ::mudlib_setup();
-set_unit("¼ş");
-set_id("jinjia", "½ğ¼×");
+set_unit("ä»¶");
+set_id("jinjia", "é‡‘ç”²");
 add_id("cloth");
-set_in_room_desc("½ğ¼×(jinjia)");
-set_long("Ò»¼ş¾«ĞÄ´òÔìµÄ½ğ¼×£¬Ö»ÓĞÉí¾­°ÙÕ½µÄ½«¾ü²ÅÓĞ×Ê¸ñ´©¡£");
+set_in_room_desc("é‡‘ç”²(jinjia)");
+set_long("ä¸€ä»¶ç²¾å¿ƒæ‰“é€ çš„é‡‘ç”²ï¼Œåªæœ‰èº«ç»ç™¾æˆ˜çš„å°†å†›æ‰æœ‰èµ„æ ¼ç©¿ã€‚");
 set_gettable(1);
 set_slot(ARMORS);
-set_wearmsg("$NÅúÉÏÒ»¼ş$o£¬ÑÛ¾¦¾¼¾¼·Å¹â£¬ÕæÊÇÒÇ±íÌÃÌÃ£¬Íş·çÁİÁİ¡£\n");
-set_removemsg("$NÍÑÏÂÒ»¼ş$o¡£\n");
+set_wearmsg("$Næ‰¹ä¸Šä¸€ä»¶$oï¼Œçœ¼ç›ç‚¯ç‚¯æ”¾å…‰ï¼ŒçœŸæ˜¯ä»ªè¡¨å ‚å ‚ï¼Œå¨é£å‡›å‡›ã€‚\n");
+set_removemsg("$Nè„±ä¸‹ä¸€ä»¶$oã€‚\n");
 set_attack_ablity(-10);                           
 set_defence_power(50);
 set_defence_ablity(-5);

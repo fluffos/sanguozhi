@@ -13,19 +13,19 @@
 
 class SGtroop
 {
-	int m_nArmyId;  // ËùÊô·½Ãæ¾ü
-	int m_nTrpId;  // ±¾¶Ó±àºÅ
+	int m_nArmyId;  // æ‰€å±æ–¹é¢å†›
+	int m_nTrpId;  // æœ¬é˜Ÿç¼–å·
 
-	string m_strLeaders;  // ±¾¶ÓÖ÷½«
+	string m_strLeaders;  // æœ¬é˜Ÿä¸»å°†
 
-// ±¾¶ÓÎ»ÖÃ
+// æœ¬é˜Ÿä½ç½®
     string m_strLanding;
     string m_strRoom;
 	int m_nPosX;
 	int m_nPosY;
-	string m_strTerrain;  // µØĞÎ
+	string m_strTerrain;  // åœ°å½¢
 
-// ×´Ì¬
+// çŠ¶æ€
 	string m_strWarOrder;
 
 	int m_nSoldierNum;
@@ -35,8 +35,8 @@ class SGtroop
 	
 	string m_strStatus;
 
-// ×°±¸
-	string m_strRighthandItem;  // Ë«ÊÖÎäÆ÷ËãÓÒÊÖ£¬
+// è£…å¤‡
+	string m_strRighthandItem;  // åŒæ‰‹æ­¦å™¨ç®—å³æ‰‹ï¼Œ
 	string m_strLefthandItem;
 	string m_strArmor;
 	string m_strHorse;

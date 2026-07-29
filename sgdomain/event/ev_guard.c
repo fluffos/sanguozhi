@@ -22,11 +22,11 @@ void create_guard(string p_area)
    CHAR_D->add_char(p_id);
 CHAR_D->set_char(p_id,"my_type","p_type");
    CHAR_D->set_char(p_id,"my_area",p_area);
-   CHAR_D->set_char(p_id,"name",""HIC"Ë¾Á¥Ð£Î¾"NOR"");
+   CHAR_D->set_char(p_id,"name",""HIC"å¸éš¶æ ¡å°‰"NOR"");
    CHAR_D->set_char(p_id,"is_tmp",1);
    CHAR_D->set_char(p_id,"is_guard",1);
    CHAR_D->set_char(p_id,"body","guard");
-   CHAR_D->appear(p_id,p_area,AREA_D->get_area(p_area,"go"),"Ò»Ãû$NÊ¢ÆøÁèÈËµØ×ßÁË¹ýÀ´¡£\n");
+   CHAR_D->appear(p_id,p_area,AREA_D->get_area(p_area,"go"),"ä¸€å$Nç››æ°”å‡Œäººåœ°èµ°äº†è¿‡æ¥ã€‚\n");
    o=CHAR_D->find_char(p_id);
    o->set_area(p_area);
    CHAR_D->remove_char_d(p_id);

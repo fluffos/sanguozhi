@@ -12,22 +12,22 @@ private void main( string  arg )
   if (this_body()->query("beeptime"))
      if (this_body()->query("beeptime")>time())
      {
-     out("BeepÖ»ÄÜÃ¿30ÃëÖ´ĞĞÒ»´Î,ÏÖÔÚµÄÊ±¼ä¼ä¸ôÌ«¶Ì.\n");
+     out("Beepåªèƒ½æ¯30ç§’æ‰§è¡Œä¸€æ¬¡,ç°åœ¨çš„æ—¶é—´é—´éš”å¤ªçŸ­.\n");
      return;
      }
   //end
   if( !arg)
     {
-      this_body()->simple_action("$Nºô½ĞÁËÒ»Éù¡£" + chr(7));
+      this_body()->simple_action("$Nå‘¼å«äº†ä¸€å£°ã€‚" + chr(7));
       return;
     }
   who = find_body(lower_case(arg));
   if( !who )
     {
-      out("ÄãÖ»ÄÜºô½ĞÍæ¼Ò¡£\n");
+      out("ä½ åªèƒ½å‘¼å«ç©å®¶ã€‚\n");
       return;
     }
-  this_body()->inform( ({ this_body(), who }), action( ({this_body(), who }), "$N0ºô½Ğ$T¡£\n" + chr(7))
+  this_body()->inform( ({ this_body(), who }), action( ({this_body(), who }), "$N0å‘¼å«$Tã€‚\n" + chr(7))
                    );
   this_body()->set("beeptime",time()+30);//added by suicide in 2001.09.03
   return;

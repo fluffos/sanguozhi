@@ -9,9 +9,9 @@ void
 setup() 
 {
     
-    set_id("passage", "Í¨µÀ");
-    set_unit("Ìõ");
-    set_long("ÕâÌõÍ¨µÀÃ»ÓĞÊ²Ã´ÌØ±ğÖ®´¦¡£");
+    set_id("passage", "é€šé“");
+    set_unit("æ¡");
+    set_long("è¿™æ¡é€šé“æ²¡æœ‰ä»€ä¹ˆç‰¹åˆ«ä¹‹å¤„ã€‚");
     set_attached(1);
     set_size(MEDIUM);
 }

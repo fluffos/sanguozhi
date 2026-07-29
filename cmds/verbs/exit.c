@@ -13,7 +13,7 @@ void do_exit(object ob)
 
   if(objectp(ob) && ob != environment(this_body()))
     {
-      write("Äã²»ÔÚÄÇÀïÃæ¡£\n");
+      write("ä½ ä¸åœ¨é‚£é‡Œé¢ã€‚\n");
       return;
     }
   last_loc = environment(this_body());
@@ -25,7 +25,7 @@ void do_exit(object ob)
           if(stringp(s))
             this_body()->simple_action(s);
           else
-            this_body()->simple_action("$NÀë¿ªÁË$o.", last_loc);
+            this_body()->simple_action("$Nç¦»å¼€äº†$o.", last_loc);
         }
       else
         {
@@ -36,11 +36,11 @@ void do_exit(object ob)
     {
       if(environment(environment(this_body())))
         {
-          write("Äã´Ë¿ÌÎŞ·¨Àë¿ª¡£\n");
+          write("ä½ æ­¤åˆ»æ— æ³•ç¦»å¼€ã€‚\n");
         }
       else
         {
-          write("Ã»ÓĞÀë¿ªµÄ·½Ïò¡£\n");
+          write("æ²¡æœ‰ç¦»å¼€çš„æ–¹å‘ã€‚\n");
         }
     }
 } 
@@ -51,7 +51,7 @@ void do_exit_obj(object ob)
 }
 
 
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ "OBJ", "" }), ({ "leave", "disembark" }) });
 }

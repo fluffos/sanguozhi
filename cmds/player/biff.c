@@ -14,19 +14,19 @@
 
 inherit CMD;
 
-#define USAGE "ÓÃ·¨: biff [on | off]\n"
+#define USAGE "ç”¨æ³•: biff [on | off]\n"
 
 private string query_setting()
 {
-    return this_body()->test_flag(F_BIFF) ? "¿ªÆô" : "¹Ø±Õ";
+    return this_body()->test_flag(F_BIFF) ? "å¼€å¯" : "å…³é—­";
 }
 
 nomask private void main(string arg)
 {
     if ( !arg || arg == "" )
     {
-	out("ÄãµÄÓÊ¼şÌáÊ¾ĞÅºÅÏÖÔÚÊÇ£º" + query_setting() +
-	      "¡£\n" + USAGE);
+	out("ä½ çš„é‚®ä»¶æç¤ºä¿¡å·ç°åœ¨æ˜¯ï¼š" + query_setting() +
+	      "ã€‚\n" + USAGE);
 	return;
     }
 
@@ -45,5 +45,5 @@ nomask private void main(string arg)
 	return;
     }
 
-    out("ÄãµÄÓÊ¼şÌáÊ¾ĞÅºÅÏÖÔÚ¸ÄÎª£º" + query_setting() + "\n");
+    out("ä½ çš„é‚®ä»¶æç¤ºä¿¡å·ç°åœ¨æ”¹ä¸ºï¼š" + query_setting() + "\n");
 }

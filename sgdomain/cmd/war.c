@@ -18,10 +18,10 @@ void start(string arg)
 
         if((!arg)||(arg==""))
         {
-                write("ÓÃ·¨£ºcmd war <area_id>\n");
-                write("Àı×Ó£ºcmd war luoyang\n");
-                // write("Àı×Ó£ºcmd war time ²é¿´Ä¿Ç°ÊÇ·ñ¿ÉÒÔ¿ªÕ½£¬Õâ¸ö×´Ì¬Ê²Ã´Ê±ºò¸Ä±ä¡£\n ");
-                write("ÓÃ help war ²é¿´ÏêÏ¸°ïÖú¡£\n");
+                write("ç”¨æ³•ï¼šcmd war <area_id>\n");
+                write("ä¾‹å­ï¼šcmd war luoyang\n");
+                // write("ä¾‹å­ï¼šcmd war time æŸ¥çœ‹ç›®å‰æ˜¯å¦å¯ä»¥å¼€æˆ˜ï¼Œè¿™ä¸ªçŠ¶æ€ä»€ä¹ˆæ—¶å€™æ”¹å˜ã€‚\n ");
+                write("ç”¨ help war æŸ¥çœ‹è¯¦ç»†å¸®åŠ©ã€‚\n");
                 return;
         }
 
@@ -31,31 +31,31 @@ void start(string arg)
                 if(DAY_D->get_can_war()==0) {
     write("%^H_RED%^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&%^RESET%^\n");
     write(
-"\n%^H_YELLOW%^ººÏ×µÛ%^H_CYAN%^Ú¯ÚÍ£º\n\n    ëŞ¹ÛÖ®Á¬ÄêÖîºî»ìÕ½£¬Ãñ²»ÁÄÉú¡£½ñÉÏÌìÓĞºÃÉúÖ®µÂ£¬ëŞË³Ó¦
-ÌìÊ±£¬ÁîÌìÏÂ¸÷Â·Öîºî%^H_MAGENTA%^"+
+"\n%^H_YELLOW%^æ±‰çŒ®å¸%^H_CYAN%^è¯è°•ï¼š\n\n    æœ•è§‚ä¹‹è¿å¹´è¯¸ä¾¯æ··æˆ˜ï¼Œæ°‘ä¸èŠç”Ÿã€‚ä»Šä¸Šå¤©æœ‰å¥½ç”Ÿä¹‹å¾·ï¼Œæœ•é¡ºåº”
+å¤©æ—¶ï¼Œä»¤å¤©ä¸‹å„è·¯è¯¸ä¾¯%^H_MAGENTA%^"+
  CHINESE_D->chinese_period(DAY_D->get_change_time())+
- "%^H_CYAN%^ÄÚ²»µÃÕ÷Õ½¡£\n\n                                                   ÇÕ´Ë%^RESET%^\n\n");
+ "%^H_CYAN%^å†…ä¸å¾—å¾æˆ˜ã€‚\n\n                                                   é’¦æ­¤%^RESET%^\n\n");
     write("%^H_RED%^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&%^RESET%^\n");
                         return;
                 }
         else{
         write("%^H_RED%^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&%^RESET%^\n");
-        write("\n%^H_YELLOW%^ººÏ×µÛ%^H_CYAN%^Ú¯ÚÍ£º\n\n    ëŞµÃÒìÈË¹ÛÌìÏó£¬Öª½ñÌìÏÂ´óÂÒ£¬µÁ·ËºáĞĞ£¬¸÷µØ°ÙĞÕ²»µÃ°²Äş£¬
-Íû¸÷Â·ÖîºîÕûËà¾ü±¸£¬ÒÔ°²ÃñĞÄ¡£ëŞ³¢ÎÅ%^H_MAGENTA%^¡¸¹úËä´ó£¬ºÃÕ½±ØÍö¡¹%^H_CYAN%^£¬Íû
-ÖîºîºÃ×ÔÎªÖª£¬ÊÊ¿É¶øÖ¹¡£%^RESET%^\n");
-        write("\n%^H_CYAN%^                                                       ÇÕ´Ë%^RESET%^\n\n");
+        write("\n%^H_YELLOW%^æ±‰çŒ®å¸%^H_CYAN%^è¯è°•ï¼š\n\n    æœ•å¾—å¼‚äººè§‚å¤©è±¡ï¼ŒçŸ¥ä»Šå¤©ä¸‹å¤§ä¹±ï¼Œç›—åŒªæ¨ªè¡Œï¼Œå„åœ°ç™¾å§“ä¸å¾—å®‰å®ï¼Œ
+æœ›å„è·¯è¯¸ä¾¯æ•´è‚ƒå†›å¤‡ï¼Œä»¥å®‰æ°‘å¿ƒã€‚æœ•å°é—»%^H_MAGENTA%^ã€Œå›½è™½å¤§ï¼Œå¥½æˆ˜å¿…äº¡ã€%^H_CYAN%^ï¼Œæœ›
+è¯¸ä¾¯å¥½è‡ªä¸ºçŸ¥ï¼Œé€‚å¯è€Œæ­¢ã€‚%^RESET%^\n");
+        write("\n%^H_CYAN%^                                                       é’¦æ­¤%^RESET%^\n\n");
         write("%^H_RED%^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&%^RESET%^\n");
 //                return;
                 } 
         }
         if(arg=="time"&&DAY_D->get_can_war()==0) {
-                write("¾àÏÂ´ÎÕ½Õù¿ª·ÅÊ±¼ä£º"+ 
-                CHINESE_D->chinese_period(DAY_D->get_change_time())+"¡£\n");
+                write("è·ä¸‹æ¬¡æˆ˜äº‰å¼€æ”¾æ—¶é—´ï¼š"+ 
+                CHINESE_D->chinese_period(DAY_D->get_change_time())+"ã€‚\n");
                 return ;
                 }
         if(arg=="time"&&DAY_D->get_can_war()==1){
-                write("Õ½Õù¿ª·Å³ÖĞøÊ±¼ä£º"+
-                CHINESE_D->chinese_period(DAY_D->get_change_time())+"¡£\n");
+                write("æˆ˜äº‰å¼€æ”¾æŒç»­æ—¶é—´ï¼š"+
+                CHINESE_D->chinese_period(DAY_D->get_change_time())+"ã€‚\n");
                 return;
         }
 */
@@ -69,56 +69,56 @@ void start(string arg)
         m_area=CHAR_D->get_char(my_id,"area");
         if(!CHAR_D->get_char(my_id,"nation"))
         {
-               	write("µÈÄã»ìÁË¸öÒ»¹Ù°ëÖ°ÒÔºó£¬ÔÙÀ´¿¼ÂÇ³ö±øµÄÎÊÌâ°É¡£\n");
+               	write("ç­‰ä½ æ··äº†ä¸ªä¸€å®˜åŠèŒä»¥åï¼Œå†æ¥è€ƒè™‘å‡ºå…µçš„é—®é¢˜å§ã€‚\n");
                	return;
         }
         	        
         if(my_task[1]!=TT_LOCALMEETING)
         {
-               	write("Õâ¸öÎÊÌâ»¹ÊÇµØÇø»áÒéÉÏÌ¸°É¡£\n");
+               	write("è¿™ä¸ªé—®é¢˜è¿˜æ˜¯åœ°åŒºä¼šè®®ä¸Šè°ˆå§ã€‚\n");
                	return;
         }
 	if(((file_name(environment(this_body())))!=
 	((AREA_D->get_area(p_area1,"path"))+(AREA_D->get_area(p_area1,"meeting"))))
 	||(p_area1!= environment(this_body())->get_area()))
 	{
-		write("Õâ¸öÎÊÌâ±ØĞëÔÚ»áÒéÖ®ËùÌÖÂÛ¡£\n");
+		write("è¿™ä¸ªé—®é¢˜å¿…é¡»åœ¨ä¼šè®®ä¹‹æ‰€è®¨è®ºã€‚\n");
 		return;
 	}
         if(TASK_D->get_task(task_id,"suggestion"))
         {
-               	write("ÏÖÔÚÕıÔÚÌÖÂÛÆäËûµÄÒéÌâ£¬ÄãµÄÒâ¼ûµÈ»á¶ùÔÙËµ°É¡£\n");
+               	write("ç°åœ¨æ­£åœ¨è®¨è®ºå…¶ä»–çš„è®®é¢˜ï¼Œä½ çš„æ„è§ç­‰ä¼šå„¿å†è¯´å§ã€‚\n");
 		return;
         }
         if(((TASK_D->get_task(task_id,"timaim")-
              TASK_D->get_task(task_id,"timer"))<3)&&
             (TASK_D->get_task(task_id,"stage")!=0))
         {
-               	write("Ê±¼ä²»¶àÁË£¬»ØÍ·ÔÙÌá°É¡£\n");
+               	write("æ—¶é—´ä¸å¤šäº†ï¼Œå›å¤´å†æå§ã€‚\n");
                	return;
         }
         if(!AREA_D->area_exist(arg)) 
         {
-        	write("Ã»ÓĞÕâ¸öµØÇø¡£\n");
+        	write("æ²¡æœ‰è¿™ä¸ªåœ°åŒºã€‚\n");
                 return;
         }
 	if( !wizardp(this_body()) )
 	{
         	if((CHAR_D->get_char(my_id,"level")<3))
         	{
-                	write("ÄãµÄ¹ÙÖ°Ì«µÍ£¬²»ÄÜ½¨Òé³ö±ø¡£\n");
+                	write("ä½ çš„å®˜èŒå¤ªä½ï¼Œä¸èƒ½å»ºè®®å‡ºå…µã€‚\n");
                 	return;
         	}
          
-                if (CHAR_D->get_char(m_nation,"type")==TYPE_NPC) //½ûÖ¹npc¹ú¼ÒµÄÍæ¼ÒÔÚ¶ÀÁ¢Ç°·¢¶¯Õ½Õù
-                {                                             //2001.4.19·ÀÖ¹Íæ¼Ò¶ñÒâÏûºÄNPC¹ú¼Ò±øÁ¦
-                	write("´ËÄËÂÒÊÀ£¬ÖÜÎ§½ÔÊÇ»¢ÀÇÖ®°î£¬Æä¿ÉÇáÒ×³ö±ø£¿£¡»¹ÊÇ×Ô±£ÎªÉÏ£¡\n");
+                if (CHAR_D->get_char(m_nation,"type")==TYPE_NPC) //ç¦æ­¢npcå›½å®¶çš„ç©å®¶åœ¨ç‹¬ç«‹å‰å‘åŠ¨æˆ˜äº‰
+                {                                             //2001.4.19é˜²æ­¢ç©å®¶æ¶æ„æ¶ˆè€—NPCå›½å®¶å…µåŠ›
+                	write("æ­¤ä¹ƒä¹±ä¸–ï¼Œå‘¨å›´çš†æ˜¯è™ç‹¼ä¹‹é‚¦ï¼Œå…¶å¯è½»æ˜“å‡ºå…µï¼Ÿï¼è¿˜æ˜¯è‡ªä¿ä¸ºä¸Šï¼\n");
                  	return;
                 }
 
                 if(m_nation==t_nation) 
                 {
-                        write(AREA_D->get_area(arg,"name")+"ÄË±¾¹úÁìÍÁ£¬Ôõ¿É³ö±ø£¿£¡\n");
+                        write(AREA_D->get_area(arg,"name")+"ä¹ƒæœ¬å›½é¢†åœŸï¼Œæ€å¯å‡ºå…µï¼Ÿï¼\n");
                         return;
                 }
 	
@@ -127,8 +127,8 @@ void start(string arg)
 			&& CHAR_D->get_char(t_nation,"type")) 
 		{
                         write(AREA_D->get_area(arg,"name")+
-                               "ÊÇ"+COUNTRY_D->get_country(t_nation,"name")+
-                               "×îºóÒ»¿éÍÁµØ£¬ÏÖÔÚ²»±ã¸Ï¾¡É±¾ø¡£\n");
+                               "æ˜¯"+COUNTRY_D->get_country(t_nation,"name")+
+                               "æœ€åä¸€å—åœŸåœ°ï¼Œç°åœ¨ä¸ä¾¿èµ¶å°½æ€ç»ã€‚\n");
                         return;
 		}
 
@@ -137,44 +137,44 @@ void start(string arg)
 		if ( war_status == 2 )
 		{
 			write("%^H_RED%^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&%^RESET%^\n");
-    			write("\n%^H_YELLOW%^ººÏ×µÛ%^H_CYAN%^Ú¯ÚÍ£º\n\n    ëŞ¹ÛÖ®Á¬ÄêÖîºî»ìÕ½£¬
-    				Ãñ²»ÁÄÉú¡£½ñÉÏÌìÓĞºÃÉúÖ®µÂ£¬ëŞË³Ó¦\nÌìÊ±£¬ÁîÌìÏÂ¸÷Â·Öîºî%^H_MAGENTA%^"+
+    			write("\n%^H_YELLOW%^æ±‰çŒ®å¸%^H_CYAN%^è¯è°•ï¼š\n\n    æœ•è§‚ä¹‹è¿å¹´è¯¸ä¾¯æ··æˆ˜ï¼Œ
+    				æ°‘ä¸èŠç”Ÿã€‚ä»Šä¸Šå¤©æœ‰å¥½ç”Ÿä¹‹å¾·ï¼Œæœ•é¡ºåº”\nå¤©æ—¶ï¼Œä»¤å¤©ä¸‹å„è·¯è¯¸ä¾¯%^H_MAGENTA%^"+
  				CHINESE_D->chinese_period(DAY_D->get_change_time())+
- 				 "%^H_CYAN%^ÄÚ²»µÃÕ÷Õ½¡£\n\n                                                   ÇÕ´Ë%^RESET%^\n\n");
+ 				 "%^H_CYAN%^å†…ä¸å¾—å¾æˆ˜ã€‚\n\n                                                   é’¦æ­¤%^RESET%^\n\n");
 			write("%^H_RED%^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&%^RESET%^\n");
 			return;
 		}
 		if ( war_status == 1 )
 		{
-			write("µĞ·½³ÇÊĞÕıÊÜÉñÁé±ÓÓÓ£¬Ê±³½²»¶Ô£¬²»ÒË³ö±ø¡£\n");
-			write("ÇëÓÃ cmd wartime <µĞ·½¹ú¼ÒID> ²é¿´³ö±øÊ±³½. \n");
+			write("æ•Œæ–¹åŸå¸‚æ­£å—ç¥çµåº‡ä½‘ï¼Œæ—¶è¾°ä¸å¯¹ï¼Œä¸å®œå‡ºå…µã€‚\n");
+			write("è¯·ç”¨ cmd wartime <æ•Œæ–¹å›½å®¶ID> æŸ¥çœ‹å‡ºå…µæ—¶è¾°. \n");
 			return;
 		}
                 p_safe=AREA_D->get_area(m_area,"safe");
                 if(p_safe<100)
                 {
-                        write("´ËµØÃñĞÄÎ´ÎÈ£¬ÔİÊ±²»±ã³ö±ø¡£\n");
+                        write("æ­¤åœ°æ°‘å¿ƒæœªç¨³ï¼Œæš‚æ—¶ä¸ä¾¿å‡ºå…µã€‚\n");
                         return;
                 }
 
                 p_safe=AREA_D->get_area(m_area,"morale");
                 if(p_safe<100)
                 {
-                        write("Ä¿Ç°±øÊ¿È«ÎŞ¶·Ö¾£¬ÈçºÎÄÜ³ö±ø¡£\n");
+                        write("ç›®å‰å…µå£«å…¨æ— æ–—å¿—ï¼Œå¦‚ä½•èƒ½å‡ºå…µã€‚\n");
                         return;
                 }
 
                 p_safe=AREA_D->get_area(m_area,"train");
                 if(p_safe<100)
                 {
-                        write("Ä¿Ç°±øÊ¿ÑµÁ·²»×ã£¬ÈçºÎÄÜ³ö±ø¡£\n");
+                        write("ç›®å‰å…µå£«è®­ç»ƒä¸è¶³ï¼Œå¦‚ä½•èƒ½å‡ºå…µã€‚\n");
                         return;
                 }
 
                 p_safe=AREA_D->get_area(m_area,"soldier");
                 if(p_safe<1000*AREA_D->get_area(arg,"level"))
                 {
-                        write("±¾µØ±øÊ¿ÊıÁ¿²»×ã£¬×Ô±£¶¼²»Ò×£¬ÈçºÎÄÜ³ö±ø¡£\n");
+                        write("æœ¬åœ°å…µå£«æ•°é‡ä¸è¶³ï¼Œè‡ªä¿éƒ½ä¸æ˜“ï¼Œå¦‚ä½•èƒ½å‡ºå…µã€‚\n");
                         return;
                 }
 	}
@@ -182,14 +182,14 @@ void start(string arg)
         if(member_array(arg,neighbor)==-1) 
         {
         	write(AREA_D->get_area(arg,"name")+
-                      "Óë±¾µØ²¢²»ÏàÁÚ£¬ÎŞ·¨³ö±ø¡£\n");
+                      "ä¸æœ¬åœ°å¹¶ä¸ç›¸é‚»ï¼Œæ— æ³•å‡ºå…µã€‚\n");
                 return;
          }
 
          p_talk=CHAR_D->get_char(t_nation,"name")+
-                        "¶àĞĞ²»Òå£¬¹úÊÆÒÑË¥¡£ÒÔ$sÖ®¼û£¬ÏÖÕıÊÇ³ö±øÕ÷ÌÖÃğµÄ´óºÃÊ±»ú¡£\n"+
-                        "$sÒÔÎª£º±ø¹óÉñËÙ£¬µ±Á¢¼´·¢±ø"+
-         AREA_D->get_area(arg,"name")+"£¬±ØÄÜÂíµ½³É¹¦£¡\n";
+                        "å¤šè¡Œä¸ä¹‰ï¼Œå›½åŠ¿å·²è¡°ã€‚ä»¥$sä¹‹è§ï¼Œç°æ­£æ˜¯å‡ºå…µå¾è®¨ç­çš„å¤§å¥½æ—¶æœºã€‚\n"+
+                        "$sä»¥ä¸ºï¼šå…µè´µç¥é€Ÿï¼Œå½“ç«‹å³å‘å…µ"+
+         AREA_D->get_area(arg,"name")+"ï¼Œå¿…èƒ½é©¬åˆ°æˆåŠŸï¼\n";
 	
          this_body()->simple_action(p_talk);
          (EV_LOCALMEETING)->get_suggestion(task_id,my_id,"war",arg);

@@ -1,4 +1,4 @@
-//  ³ÇÖĞĞÄ by benben
+//  åŸä¸­å¿ƒ by benben
 // xy_center.c 
 #include <mudlib.h>
 #include "/wiz/fire/fire.h"
@@ -7,8 +7,8 @@ inherit OUTDOOR_ROOM;
 void setup(){
     set_area("xianyang");
     set_light(50);
-    set_brief(""+YEL+"³ÇÖĞĞÄ"+NOR+"");
-    set_long("    ÃèÊö¡£\n");
+    set_brief(""+YEL+"åŸä¸­å¿ƒ"+NOR+"");
+    set_long("    æè¿°ã€‚\n");
     set_exits( ([
         "east" :  __DIR__+"xy_est1.c",
         "west" :  __DIR__+"xy_wst1.c",

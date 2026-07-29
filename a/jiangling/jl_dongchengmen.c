@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is »¨¶ù¶ä¶ä
+// driver is èŠ±å„¿æœµæœµ
 // created date is Mon May  9 10:08:48 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,10 +7,10 @@ inherit OUTDOOR_ROOM;
 void setup() {
 set_area("jiangling");
 set_light(50);
-set_brief("%^YELLOW%^"+"¶«³ÇÃÅ"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"ä¸œåŸé—¨"+"%^RESET%^");
 set_long("
-    ÕâÀïÊÇ½­ÁêµÄ¶«³ÇÃÅ,¸ß´óµÄ³ÇÇ½ÉÏĞ´×Å
-Åµ´óµÄÁ½¸ö×Ö¡¸"+"%^MAGENTA%^"+"½­Áê"+"%^RESET%^"+"¡¹¡£\n\n");
+    è¿™é‡Œæ˜¯æ±Ÿé™µçš„ä¸œåŸé—¨,é«˜å¤§çš„åŸå¢™ä¸Šå†™ç€
+è¯ºå¤§çš„ä¸¤ä¸ªå­—ã€Œ"+"%^MAGENTA%^"+"æ±Ÿé™µ"+"%^RESET%^"+"ã€ã€‚\n\n");
 set_exits( ([
 "west":"/a/jiangling/jl_xipeng.c",
  ]));

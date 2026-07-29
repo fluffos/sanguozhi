@@ -1,4 +1,4 @@
-// net.c "ÓæÍø"
+// net.c "æ¸”ç½‘"
 #include <ansi.h>
 #define FISH "/sgdomain/job/fishing/fish.c"
 
@@ -12,27 +12,27 @@ private int chance;
 private int size;
 private int thrown;
         
-string * desc = ({      "Ò»ÕÅÕ¸ĞÂµÄÓæÍø¡£",
-                        "ÓÃ¹ı¼¸»ØµÄÓæÍø¡£",
-                        "Ò»ÕÅ¹ßÓÃµÄÓæÍø¡£",
-                        "ÓæÍøÓĞĞ©¾ÉÁË¡£",
-                        "Ò»ÕÅ¾ÉÓæÍø£¬ÓĞºÃĞ©¶´¡£",
-                        "Ò»ÕÅÆÆ¾ÉµÄÓæÍø£¬¿´ÆğÀ´ÊÇ²»ÄÜÓÃÁË¡£",
+string * desc = ({      "ä¸€å¼ å´­æ–°çš„æ¸”ç½‘ã€‚",
+                        "ç”¨è¿‡å‡ å›çš„æ¸”ç½‘ã€‚",
+                        "ä¸€å¼ æƒ¯ç”¨çš„æ¸”ç½‘ã€‚",
+                        "æ¸”ç½‘æœ‰äº›æ—§äº†ã€‚",
+                        "ä¸€å¼ æ—§æ¸”ç½‘ï¼Œæœ‰å¥½äº›æ´ã€‚",
+                        "ä¸€å¼ ç ´æ—§çš„æ¸”ç½‘ï¼Œçœ‹èµ·æ¥æ˜¯ä¸èƒ½ç”¨äº†ã€‚",
                 });
           
-string * str1 = ({      "$N»©À²À²ÕÅ¿ªÒ»ÕÅÓæÍø£¬ÈöÁË¿ªÈ¥¡£\n",
-                        "$N½«ÓæÍøÕÅ¿ª£¬Ë¢µØÒ»Éù¶¶ÁË³öÈ¥¡£\n",
-                        "$NÒ»±ßÄîß¶×Å£¬Ò»±ß½«ÓæÍøÈöÁË³öÈ¥¡£\n",
-                        "$NÑ¡¶¨ºÃÒ»¸öµØ·½£¬Ò»°Ñ½«ÓæÍø¶¶ÁË³öÈ¥¡£\n",
-                        "$N°ÑÓæÍøÈöÁË³öÈ¥£¬¾²¾²µØµÈ×Å¡£\n",
+string * str1 = ({      "$Nå“—å•¦å•¦å¼ å¼€ä¸€å¼ æ¸”ç½‘ï¼Œæ’’äº†å¼€å»ã€‚\n",
+                        "$Nå°†æ¸”ç½‘å¼ å¼€ï¼Œåˆ·åœ°ä¸€å£°æŠ–äº†å‡ºå»ã€‚\n",
+                        "$Nä¸€è¾¹å¿µå¨ç€ï¼Œä¸€è¾¹å°†æ¸”ç½‘æ’’äº†å‡ºå»ã€‚\n",
+                        "$Né€‰å®šå¥½ä¸€ä¸ªåœ°æ–¹ï¼Œä¸€æŠŠå°†æ¸”ç½‘æŠ–äº†å‡ºå»ã€‚\n",
+                        "$NæŠŠæ¸”ç½‘æ’’äº†å‡ºå»ï¼Œé™é™åœ°ç­‰ç€ã€‚\n",
                 });
          
 void setup() {
-        set_id("net", "ÓæÍø");
-        set_in_room_desc("Ò»ÕÅÓæÍø(net)");
+        set_id("net", "æ¸”ç½‘");
+        set_in_room_desc("ä¸€å¼ æ¸”ç½‘(net)");
         old = 0;
         thrown = 0;
-        set_throwmsg("Äã»©À²À²ÕÅ¿ªÒ»ÕÅÓæÍø£¬ÈöÁË¿ªÈ¥¡£\n");
+        set_throwmsg("ä½ å“—å•¦å•¦å¼ å¼€ä¸€å¼ æ¸”ç½‘ï¼Œæ’’äº†å¼€å»ã€‚\n");
         set_value(3);
         set_currency_type("silver");
         set_is_keeping(1);   
@@ -43,23 +43,23 @@ string long() { return desc[old]; }
 mixed throw() {
         chance = 0;
         size = 0;
-        if (thrown) return "ÓæÍøÔç¾ÍÒÑ¾­Èö¿ªÁË¡£\n";
-        if (old > 4) return "ÓæÍøÒÑ¾­¾ÉµÃ²»ÄÜÓÃÁË¡£\n";
+        if (thrown) return "æ¸”ç½‘æ—©å°±å·²ç»æ’’å¼€äº†ã€‚\n";
+        if (old > 4) return "æ¸”ç½‘å·²ç»æ—§å¾—ä¸èƒ½ç”¨äº†ã€‚\n";
         if ( !present("pound", environment(this_body())) )
-          return "Õâ¶ù²»ÊÇÈöÍøµÄµØ·½¡£\n";
+          return "è¿™å„¿ä¸æ˜¯æ’’ç½‘çš„åœ°æ–¹ã€‚\n";
 
         switch(DAY_D->query_season(1)) {
           case "spring" : size = 0 + random(3); chance = random(35); break;
-                        // return "ÏÖÔÚÊÇÑøÓã¼¾½Ú£¬²»ÄÜ²¶Óã¡£\n";
+                        // return "ç°åœ¨æ˜¯å…»é±¼å­£èŠ‚ï¼Œä¸èƒ½æ•é±¼ã€‚\n";
           case "winter" : size = 1 + random(3); chance = random(35); break;
-                        // return "ºÓÉÏ¶¼½á±ùÁË£¬ÔõÃ´ÈöÍø£¿\n";
+                        // return "æ²³ä¸Šéƒ½ç»“å†°äº†ï¼Œæ€ä¹ˆæ’’ç½‘ï¼Ÿ\n";
           case "summer" : size = 2 + random(3); chance = random(45); break;
           case "autumn" : size = 3 + random(3); chance = random(55); break;
           default : size = 0; chance = -50; break;
         }
                         
         switch(DAY_D->query_string_hour(1)) {
-          case "night" : return "Éî¸ü°ëÒ¹µÄ£¬²¶Ê²Ã´Óã£¿\n";  
+          case "night" : return "æ·±æ›´åŠå¤œçš„ï¼Œæ•ä»€ä¹ˆé±¼ï¼Ÿ\n";  
           case "morning" : chance += 50; break;
           case "noon" : chance += 10; break;
           case "afternoon" : chance += 30; break;
@@ -67,7 +67,7 @@ mixed throw() {
                         
         this_body()->simple_action(choice(str1));
 	write("\n");
-        this_body()->start_busy(30+random(60), "ÄãÕıÃ¦×Å²¶ÓãÄØ¡£");
+        this_body()->start_busy(30+random(60), "ä½ æ­£å¿™ç€æ•é±¼å‘¢ã€‚");
         thrown = 1;
 	old += random(2);
 
@@ -85,34 +85,34 @@ mixed throw() {
 int pull() {
         object ob;
         if ( !thrown )   
-          write("ÓæÍø»¹Ã»Èö³öÈ¥ÄØ¡£\n");
+          write("æ¸”ç½‘è¿˜æ²¡æ’’å‡ºå»å‘¢ã€‚\n");
         else if ( this_body()->query_cur_hp() < 10 )
-          write("ÄãÆøÁ¦²»×ã£¬ÀÌ²»¶¯ÓæÍø¡£\n");
+          write("ä½ æ°”åŠ›ä¸è¶³ï¼Œæä¸åŠ¨æ¸”ç½‘ã€‚\n");
         else if ( chance < 50 ) {
 	  this_body()->set_cur_hp(this_body()->query_cur_hp() - 2);
-          this_body()->simple_action("$NÇáÇáËÉËÉµØÀÌÆğÓæÍø¡£");
-          write("½á¹ûÊ§ÍûµØ·¢ÏÖÊ²Ã´Ò²Ã»ÓĞ¡£\n");
+          this_body()->simple_action("$Nè½»è½»æ¾æ¾åœ°æèµ·æ¸”ç½‘ã€‚");
+          write("ç»“æœå¤±æœ›åœ°å‘ç°ä»€ä¹ˆä¹Ÿæ²¡æœ‰ã€‚\n");
         }
         else if ( size < 3 ) {
           this_body()->set_cur_hp(this_body()->query_cur_hp() - 4);
-          this_body()->simple_action("$NÇáÇáËÉËÉµØÀÌÆğÓæÍø¡£");
-          write("Ö»¼ûµ½Ò»ÌõĞ¡ÓãÔÚÍøÖĞÌøÀ´ÌøÈ¥¡£\n");
+          this_body()->simple_action("$Nè½»è½»æ¾æ¾åœ°æèµ·æ¸”ç½‘ã€‚");
+          write("åªè§åˆ°ä¸€æ¡å°é±¼åœ¨ç½‘ä¸­è·³æ¥è·³å»ã€‚\n");
           ob = new(FISH);
           ob->modify(size);
           ob->move(this_body());
         }               
         else if ( size < 5 ) {
           this_body()->set_cur_hp(this_body()->query_cur_hp() - 6);
-          this_body()->simple_action("$N´ó·Ñ¾«Á¦µØÀÌÆğÓæÍø¡£");
-          write("ÍÛ£¬Ò»Ìõ´óÓã£¡\n");
+          this_body()->simple_action("$Nå¤§è´¹ç²¾åŠ›åœ°æèµ·æ¸”ç½‘ã€‚");
+          write("å“‡ï¼Œä¸€æ¡å¤§é±¼ï¼\n");
           ob = new(FISH);
           ob->modify(size);
           ob->move(this_body());
         }
         else {
           this_body()->set_cur_hp(this_body()->query_cur_hp() - 8);
-          this_body()->simple_action("$N·ÑÁË´ó°ëÌì¹¤·ò£¬ºÃ²»ÈİÒ×ÀÌÆğÓæÍø¡£");
-          write("ºÃ´óÒ»ÌõÓã£¡ÄÑ¹ÖÄÇÃ´·Ñ¾¢¡£\n");
+          this_body()->simple_action("$Nè´¹äº†å¤§åŠå¤©å·¥å¤«ï¼Œå¥½ä¸å®¹æ˜“æèµ·æ¸”ç½‘ã€‚");
+          write("å¥½å¤§ä¸€æ¡é±¼ï¼éš¾æ€ªé‚£ä¹ˆè´¹åŠ²ã€‚\n");
           ob = new(FISH);
           ob->modify(size);
           ob->move(this_body());

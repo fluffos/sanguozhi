@@ -52,7 +52,7 @@ varargs mixed move(mixed dest, string where)
         dest = load_object( dest );
     if (!objectp(dest)) return MOVE_NO_DEST;
     if (dest->is_in(this_object()))
-       return "你怎么能把一样东西放到它自己里面呢？\n";
+       return "浣犳�庝箞鑳芥妸涓�鏍蜂笢瑗挎斁鍒板畠鑷繁閲岄潰鍛紵\n";
 //"You can't move an object inside itself.\n";
     env=environment();
     if (env) {

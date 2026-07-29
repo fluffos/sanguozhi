@@ -13,53 +13,53 @@ private void main(string which)
 
     if ( !which )
     {
-        out("ÄãÒªÖ¸¶¨Ò»¸öÇé¸Ğ¶¯´Ê¡£\n");
+        out("ä½ è¦æŒ‡å®šä¸€ä¸ªæƒ…æ„ŸåŠ¨è¯ã€‚\n");
         return;
     }
 
     data = SOUL_D->query_emote(which);
     if ( !data )
     {
-        out("Ã»ÓĞÕâ¸öÇé¸Ğ¶¯´Ê¡£\n");
+        out("æ²¡æœ‰è¿™ä¸ªæƒ…æ„ŸåŠ¨è¯ã€‚\n");
         return;
     }
 
     if ( data[""] )
     {
         info = SOUL_D->get_soul(which, "", ({ }));
-        outf("%s :\n  Äã»á¿´µ½£º%sËûÈË»á¿´µ½£º%s\n",
+        outf("%s :\n  ä½ ä¼šçœ‹åˆ°ï¼š%sä»–äººä¼šçœ‹åˆ°ï¼š%s\n",
                which, info[1][0], info[1][1]);
     }
 
     if ( data["LIV"] )
     {
         info = SOUL_D->get_soul(which, "LIV", ({ this_object() }));
-        outf("%s somebody:\n  Äã»á¿´µ½£º%sÄ¿±ê»á¿´µ½£º%sËûÈË»á¿´µ½£º%s\n",
+        outf("%s somebody:\n  ä½ ä¼šçœ‹åˆ°ï¼š%sç›®æ ‡ä¼šçœ‹åˆ°ï¼š%sä»–äººä¼šçœ‹åˆ°ï¼š%s\n",
                which, info[1][0], info[1][1], info[1][2]);
     }
 
     if ( data["STR"] )
     {
         info = SOUL_D->get_soul(which, "STR", ({ "slowly" }));
-        outf("%s slowly :\n     Äã»á¿´µ½£º%sËûÈË»á¿´µ½£º%s\n",
+        outf("%s slowly :\n     ä½ ä¼šçœ‹åˆ°ï¼š%sä»–äººä¼šçœ‹åˆ°ï¼š%s\n",
                which, info[1][0], info[1][1]);
     }
 
     if ( data["LIV STR"] )
     {
         info = SOUL_D->get_soul(which, "LIV STR", ({ this_object(), "slowly" }));
-        outf("%s somebody slowly :\n  Äã»á¿´µ½£º%sÄ¿±ê»á¿´µ½£º%sËûÈË»á¿´µ½£º%s\n",
+        outf("%s somebody slowly :\n  ä½ ä¼šçœ‹åˆ°ï¼š%sç›®æ ‡ä¼šçœ‹åˆ°ï¼š%sä»–äººä¼šçœ‹åˆ°ï¼š%s\n",
                which, info[1][0], info[1][1], info[1][2]);
     }
 }
 
 string query_pronoun()
 {
-    return "Ëû";
+    return "ä»–";
 }
 string query_reflexive()
 {
-    return "Ëû×Ô¼º";
+    return "ä»–è‡ªå·±";
 }
 string query_subjective()
 {
@@ -67,20 +67,20 @@ string query_subjective()
 }
 string query_objective()
 {
-    return "Ëû";
+    return "ä»–";
 }
 string query_possessive()
 {
-    return "ËûµÄ";
+    return "ä»–çš„";
 }
 string query_named_possessive()
 {
-    return "Ä³ÈËµÄ";
+    return "æŸäººçš„";
 }
 
 string short()
 {
-    return "Ä³ÈË";
+    return "æŸäºº";
 }
 
 void player_menu_entry (string s)

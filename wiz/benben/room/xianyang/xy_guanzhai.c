@@ -1,4 +1,4 @@
-//  ¹ÙÕ¬ by benben
+//  å®˜å®… by benben
 // xy_guanzhai.c 
 #include <mudlib.h>
 #include "/wiz/fire/fire.h"
@@ -7,8 +7,8 @@ inherit ROOM;
 void setup(){
     set_area("xianyang");
     set_light(50);
-    set_brief(""+YEL+"¹ÙÕ¬"+NOR+"");
-    set_long("    ÃèÊö¡£\n\n");
+    set_brief(""+YEL+"å®˜å®…"+NOR+"");
+    set_long("    æè¿°ã€‚\n\n");
     set_exits( ([
         "south" :  __DIR__+"xy_nst3.c",
     ]) );

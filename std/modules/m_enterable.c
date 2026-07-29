@@ -3,8 +3,8 @@
 
 string short();
 
-private static string on_enter_msg;
-private static string on_exit_msg;
+private nosave string on_enter_msg;
+private nosave string on_exit_msg;
 
 void set_on_enter_msg(string s)
 {
@@ -29,7 +29,7 @@ string get_on_exit_msg()
 string handle_exit_msgs(object last_loc)
 {
   return get_on_enter_msg() || //"$N $venter "+short()+".\n";
-                               "$N½øÈëÁË"+short()+"¡£\n";
+                               "$Nè¿›å…¥äº†"+short()+"ã€‚\n";
 }
 
 int direct_enter_obj()
@@ -42,7 +42,7 @@ int do_enter()
   if(environment(this_body()) == this_object())
     {
       //write("You are already there.\n");
-      write("ÄãÒÑ¾­ÔÚÄÇ¶ùÁË¡£\n"); 
+      write("ä½ å·²ç»åœ¨é‚£å„¿äº†ã€‚\n"); 
       return 1;
     }
   this_body()->move_to(file_name(this_object()), short());
@@ -67,6 +67,6 @@ int direct_exit_obj()
 mixed exit()
 {
   return get_on_exit_msg() || //"$N $vexit " + short() + ".\n";
-                              "$NÀë¿ªÁË"+short()+"¡£\n";
+                              "$Nç¦»å¼€äº†"+short()+"ã€‚\n";
 }
 

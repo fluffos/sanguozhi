@@ -16,7 +16,7 @@ nomask private void main(string str)
     sscanf(p_id, "%s %s", p_id, extra);
     if ( extra )
     {
-        write("´íÎóÓÃ·¨£®\n");
+        write("é”™è¯¯ç”¨æ³•ï¼\n");
 	return;
     }
 }

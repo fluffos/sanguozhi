@@ -1,24 +1,24 @@
 ---
-×÷Õß: °¢Âå(row)
-ÌâÄ¿: robot test
-ÈÕÆÚ: Tue Feb  1 20:21:53 2000
+ä½œè€…: é˜¿æ´›(row)
+é¢˜ç›®: robot test
+æ—¥æœŸ: Tue Feb  1 20:21:53 2000
 seems we have to increase the chance of robot testing..
 
 
 ---
-×÷Õß: ÁÒ»ğ(fire)
-ÌâÄ¿: about robot test
-ÈÕÆÚ: Sat Jan 29 01:10:17 2000
+ä½œè€…: çƒˆç«(fire)
+é¢˜ç›®: about robot test
+æ—¥æœŸ: Sat Jan 29 01:10:17 2000
 I think robot test in this mud is a very interesting
 topic, and it still not perfect, so I think we can
 open this task board for the discussion about robot problems
 
 
 ---
-×÷Õß: Ğş±ù(ice)
-ÌâÄ¿: about literate
-ÈÕÆÚ: Fri Jan 28 11:59:31 2000
-(×ªÔØ×Ôwiz.com)
+ä½œè€…: ç„å†°(ice)
+é¢˜ç›®: about literate
+æ—¥æœŸ: Fri Jan 28 11:59:31 2000
+(è½¬è½½è‡ªwiz.com)
 b4 robot test is for prevent player only rely on robot, however,
 later it's changed to be a standard of evaluation, so the former
 way is not so fit for current situation.  I think we should make it a
@@ -27,14 +27,14 @@ formula. I'll give a draft one in the next post.:P, discuss discuss bah.:P
 
 
 ---
-×÷Õß: Ğş±ù(ice)
-ÌâÄ¿: about literate formula
-ÈÕÆÚ: Fri Jan 28 13:45:35 2000
-(×ªÔØ×Ôwiz.com)
+ä½œè€…: ç„å†°(ice)
+é¢˜ç›®: about literate formula
+æ—¥æœŸ: Fri Jan 28 13:45:35 2000
+(è½¬è½½è‡ªwiz.com)
 first I suggest to change the "cmd robot" to the following way:
-ÖÇÄÜ²âÊÔ£º¡¡²âÊÔ×Ü´ÎÊı¡¡¡¡  Ê§°Ü´ÎÊı¡¡¡¡×î½ü×´¿ö
-¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş
-          ËÄÇ§Ò»°ÙÆßÊ®Ò»´Î   Ê®¶ş´Î     Ê®´ÎÈõÖÇ
+æ™ºèƒ½æµ‹è¯•ï¼šã€€æµ‹è¯•æ€»æ¬¡æ•°ã€€ã€€  å¤±è´¥æ¬¡æ•°ã€€ã€€æœ€è¿‘çŠ¶å†µ
+ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“
+          å››åƒä¸€ç™¾ä¸ƒåä¸€æ¬¡   åäºŒæ¬¡     åæ¬¡å¼±æ™º
 
 my idea is that devide the robot test frequency into different
 levels: (F=frequency of job per robot test)

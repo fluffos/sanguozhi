@@ -9,21 +9,21 @@ private mixed handle_blocks( string dir )
 {
 	if(present("ysf pass",this_body())) {
 		this_object()->targetted_action(
-"$N¶Ô$TÒ»¾Ï¹ªµÀ£º$R¼ÈÈ»ÓĞÊ¥ÉÏµÄÊÖÚÍ£¬ÀïÃæÇë¡£\n",this_body());
+"$Nå¯¹$Tä¸€é èº¬é“ï¼š$Ræ—¢ç„¶æœ‰åœ£ä¸Šçš„æ‰‹è°•ï¼Œé‡Œé¢è¯·ã€‚\n",this_body());
 		return 0;
 	}
         return ::handle_blocks(dir);    
 }
 void setup()
 {
-        set_name("xiao daoshi", "Ğ¡µÀÊ¿");
+        set_name("xiao daoshi", "å°é“å£«");
         set_gender(1);
-        set_in_room_desc("Ğ¡µÀÊ¿(xiao daoshi)");
+        set_in_room_desc("å°é“å£«(xiao daoshi)");
         set_age(10);
         add_block("north");
         set_block_action(
-"$NÒ»»ÓÊÖÀïµÄ·÷³¾£¬¶Ô$TµÀ£ºÀïÃæÊÇÊ¥ÉÏµÄÁ¶µ¤·¿£¬$RÇëÁô²½¡£Ã»ÓĞÊ¥ÉÏµÄÊÖÚÍ£¬Ë­Ò²²»ÄÜ½ø¡£\n");
+"$Nä¸€æŒ¥æ‰‹é‡Œçš„æ‹‚å°˜ï¼Œå¯¹$Té“ï¼šé‡Œé¢æ˜¯åœ£ä¸Šçš„ç‚¼ä¸¹æˆ¿ï¼Œ$Rè¯·ç•™æ­¥ã€‚æ²¡æœ‰åœ£ä¸Šçš„æ‰‹è°•ï¼Œè°ä¹Ÿä¸èƒ½è¿›ã€‚\n");
 }
 string long() {
-	return "Ò»¸öĞ¡Ì«¼à¡£\n";
+	return "ä¸€ä¸ªå°å¤ªç›‘ã€‚\n";
 }

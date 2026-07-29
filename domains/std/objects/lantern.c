@@ -9,12 +9,12 @@ inherit M_LIGHTABLE;
 void setup() {
     m_switchable::create();
 
-    set_adj("»ÆÍ­");
-    set_id("lantern","µÆÁı");
-    set_unit("Õµ");
+    set_adj("é»„é“œ");
+    set_id("lantern","ç¯ç¬¼");
+    set_unit("ç›");
     set_gettable(1);
     set_size(MEDIUM);
-    set_long("²»ÖªÔõµÄ£¬Õâ¸ö»ÆÍ­µÆÁı¿´ÆğÀ´ºÜÑÛÊì¡£\n");
+    set_long("ä¸çŸ¥æ€çš„ï¼Œè¿™ä¸ªé»„é“œç¯ç¬¼çœ‹èµ·æ¥å¾ˆçœ¼ç†Ÿã€‚\n");
 
     set_fuel(3600);
         

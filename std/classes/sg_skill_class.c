@@ -1,9 +1,9 @@
 // sg_skill_class.c
 // by fire on Dec 26 1997
 // SK_NOR normal skills such as the wuli weili and zhimou 1
-// SK_FIGHT skills used in fight such as »ØÂíÇ¹ 2
-// SK_ZHENG skills for Õó·¨ 3
-// SK_JI skills of ¼Æ 
+// SK_FIGHT skills used in fight such as å›žé©¬æžª 2
+// SK_ZHENG skills for é˜µæ³• 3
+// SK_JI skills of è®¡ 
 class sg_skill_reg    // this class is used for register dif skills
 {
     string sk_name;   // the chinese name for a skill

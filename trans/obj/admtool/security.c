@@ -44,24 +44,24 @@ private nomask void write_security_menu()
           "\n"
           );
 */
-    write("¹ÜÀí¹¤¾ß£º°²È«¹ÜÀí\n"
+    write("ç®¡ç†å·¥å…·ï¼šå®‰å…¨ç®¡ç†\n"
           "\n"
-          "    p               - ÌØÈ¨\n"
-          "    s [ÌØÈ¨]        - ÁĞ³ö¸½ÊôÌØÈ¨\n"
-          "    n [ÌØÈ¨]        - ¶¨ÒåĞÂÌØÈ¨                     [´óÉñ/ÓµÓĞÕß]\n"
-          "    u [ÌØÈ¨]        - È¡ÏûÒ»¸öÌØÈ¨                   [´óÉñ/ÓµÓĞÕß]\n"
+          "    p               - ç‰¹æƒ\n"
+          "    s [ç‰¹æƒ]        - åˆ—å‡ºé™„å±ç‰¹æƒ\n"
+          "    n [ç‰¹æƒ]        - å®šä¹‰æ–°ç‰¹æƒ                     [å¤§ç¥/æ‹¥æœ‰è€…]\n"
+          "    u [ç‰¹æƒ]        - å–æ¶ˆä¸€ä¸ªç‰¹æƒ                   [å¤§ç¥/æ‹¥æœ‰è€…]\n"
           "\n"
-          "    a [ÌØÈ¨ [ÌØÈ¨]] - ÈÃÒ»¸öÌØÈ¨³ÉÎªÁíÒ»¸öµÄ¸½Êô     [´óÉñ/ÓµÓĞÕß]\n"
-          "    d [ÌØÈ¨ [ÌØÈ¨]] - °ÑÒ»¸öÌØÈ¨´ÓÁíÒ»¸öµÄ¸½ÊôÖĞÉ¾³ı [´óÉñ/ÓµÓĞÕß]\n"
+          "    a [ç‰¹æƒ [ç‰¹æƒ]] - è®©ä¸€ä¸ªç‰¹æƒæˆä¸ºå¦ä¸€ä¸ªçš„é™„å±     [å¤§ç¥/æ‹¥æœ‰è€…]\n"
+          "    d [ç‰¹æƒ [ç‰¹æƒ]] - æŠŠä¸€ä¸ªç‰¹æƒä»å¦ä¸€ä¸ªçš„é™„å±ä¸­åˆ é™¤ [å¤§ç¥/æ‹¥æœ‰è€…]\n"
           "\n"
-          "    l [Ä¿Â¼]        - ÁĞ³öÄ¿Â¼µÄ±£»¤È¨\n"
-          "    w [Ä¿Â¼][ÌØÈ¨]  - Éè¶¨Ä¿Â¼µÄĞ´±£»¤               [»ñÈ¨]\n"
-          "    r [Ä¿Â¼}[ÌØÈ¨]  - Éè¶¨Ä¿Â¼µÄ¶Á±£»¤               [´óÉñ]\n"
-          "    c [Ä¿Â¼]        - Ïû³ıÄ¿Â¼µÄ±£»¤È¨               [»ñÈ¨]\n"
+          "    l [ç›®å½•]        - åˆ—å‡ºç›®å½•çš„ä¿æŠ¤æƒ\n"
+          "    w [ç›®å½•][ç‰¹æƒ]  - è®¾å®šç›®å½•çš„å†™ä¿æŠ¤               [è·æƒ]\n"
+          "    r [ç›®å½•}[ç‰¹æƒ]  - è®¾å®šç›®å½•çš„è¯»ä¿æŠ¤               [å¤§ç¥]\n"
+          "    c [ç›®å½•]        - æ¶ˆé™¤ç›®å½•çš„ä¿æŠ¤æƒ               [è·æƒ]\n"
           "\n"
-          "    m        - Ö÷Ñ¡µ¥\n"
-          "    q        - ÍË³ö\n"
-          "    ?        - °ïÖú\n"
+          "    m        - ä¸»é€‰å•\n"
+          "    q        - é€€å‡º\n"
+          "    ?        - å¸®åŠ©\n"
           "\n"  
           );        
 }
@@ -71,7 +71,7 @@ private nomask void privilege_owners()
     string * owners = SECURE_D->query_privilege_owners();
 
     printf(//"Owners:\n%-#79s\n"
-           "ÓµÓĞÕß£º\n%-#79s\n", implode(sort_array(owners, 1), "\n"));
+           "æ‹¥æœ‰è€…ï¼š\n%-#79s\n", implode(sort_array(owners, 1), "\n"));
 }
 
 private nomask void receive_privilege_for_show(string priv)
@@ -89,7 +89,7 @@ private nomask void receive_privilege_for_show(string priv)
         if ( !privmap )
         {
             //write("** There is no such privilege.\n");
-            write("** Ã»ÓĞÕâÖÖÌØÈ¨¡£\n");
+            write("** æ²¡æœ‰è¿™ç§ç‰¹æƒã€‚\n");
             return;
         }
 
@@ -109,7 +109,7 @@ private nomask void receive_privilege_for_show(string priv)
         if ( !privmap || !privmap[priv] )
         {
             //write("** There is no such privilege.\n");
-            write("Ã»ÓĞÕâÖÖÌØÈ¨¡£\n:");
+            write("æ²¡æœ‰è¿™ç§ç‰¹æƒã€‚\n:");
             return;
         }
 
@@ -127,7 +127,7 @@ private nomask void receive_privilege_for_define(string priv)
         return;
 
     printf(//"Privilege '%s' has been defined.\n",
-           "ÌØÈ¨ %s ±»¶¨ÒåÁË¡£\n", priv);
+           "ç‰¹æƒ %s è¢«å®šä¹‰äº†ã€‚\n", priv);
 }                                      
 
 private nomask void receive_privilege_for_undefine(string priv)
@@ -137,7 +137,7 @@ private nomask void receive_privilege_for_undefine(string priv)
         return;
 
     printf(//"Privilege '%s' has been undefined.\n"
-           "ÌØÈ¨ %s ±»È¡ÏûÁË¡£\n", priv);
+           "ç‰¹æƒ %s è¢«å–æ¶ˆäº†ã€‚\n", priv);
 }
 
 private nomask void receive_privilege_for_add(string user, string priv)
@@ -155,7 +155,7 @@ private nomask void receive_privilege_for_remove(string user, string priv)
         return;
 
     printf(//"Privilege '%s' has been removed from '%s'.\n",
-           "ÌØÈ¨ %s ´Ó %s ÖĞÈ¡ÏûÁË¡£\n",
+           "ç‰¹æƒ %s ä» %s ä¸­å–æ¶ˆäº†ã€‚\n",
            user, priv);
 }
 
@@ -190,7 +190,7 @@ private nomask void list_dir_privs(string arg)
         arg = ".";
     else  if( !is_directory( arg ))
     {
-        write( "·Ç·¨Ä¿Â¼¡£\n");
+        write( "éæ³•ç›®å½•ã€‚\n");
         return;
     }
     arg = evaluate_path(arg);
@@ -232,7 +232,7 @@ private nomask void perform_set_dir_priv(int rw, string dir, mixed priv)
         return;
 
     printf(//"Directory '%s' has been set to '%s'.\n"
-           "Ä¿Â¼ %s ±»Éè³ÉÈ¨ÏŞ %s ¡£\n", dir, priv);
+           "ç›®å½• %s è¢«è®¾æˆæƒé™ %s ã€‚\n", dir, priv);
 }
 
 private nomask void perform_clear_dir_priv(string dir)
@@ -249,7 +249,7 @@ private nomask void perform_clear_dir_priv(string dir)
             return;
 
     printf(//"The privileges on '%s' have been cleared.\n"
-           "ÔÚ %s ÉÏµÄÈ¨ÏŞÒÑ¾­±»È¡ÏûÁË¡£\n", dir);
+           "åœ¨ %s ä¸Šçš„æƒé™å·²ç»è¢«å–æ¶ˆäº†ã€‚\n", dir);
 }
 
 private nomask void receive_security_input(string str)
@@ -261,7 +261,7 @@ private nomask void receive_security_input(string str)
         if ( sscanf(str, "%s %s", str, arg) != 2 )
         {
             //write("** Format is: <option> <argument>\n");
-            write("¸ñÊ½£º<option> <argument>\n");
+            write("æ ¼å¼ï¼š<option> <argument>\n");
             write_security_menu();
             return;
         }
@@ -272,27 +272,27 @@ private nomask void receive_security_input(string str)
     case "p":
         if ( arg )
             //write("** No argument is required.\n");
-            write("** ²»ĞèÒª²ÎÊı¡£\n");
+            write("** ä¸éœ€è¦å‚æ•°ã€‚\n");
         privilege_owners();
         break;
 
     case "s":
         do_one_arg(//"Show information for which privilege? ",
-                   "ÏÔÊ¾ÄÄÒ»¸öÌØÈ¨µÄĞÅÏ¢£¿",
+                   "æ˜¾ç¤ºå“ªä¸€ä¸ªç‰¹æƒçš„ä¿¡æ¯ï¼Ÿ",
                    (: receive_privilege_for_show :),
                    arg);
         break;
 
     case "n":
         do_one_arg(//"Define which privilege? ",
-                   "¶¨ÒåÄÄ¸öÌØÈ¨£¿", 
+                   "å®šä¹‰å“ªä¸ªç‰¹æƒï¼Ÿ", 
                    (: receive_privilege_for_define :),
                    arg);
         break;
 
     case "u":
         do_one_arg(//"Undefine which privilege? ",
-                   "È¡ÏûÄÄ¸öÌØÈ¨£¿",
+                   "å–æ¶ˆå“ªä¸ªç‰¹æƒï¼Ÿ",
                    (: receive_privilege_for_undefine :),
                    arg);
         break;
@@ -300,8 +300,8 @@ private nomask void receive_security_input(string str)
     case "a":
         do_two_args(//"Adding which user (to a priv) ? ",
                     //"Add '%s' to which privilege? ",
-                    "°ÑÄÄ¸öÓÃ»§¼ÓÈëÌØÈ¨£¿",
-                    "°Ñ %s ¼ÓÈëÄÄ¸öÌØÈ¨£¿",
+                    "æŠŠå“ªä¸ªç”¨æˆ·åŠ å…¥ç‰¹æƒï¼Ÿ",
+                    "æŠŠ %s åŠ å…¥å“ªä¸ªç‰¹æƒï¼Ÿ",
                     (: receive_privilege_for_add :),
                     arg);
         break;
@@ -309,8 +309,8 @@ private nomask void receive_security_input(string str)
     case "d":
         do_two_args(//"Remove which user (from a priv) ? ",
                     //"Remove '%s' from which privilege? ",
-                    "°ÑÄÄ¸öÓÃ»§´ÓÌØÈ¨ÖĞÈ¡Ïû£¿\n",
-                    "°Ñ %s ´ÓÄÄ¸öÌØÈ¨ÖĞÈ¡Ïû£¿\n",
+                    "æŠŠå“ªä¸ªç”¨æˆ·ä»ç‰¹æƒä¸­å–æ¶ˆï¼Ÿ\n",
+                    "æŠŠ %s ä»å“ªä¸ªç‰¹æƒä¸­å–æ¶ˆï¼Ÿ\n",
                     (: receive_privilege_for_remove :),
                     arg);
         break;
@@ -322,8 +322,8 @@ private nomask void receive_security_input(string str)
     case "w":
         do_two_args(//"Set which directory's write privilege? ",
                     //"Set '%s' to what privilege? ",
-                    "ÒªÉè¶¨ÄÄ¸öÄ¿Â¼µÄĞ´±£»¤£¿",
-                    "°Ñ %s Éè¶¨³ÉÄÄÖÖÈ¨ÏŞµÄĞ´±£»¤£¿", 
+                    "è¦è®¾å®šå“ªä¸ªç›®å½•çš„å†™ä¿æŠ¤ï¼Ÿ",
+                    "æŠŠ %s è®¾å®šæˆå“ªç§æƒé™çš„å†™ä¿æŠ¤ï¼Ÿ", 
                     (: perform_set_dir_priv, 1 :),
                     arg);
         break;
@@ -331,15 +331,15 @@ private nomask void receive_security_input(string str)
     case "r":
         do_two_args(//"Set which directory's read privilege? ",
                     //"Set '%s' to what privilege? ",
-                    "ÒªÉè¶¨ÄÄ¸öÄ¿Â¼µÄ¶Á±£»¤£¿",
-                    "°Ñ %s Éè¶¨³ÉÄÄÖÖÈ¨ÏŞµÄ¶Á±£»¤£¿",               
+                    "è¦è®¾å®šå“ªä¸ªç›®å½•çš„è¯»ä¿æŠ¤ï¼Ÿ",
+                    "æŠŠ %s è®¾å®šæˆå“ªç§æƒé™çš„è¯»ä¿æŠ¤ï¼Ÿ",               
                     (: perform_set_dir_priv, 0 :),
                     arg);
         break;
 
     case "c":
         do_one_arg(//"Clear which directory's privileges? ",
-                   "Çå³ıÄÄ¸öÄ¿Â¼µÄÈ¨ÏŞ±£»¤£¿",
+                   "æ¸…é™¤å“ªä¸ªç›®å½•çš„æƒé™ä¿æŠ¤ï¼Ÿ",
                    (: perform_clear_dir_priv :),
                    arg);
         break;
@@ -354,7 +354,7 @@ private nomask void receive_security_input(string str)
     }
 }
 
-static nomask void begin_security_menu()
+protected nomask void begin_security_menu()
 {
     modal_func((: receive_security_input :), PROMPT_SECURITY);
     write_security_menu();

@@ -17,29 +17,29 @@ nomask private void main(string str)
 	string ret;
     if (!str)
     {
-        write("用法：createcountry <char id>\n");
+        write("鐢ㄦ硶锛歝reatecountry <char id>\n");
         return;
     }
 	extra=COUNTRY_D->creat_country(str);
 	switch(extra)
 	{
 	case CC_ALREADYEXIST:
-		ret="该角色已经是国王．\n";
+		ret="璇ヨ鑹插凡缁忔槸鍥界帇锛嶾n";
 		break;
 	case CC_CHARNOTEXIST:
-		ret="没有该角色．\n";
+		ret="娌℃湁璇ヨ鑹诧紟\n";
 		break;
 	case CC_CHARNOAREA:
-		ret="该角色没有所在地．\n";
+		ret="璇ヨ鑹叉病鏈夋墍鍦ㄥ湴锛嶾n";
 		break;
 		case CC_OTHERCOUNTRYCAPITAL:
-			ret="该地为他国国都．\n";
+			ret="璇ュ湴涓轰粬鍥藉浗閮斤紟\n";
 			break;
 	case CC_ACCEPTED:
-		ret ="成功．\n";
+		ret ="鎴愬姛锛嶾n";
 		break;
 	default:
-		ret= "未成功\n";
+		ret= "鏈垚鍔焅n";
 	}
 	write(ret);
 }

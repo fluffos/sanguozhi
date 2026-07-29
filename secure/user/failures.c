@@ -18,7 +18,7 @@ private mixed * failures = ({ });
 private int notify_time;    /* time user notified of bad logins */
 
 
-static nomask void register_failure(string addr)
+protected nomask void register_failure(string addr)
 {
     string s;
 
@@ -28,7 +28,7 @@ static nomask void register_failure(string addr)
     save_me();
 
     s = sprintf(//"%s: %s from %s\n",
-                "%s: %s À´×Ô£º%s\n",
+                "%s: %s æ¥è‡ªï¼š%s\n",
                 query_userid(), ctime(time()), addr);
     LOG_D->log(LOG_LOGIN_FAILURE, s);
 }
@@ -46,14 +46,14 @@ nomask void clear_failures()
     if ( this_user() != this_object() )
     {
     //error("* Security violation: you cannot clear this info\n");
-    error("* °²È«Î¥Àı£ºÄã²»ÄÜÉ¾³ıÕâ¸öĞÅÏ¢\n");
+    error("* å®‰å…¨è¿ä¾‹ï¼šä½ ä¸èƒ½åˆ é™¤è¿™ä¸ªä¿¡æ¯\n");
     }
 
     failures = ({ });
     save_me();
 }
 
-static nomask void report_login_failures()
+protected nomask void report_login_failures()
 {
     int count;
 
@@ -66,7 +66,7 @@ static nomask void report_login_failures()
 
 //### hmm... this count is total, not since last login
     printf(//"You had %d failed login attempt(s) since your last login.\n",
-           "×Ô´ÓÉÏ´ÎÁ¬Ïß£¬ÄãÓĞ%s´ÎÊ§°ÜµÄ¼ÇÂ¼¡£\n",
+           "è‡ªä»ä¸Šæ¬¡è¿çº¿ï¼Œä½ æœ‰%sæ¬¡å¤±è´¥çš„è®°å½•ã€‚\n",
        chinese_number(count));
 
     notify_time = time();

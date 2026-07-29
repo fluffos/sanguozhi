@@ -1,41 +1,41 @@
 add /cmds/player/enable.c
-ºÍES2 mudlibµÄenableÃüÁîÒ»Ñù,ÓÃÓÚÔÚ»ù´¡¼¼ÄÜÉÏ
-Ó³Éä¸Ã»ú¼¼ÄÜ.
-±ÈÈç: enable spear lihua-qingfa
-¾ÍÊÇÉè¶¨×Ô¼ºµÄÇ¹·¨Ê¹ÓÃÀæ»¨Ç¹·¨µÄÕĞÊı.
+å’ŒES2 mudlibçš„enableå‘½ä»¤ä¸€æ ·,ç”¨äºåœ¨åŸºç¡€æŠ€èƒ½ä¸Š
+æ˜ å°„è¯¥æœºæŠ€èƒ½.
+æ¯”å¦‚: enable spear lihua-qingfa
+å°±æ˜¯è®¾å®šè‡ªå·±çš„æªæ³•ä½¿ç”¨æ¢¨èŠ±æªæ³•çš„æ‹›æ•°.
 
 modify /sgdomain/modules/m_skills.c
-Ôö¼ÓÒ»¸öskill_mapµÄmappingĞÍ±äÁ¿,±£´æÉÏÃæµÄÓ³
-Éä¹ØÏµ.²¢Ôö¼ÓÓë´ËÓĞ¹ØµÄËÄ¸öº¯Êı:
-1 query_skill ×ÛºÏ¶ÔÓ¦µÄ¸ß¼¶¼¼ÄÜ»ñµÃÄ³¼¼ÄÜµÄ¼¶±ğ
-2 map_skill   Éè¶¨Ó³ÉäµÄº¯Êı
-3 query_skill_mapped ²éÑ¯Ä³¼¼ÄÜÓ³Éä¹ØÏµµÄº¯Êı
-4 query_skill_map    ·µ»ØËùÓĞÓ³Éä¹ØÏµ
+å¢åŠ ä¸€ä¸ªskill_mapçš„mappingå‹å˜é‡,ä¿å­˜ä¸Šé¢çš„æ˜ 
+å°„å…³ç³».å¹¶å¢åŠ ä¸æ­¤æœ‰å…³çš„å››ä¸ªå‡½æ•°:
+1 query_skill ç»¼åˆå¯¹åº”çš„é«˜çº§æŠ€èƒ½è·å¾—æŸæŠ€èƒ½çš„çº§åˆ«
+2 map_skill   è®¾å®šæ˜ å°„çš„å‡½æ•°
+3 query_skill_mapped æŸ¥è¯¢æŸæŠ€èƒ½æ˜ å°„å…³ç³»çš„å‡½æ•°
+4 query_skill_map    è¿”å›æ‰€æœ‰æ˜ å°„å…³ç³»
 
 add inlcude/ansi1.h
-Ôö¼ÓÒ»¸öansi1.h,ÓÃÓÚ¼æÈİES2 mublibµÄÒ»Ğ©COLOR
-µÄcode,¼õÉÙÒÆÖ²³ÌĞòĞŞ¸ÄÁ¿.
+å¢åŠ ä¸€ä¸ªansi1.h,ç”¨äºå…¼å®¹ES2 mublibçš„ä¸€äº›COLOR
+çš„code,å‡å°‘ç§»æ¤ç¨‹åºä¿®æ”¹é‡.
 
 modify /secure/simul_efun/misc.c
-Ôö¼ÓÁ½¸öº¯ÊıÓÃÓÚ¼æÈİES2µÄcode
-1 notify_fail  ÏÔÊ¾³ö´íĞÅÏ¢,²¢·µ»Ø-1µÄintĞÍÖµ
-2 living       ÅĞ¶ÏÒ»¸öobÊÇ²»ÊÇÓĞÉúÃü
+å¢åŠ ä¸¤ä¸ªå‡½æ•°ç”¨äºå…¼å®¹ES2çš„code
+1 notify_fail  æ˜¾ç¤ºå‡ºé”™ä¿¡æ¯,å¹¶è¿”å›-1çš„intå‹å€¼
+2 living       åˆ¤æ–­ä¸€ä¸ªobæ˜¯ä¸æ˜¯æœ‰ç”Ÿå‘½
 
 modify /sgdomain/modules/m_out.c
-ĞŞ¸Äout_skillº¯Êı,µ±¼¼ÄÜenableºó,ÔÚskillsÏÔÊ¾µÄ¸ß¼¶
-¼¼ÄÜÇ°Ãæ¼ÓÒ»¸ö·ûºÅ"¡õ"
+ä¿®æ”¹out_skillå‡½æ•°,å½“æŠ€èƒ½enableå,åœ¨skillsæ˜¾ç¤ºçš„é«˜çº§
+æŠ€èƒ½å‰é¢åŠ ä¸€ä¸ªç¬¦å·"â–¡"
 
 modify /daemons/fight_d/formula.c
-ÒòÎªÓĞÁËenable,formulaÓÃÇó¼¼ÄÜ¼¶±ğµÄº¯ÊıÈ«²¿±»ĞŞ¸Ä
-Îªquery_skill
+å› ä¸ºæœ‰äº†enable,formulaç”¨æ±‚æŠ€èƒ½çº§åˆ«çš„å‡½æ•°å…¨éƒ¨è¢«ä¿®æ”¹
+ä¸ºquery_skill
 
 modify /std/monster/base/results.c
-ĞŞ¸Äprint_one_resultÖĞ¹ØÓÚÕ½¶·ĞÅÏ¢±àÖÆµÄ²¿·Ö,Ôö¼ÓÒ»ÖÖ
-Õ½¶·ĞÅÏ¢ÃèÊöattack-on-horse,°ÑÂíÕ½ºÍ²½Õ½µÄĞÅÏ¢Çø±ğ¿ªÀ´
+ä¿®æ”¹print_one_resultä¸­å…³äºæˆ˜æ–—ä¿¡æ¯ç¼–åˆ¶çš„éƒ¨åˆ†,å¢åŠ ä¸€ç§
+æˆ˜æ–—ä¿¡æ¯æè¿°attack-on-horse,æŠŠé©¬æˆ˜å’Œæ­¥æˆ˜çš„ä¿¡æ¯åŒºåˆ«å¼€æ¥
 
 modify /daemons/messages_d.c
-ĞŞ¸Äget_fight_message,ÎªÁËÔö¼Óattack-on-horseĞÅÏ¢»ñÈ¡,
-ºÍ¼æÈİ¸ß¼¶¼¼ÄÜÕĞÊıĞÅÏ¢µÄÏÔÊ¾.
+ä¿®æ”¹get_fight_message,ä¸ºäº†å¢åŠ attack-on-horseä¿¡æ¯è·å–,
+å’Œå…¼å®¹é«˜çº§æŠ€èƒ½æ‹›æ•°ä¿¡æ¯çš„æ˜¾ç¤º.
 
 /daemons/messages_d/*.*
-¸÷¸ö»ù±¾¼¼ÄÜÀïÃæÔö¼ÓÁËattack-on-horseµÄĞÅÏ¢.
+å„ä¸ªåŸºæœ¬æŠ€èƒ½é‡Œé¢å¢åŠ äº†attack-on-horseçš„ä¿¡æ¯.

@@ -1,21 +1,21 @@
 /* Do not remove the headers from this file! see /USAGE for more info. */
 
-private static string base;
-private static mixed def_exit = 0;
-private static mapping exits = ([]);
-private static string array hidden_exits = ({});
-private static mapping exit_msg = ([]);
-private static mapping enter_msg = ([ ]);
+private nosave string base;
+private nosave mixed def_exit = 0;
+private mapping exits = ([]);
+private string * hidden_exits = ({});
+private mapping exit_msg = ([]);
+private mapping enter_msg = ([ ]);
 
 void create() {
     base = file_name(this_object());
     base = base[0..strsrch(base, '/', -1)];
 }
 
-string array query_exit_directions(int show_hidden)
+string * query_exit_directions(int show_hidden)
 {
-    string array standard_directions = ({ "north", "northeast", "northwest", "east", "west", "southwest", "southeast", "south", "up", "down" });
-    string array dirs = keys( exits );
+    string * standard_directions = ({ "north", "northeast", "northwest", "east", "west", "southwest", "southeast", "south", "up", "down" });
+    string * dirs = keys( exits );
 
     foreach( string dir in standard_directions )
     {
@@ -141,21 +141,21 @@ void set_exits( mapping new_exits )
 
 //:FUNCTION set_hidden_exits
 //This is the list of exits to NOT be shown to the mortals in the room.
-void set_hidden_exits( string array exits_list ... )
+void set_hidden_exits( string * exits_list ... )
 {
     hidden_exits = exits_list;
 }
 
 //:FUNCTION add_hidden_exit
 //Make a given exit direction a hidden exit.  See set_hidden_exits
-void add_hidden_exit( string array exits_list ... )
+void add_hidden_exit( string * exits_list ... )
 {
     hidden_exits += exits_list;
 }
 
 //:FUNCTION remove_hidden_exit
 //Make a given exit direction no longer a hidden exit.  See set_hidden_exits
-void remove_hidden_exit( string array exits_list ... )
+void remove_hidden_exit( string * exits_list ... )
 {
     hidden_exits -= exits_list;
 }

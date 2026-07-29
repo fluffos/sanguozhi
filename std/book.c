@@ -10,13 +10,13 @@ inherit M_READABLE;
 mixed direct_read_obj(object ob) {
     if (!is_open())
     //return "Perhaps you should open the book first.\n";
-    return "你要先把书翻开。\n";
+    return "浣犺鍏堟妸涔︾炕寮�銆俓n";
     return m_readable::direct_read_obj(ob);
 }
 
 mixed direct_read_str_word_obj(string str, string p, object ob) {
     if (!is_open())
     //return "Perhaps you should open the book first.\n";
-    return "你要先把书翻开。\n";
+    return "浣犺鍏堟妸涔︾炕寮�銆俓n";
     return m_readable::direct_read_str_word_obj(str, p, ob);
 }

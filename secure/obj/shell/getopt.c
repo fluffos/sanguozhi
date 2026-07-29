@@ -11,7 +11,7 @@ int classify( int opt, string options ){
   i = member_array(opt, options);
   if(i == -1){
     //printf("option -%c not recognized\n", opt);
-    printf("Ã»ÓÐ -%c ÕâÑùµÄ option\n", opt);
+    printf("æ²¡æœ‰ -%c è¿™æ ·çš„ option\n", opt);
     return 0;
   }
   if( ++i != strlen(options) ) return options[i] == ':';
@@ -50,7 +50,7 @@ getopt( mixed args, string options )
         if(optstring == ""){
         if(!sizeof(args)){
         //printf("option -%c requires an argument.\n", opt);
-        printf("Ã»ÓÐ -%c ÕâÑùµÄ option\n", opt);
+        printf("æ²¡æœ‰ -%c è¿™æ ·çš„ option\n", opt);
         return -1;
         }
             optstring = args[0];

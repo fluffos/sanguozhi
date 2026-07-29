@@ -10,15 +10,15 @@ inherit M_VALUE;
 void setup()
 {
 ::mudlib_setup();
-set_unit("¼ş");
-set_id("xiupao", "ĞåÅÛ");
+set_unit("ä»¶");
+set_id("xiupao", "ç»£è¢");
 add_id("cloth");
-set_in_room_desc("ĞåÅÛ(xiupao)");
-set_long("Ò»¼ş¾«ĞÄĞåÖÆµÄ³ñÅÛ£¬Í¼°¸¾«ÃÀ£¬´ó¸Å¼ÛÖµ²»·Æ°É¡£");
+set_in_room_desc("ç»£è¢(xiupao)");
+set_long("ä¸€ä»¶ç²¾å¿ƒç»£åˆ¶çš„ç»¸è¢ï¼Œå›¾æ¡ˆç²¾ç¾ï¼Œå¤§æ¦‚ä»·å€¼ä¸è²å§ã€‚");
 set_gettable(1);
 set_slot(TORSO);
-set_wearmsg("$N´©ÉÏ$o£¬Ò»Ê±¼ä±äµÃÒÇ±íÌÃÌÃ¡£\n");
-set_removemsg("$NÍÑÏÂ$o¡£\n");
+set_wearmsg("$Nç©¿ä¸Š$oï¼Œä¸€æ—¶é—´å˜å¾—ä»ªè¡¨å ‚å ‚ã€‚\n");
+set_removemsg("$Nè„±ä¸‹$oã€‚\n");
 set_attack_ablity(-1);                          
 set_defence_power(1);
 set_defence_ablity(-1);

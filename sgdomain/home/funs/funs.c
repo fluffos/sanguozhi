@@ -29,11 +29,11 @@ int check_ky(string p_id) {
 
 	p_lose=p_gold/100+1;
 	CHAR_D->set_char(p_id,"gold",p_gold-p_lose);
-	msg="µÄ¿â´æÙºÒøÒòÎªÃ»ÓĞ·ÅÔÚ¼ÒÀï£¬±»¹ú¿â×Ü¹ÜÌ°ÎÛÁË"+
-		chinese_number(p_lose)+"Á½»Æ½ğ¡£";
+	msg="çš„åº“å­˜ä¿¸é“¶å› ä¸ºæ²¡æœ‰æ”¾åœ¨å®¶é‡Œï¼Œè¢«å›½åº“æ€»ç®¡è´ªæ±¡äº†"+
+		chinese_number(p_lose)+"ä¸¤é»„é‡‘ã€‚";
 	CHANNEL_D->deliver_tell("rumor","system",
 		CHAR_D->get_char(p_id,"name")+msg);
-	tell_user(p_id,"Äã"+msg+"\n");
+	tell_user(p_id,"ä½ "+msg+"\n");
 	return 0;
 }
 
@@ -58,10 +58,10 @@ int home_pay(string p_id) {
 		MONEY_D->sub_all_money(o,p_money);
 		s=ls[0];
 		oh->remove_npc(s);
-		msg="¼ÒµÄÓ¶ÈË"+oh->get_npc(s,"name")+"ÒòÎªÃ»ÓĞÁìµ½ÔÂÇ®¡£Ò»ÆøÖ®ÏÂ£¬ÅÜÁË¡£";
+		msg="å®¶çš„ä½£äºº"+oh->get_npc(s,"name")+"å› ä¸ºæ²¡æœ‰é¢†åˆ°æœˆé’±ã€‚ä¸€æ°”ä¹‹ä¸‹ï¼Œè·‘äº†ã€‚";
 		CHANNEL_D->deliver_tell("rumor","system",
 			CHAR_D->get_char(p_id,"name")+msg);
-		tell_user(p_id,"Äã"+msg+"\n");
+		tell_user(p_id,"ä½ "+msg+"\n");
 		return -2;
 
 	}
@@ -72,10 +72,10 @@ int home_pay(string p_id) {
 		if(stringp(tmp)) {
 			p_sal=random(100000);
 			MONEY_D->sub_all_money(o,p_sal);
-			msg="¼ÒÒòÎª"+tmp+"Ó¶ÈËÃÇÌ°ÎÛÔÂÇ®"+CHINESE_D->chinese_value(p_sal)+"¡£";
+			msg="å®¶å› ä¸º"+tmp+"ä½£äººä»¬è´ªæ±¡æœˆé’±"+CHINESE_D->chinese_value(p_sal)+"ã€‚";
 			CHANNEL_D->deliver_tell("rumor","system",
 				CHAR_D->get_char(p_id,"name")+msg);
-			tell_user(p_id,"Äã"+msg+"\n");
+			tell_user(p_id,"ä½ "+msg+"\n");
 			return -3;
 		}			
 	}		

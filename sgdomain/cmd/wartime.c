@@ -18,27 +18,27 @@ void start(string arg)
 	if (!DAY_D->get_can_war())
         {
 		write("%^H_RED%^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&%^RESET%^\n");
-    		write("\n%^H_YELLOW%^ººÏ×µÛ%^H_CYAN%^Ú¯ÚÍ£º\n\n    ëŞ¹ÛÖ®Á¬ÄêÖîºî»ìÕ½£¬
-    			Ãñ²»ÁÄÉú¡£½ñÉÏÌìÓĞºÃÉúÖ®µÂ£¬ëŞË³Ó¦\nÌìÊ±£¬ÁîÌìÏÂ¸÷Â·Öîºî%^H_MAGENTA%^"+
+    		write("\n%^H_YELLOW%^æ±‰çŒ®å¸%^H_CYAN%^è¯è°•ï¼š\n\n    æœ•è§‚ä¹‹è¿å¹´è¯¸ä¾¯æ··æˆ˜ï¼Œ
+    			æ°‘ä¸èŠç”Ÿã€‚ä»Šä¸Šå¤©æœ‰å¥½ç”Ÿä¹‹å¾·ï¼Œæœ•é¡ºåº”\nå¤©æ—¶ï¼Œä»¤å¤©ä¸‹å„è·¯è¯¸ä¾¯%^H_MAGENTA%^"+
  			CHINESE_D->chinese_period(DAY_D->get_change_time())+
- 			 "%^H_CYAN%^ÄÚ²»µÃÕ÷Õ½¡£\n\n                                                   ÇÕ´Ë%^RESET%^\n\n");
+ 			 "%^H_CYAN%^å†…ä¸å¾—å¾æˆ˜ã€‚\n\n                                                   é’¦æ­¤%^RESET%^\n\n");
 		write("%^H_RED%^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&%^RESET%^\n");
 	}
 //	else
-//		write("ÏÖÔÚÕ½ÕùÕı¿ª·ÅÖĞ.\n");
+//		write("ç°åœ¨æˆ˜äº‰æ­£å¼€æ”¾ä¸­.\n");
 
         if((!arg)||(arg==""))
         {
 
-                write("ÇëÓÃ cmd wartime <nation_id> À´²éÑ¯¾ßÌå¹ú¼ÒµÄÕ½Õù¿ª·ÅÊ±¼ä¡£\n");
-                write("Àı×Ó£ºcmd wartime liu bei ²éÑ¯Áõ±¸¹úµÄÕ½Õù¿ª·ÅÊ±¼ä¡£\n");
-                //write("ÓÃ help wartime ²é¿´ÏêÏ¸°ïÖú¡£\n");
+                write("è¯·ç”¨ cmd wartime <nation_id> æ¥æŸ¥è¯¢å…·ä½“å›½å®¶çš„æˆ˜äº‰å¼€æ”¾æ—¶é—´ã€‚\n");
+                write("ä¾‹å­ï¼šcmd wartime liu bei æŸ¥è¯¢åˆ˜å¤‡å›½çš„æˆ˜äº‰å¼€æ”¾æ—¶é—´ã€‚\n");
+                //write("ç”¨ help wartime æŸ¥çœ‹è¯¦ç»†å¸®åŠ©ã€‚\n");
                 return;
         }
         
         if ( !COUNTRY_D->nation_exist(arg))
         {
-        	write("Ã»ÓĞ" + arg + "Õâ¸ö¹ú¼Ò£¬ÇëÓÃinfo n À´²éÑ¯¹ú¼ÒÁĞ±í¡£\n");
+        	write("æ²¡æœ‰" + arg + "è¿™ä¸ªå›½å®¶ï¼Œè¯·ç”¨info n æ¥æŸ¥è¯¢å›½å®¶åˆ—è¡¨ã€‚\n");
         	return;
         }
         war_status = DAY_D->war_status(arg);
@@ -46,26 +46,26 @@ void start(string arg)
 	t_time2 = COUNTRY_D->get_wartime(arg,today*2+1);
 	m_time1 = COUNTRY_D->get_wartime(arg,tomorrow*2);
 	m_time2 = COUNTRY_D->get_wartime(arg,tomorrow*2+1);
-        write ("ÏµÍ³µ±Ç°Ê±¼äÎª " + DAY_D->English_time(time()) + "¡£\n");
+        write ("ç³»ç»Ÿå½“å‰æ—¶é—´ä¸º " + DAY_D->English_time(time()) + "ã€‚\n");
         now = localtime(time());
         n_hour = now[LT_HOUR];
         n_min = now[LT_MIN];
         shift = now[LT_GMTOFF]/3600;
-        write (COUNTRY_D->get_country_name(arg) + "Õ½Õù¿ª·ÅÊ±¼äÈçÏÂ:\n");
-        write ("½ñÈÕ: " + t_time1 + ":00-" + t_time1 +":59 ÒÔ¼° " + t_time2 + ":00-" + t_time2 + ":59¡£\n");
-        write ("Ã÷ÈÕ: " + m_time1 + ":00-" + m_time1 +":59 ÒÔ¼° " + m_time2 + ":00-" + m_time2 + ":59¡£\n");
-        write ("ÒÔÉÏÊ±¼äÎª24Ğ¡Ê±ÖÆÏµÍ³µ±µØÊ±¼ä(GMT -" + shift + ")¡£\n");
+        write (COUNTRY_D->get_country_name(arg) + "æˆ˜äº‰å¼€æ”¾æ—¶é—´å¦‚ä¸‹:\n");
+        write ("ä»Šæ—¥: " + t_time1 + ":00-" + t_time1 +":59 ä»¥åŠ " + t_time2 + ":00-" + t_time2 + ":59ã€‚\n");
+        write ("æ˜æ—¥: " + m_time1 + ":00-" + m_time1 +":59 ä»¥åŠ " + m_time2 + ":00-" + m_time2 + ":59ã€‚\n");
+        write ("ä»¥ä¸Šæ—¶é—´ä¸º24å°æ—¶åˆ¶ç³»ç»Ÿå½“åœ°æ—¶é—´(GMT -" + shift + ")ã€‚\n");
         if (war_status == 2)
         {
-        	write ("µ±Ç°×´Ì¬: %^H_YELLOW%^ººÏ×µÛ½ûÖ¹ËùÓĞµÄÕ½Õù%^RESET%^\n");
+        	write ("å½“å‰çŠ¶æ€: %^H_YELLOW%^æ±‰çŒ®å¸ç¦æ­¢æ‰€æœ‰çš„æˆ˜äº‰%^RESET%^\n");
         	return;
         }
         else if (war_status == 1)
         {
-        	write ("µ±Ç°×´Ì¬£º¶Ô" + COUNTRY_D->get_country_name(arg)
-        		+ "µÄÕ½Õù%^H_CYAN%^¹Ø±Õ%^RESET%^ÖĞ¡£\n");
-        	//ÕÒ³ö×î½Ó½üµÄwar time Ê±¼ä
-        	//ÏÈ²é¿´½ñÌì
+        	write ("å½“å‰çŠ¶æ€ï¼šå¯¹" + COUNTRY_D->get_country_name(arg)
+        		+ "çš„æˆ˜äº‰%^H_CYAN%^å…³é—­%^RESET%^ä¸­ã€‚\n");
+        	//æ‰¾å‡ºæœ€æ¥è¿‘çš„war time æ—¶é—´
+        	//å…ˆæŸ¥çœ‹ä»Šå¤©
         	if (t_time1 > t_time2)
         	{
         		temp = t_time1;
@@ -76,7 +76,7 @@ void start(string arg)
         		next = t_time1*3600 - n_hour*3600 - n_min*60;
         	else if (n_hour < t_time2)
         		next = t_time2*3600 - n_hour*3600 - n_min*60;
-        	//ÔÙ²é¿´Ã÷Ìì
+        	//å†æŸ¥çœ‹æ˜å¤©
         	else
         	{
         		if (m_time1 < m_time2 )
@@ -84,25 +84,25 @@ void start(string arg)
         		else
         			next = (24 + m_time2)*3600 - n_hour*3600 - n_min*60;
         	}
-        	write ("¾àÀë×î½üµÄ" + COUNTRY_D->get_country_name(arg) + "Õ½Õù¿ª·ÅÊ±¼ä»¹ÓĞ: %^H_YELLOW%^"
+        	write ("è·ç¦»æœ€è¿‘çš„" + COUNTRY_D->get_country_name(arg) + "æˆ˜äº‰å¼€æ”¾æ—¶é—´è¿˜æœ‰: %^H_YELLOW%^"
         		+ CHINESE_D->chinese_period(next) + "%^RESET%^\n");
         }
         else if (war_status == 0)
         {
         	temp = DAY_D->get_temp_wartime (arg);
         	
-        	write ("µ±Ç°×´Ì¬: ¶Ô" + COUNTRY_D->get_country_name(arg)
-        			+ "µÄÕ½Õù%^H_RED%^¿ª·Å%^RESET%^ÖĞ¡£\n");
+        	write ("å½“å‰çŠ¶æ€: å¯¹" + COUNTRY_D->get_country_name(arg)
+        			+ "çš„æˆ˜äº‰%^H_RED%^å¼€æ”¾%^RESET%^ä¸­ã€‚\n");
         	if ( temp > 0)
-        		write ("Õ½Õù³ÖĞøÊ±¼ä»¹ÓĞ: %^H_YELLOW%^" + CHINESE_D->chinese_period(temp)
+        		write ("æˆ˜äº‰æŒç»­æ—¶é—´è¿˜æœ‰: %^H_YELLOW%^" + CHINESE_D->chinese_period(temp)
         			+ "%^RESET%^\n");
-        	else if ( t_time1 == (n_hour+1) || t_time2 == (n_hour+1)) //Èç¹ûÁ½¸öwartime Ê±¶ÎÊÇÁ¬ĞøµÄ
-        		write ("Õ½Õù³ÖĞøÊ±¼ä»¹ÓĞ: %^H_YELLOW%^" + CHINESE_D->chinese_period((120-n_min)*60)
+        	else if ( t_time1 == (n_hour+1) || t_time2 == (n_hour+1)) //å¦‚æœä¸¤ä¸ªwartime æ—¶æ®µæ˜¯è¿ç»­çš„
+        		write ("æˆ˜äº‰æŒç»­æ—¶é—´è¿˜æœ‰: %^H_YELLOW%^" + CHINESE_D->chinese_period((120-n_min)*60)
         			+ "%^RESET%^\n");
         	else
-        		write ("Õ½Õù¿ª·Å³ÖĞøÊ±¼ä»¹ÓĞ: %^H_YELLOW%^" + CHINESE_D->chinese_period((60-n_min)*60)
+        		write ("æˆ˜äº‰å¼€æ”¾æŒç»­æ—¶é—´è¿˜æœ‰: %^H_YELLOW%^" + CHINESE_D->chinese_period((60-n_min)*60)
         			+ "%^RESET%^\n");
         }
         else
-        	write ("Çë±¨¸æÎ×Ê¦,wartime.c ÓĞ BUG!\n");
+        	write ("è¯·æŠ¥å‘Šå·«å¸ˆ,wartime.c æœ‰ BUG!\n");
 }

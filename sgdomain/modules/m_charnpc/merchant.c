@@ -15,21 +15,21 @@ void setup()
    move_setup();
    add_question("goods","goods");
    add_question("buy","buy");
-   add_ask_str("goods","$N¶Ô$TÒ»¹°ÊÖµÀ£ºÇëÎÊÀÏ°å£¬ÄãÕâ¶ù»¹ÓĞĞ©Ê²Ã´»õÉ«£¬ÈÃ$S¿´¿´¡£\n");
-   add_ask_str("buy","$N¶Ô$TµÀ£º°Ñ»õ¶¼ÏÈ°á³öÀ´¿´¿´£¬$SÒª½øÅú»õ¡£\n");
+   add_ask_str("goods","$Nå¯¹$Tä¸€æ‹±æ‰‹é“ï¼šè¯·é—®è€æ¿ï¼Œä½ è¿™å„¿è¿˜æœ‰äº›ä»€ä¹ˆè´§è‰²ï¼Œè®©$Sçœ‹çœ‹ã€‚\n");
+   add_ask_str("buy","$Nå¯¹$Té“ï¼šæŠŠè´§éƒ½å…ˆæ¬å‡ºæ¥çœ‹çœ‹ï¼Œ$Sè¦è¿›æ‰¹è´§ã€‚\n");
 }
 string long()
 {
    string p_id;
    p_id=COUNTRY_D->get_country(n_id,"name");
-   return p_id+"ÉÌ¶Ó£¬Ò»Ğ©ÉÌÈËÕıÔÚ²»¶ÏµØ½ĞÂòÖĞ¡£\n";
+   return p_id+"å•†é˜Ÿï¼Œä¸€äº›å•†äººæ­£åœ¨ä¸æ–­åœ°å«ä¹°ä¸­ã€‚\n";
 }
 string query_title(string p_id,string c_id)
 {
    string p_nationname;
    p_nationname=COUNTRY_D->get_country(CHAR_D->get_char(p_id,
 	   "my_nation"),"name");
-   return p_nationname+"ÉÌ¶Ó("+p_id+")";
+   return p_nationname+"å•†é˜Ÿ("+p_id+")";
 }
 void answer_good(object who)
 {
@@ -40,13 +40,13 @@ void answer_good(object who)
    if(!sizeof(lis))
    {
      this_object()->simple_action(
-       "$N²»ºÃÒâË¼µØËµµÀ£º°¡£¬»õÈ«ÂôÍêÀ²£¡\n");
+       "$Nä¸å¥½æ„æ€åœ°è¯´é“ï¼šå•Šï¼Œè´§å…¨å–å®Œå•¦ï¼\n");
       return;
    }
-   ans="$N´ğµ½£º±¾²¿ÓĞÒÔÏÂ´æ»õ£º\n";
+   ans="$Nç­”åˆ°ï¼šæœ¬éƒ¨æœ‰ä»¥ä¸‹å­˜è´§ï¼š\n";
    this_object()->simple_action(ans);
-ans="»õÎï      ¼ÛÇ®              ÊıÁ¿     \n"+
-"¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş\n";
+ans="è´§ç‰©      ä»·é’±              æ•°é‡     \n"+
+"ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“\n";
    for(i=0;i<sizeof(lis);++i)
    {
      ans+=sprintf("%-10s%-16s  %s\n",
@@ -78,26 +78,26 @@ void answer_buy(object who)
    if(!COUNTRY_D->nation_exist(CHAR_D->get_char(p_id,"nation")))
    {
 		this_object()->targetted_action
-			("Ò»$N¶Ô$TÀäÀäµØµÀ£ºÎÒÃÇÖ»ºÍ¹Ù¼Ò×öÉúÒâ¡£\n",who);
+			("ä¸€$Nå¯¹$Tå†·å†·åœ°é“ï¼šæˆ‘ä»¬åªå’Œå®˜å®¶åšç”Ÿæ„ã€‚\n",who);
 		return;
    }
    if(p_id==p_custom)
    {
 		this_object()->targetted_action
-			("ÖÚ$N¶Ô$TÅã×ÅĞ¦Á³µÀ£º$m$RÔõÃ´ºúÍ¿ÁË£¬ÎÒÃÇÉÏ±ÊÉúÒâ»¹Ã»Ì¸ÍêÄØ¡£\n",who);
+			("ä¼—$Nå¯¹$Té™ªç€ç¬‘è„¸é“ï¼š$m$Ræ€ä¹ˆèƒ¡æ¶‚äº†ï¼Œæˆ‘ä»¬ä¸Šç¬”ç”Ÿæ„è¿˜æ²¡è°ˆå®Œå‘¢ã€‚\n",who);
 		return;
    }
    if(stringp(p_custom)&&find_user(p_custom)&&present(p_id,environment(this_object())))
    {
 		this_object()->targetted_action
-			("Ò»$N¶Ô$TÁ¬Ã¦ÅãĞ¦Á³µÀ£º$m$RÇëÏ¢Å­£¬Ğ¡¿ÉÕâ±ßÂòÂôÒ»Íê£¬ÂíÉÏ¾ÍºÍ$RÌ¸¡£\n",who);
+			("ä¸€$Nå¯¹$Tè¿å¿™é™ªç¬‘è„¸é“ï¼š$m$Rè¯·æ¯æ€’ï¼Œå°å¯è¿™è¾¹ä¹°å–ä¸€å®Œï¼Œé©¬ä¸Šå°±å’Œ$Rè°ˆã€‚\n",who);
 		return;
    }
    lis=(EV_MERCHANT)->query_m_goods(n_id,"list","");
    if(!sizeof(lis))
    {
      this_object()->simple_action(
-       "$N²»ºÃÒâË¼µØËµµÀ£º°¡£¬»õÈ«ÂôÍêÀ²£¡\n");
+       "$Nä¸å¥½æ„æ€åœ°è¯´é“ï¼šå•Šï¼Œè´§å…¨å–å®Œå•¦ï¼\n");
       return;
    }
    p_custom=p_id;
@@ -115,7 +115,7 @@ void trade_over()
 		p_custom=0; return;
 	}
 	this_object()->targetted_action(
-		"Ò»$N¶Ô$TµÀ£º¿´À´$R»¹Ã»¾ö¶¨ÂòÊ²Ã´£¬µÈÏëºÃÔÙÀ´°É¡£\n",find_body(p_custom));
+		"ä¸€$Nå¯¹$Té“ï¼šçœ‹æ¥$Rè¿˜æ²¡å†³å®šä¹°ä»€ä¹ˆï¼Œç­‰æƒ³å¥½å†æ¥å§ã€‚\n",find_body(p_custom));
 	custom=find_user(p_custom);
 	if(objectp(custom))
 		custom->modal_pop();
@@ -127,15 +127,15 @@ string get_action()
 	switch(p_stage)
 	{
 	case "begbuy":
-		return "$N¶Ô$TµÀ£º$RÊÇÎª¹«¸É¶øÂò£¬»¹ÊÇÎª×Ô¼Ò¶øÂòÑ½£¿\n";
+		return "$Nå¯¹$Té“ï¼š$Ræ˜¯ä¸ºå…¬å¹²è€Œä¹°ï¼Œè¿˜æ˜¯ä¸ºè‡ªå®¶è€Œä¹°å‘€ï¼Ÿ\n";
 	case "buywhat":
-		return "$N¶Ô$TµÀ£º$RÒªÂòĞ©Ê²Ã´£¿\n";
+		return "$Nå¯¹$Té“ï¼š$Rè¦ä¹°äº›ä»€ä¹ˆï¼Ÿ\n";
 	case "howmany":
-		return "$N¶Ô$TµÀ£º$RÒª½ø¶àÉÙ»õ£¿\n";
+		return "$Nå¯¹$Té“ï¼š$Rè¦è¿›å¤šå°‘è´§ï¼Ÿ\n";
 	case "bargen":
-		return "$N¶Ô$TÅãĞ¦µÀ£º$m$RÒª²»ÏÖÔÚ¾Í½»Ç®·¢»õ¡£\n";
+		return "$Nå¯¹$Té™ªç¬‘é“ï¼š$m$Rè¦ä¸ç°åœ¨å°±äº¤é’±å‘è´§ã€‚\n";
 	default:
-		return "$NÏÔÈ»²»ÖªµÀ¸ÃÔõÃ´°ì¡£\n";
+		return "$Næ˜¾ç„¶ä¸çŸ¥é“è¯¥æ€ä¹ˆåŠã€‚\n";
 	}
 }
 string get_prom()
@@ -148,21 +148,21 @@ string get_prom()
 	switch(p_stage)
 	{
 	case "begbuy":
-		return "1 ÎªµØÇøÂò£»2  Îª×Ô¼ºÂò¡£\n";
+		return "1 ä¸ºåœ°åŒºä¹°ï¼›2  ä¸ºè‡ªå·±ä¹°ã€‚\n";
 	case "buywhat":
-		if(!s) return "BUG £¡ BUG £¡£¡£¡\n";
+		if(!s) return "BUG ï¼ BUG ï¼ï¼ï¼\n";
 		for(i=1;i<=s;++i)
-			ret+=sprintf("%d  %s£»",i,
+			ret+=sprintf("%d  %sï¼›",i,
 				(EV_MERCHANT)->query_m_goods(n_id,lis[i-1],"name"));
 		return ret;
 	case "howmany":
-		ret=sprintf("½ø¶àÉÙ»õ£º[ 1 -- %d ]\n",
+		ret=sprintf("è¿›å¤šå°‘è´§ï¼š[ 1 -- %d ]\n",
 			(EV_MERCHANT)->query_m_goods(n_id,p_what,"quantity"));
 		return ret;
 	case "bargen":
-		return "ÇëÑ¡Ôñ£º1 - 9£º´òÕÛ£»10£º¾ö¶¨£»-1£º·ÅÆú¡£\n" ;
+		return "è¯·é€‰æ‹©ï¼š1 - 9ï¼šæ‰“æŠ˜ï¼›10ï¼šå†³å®šï¼›-1ï¼šæ”¾å¼ƒã€‚\n" ;
 	default:
-		return "¿´À´ÓĞBUGÁË¡£\n";
+		return "çœ‹æ¥æœ‰BUGäº†ã€‚\n";
 	}
 }
 
@@ -189,7 +189,7 @@ void trade_input(string str)
 
 		if(str=="2")
 
-		{	this_body()->simple_action("$NµÀ£ºÎª×Ô¼Ò°ìµã¡£¡£¡£\n");
+		{	this_body()->simple_action("$Né“ï¼šä¸ºè‡ªå®¶åŠç‚¹ã€‚ã€‚ã€‚\n");
 
 			p_for="self";
 
@@ -197,7 +197,7 @@ void trade_input(string str)
 
 		else{
 
-			this_body()->targetted_action("$N¶Ô$TµÀ£ºÎÒÕâ¿ÉÊÇ¹«¸É£¬Äã¿ìµã¡£\n",this_object());
+			this_body()->targetted_action("$Nå¯¹$Té“ï¼šæˆ‘è¿™å¯æ˜¯å…¬å¹²ï¼Œä½ å¿«ç‚¹ã€‚\n",this_object());
 
 			p_for="area";
 
@@ -210,12 +210,12 @@ void trade_input(string str)
 		i=to_int(str);
 		if((i<1)||(i>s))
 		{
-			write("ÂòÊ²Ã´£¿\n");
+			write("ä¹°ä»€ä¹ˆï¼Ÿ\n");
 			return;
 		}
 		p_what=lis[i-1];
-		this_body()->targetted_action("$N¶Ô$TµÀ£ºÏÈ½øµã"+
-			(EV_MERCHANT)->query_m_goods(n_id,p_what,"name")+"¡£\n",this_object());
+		this_body()->targetted_action("$Nå¯¹$Té“ï¼šå…ˆè¿›ç‚¹"+
+			(EV_MERCHANT)->query_m_goods(n_id,p_what,"name")+"ã€‚\n",this_object());
 		p_stage="howmany";
 		break;
 	case "howmany":
@@ -224,17 +224,17 @@ void trade_input(string str)
 			i=to_int(str);
 			s=(EV_MERCHANT)->query_m_goods(n_id,p_what,"quantity");
 			if((i<1)||(i>s))
-			{	write("Âò¶àÉÙ£¿\n");
+			{	write("ä¹°å¤šå°‘ï¼Ÿ\n");
 				return;
 			}
 			this_body()->simple_action(
-				"$NµÀ£ºÏÈ½ø"+chinese_number(i)+"¡£\n");
+				"$Né“ï¼šå…ˆè¿›"+chinese_number(i)+"ã€‚\n");
 			price=(EV_MERCHANT)->query_m_goods(n_id,p_what,"price");
 		total_price=price*i;
 			if(total_price<1000) // less than 10 gold
 			{
 				this_object()->simple_action(
-					"ÖÚ$N·×·×µÀ£ºÕâÒ²Ì«Ğ¡ÆøÁËµã°É£¬ÎÒÃÇÒ»´Î³ö»õ£¬×îÉÙÒªÊ®Á½½ğ×Ó¡£\n");
+					"ä¼—$Nçº·çº·é“ï¼šè¿™ä¹Ÿå¤ªå°æ°”äº†ç‚¹å§ï¼Œæˆ‘ä»¬ä¸€æ¬¡å‡ºè´§ï¼Œæœ€å°‘è¦åä¸¤é‡‘å­ã€‚\n");
 				return;
 			}
 			p_count=i;
@@ -247,13 +247,13 @@ void trade_input(string str)
 		i=to_int(str);
 		if(i==-1)
 	{	this_body()->simple_action(
-				"$NµÀ£ºËãÁË£¬ÎÒ²»ÏëÂòÁË¡£\n");
+				"$Né“ï¼šç®—äº†ï¼Œæˆ‘ä¸æƒ³ä¹°äº†ã€‚\n");
 			my_cancel();return;
 		}
 		if(i==10)
 		{	
 			this_body()->targetted_action(
-			"$N¶Ô$TÌ¾µÀ£ºËãÁË£¬ËãÁË£¬ºÍÄãÃÇÒ²²»¶àÄ¥×ìÆ¤£¬¾Í°´Õâ¼Û°É¡£\n",this_object());
+			"$Nå¯¹$Tå¹é“ï¼šç®—äº†ï¼Œç®—äº†ï¼Œå’Œä½ ä»¬ä¹Ÿä¸å¤šç£¨å˜´çš®ï¼Œå°±æŒ‰è¿™ä»·å§ã€‚\n",this_object());
 			p_discount=10; 
 			o=find_user(p_custom);
 			if(objectp(o))
@@ -286,11 +286,11 @@ void my_deal()
 		(EV_MERCHANT)->query_m_goods(n_id,p_what,"price")*p_count*p_discount*10;
 
 	this_object()->targetted_action(
-	"$N¶Ô$TÂúÁ³¶ÑĞ¦µÀ£º"+chinese_number(p_count)+
+	"$Nå¯¹$Tæ»¡è„¸å †ç¬‘é“ï¼š"+chinese_number(p_count)+
 		(EV_MERCHANT)->query_m_goods(n_id,p_what,"name")+
-		"ÒÑ¾­×¼±¸ºÃÁË£¬×ÜÖµ£º"+
+		"å·²ç»å‡†å¤‡å¥½äº†ï¼Œæ€»å€¼ï¼š"+
 	CHINESE_D->chinese_value(p_goldneed)+
-		"£¬¾ÍÇë$m$R½áÕË°É¡£\n",this_body());
+		"ï¼Œå°±è¯·$m$Rç»“è´¦å§ã€‚\n",this_body());
 	p_goldneed/=10000;  // now is real use gold
 	switch(p_for)
 	{
@@ -299,16 +299,16 @@ void my_deal()
                 if(n_bank < p_goldneed*10000)
 		{
 			this_body()->targetted_action(
-                                "$NÒ»²éÕÊ£¬Ñ½£¬²»ºÃ¡£Ç®×¯ÀïµÄÇ®²»¹»¡£\n"+
-                                "$NÂíÉÏ¶Ô$TÅâĞ¦µÀ£º²»ºÃÒâË¼£¬ÎÒÊÖÍ·ÓĞĞ©½ô£¬»ØÍ·ÔÙÂò°É¡£\n",this_object());
+                                "$Nä¸€æŸ¥å¸ï¼Œå‘€ï¼Œä¸å¥½ã€‚é’±åº„é‡Œçš„é’±ä¸å¤Ÿã€‚\n"+
+                                "$Né©¬ä¸Šå¯¹$Tèµ”ç¬‘é“ï¼šä¸å¥½æ„æ€ï¼Œæˆ‘æ‰‹å¤´æœ‰äº›ç´§ï¼Œå›å¤´å†ä¹°å§ã€‚\n",this_object());
 			call_out("my_cancel",2);
 			break;
 		}
 		this_body()->simple_action(
-			"$NµÀ£ºÄÇºÃ°É£¬¾ÍÕâÃ´°ìÁË¡£\n");
+			"$Né“ï¼šé‚£å¥½å§ï¼Œå°±è¿™ä¹ˆåŠäº†ã€‚\n");
 		this_body()->targetted_action(
-			"$N´Ó$TÄÇÀïÂòÁË"+chinese_number(p_count)+
-		(EV_MERCHANT)->query_m_goods(n_id,p_what,"name")+"¡£\n",this_object());
+			"$Nä»$Té‚£é‡Œä¹°äº†"+chinese_number(p_count)+
+		(EV_MERCHANT)->query_m_goods(n_id,p_what,"name")+"ã€‚\n",this_object());
 		{
 			mixed my_army;
 			my_army=CHAR_D->get_char(p_custom,"myarmy");
@@ -329,27 +329,27 @@ void my_deal()
 			if(p_goldhave < p_goldneed)
 			{
 				this_body()->targetted_action(
-					"$NÒ»²éÕÊ£¬Ñ½£¬²»ºÃ¡£¿âÀïÇ®²»¹»¡£\n"+
-					"$NÂíÉÏ¶Ô$TÅâĞ¦µÀ£º²»ºÃÒâË¼£¬±¾µØÇ®ÓĞĞ©½ô£¬»ØÍ·ÔÙÂò°É¡£\n",this_object());
+					"$Nä¸€æŸ¥å¸ï¼Œå‘€ï¼Œä¸å¥½ã€‚åº“é‡Œé’±ä¸å¤Ÿã€‚\n"+
+					"$Né©¬ä¸Šå¯¹$Tèµ”ç¬‘é“ï¼šä¸å¥½æ„æ€ï¼Œæœ¬åœ°é’±æœ‰äº›ç´§ï¼Œå›å¤´å†ä¹°å§ã€‚\n",this_object());
 				call_out("my_cancel",2);
 				break;
 		}
 	if((PJOB+"localbuy/localbuy")->get_localbuy(p_custom)!=p_what)
 		{
 				this_body()->targetted_action(
-					"$NÒ»²éÕÊ£¬Ñ½£¬²»ºÃ¡£Ã»ÄÃµ½²É¹º"+
+					"$Nä¸€æŸ¥å¸ï¼Œå‘€ï¼Œä¸å¥½ã€‚æ²¡æ‹¿åˆ°é‡‡è´­"+
 					(EV_MERCHANT)->query_goods(p_what,"name")+
-					"µÄ¹¤×÷¡£\n"+"$NÂíÉÏ¶Ô$TÅâĞ¦µÀ£º²»ºÃÒâË¼£¬¹º"+
+					"çš„å·¥ä½œã€‚\n"+"$Né©¬ä¸Šå¯¹$Tèµ”ç¬‘é“ï¼šä¸å¥½æ„æ€ï¼Œè´­"+
 					(EV_MERCHANT)->query_goods(p_what,"name")+
-					"Ö®ÊÂ²»¸ÃÎÒ¹Ü¡£¡£¡£»ØÍ·ÔÙÌ¸°É¡£\n",this_object());
+					"ä¹‹äº‹ä¸è¯¥æˆ‘ç®¡ã€‚ã€‚ã€‚å›å¤´å†è°ˆå§ã€‚\n",this_object());
 					call_out("my_cancel",2);
 					break;
 			}
 			this_body()->simple_action(
-				"$NµÀ£ºÄÇºÃ°É£¬¾ÍÕâÃ´°ìÁË¡£\n");
+				"$Né“ï¼šé‚£å¥½å§ï¼Œå°±è¿™ä¹ˆåŠäº†ã€‚\n");
 			this_body()->targetted_action(
-				"$N´Ó$TÄÇÀïÎªµØÇø½øÁË"+chinese_number(p_count)+
-			(EV_MERCHANT)->query_m_goods(n_id,p_what,"name")+"¡£\n",this_object());
+				"$Nä»$Té‚£é‡Œä¸ºåœ°åŒºè¿›äº†"+chinese_number(p_count)+
+			(EV_MERCHANT)->query_m_goods(n_id,p_what,"name")+"ã€‚\n",this_object());
 
 			this_body()->finish_job("localbuy");
 			AREA_D->set_area(p_area,p_what,
@@ -394,9 +394,9 @@ void award(object o)
     if(isrobot)
 	{
 		this_object()->targetted_action(
-			"Ò»¸ö$NÅÄÅÄ$TµÄÍ·£ºÉµ¹Ï£¬»Ø¼ÒË¯¾õÈ¥°É¡£\n",o);
+			"ä¸€ä¸ª$Næ‹æ‹$Tçš„å¤´ï¼šå‚»ç“œï¼Œå›å®¶ç¡è§‰å»å§ã€‚\n",o);
 		this_object()->simple_action(
-			"ÖÚ$N·¢³öÒ»ÕóºåÌÃ´óĞ¦¡£\n");
+			"ä¼—$Nå‘å‡ºä¸€é˜µå“„å ‚å¤§ç¬‘ã€‚\n");
 		return;
 	}
 	p_id=o->query_id()[0];
@@ -407,15 +407,15 @@ void award(object o)
       CHAR_D->get_char(p_id,"localcontribution")+2);
 	CHAR_D->set_char_loyalty(p_id,n_id,
 		CHAR_D->get_char_loyalty(p_id,n_id)+2);
-    o->simple_action("$NÎªµØÇø¹ºÎï³É¹¦£¬$NµÄ¾­Ñé£¬ÉùÍûºÍÓë"+
-		COUNTRY_D->get_country(n_id,"name")+"µÄ¹ØÏµÌá¸ßÁË¡£\n");
+    o->simple_action("$Nä¸ºåœ°åŒºè´­ç‰©æˆåŠŸï¼Œ$Nçš„ç»éªŒï¼Œå£°æœ›å’Œä¸"+
+		COUNTRY_D->get_country(n_id,"name")+"çš„å…³ç³»æé«˜äº†ã€‚\n");
 	if(random(2))
 	{
 		object ob;
 		this_object()->targetted_action(
-			"Ò»¸ö$NÇÄÉù¶Ô$TËµ£º¶àĞ»$m$R¹ØÕÕ£¬ÕâÊÇÒ»µãĞ¡ÒâË¼¡£\n",o);
+			"ä¸€ä¸ª$Næ‚„å£°å¯¹$Tè¯´ï¼šå¤šè°¢$m$Rå…³ç…§ï¼Œè¿™æ˜¯ä¸€ç‚¹å°æ„æ€ã€‚\n",o);
 		this_object()->targetted_action(
-			"%^GREEN%^Ò»¸ö$NÍµÍµÈû¸ø$TÒ»Á½½ğ×Ó¡£\n%^RESET%^",o);
+			"%^GREEN%^ä¸€ä¸ª$Nå·å·å¡ç»™$Tä¸€ä¸¤é‡‘å­ã€‚\n%^RESET%^",o);
 		ob=new(M_GOLD);
         ob->set_m_num(1);
         ob->move(o);
@@ -428,14 +428,14 @@ void my_cancel()
 	object custom;
 	remove_call_out("trade_over");
 	this_object()->targetted_action(
-		"Ò»¸ö$NµÀ£ºÔ­À´$TÊÇÔÚË£ÎÒÃÇ¡£\n",this_body());
+		"ä¸€ä¸ª$Né“ï¼šåŸæ¥$Tæ˜¯åœ¨è€æˆ‘ä»¬ã€‚\n",this_body());
 	this_object()->targetted_action(
-		"ÖÚ$N·×·×µÀ£º¿É¶ñ£¬¿É¶ñ¡£\nÖÚ$NÒ»Óµ¶øÉÏ£¬°Ñ$tÍ´´òÁËÒ»¶Ù¡£\n",this_body());
+		"ä¼—$Nçº·çº·é“ï¼šå¯æ¶ï¼Œå¯æ¶ã€‚\nä¼—$Nä¸€æ‹¥è€Œä¸Šï¼ŒæŠŠ$tç—›æ‰“äº†ä¸€é¡¿ã€‚\n",this_body());
 	CHAR_D->set_char_loyalty(p_custom,n_id,
 		CHAR_D->get_char_loyalty(p_custom,n_id)-2);
 	this_body()->simple_action(
-		"$N´óº°¾ÈÃü¡£\n$NÓë"+COUNTRY_D->get_country(n_id,"name")+
-		"µÄ¹ØÏµ½µµÍÁË¡£\n");
+		"$Nå¤§å–Šæ•‘å‘½ã€‚\n$Nä¸"+COUNTRY_D->get_country(n_id,"name")+
+		"çš„å…³ç³»é™ä½äº†ã€‚\n");
 
 	custom=find_user(p_custom);
 	if(objectp(custom))
@@ -449,15 +449,15 @@ int my_bargen(int sug)
 	string p_act;
 	int rel,res=0;
 	this_body()->simple_action(
-		"$NµÀ£º¼ÛÇ®Ì«¹ó£¬ÎÒÒª´ò"+chinese_number(sug)+"ÕÛ¡£\n");
+		"$Né“ï¼šä»·é’±å¤ªè´µï¼Œæˆ‘è¦æ‰“"+chinese_number(sug)+"æŠ˜ã€‚\n");
 	if(sug<p_discount)
 	{
-		p_act=sprintf("$N¶Ô$TÅ­µÀ£ºÄãµ±ÎÒÃÇÊÇÉµ×Ó£¬´ò%sÕÛ¶¼²»ĞĞ£¬»¹Ïë´ò%sÕÛ¡£\n",
+		p_act=sprintf("$Nå¯¹$Tæ€’é“ï¼šä½ å½“æˆ‘ä»¬æ˜¯å‚»å­ï¼Œæ‰“%sæŠ˜éƒ½ä¸è¡Œï¼Œè¿˜æƒ³æ‰“%sæŠ˜ã€‚\n",
 			chinese_number(p_discount),chinese_number(sug));
 	}
 	if(sug==p_discount)
 	{
-		p_act=sprintf("$NµÀ£º²»ÊÇ¶¼Ëµ²»ĞĞÁËÂğ£¬»¹ÒªÌá¡£\n");
+		p_act=sprintf("$Né“ï¼šä¸æ˜¯éƒ½è¯´ä¸è¡Œäº†å—ï¼Œè¿˜è¦æã€‚\n");
 	}
 	if(sug>p_discount)
 	{
@@ -469,13 +469,13 @@ int my_bargen(int sug)
 		if((random(21)+5)<rel)
 		{
 			res=1;
-			p_act=sprintf("$NÎŞ¿ÉÄÎºÎµØµÀ£º¼ÈÈ»$m$RÈç´ËËµ£¬ÄÇ¾ÍÕâÃ´¶¨ÁË°É¡£\n");
+			p_act=sprintf("$Næ— å¯å¥ˆä½•åœ°é“ï¼šæ—¢ç„¶$m$Rå¦‚æ­¤è¯´ï¼Œé‚£å°±è¿™ä¹ˆå®šäº†å§ã€‚\n");
 		}
 		else
 		{	if(random(2))
-				p_act="ÖÚ$NµÀ£º²»ĞĞ²»ĞĞ£¬ÒªÊÇÕâ¸ö¼Û£¬ÎÒÃÇÈ«µÃÌø»ÆºÓ¡£\n";
+				p_act="ä¼—$Né“ï¼šä¸è¡Œä¸è¡Œï¼Œè¦æ˜¯è¿™ä¸ªä»·ï¼Œæˆ‘ä»¬å…¨å¾—è·³é»„æ²³ã€‚\n";
 			else
-				p_act="ÖÚ$NµÀ£º²»ĞĞ²»ĞĞ£¬ÎÒÃÇÒÑ¾­¸ø³ö×îµÍ¼Û¡£\n";
+				p_act="ä¼—$Né“ï¼šä¸è¡Œä¸è¡Œï¼Œæˆ‘ä»¬å·²ç»ç»™å‡ºæœ€ä½ä»·ã€‚\n";
 		}
 	}
 	this_object()->targetted_action(p_act,this_body());

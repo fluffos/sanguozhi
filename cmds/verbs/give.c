@@ -21,20 +21,20 @@ mixed can_give_str_to_str(string str,string str2)
 	o=ENV_OB(str2);
 	if(!objectp(o))
 	{
-		write("ÕÒ²»µ½"+str+"¡£\n");
+		write("æ‰¾ä¸åˆ°"+str+"ã€‚\n");
 		return;
 	}
 	if(!o->is_living())
 	{
-		write(o->short()+"ºÃÏó²»ÊÇÈË¡£\n");
+		write(o->short()+"å¥½è±¡ä¸æ˜¯äººã€‚\n");
 		return;
 	}
 	if(str=="all")
-	{	if(!sizeof(objs)) return "ÄãÃ»Ê²Ã´ºÃ¸øµÄ¡£\n";
+	{	if(!sizeof(objs)) return "ä½ æ²¡ä»€ä¹ˆå¥½ç»™çš„ã€‚\n";
 		return 1;
 	}
 	ret=PARASE_D->retrieve_num_object( str, objs);
-	if(!ret) return "ÄãÒª¸øÊ²Ã´£¿\n";
+	if(!ret) return "ä½ è¦ç»™ä»€ä¹ˆï¼Ÿ\n";
 	return 1;
 
 }
@@ -65,19 +65,19 @@ void do_give_obj_to_liv(object ob, object liv) {
     mixed ret=liv->indirect_give_obj_to_liv(ob, liv);
     if(stringp(ret)) {write(ret);return;}
 	ret=ob->query_can_give();
-	if(!ret) ret=ob->short()+"²»ÄÜÂÒ¸øÈË¡£\n";
+	if(!ret) ret=ob->short()+"ä¸èƒ½ä¹±ç»™äººã€‚\n";
 	if(stringp(ret))
 	{
 		write(ret);return;
 	}
     if(ob->query_is_money())
     {
-        write("Ç®¸ø³öÈ¥¿É¾ÍÃ»ÓÐÁË¡£\n");
+        write("é’±ç»™å‡ºåŽ»å¯å°±æ²¡æœ‰äº†ã€‚\n");
         destruct(ob);
         return;
     }
     if ( this_body() == liv ) {
-	write("×Ô¼º¸ø×Ô¼º¶«Î÷£¿\n");
+	write("è‡ªå·±ç»™è‡ªå·±ä¸œè¥¿ï¼Ÿ\n");
 	return;
     }
     //### Need to check the return value
@@ -86,7 +86,7 @@ void do_give_obj_to_liv(object ob, object liv) {
     if (tmp == MOVE_OK) 
     {
         if(ob)
-			this_body()->targetted_action("$N°Ñ$o½»¸ø$T¡£\n", liv, ob);
+			this_body()->targetted_action("$NæŠŠ$oäº¤ç»™$Tã€‚\n", liv, ob);
 		else
 			printf("OK\n");
     } 
@@ -99,7 +99,7 @@ void my_give_num_obj_to_liv(int amount, object o, object who)
     string s;
     mixed o1;
     if ( this_body() == who ) {
-        write("×Ô¼º¸ø×Ô¼º¶«Î÷£¿\n");
+        write("è‡ªå·±ç»™è‡ªå·±ä¸œè¥¿ï¼Ÿ\n");
         return;
     }
     if((o->is_mergeable()))
@@ -107,7 +107,7 @@ void my_give_num_obj_to_liv(int amount, object o, object who)
        o1=o->split(amount);
        if(o1==-1)
        {
-         printf("ÄãÃ»ÓÐÄÇÃ´¶à%s¿É¸øÑ½¡£\n",o->query_chinese_id());
+         printf("ä½ æ²¡æœ‰é‚£ä¹ˆå¤š%så¯ç»™å‘€ã€‚\n",o->query_chinese_id());
          return;
        }
 
@@ -115,14 +115,14 @@ void my_give_num_obj_to_liv(int amount, object o, object who)
 	if(o1->query_is_money())
 	{	
 		if(!who->query_accept_money())
-		{   write  ("Ç®¸ø³öÈ¥¾ÍÃ»ÁË¡£\n");
+		{   write  ("é’±ç»™å‡ºåŽ»å°±æ²¡äº†ã€‚\n");
 			destruct(o1);
 			return;
 		}
 		else
 		{
-			this_body()->targetted_action("$N¸ø$T"+chinese_number(amount)+
-				o1->query_unit()+"$o¡£\n",who,o1);
+			this_body()->targetted_action("$Nç»™$T"+chinese_number(amount)+
+				o1->query_unit()+"$oã€‚\n",who,o1);
 			who->receive_money(this_body(), amount, o1->query_id()[0]);
 			destruct(o1); // money never really give
 			return;
@@ -134,10 +134,10 @@ void my_give_num_obj_to_liv(int amount, object o, object who)
 	}
 
     }
-    write("Ææ¹Ö¡£\n");
+    write("å¥‡æ€ªã€‚\n");
 }
 
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ "STR to STR" }) });
 }

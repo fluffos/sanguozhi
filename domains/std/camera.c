@@ -12,7 +12,7 @@ inherit OBJ;
 inherit M_GETTABLE;
 
 void setup() {
-    set_id("camera", "ÕÕÏà»ú", "button");
+    set_id("camera", "ç…§ç›¸æœº", "button");
     set_long("It's a polaroid camera!  There is a button on top.\n");
     set_gettable(1);
 }

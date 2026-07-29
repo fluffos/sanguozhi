@@ -31,23 +31,23 @@ mixed can_horse_attack(int p_id,string direction)
 	
 	tmp=TROOP_D->get_horse_kills(p_id);
         if(tmp==0) // no bowman
-            return "ÄãÃ»ÓÐÆï±ø¡£\n";
+            return "ä½ æ²¡æœ‰éª‘å…µã€‚\n";
         if(tmp==-1) // two tired
-            return "Æï±øÌ«ÀÛÁË¡£\n";
+            return "éª‘å…µå¤ªç´¯äº†ã€‚\n";
         if((!direction)||(direction==""))
-            return "ÏòÄÄ³å·æ\n";
+            return "å‘å“ªå†²é”‹\n";
         dis=get_neighbor_distance(p_id,direction);
         if(dis>1)
-                return "³å·æ²»µ½ÄÇ¶ù¡£";
+                return "å†²é”‹ä¸åˆ°é‚£å„¿ã€‚";
         p_side=TROOP_D->get_troops(p_id,"side");
         p_otherside=get_neighbor_side(p_id, direction);
         if(!p_otherside)
-                return "´ËÏòÃ»ÓÐµÐ¾ü£®\n";
+                return "æ­¤å‘æ²¡æœ‰æ•Œå†›ï¼Ž\n";
         if(p_side==p_otherside)
-                return "ÔõÃ´ÄÜÏòÓÑ¾ü³å·æ£¿\n";
+                return "æ€Žä¹ˆèƒ½å‘å‹å†›å†²é”‹ï¼Ÿ\n";
         if (TROOP_D->get_troops(p_id, "conds"))
         { if (TROOP_D->get_troops(p_id, "conds")["confuse"])
-        return "»ìÂÒÖÐ£¬ÎÞ·¨¹¥»÷¡£\n";
+        return "æ··ä¹±ä¸­ï¼Œæ— æ³•æ”»å‡»ã€‚\n";
         }
 	return 1;
 }
@@ -78,12 +78,12 @@ void horse_attack_kill(int p_id, string dir)
 
     mess=get_horse_attack_infomation(p_id,dir);
     info_troop(p_id,mess);
-        info_troop(p_id,"%^H_GREEN%^¼ßÃðµÐ¾ü"+
-    CHINESE_D->chinese_number(p_kill)+"ÈË£®%^RESET%^\n");
+        info_troop(p_id,"%^H_GREEN%^æ­¼ç­æ•Œå†›"+
+    CHINESE_D->chinese_number(p_kill)+"äººï¼Ž%^RESET%^\n");
     mess=get_horse_attack_infomation_b(p_id,dir);
     info_troop(t[0],mess);
-    info_troop(t[0],"%^H_RED%^ÎÒ·½ËðÊ§"+
-      CHINESE_D->chinese_number(p_kill)+"ÈË£®%^RESET%^\n");
+    info_troop(t[0],"%^H_RED%^æˆ‘æ–¹æŸå¤±"+
+      CHINESE_D->chinese_number(p_kill)+"äººï¼Ž%^RESET%^\n");
     clear_empty_troop(t);
 
 }

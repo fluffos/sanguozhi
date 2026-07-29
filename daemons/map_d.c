@@ -15,19 +15,19 @@ inherit M_ANSI;
 
 int destruct_area(string p_area);
 private mapping cities;
-static private int m_modify;
+nosave private int m_modify;
 
 int is_wall(string p_inp)
 {
 	switch(p_inp)
 	{
-	      case "©¦":
-	      case "©¸":
-	      case "©¼":
-	      case "©°":
-	      case "©´":
-	      case "©¤":
-	      case "¡ò":
+	      case "â”‚":
+	      case "â””":
+	      case "â”˜":
+	      case "â”Œ":
+	      case "â”":
+	      case "â”€":
+	      case "â—":
 		return 1;
 	      default: 
 		return 0;
@@ -96,7 +96,7 @@ int add_city(string city_name)
             {
                 cities[city_name][y]+=({ ([]) });
                 cities[city_name][y][x]["m"]=line[(x*2)..(x*2+1)];
-		if(line[(x*2)..(x*2+1)]=="¡ò")
+		if(line[(x*2)..(x*2+1)]=="â—")
 			AREA_D->set_area(city_name,"center",({x,y}));
             }
             y++;
@@ -133,26 +133,26 @@ string get_color(string p_type)
 {
 	switch(p_type)
 	{
-		case "¡«":
+		case "ï½":
 			return "%^H_BLUE%^";
-		case "£®":
+		case "ï¼":
 			return "%^H_YELLOW%^";
-		case "¡Ä":
+		case "âˆ§":
 			return "%^YELLOW%^";
-		case "£ª":
+		case "ï¼Š":
 			return "%^H_GREEN%^";
-		case "¡á":
+		case "â™‚":
 			return "%^GREEN%^";
-		case "¡ò":
+		case "â—":
 			return "%^H_RED%^";
-                case "©¦":
-                case "©¸":
-                case "©¼":
-                case "©°":
-                case "©´":
-                case "©¤":
+                case "â”‚":
+                case "â””":
+                case "â”˜":
+                case "â”Œ":
+                case "â”":
+                case "â”€":
                         return "%^RESET%^%^H_WHITE%^";
-		case "¡ù":
+		case "â€»":
 			return "%^H_MAGENTA%^";
 		default:
 			return "%^RESET%^";
@@ -162,29 +162,29 @@ string get_brief(string p_type)
 {
 	switch(p_type)
 	{
-		case "¡«":
-			return "ºÓÁ÷";
-		case "£®":
-			return "Æ½Ô­";
-		case "¡Ä":
-			return "É½µØ";
-		case "£ª":
-			return "²İµØ";
-		case "¡á":
-			return "Ê÷ÁÖ";
-		case "¡ò":
-			return "Ë§Óª";
-		case "©¦":
-		case "©¸":
-		case "©¼":
-		case "©°":
-		case "©´":
-		case "©¤":
-			return "³ÇÇ½";
-		case "¡ù":
-			return "ÌìÏÕ";
+		case "ï½":
+			return "æ²³æµ";
+		case "ï¼":
+			return "å¹³åŸ";
+		case "âˆ§":
+			return "å±±åœ°";
+		case "ï¼Š":
+			return "è‰åœ°";
+		case "â™‚":
+			return "æ ‘æ—";
+		case "â—":
+			return "å¸…è¥";
+		case "â”‚":
+		case "â””":
+		case "â”˜":
+		case "â”Œ":
+		case "â”":
+		case "â”€":
+			return "åŸå¢™";
+		case "â€»":
+			return "å¤©é™©";
 		default:
-			return "Î´Öª";
+			return "æœªçŸ¥";
 	}
 }
 // to preview the city map
@@ -204,36 +204,36 @@ string preview_city(string city_name,string p_type,int mytroop)
         string tr_strLeaderName;  // troop leader name
         int t = 0;  // troop id
         
-        string p_bar="¡¡¡¡£Á£Â£Ã£Ä£Å£Æ£Ç£È£É£Ê£Ë£Ì£Í£Î£Ï£Ğ£Ñ£Ò£Ó£Ô£Õ£Ö£×£Ø£Ù£Ú";
+        string p_bar="ã€€ã€€ï¼¡ï¼¢ï¼£ï¼¤ï¼¥ï¼¦ï¼§ï¼¨ï¼©ï¼ªï¼«ï¼¬ï¼­ï¼®ï¼¯ï¼°ï¼±ï¼²ï¼³ï¼´ï¼µï¼¶ï¼·ï¼¸ï¼¹ï¼º";
         if (!city_exist(city_name))
-                return "¸ÃµØÇø²»´æÔÚ£¬ÓÃlistareaÁĞ³öµØÇøÇåµ¥£®\n";
+                return "è¯¥åœ°åŒºä¸å­˜åœ¨ï¼Œç”¨listareaåˆ—å‡ºåœ°åŒºæ¸…å•ï¼\n";
         disp="";
         
         if(file_size(PWARMAP+city_name+".map")==-1)
-                disp="¸ÃµØÇøµØĞÎÍ¼ÉĞÎ´±àĞ´£¬ÓÃÍ¨ÓÃµØĞÎÍ¼´úÌæ¡£\n";
+                disp="è¯¥åœ°åŒºåœ°å½¢å›¾å°šæœªç¼–å†™ï¼Œç”¨é€šç”¨åœ°å½¢å›¾ä»£æ›¿ã€‚\n";
         height=sizeof(cities[city_name]);
         width=sizeof(cities[city_name][0]);
         bar="";
         for(i=0;i<width;++i)
-                bar+="©¥";
+                bar+="â”";
     	if( !AREA_D->get_area(city_name,"name") ) 
-    		disp+="µØÇøµØĞÎÍ¼¡£\n";
+    		disp+="åœ°åŒºåœ°å½¢å›¾ã€‚\n";
     	else 
-        	disp+=AREA_D->get_area(city_name,"name")+"µØÇøµØĞÎÍ¼¡£\n";
+        	disp+=AREA_D->get_area(city_name,"name")+"åœ°åŒºåœ°å½¢å›¾ã€‚\n";
         p_bar=p_bar[0..3+2*width]+"\n";
         disp+=p_bar;
-        disp+="  ©³"+bar+"©·\n";
+        disp+="  â”"+bar+"â”“\n";
         for(i=0;i<height;++i)
         {  
            string l_n=sprintf("%2d",i+1);
-           disp+=l_n+"©§";
+           disp+=l_n+"â”ƒ";
            for(j=0;j<width;++j)
            {       
 	      troops=cities[city_name][i][j]["t"];
 	      if(sizeof(troops)&&(p_type!="m"))
 	      {
         		if(member_array(mytroop,troops)!=-1)
-                    s_tmp="%^RED%^£Í";
+                    s_tmp="%^RED%^ï¼­";
         		else
                 {
                     // xiaobai: get the troop leader's name
@@ -280,13 +280,13 @@ string preview_city(string city_name,string p_type,int mytroop)
                                 cities[city_name][i][j]["m"];
            }
                 l_n=sprintf("%d",i+1);
-                disp+="%^RESET%^©§"+l_n+"\n";
+                disp+="%^RESET%^â”ƒ"+l_n+"\n";
         }
-        disp+="  ©»"+bar+"©¿\n"+p_bar;
+        disp+="  â”—"+bar+"â”›\n"+p_bar;
         disp+=
-"Æ½µØ£º£®  Ë®£º¡«  É½µØ£º¡Ä   ²İµØ£º£ª  
-Ê÷ÁÖ£º¡á  ÌìÏÕ£º¡ù ÓªÕÊ£º¡ò  ×Ô¼º£º£Í
-¹¥·½£º£Á  ÊØ·½£º£Ä ³ÇÇ½£º©¦©¸©¼©°©´©¤ 
+"å¹³åœ°ï¼šï¼  æ°´ï¼šï½  å±±åœ°ï¼šâˆ§   è‰åœ°ï¼šï¼Š  
+æ ‘æ—ï¼šâ™‚  å¤©é™©ï¼šâ€» è¥å¸ï¼šâ—  è‡ªå·±ï¼šï¼­
+æ”»æ–¹ï¼šï¼¡  å®ˆæ–¹ï¼šï¼¤ åŸå¢™ï¼šâ”‚â””â”˜â”Œâ”â”€ 
 \n";
         return disp;
 }
@@ -294,11 +294,11 @@ int get_attack_rate(string p_type)
 {
   switch(p_type)
   {
-    case "¡«": return 2;
-    case "£®": return 5;
-    case "¡Ä": return 7;
-    case "£ª": return 4;
-    case "¡á": return 3;
+    case "ï½": return 2;
+    case "ï¼": return 5;
+    case "âˆ§": return 7;
+    case "ï¼Š": return 4;
+    case "â™‚": return 3;
     default :  return 7;
   }
 }
@@ -306,11 +306,11 @@ int get_defence_rate(string p_type)
 {
   switch(p_type)
   {
-    case "¡«": return 2;
-    case "£®": return 5;
-    case "¡Ä": return 4;
-    case "£ª": return 6;
-    case "¡á": return 7;
+    case "ï½": return 2;
+    case "ï¼": return 5;
+    case "âˆ§": return 4;
+    case "ï¼Š": return 6;
+    case "â™‚": return 7;
     default :  return 7;
   }
 }
@@ -392,17 +392,17 @@ string* get_long(string p_type,string pos)
   string *ret,*tmp;
   string f_name;
   string p_color;
-  mapping m = (["©¦":"ns","©¸":"sw","©¼":"se","©°":"nw","©´":"ne","©¤":"we","¡ò":"shuai"]);
+  mapping m = (["â”‚":"ns","â””":"sw","â”˜":"se","â”Œ":"nw","â”":"ne","â”€":"we","â—":"shuai"]);
   p_color=get_color(p_type);
   tmp=({"","","",""});
   switch(p_type)
   {
-    case "¡«":
-    case "£®":
-    case "¡Ä":
-    case "£ª":
-    case "¡á":
-    case "¡ù":
+    case "ï½":
+    case "ï¼":
+    case "âˆ§":
+    case "ï¼Š":
+    case "â™‚":
+    case "â€»":
       for(i=0;i<4;++i)
       {
           for(j=0;j<8;++j)
@@ -412,13 +412,13 @@ string* get_long(string p_type,string pos)
 		tmp[i]+=p_type;
       }
       break;
-      case "©¦":
-      case "©¸":
-      case "©¼":
-      case "©°":
-      case "©´":
-      case "©¤":
-      case "¡ò":
+      case "â”‚":
+      case "â””":
+      case "â”˜":
+      case "â”Œ":
+      case "â”":
+      case "â”€":
+      case "â—":
         f_name=PPIC+"wall"+m[p_type]+".pic";
 	for(i=0;i<4;++i)
 	{
@@ -457,11 +457,11 @@ ret=({tmp[0][8..15],tmp[1][8..15],tmp[2][8..15],tmp[3][8..15]});break;
 int get_consume(string p_type,string p_side)
 {
         switch(p_type)
-        {       case "¡«":  return 6;
-                case "£®":  return 2;
-                case "¡Ä":  return 5;
-                case "£ª":  return 3;
-                case "¡á":  return 5;
+        {       case "ï½":  return 6;
+                case "ï¼":  return 2;
+                case "âˆ§":  return 5;
+                case "ï¼Š":  return 3;
+                case "â™‚":  return 5;
                 default:
                         return 2;
         }

@@ -1,11 +1,11 @@
 // by fire on Dec 29 1997
-// kongyiji.c  ¿×Ò»¼º
+// kongyiji.c  å­”ä¸€å·±
 #include <mudlib.h>
 #include <sanguo.h>
 inherit LIVING;
 inherit CHINESE_DA;
 private *name_list=({ });
-int learn_zgxy(object who)  //ÖÎ¹úÐÞÑø
+int learn_zgxy(object who)  //æ²»å›½ä¿®å…»
 {
   int p_res;
   string p_st;
@@ -13,26 +13,26 @@ int learn_zgxy(object who)  //ÖÎ¹úÐÞÑø
   switch(p_res)
   {
 	case TOO_TIRED:
-		this_object()->targetted_action("$N¶Ô$TÐ¦µ½£º¡°ÄãÌ«ÀÛÁË£¬ÐÝÏ¢»á¶ùÔÙÀ´Ñ§°É¡£¡±\n",who);
+		this_object()->targetted_action("$Nå¯¹$Tç¬‘åˆ°ï¼šâ€œä½ å¤ªç´¯äº†ï¼Œä¼‘æ¯ä¼šå„¿å†æ¥å­¦å§ã€‚â€\n",who);
 		return 0;
 	case TOO_EASY:
-		this_object()->targetted_action("$N¶Ô$TÐ¦µ½£º¡°Äã¸ÃÕÒ¸ö¸ü¸ßÃ÷µÄÀÏÊ¦ÁË¡£¡±\n",who);
+		this_object()->targetted_action("$Nå¯¹$Tç¬‘åˆ°ï¼šâ€œä½ è¯¥æ‰¾ä¸ªæ›´é«˜æ˜Žçš„è€å¸ˆäº†ã€‚â€\n",who);
 		return 0;
 		case LESS_LITERATE:
- this_object()->targetted_action("$N¶Ô$TµÀ£ºÄãµÄÎÄÑ§Ì«²î£¬Ìý²»¶®ÕâÐ©¡£\n",this_body());
+ this_object()->targetted_action("$Nå¯¹$Té“ï¼šä½ çš„æ–‡å­¦å¤ªå·®ï¼Œå¬ä¸æ‡‚è¿™äº›ã€‚\n",this_body());
 			return 0;
 	case CAN_LEARN:
-  		this_object()->targetted_action("$NÏò$TÏê½âÁËÖÎ¹úÖ®µÀ¡£\n",who);
+  		this_object()->targetted_action("$Nå‘$Tè¯¦è§£äº†æ²»å›½ä¹‹é“ã€‚\n",who);
   		p_st=SG_SKILL_D->query_get("sk_meili");
   		who->simple_action(p_st);
   		return 1;
 	default :
-		write("Äã¾­Ñé²»¹»¡£\n");
-//            write("·µ»ØÊýÊÇ"+p_res);
+		write("ä½ ç»éªŒä¸å¤Ÿã€‚\n");
+//            write("è¿”å›žæ•°æ˜¯"+p_res);
   }
   return 0;
 }
-int learn_bfxy(object who)  //±ø·¨ÐÞÑø
+int learn_bfxy(object who)  //å…µæ³•ä¿®å…»
 {
   int p_res;
   string p_st;
@@ -40,30 +40,30 @@ int learn_bfxy(object who)  //±ø·¨ÐÞÑø
   switch(p_res)
   {
 	case TOO_TIRED:
-		this_object()->targetted_action("$N¶Ô$TÐ¦µ½£º¡°ÄãÌ«ÀÛÁË£¬ÐÝÏ¢»á¶ùÔÙÀ´Ñ§°É¡£¡±\n",who);
+		this_object()->targetted_action("$Nå¯¹$Tç¬‘åˆ°ï¼šâ€œä½ å¤ªç´¯äº†ï¼Œä¼‘æ¯ä¼šå„¿å†æ¥å­¦å§ã€‚â€\n",who);
 		return 0;
                 case LESS_LITERATE:
- this_object()->targetted_action("$N¶Ô$TµÀ£ºÄãµÄÎÄÑ§Ì«²î£¬Ìý²»¶®ÕâÐ©¡£\n",this_body());
+ this_object()->targetted_action("$Nå¯¹$Té“ï¼šä½ çš„æ–‡å­¦å¤ªå·®ï¼Œå¬ä¸æ‡‚è¿™äº›ã€‚\n",this_body());
                         return 0;
 	case TOO_EASY:
-		this_object()->targetted_action("$N¶Ô$TÐ¦µ½£º¡°Äã¸ÃÕÒ¸ö¸ü¸ßÃ÷µÄÀÏÊ¦ÁË¡£¡±\n",who);
+		this_object()->targetted_action("$Nå¯¹$Tç¬‘åˆ°ï¼šâ€œä½ è¯¥æ‰¾ä¸ªæ›´é«˜æ˜Žçš„è€å¸ˆäº†ã€‚â€\n",who);
 		return 0;
 	case CAN_LEARN:
-  		this_object()->targetted_action("$NÏò$TÏê½âÁËÓÃ±øÖ®µÀ¡£\n",who);
+  		this_object()->targetted_action("$Nå‘$Tè¯¦è§£äº†ç”¨å…µä¹‹é“ã€‚\n",who);
   		p_st=SG_SKILL_D->query_get("sk_zhimou");
   		who->simple_action(p_st);
   		return 1;
 	default :
-		write("Äã¾­Ñé²»¹»¡£\n");
-//		write("²»ÖªÎªÊ²Ã´Ëû²»½ÌÄã£¬ÎÊÎÊÎ×Ê¦°É¡£\n");
+		write("ä½ ç»éªŒä¸å¤Ÿã€‚\n");
+//		write("ä¸çŸ¥ä¸ºä»€ä¹ˆä»–ä¸æ•™ä½ ï¼Œé—®é—®å·«å¸ˆå§ã€‚\n");
   }
   return 0;
 }
 void setup()
 {
-    set_name("kong yiji", "¿×Ò»¼º");
-    set_proper_name("¿×Ò»¼º");
-    set_in_room_desc("¿×Ò»¼º(kong yiji)");
+    set_name("kong yiji", "å­”ä¸€å·±");
+    set_proper_name("å­”ä¸€å·±");
+    set_in_room_desc("å­”ä¸€å·±(kong yiji)");
     set_gender(1);
     set_age(40);
     add_id("kong");
@@ -77,7 +77,7 @@ void setup()
    set_accept_money(1);
 }
 string long() {
-	return "¿×Ò»¼º¿´ÉÏÈ¥ÄèÄèµÄ£¬ËÆºõÃ»Ì«Ë¯ÐÑ¡£\n";
+	return "å­”ä¸€å·±çœ‹ä¸ŠåŽ»è”«è”«çš„ï¼Œä¼¼ä¹Žæ²¡å¤ªç¡é†’ã€‚\n";
 }
 void special_answer(object who, string matt)
 {
@@ -88,17 +88,17 @@ void special_answer(object who, string matt)
 	switch(matt)
 	{
 		case "name" :
-			this_object()->targetted_action("$N¶Ô$TÒ»±¾Õý¾­µØËµµ½£º"+
-"¡°ÎáÄË¿××ÓÈýÊ®°Ë´ú³¤Ëï£¬Ðã²Å¿×Ò»¼ºÒ²¡£¡±\n",who);
+			this_object()->targetted_action("$Nå¯¹$Tä¸€æœ¬æ­£ç»åœ°è¯´åˆ°ï¼š"+
+"â€œå¾ä¹ƒå­”å­ä¸‰åå…«ä»£é•¿å­™ï¼Œç§€æ‰å­”ä¸€å·±ä¹Ÿã€‚â€\n",who);
  			return;
 		case "rumors" :
-			this_object()->targetted_action("$N¶Ô$TËµµ½£º"+
-"±ø»ÄÂíÂÒ£¬»ö¹úÑêÃñ£¬Èê²»Ñ§µã±¾ÊÂ£¬ºÎÒÔÎªÉúÑ½¡£\n",who);
+			this_object()->targetted_action("$Nå¯¹$Tè¯´åˆ°ï¼š"+
+"å…µè’é©¬ä¹±ï¼Œç¥¸å›½æ®ƒæ°‘ï¼Œæ±ä¸å­¦ç‚¹æœ¬äº‹ï¼Œä½•ä»¥ä¸ºç”Ÿå‘€ã€‚\n",who);
 			return;
 			
 		case "money" :
 			this_object()->targetted_action(
-"$N¶Ô$tËµµ½£º¡°Ñ§Õß²»Í¼Ç®²Æ£¬µ«Ò²µÃºý¿ÚÑ½£¬Ñ§·ÑÎåÁ½ÎÆÒø¡£¡±\n",who);
+"$Nå¯¹$tè¯´åˆ°ï¼šâ€œå­¦è€…ä¸å›¾é’±è´¢ï¼Œä½†ä¹Ÿå¾—ç³Šå£å‘€ï¼Œå­¦è´¹äº”ä¸¤çº¹é“¶ã€‚â€\n",who);
 			return;
 		case "bfxy" :
 			p_id=this_body()->query_userid();
@@ -111,7 +111,7 @@ void special_answer(object who, string matt)
 			{
 				
 				this_object()->targetted_action(
-"$N¶Ô$tËµµ½£º¡°ÄãÏëÑ§Ñ½£¬ÓÐ¿×·½ÐÖµÄ½éÉÜÐÅÂð£¿\n",who);
+"$Nå¯¹$tè¯´åˆ°ï¼šâ€œä½ æƒ³å­¦å‘€ï¼Œæœ‰å­”æ–¹å…„çš„ä»‹ç»ä¿¡å—ï¼Ÿ\n",who);
 			}
 			return;
 		case "zgxy" :
@@ -125,7 +125,7 @@ void special_answer(object who, string matt)
 			{
 				
 				this_object()->targetted_action(
-"$N¶Ô$tËµµ½£º¡°ÄãÏëÑ§Ñ½£¬ÓÐ¿×·½ÐÖµÄ½éÉÜÐÅÂð£¿\n",who);
+"$Nå¯¹$tè¯´åˆ°ï¼šâ€œä½ æƒ³å­¦å‘€ï¼Œæœ‰å­”æ–¹å…„çš„ä»‹ç»ä¿¡å—ï¼Ÿ\n",who);
 			}
 			return;
 	}
@@ -139,9 +139,9 @@ void receive_money(object who, int number,string str)
 	{
 		p_id=this_body()->query_userid();
 		name_list+=({ p_id });
-		this_object()->targetted_action("$N¶Ô$tÐ¦µ½£º¡°ÖÕÓÚ»¹ÓÐºÃ¶ÁÊéÖ®ÈË¡£¡±\n",who);
+		this_object()->targetted_action("$Nå¯¹$tç¬‘åˆ°ï¼šâ€œç»ˆäºŽè¿˜æœ‰å¥½è¯»ä¹¦ä¹‹äººã€‚â€\n",who);
 	}
 	else 
-		this_object()->targetted_action("$N¶Ô$t³°Ð¦µ½£ºÕâµãÇ®£¬¹»¸ÉÊ²Ã´£¿\n",who);
+		this_object()->targetted_action("$Nå¯¹$tå˜²ç¬‘åˆ°ï¼šè¿™ç‚¹é’±ï¼Œå¤Ÿå¹²ä»€ä¹ˆï¼Ÿ\n",who);
 	return;
 }

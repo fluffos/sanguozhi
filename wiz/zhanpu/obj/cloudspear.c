@@ -5,14 +5,14 @@ inherit M_WEAPON;
 inherit M_VALUE;
 void setup()
 {
-set_unit("¸Ë");
-set_id("cloudspear", HIG+"·çÁ÷°×ÔÆÇ¹"+NOR);
+set_unit("æ†");
+set_id("cloudspear", HIG+"é£æµç™½äº‘æª"+NOR);
 add_id("cloud");
 add_id("spear");
 add_id("cloud");
-set_in_room_desc(HIG+"·çÁ÷°×ÔÆÇ¹"+NOR+"(fangtianhua ji)");
-set_long("ÕâÊÇÎôÄê°×ÀæÔÆÑïÃûÈı¹ú£¬ÍşÕğ´ó¾üµÄÉñ±ø£¬Ç¹¸ËÈç°×Óñ£¬
-ÁîÈË°®²»Ï§ÊÖ¡£\n");
+set_in_room_desc(HIG+"é£æµç™½äº‘æª"+NOR+"(fangtianhua ji)");
+set_long("è¿™æ˜¯æ˜”å¹´ç™½æ¢¨äº‘æ‰¬åä¸‰å›½ï¼Œå¨éœ‡å¤§å†›çš„ç¥å…µï¼Œæªæ†å¦‚ç™½ç‰ï¼Œ
+ä»¤äººçˆ±ä¸æƒœæ‰‹ã€‚\n");
 set_size(MEDIUM);
 set_value(-1);
 set_currency_type("gold");
@@ -20,6 +20,6 @@ set_attack_ability(180);
 set_attack_power(140);
 set_defence_ability(180);
 set_combat_messages("combat-spear");
-set_wield_message("$NÂÕÁËÒ»¸öÇ¹»¨£¬ÒÑ½«$o·´ÊÖÌùÓÚÉíºó£¬ÓÒÍÈÁ¢Æğ£¬ºÃÒ»¸ö½ğ¼¦¶ÀÁ¢£¬É²Ê±ÃÔµ¹ÎŞÊıÉÙÅ®¡£\n");
-set_unwield_message("$NÆø¶¨ÉñÓÎ£¬ÓÒÊÖÒ»Ñï£¬ÒÑ½«$o²å»ØàÎÍ·¡£\n");
+set_wield_message("$NæŠ¡äº†ä¸€ä¸ªæªèŠ±ï¼Œå·²å°†$oåæ‰‹è´´äºèº«åï¼Œå³è…¿ç«‹èµ·ï¼Œå¥½ä¸€ä¸ªé‡‘é¸¡ç‹¬ç«‹ï¼Œåˆ¹æ—¶è¿·å€’æ— æ•°å°‘å¥³ã€‚\n");
+set_unwield_message("$Næ°”å®šç¥æ¸¸ï¼Œå³æ‰‹ä¸€æ‰¬ï¼Œå·²å°†$oæ’å›è¾”å¤´ã€‚\n");
 }

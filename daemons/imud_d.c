@@ -32,7 +32,7 @@ inherit __DIR__ "imud/oob";
 inherit __DIR__ "imud/file";
 inherit __DIR__ "imud/mail";
 
-static private object   router_socket;
+nosave private object   router_socket;
 
 private string *        router_list = ({ ({ "*i4", "204.209.44.3 8080"}) });
 
@@ -47,7 +47,7 @@ void rcv_oob_req(string orig_mud, string orig_user,
 		 string targ_user, mixed * message);
 
 
-static private mapping  dispatch =
+nosave private mapping  dispatch =
 ([
   "tell" : (: rcv_tell :),
   "emoteto" : (: rcv_emoteto :),
@@ -93,7 +93,7 @@ private nomask void send_message(string type, string target_mud,
 
     if ( this_user() )
 		orig_user = this_user()->query_userid();
-	/*tell_user("huaer",sprintf("×¼±¸¸ørouter·¢ËÍĞÅÏ¢:\n"));
+	/*tell_user("huaer",sprintf("å‡†å¤‡ç»™routerå‘é€ä¿¡æ¯:\n"));
 	tell_user("huaer",sprintf("type = %s\n",type));
 	tell_user("huaer",sprintf("mud_name() = %s\n",mud_name()));
 	tell_user("huaer",sprintf("orig_user = %s\n",orig_user));
@@ -204,7 +204,7 @@ private nomask void reconnect()
     else
     {
 	send_to_router("startup-req-3",
-		       ({ password,	//ÒÔÇ°ÊÇpassword2139547924
+		       ({ password,	//ä»¥å‰æ˜¯password2139547924
 			      query_mudlist_id(),
 			      query_chanlist_id(),
 			      __PORT__,
@@ -257,17 +257,17 @@ void create()
 
     ::create();
 
-    mudlist_reset_entries();			//Îªmudlist³õÊ¼»¯½Ó¿Ú
+    mudlist_reset_entries();			//ä¸ºmudliståˆå§‹åŒ–æ¥å£
 
-    reconn_func = (: reconnect :);		//·¢ÆğÁ¬½Ó
+    reconn_func = (: reconnect :);		//å‘èµ·è¿æ¥
 
-    oob_startup();						//oob´øÍâÊı¾İÁ¬½Ó·şÎñ³õÊ¼»¯
-    chan_startup();						//ÆµµÀ³õÊ¼»¯
-    file_startup();						//ÎÄ¼ş´«ËÍ³õÊ¼»¯
-    mail_startup();						//ÓÊ¼ş·şÎñ³õÊ¼»¯
+    oob_startup();						//oobå¸¦å¤–æ•°æ®è¿æ¥æœåŠ¡åˆå§‹åŒ–
+    chan_startup();						//é¢‘é“åˆå§‹åŒ–
+    file_startup();						//æ–‡ä»¶ä¼ é€åˆå§‹åŒ–
+    mail_startup();						//é‚®ä»¶æœåŠ¡åˆå§‹åŒ–
 
     trigger_reconnect("router");
-    if (mud_name() == "Èı¹úÖ¾×ÜÕ¾") {
+    if (mud_name() == "ä¸‰å›½å¿—æ€»ç«™") {
     	call_out("count_users", 60);
     }
     set_privilege("Mudlib:daemons");
@@ -351,7 +351,7 @@ private nomask void rcv_error(string orig_mud, string orig_user,
 
     if ( targ_user && (ob = find_user(targ_user)) )
     {
-	tell(ob, sprintf("Íø¼ÊÆµµÀ¸æËßÄã£º%s: %s: %s\n",
+	tell(ob, sprintf("ç½‘é™…é¢‘é“å‘Šè¯‰ä½ ï¼š%s: %s: %s\n",
 			 orig_mud, message[0], message[1]));
     }
     else

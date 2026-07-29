@@ -9,19 +9,19 @@ void main( mixed width )
     width = to_int(width);
     if( !intp( width ))
     {
-        out( "ÆÁÄ»¿í¶ÈÒ»¶¨ÒªÉè³ÉÒ»¸öÕûÊý¡£\n");
+        out( "å±å¹•å®½åº¦ä¸€å®šè¦è®¾æˆä¸€ä¸ªæ•´æ•°ã€‚\n");
         return;
     }
     if( !width )
     {
-        out( "ÄãÄ¿Ç°µÄÆÁÄ»¿í¶ÈÊÇ£º" + this_user()->query_screen_width() + "¡£\n" );
+        out( "ä½ ç›®å‰çš„å±å¹•å®½åº¦æ˜¯ï¼š" + this_user()->query_screen_width() + "ã€‚\n" );
         return;
     }
     if( width < 20 )
     {
-        out( "ÆÁÄ»¿í¶È×îºÃÊÇ´óÓÚ 20 ¡£\n");
+        out( "å±å¹•å®½åº¦æœ€å¥½æ˜¯å¤§äºŽ 20 ã€‚\n");
         return;
     }
     this_user()->set_screen_width( width );
-    out( "Íê³ÉÆÁÄ»¿í¶ÈÉè¶¨¡£\n");
+    out( "å®Œæˆå±å¹•å®½åº¦è®¾å®šã€‚\n");
 }

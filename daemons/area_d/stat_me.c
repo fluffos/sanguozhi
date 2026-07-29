@@ -15,13 +15,13 @@ string get_zhoumu_name(string a_id) {
 	}
 	if(AREA_D->get_area(a_id,"nation")!=AREA_D->get_area(zhouhd,"nation"))
 		return "";
-	return "%^H_MAGENTA%^¡¾Öİ    ÄÁ¡¿"+CHAR_D->get_char(p_id,"name");
+	return "%^H_MAGENTA%^ã€å·    ç‰§ã€‘"+CHAR_D->get_char(p_id,"name");
 }
 string product_estimate(string a_id) {
 	string *bs;
 	object ob;
 	string ret="";
-//	string ret="%^H_CYAN%^¡¾Éú²úÄÜÁ¦¡¿£¨¹À¼ÆÔÂ²úÁ¿£©%^RESET%^\n";
+//	string ret="%^H_CYAN%^ã€ç”Ÿäº§èƒ½åŠ›ã€‘ï¼ˆä¼°è®¡æœˆäº§é‡ï¼‰%^RESET%^\n";
 	mapping pd=([]);
 	mapping tmp;
 	bs=AREA_D->get_area(a_id,"base");
@@ -37,7 +37,7 @@ string product_estimate(string a_id) {
 	if(!sizeof(pd)) return "";
 	foreach(string stf, int v in pd) {
 		if(!BASE_D->stuff_exist(stf)) continue;
-		ret+=BASE_D->get_stuff(stf,"name")+"£º"+chinese_number(v)+
+		ret+=BASE_D->get_stuff(stf,"name")+"ï¼š"+chinese_number(v)+
 			BASE_D->get_stuff(stf,"unit")+"  ";
 	}
 	ret+="\n";
@@ -50,80 +50,80 @@ string stat_me(string a_id,string para,int priority)
 	mixed c,p_tmp;
 	int *list_title;
 	string *list_char,s_tmp,a_nation;
-	array a_tmp;
+	mixed * a_tmp;
 	int i,j,v_left;
 	string p_id;
 	mapping troop;
 	p_id=this_body()->query_id()[0];
 if(!AREA_D->area_exist(a_id))
-	return "Ã»ÓĞÕâ¸öµØÇø¡£\n";
+	return "æ²¡æœ‰è¿™ä¸ªåœ°åŒºã€‚\n";
 	c=AREA_D->get_area(a_id,"");
 if(para=="")
 {     
-	p_ret+="\n\n%^H_CYAN%^info aa %^H_YELLOW%^<area_id>%^RESET%^£ºÏÔÊ¾Ä¿±êµØÇøËùÓĞĞÅÏ¢£»\n";
-	p_ret+="%^H_CYAN%^info ag %^H_YELLOW%^<area_id>%^RESET%^£ºÏÔÊ¾Ä¿±êµØÇø»ù±¾ĞÅÏ¢£»\n";
-	p_ret+="%^H_CYAN%^info am %^H_YELLOW%^<area_id>%^RESET%^£ºÏÔÊ¾Ä¿±êµØÇø¾üÊÂ¼°´¢±¸ĞÅÏ¢£»\n";
-	p_ret+="%^H_CYAN%^info af %^H_YELLOW%^<area_id>%^RESET%^£ºÏÔÊ¾Ä¿±êµØÇø²ÆÕşĞÅÏ¢£»\n";
-	p_ret+="%^H_CYAN%^info ao %^H_YELLOW%^<area_id>%^RESET%^£ºÏÔÊ¾Ä¿±êµØÇøÈËÊÂĞÅÏ¢£»\n";
-	p_ret+="%^H_CYAN%^info a%^RESET%^           £ºÏÔÊ¾±¾ĞÅÏ¢¡£\n\n";
-	p_ret+="×¢£ºÈô%^H_YELLOW%^<area_id>%^RESET%^Îª%^H_YELLOW%^here%^RESET%^£¬ÔòÏÔÊ¾ËùÔÚµØÏà¹ØĞÅÏ¢¡£\n\n";
+	p_ret+="\n\n%^H_CYAN%^info aa %^H_YELLOW%^<area_id>%^RESET%^ï¼šæ˜¾ç¤ºç›®æ ‡åœ°åŒºæ‰€æœ‰ä¿¡æ¯ï¼›\n";
+	p_ret+="%^H_CYAN%^info ag %^H_YELLOW%^<area_id>%^RESET%^ï¼šæ˜¾ç¤ºç›®æ ‡åœ°åŒºåŸºæœ¬ä¿¡æ¯ï¼›\n";
+	p_ret+="%^H_CYAN%^info am %^H_YELLOW%^<area_id>%^RESET%^ï¼šæ˜¾ç¤ºç›®æ ‡åœ°åŒºå†›äº‹åŠå‚¨å¤‡ä¿¡æ¯ï¼›\n";
+	p_ret+="%^H_CYAN%^info af %^H_YELLOW%^<area_id>%^RESET%^ï¼šæ˜¾ç¤ºç›®æ ‡åœ°åŒºè´¢æ”¿ä¿¡æ¯ï¼›\n";
+	p_ret+="%^H_CYAN%^info ao %^H_YELLOW%^<area_id>%^RESET%^ï¼šæ˜¾ç¤ºç›®æ ‡åœ°åŒºäººäº‹ä¿¡æ¯ï¼›\n";
+	p_ret+="%^H_CYAN%^info a%^RESET%^           ï¼šæ˜¾ç¤ºæœ¬ä¿¡æ¯ã€‚\n\n";
+	p_ret+="æ³¨ï¼šè‹¥%^H_YELLOW%^<area_id>%^RESET%^ä¸º%^H_YELLOW%^here%^RESET%^ï¼Œåˆ™æ˜¾ç¤ºæ‰€åœ¨åœ°ç›¸å…³ä¿¡æ¯ã€‚\n\n";
 	return p_ret;
 }
-	p_ret+="%^MAGENTA%^¡ş¡ş¡ş¡ş¡ş¡ş%^H_GREEN%^µØ%^RESET%^%^MAGENTA%^¡ş¡ş¡ş¡ş¡ş%^H_GREEN%^Çø%^RESET%^%^MAGENTA%^¡ş¡ş¡ş¡ş¡ş%^H_GREEN%^×Ê%^RESET%^%^MAGENTA%^¡ş¡ş¡ş¡ş¡ş%^H_GREEN%^Ñ¶%^RESET%^%^MAGENTA%^¡ş¡ş¡ş¡ş¡ş¡ş%^RESET%^\n";
+	p_ret+="%^MAGENTA%^ã€“ã€“ã€“ã€“ã€“ã€“%^H_GREEN%^åœ°%^RESET%^%^MAGENTA%^ã€“ã€“ã€“ã€“ã€“%^H_GREEN%^åŒº%^RESET%^%^MAGENTA%^ã€“ã€“ã€“ã€“ã€“%^H_GREEN%^èµ„%^RESET%^%^MAGENTA%^ã€“ã€“ã€“ã€“ã€“%^H_GREEN%^è®¯%^RESET%^%^MAGENTA%^ã€“ã€“ã€“ã€“ã€“ã€“%^RESET%^\n";
 if(para=="g")
-	p_ret+="\n%^B_WHITE%^%^BLACK%^¡ô·ÖÀàÏÔÊ¾¡ô%^RESET%^%^H_YELLOW%^Ö®%^H_RED%^»ù±¾ĞÅÏ¢%^H_YELLOW%^£º%^RESET%^\n\n";
+	p_ret+="\n%^B_WHITE%^%^BLACK%^â—†åˆ†ç±»æ˜¾ç¤ºâ—†%^RESET%^%^H_YELLOW%^ä¹‹%^H_RED%^åŸºæœ¬ä¿¡æ¯%^H_YELLOW%^ï¼š%^RESET%^\n\n";
 if(para=="m")
-	p_ret+="\n%^B_WHITE%^%^BLACK%^¡ô·ÖÀàÏÔÊ¾¡ô%^RESET%^%^H_YELLOW%^Ö®%^H_RED%^¾üÊÂ¼°´¢±¸ĞÅÏ¢%^H_YELLOW%^£º%^RESET%^\n\n";
+	p_ret+="\n%^B_WHITE%^%^BLACK%^â—†åˆ†ç±»æ˜¾ç¤ºâ—†%^RESET%^%^H_YELLOW%^ä¹‹%^H_RED%^å†›äº‹åŠå‚¨å¤‡ä¿¡æ¯%^H_YELLOW%^ï¼š%^RESET%^\n\n";
 if(para=="f")
-	p_ret+="\n%^B_WHITE%^%^BLACK%^¡ô·ÖÀàÏÔÊ¾¡ô%^RESET%^%^H_YELLOW%^Ö®%^H_RED%^²ÆÕşĞÅÏ¢%^H_YELLOW%^£º%^RESET%^\n\n";
+	p_ret+="\n%^B_WHITE%^%^BLACK%^â—†åˆ†ç±»æ˜¾ç¤ºâ—†%^RESET%^%^H_YELLOW%^ä¹‹%^H_RED%^è´¢æ”¿ä¿¡æ¯%^H_YELLOW%^ï¼š%^RESET%^\n\n";
 if(para=="o")
-	p_ret+="\n%^B_WHITE%^%^BLACK%^¡ô·ÖÀàÏÔÊ¾¡ô%^RESET%^%^H_YELLOW%^Ö®%^H_RED%^ÈËÊÂĞÅÏ¢%^H_YELLOW%^£º%^RESET%^\n\n";
+	p_ret+="\n%^B_WHITE%^%^BLACK%^â—†åˆ†ç±»æ˜¾ç¤ºâ—†%^RESET%^%^H_YELLOW%^ä¹‹%^H_RED%^äººäº‹ä¿¡æ¯%^H_YELLOW%^ï¼š%^RESET%^\n\n";
 if(para=="a"||para=="g")
-	p_ret+="%^H_CYAN%^¡ï"+AREA_D->get_area(a_id,"zhou")+"¡ï %^RESET%^\n";
+	p_ret+="%^H_CYAN%^â˜…"+AREA_D->get_area(a_id,"zhou")+"â˜… %^RESET%^\n";
 if(para=="g"||para=="a"||para=="s")
-	p_ret+="%^H_GREEN%^¡öÒ»°ã×ÊÑ¶£º%^RESET%^\n";
-	p_ret+=sprintf("%%^H_YELLOW%%^¡¾µØÇø´úºÅ¡¿%-8s¡¾Ãû    ³Æ¡¿%-8s¡¾ ËùÊô¹ú ¡¿%s%%^RESET%%^\n",a_id, c["name"],COUNTRY_D->get_country(AREA_D->get_area(a_id,"nation"),"name"));
+	p_ret+="%^H_GREEN%^â– ä¸€èˆ¬èµ„è®¯ï¼š%^RESET%^\n";
+	p_ret+=sprintf("%%^H_YELLOW%%^ã€åœ°åŒºä»£å·ã€‘%-8sã€å    ç§°ã€‘%-8sã€ æ‰€å±å›½ ã€‘%s%%^RESET%%^\n",a_id, c["name"],COUNTRY_D->get_country(AREA_D->get_area(a_id,"nation"),"name"));
 if(para=="g"||para=="a")
-	p_ret+=sprintf("%%^H_YELLOW%%^¡¾µÈ    ¼¶¡¿%-8d¡¾Ìì    Æø¡¿%-8s¡¾ÈË    ¿Ú¡¿%-8d%%^RESET%%^\n",
+	p_ret+=sprintf("%%^H_YELLOW%%^ã€ç­‰    çº§ã€‘%-8dã€å¤©    æ°”ã€‘%-8sã€äºº    å£ã€‘%-8d%%^RESET%%^\n",
       c["level"], DAY_D->get_weather_short(c["weather"]),c["population"]);
 if(para=="g"||para=="a"||para=="s")
 {
 	if(priority<2)
-	p_ret+=sprintf("%%^H_YELLOW%%^¡¾°²    ¶¨¡¿%-8d¡¾·¢Õ¹ÖØµã¡¿%s%%^RESET%%^\n",
+	p_ret+=sprintf("%%^H_YELLOW%%^ã€å®‰    å®šã€‘%-8dã€å‘å±•é‡ç‚¹ã€‘%s%%^RESET%%^\n",
 	c["safe"],AREA_D->get_area(a_id,"importancestr"));
 }
 if(para=="f"||para=="a"||para=="s")
 {
 	if(priority<1)
-	p_ret+=sprintf("%%^H_YELLOW%%^¡¾¹¤    Òµ¡¿%-8d¡¾Å©    Òµ¡¿%-8d¡¾ÉÌ    Òµ¡¿%d%%^RESET%%^\n",
+	p_ret+=sprintf("%%^H_YELLOW%%^ã€å·¥    ä¸šã€‘%-8dã€å†œ    ä¸šã€‘%-8dã€å•†    ä¸šã€‘%d%%^RESET%%^\n",
 	c["industry"],c["agriculture"],c["business"]);
 }
 if(para=="g"||para=="a"||para=="s")
 {
 	if(priority<2)
-	p_ret+=sprintf("%%^H_RED%%^¡¾Ö÷    ¹«¡¿%-8s%%^H_RED%%^¡¾Ì«    ÊØ¡¿%-8s%%^RESET%%^%s\n",
+	p_ret+=sprintf("%%^H_RED%%^ã€ä¸»    å…¬ã€‘%-8s%%^H_RED%%^ã€å¤ª    å®ˆã€‘%-8s%%^RESET%%^%s\n",
 	CHAR_D->get_char(c["nation"],"name"), CHAR_D->get_char(AREA_D->get_area(a_id,"leader"),"name"),get_zhoumu_name(a_id));
 }
 if(para=="f"||para=="a"||para=="s")
 {
 	if(priority<1)
-	p_ret+=sprintf("%%^H_YELLOW%%^¡¾   ½ğ   ¡¿%-8d%%^H_RED%%^¡¾¹ú    Ë°¡¿%-8d¡¾µØ    Ë°¡¿%d%%^RESET%%^\n", c["gold"],c["taxnation"],c["taxlocal"]);
+	p_ret+=sprintf("%%^H_YELLOW%%^ã€   é‡‘   ã€‘%-8d%%^H_RED%%^ã€å›½    ç¨ã€‘%-8dã€åœ°    ç¨ã€‘%d%%^RESET%%^\n", c["gold"],c["taxnation"],c["taxlocal"]);
 }
 if(para=="f"||para=="a"||para=="s")
 {
 	if(priority<1)
 	{
-	p_ret+="%^H_BLUE%^¡ö»ùµØÉú²ú¼°ÊÕÖ§×´¿ö£º%^RESET%^\n";
-	p_ret+="%^H_CYAN%^¡¾Éú²úÄÜÁ¦¡¿£¨¹À¼ÆÔÂ²úÁ¿£©%^RESET%^\n";
-	p_ret+="%^H_GREEN%^©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤\n";
+	p_ret+="%^H_BLUE%^â– åŸºåœ°ç”Ÿäº§åŠæ”¶æ”¯çŠ¶å†µï¼š%^RESET%^\n";
+	p_ret+="%^H_CYAN%^ã€ç”Ÿäº§èƒ½åŠ›ã€‘ï¼ˆä¼°è®¡æœˆäº§é‡ï¼‰%^RESET%^\n";
+	p_ret+="%^H_GREEN%^â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\n";
 	p_ret+=product_estimate(a_id);
-	p_ret+="%^H_GREEN%^©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤\n";
-	p_ret+=sprintf("%%^H_CYAN%%^¡¾½ğÔÂÊÕÈë¡¿%-8d%%^RESET%%^\n",
+	p_ret+="%^H_GREEN%^â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\n";
+	p_ret+=sprintf("%%^H_CYAN%%^ã€é‡‘æœˆæ”¶å…¥ã€‘%-8d%%^RESET%%^\n",
 	AREA_D->get_area(a_id,"goldin"));
-	p_ret+=sprintf("%%^H_CYAN%%^¡¾½ğÔÂÖ§³ö¡¿£¨Ê¿±ø£º%d ¹ÙÔ±£º%d£©%%^RESET%%^\n",
+	p_ret+=sprintf("%%^H_CYAN%%^ã€é‡‘æœˆæ”¯å‡ºã€‘ï¼ˆå£«å…µï¼š%d å®˜å‘˜ï¼š%dï¼‰%%^RESET%%^\n",
 	AREA_D->get_area(a_id,"goldout"),
 	AREA_D->get_area(a_id,"salary"));
-	p_ret+=sprintf("%%^H_CYAN%%^¡¾Á¸ÔÂÖ§³ö¡¿%-8d¡¾ÎïÔÂÖ§³ö¡¿%d%%^RESET%%^\n",
+	p_ret+=sprintf("%%^H_CYAN%%^ã€ç²®æœˆæ”¯å‡ºã€‘%-8dã€ç‰©æœˆæ”¯å‡ºã€‘%d%%^RESET%%^\n",
 	AREA_D->get_area(a_id,"foodout"),AREA_D->get_area(a_id,"stuffout"));
 	}
 }
@@ -131,15 +131,15 @@ if(para=="m"||para=="a"||para=="s")
 {
 	if(priority<1)
 	{
-	p_ret+="%^H_WHITE%^¡öµØÇø·ÀÎÀ¼°Îï×Ê´¢±¸£º%^RESET%^\n";
-      p_ret+=sprintf("%%^H_YELLOW%%^¡¾Ê¿    ±ø¡¿%-8d¡¾Ñµ    Á·¡¿%-8d¡¾Ê¿    Æø¡¿%-8d%%^RESET%%^\n",
+	p_ret+="%^H_WHITE%^â– åœ°åŒºé˜²å«åŠç‰©èµ„å‚¨å¤‡ï¼š%^RESET%^\n";
+      p_ret+=sprintf("%%^H_YELLOW%%^ã€å£«    å…µã€‘%-8dã€è®­    ç»ƒã€‘%-8dã€å£«    æ°”ã€‘%-8d%%^RESET%%^\n",
 	AREA_D->get_area(a_id,"soldier"),c["train"],c["morale"]);
 	if(sizeof(c["st"]))
 		{
-		p_ret+="%^H_CYAN%^©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤\n";
+		p_ret+="%^H_CYAN%^â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\n";
 		foreach(string st_it in keys(c["st"]))
 			{
-			p_ret+=sprintf("%s£º%d  ",(EV_MERCHANT)->query_goods(st_it,"name"),
+			p_ret+=sprintf("%sï¼š%d  ",(EV_MERCHANT)->query_goods(st_it,"name"),
 			c["st"][st_it]["num"]);  //suicide 2000.02.26
 			} 
 		p_ret+="\n";
@@ -158,18 +158,18 @@ if(para=="m"||para=="a"||para=="s")
 			}
 		p_ret+=sprintf("%-20s:%-7d%3s", WARAI_D->query_type(tt,"name")+"("+tt+")", troop[tt], "");
 		}
-	p_ret+="\n%^H_CYAN%^©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤%^RESET%^\n";
+	p_ret+="\n%^H_CYAN%^â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€%^RESET%^\n";
 	}
 	}
 }
 if(para=="o"||para=="a")
 {
-	p_ret+="%^H_MAGENTA%^¡öµØÇø¹ÙÔ±£º%^RESET%^\n";
+	p_ret+="%^H_MAGENTA%^â– åœ°åŒºå®˜å‘˜ï¼š%^RESET%^\n";
 	list_title=OFFICER_D->query_area_officer_title_all(c["level"]);
 	list_char=CHAR_D->check_char("area",a_id);
 	for(i=0;i<sizeof(list_title);++i)
 	{
-	p_ret+="%^H_WHITE%^¡õ"+OFFICER_D->query_rank_name(list_title[i])+"£º%^RESET%^";
+	p_ret+="%^H_WHITE%^â–¡"+OFFICER_D->query_rank_name(list_title[i])+"ï¼š%^RESET%^";
 	a_tmp=filter_array(list_char,
 		(:CHAR_D->get_char($1,"ranklocal")==$(list_title[i]):));
 		for(j=0;j<sizeof(a_tmp);++j)
@@ -180,10 +180,10 @@ if(para=="o"||para=="a")
 	v_left=OFFICER_D->query_max_officer_number(list_title[i]);
 	v_left-=sizeof(a_tmp);
 	for(j=0;j<v_left;++j)
-	p_ret+="©¥©¥ ";
+	p_ret+="â”â” ";
 	p_ret+="\n";
 	}
-	p_ret+="%^H_RED%^¡öÏĞÖ°¼°¹ú¼Ò¹ÙÔ±£º%^RESET%^\n";
+	p_ret+="%^H_RED%^â– é—²èŒåŠå›½å®¶å®˜å‘˜ï¼š%^RESET%^\n";
 	a_nation=AREA_D->get_area(a_id,"nation");
 	for(j=0;j<sizeof(list_char);++j)
 	{
@@ -201,8 +201,8 @@ if(para=="o"||para=="a")
 	p_ret+="\n";
 }
 if(para=="g"||para=="a")
-{	p_ret+="%^H_YELLOW%^¡öÏàÁÚµØÇø£º%^RESET%^\n";
-	p_ret+="%^H_RED%^©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤\n";
+{	p_ret+="%^H_YELLOW%^â– ç›¸é‚»åœ°åŒºï¼š%^RESET%^\n";
+	p_ret+="%^H_RED%^â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\n";
 	if(sizeof(c["neighbor"]))
 	{
 	foreach(string a in c["neighbor"])
@@ -211,25 +211,25 @@ if(para=="g"||para=="a")
 		}
 	}
 	p_ret+="\n";
-	p_ret+="%^H_RED%^©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤\n";
+	p_ret+="%^H_RED%^â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\n";
 
 	if(sizeof(c["base"]))
 	{
-		p_ret+="%^H_YELLOW%^¡öÉú²ú»ùµØ£º%^RESET%^\n";
-		p_ret+="%^H_RED%^©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤\n";
+		p_ret+="%^H_YELLOW%^â– ç”Ÿäº§åŸºåœ°ï¼š%^RESET%^\n";
+		p_ret+="%^H_RED%^â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\n";
 		foreach(string a in c["base"])
 		{
 			p_ret+=(BASE_D->get_base(a,"name")+"("+SGBASE(a_id,a)->get_level()+") ");
 		}
 	}
 	p_ret+="\n";
-	p_ret+="%^H_RED%^©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤\n";
+	p_ret+="%^H_RED%^â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\n";
 
 }
 if (para=="o"||para=="a")
 {
-	p_ret+="%^H_WHITE%^¡ö±¾µØÒş¾ÓÏÍÈË£º%^RESET%^\n";
-	p_ret+="%^H_YELLOW%^©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤\n";
+	p_ret+="%^H_WHITE%^â– æœ¬åœ°éšå±…è´¤äººï¼š%^RESET%^\n";
+	p_ret+="%^H_YELLOW%^â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\n";
 	for(j=0;j<sizeof(list_char);++j)
 	{
 	p_tmp=CHAR_D->get_char(list_char[j],"nation");
@@ -237,8 +237,8 @@ if (para=="o"||para=="a")
 		p_ret+=(CHAR_D->get_char(list_char[j],"name")+" ");
 	}
 	p_ret+="\n";
-	p_ret+="%^H_YELLOW%^©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤\n";
+	p_ret+="%^H_YELLOW%^â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\n";
 }
-	p_ret+="\n%^MAGENTA%^¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş%^B_WHITE%^%^BLACK%^Èı¹úÖ¾%^RESET%^%^MAGENTA%^¡ş¡ş¡ş%^RESET%^\n";
+	p_ret+="\n%^MAGENTA%^ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“%^B_WHITE%^%^BLACK%^ä¸‰å›½å¿—%^RESET%^%^MAGENTA%^ã€“ã€“ã€“%^RESET%^\n";
 	return p_ret;
 }

@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is »¨¶ù¶ä¶ä
+// driver is èŠ±å„¿æœµæœµ
 // created date is Sun Jul  3 10:30:28 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,7 +7,7 @@ inherit INDOOR_ROOM;
 void setup() {
 set_area("yiling");
 set_light(50);
-set_brief("%^YELLOW%^"+"Á¸²İÍÍ»ı´¦"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"ç²®è‰å±¯ç§¯å¤„"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "west":"/a/yiling/yl_junying.c",

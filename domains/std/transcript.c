@@ -16,10 +16,10 @@ void setup(string text)
 	text = "*** Recorder heard nothing but silence.\n";
     }
   
-    set_id("transcript", "±Ê¼Ç±¾");
-    set_unit("±¾");
+    set_id("transcript", "ç¬”è®°æœ¬");
+    set_unit("æœ¬");
     set_gettable(1);
-    set_in_room_desc("µØÉÏ·Å×ÅÒ»¸ö±Ê¼Ç±¾¡£");
-    set_long("ËüÉÏÃæÓĞĞ©¶Ô»°µÄ¼ÇÂ¼¡£\n");
+    set_in_room_desc("åœ°ä¸Šæ”¾ç€ä¸€ä¸ªç¬”è®°æœ¬ã€‚");
+    set_long("å®ƒä¸Šé¢æœ‰äº›å¯¹è¯çš„è®°å½•ã€‚\n");
     set_text(text);
 }

@@ -13,8 +13,8 @@ void do_fate(string city,int r)
                     "st"         :10
                   ]);
 FATE_D->area_effect(city,effect,r);
-  msg = "%^B_MAGENTA%^%^H_CYAN%^【天道】："+AREA_D->get_area(city,"name")+
-               "喜获丰收，等级为"+chinese_number(r)+"，当地百姓欢天喜地。\n%^RESET%^";
+  msg = "%^B_MAGENTA%^%^H_CYAN%^銆愬ぉ閬撱�戯細"+AREA_D->get_area(city,"name")+
+               "鍠滆幏涓版敹锛岀瓑绾т负"+chinese_number(r)+"锛屽綋鍦扮櫨濮撴澶╁枩鍦般�俓n%^RESET%^";
  tell(users(),msg);
  //SGSYS(msg);
 }

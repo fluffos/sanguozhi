@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is »¨¶ù¶ä¶ä
+// driver is èŠ±å„¿æœµæœµ
 // created date is Sun May  8 21:12:49 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,7 +7,7 @@ inherit OUTDOOR_ROOM;
 void setup() {
 set_area("tianshui");
 set_light(50);
-set_brief("%^YELLOW%^"+"³ÇÖĞĞÄ"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"åŸä¸­å¿ƒ"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "north":"/a/tianshui/ts_beidajie.c",
@@ -18,5 +18,5 @@ set_exits( ([
 
 "east":"/a/tianshui/ts_dongdajie.c",
  ]));
-set_objects(([M_BOARD : ({ 1,"ÕâÀïÊÇÌìË®µÄÖĞĞÄ¹ã³¡¡£\n\nÂ·±ßÊúÁ¢×ÅÒ»¸ö"+"%^MAGENTA%^"+"ÌìË®²¼¸æÀ¸"+"%^RESET%^", "city.tianshui" }) ]) );
+set_objects(([M_BOARD : ({ 1,"è¿™é‡Œæ˜¯å¤©æ°´çš„ä¸­å¿ƒå¹¿åœºã€‚\n\nè·¯è¾¹ç«–ç«‹ç€ä¸€ä¸ª"+"%^MAGENTA%^"+"å¤©æ°´å¸ƒå‘Šæ "+"%^RESET%^", "city.tianshui" }) ]) );
 }

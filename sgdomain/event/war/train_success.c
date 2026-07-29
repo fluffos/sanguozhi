@@ -5,7 +5,7 @@ void question_fail(int task_id)
 {
    string p_leader;
    p_leader=TASK_D->get_task(task_id,"def_leader");
-   tell_user(p_leader,"%^H_YELLOW%^ÄãÒÑ¾­²»ÔÚÕ½³¡ÁË£¬ÑµÁ·ÈÎÎñÊ§°Ü¡£\n");
+   tell_user(p_leader,"%^H_YELLOW%^ä½ å·²ç»ä¸åœ¨æˆ˜åœºäº†ï¼Œè®­ç»ƒä»»åŠ¡å¤±è´¥ã€‚\n");
    TASK_D->set_task(task_id,"result","fail");
    return;
 }
@@ -17,7 +17,7 @@ void question_success(int task_id)
      TASK_D->get_task(task_id,"successtimes")+1);
    p_leader=TASK_D->get_task(task_id,"def_leader");
    tell_user(p_leader,
-"%^H_GREEN%^¹§Ï²ÄãÍê³ÉÒ»ÏîÑµÁ·ÈÎÎñ£¬Çë×¼±¸ÏÂÒ»ÏîÑµÁ·ÈÎÎñ°É¡£%^RESET%^\n");
+"%^H_GREEN%^æ­å–œä½ å®Œæˆä¸€é¡¹è®­ç»ƒä»»åŠ¡ï¼Œè¯·å‡†å¤‡ä¸‹ä¸€é¡¹è®­ç»ƒä»»åŠ¡å§ã€‚%^RESET%^\n");
    ts=TASK_D->get_task(task_id,"def_army");
    TROOP_D->add_train(ts, 1);
    TROOP_D->add_morale(ts, 1);
@@ -28,7 +28,7 @@ void question_wrong(int task_id)
    string p_leader;
    p_leader=TASK_D->get_task(task_id,"def_leader");
    tell_user(p_leader,
-  "%^YELLOW%^ÑµÁ·ÏµÍ³ÓÐBUG£¬¸Ï¿ì»ã±¨£¬²»È»ËðÊ§×Ô¸º¡£%^RESET%^\n");
+  "%^YELLOW%^è®­ç»ƒç³»ç»Ÿæœ‰BUGï¼Œèµ¶å¿«æ±‡æŠ¥ï¼Œä¸ç„¶æŸå¤±è‡ªè´Ÿã€‚%^RESET%^\n");
 }
 void question_overdue(int task_id)
 {
@@ -40,7 +40,7 @@ void question_overdue(int task_id)
      TASK_D->get_task(task_id,"overduetimes")+1);
    p_id=TASK_D->get_task(task_id,"def_leader");
 tell_user(p_id,
-  "%^H_RED%^ÉÏÒ»ÏîÑµÁ·ÈÎÎñ³¬Ê±£¬µ«Ô¸ÏÂÒ»ÏîÄÜÍê³ÉµÃ¿ìÐ©¡£%^RESET%^\n");
+  "%^H_RED%^ä¸Šä¸€é¡¹è®­ç»ƒä»»åŠ¡è¶…æ—¶ï¼Œä½†æ„¿ä¸‹ä¸€é¡¹èƒ½å®Œæˆå¾—å¿«äº›ã€‚%^RESET%^\n");
 
    ts=TASK_D->get_task(task_id,"def_army");
 //   TROOP_D->add_morale(ts, 1);

@@ -8,11 +8,11 @@ inherit CMD;
 
 nomask private void main(string str) {
     if (!str) {
-        write("ÓÃ·¨£ºemoteapropos string\n");
+        write("ç”¨æ³•ï¼šemoteapropos string\n");
         return;
     }
 
-    out(implode(({ "°üº¬ " + str + "µÄÇé¸Ð´Ê»ãÓÐ£º"}) + SOUL_D->emote_apropos(str),"\n"));
+    out(implode(({ "åŒ…å« " + str + "çš„æƒ…æ„Ÿè¯æ±‡æœ‰ï¼š"}) + SOUL_D->emote_apropos(str),"\n"));
 }
 
 void player_menu_entry(string str)

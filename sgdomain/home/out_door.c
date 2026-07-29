@@ -9,7 +9,7 @@ void later_set_up(string p_id,string dir) {
 }
 void setup(string p_id,string dir) {
 	
-	set_id("door", "´óÃÅ");
+	set_id("door", "å¤§é—¨");
 
 	setup_door(p_id,dir);
 
@@ -20,21 +20,21 @@ void setup(string p_id,string dir) {
 }
 string do_desc() {
 	if(stringp(query_locked()))
-		return "´óÃÅ±»ÀÎÀÎ×ÅËø×Å¡£";
+		return "å¤§é—¨è¢«ç‰¢ç‰¢ç€é”ç€ã€‚";
   	if (query_closed())
-		return "´óÃÅ½ô±Õ×Å¡£";
-	return "´óÃÅ³¨¿ª×Å¡£";
+		return "å¤§é—¨ç´§é—­ç€ã€‚";
+	return "å¤§é—¨æ•å¼€ç€ã€‚";
 }
 mixed direct_lock_obj_with_obj(){
 	if(stringp(query_locked()))
-		return "´óÃÅÒÑ¾­ËøºÃÁË¡£\n";
+		return "å¤§é—¨å·²ç»é”å¥½äº†ã€‚\n";
 	if(!query_closed())
-		return "ÃÅÒªÏÈ¹ØÉÏ²ÅÄÜËø¡£\n";
+		return "é—¨è¦å…ˆå…³ä¸Šæ‰èƒ½é”ã€‚\n";
 	return 1;
 }
 
 mixed direct_unlock_obj_with_obj(object ob_d, object ob_k) {
 	if(!stringp(query_locked()))
-		return "´óÃÅÃ»ÓĞËøÑ½¡£\n";
+		return "å¤§é—¨æ²¡æœ‰é”å‘€ã€‚\n";
 	return 1;
 }

@@ -7,9 +7,9 @@ inherit OBJ;
 void setup()
 {
   set_attached(1);
-  set_unit("Ƭ");
-  set_id("ocean","��", "water","surf","waves");
-  set_long("��û��ʲô�ر�ĵط���");
+  set_unit("片");
+  set_id("ocean","大海", "water","surf","waves");
+  set_long("大海没有什么特别的地方。");
 }
 
 

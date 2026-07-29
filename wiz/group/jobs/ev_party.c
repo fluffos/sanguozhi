@@ -78,7 +78,7 @@ void party(string a_id)
 	int *task,i;
 	object ob_char;
 	CHANNEL_D->deliver_tell("rumor","system",
-sprintf("%sÕýÔÚ¾ÙÐÐÑç»á¡£",AREA_D->get_area(a_id,"name")));
+sprintf("%sæ­£åœ¨ä¸¾è¡Œå®´ä¼šã€‚",AREA_D->get_area(a_id,"name")));
 	t_num=TASK_D->add_task(TT_PARTY);
 	TASK_D->set_task(t_num,"area",a_id);
 	s_room=AREA_D->get_area(a_id,"path")+
@@ -116,7 +116,7 @@ sprintf("%sÕýÔÚ¾ÙÐÐÑç»á¡£",AREA_D->get_area(a_id,"name")));
 			{
 				if(file_name(environment(CHAR_D->find_char(u_list[i])))!=
 					s_room)
-				(EV_INFORMSB)->inform_sb(u_list[i], AREA_D->get_area(a_id,"name")+"ÒªÕÙ¿ªÑç»á£¬Çë$RËÙÈ¥¡£");    
+				(EV_INFORMSB)->inform_sb(u_list[i], AREA_D->get_area(a_id,"name")+"è¦å¬å¼€å®´ä¼šï¼Œè¯·$Ré€ŸåŽ»ã€‚");    
 			}
                         else
 			{
@@ -127,14 +127,14 @@ sprintf("%sÕýÔÚ¾ÙÐÐÑç»á¡£",AREA_D->get_area(a_id,"name")));
 						s_room)
 				{
 					(EV_INFORMSB)->inform_sb(u_list[i],
-                                                AREA_D->get_area(a_id,"name")+"ÒªÕÙ¿ªµØ·½»áÒé£¬Çë$RËÙÈ¥¡£");    
+                                                AREA_D->get_area(a_id,"name")+"è¦å¬å¼€åœ°æ–¹ä¼šè®®ï¼Œè¯·$Ré€ŸåŽ»ã€‚");    
 					if(objectp(ob_char))
 					{
-                                                ob_char->simple_action("$N¹°ÊÖµÀ£º$sÓÐÒªÊÂÔÚÉí£¬Õâ±ã¸æ´Ç£¬ÍòÍû¼ûÁÂ¡£\n");
-                                                ob_char->simple_action("$N¼±´Ò´ÒµØÀë¿ªÁË¡£\n");
+                                                ob_char->simple_action("$Næ‹±æ‰‹é“ï¼š$sæœ‰è¦äº‹åœ¨èº«ï¼Œè¿™ä¾¿å‘Šè¾žï¼Œä¸‡æœ›è§è°…ã€‚\n");
+                                                ob_char->simple_action("$Næ€¥åŒ†åŒ†åœ°ç¦»å¼€äº†ã€‚\n");
 					}
 		                        CHAR_D->put_char(u_list[i],s_room); if(objectp(ob_char))
-                                        ob_char->simple_action("$N¼±´Ò´ÒµØ×ßÁË¹ýÀ´¡£\n");
+                                        ob_char->simple_action("$Næ€¥åŒ†åŒ†åœ°èµ°äº†è¿‡æ¥ã€‚\n");
 				}
 }
 				else
@@ -145,7 +145,7 @@ sprintf("%sÕýÔÚ¾ÙÐÐÑç»á¡£",AREA_D->get_area(a_id,"name")));
 					{
 			                        CHAR_D->put_char(u_list[i],s_room);
 						ob_char=CHAR_D->find_char(u_list[i]); if(objectp(ob_char))
-                                                ob_char->simple_action("$N¼±´Ò´ÒµØ×ßÁË¹ýÀ´¡£\n");
+                                                ob_char->simple_action("$Næ€¥åŒ†åŒ†åœ°èµ°äº†è¿‡æ¥ã€‚\n");
 					}
 				}
 			}
@@ -154,7 +154,7 @@ sprintf("%sÕýÔÚ¾ÙÐÐÑç»á¡£",AREA_D->get_area(a_id,"name")));
 	AREA_D->set_area(a_id,"status",ST_MEETING);
 	ob_char=CHAR_D->find_char(p_leader);
 	if(objectp(ob_char))
-              ob_char->simple_action("$NÀÊÉùµÀ£ºÖîÎ»ÉÔ°²ÎðÔï£¬»áÒéÂíÉÏ¿ªÊ¼¡£\n");
+              ob_char->simple_action("$Næœ—å£°é“ï¼šè¯¸ä½ç¨å®‰å‹¿ç‡¥ï¼Œä¼šè®®é©¬ä¸Šå¼€å§‹ã€‚\n");
 	m_us[p_leader]=LMP_LEADER;
 	AREA_D->set_area(a_id,"gold",gold - sizeof(u_list) * 500);
 	AREA_D->set_area(a_id,"food",food - sizeof(u_list) * 1200);	
@@ -177,9 +177,9 @@ void meet_announce(int p_id)
 	if(objectp(o_char))
 	{
 		o_char->simple_action
-                ("$NµÀ£ºÁÐÎ»½«¾ü¡¢´óÈË£¬³ÐÃÉ¸÷Î»ÐÁÇÚ¹¤×÷£¬$SÌØÇë¸÷Î»¾ÛÑçÑÔ»¶¡£\n");
+                ("$Né“ï¼šåˆ—ä½å°†å†›ã€å¤§äººï¼Œæ‰¿è’™å„ä½è¾›å‹¤å·¥ä½œï¼Œ$Sç‰¹è¯·å„ä½èšå®´è¨€æ¬¢ã€‚\n");
                 o_char->simple_action
-                ("$N½Ó×ÅµÀ£ºÖîÎ»²»±Ø¾ÐÀñ£¬Çë¾¡ÇéÏíÓÃ¡£\n");
+                ("$NæŽ¥ç€é“ï¼šè¯¸ä½ä¸å¿…æ‹˜ç¤¼ï¼Œè¯·å°½æƒ…äº«ç”¨ã€‚\n");
 	}
 	TASK_D->set_task(p_id,"stage",LMS_PROCESS);
 	TASK_D->set_task(p_id,"timaim",LML_PROCESS);
@@ -197,9 +197,9 @@ void meet_readytoend(int p_id)
 	if(objectp(o_char))
 	{
 		o_char->simple_action
-                ("$NµÀ£ºÁÐÎ»½«¾ü¡¢´óÈË£¬Ñç»áÒÑ½üÎ²Éù£¬¸÷Î»¿É·ñÂúÒâ£¿\n");
+                ("$Né“ï¼šåˆ—ä½å°†å†›ã€å¤§äººï¼Œå®´ä¼šå·²è¿‘å°¾å£°ï¼Œå„ä½å¯å¦æ»¡æ„ï¼Ÿ\n");
 		o_char->simple_action
-                ("$N½Ó×ÅµÀ£ºÈçÈôÎÞÊÂ£¬ÖîÎ»¾ÍÔçÐ©»Ø¸®ÐªÏ¢È¥°É¡£\n");
+                ("$NæŽ¥ç€é“ï¼šå¦‚è‹¥æ— äº‹ï¼Œè¯¸ä½å°±æ—©äº›å›žåºœæ­‡æ¯åŽ»å§ã€‚\n");
 	}
 	TASK_D->set_task(p_id,"stage",LMS_END);
 	TASK_D->set_task(p_id,"timaim",LML_END);
@@ -220,7 +220,7 @@ void meet_over(int p_id)
 	if(objectp(o_char))
 	{
 			o_char->simple_action
-					("$NÆðÉíµÀ£º½ñÈÕ±ãµ½ÕâÀï£¬ÁÐÎ»½«¾ü¡¢´óÈË£¬ÇëÔç»Ø¡£\n");
+					("$Nèµ·èº«é“ï¼šä»Šæ—¥ä¾¿åˆ°è¿™é‡Œï¼Œåˆ—ä½å°†å†›ã€å¤§äººï¼Œè¯·æ—©å›žã€‚\n");
 			
 		
 	}
@@ -238,7 +238,7 @@ void meet_over(int p_id)
 			if(objectp(o_char))
 			{
 				o_char->simple_action
-                                ("$N¹°ÊÖµÀ£º$s¸æ´Ç£¡\n$NÆðÉí´Ò´ÒÀë¿ªÁË¡£\n");
+                                ("$Næ‹±æ‰‹é“ï¼š$så‘Šè¾žï¼\n$Nèµ·èº«åŒ†åŒ†ç¦»å¼€äº†ã€‚\n");
 			}
 		}
 		CHAR_D->set_char(p_list[i],"task",TASK_NONE);
@@ -285,7 +285,7 @@ void meet_process(int p_id)
 //         AREA_D->get_area(m_area,"level"),0,0))[0]);
 //          officer->targetted_action
 // 
-//("$N¶Ô$TÐ¦µÀ£ºÒª¿ªµØÇø»áÒé£¿´ËÊÂ$s¿É×ö²»ÁËÖ÷£¬ÐèÇëÊ¾±¾µØ"+m_title+"¡£\n",who);
+//("$Nå¯¹$Tç¬‘é“ï¼šè¦å¼€åœ°åŒºä¼šè®®ï¼Ÿæ­¤äº‹$så¯åšä¸äº†ä¸»ï¼Œéœ€è¯·ç¤ºæœ¬åœ°"+m_title+"ã€‚\n",who);
 //         return;
 //    }
 //	
@@ -294,7 +294,7 @@ void meet_process(int p_id)
 //((CHAR_D->get_char(m_id,"nation"))!=(CHAR_D->get_char(y_id,"nation"))))
 //	{
 //        officer->targetted_action
-//         ("$N¶Ô$TÐ¦µÀ£ºÐ»Ð»$m$RµÄ¹ØÐÄ£¬ÎÒÃÇ»á°²ÅÅµÄ¡£\n",who);
+//         ("$Nå¯¹$Tç¬‘é“ï¼šè°¢è°¢$m$Rçš„å…³å¿ƒï¼Œæˆ‘ä»¬ä¼šå®‰æŽ’çš„ã€‚\n",who);
 //         return;
 //	}
 //	if((file_name(environment(officer)))!=
@@ -302,7 +302,7 @@ void meet_process(int p_id)
 //((AREA_D->get_area(m_area,"path"))+(AREA_D->get_area(m_area,"meeting"))))/
 //	{
 //       officer->targetted_action
-//         ("$N¶Ô$TÒ¡Ò¡Í·£¬Ð¦µÀ£º´Ë´¦·Ç»áÒéÖ®Ëù¡£\n",who);
+//         ("$Nå¯¹$Tæ‘‡æ‘‡å¤´ï¼Œç¬‘é“ï¼šæ­¤å¤„éžä¼šè®®ä¹‹æ‰€ã€‚\n",who);
 //         return;
 //	}
 //
@@ -310,7 +310,7 @@ void meet_process(int p_id)
 //	{
 //        	officer->targetted_action
 //	
-//("$N¶Ô$TÒ¡Ò¡Í·£¬$RÄËÏÐÖ°ÈËÔ±£¬ÕâµØÇø»áÒé¾Í²»±ØÌ«²ÙÐÄÁË¡£\n",who);
+//("$Nå¯¹$Tæ‘‡æ‘‡å¤´ï¼Œ$Rä¹ƒé—²èŒäººå‘˜ï¼Œè¿™åœ°åŒºä¼šè®®å°±ä¸å¿…å¤ªæ“å¿ƒäº†ã€‚\n",who);
 //         	return;
 //	}
 //
@@ -320,37 +320,37 @@ void meet_process(int p_id)
 //	{
 //	case LM_OK:
 //      officer->targetted_action
-//         ("$N¶Ô$TµÀ£º$m$R£¬ÈÃ$s¿¼ÂÇÒ»ÏÂ¡£\n",who);
+//         ("$Nå¯¹$Té“ï¼š$m$Rï¼Œè®©$sè€ƒè™‘ä¸€ä¸‹ã€‚\n",who);
 //		if(CHAR_D->get_char(m_id,"status")==STATUS_ONLINE)
 //		{
-//                        tell_user(m_id,"Í¬Òâ¿ª»áÇëÊäÈë cmd
-//localmeeting¡£\n");
+//                        tell_user(m_id,"åŒæ„å¼€ä¼šè¯·è¾“å…¥ cmd
+//localmeetingã€‚\n");
 //		}
 //		else
 //		{
 //        officer->targetted_action
-//         ("$N¶Ô$TµãÍ·µÀ£ººÃ°É¡£\n",who);
+//         ("$Nå¯¹$Tç‚¹å¤´é“ï¼šå¥½å§ã€‚\n",who);
 //		local_meeting(CHAR_D->get_char(m_id,"area"));
 //		}
 //		return;
 //	case LM_OTHERTASK:
 //        officer->targetted_action
-//         ("$N¶Ô$TÒ¡ÁËÒ¡Í·£¬µÀ£º$sÏÖÔÚÌ«Ã¦£¬·Ö²»¿ªÉíÑ½¡£\n",who);
+//         ("$Nå¯¹$Tæ‘‡äº†æ‘‡å¤´ï¼Œé“ï¼š$sçŽ°åœ¨å¤ªå¿™ï¼Œåˆ†ä¸å¼€èº«å‘€ã€‚\n",who);
 //         return;
 //	case LM_ALREADYLOCALMEETING:
 //        officer->targetted_action
 // 
-//("$N¶Ô$TµÀ£º$m$R£¬¿´À´ÄãÊÇÃ¦ºýÍ¿ÁË£¬ÎÒµÈÔÚ´Ë²»ÕýÔÚÉÌÒé±¾ÇøÊÂÎñÂð£¿\n",who);
+//("$Nå¯¹$Té“ï¼š$m$Rï¼Œçœ‹æ¥ä½ æ˜¯å¿™ç³Šæ¶‚äº†ï¼Œæˆ‘ç­‰åœ¨æ­¤ä¸æ­£åœ¨å•†è®®æœ¬åŒºäº‹åŠ¡å—ï¼Ÿ\n",who);
 //         return;
 //	case LM_NOENOUTHCHAR :
 //        officer->targetted_action
-//         ("$N¶Ô$TÐ¦µÀ£º$m$R£¬¾ÍÄãºÍÎÒ£¬»¹¿ªÊ²Ã´»áÑ½¡£\n",who);
+//         ("$Nå¯¹$Tç¬‘é“ï¼š$m$Rï¼Œå°±ä½ å’Œæˆ‘ï¼Œè¿˜å¼€ä»€ä¹ˆä¼šå‘€ã€‚\n",who);
 //         return;
 //	case LM_TOOMANYABSENT:
 //	default:
 //      officer->targetted_action
 // 
-//("$N¶Ô$TÐ¦µÀ£º$m$R£¬ÖÚÈË½ÔÓÐÊÂÏµÉí£¬¿´À´»áÒéÖ»µÃÔñËûÈÕ¾ÙÐÐ¡£\n",who);
+//("$Nå¯¹$Tç¬‘é“ï¼š$m$Rï¼Œä¼—äººçš†æœ‰äº‹ç³»èº«ï¼Œçœ‹æ¥ä¼šè®®åªå¾—æ‹©ä»–æ—¥ä¸¾è¡Œã€‚\n",who);
 //         return;
 //	}
 //}

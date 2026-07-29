@@ -28,7 +28,7 @@ void get_input_from_main(string arg)
 	else if( arg=="q" ) quit_jobmenu();
 	else if( arg=="w" ) do_water();
 	else if( arg=="b" ) do_bugs();
-	else write("·Ç·¨ÃüÁî¡£\n");
+	else write("éæ³•å‘½ä»¤ã€‚\n");
 	return;
 }
 void do_fire()
@@ -41,31 +41,31 @@ void do_fire()
 	job= ob->query_job("do_farm", "");
 	hp = ob->query_cur_hp();
 	if( hp < 30 ){
-		write("ÄãÒÑ¾­Ì«ÀÛÁË£¬»¹ÊÇĞİÏ¢Ò»»áÔÙ¸É°É¡£\n");
+		write("ä½ å·²ç»å¤ªç´¯äº†ï¼Œè¿˜æ˜¯ä¼‘æ¯ä¸€ä¼šå†å¹²å§ã€‚\n");
 		return;
 	}
 	ob->set_cur_hp(hp-20-random(10));
-	ob->start_busy(1+random(4), "ÄãÕıÃ¦×ÅÖ¸»ÓÅ©·òÃÇÀÍ¶¯ÄØ¡£");
+	ob->start_busy(1+random(4), "ä½ æ­£å¿™ç€æŒ‡æŒ¥å†œå¤«ä»¬åŠ³åŠ¨å‘¢ã€‚");
 	ob->award_exp(50+random(21), "sk_meili");
 	if( job["job"]!="fire" ){
-		ob->simple_action("´ó¼Ò¶¼ÒÔÆæ¹ÖµÄÑÛ¹â¿´×Å$N¡£\n");
+		ob->simple_action("å¤§å®¶éƒ½ä»¥å¥‡æ€ªçš„çœ¼å…‰çœ‹ç€$Nã€‚\n");
 		return;
 	}
-	ob->simple_action("$N´óº°Ò»Éù£º´ó¼Ò¸úÎÒÀ´£¬Ëµ×Å¾Í·Ü²»¹ËÉíµÄÏò»ğ´Ô³åÈ¥¡£\n");
-	ob->simple_action("´ó»ï¶ù¸ú×Å$NÒ»Ó¿¶øÉÏ£¬Ïë°Ñ»ğÆËÃğ¡£\n");
+	ob->simple_action("$Nå¤§å–Šä¸€å£°ï¼šå¤§å®¶è·Ÿæˆ‘æ¥ï¼Œè¯´ç€å°±å¥‹ä¸é¡¾èº«çš„å‘ç«ä¸›å†²å»ã€‚\n");
+	ob->simple_action("å¤§ä¼™å„¿è·Ÿç€$Nä¸€æ¶Œè€Œä¸Šï¼Œæƒ³æŠŠç«æ‰‘ç­ã€‚\n");
 	if( !random(5) ){
 		ob->set_job("do_farm", "job_d", job["job_d"]+1);
-		write("´ó»ğ·´¶øÔ½ÉÕÔ½´óÁË¡£\n");
+		write("å¤§ç«åè€Œè¶Šçƒ§è¶Šå¤§äº†ã€‚\n");
 	} else if( !random(4) ){
-		write("¿ÉÏ§»ğÊÆÒÀ¾É²»¿É¿ØÖÆ¡£\n");
+		write("å¯æƒœç«åŠ¿ä¾æ—§ä¸å¯æ§åˆ¶ã€‚\n");
 	} else {
 		ob->set_job("do_farm", "job_d", job["job_d"]-1);
-		write("»ğÊÆ½¥½¥µÄÊÜµ½ÁË¿ØÖÆ¡£\n");
+		write("ç«åŠ¿æ¸æ¸çš„å—åˆ°äº†æ§åˆ¶ã€‚\n");
 		if( (job["job_d"]-1)<= 0 ){
 			ob->set_job("do_farm", "succ", job["succ"]+1);
 			ob->set_job("do_farm", "job_d", 0);
 			ob->set_job("do_farm", "job", "");
-			write("»ğÃçÕõÔú×ÅÌø¶¯ÁË¼¸ÏÂ£¬Ï¨ÃğÁË¡£\n");
+			write("ç«è‹—æŒ£æ‰ç€è·³åŠ¨äº†å‡ ä¸‹ï¼Œç†„ç­äº†ã€‚\n");
 		}
 	}
 }
@@ -79,31 +79,31 @@ void do_water()
 	job= ob->query_job("do_farm", "");
 	hp = ob->query_cur_hp();
 	if( hp < 30 ){
-		write("ÄãÒÑ¾­Ì«ÀÛÁË£¬»¹ÊÇĞİÏ¢Ò»»áÔÙ¸É°É¡£\n");
+		write("ä½ å·²ç»å¤ªç´¯äº†ï¼Œè¿˜æ˜¯ä¼‘æ¯ä¸€ä¼šå†å¹²å§ã€‚\n");
 		return;
 	}
 	ob->set_cur_hp(hp-20-random(10));
-	ob->start_busy(1+random(4), "ÄãÕıÃ¦×ÅÖ¸»ÓÅ©·òÃÇÀÍ¶¯ÄØ¡£");
+	ob->start_busy(1+random(4), "ä½ æ­£å¿™ç€æŒ‡æŒ¥å†œå¤«ä»¬åŠ³åŠ¨å‘¢ã€‚");
 	ob->award_exp(10+random(51), "sk_meili");
 	if( job["job"]!="water" ){
-		ob->simple_action("´ó¼Ò¶¼ÒÔÆæ¹ÖµÄÑÛ¹â¿´×Å$N¡£\n");
+		ob->simple_action("å¤§å®¶éƒ½ä»¥å¥‡æ€ªçš„çœ¼å…‰çœ‹ç€$Nã€‚\n");
 		return;
 	}
-	ob->simple_action("$N´óº°Ò»Éù£º´ó¼Ò¸úÎÒÀ´£¬Ëµ×Å¾Í·Ü²»¹ËÉíµÄÏòºéË®³åÈ¥¡£\n");
-	ob->simple_action("´ó»ï¶ù¸ú×Å$NÒ»Ó¿¶øÉÏ£¬Ïë°ÑºÓÁ÷¾ö¿Ú¶Â×¡¡£\n");
+	ob->simple_action("$Nå¤§å–Šä¸€å£°ï¼šå¤§å®¶è·Ÿæˆ‘æ¥ï¼Œè¯´ç€å°±å¥‹ä¸é¡¾èº«çš„å‘æ´ªæ°´å†²å»ã€‚\n");
+	ob->simple_action("å¤§ä¼™å„¿è·Ÿç€$Nä¸€æ¶Œè€Œä¸Šï¼Œæƒ³æŠŠæ²³æµå†³å£å µä½ã€‚\n");
 	if( !random(5) ){
 		ob->set_job("do_farm", "job_d", job["job_d"]+1);
-		write("»ıË®·´¶øÔ½À´Ô½¶àÁË¡£¡£\n");
+		write("ç§¯æ°´åè€Œè¶Šæ¥è¶Šå¤šäº†ã€‚ã€‚\n");
 	} else if( !random(4) ){
-		write("×¯¼ÚµØÀïÒÀ¾ÉÈ«ÊÇ»ıË®¡£¡£\n");
+		write("åº„ç¨¼åœ°é‡Œä¾æ—§å…¨æ˜¯ç§¯æ°´ã€‚ã€‚\n");
 	} else {
 		ob->set_job("do_farm", "job_d", job["job_d"]-1);
-		write("»ıË®½¥½¥µÄÊÜµ½ÁË¿ØÖÆ¡£\n");
+		write("ç§¯æ°´æ¸æ¸çš„å—åˆ°äº†æ§åˆ¶ã€‚\n");
 		if( !(job["job_d"]-1) ){
 			ob->set_job("do_farm", "succ", job["succ"]+1);
 			ob->set_job("do_farm", "job_d", 0);
 			ob->set_job("do_farm", "job", "");
-			write("ÖÕÓÚ£¬ËùÓĞµÄ»ıË®¶¼ÅÅ¾»ÁË¡£\n");
+			write("ç»ˆäºï¼Œæ‰€æœ‰çš„ç§¯æ°´éƒ½æ’å‡€äº†ã€‚\n");
 		}
 	}
 }
@@ -117,31 +117,31 @@ void do_rats()
 	job= ob->query_job("do_farm", "");
 	hp = ob->query_cur_hp();
 	if( hp < 30 ){
-		write("ÄãÒÑ¾­Ì«ÀÛÁË£¬»¹ÊÇĞİÏ¢Ò»»áÔÙ¸É°É¡£\n");
+		write("ä½ å·²ç»å¤ªç´¯äº†ï¼Œè¿˜æ˜¯ä¼‘æ¯ä¸€ä¼šå†å¹²å§ã€‚\n");
 		return;
 	}
 	ob->set_cur_hp(hp-20-random(10));
-	ob->start_busy(1+random(4), "ÄãÕıÃ¦×ÅÖ¸»ÓÅ©·òÃÇÀÍ¶¯ÄØ¡£");
+	ob->start_busy(1+random(4), "ä½ æ­£å¿™ç€æŒ‡æŒ¥å†œå¤«ä»¬åŠ³åŠ¨å‘¢ã€‚");
 	ob->award_exp(30+random(51), "sk_meili");
 	if( job["job"]!="rats" ){
-		ob->simple_action("´ó¼Ò¶¼ÒÔÆæ¹ÖµÄÑÛ¹â¿´×Å$N¡£\n");
+		ob->simple_action("å¤§å®¶éƒ½ä»¥å¥‡æ€ªçš„çœ¼å…‰çœ‹ç€$Nã€‚\n");
 		return;
 	}
-	ob->simple_action("$N´óº°Ò»Éù£º´ó¼Ò¸úÎÒÀ´£¬Ëµ×Å¾Í·Ü²»¹ËÉíµÄÏòÊóÈº³åÈ¥¡£\n");
-	ob->simple_action("´ó»ï¶ù¸ú×Å$NÒ»Ó¿¶øÉÏ£¬Ïë°ÑÀÏÊóÏûÃğ¡£\n");
+	ob->simple_action("$Nå¤§å–Šä¸€å£°ï¼šå¤§å®¶è·Ÿæˆ‘æ¥ï¼Œè¯´ç€å°±å¥‹ä¸é¡¾èº«çš„å‘é¼ ç¾¤å†²å»ã€‚\n");
+	ob->simple_action("å¤§ä¼™å„¿è·Ÿç€$Nä¸€æ¶Œè€Œä¸Šï¼Œæƒ³æŠŠè€é¼ æ¶ˆç­ã€‚\n");
 	if( !random(5) ){
 		ob->set_job("do_farm", "job_d", job["job_d"]+1);
-		write("·´¶ø±»ÀÏÊóÒ§µÄ±éÌåÁÛÉË¡£¡£\n");
+		write("åè€Œè¢«è€é¼ å’¬çš„éä½“é³ä¼¤ã€‚ã€‚\n");
 	} else if( !random(4) ){
-		write("¿ÉÏ§ÀÏÊóÒÀ¾Éµ½´¦ËÁÅ°¡£¡£\n");
+		write("å¯æƒœè€é¼ ä¾æ—§åˆ°å¤„è‚†è™ã€‚ã€‚\n");
 	} else {
 		ob->set_job("do_farm", "job_d", job["job_d"]-1);
-		write("ÊóÈº½¥½¥µÄÊÜµ½ÁË¿ØÖÆ¡£¡£\n");
+		write("é¼ ç¾¤æ¸æ¸çš„å—åˆ°äº†æ§åˆ¶ã€‚ã€‚\n");
 		if( !(job["job_d"]-1) ){
 			ob->set_job("do_farm", "succ", job["succ"]+1);
 			ob->set_job("do_farm", "job_d", 0);
 			ob->set_job("do_farm", "job", "");
-			write("ÖÕÓÚ£¬Õû¸öÊóÈº¶¼±»ÏûÃğÁË¡£\n");
+			write("ç»ˆäºï¼Œæ•´ä¸ªé¼ ç¾¤éƒ½è¢«æ¶ˆç­äº†ã€‚\n");
 		}
 	}
 
@@ -156,42 +156,42 @@ void do_bugs()
 	job= ob->query_job("do_farm", "");
 	hp = ob->query_cur_hp();
 	if( hp < 30 ){
-		write("ÄãÒÑ¾­Ì«ÀÛÁË£¬»¹ÊÇĞİÏ¢Ò»»áÔÙ¸É°É¡£\n");
+		write("ä½ å·²ç»å¤ªç´¯äº†ï¼Œè¿˜æ˜¯ä¼‘æ¯ä¸€ä¼šå†å¹²å§ã€‚\n");
 		return;
 	}
 	ob->set_cur_hp(hp-20-random(10));
-	ob->start_busy(1+random(4), "ÄãÕıÃ¦×ÅÖ¸»ÓÅ©·òÃÇÀÍ¶¯ÄØ¡£");
+	ob->start_busy(1+random(4), "ä½ æ­£å¿™ç€æŒ‡æŒ¥å†œå¤«ä»¬åŠ³åŠ¨å‘¢ã€‚");
 	ob->award_exp(10+random(51), "sk_meili");
 	if( job["job"]!="bugs" ){
-		ob->simple_action("´ó¼Ò¶¼ÒÔÆæ¹ÖµÄÑÛ¹â¿´×Å$N¡£\n");
+		ob->simple_action("å¤§å®¶éƒ½ä»¥å¥‡æ€ªçš„çœ¼å…‰çœ‹ç€$Nã€‚\n");
 		return;
 	}
-	ob->simple_action("$N´óº°Ò»Éù£º´ó¼Ò¸úÎÒÀ´£¬Ëµ×Å¾Í·Ü²»¹ËÉíµÄÏò³ÉÈºµÄ»È³æ³åÈ¥¡£\n");
-	ob->simple_action("´ó»ï¶ù¸ú×Å$NÒ»Ó¿¶øÉÏ£¬Ïë°Ñ»È³æÏûÃğµô¡£\n");
+	ob->simple_action("$Nå¤§å–Šä¸€å£°ï¼šå¤§å®¶è·Ÿæˆ‘æ¥ï¼Œè¯´ç€å°±å¥‹ä¸é¡¾èº«çš„å‘æˆç¾¤çš„è—è™«å†²å»ã€‚\n");
+	ob->simple_action("å¤§ä¼™å„¿è·Ÿç€$Nä¸€æ¶Œè€Œä¸Šï¼Œæƒ³æŠŠè—è™«æ¶ˆç­æ‰ã€‚\n");
 	if( !random(5) ){
 		ob->set_job("do_farm", "job_d", job["job_d"]+1);
-		write("»È³æ·´¶øÔ½À´Ô½ÃÜ¼¯ÁË¡£\n");
+		write("è—è™«åè€Œè¶Šæ¥è¶Šå¯†é›†äº†ã€‚\n");
 	} else if( !random(4) ){
-		write("¿ÉÏ§»È³æÒÀ¾É²»¿É¿ØÖÆ¡£\n");
+		write("å¯æƒœè—è™«ä¾æ—§ä¸å¯æ§åˆ¶ã€‚\n");
 	} else {
 		ob->set_job("do_farm", "job_d", job["job_d"]-1);
-		write("»È³æ½¥½¥µÄÊÜµ½ÁË¿ØÖÆ¡£\n");
+		write("è—è™«æ¸æ¸çš„å—åˆ°äº†æ§åˆ¶ã€‚\n");
 		if( !(job["job_d"]-1) ){
 			ob->set_job("do_farm", "succ", job["succ"]+1);
 			ob->set_job("do_farm", "job_d", 0);
 			ob->set_job("do_farm", "job", "");
-			write("ÖÕÓÚ£¬Õû¸ö»È³æÈº¶¼±»ÏûÃğÁË¡£\n");
+			write("ç»ˆäºï¼Œæ•´ä¸ªè—è™«ç¾¤éƒ½è¢«æ¶ˆç­äº†ã€‚\n");
 		}
 	}
 
 }
 void do_help()
 {
-	write("b-> bugs    Ãğ»È\n");
-	write("f-> fire    Ãğ»ğ\n");
-	write("w-> water   ·ÀË®\n");
-	write("r-> rats    ÃğÊó\n");
-	write("h-> help    ÏÔÊ¾±¾°ïÖú\n");
-	write("q-> quit    Àë¿ª±¾°ïÖú\n");
+	write("b-> bugs    ç­è—\n");
+	write("f-> fire    ç­ç«\n");
+	write("w-> water   é˜²æ°´\n");
+	write("r-> rats    ç­é¼ \n");
+	write("h-> help    æ˜¾ç¤ºæœ¬å¸®åŠ©\n");
+	write("q-> quit    ç¦»å¼€æœ¬å¸®åŠ©\n");
 }
 

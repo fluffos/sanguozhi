@@ -13,7 +13,7 @@ void setup( string guild )
     set_sg_rongmao(25);
     set_age(40);
     set_gender( 1 ); // female - overrides default
-    set_in_room_desc( "Ò»Î»Åû¿ø´÷¼×µÄÎÀ±øÊØ×¡ÁËËùÓĞµÄ³ö¿Ú¡£" );
+    set_in_room_desc( "ä¸€ä½æŠ«ç›”æˆ´ç”²çš„å«å…µå®ˆä½äº†æ‰€æœ‰çš„å‡ºå£ã€‚" );
     add_block( "north" );
     add_block( "south" );
     add_block( "east" );

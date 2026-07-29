@@ -3,13 +3,13 @@ string stat_me(string p_id)
 {
 	string p_ret="";
    	mixed c;
-   	array ks;
+   	mixed * ks;
    	int i;
 
    	if( (!p_id)||(p_id=="") ) p_id="list";
    	if(p_id=="list") {
-    	p_ret= "Éú²ú»ùµØÇåµ¥£º\n";
-      	p_ret+="©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤\n";
+    	p_ret= "ç”Ÿäº§åŸºåœ°æ¸…å•ï¼š\n";
+      	p_ret+="â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\n";
       	c=get_base("list","");
       	ks=({});
       	for(i=0;i<sizeof(c);++i) ks+=({get_base(c[i],"name")+"("+c[i]+")"});
@@ -17,28 +17,28 @@ string stat_me(string p_id)
    	} else {
 		c=get_base(p_id,"");
        		if( !mapp(c) ){
-          		p_ret="Ã»ÓĞÕâÖÖÉú²ú»ùµØ¡£\n";
+          		p_ret="æ²¡æœ‰è¿™ç§ç”Ÿäº§åŸºåœ°ã€‚\n";
        		} else {
-          	p_ret="»ùµØID£º"+p_id+"   »ùµØÃû³Æ£º"+c["name"]+"\n";
-			p_ret+="°²¶¨ÒªÇó£º"+c["safe"]+"\n";
-			p_ret+="ÈË¿ÚÒªÇó£º"+c["pop"]+"\n";
-			p_ret+="Ğè½ğ£º"+c["gold"]+"\n";
-			p_ret+="Éú²ú·¿¼äÃû³Æ£º"+c["roomname"]+"\n";
-			p_ret+="¹¤ÈËÃû³Æ£º"+c["workername"]+"\n";
-			p_ret+="¹¤Í·Ãû³Æ£º"+c["headname"]+"\n";
-			p_ret+="Éú²úÏµÊı£º\n";
-			p_ret+="¹¤Òµ£º"+c["si"]+" Å©Òµ£º"+c["sa"]+" ÉÌÒµ£º"+c["sb"]+"\n";
-			p_ret+="Á¦Á¿£º"+c["ss"]+" ÄÍÁ¦£º"+c["sp"]+" ÖÇ»Û£º"+c["sw"]+"\n";
-			p_ret+="È±Ê¡²úÆ·£º"+BASE_D->get_stuff(c["defproduct"],"name")+"\n";
+          	p_ret="åŸºåœ°IDï¼š"+p_id+"   åŸºåœ°åç§°ï¼š"+c["name"]+"\n";
+			p_ret+="å®‰å®šè¦æ±‚ï¼š"+c["safe"]+"\n";
+			p_ret+="äººå£è¦æ±‚ï¼š"+c["pop"]+"\n";
+			p_ret+="éœ€é‡‘ï¼š"+c["gold"]+"\n";
+			p_ret+="ç”Ÿäº§æˆ¿é—´åç§°ï¼š"+c["roomname"]+"\n";
+			p_ret+="å·¥äººåç§°ï¼š"+c["workername"]+"\n";
+			p_ret+="å·¥å¤´åç§°ï¼š"+c["headname"]+"\n";
+			p_ret+="ç”Ÿäº§ç³»æ•°ï¼š\n";
+			p_ret+="å·¥ä¸šï¼š"+c["si"]+" å†œä¸šï¼š"+c["sa"]+" å•†ä¸šï¼š"+c["sb"]+"\n";
+			p_ret+="åŠ›é‡ï¼š"+c["ss"]+" è€åŠ›ï¼š"+c["sp"]+" æ™ºæ…§ï¼š"+c["sw"]+"\n";
+			p_ret+="ç¼ºçœäº§å“ï¼š"+BASE_D->get_stuff(c["defproduct"],"name")+"\n";
 			if(sizeof(c["products"])) {
-				p_ret+="Éı¼¶²úÆ·ÁĞ±í£º";
+				p_ret+="å‡çº§äº§å“åˆ—è¡¨ï¼š";
 				foreach (string pn,int pl in c["products"]) {
 					p_ret+=BASE_D->get_stuff(pn,"name")+"("+pl+") " ;
 				}
 				p_ret+="\n";
 			}
 			if(sizeof(c["area"])) {
-				p_ret+="ÏŞ¶¨µØÇø£º\n";
+				p_ret+="é™å®šåœ°åŒºï¼š\n";
 				foreach(string a in c["area"]) {
 					p_ret+=AREA_D->get_area(a,"name")+"  ";
 				}
@@ -55,19 +55,19 @@ string show_balance(int t) {
 	list=filter_array(list,(: BASE_D->get_stuff($1, "type")==$(t) :));
 	switch(t) {
 	case 1:
-		ret="»ù±¾Ô­ÁÏÎï×ÊÀà£º------------------------------------------------------------\n";
+		ret="åŸºæœ¬åŸæ–™ç‰©èµ„ç±»ï¼š------------------------------------------------------------\n";
 		break;
 	case 2:
-		ret="°ë³ÉÆ·Àà£º------------------------------------------------------------------\n";
+		ret="åŠæˆå“ç±»ï¼š------------------------------------------------------------------\n";
 		break;
 	case 3:
-		ret="±øÖÖÉı¼¶Îï×ÊÀà£º------------------------------------------------------------\n";
+		ret="å…µç§å‡çº§ç‰©èµ„ç±»ï¼š------------------------------------------------------------\n";
 		break;
 	case 4:
-		ret="ÌØÊâÎï×ÊÀà£º----------------------------------------------------------------\n";
+		ret="ç‰¹æ®Šç‰©èµ„ç±»ï¼š----------------------------------------------------------------\n";
 		break;
 	case 0:
-		ret="Î´·ÖÀàÎï×Ê£º----------------------------------------------------------------\n";
+		ret="æœªåˆ†ç±»ç‰©èµ„ï¼š----------------------------------------------------------------\n";
 		break;
 	}
 	if(sizeof(list)) {
@@ -88,19 +88,19 @@ string show_group_list(int t) {
 	list=filter_array(list,(: BASE_D->get_stuff($1, "type")==$(t) :));
 	switch(t) {
 	case 1:
-		ret="»ù±¾Ô­ÁÏÎï×ÊÀà£º------------------------------------------------------------\n";
+		ret="åŸºæœ¬åŸæ–™ç‰©èµ„ç±»ï¼š------------------------------------------------------------\n";
 		break;
 	case 2:
-		ret="°ë³ÉÆ·Àà£º------------------------------------------------------------------\n";
+		ret="åŠæˆå“ç±»ï¼š------------------------------------------------------------------\n";
 		break;
 	case 3:
-		ret="±øÖÖÉı¼¶Îï×ÊÀà£º------------------------------------------------------------\n";
+		ret="å…µç§å‡çº§ç‰©èµ„ç±»ï¼š------------------------------------------------------------\n";
 		break;
 	case 4:
-		ret="ÌØÊâÎï×ÊÀà£º----------------------------------------------------------------\n";
+		ret="ç‰¹æ®Šç‰©èµ„ç±»ï¼š----------------------------------------------------------------\n";
 		break;
 	case 0:
-		ret="Î´·ÖÀàÎï×Ê£º----------------------------------------------------------------\n";
+		ret="æœªåˆ†ç±»ç‰©èµ„ï¼š----------------------------------------------------------------\n";
 		break;
 	}
 	if(sizeof(list)) {
@@ -119,7 +119,7 @@ string show_group_list(int t) {
 string show_stuff_list() {
 	string ret;
 	int i;
-	ret="Èı¹úÎï×ÊÇåµ¥£º\n";
+	ret="ä¸‰å›½ç‰©èµ„æ¸…å•ï¼š\n";
 	ret+=show_group_list(1);
 	ret+=show_group_list(2);
 	ret+=show_group_list(3);
@@ -131,36 +131,36 @@ string show_stuff(string stf) {
 	string ret;
 	mapping consume,bs;
 	string *src;
-	if(!BASE_D->stuff_exist(stf)) return "Ã»ÓĞÕâÖÖÎï×Ê¡£\n";
+	if(!BASE_D->stuff_exist(stf)) return "æ²¡æœ‰è¿™ç§ç‰©èµ„ã€‚\n";
 	ret="ID: "+stf+"\n";
-	ret+="Ãû³Æ£º"+BASE_D->get_stuff(stf,"name")+"\n";
-	ret+="Ò»¸öÉú²úµ¥Î»£º"+BASE_D->get_stuff(stf,"quantity")+
+	ret+="åç§°ï¼š"+BASE_D->get_stuff(stf,"name")+"\n";
+	ret+="ä¸€ä¸ªç”Ÿäº§å•ä½ï¼š"+BASE_D->get_stuff(stf,"quantity")+
 		BASE_D->get_stuff(stf,"unit")+"\n";
-	ret+="Ö±½ÓÉú²úÁ¦ÏûºÄ£º"+BASE_D->get_stuff(stf,"work")+"\n";
+	ret+="ç›´æ¥ç”Ÿäº§åŠ›æ¶ˆè€—ï¼š"+BASE_D->get_stuff(stf,"work")+"\n";
 	consume=BASE_D->get_stuff(stf,"consume");
 	if(mapp(consume)&&sizeof(consume)) {
-		ret+="ĞèÒªÔ­ÁÏ£º";
+		ret+="éœ€è¦åŸæ–™ï¼š";
 		foreach(string s,int v in consume)
 			ret+=BASE_D->get_stuff(s,"name")+"("+v+") ";
 		ret+="\n";
-		ret+="×ÜÉú²úÁ¦ÏûºÄ£º"+BASE_D->get_stuff(stf,"real_work")+"\n";
+		ret+="æ€»ç”Ÿäº§åŠ›æ¶ˆè€—ï¼š"+BASE_D->get_stuff(stf,"real_work")+"\n";
 	}
 	src=BASE_D->get_stuff(stf,"src");
 	if(sizeof(src)) {
-		ret+="ÊÇÉú²úÒÔÏÂÎï×ÊµÄÔ­ÁÏ£º\n ";
+		ret+="æ˜¯ç”Ÿäº§ä»¥ä¸‹ç‰©èµ„çš„åŸæ–™ï¼š\n ";
 		foreach(string s in src) {
 			ret+=BASE_D->get_stuff(s,"name")+"("+s+") ";
 		}
 		ret+="\n";
 	}
 	bs=BASE_D->get_stuff(stf,"base");
-	ret+="ËùĞèÉú²ú»ùµØ£º\n";
+	ret+="æ‰€éœ€ç”Ÿäº§åŸºåœ°ï¼š\n";
 	if(sizeof(bs)) {
 		foreach(string b,int lv in bs)
-			ret+=BASE_D->get_base(b,"name")+"("+b+") "+ "¼¶±ğ£º"+lv+"\n";
+			ret+=BASE_D->get_base(b,"name")+"("+b+") "+ "çº§åˆ«ï¼š"+lv+"\n";
 	}
-	ret+="µ¥Î»²úÆ·ËùĞèÉú²úÁ¦£º"+sprintf("%.2f\n",
+	ret+="å•ä½äº§å“æ‰€éœ€ç”Ÿäº§åŠ›ï¼š"+sprintf("%.2f\n",
 		BASE_D->get_stuff(stf,"real_work")*1.0/BASE_D->get_stuff(stf,"quantity"));
-	ret+="±¸×¢£º"+BASE_D->get_stuff(stf,"comment");
+	ret+="å¤‡æ³¨ï¼š"+BASE_D->get_stuff(stf,"comment");
 	return ret;
 }

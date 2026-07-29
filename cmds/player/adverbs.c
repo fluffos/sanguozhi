@@ -6,15 +6,15 @@
 inherit CMD;
 inherit M_GLOB;
 
-#define HEADER  "--------------------------------<  ¸±´Ê  >-------------------------------\n"
-#define TRAILER "-------------------------<  ÕÒµ½ %4d/%4d  (%3d%%)  >------------------------\n"
+#define HEADER  "--------------------------------<  å‰¯è¯  >-------------------------------\n"
+#define TRAILER "-------------------------<  æ‰¾åˆ° %4d/%4d  (%3d%%)  >------------------------\n"
 
 private void main(string arg)
 {
     string * list;
     int count;
 
-    printf("¶Ô²»Æğ£¬Èı¹úÖĞÄ¿Ç°Ã»ÓĞ¸±´ÊÏµÍ³¡£\n");
+    printf("å¯¹ä¸èµ·ï¼Œä¸‰å›½ä¸­ç›®å‰æ²¡æœ‰å‰¯è¯ç³»ç»Ÿã€‚\n");
     return;
     list = SOUL_D->get_adverbs();
     count = sizeof(list);
@@ -27,7 +27,7 @@ private void main(string arg)
     list = regexp(list, arg);
     if ( !list )
     {
-        outf("Ã»ÓĞÓë %s ¶ÔÓ¦µÄ¸±´Ê¡£\n", arg);
+        outf("æ²¡æœ‰ä¸ %s å¯¹åº”çš„å‰¯è¯ã€‚\n", arg);
         return;
     }
 

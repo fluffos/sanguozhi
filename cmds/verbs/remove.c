@@ -20,12 +20,12 @@ void do_remove_str(string str)
 			o->do_remove();
 			return;
 		}
-		if( !ret ) ret="ÄãÃ»·¨ÍÑ"+o->short()+"¡£\n";
+		if( !ret ) ret="ä½ æ²¡æ³•è„±"+o->short()+"ã€‚\n";
 		write(ret);
 	}
 	return;
 }
 
-array query_verb_info() {
+mixed * query_verb_info() {
     return ({ ({ "STR"  }) });
 }

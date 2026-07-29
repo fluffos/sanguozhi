@@ -27,13 +27,13 @@ string dis_all() {
 	t_s_num=0;
 	t_n_num=0;
 	t_o_num=0;
-	dis+=sprintf("%-14s%-8s","µØÇøID","Ãû³Æ");
-	dis+=sprintf("·¿¼äÊı£¬¼ÓÔØÊı£¬ÎïÆ·Êı¡£\n");
+	dis+=sprintf("%-14s%-8s","åœ°åŒºID","åç§°");
+	dis+=sprintf("æˆ¿é—´æ•°ï¼ŒåŠ è½½æ•°ï¼Œç‰©å“æ•°ã€‚\n");
 	as=AREA_D->list_areas();
 	foreach(string a in as) {
 		dis+=dis_area(a);
 	}
-	dis+=sprintf("%-22s","ºÏ¼Æ£º");
+	dis+=sprintf("%-22s","åˆè®¡ï¼š");
 	dis+=sprintf("%5d   %5d   %5d\n",t_s_num,t_n_num,t_o_num);
 	return dis;
 }

@@ -1,10 +1,10 @@
-// ·ç±ä
+// é£å˜
 #include <mudlib.h>
 #include <daemons.h>
 #include <ansi.h>
 
 #define WEATHER_CHANNEL "weather"
-#define CHANNEL_FORMAT "%%^WEATHER_CHANNEL%%^¡¾%s¡¿%s%%^RESET%%^\n"
+#define CHANNEL_FORMAT "%%^WEATHER_CHANNEL%%^ã€%sã€‘%s%%^RESET%%^\n"
 
 void show_wind(string where, int wind);
 
@@ -13,29 +13,29 @@ void main(object ob, string wind)
 	int i;
 	string where;
 	object env;
-	string *winds = ({"ÎŞ·ç", "±±·ç", "¶«±±·ç", "¶«·ç", "¶«ÄÏ·ç", "ÄÏ·ç", "Î÷ÄÏ·ç", "Î÷·ç", "Î÷±±·ç",});
+	string *winds = ({"æ— é£", "åŒ—é£", "ä¸œåŒ—é£", "ä¸œé£", "ä¸œå—é£", "å—é£", "è¥¿å—é£", "è¥¿é£", "è¥¿åŒ—é£",});
 	env = environment( ob );
         while( env && !inherits(BASE_ROOM, env) )env = environment( env );
 	if( !where = env->get_area() ){
-		write("Ö»ÓĞÔÚÕ½³¡ÉÏ²ÅÄÜ¸Ä±ä·çÏò¡£\n");
+		write("åªæœ‰åœ¨æˆ˜åœºä¸Šæ‰èƒ½æ”¹å˜é£å‘ã€‚\n");
 		return;
 	};
 	if( !wind || !stringp(wind) || member_array(wind, winds) == -1 ){
-                write("ÏÖÔÚ±¾µØÇøµÄ·çÏòÊÇ£º" + DAY_D->get_wind_short(AREA_D->get_area(where, "wind")) + "¡£\n");
-		write("ÎŞ·ç£¬±±·ç£¬¶«±±·ç£¬¶«·ç£¬¶«ÄÏ·ç£¬ÄÏ·ç£¬Î÷ÄÏ·ç£¬Î÷·ç£¬»òÎ÷±±·ç¡£\n");
+                write("ç°åœ¨æœ¬åœ°åŒºçš„é£å‘æ˜¯ï¼š" + DAY_D->get_wind_short(AREA_D->get_area(where, "wind")) + "ã€‚\n");
+		write("æ— é£ï¼ŒåŒ—é£ï¼Œä¸œåŒ—é£ï¼Œä¸œé£ï¼Œä¸œå—é£ï¼Œå—é£ï¼Œè¥¿å—é£ï¼Œè¥¿é£ï¼Œæˆ–è¥¿åŒ—é£ã€‚\n");
                 return;
         };
 	if( member_array(wind, winds) == AREA_D->get_area(where, "wind") ){
-		write("ÏÖÔÚµÄ·çÏò¾ÍÊÇ£º" + DAY_D->get_wind_short(AREA_D->get_area(where, "wind")) + "¡£\n");
+		write("ç°åœ¨çš„é£å‘å°±æ˜¯ï¼š" + DAY_D->get_wind_short(AREA_D->get_area(where, "wind")) + "ã€‚\n");
 		return;
 	};
 
 	// In the furture, We have to consider the player's ablility
 	// add the exp of this jimou, reduce mp, etc.
 
-	ob->simple_action("$NÅÌÏ¥¶ø×ø£¬¿ÚÖĞÄîÄîÓĞ´Ê¡£\n");
-	ob->simple_action("×ªÑÛ¼ä£¬ÎÚÔÆÃÜ²¼£¬¿ñ·çËÄÆğ¡£\n");
-	ob->start_busy(10, "ÄãÕıÃ¦ÓÚ×÷·¨ÄØ¡£");
+	ob->simple_action("$Nç›˜è†è€Œåï¼Œå£ä¸­å¿µå¿µæœ‰è¯ã€‚\n");
+	ob->simple_action("è½¬çœ¼é—´ï¼Œä¹Œäº‘å¯†å¸ƒï¼Œç‹‚é£å››èµ·ã€‚\n");
+	ob->start_busy(10, "ä½ æ­£å¿™äºä½œæ³•å‘¢ã€‚");
 	load_object("/daemons/cast_d.c")->reg_player(ob->query_primary_id(), "fengbian");
         ob->award_exp(ob->query_sk_level("sk_zhimou")/2+random(20), "fengbian");
 	call_out("show_result", 5+random(5), ob, where, member_array(wind, winds));
@@ -44,11 +44,11 @@ void show_result(object ob, string where, int wind)
 {
 	ob->stop_busy();
 	if( random(2) == 1 ){
-		ob->simple_action("Ò»µÀÉÁµç´ÓÌì¶ø½µ£¬½Ó×ÅÒ»Éù¾ŞÏì£¬·çÏò¸Ä±äÁË¡£\n");
+		ob->simple_action("ä¸€é“é—ªç”µä»å¤©è€Œé™ï¼Œæ¥ç€ä¸€å£°å·¨å“ï¼Œé£å‘æ”¹å˜äº†ã€‚\n");
 		AREA_D->set_area(where, "wind", wind);
 		show_wind(where, wind);
 	} else {
-		ob->simple_action("Ò»µÀÉÁµç´ÓÌì¶ø½µ£¬ÕıºÃ´òÔÚ$NÉíÉÏ¡£\n");
+		ob->simple_action("ä¸€é“é—ªç”µä»å¤©è€Œé™ï¼Œæ­£å¥½æ‰“åœ¨$Nèº«ä¸Šã€‚\n");
 		ob->set_cur_hp(0);
 	}
 	return;
@@ -64,9 +64,9 @@ void show_wind(string where, int wind)
 		if( !env = environment(body) )continue;
 		while (env && !inherits(BASE_ROOM, env))env = environment(env);
 		if( !(env->get_area()) || env->get_area() != where )continue;
-		if( wind ) w_info = "¿ªÊ¼´µ"+DAY_D->get_wind_short(wind)+"ÁË¡£";
-		else w_info = "·çÍ£ÁË¡£";
-		tell(({user}), sprintf(CHANNEL_FORMAT, "ÌìÆø", w_info), MSG_INDENT);
+		if( wind ) w_info = "å¼€å§‹å¹"+DAY_D->get_wind_short(wind)+"äº†ã€‚";
+		else w_info = "é£åœäº†ã€‚";
+		tell(({user}), sprintf(CHANNEL_FORMAT, "å¤©æ°”", w_info), MSG_INDENT);
 	};
 	return;
 }

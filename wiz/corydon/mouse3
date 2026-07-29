@@ -1,4 +1,4 @@
-// mouse.c"Ë¶´óµÄÀÏÊó"
+// mouse.c"ç¡•å¤§çš„è€é¼ "
 #include <mudlib.h>
 #include <ansi.h>
 inherit LIVING;
@@ -17,29 +17,29 @@ string *query_channel_list() {
 void setup()
 {
     object mouse;
-    set_name("mouse","Ë¶´óµÄÀÏÊó");
+    set_name("mouse","ç¡•å¤§çš„è€é¼ ");
     add_id("mouse");    
     set_gender(1);
-    set_proper_name("Ë¶´óµÄÀÏÊó");
-    set_in_room_desc("Ë¶´óµÄÀÏÊó(mouse)");
+    set_proper_name("ç¡•å¤§çš„è€é¼ ");
+    set_in_room_desc("ç¡•å¤§çš„è€é¼ (mouse)");
     set_sg_rongmao(25);
-    set_long("ÑÛ¾¦ÔôÁïÁïµÄ, â±×ÅÑÀÅ¬Á¦¸øÄãÒ»¸öÃÄĞ¦");
+    set_long("çœ¼ç›è´¼æºœæºœçš„, ç—ç€ç‰™åŠªåŠ›ç»™ä½ ä¸€ä¸ªåªšç¬‘");
    
     mouse=new("/wiz/nono/obj/changpao.c");
     mouse->move(this_object());
     mouse->do_wear();
                 
- add_pattern("ÄÁÍ¯·ÉÆğ%s",function(){		 
-                respond("say ÄÁÍ¯À´ÁË£¬´ó¼Ò¿ìÅÜ°¢....¾ÈÃü°¢~~~");
+ add_pattern("ç‰§ç«¥é£èµ·%s",function(){		 
+                respond("say ç‰§ç«¥æ¥äº†ï¼Œå¤§å®¶å¿«è·‘é˜¿....æ•‘å‘½é˜¿~~~");
 });       
-    add_pattern("%sÒ»½ÅÌßµ½Äã%s¡£",function(){ 
+    add_pattern("%sä¸€è„šè¸¢åˆ°ä½ %sã€‚",function(){ 
 	respond("ah");
-	respond((: "say ´òµ¹"+$1 :));
-	respond((: "say //Ë¶´óµÄÀÏÊóÒ»½ÅÌßµ½"+$1+"µÄÆ¨¹ÉÉÏ£¬ÌßµÃ"+$1+"ÏóÆ¤ÇòÒ»Ñù¹öÁËÈıÈ¦¡£":)); });
-    add_pattern("%sÉîÉîµØÌ¾ÁË¿ÚÆø¡£",function() {"say ÄÁÍ¯×îÏ²»¶Ì¾Æø£¬¿´À´ÄãºÍËûÒ»ÑùÑ½¡£"});
-    add_pattern("%sÓÃ¾¡È«Á¦ÏòÄãÍ·ÉÏÔÒÈ¥%s", function() {
+	respond((: "say æ‰“å€’"+$1 :));
+	respond((: "say //ç¡•å¤§çš„è€é¼ ä¸€è„šè¸¢åˆ°"+$1+"çš„å±è‚¡ä¸Šï¼Œè¸¢å¾—"+$1+"è±¡çš®çƒä¸€æ ·æ»šäº†ä¸‰åœˆã€‚":)); });
+    add_pattern("%sæ·±æ·±åœ°å¹äº†å£æ°”ã€‚",function() {"say ç‰§ç«¥æœ€å–œæ¬¢å¹æ°”ï¼Œçœ‹æ¥ä½ å’Œä»–ä¸€æ ·å‘€ã€‚"});
+    add_pattern("%sç”¨å°½å…¨åŠ›å‘ä½ å¤´ä¸Šç ¸å»%s", function() {
         respond("pain");
-        respond("say ÎªÊ²Ã´Òª´òÎÒ£¬£¿");
+        respond("say ä¸ºä»€ä¹ˆè¦æ‰“æˆ‘ï¼Œï¼Ÿ");
           respond("cry");
     });     
 

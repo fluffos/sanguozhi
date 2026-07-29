@@ -1,4 +1,4 @@
-// accountant µÛÍõÎÀÊ¿
+// accountant å¸ç‹å«å£«
 #include <ansi.h>
 #include <mudlib.h>
 #define EV_KING "/sgdomain/event/ev_king.c"
@@ -18,15 +18,15 @@ void setup()
    jia=new(PTORSO+"zhanp");
    jia->move(this_object());
    jia->do_wear();
-   set_name("zhonglang jiang", "ÓùÇ°ÖĞÀÉ½«");
-   set_in_room_desc("ÓùÇ°ÖĞÀÉ½«(zhonglang jiang)");
+   set_name("zhonglang jiang", "å¾¡å‰ä¸­éƒå°†");
+   set_in_room_desc("å¾¡å‰ä¸­éƒå°†(zhonglang jiang)");
    set_long(
-       "Ï×µÛµÄÌùÉíÎÀÊ¿£¬ÎÊËû½ú¼ûÏ×µÛÖ®ÊÂ¡£\n");
+       "çŒ®å¸çš„è´´èº«å«å£«ï¼Œé—®ä»–æ™‹è§çŒ®å¸ä¹‹äº‹ã€‚\n");
    set_gender(1);
    set_age(30);
    set_sg_rongmao(20);
    add_question("jinjian", "jinjian");
-   add_ask_str("baijian","$NÏò$TµÀ£ºÔÚÏÂ¿É·ñ½ú¼ûÏ×µÛ£¿\n");
+   add_ask_str("baijian","$Nå‘$Té“ï¼šåœ¨ä¸‹å¯å¦æ™‹è§çŒ®å¸ï¼Ÿ\n");
 }
 
 mixed special_answer(object ob, string str)
@@ -51,12 +51,12 @@ void ask_jinjian(object usrk)
     if (EV_KING->query_name()!=n_id)
    {
 	this_object()->simple_action(
-	"$NµÀ£º±İÏÂ²¢Î´ÕÙ¼ûÓÚÄã£¬ÇëË¡ÔÚÏÂ²»ÄÜ·ÅĞĞ¡£\n");
+	"$Né“ï¼šé™›ä¸‹å¹¶æœªå¬è§äºä½ ï¼Œè¯·æ•åœ¨ä¸‹ä¸èƒ½æ”¾è¡Œã€‚\n");
 	return;
    }
 else
 {
-    this_object()->simple_action("$NµÀ£ºÇëËÙËÙÈëÄÚ£¬ÎğÈÃ±İÏÂ¾Ãºò¡£\n");
+    this_object()->simple_action("$Né“ï¼šè¯·é€Ÿé€Ÿå…¥å†…ï¼Œå‹¿è®©é™›ä¸‹ä¹…å€™ã€‚\n");
     usr->move(KROOM);
     this_body()->force_look();		
 }

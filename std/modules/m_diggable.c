@@ -91,7 +91,7 @@ private void answer_question(string input)
 
 void complete_dig()
 {
-  object array obs;
+  object * obs;
 
   obs = filter(all_inventory(this_body())+all_inventory(environment(this_body())),
                (: $1->can_dig() :));
@@ -100,17 +100,17 @@ void complete_dig()
     {
     case 0:
       //write("You have nothing with which to dig.\n");   
-      write("ÄãÃ»ÓĞÍÚ¾òµÄ¹¤¾ß¡£\n");
+      write("ä½ æ²¡æœ‰æŒ–æ˜çš„å·¥å…·ã€‚\n");
       return;
     case 1:
           printf(//"[with %s]\n"
-                 "[´ø×Å %s]",obs[0]->short());
+                 "[å¸¦ç€ %s]",obs[0]->short());
           obs[0]->do_digging(this_object());
           return;
     default:
           modal_push((:answer_question:),
                                   //"What do you want to dig with? "
-                                  "ÄãÒªÄÃÊ²Ã´À´ÍÚÑ½£¿");
+                                  "ä½ è¦æ‹¿ä»€ä¹ˆæ¥æŒ–å‘€ï¼Ÿ");
           return;
     }
 }

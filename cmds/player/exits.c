@@ -8,22 +8,22 @@ inherit CMD;
 
 private void main( string message )
 {
-    string array exits = environment(this_body())->query_exit_directions( 0 );
-    string str = "Äã¿ÉÒÔ´Ó£º";
+    string * exits = environment(this_body())->query_exit_directions( 0 );
+    string str = "ä½ å¯ä»¥ä»ï¼š";
     switch( sizeof(exits))
     {
     case 0:
-	out("Äã¿´²»¼ûÈÎºÎ³ö¿Ú¡£\n");
+	out("ä½ çœ‹ä¸è§ä»»ä½•å‡ºå£ã€‚\n");
         return;
     case 1:
         str += exits[0];
         break;
     default:
         str += implode( exits[0..<2], ", " );
-        str += "ºÍ ";
+        str += "å’Œ ";
         str += exits[<1];
     }
-    str += " ·½ÏòÀë¿ªÕâÀï¡£\n";
+    str += " æ–¹å‘ç¦»å¼€è¿™é‡Œã€‚\n";
     out( str );
     return;
 }

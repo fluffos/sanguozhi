@@ -4,4 +4,4 @@ inherit M_ACCESS;
 inherit /daemons/nation_channel_d/suggest";
 create() { set_privilege(1); }
 
-mixed exec_foo(){ return ./nat Àî´ó bzd test;}
+mixed exec_foo(){ return ./nat æå¤§ bzd test;}

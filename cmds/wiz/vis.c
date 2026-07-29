@@ -13,12 +13,12 @@ private void main()
 {
     string msg;
     if (this_body()->is_visible())
-        printf("你现在没有隐形。\n");
+        printf("浣犵幇鍦ㄦ病鏈夐殣褰€�俓n");
     else
     {
         this_body()->set_visibility(1);
         FINGER_D->update_me();
         this_body()->do_player_message("vis");
-        out("你决定不隐形了。\n");
+        out("浣犲喅瀹氫笉闅愬舰浜嗐�俓n");
     }
 }

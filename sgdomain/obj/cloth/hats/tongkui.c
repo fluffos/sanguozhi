@@ -8,15 +8,15 @@ inherit M_VALUE;
 void setup()
 {
     ::mudlib_setup();
-    set_unit("¶¥");
-    set_id("tongkui", "Í­¿ø");
+    set_unit("é¡¶");
+    set_id("tongkui", "é“œç›”");
     add_id("kui");
-    set_in_room_desc("Í­¿ø(tongkui)");
-    set_long("Ò»¶¥ÓÃÍ­ÖÆ×÷µÄÍ·¿ø¡£");
+    set_in_room_desc("é“œç›”(tongkui)");
+    set_long("ä¸€é¡¶ç”¨é“œåˆ¶ä½œçš„å¤´ç›”ã€‚");
     set_gettable(1);
     set_slot(HEAD);
-    set_wearmsg("$N´÷ÉÏÒ»¶¥$o¡£\n");
-    set_removemsg("$NÍÑÏÂÒ»¶¥$o¡£\n");
+    set_wearmsg("$Næˆ´ä¸Šä¸€é¡¶$oã€‚\n");
+    set_removemsg("$Nè„±ä¸‹ä¸€é¡¶$oã€‚\n");
     set_attack_ability(-2);
     set_defence_power(5);
     set_defence_ability(-2);

@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is »¨¶ù¶ä¶ä
+// driver is èŠ±å„¿æœµæœµ
 // created date is Fri Apr 29 10:59:21 2011
 #include <mudlib.h>
 #include <ansi.h>
@@ -7,7 +7,7 @@ inherit OUTDOOR_ROOM;
 void setup() {
 set_area("huayin");
 set_light(50);
-set_brief("%^YELLOW%^"+"ÖñÁÖ"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"ç«¹æž—"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "north":"/a/huayin/muwu.c",

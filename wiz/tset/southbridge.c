@@ -1,4 +1,4 @@
-// southbridge.c "É½¿Ú"
+// southbridge.c "å±±å£"
 #include <mudlib.h>
 #include <ansi.h>
 inherit OUTDOOR_ROOM;
@@ -6,16 +6,16 @@ inherit OUTDOOR_ROOM;
 void setup(){
     set_area("southbridge");
     set_light(0);
-    set_brief(YEL+"É½¿Ú"+NOR);
+    set_brief(YEL+"å±±å£"+NOR);
     set_long("
-Äã´ÓÇÅÉÏ×ßµ½Õâ±ß¡£Ñ½£¬Ô­À´ÕâÀïÓĞ¸öĞ¡É½ÄØ£¡Äã²»¾õºÃÆæĞÄ¶ÙÆğ¡£
-±±±ßÓĞÒ»ÌõĞ¡ºÓ£¬¿ÉÒÔ´ÓÇÅÉÏ(bridge)×ß¹ıÈ¥¡£
+ä½ ä»æ¡¥ä¸Šèµ°åˆ°è¿™è¾¹ã€‚å‘€ï¼ŒåŸæ¥è¿™é‡Œæœ‰ä¸ªå°å±±å‘¢ï¼ä½ ä¸è§‰å¥½å¥‡å¿ƒé¡¿èµ·ã€‚
+åŒ—è¾¹æœ‰ä¸€æ¡å°æ²³ï¼Œå¯ä»¥ä»æ¡¥ä¸Š(bridge)èµ°è¿‡å»ã€‚
 \n\n");
     set_objects( ([
         __DIR__"bridge" : 1,
                     ]) );
 
-    set_default_exit("ºÃÏó×ß²»Í¨Ò®£¿\n");
+    set_default_exit("å¥½è±¡èµ°ä¸é€šè€¶ï¼Ÿ\n");
 
     set_exits( ([
         "south" : __DIR__ "cave",

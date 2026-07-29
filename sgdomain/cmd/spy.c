@@ -8,11 +8,11 @@ void confirm_over(mixed p_input)
         my_id=this_body()->query_id()[0];
         if((p_input=="yes")||(p_input=="y"))
 		{	this_body()->set_job("spy","status","done");
-			write("ËäÈ»ÄãÃ»ÓÐÍê³ÉÈ«²¿µÄÕì²ìÈÎÎñ£¬µ«Ò²ÓÐÊÕ»ñ£¬\n"+
-				"¿ÉÒÔÈ¥ÁìÉÍÁË¡£\n");
+			write("è™½ç„¶ä½ æ²¡æœ‰å®Œæˆå…¨éƒ¨çš„ä¾¦å¯Ÿä»»åŠ¡ï¼Œä½†ä¹Ÿæœ‰æ”¶èŽ·ï¼Œ\n"+
+				"å¯ä»¥åŽ»é¢†èµäº†ã€‚\n");
 		}
         else
-               write("×öÊÂ²»Ó¦°ëÍ¾¶ø·Ï£¬Äã×¼±¸¼ÌÐøÕì²ì¡£\n");
+               write("åšäº‹ä¸åº”åŠé€”è€ŒåºŸï¼Œä½ å‡†å¤‡ç»§ç»­ä¾¦å¯Ÿã€‚\n");
         this_user()->modal_pop();
 }
 void start(string arg)
@@ -22,50 +22,50 @@ void start(string arg)
 	string *spied;
 	p_id=me->query_id()[0];
 	if(!me->query_job("spy","beg_time")){
-		write("ÄãÏÖÔÚ²¢Ã»ÓÐµ£ÈÎÕì²ìÈÎÎñ¡£\n");
+		write("ä½ çŽ°åœ¨å¹¶æ²¡æœ‰æ‹…ä»»ä¾¦å¯Ÿä»»åŠ¡ã€‚\n");
 		return;
 	}
 	p_area=me->query_job("spy","area");
 	spied=me->query_job("spy","spied");
 	if(arg=="info") {
-		printf("Õì²ìµØÇø£º%s¡£\n",AREA_D->get_area(p_area,"name"));
-		printf("ÐèÕì²ì·¿¼äÊý£º%d¡£\n",me->query_job("spy","size"));
-		printf("ÒÑ¾­Õì²ì¹ýµÄ·¿¼äÊý£º%d¡£\n",sizeof(spied));
-		printf("Ä¿Ç°×´Ì¬£º%s¡£\n",
-			(me->query_job("spy","status") != "done" ? "¼ÌÐøÕì²ì":"Õì²ìÍê±Ï"));
+		printf("ä¾¦å¯Ÿåœ°åŒºï¼š%sã€‚\n",AREA_D->get_area(p_area,"name"));
+		printf("éœ€ä¾¦å¯Ÿæˆ¿é—´æ•°ï¼š%dã€‚\n",me->query_job("spy","size"));
+		printf("å·²ç»ä¾¦å¯Ÿè¿‡çš„æˆ¿é—´æ•°ï¼š%dã€‚\n",sizeof(spied));
+		printf("ç›®å‰çŠ¶æ€ï¼š%sã€‚\n",
+			(me->query_job("spy","status") != "done" ? "ç»§ç»­ä¾¦å¯Ÿ":"ä¾¦å¯Ÿå®Œæ¯•"));
 		if((sizeof(spied)>=me->query_job("spy","size"))&&
                      (me->query_job("spy","done_time")>(time()-1800))){
 			string ret;
                               ret=AREA_D->stat_me(p_area,"s",0);
-			write("Õì²ì½á¹û£º\n");
+			write("ä¾¦å¯Ÿç»“æžœï¼š\n");
 			write(ret);
 		}
 		return;
 	}
 	if((arg=="done")&&(me->query_job("spy","status")!="done")){
 		if(sizeof(spied)==0){
-			write("ÄãÒ»µãÇé±¨¶¼Ã»ÓÐ¸ãµ½£¬Ôõ¿ÉÈç´Ë±ãÈ¥½»²î£¿\n");
+			write("ä½ ä¸€ç‚¹æƒ…æŠ¥éƒ½æ²¡æœ‰æžåˆ°ï¼Œæ€Žå¯å¦‚æ­¤ä¾¿åŽ»äº¤å·®ï¼Ÿ\n");
 			return;
 		}
-		write("ÄãµÄÕì²ìÈÎÎñÉÐÎ´È«²¿Íê³É£¬ÏÖÔÚ»ØÈ¥Ö»ÄÜµÃµ½Ò»°ë½±Àø£¬
-È·ÈÏ½áÊøÕì²ìÐÐ¶¯Âð£¿(y/n)¡£");
+		write("ä½ çš„ä¾¦å¯Ÿä»»åŠ¡å°šæœªå…¨éƒ¨å®Œæˆï¼ŒçŽ°åœ¨å›žåŽ»åªèƒ½å¾—åˆ°ä¸€åŠå¥–åŠ±ï¼Œ
+ç¡®è®¤ç»“æŸä¾¦å¯Ÿè¡ŒåŠ¨å—ï¼Ÿ(y/n)ã€‚");
 		this_user()->modal_push((: confirm_over :),
                                "",0,0);
 		return;
 
 	}
 	if((me->query_job("spy","status"))=="done") {
-		write("Õì²ìÈÎÎñÍê³É£¬¿ì»ØÈ¥±¨¸æÁìÉÍÈ¥°É¡£\n");
+		write("ä¾¦å¯Ÿä»»åŠ¡å®Œæˆï¼Œå¿«å›žåŽ»æŠ¥å‘Šé¢†èµåŽ»å§ã€‚\n");
 		return;
 	}
 	env=environment(me);
     if((env->get_area())!=p_area) {
-		write("Õâ¶ù²»ÊÇÐèÒªÄãÕì²ìµÄµØÇø£¬ÇëÓÃcmd spy info ²é¿´ÏêÇé¡£\n");
+		write("è¿™å„¿ä¸æ˜¯éœ€è¦ä½ ä¾¦å¯Ÿçš„åœ°åŒºï¼Œè¯·ç”¨cmd spy info æŸ¥çœ‹è¯¦æƒ…ã€‚\n");
 		return;
 	}
 	p_fname=file_name(env);
 	if(member_array(p_fname,spied)!=-1){
-		write("Õâ¸öµØ·½ÒÑ¾­Õì²ì¹ýÁË£¬ÇëÓÃcmd spy info ²é¿´ÏêÇé¡£\n");
+		write("è¿™ä¸ªåœ°æ–¹å·²ç»ä¾¦å¯Ÿè¿‡äº†ï¼Œè¯·ç”¨cmd spy info æŸ¥çœ‹è¯¦æƒ…ã€‚\n");
 		return;
 	}
 	if(env->is_home()||env->is_base()) {
@@ -74,11 +74,11 @@ void start(string arg)
 	}
 
 	me->set_job("spy","catched",0);	
-	write("Äã×ó¿´¿´£¬ÓÒ¿´¿´£¬ºÃÏóÃ»ÈË×¢Òâ¡£\nÄãÌÍ³öÒ»ÕÅÖ½£¬¿ªÊ¼¼ÍÂ¼¡£\n");
+	write("ä½ å·¦çœ‹çœ‹ï¼Œå³çœ‹çœ‹ï¼Œå¥½è±¡æ²¡äººæ³¨æ„ã€‚\nä½ æŽå‡ºä¸€å¼ çº¸ï¼Œå¼€å§‹çºªå½•ã€‚\n");
 	me->other_action(
-		"$NÔôÍ·ÔôÄÔµØ¶«ÕÅÕÅ£¬Î÷ÍûÍû£¬ÔÚÒ»ÕÅÖ½ÉÏ²»ÖªµÀ»­ÁËÐ©Ê²Ã´¡£\n");
+		"$Nè´¼å¤´è´¼è„‘åœ°ä¸œå¼ å¼ ï¼Œè¥¿æœ›æœ›ï¼Œåœ¨ä¸€å¼ çº¸ä¸Šä¸çŸ¥é“ç”»äº†äº›ä»€ä¹ˆã€‚\n");
 	me->set_job("spy","spied",spied+({p_fname}));
-	me->start_busy(10,"ÄãÕýÃ¦×ÅÕì²ìÄØ¡£\n");
+	me->start_busy(10,"ä½ æ­£å¿™ç€ä¾¦å¯Ÿå‘¢ã€‚\n");
 	call_out("spy_ok",random(7)+3,me);
 	CHAR_D->set_char(p_id,"catch_time",time()+10);
 
@@ -99,26 +99,26 @@ void spy_catch(string o_id,string p_id,mixed none)
 	o_p=find_body(p_id);
 	if(!objectp(o_p)) {
 
-		tell_user(o_id,"ÄãºÃÏóÆ³¼ûÁËÒ»¸öÔôÈË£¬µ«ÊÇÒ»×ªÑÛµÄ¹¤·òËû¾ÍÁïµôÁË¡£\n");
+		tell_user(o_id,"ä½ å¥½è±¡çž¥è§äº†ä¸€ä¸ªè´¼äººï¼Œä½†æ˜¯ä¸€è½¬çœ¼çš„å·¥å¤«ä»–å°±æºœæŽ‰äº†ã€‚\n");
 	o_o->set_job("partol","score",
 			o_o->query_job("partol","score")-1);
 		return;
 	}
 
 	o_o->targetted_action(
-		"$N¶Ô$T´óºÈÒ»Éù£º´óµ¨$r£¬¾¹¸ÒÔÚ´Ë´ÌÌ½¾üÇé£¬¸øÎÒÄÃÏÂ£¡\n",o_p);
+		"$Nå¯¹$Tå¤§å–ä¸€å£°ï¼šå¤§èƒ†$rï¼Œç«Ÿæ•¢åœ¨æ­¤åˆºæŽ¢å†›æƒ…ï¼Œç»™æˆ‘æ‹¿ä¸‹ï¼\n",o_p);
 	o_p->simple_action(
-		"ÖÚ¹Ù±øÒ»Óµ¶øÉÏ£¬°Ñ$NÀ¦µÃ½á½áÊµÊµ¡£\n");
+		"ä¼—å®˜å…µä¸€æ‹¥è€Œä¸Šï¼ŒæŠŠ$Næ†å¾—ç»“ç»“å®žå®žã€‚\n");
 	o_o->simple_action(
-		"$NÒ»»ÓÊÖ£¬µÀ£º´ø×ß£¡\n");
+		"$Nä¸€æŒ¥æ‰‹ï¼Œé“ï¼šå¸¦èµ°ï¼\n");
 	o_p->simple_action(
-		"ÖÚ¹Ù±ø°Ñ$NÑºÁËÏÂÈ¥¡£\n");
+		"ä¼—å®˜å…µæŠŠ$NæŠ¼äº†ä¸‹åŽ»ã€‚\n");
 
 	CHANNEL_D->deliver_tell("rumor","system",
 		CHAR_D->get_char(p_id,"name")+
-		"ÔÚ"+AREA_D->get_area(CHAR_D->get_char(o_id,"area"),"name")+
-		"Õì²é£¬±»ÕýÔÚÑ²ÂßµÄ"+CHAR_D->get_char(o_id,"name")+
-		"µ±³¡×¥»ñ¡£");
+		"åœ¨"+AREA_D->get_area(CHAR_D->get_char(o_id,"area"),"name")+
+		"ä¾¦æŸ¥ï¼Œè¢«æ­£åœ¨å·¡é€»çš„"+CHAR_D->get_char(o_id,"name")+
+		"å½“åœºæŠ“èŽ·ã€‚");
 	o_p->set_job("spy","catched",1);	
 	o_p->set_job("spy","status","done");	
 	(PCMD+"catch")->catch_award(o_id,p_id);
@@ -137,9 +137,9 @@ void spy_ok(object me)
 	p_id=me->query_id()[0];
 	if(me->query_job("spy","catched"))
 		return;
-	tell_user(p_id,"Äã¼ÍÂ¼Íê±Ï£¬ÂúÒâµØµãÁËµãÍ·¡£\n");
+	tell_user(p_id,"ä½ çºªå½•å®Œæ¯•ï¼Œæ»¡æ„åœ°ç‚¹äº†ç‚¹å¤´ã€‚\n");
 	me->other_action(
-		"$NµãµãÍ·£¬¡ººÙºÙ¡»µØ¸ÉÐ¦ÁËÁ½Éù¡£\n");
+		"$Nç‚¹ç‚¹å¤´ï¼Œã€Žå˜¿å˜¿ã€åœ°å¹²ç¬‘äº†ä¸¤å£°ã€‚\n");
 	me->stop_busy();
 
 	CHAR_D->set_char(p_id,"catch_file",0);
@@ -150,7 +150,7 @@ void spy_ok(object me)
 	spied=me->query_job("spy","spied");
 	num=me->query_job("spy","size");
 	if(sizeof(spied)>=num){
-		tell_user(p_id,"%^H_GREEN%^ÈÎÎñÍê³É£¬¿ìÈ¥Ì«ÊØ´¦ÁìÉÍ°É¡£\n%^RESET%^");
+		tell_user(p_id,"%^H_GREEN%^ä»»åŠ¡å®Œæˆï¼Œå¿«åŽ»å¤ªå®ˆå¤„é¢†èµå§ã€‚\n%^RESET%^");
 		me->set_job("spy","status","done");
 		me->set_job("spy","done_time",time());
 	}

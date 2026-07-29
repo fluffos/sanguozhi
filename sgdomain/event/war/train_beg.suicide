@@ -53,10 +53,10 @@ void train_collect(int task_id)
       AREA_D->get_area(def_area,"fly");
    p_short=load_object(p_flyroom)->short();
    if(objectp(o_char))
-   { o_char->simple_action("$NµÀ£ºÖîÎ»½«¾ü¡¢´óÈË£¬ËÙµ½"+
-      p_short+"µã±øÑµÁ·¡£\n");
+   { o_char->simple_action("$Né“ï¼šè¯¸ä½å°†å†›ã€å¤§äººï¼Œé€Ÿåˆ°"+
+      p_short+"ç‚¹å…µè®­ç»ƒã€‚\n");
       CHAR_D->put_char(def_leader,p_flyroom);
-      o_char->simple_action("$NÀ´µ½ÁË"+p_short+"¡£\n");
+      o_char->simple_action("$Næ¥åˆ°äº†"+p_short+"ã€‚\n");
       o_char->resign_job("train");
       o_char->add_job("train");
    }
@@ -69,7 +69,7 @@ void train_collect(int task_id)
       CHAR_D->put_char(p_id,p_flyroom);
       if(objectp(o_char))
       {
-         o_char->simple_action("$NÀ´µ½ÁË"+p_short+"¡£\n");
+         o_char->simple_action("$Næ¥åˆ°äº†"+p_short+"ã€‚\n");
       }
    }
 }

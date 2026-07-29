@@ -1,6 +1,6 @@
 /* Do not remove the headers from this file! see /USAGE for more info. */
 
-private static string *useless_msgs = ({
+private string *useless_msgs = ({
 /*    " doesn't seem to work.\n",
     " isn't notably helpful.\n",
     " has no effect.\n",
@@ -8,10 +8,10 @@ private static string *useless_msgs = ({
     " might cause people to laugh at you.\n",
     " is a sign of senility.\n",
 */
-            "¿´ÆğÀ´²»ĞĞ°¡...\n",
-            "¿ÖÅÂÃ»ÓĞ¶à´ó×÷ÓÃ...\n",
-            "Ã»°ëµã¶ùÓÃ...\n",
-            "Ö»ÊÇÔÚÀË·ÑÊ±¼ä...\n",
+            "çœ‹èµ·æ¥ä¸è¡Œå•Š...\n",
+            "ææ€•æ²¡æœ‰å¤šå¤§ä½œç”¨...\n",
+            "æ²¡åŠç‚¹å„¿ç”¨...\n",
+            "åªæ˜¯åœ¨æµªè´¹æ—¶é—´...\n",
 });
 
 string useless(string str)

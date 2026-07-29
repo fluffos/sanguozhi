@@ -28,7 +28,7 @@ private void Mh_cmd_write(string arg)
     (sscanf(arg,"%s",fname)!=1)))
     {
     //write("Usage: Mw # <filename>\n");
-    write("ÓÃ·¨£ºMw <number> <filename>\n");
+    write("ç”¨æ³•ï¼šMw <number> <filename>\n");
     return;
     }
 
@@ -45,7 +45,7 @@ private void Mh_cmd_save(string arg)
     sscanf(arg,"%s",fname)!=1))
     {
     //write("Usage: Ms # <filename>\n");
-    write("ÓÃ·¨£ºMs <number> <filename>\n");
+    write("ç”¨æ³•ï¼šMs <number> <filename>\n");
     return;
     }
 
@@ -58,7 +58,7 @@ private void Mh_cmd_replyall(mixed arg)
     if ( arg && !(arg = to_int(arg)) )
     {
     //write("Usage: MR #\n");
-    write("ÓÃ·¨£ºMR <number>\n");
+    write("ç”¨æ³•ï¼šMR <number>\n");
     return;
     }
 
@@ -71,7 +71,7 @@ private void Mh_cmd_reply(mixed arg)
     if ( arg && !(arg = to_int(arg)) )
     {
     //write("Usage: Mr #\n");
-    write("ÓÃ·¨£ºMr <number>\n");
+    write("ç”¨æ³•ï¼šMr <number>\n");
     return;
     }
 
@@ -85,49 +85,49 @@ private void Mh_cmd_help()
 
     output = explode(
       //"Help for Mh (Mail handler)  Version 0.9\n"+
-      "Mh (Mail handler) µÄ¸¨ÖúËµÃ÷ Version 0.9\n"+
+      "Mh (Mail handler) çš„è¾…åŠ©è¯´æ˜ Version 0.9\n"+
       sprintf("%'-'40s","\n")+
       //"M?                   This help screen\n"
-      "M?                               ±¾ËµÃ÷ÆÁÄ»\n"
+      "M?                               æœ¬è¯´æ˜å±å¹•\n"
       "\n"
       //"Mm <name1> [name2] [name3]...        Send mail.\n"
-      "Mm <name1> [name2] [name3]...    ¼ÄĞÅ¡£\n"
+      "Mm <name1> [name2] [name3]...    å¯„ä¿¡ã€‚\n"
       //"Mh [# or range (1-4,6 for example)]   Show the headers for the specified\n"
-      "Mh [# or ·¶Î§ (±ÈÈç 1-4,6)]      ÏÔÊ¾Ö¸¶¨µÄ»òÈ«²¿ĞÅ¼şµÄ¿ªÍ·¡£\n"
+      "Mh [# or èŒƒå›´ (æ¯”å¦‚ 1-4,6)]      æ˜¾ç¤ºæŒ‡å®šçš„æˆ–å…¨éƒ¨ä¿¡ä»¶çš„å¼€å¤´ã€‚\n"
       //"                 range of messages, or all messages\n"
       //"                 if no range is specified.\n"
       //"M# #                 Read a message.\n"
-      "M# #                             ¶ÁÈ¡ĞÅ¼ş¡£\n"
+      "M# #                             è¯»å–ä¿¡ä»¶ã€‚\n"
       //"Mr #                 Reply to message\n"
-      "Mr #                             »Ø¸´ĞÅ¼ş¡£\n"
+      "Mr #                             å›å¤ä¿¡ä»¶ã€‚\n"
       //"MR #                 Reply to message, all\n"
-      "MR #                             »Ø¸´ĞÅ¼ş¸øËùÓĞ¼ÄĞÅÈË¡£\n"
+      "MR #                             å›å¤ä¿¡ä»¶ç»™æ‰€æœ‰å¯„ä¿¡äººã€‚\n"
       //"                 originial recipients receive the mail\n"
       //"Mf #                 Forward message\n"
-      "Mf #                             ×ª¼ÄĞÅ¼ş¡£\n"
+      "Mf #                             è½¬å¯„ä¿¡ä»¶ã€‚\n"
       //"Md # or range                Delete message(s)\n"
-      "Md # or ·¶Î§                     É¾³ıĞÅ¼ş¡£\n"
+      "Md # or èŒƒå›´                     åˆ é™¤ä¿¡ä»¶ã€‚\n"
       //"M$                   Show the number of messages in your box.\n"
-      "M$                               ÏÔÊ¾ĞÅ¼ş×ÜÊı¡£\n"
+      "M$                               æ˜¾ç¤ºä¿¡ä»¶æ€»æ•°ã€‚\n"
       //"M= [#]                   Set current message if # is provided\n"
-      "M= [#]                           Éè¶¨¶ÁÈ¡ĞÅ¼şµÄºÅÂëÈç¹ûÓĞ²ÎÊı # £¬\n"
-      "                                 ·ñÔòÏÔÊ¾ÏÖÔÚĞÅ¼ş¡£\n"
+      "M= [#]                           è®¾å®šè¯»å–ä¿¡ä»¶çš„å·ç å¦‚æœæœ‰å‚æ•° # ï¼Œ\n"
+      "                                 å¦åˆ™æ˜¾ç¤ºç°åœ¨ä¿¡ä»¶ã€‚\n"
       //"                 else shows the current message #\n"
       //"M+                   increment the current message number\n"
-      "M+                               ¶ÁÈ¡ĞÅ¼şµÄºÅÂë¼ÓÒ»£¬²¢²»ÏÔÊ¾¡£\n"
+      "M+                               è¯»å–ä¿¡ä»¶çš„å·ç åŠ ä¸€ï¼Œå¹¶ä¸æ˜¾ç¤ºã€‚\n"
       //"                 but do not read.\n"
       //"M-                   decrement the current message number\n"
-      "M-                               ¶ÁÈ¡ĞÅ¼şµÄºÅÂë¼õÒ»£¬²¢²»ÏÔÊ¾¡£\n"
+      "M-                               è¯»å–ä¿¡ä»¶çš„å·ç å‡ä¸€ï¼Œå¹¶ä¸æ˜¾ç¤ºã€‚\n"
       //"                 but do not read.\n"
       //"Mn                   read the next message."
-      "Mn                               ÏÔÊ¾ÏÂÒ»·âĞÅ¼ş¡£\n"
+      "Mn                               æ˜¾ç¤ºä¸‹ä¸€å°ä¿¡ä»¶ã€‚\n"
       ,"\n");
     if( wizardp(this_user()) )
     output += ({
       //"Ms [#] <filename>            Save message w/ header intact to file.",
       //"Mw [#] <filename>            Save message but no header to file." });
-      "Ms [#] <filename>                ½«ĞÅ¼şÍ·ÒÔ¼°ĞÅ¼şÄÚÈİ´æµµ¡£",
-      "Mw [#] <filename>                ½«ĞÅ¼şÄÚÈİ´æµµ£¬²»°üÀ¨ĞÅ¼şÍ·¡£" });
+      "Ms [#] <filename>                å°†ä¿¡ä»¶å¤´ä»¥åŠä¿¡ä»¶å†…å®¹å­˜æ¡£ã€‚",
+      "Mw [#] <filename>                å°†ä¿¡ä»¶å†…å®¹å­˜æ¡£ï¼Œä¸åŒ…æ‹¬ä¿¡ä»¶å¤´ã€‚" });
     output+=({"",
       "All numbers default to the currently referenced message, which is shown",
       "by M=\n",
@@ -147,7 +147,7 @@ private void Mh_cmd_forward(mixed arg)
         (sscanf(arg,"%s",newto)!=1)))
     {
     //write("Usage: Mf # <name1> [name2] ...\n");
-    write("ÓÃ·¨£ºMf # <name1> [name2] ...\n");
+    write("ç”¨æ³•ï¼šMf # <name1> [name2] ...\n");
     return;
     }
 
@@ -209,7 +209,7 @@ ZBUG("FOO");
         idx = mailbox_ob->first_unread_message() + 1;
         if ( !idx )
             //printf("No more messages.\n");
-            printf("Ã»ÓĞ¸ü¶àµÄĞÅ¼şÁË¡£\n");
+            printf("æ²¡æœ‰æ›´å¤šçš„ä¿¡ä»¶äº†ã€‚\n");
         else
             cmd_read(idx, 0, 0);
     return 1;
@@ -222,7 +222,7 @@ ZBUG("FOO");
     return 1;
     case '$':
     printf(//"You have %d messages.\n",
-           "Äã¹²ÓĞ %d ·âĞÅ¼ş¡£\n",
+           "ä½ å…±æœ‰ %d å°ä¿¡ä»¶ã€‚\n",
             mailbox_ob->query_message_count());
     return 1;
     default:
@@ -237,5 +237,5 @@ nomask void begin_mail(string arg)
 {
     //write("You are set up for Mh, the command-line mail handler.\n"
     //  "Type M? for info.\n");
-    write("ÄãÒÑ¾­½¨Á¢ÁËMh£¬ÃüÁîĞĞÓÊ¼ş´¦ÀíÆ÷¡£\nÓÃ M? ÏÔÊ¾¸¨ÖúĞÅÏ¢¡£\n");
+    write("ä½ å·²ç»å»ºç«‹äº†Mhï¼Œå‘½ä»¤è¡Œé‚®ä»¶å¤„ç†å™¨ã€‚\nç”¨ M? æ˜¾ç¤ºè¾…åŠ©ä¿¡æ¯ã€‚\n");
 }

@@ -1,10 +1,10 @@
 #include <mudlib.h>
 inherit INDOOR_ROOM;
 void setup(){
-    set_brief ("Äô·çµÄ¼Ò");
+    set_brief ("è‚é£çš„å®¶");
     set_long (
-      "ÕâÊÇÄô·çÎÂÅ¯µÄ¼Ò¡£Èç¹ûÄãÓĞºÎÖ¸½ÌµÄ»°£¬Äã´ó¿ÉÒÔ
-   E-MAIL¸øÄô·ç¡£(yu-yuyin@263.net)
+      "è¿™æ˜¯è‚é£æ¸©æš–çš„å®¶ã€‚å¦‚æœä½ æœ‰ä½•æŒ‡æ•™çš„è¯ï¼Œä½ å¤§å¯ä»¥
+   E-MAILç»™è‚é£ã€‚(yu-yuyin@263.net)
     ");
     set_exits (([
         "east":"/sgdomain/area/guan/huayin/vfield.c"

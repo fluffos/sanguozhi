@@ -100,10 +100,10 @@ void show_adverbs(string s)
 "matches endearingly and enthusiastically.\n");
 */
   write(
-  "¼Ç×¡£ºÄã¿ÉÒÔÓÃ¼òĞ´·¨Æ´Ğ´Ò»¸ö¸±´Ê£¬ÊäÈëËüµÄÇ°²¿·Ö½ô¸ú×ÅÊäÈëÒ»¸ö * ¡¢\n"
-  "Ç°ÌáÊÇËüÒªÄÜÎ¨Ò»È·¶¨Ò»¸ö¸±´Ê¡£±ÈÈç£ºkick rust ene* »á±ä³É£º\n"
-  "kick rust energetically£¬µ« kick rust en* ²»»á£¬ÒòÎª en* Í¬Ê±»¹¶ÔÓ¦\n"
-  "×Å endearingly ºÍ enthusiastically¡£\n");
+  "è®°ä½ï¼šä½ å¯ä»¥ç”¨ç®€å†™æ³•æ‹¼å†™ä¸€ä¸ªå‰¯è¯ï¼Œè¾“å…¥å®ƒçš„å‰éƒ¨åˆ†ç´§è·Ÿç€è¾“å…¥ä¸€ä¸ª * ã€\n"
+  "å‰ææ˜¯å®ƒè¦èƒ½å”¯ä¸€ç¡®å®šä¸€ä¸ªå‰¯è¯ã€‚æ¯”å¦‚ï¼škick rust ene* ä¼šå˜æˆï¼š\n"
+  "kick rust energeticallyï¼Œä½† kick rust en* ä¸ä¼šï¼Œå› ä¸º en* åŒæ—¶è¿˜å¯¹åº”\n"
+  "ç€ endearingly å’Œ enthusiasticallyã€‚\n");
   CMD_OB_ADVERBS->player_menu_entry(s);
 }
 
@@ -112,14 +112,14 @@ void change_email(string s)
 {
   this_user()->set_email(s);
   //write("Email info changed.\n");
-    write("µç×ÓÓÊ¼şĞÅÏ¢¸ü¸ÄÁË¡£\n");
+    write("ç”µå­é‚®ä»¶ä¿¡æ¯æ›´æ”¹äº†ã€‚\n");
 }
 
 void change_url(string s)
 {
   this_user()->set_url(s);
   //write("Home page address changed.\n");
-    write("ÍøÂç¼ÒÒ³ĞÅÏ¢¸ü¸ÄÁË¡£\n");
+    write("ç½‘ç»œå®¶é¡µä¿¡æ¯æ›´æ”¹äº†ã€‚\n");
 }
 
 void
@@ -131,7 +131,7 @@ change_title(string s)
   this_body()->set_title(s);
   
   //write("Title changed.\n");
-  write("³ÆºÅ¸ü¸ÄÁË¡£\n");
+  write("ç§°å·æ›´æ”¹äº†ã€‚\n");
 }
  
 void
@@ -144,16 +144,16 @@ query_personal_info()
          "You %sget notified when new mail arrives.\n" 
          "Wizards %s snoop you.\n",
 */
-         "ÄãµÄ³ÆºÅÊÇ£º%s\n"
-         "ÄãÌá¹©µÄµç×ÓÓÊ¼ş(e-mail)µØÖ·ÊÇ£º%s\n"
-         "ÄãÌá¹©µÄÍøÂç¼ÒÒ³(homepage)ÊÇ£º%s\n"
-         "%s»áÔÚÓĞĞÂÓÊ¼şÊ±ÌáĞÑÄã¡£\n"
-         "Î×Ê¦%s¼àÌıÄã¡£\n",
+         "ä½ çš„ç§°å·æ˜¯ï¼š%s\n"
+         "ä½ æä¾›çš„ç”µå­é‚®ä»¶(e-mail)åœ°å€æ˜¯ï¼š%s\n"
+         "ä½ æä¾›çš„ç½‘ç»œå®¶é¡µ(homepage)æ˜¯ï¼š%s\n"
+         "%sä¼šåœ¨æœ‰æ–°é‚®ä»¶æ—¶æé†’ä½ ã€‚\n"
+         "å·«å¸ˆ%sç›‘å¬ä½ ã€‚\n",
          this_body()->query_title(),
          this_user()->query_email(),
          this_user()->query_url(),
-         this_body()->test_flag(F_BIFF) ? "" : "²»",
-         this_body()->test_flag(F_SNOOPABLE) ? "ÄÜ¹»" : "²»ÄÜ¹»"
+         this_body()->test_flag(F_BIFF) ? "" : "ä¸",
+         this_body()->test_flag(F_SNOOPABLE) ? "èƒ½å¤Ÿ" : "ä¸èƒ½å¤Ÿ"
          );
 
   prompt_then_return();
@@ -163,21 +163,21 @@ void
 prompt_change_title()
 {
   get_input_then_call ((: change_title :), //"Change title to what? "
-                                           "¸Ä¸öÊ²Ã´³ÆºÅÄØ£¿" );
+                                           "æ”¹ä¸ªä»€ä¹ˆç§°å·å‘¢ï¼Ÿ" );
 }
 
 void
 prompt_change_email()
 {
   get_input_then_call ((: change_email :), //"Change e-mail to what? "
-                                           "°Ñµç×ÓÓÊ¼şµØÖ·(e-mail)¸Ä³ÉÊ²Ã´£¿");
+                                           "æŠŠç”µå­é‚®ä»¶åœ°å€(e-mail)æ”¹æˆä»€ä¹ˆï¼Ÿ");
 }
 
 void 
 prompt_change_url()
 {
   get_input_then_call ((: change_url :), //"Change your WWW homepage address to what? "
-                                         "°ÑÍøÂç¼ÒÒ³µØÖ·(homepage)¸Ä³ÉÊ²Ã´£¿");
+                                         "æŠŠç½‘ç»œå®¶é¡µåœ°å€(homepage)æ”¹æˆä»€ä¹ˆï¼Ÿ");
 }
 
 
@@ -188,14 +188,14 @@ set_biff(string s)
     {
       this_body()->set_flag(F_BIFF);    
       //write("Mail notification is now on.\n");
-      write("ÓÊ¼şÌáÊ¾ÏÖÔÚ´ò¿ª¡£\n");
+      write("é‚®ä»¶æç¤ºç°åœ¨æ‰“å¼€ã€‚\n");
 
     }
   else
     {
       this_body()->clear_flag(F_BIFF);  
       //write("Mail notification is now off.\n");
-      write("ÓÊ¼şÌáÊ¾ÏÖÔÚ¹Ø±Õ¡£\n");
+      write("é‚®ä»¶æç¤ºç°åœ¨å…³é—­ã€‚\n");
     }
   goto_previous_menu();
 } 
@@ -208,11 +208,11 @@ set_ansi(string s)
   {
   this_body()->query_shell_ob()->set_variable( "ansi" , 1);
   //write("Ansi is now on.\n");
-    write("É«²Ê¿ªÆô¡£\n");
+    write("è‰²å½©å¼€å¯ã€‚\n");
   } else {
   this_body()->query_shell_ob()->unset_variable( "ansi");
   //write("Ansi is off.\n");
-  write("É«²Ê¹Ø±Õ¡£\n");
+  write("è‰²å½©å…³é—­ã€‚\n");
 }
 }
       
@@ -224,13 +224,13 @@ set_snoopable(string s)
     {
       this_body()->clear_flag(F_SNOOPABLE);
       write(//"You now can not be snooped (except by admins)\n"
-            "ÏÖÔÚ¿ªÊ¼£¬³ı¿ª´óÉñÃ»ÓĞÈË¿ÉÒÔ¼àÌıÄã¡£\n");
+            "ç°åœ¨å¼€å§‹ï¼Œé™¤å¼€å¤§ç¥æ²¡æœ‰äººå¯ä»¥ç›‘å¬ä½ ã€‚\n");
     }
   else
     {
       this_body()->set_flag(F_SNOOPABLE);
       write(//"Any wizard can now snoop you.\n"
-            "ÏÖÔÚ¿ªÊ¼£¬ÈÎºÎÎ×Ê¦¶¼¿ÉÒÔ¼àÌıÄã¡£\n");
+            "ç°åœ¨å¼€å§‹ï¼Œä»»ä½•å·«å¸ˆéƒ½å¯ä»¥ç›‘å¬ä½ ã€‚\n");
     }
   goto_previous_menu();
 }
@@ -239,7 +239,7 @@ void finish_who(string mudname)
 {
     CMD_OB_FINGER->player_menu_entry("@" + mudname);
     printf(//"%s queried.  It's up to that mud to reply to you.\n",
-           "Ïò %s µÄÑ¯ÎÊÒÑ¾­ËÍ³ö£¬¿´Ëü»á²»»á¸øÄã»Ø´ğ¡£\n", mudname);
+           "å‘ %s çš„è¯¢é—®å·²ç»é€å‡ºï¼Œçœ‹å®ƒä¼šä¸ä¼šç»™ä½ å›ç­”ã€‚\n", mudname);
     prompt_then_return();
 }
 
@@ -247,7 +247,7 @@ void
 remote_who()
 {
   //write("Which mud do you want to query?\n");
-  write("ÄãÒªÏòÄÄ¸ö MUD Ñ¯ÎÊ£¿\n");
+  write("ä½ è¦å‘å“ªä¸ª MUD è¯¢é—®ï¼Ÿ\n");
   complete_choice(0, IMUD_D->query_mudnames(), (: finish_who :));
 }
 
@@ -257,7 +257,7 @@ void finish_mudinfo(string mudname)
     do_cmd( "mudinfo " + mudname );
 
     printf("%s queried.  It's up to that mud to reply to you.\n"
-           "Ïò %s µÄÑ¯ÎÊÒÑ¾­ËÍ³ö£¬¿´Ëü»á²»»á¸øÄã»Ø´ğ¡£\n", mudname);
+           "å‘ %s çš„è¯¢é—®å·²ç»é€å‡ºï¼Œçœ‹å®ƒä¼šä¸ä¼šç»™ä½ å›ç­”ã€‚\n", mudname);
 }
  
 void remote_muds()
@@ -267,7 +267,7 @@ void remote_muds()
 void remote_mudinfo()
 {
    //write("Which mud do you want to query?\n");
-   write("ÄãÒªÏòÄÄ¸ö MUD Ñ¯ÎÊ£¿\n");
+   write("ä½ è¦å‘å“ªä¸ª MUD è¯¢é—®ï¼Ÿ\n");
    complete_choice(0, IMUD_D->query_mudnames(), (: finish_mudinfo :));
 }
 #endif /* 0 */
@@ -277,20 +277,20 @@ create()
 {
     set_privilege(1);
 
-  toplevel      = new_menu(mud_name()+"ÄàÌ¶ÓÎÏ·Ñ¡µ¥");
-  soulmenu      = new_menu("Áé»êÑ¡µ¥");
-  reportmenu    = new_menu("±¨¸æÑ¡µ¥");
-  personalmenu  = new_menu("¸öÈËÑ¡µ¥");
-  biffmenu      = new_menu("ÊÕµ½ÓÊ¼şÊ±ÊÇ·ñÌáÊ¾Äã£¿");
-  snoopablemenu = new_menu("ÈÃÎ×Ê¦¿ÉÒÔ¼àÌıÄãÂğ£¿");
-  remotemenu    = new_menu("ÆäËûÄàÌ¶(MUD)");
-  wizmenu       = new_menu("Î×Ê¦Ñ¡µ¥");
+  toplevel      = new_menu(mud_name()+"æ³¥æ½­æ¸¸æˆé€‰å•");
+  soulmenu      = new_menu("çµé­‚é€‰å•");
+  reportmenu    = new_menu("æŠ¥å‘Šé€‰å•");
+  personalmenu  = new_menu("ä¸ªäººé€‰å•");
+  biffmenu      = new_menu("æ”¶åˆ°é‚®ä»¶æ—¶æ˜¯å¦æç¤ºä½ ï¼Ÿ");
+  snoopablemenu = new_menu("è®©å·«å¸ˆå¯ä»¥ç›‘å¬ä½ å—ï¼Ÿ");
+  remotemenu    = new_menu("å…¶ä»–æ³¥æ½­(MUD)");
+  wizmenu       = new_menu("å·«å¸ˆé€‰å•");
 
   // Since we'll use these things more than once, we can just
   // call new_menu_item once, and insert them wherever we want
   // to use them.
-  quit_item = new_menu_item("ÍË³ö", (:quit_menu_application:), "q");
-  goto_main_menu_item =new_menu_item("»Øµ½Ö÷Ñ¡µ¥", 
+  quit_item = new_menu_item("é€€å‡º", (:quit_menu_application:), "q");
+  goto_main_menu_item =new_menu_item("å›åˆ°ä¸»é€‰å•", 
                                          toplevel, "m");
 
 
@@ -299,56 +299,56 @@ create()
 
   // Add items to the toplevel (main) menu.  
   add_menu_item (toplevel, main_seperator);
-  add_menu_item (toplevel, new_menu_item("ÔÄ¶ÁĞÂÎÅ (news)", 
+  add_menu_item (toplevel, new_menu_item("é˜…è¯»æ–°é—» (news)", 
                                          (: simple_cmd :), "n"));
-  add_menu_item (toplevel, new_menu_item("ÊÕ·¢ÓÊ¼ş (mail)",
+  add_menu_item (toplevel, new_menu_item("æ”¶å‘é‚®ä»¶ (mail)",
                                          (: start_mail :), "m"));
   // The 1 at the end of this next one creates a prompt:
   // "[Hit enter to return to menu] "
   // You can also do this by calling prompt_then_return() from your
   // function.
-  add_menu_item (toplevel, new_menu_item("¿´¿´¶¼ÓĞË­ÔÚÁ¬ÏßÖĞ£¿ (who)", 
+  add_menu_item (toplevel, new_menu_item("çœ‹çœ‹éƒ½æœ‰è°åœ¨è¿çº¿ä¸­ï¼Ÿ (who)", 
                                             (: simple_cmd :), "w", 1));
-  add_menu_item (toplevel, new_menu_item("²éÑ¯Ä³ÈËµµ°¸ (finger)", 
+  add_menu_item (toplevel, new_menu_item("æŸ¥è¯¢æŸäººæ¡£æ¡ˆ (finger)", 
                                             (: get_input_then_call, 
                                               (: handle_finger :),
-                                             "²éÑ¯Ë­µÄµµ°¸ ? ":), "f"));
-  add_menu_item (toplevel, new_menu_item("Áé»ê/¸ĞÇé Ñ¡µ¥", soulmenu, "s"));
-  add_menu_item (toplevel, new_menu_item("»ã±¨³ÌĞò¡¢Æ´Ğ´´íÎó»òÌáÒâ¼û", 
+                                             "æŸ¥è¯¢è°çš„æ¡£æ¡ˆ ? ":), "f"));
+  add_menu_item (toplevel, new_menu_item("çµé­‚/æ„Ÿæƒ… é€‰å•", soulmenu, "s"));
+  add_menu_item (toplevel, new_menu_item("æ±‡æŠ¥ç¨‹åºã€æ‹¼å†™é”™è¯¯æˆ–ææ„è§", 
                                          reportmenu, "r"));
-  add_menu_item (toplevel, new_menu_item("¸ü¸Ä»òÏÔÊ¾¸öÈËĞ¡µµ°¸",
+  add_menu_item (toplevel, new_menu_item("æ›´æ”¹æˆ–æ˜¾ç¤ºä¸ªäººå°æ¡£æ¡ˆ",
                                          personalmenu, "i"));
-  add_menu_item (toplevel, new_menu_item("¹ØÓÚÆäËûÄàÌ¶(mud)µÄĞÅÏ¢",
+  add_menu_item (toplevel, new_menu_item("å…³äºå…¶ä»–æ³¥æ½­(mud)çš„ä¿¡æ¯",
                                          remotemenu, "o"));
-  add_menu_item (toplevel, new_menu_item("Î×Ê¦µÄ¶«¶«", wizmenu, "*", 0, 
+  add_menu_item (toplevel, new_menu_item("å·«å¸ˆçš„ä¸œä¸œ", wizmenu, "*", 0, 
                                          (: wizardp(this_user()) :)));
   add_menu_item (toplevel, quit_item);
-  add_menu_item (toplevel, new_menu_item("°ïÖú", (: simple_cmd :), "?"));
+  add_menu_item (toplevel, new_menu_item("å¸®åŠ©", (: simple_cmd :), "?"));
 
   // Add items to the soul menu.
   add_menu_item (soulmenu, main_seperator);
   add_menu_item (soulmenu, 
-                 new_menu_item("ÁĞ³öÁé»ê´Ê»ã", (: get_input_then_call,
+                 new_menu_item("åˆ—å‡ºçµé­‚è¯æ±‡", (: get_input_then_call,
                                               (: show_souls :),
-                                              "ÒÔÄÄ¸ö×ÖÄ¸¿ªÍ·£¿"
-                                              "(enter ´ú±íËùÓĞµÄ): ":),
+                                              "ä»¥å“ªä¸ªå­—æ¯å¼€å¤´ï¼Ÿ"
+                                              "(enter ä»£è¡¨æ‰€æœ‰çš„): ":),
                                "s"));
   add_menu_item (soulmenu, 
-                 new_menu_item("ÁĞ³ö¸±´Ê´Ê»ã", (: get_input_then_call,
+                 new_menu_item("åˆ—å‡ºå‰¯è¯è¯æ±‡", (: get_input_then_call,
                                               (: show_adverbs :),
-                                              "ÒÔÄÄ¸ö×ÖÄ¸¿ªÍ·£¿"
-                                              "(enter ´ú±íËùÓĞµÄ): ":),
+                                              "ä»¥å“ªä¸ªå­—æ¯å¼€å¤´ï¼Ÿ"
+                                              "(enter ä»£è¡¨æ‰€æœ‰çš„): ":),
                                "a"));
   add_menu_item (soulmenu, 
-                 new_menu_item("²éÕÒÁé»ê", (: get_input_then_call,
+                 new_menu_item("æŸ¥æ‰¾çµé­‚", (: get_input_then_call,
                                               (: find_soul :),
-                                              "²éÕÒµÄÁé»êÒª°üÀ¨µÄ×Ö£º" :),
+                                              "æŸ¥æ‰¾çš„çµé­‚è¦åŒ…æ‹¬çš„å­—ï¼š" :),
                                "f"));
 
   add_menu_item (soulmenu, 
-                 new_menu_item("²âÊÔÁé»ê", (: get_input_then_call,
+                 new_menu_item("æµ‹è¯•çµé­‚", (: get_input_then_call,
                                       (: test_soul :),
-                                      "²âÊÔÁé»ê: ":),
+                                      "æµ‹è¯•çµé­‚: ":),
                        "t"));
 
   add_menu_item (soulmenu, quit_item);
@@ -356,30 +356,30 @@ create()
   add_menu_item (soulmenu, goto_main_menu_item);
                                          
   add_menu_item (reportmenu, main_seperator);
-  add_menu_item (reportmenu, new_menu_item("»ã±¨±à³Ì´íÎó", (: simple_cmd :),
+  add_menu_item (reportmenu, new_menu_item("æ±‡æŠ¥ç¼–ç¨‹é”™è¯¯", (: simple_cmd :),
                                            "b"));
-  add_menu_item (reportmenu, new_menu_item("»ã±¨Æ´Ğ´´íÎó", (: simple_cmd :),
+  add_menu_item (reportmenu, new_menu_item("æ±‡æŠ¥æ‹¼å†™é”™è¯¯", (: simple_cmd :),
                                            "t"));
-  add_menu_item (reportmenu, new_menu_item("Ìá³öÒâ¼ûÏë·¨", (: simple_cmd :),
+  add_menu_item (reportmenu, new_menu_item("æå‡ºæ„è§æƒ³æ³•", (: simple_cmd :),
                                            "i"));
   add_menu_item (reportmenu, quit_item);
   add_menu_item (reportmenu, goto_main_menu_item);
 
   add_menu_item (personalmenu, main_seperator);
-  add_menu_item (personalmenu, new_menu_item("²éÔÄ¸öÈËĞ¡µµ°¸",
+  add_menu_item (personalmenu, new_menu_item("æŸ¥é˜…ä¸ªäººå°æ¡£æ¡ˆ",
                                              (: query_personal_info :), "v"));
-  add_menu_item (personalmenu, new_menu_item("¸Ä±ä³ÆºÅ", 
+  add_menu_item (personalmenu, new_menu_item("æ”¹å˜ç§°å·", 
                                              (: prompt_change_title :), "t"));
-  add_menu_item (personalmenu, new_menu_item("¸Ä±äµç×ÓÓÊ¼ş(e-mail)µØÖ·",
+  add_menu_item (personalmenu, new_menu_item("æ”¹å˜ç”µå­é‚®ä»¶(e-mail)åœ°å€",
                                              (: prompt_change_email :), "e"));
-  add_menu_item (personalmenu, new_menu_item("¸Ä±äÍøÂç¼ÒÒ³(homepage)µØÖ·",
+  add_menu_item (personalmenu, new_menu_item("æ”¹å˜ç½‘ç»œå®¶é¡µ(homepage)åœ°å€",
                                              (: prompt_change_url :), "w"));
-  add_menu_item (personalmenu, new_menu_item("Éè¶¨»òÈ¡ÏûÓÊ¼şÌáÊ¾",
+  add_menu_item (personalmenu, new_menu_item("è®¾å®šæˆ–å–æ¶ˆé‚®ä»¶æç¤º",
                                              biffmenu, "n"));
-  add_menu_item (personalmenu, new_menu_item("Éè¶¨ÊÇ·ñ±»¼àÌı", snoopablemenu, "s"));
+  add_menu_item (personalmenu, new_menu_item("è®¾å®šæ˜¯å¦è¢«ç›‘å¬", snoopablemenu, "s"));
   //  add_menu_item (personalmenu, new_menu_item("Change your supplied real name",
   //                                         (: prompt_change_real_name :), "n"));
-add_menu_item(personalmenu, new_menu_item("¿ª¹ØÉ«²Ê", (: get_input_then_call, (: set_ansi :), "Ansi 'on' or 'off' ? (default off): ":), "a"));
+add_menu_item(personalmenu, new_menu_item("å¼€å…³è‰²å½©", (: get_input_then_call, (: set_ansi :), "Ansi 'on' or 'off' ? (default off): ":), "a"));
  
   add_menu_item (personalmenu, quit_item);
   add_menu_item (personalmenu, goto_main_menu_item);
@@ -399,10 +399,10 @@ add_menu_item(personalmenu, new_menu_item("¿ª¹ØÉ«²Ê", (: get_input_then_call, (:
   add_menu_item (snoopablemenu, goto_main_menu_item);
 
   add_menu_item (remotemenu, main_seperator);
-  add_menu_item (remotemenu, new_menu_item("ÁĞ³ö" + mud_name() + 
-                                           "ËùÖªµÄÄàÌ¶(mud)", 
+  add_menu_item (remotemenu, new_menu_item("åˆ—å‡º" + mud_name() + 
+                                           "æ‰€çŸ¥çš„æ³¥æ½­(mud)", 
                 (: simple_cmd :), "l", 1 ));
-  add_menu_item (remotemenu, new_menu_item("¿´¿´¶¼ÓĞË­ÔÚÆäËüÄàÌ¶(mud)ÖĞ",
+  add_menu_item (remotemenu, new_menu_item("çœ‹çœ‹éƒ½æœ‰è°åœ¨å…¶å®ƒæ³¥æ½­(mud)ä¸­",
                                            (:remote_who:), "w"));
   add_menu_item (remotemenu, quit_item);
   add_menu_item (remotemenu, goto_main_menu_item);

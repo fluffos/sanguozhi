@@ -1,4 +1,4 @@
-//  ÍÁµØÃí by benben
+//  åœŸåœ°åº™ by benben
 // lx_temple.c 
 #include <mudlib.h>
 #include "/wiz/fire/fire.h"
@@ -7,8 +7,8 @@ inherit ROOM;
 void setup(){
     set_area("longxi");
     set_light(50);
-    set_brief(""+YEL+"--ÍÁµØÃí--"+NOR+"");
-    set_long("    ÃèÊö¡£\n");
+    set_brief(""+YEL+"--åœŸåœ°åº™--"+NOR+"");
+    set_long("    æè¿°ã€‚\n");
     set_exits( ([
         "south" :  __DIR__+"lx_lane1.c",
     ]) );

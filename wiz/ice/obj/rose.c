@@ -10,22 +10,22 @@ inherit M_DAMAGE_SINK;
 void setup()
 {
 ::mudlib_setup();
-set_unit("Ö¦");
+set_unit("æž");
 set_value(9999);
-set_id("rose", HIR+"Ãµ¹å"+NOR);
-set_long("Ò»Ö¦½¿ÑÞµÄ"+HIR+"Ãµ¹å"+NOR+"(rose)");
-set_in_room_desc("Ò»Ö¦"+HIR+"ºìÃµ¹å"+NOR+"(rose)");
+set_id("rose", HIR+"çŽ«ç‘°"+NOR);
+set_long("ä¸€æžå¨‡è‰³çš„"+HIR+"çŽ«ç‘°"+NOR+"(rose)");
+set_in_room_desc("ä¸€æž"+HIR+"çº¢çŽ«ç‘°"+NOR+"(rose)");
 set_gettable(1);
 set_slot(BREST);
-//set_wearmsg("$NÔÚÐØÇ°±ðÉÏÒ»Ö¦"+HIR+"ºìÃµ¹å"+NOR+"£¬ÏÔµÃ¸ü¼Ó½¿ÑÞ¶¯ÈË¡£\n");
-set_removemsg("$NÐ¡ÐÄÒíÒíµØ½«"+HIR+"ºìÃµ¹å"+NOR+"´ÓÐØÇ°È¡ÏÂÀ´¡£\n");
+//set_wearmsg("$Nåœ¨èƒ¸å‰åˆ«ä¸Šä¸€æž"+HIR+"çº¢çŽ«ç‘°"+NOR+"ï¼Œæ˜¾å¾—æ›´åŠ å¨‡è‰³åŠ¨äººã€‚\n");
+set_removemsg("$Nå°å¿ƒç¿¼ç¿¼åœ°å°†"+HIR+"çº¢çŽ«ç‘°"+NOR+"ä»Žèƒ¸å‰å–ä¸‹æ¥ã€‚\n");
 }
 int smell() {
   object who;
   who = environment(this_object());
   this_body()->set_cur_hp(0);
-  write("Õâ¶äÃµ¹åÊìÏ¤µÄÏãÎ¶Ê¹Äã²»ÓÉµÃÏëÆðÁËÒ»¸öÈË£®£®£®\n");
-  write("ÄãÖ»¾õÒ»ÕóÐÄÍ´£¬²îµãÔÎÁË¹ýÈ¥£®\n");
+  write("è¿™æœµçŽ«ç‘°ç†Ÿæ‚‰çš„é¦™å‘³ä½¿ä½ ä¸ç”±å¾—æƒ³èµ·äº†ä¸€ä¸ªäººï¼Žï¼Žï¼Ž\n");
+  write("ä½ åªè§‰ä¸€é˜µå¿ƒç—›ï¼Œå·®ç‚¹æ™•äº†è¿‡åŽ»ï¼Ž\n");
   return 1;
 }
 
@@ -37,10 +37,10 @@ void do_wear() {
         
   	if ((ob2->ob_state()==BREST))
         {
-                write("ÄãÒÑ¾­´©´÷ÁËÍ¬Àà×°±¸ÁË¡£\n");
+                write("ä½ å·²ç»ç©¿æˆ´äº†åŒç±»è£…å¤‡äº†ã€‚\n");
                 return;
         }
   }   
-  who->simple_action("$NÔÚÐØÇ°±ðÉÏÒ»Ö¦"+HIR+"ºìÃµ¹å"+NOR+"Ã»Ïëµ½Ãµ¹åÉîÉîµÄÔúÈëÁË$NµÄÐÄÎÑ£¡\n");
+  who->simple_action("$Nåœ¨èƒ¸å‰åˆ«ä¸Šä¸€æž"+HIR+"çº¢çŽ«ç‘°"+NOR+"æ²¡æƒ³åˆ°çŽ«ç‘°æ·±æ·±çš„æ‰Žå…¥äº†$Nçš„å¿ƒçªï¼\n");
   who->set_cur_hp(0);
 }

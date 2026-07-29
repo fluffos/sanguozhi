@@ -4,8 +4,8 @@
 // John
 // Sep 7 94
 
-private static mixed    throw_response = 1;
-private static function my_throw_hook;
+private nosave mixed    throw_response = 1;
+private nosave function my_throw_hook;
 
 void add_hook(string, function);
 mixed move (object);
@@ -60,14 +60,14 @@ mixed throw(object target)
         if(!target)
         {
             this_body()->simple_action(//"$N $vthrow a $o.\n"
-                                       "$NÍ¶Éä³öÒ»¸ö$o", this_object());
+                                       "$NæŠ•å°„å‡ºä¸€ä¸ª$o", this_object());
             return 1;
         }
         else
         {
             // Add skill stuff here...
             this_body()->targetted_action(//"$N $vthrow a $o at $t.  It bounces off of $p1 head, and lands in front of $p1 feet.\n"
-                                          "$NÏò$tÖÀ³öÒ»¸ö$o£¬ÕıÖĞÄÔÃÅ¶ù£¬½Ó×Åµ¯ÂäÔÚµØÉÏ¡£\n", target, this_object());
+                                          "$Nå‘$tæ·å‡ºä¸€ä¸ª$oï¼Œæ­£ä¸­è„‘é—¨å„¿ï¼Œæ¥ç€å¼¹è½åœ¨åœ°ä¸Šã€‚\n", target, this_object());
 
             return 1;
         }

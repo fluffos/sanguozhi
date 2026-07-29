@@ -57,34 +57,34 @@ string* get_long(string p_type, string pos, string soldier, string s_num, string
   string *ret,*tmp,*wri;
   string f_name;
   string p_color;
-  mapping m = (["©¶":"ns","©∏":"sw","©º":"se","©∞":"nw","©¥":"ne","©§":"we","°Ú":"shuai"]);
+  mapping m = (["‚îÇ":"ns","‚îî":"sw","‚îò":"se","‚îå":"nw","‚îê":"ne","‚îÄ":"we","‚óé":"shuai"]);
 
   tmp = ({"","","",""});
   has_soldier = 0;
   switch(p_type)
   {
-    case "°´":
-    case "£Æ":
-    case "°ƒ":
-    case "£™":
-    case "°·":
-    case "°˘":
+    case "ÔΩû":
+    case "Ôºé":
+    case "‚àß":
+    case "Ôºä":
+    case "‚ôÇ":
+    case "‚Äª":
       for(i=0;i<4;++i)
       {
           for(j=0;j<8;++j)
             if(random(3))
-                tmp[i]+="°°";
+                tmp[i]+="„ÄÄ";
             else
                 tmp[i]+=p_type;
       }
       break;
-    case "©¶":
-    case "©∏":
-    case "©º":
-    case "©∞":
-    case "©¥":
-    case "©§":
-    case "°Ú":
+    case "‚îÇ":
+    case "‚îî":
+    case "‚îò":
+    case "‚îå":
+    case "‚îê":
+    case "‚îÄ":
+    case "‚óé":
         f_name=PPIC+"wall"+m[p_type]+".pic";
         for(i=0;i<4;++i)
         {
@@ -101,7 +101,7 @@ string* get_long(string p_type, string pos, string soldier, string s_num, string
         }
     }
 
-    if ( soldier == "£¡" || soldier == "£ƒ" || soldier == "£Õ" ) {
+    if ( soldier == "Ôº°" || soldier == "Ôº§" || soldier == "Ôº≠" ) {
 	has_soldier = 1;
 	tmp[0] = tmp[0][0..3] + repeat_string(soldier, 4) + tmp[0][12..15];
         tmp[1] = tmp[1][0..3] + soldier + s_num + s_num + soldier + tmp[1][12..15];
@@ -137,8 +137,8 @@ string* get_long(string p_type, string pos, string soldier, string s_num, string
       for( i = 0; i < sizeof(wri); i++ ) {
 	wri[i] = "";
      	for( j = 0; j < 32; j += 2 ) {
-            if ( ret[i][j..(j+1)] == "£ƒ" || ret[i][j..(j+1)] == "£¡" || 
-		 ret[i][j..(j+1)] == "£Õ" || 
+            if ( ret[i][j..(j+1)] == "Ôº§" || ret[i][j..(j+1)] == "Ôº°" || 
+		 ret[i][j..(j+1)] == "Ôº≠" || 
                  (member_array(ret[i][j..(j+1)], CHINESE_D->s_array())+1) ) {
 		wri[i] += s_color + ret[i][j..(j+1)];
 	    }
@@ -166,14 +166,14 @@ string * troop_infoa(int x,int y, string side) {
 	if(n>0) {
 	    troopinfo[0] = TROOP_D->get_troop_side(troop[0]);
 	    troopinfo[1] = TROOP_D->chinese_soldier_number(n);
-	    if ( troopinfo[0] == "£¡" )
+	    if ( troopinfo[0] == "Ôº°" )
 		troopinfo[2] = "%^H_RED%^";
-	    else if ( troopinfo[0] == "£ƒ" )
+	    else if ( troopinfo[0] == "Ôº§" )
 		troopinfo[2] = "%^H_BLUE%^";
 	    else
 		troopinfo[2] = "";
 	    if ( x == m_x && y == m_y ) {
-		troopinfo[0] = "£Õ";
+		troopinfo[0] = "Ôº≠";
 	//troopinfo[2] = "%^RED%^";
 	    }
   	}

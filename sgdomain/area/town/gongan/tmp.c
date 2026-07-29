@@ -3,7 +3,7 @@ inherit OUTDOOR_ROOM;
 void setup() {
 set_area("gongan");
 set_light(50);
-set_brief("¹«°²");
+set_brief("å…¬å®‰");
 set_long("");
 set_objects( (["/sgdomain/yizhan/mafu.c" : 1 ]) );
 }

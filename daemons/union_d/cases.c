@@ -1,10 +1,10 @@
 private mapping cases;
 
-static mapping types = ([ "player_recover" : "»Ö¸´¸öÈËÊı¾İ",
-		   	"player_conflict": "Íæ¼Ò¾À·×",
-		   	"nation_recover" : "»Ö¸´¹ú¼ÒÊı¾İ",
-		   	"nation_conflict": "¹ú¼Ò¾À·×",
-		   	"others"	    : "ÆäËû", ]);
+nosave protected mapping types = ([ "player_recover" : "æ¢å¤ä¸ªäººæ•°æ®",
+		   	"player_conflict": "ç©å®¶çº çº·",
+		   	"nation_recover" : "æ¢å¤å›½å®¶æ•°æ®",
+		   	"nation_conflict": "å›½å®¶çº çº·",
+		   	"others"	    : "å…¶ä»–", ]);
 
 void save_data();
 
@@ -48,10 +48,10 @@ int remove_case(string who)
 string format_ev(mapping m)
 {
     string who, str = "";
-    if ( !sizeof(m) ) return "©¥©¥";
+    if ( !sizeof(m) ) return "â”â”";
     foreach ( string s in keys(m) ) {
         if ( CHAR_D->char_exist(s) ) who = CHAR_D->get_char(s,"name");
-        else who = "©¥©¥";
+        else who = "â”â”";
 	if ( m[s] !=- 1 ) str += "%^H_CYAN%^"+who+"%^RESET%^"+"("+s+")  ";
         else str += who+"("+s+")  ";
     }
@@ -63,21 +63,21 @@ string query_case_list()
     string str, *list, who;
     mapping m;
 
-    if ( !mapp(cases) ) str = "Ä¿Ç°Ã»ÓĞÊÜÀíÈÎºÎÍ¶Ëß£¡\n";
+    if ( !mapp(cases) ) str = "ç›®å‰æ²¡æœ‰å—ç†ä»»ä½•æŠ•è¯‰ï¼\n";
     else {
 	list = keys(cases);
-	str = "Ä¿Ç°ÊÜÀíµÄÍ¶ËßÓĞ£º\n";
+	str = "ç›®å‰å—ç†çš„æŠ•è¯‰æœ‰ï¼š\n";
         str+= sprintf("   %-12s     %-12s       %-11s     %s\n", 
-		"Í¶ËßÈË", "°¸¼şÀàĞÍ", "±»Í¶ËßÈË/¹ú", "Ö¤ÈË");
+		"æŠ•è¯‰äºº", "æ¡ˆä»¶ç±»å‹", "è¢«æŠ•è¯‰äºº/å›½", "è¯äºº");
 	for ( i=0; i<sizeof(list); i++ ) {
             m = cases[list[i]];
             if ( m["type"]=="nation_conflict" ){
 		who = COUNTRY_D->get_country(m["whom"],"name");
-                if ( !who ) who = "©¥©¥";
+                if ( !who ) who = "â”â”";
                 else who += "("+m["whom"]+")";
             } else {
                 who = CHAR_D->get_char(m["whom"], "name");
-		if ( !who ) who = "©¥©¥";
+		if ( !who ) who = "â”â”";
                 else who += "("+m["whom"]+")";
             }
             str+=sprintf("%-2s)%-12s     %-12s       %-11s     %s\n",
@@ -101,27 +101,27 @@ string view_case(string who, int level)
 
     if ( m["type"]=="nation_conflict" ){
          w = COUNTRY_D->get_country(m["whom"],"name");
-         if ( !w ) w = "©¥©¥";
+         if ( !w ) w = "â”â”";
          else w += "("+m["whom"]+")";
     } else {
          w = CHAR_D->get_char(m["whom"], "name");
-         if ( !w ) w = "©¥©¥";
+         if ( !w ) w = "â”â”";
          else w += "("+m["whom"]+")";
     }
-    str= sprintf("¡ï%-12s     %-12s       %-11s     %s\n",
-	"Í¶ËßÈË", "°¸¼şÀàĞÍ", "±»Í¶ËßÈË/¹ú", "Ö¤ÈË");
-    str+=sprintf("¡ï%-12s     %-12s       %-11s     %s\n",
+    str= sprintf("â˜…%-12s     %-12s       %-11s     %s\n",
+	"æŠ•è¯‰äºº", "æ¡ˆä»¶ç±»å‹", "è¢«æŠ•è¯‰äºº/å›½", "è¯äºº");
+    str+=sprintf("â˜…%-12s     %-12s       %-11s     %s\n",
                 CHAR_D->get_char(m["who"], "name")+"("+m["who"]+")",
                 types[m["type"]], w, format_ev(m["ev"]), );
-    str+= "%^H_CYAN%^"+CHAR_D->get_char(m["who"], "name")+"µÄÀíÓÉÈçÏÂ£º\n%^RESET%^"+m["reason"]+"\n";
+    str+= "%^H_CYAN%^"+CHAR_D->get_char(m["who"], "name")+"çš„ç†ç”±å¦‚ä¸‹ï¼š\n%^RESET%^"+m["reason"]+"\n";
     if ( level == 1 )
-    	str+= "%^H_CYAN%^"+CHAR_D->get_char(m["who"], "name")+"½¨ÒéµÄ´¦ÀíÈçÏÂ£º\n%^RESET%^"+m["solution"]+"\n";
+    	str+= "%^H_CYAN%^"+CHAR_D->get_char(m["who"], "name")+"å»ºè®®çš„å¤„ç†å¦‚ä¸‹ï¼š\n%^RESET%^"+m["solution"]+"\n";
     if ( sizeof(m=m["comment"]) ) {
-        str+= "%^H_CYAN%^"+"¹²ÓĞ"+chinese_number(sizeof(m))+"ÈË¶Ô±¾°¸·¢±íÁË×Ô¼ºµÄ¿´·¨¡£\n%^RESET%^";
+        str+= "%^H_CYAN%^"+"å…±æœ‰"+chinese_number(sizeof(m))+"äººå¯¹æœ¬æ¡ˆå‘è¡¨äº†è‡ªå·±çš„çœ‹æ³•ã€‚\n%^RESET%^";
         foreach(string s in keys(m) ){
- 	    str+="%^H_YELLOW%^"+CHAR_D->get_char(s, "name")+"·¢±íµÄ¿´·¨ÈçÏÂ£º%^RESET%^ \n";
+ 	    str+="%^H_YELLOW%^"+CHAR_D->get_char(s, "name")+"å‘è¡¨çš„çœ‹æ³•å¦‚ä¸‹ï¼š%^RESET%^ \n";
 	    if ( stringp(m[s])&&sizeof(m[s])&&m[s][0]=='*'&&level!=1 )
-		str+= "±¾ÁôÑÔÎªÃØÃÜÁôÑÔ¡£\n";
+		str+= "æœ¬ç•™è¨€ä¸ºç§˜å¯†ç•™è¨€ã€‚\n";
 	    else str+=m[s]+"\n";
  	}
     }

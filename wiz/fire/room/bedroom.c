@@ -2,7 +2,7 @@ inherit ROOM;
 void setup(){
     string st1,st2,st3;
     set_light(50);
-    set_brief("--ÎÔ·¿--");
+    set_brief("--å§æˆ¿--");
 st1=
 "
  {}                                            __________.

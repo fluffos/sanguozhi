@@ -24,7 +24,7 @@ void do_drink_str(string str)
 		write(ret);
 		return;
 	}
-	write("你好象喝不成"+o->short()+"。\n");
+	write("浣犲ソ璞″枬涓嶆垚"+o->short()+"銆俓n");
 	return;
 }
 
@@ -36,7 +36,7 @@ void do_drink_from_obj(object ob)
    ob->drink_from_it();
 }
 
-array query_verb_info()
+mixed * query_verb_info()
 {
       return ({ ({ "STR" }) });
 }

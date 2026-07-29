@@ -1,4 +1,4 @@
-// 沉着
+// 娌夌潃
 #include <mudlib.h>
 #include <daemons.h>
 #include <ansi.h>
@@ -6,6 +6,6 @@
 
 void main(object ob)
 {
-	write ("你在浪费精神。\n");
+	write ("浣犲湪娴垂绮剧銆俓n");
 	return;
 }

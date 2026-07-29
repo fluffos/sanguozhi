@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is °ÍÉ½Ò¹Óê
+// driver is å·´å±±å¤œé›¨
 // created date is Thu Jun  2 21:03:34 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -8,10 +8,10 @@ inherit STORE;
 void setup() {
 set_area("poyang");
 set_light(50);
-set_brief("%^YELLOW%^"+"¾Æ¹İ"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"é…’é¦†"+"%^RESET%^");
 set_long("
-    ÕâÀïÊÇÛ¶Ñô¾Æ¹İ,ÃÅ¿ÚĞ´×ÅÒ»¸öÕĞÅÆ¡°Ì«°×Â¥¡±,ËÄÖÜµÄ×°ÊÎ
-½ğ±Ú»Ô»Í£¬ÁîÈËÑÛ»¨çÔÂÒ,ÈËÀ´ÈËÍùºÜÊÇÈÈÄÖ¡£\n\n");
+    è¿™é‡Œæ˜¯é„±é˜³é…’é¦†,é—¨å£å†™ç€ä¸€ä¸ªæ‹›ç‰Œâ€œå¤ªç™½æ¥¼â€,å››å‘¨çš„è£…é¥°
+é‡‘å£è¾‰ç…Œï¼Œä»¤äººçœ¼èŠ±ç¼­ä¹±,äººæ¥äººå¾€å¾ˆæ˜¯çƒ­é—¹ã€‚\n\n");
 set_exits( ([
 "west":"/a/poyang/py_lianbingchang.c",
  ]));

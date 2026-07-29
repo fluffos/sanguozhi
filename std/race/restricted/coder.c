@@ -15,7 +15,7 @@ string short_description() {
     return (@CODER
 //Coder race is a misterious race of supernatural beings. You need to be a
 //wizard in order to be a member of the coder race.
-³ÌĞòÔ±ÊÇÒ»¸öÉñÃØµÄÉñ×å£¬ÄãÊ×ÏÈÒªÊÇÒ»¸öÎ×Ê¦²ÅÓĞ¿ÉÄÜ³ÉÎª³ÌĞòÔ±¡£
+ç¨‹åºå‘˜æ˜¯ä¸€ä¸ªç¥ç§˜çš„ç¥æ—ï¼Œä½ é¦–å…ˆè¦æ˜¯ä¸€ä¸ªå·«å¸ˆæ‰æœ‰å¯èƒ½æˆä¸ºç¨‹åºå‘˜ã€‚
 CODER);
 
 }

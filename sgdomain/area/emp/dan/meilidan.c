@@ -7,15 +7,15 @@ void eat_dan()
 	this_body()->set_meili_pure(30);
 	
 	this_body()->simple_action(
-"$NÆÈ²»¼°´ıµØ¡¸¹¾àà¡¹Ò»ÏÂ·şÏÂÒ»Ã¶%^H_MAGENTA%^÷ÈÁ¦µ¤%^RESET%^£¬¶ÙÊ±¸Ğµ½×Ô¼º±äµÃ¸üÓĞ÷ÈÁ¦ÁË¡£\n");
+"$Nè¿«ä¸åŠå¾…åœ°ã€Œå’•å™œã€ä¸€ä¸‹æœä¸‹ä¸€æš%^H_MAGENTA%^é­…åŠ›ä¸¹%^RESET%^ï¼Œé¡¿æ—¶æ„Ÿåˆ°è‡ªå·±å˜å¾—æ›´æœ‰é­…åŠ›äº†ã€‚\n");
 }
 void setup()
-{   set_id("meili dan", "%^H_MAGENTA%^÷ÈÁ¦µ¤%^RESET%^");
-    set_long("Ò»Á£ÓÕÈËµÄ%^H_MAGENTA%^÷ÈÁ¦µ¤%^RESET%^£¬ÌıËµ·şÁË¿ÉÒÔÊ¹ÈËµÄ÷ÈÁ¦Ìì¸³±äÎª×î´óÖµ30¡£");
+{   set_id("meili dan", "%^H_MAGENTA%^é­…åŠ›ä¸¹%^RESET%^");
+    set_long("ä¸€ç²’è¯±äººçš„%^H_MAGENTA%^é­…åŠ›ä¸¹%^RESET%^ï¼Œå¬è¯´æœäº†å¯ä»¥ä½¿äººçš„é­…åŠ›å¤©èµ‹å˜ä¸ºæœ€å¤§å€¼30ã€‚");
     set_size(VERY_SMALL);
     set_gettable(1);
     set_num_eats(1);
-    set_unit("Á£");
+    set_unit("ç²’");
     set_eat_action((: eat_dan :));
     set_last_eat_action( (: eat_dan :));
 }

@@ -1,13 +1,13 @@
-//Ö½Ç®
+//çº¸é’±
 #include <mudlib.h>
 inherit OBJ;
 inherit M_GETTABLE;
 void setup() {
     
-    set_id("zhi qian", "Ö½Ç®");
-    set_unit("ÕÅ");
-    set_long("Ò»ÕÅ°ÙÔ²Ö½Ç®£¬¿ÖÅÂÒªµ½Äã°ÙÄêÖ®ºó²ÅÓÃµÃÉÏÁË¡£\n");
-    set_in_room_desc("Ò»ÕÅÖ½Ç®(zhi qian)");
+    set_id("zhi qian", "çº¸é’±");
+    set_unit("å¼ ");
+    set_long("ä¸€å¼ ç™¾åœ†çº¸é’±ï¼Œææ€•è¦åˆ°ä½ ç™¾å¹´ä¹‹åæ‰ç”¨å¾—ä¸Šäº†ã€‚\n");
+    set_in_room_desc("ä¸€å¼ çº¸é’±(zhi qian)");
     set_gettable(1);
     set_size(VERY_SMALL);
 }

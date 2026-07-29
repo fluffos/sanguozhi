@@ -3,7 +3,7 @@ inherit BASE_ROOM;
 void setup() {
 set_area("yunnan");
 set_light(50);
-set_brief("ÔÆÄÏ");
+set_brief("äº‘å—");
 set_long("");
 set_objects( (["/sgdomain/yizhan/mafu.c" : 1 ]) );
 // connection added by buzzer 

@@ -1,14 +1,14 @@
-Ïû³ıNPC         @CHAR_D->remove_char("id_name")
+æ¶ˆé™¤NPC         @CHAR_D->remove_char("id_name")
                 @CHAR_D->set_char("id","is_tmp",1)
                 @CHAR_D->set_char("id","is_xianren",0)
                 @CHAR_D->set_char("id","is_maker",0)
 
-Ïû³ıOBJ         @OBJ_D->remove_obj("id")
+æ¶ˆé™¤OBJ         @OBJ_D->remove_obj("id")
 
-Ğ¡··            @CHAR_D->set_char("id_name","just_sell",1)
+å°è´©            @CHAR_D->set_char("id_name","just_sell",1)
 
-×ª»»ID          @CHAR_D->set_char("jingyang seller","id","jingyang mafan")
-ËùÓĞ¹¤½³ÁĞ±í£º  listchar /1 /v is_maker 1
+è½¬æ¢ID          @CHAR_D->set_char("jingyang seller","id","jingyang mafan")
+æ‰€æœ‰å·¥åŒ åˆ—è¡¨ï¼š  listchar /1 /v is_maker 1
 
 add obj	        @OBJ_D->add_obj("obj_id","type")
 get obj         @OBJ_D->get_obj("obj_id")
@@ -65,7 +65,7 @@ Set City        @AREA_D->set_area("yunnan","taxnation",100)
 get stuffs      @AREA_D->get_area(<id>,"st")
 change room     @AREA("xuzhou")->set_room("xz_cdz","b","something")
 set obj in area @SETHERE("o",(["/sgdomain/area/guan/huayin/npc/shuijing.c":1]))
-                @SETHERE("o",(["/sgdomain/npc/shuijing.c":1,"/sgdomain/modules/m_board.c" : ({ /* sizeof() == 3 */1,"ĞÂÊÖÖ¸ÄÏ","newbie"}),]))
+                @SETHERE("o",(["/sgdomain/npc/shuijing.c":1,"/sgdomain/modules/m_board.c" : ({ /* sizeof() == 3 */1,"æ–°æ‰‹æŒ‡å—","newbie"}),]))
                 @AREA("changan")->get_room("ca_dd")
                 @AREA("changan")->set_room("ca_dd","o",([]))
                 @AREA("changan")->get_room("list")
@@ -84,7 +84,7 @@ Set Nation      @CHAR_D->set_char("xxx","nation",0)
                 @CHAR_D->set_char("xxx","ranknation",0)
                 @CHAR_D->set_char("xxx","area","xxx")
                 @COUNTRY_D->add_country("xxx","xxx")
-                @AREA_D->set_area(<µØÇøid>,"nation","xxx")
+                @AREA_D->set_area(<åœ°åŒºid>,"nation","xxx")
                 @COUNTRY_D->remove_country("flyee")
 
 clone bed       clone /sgdomain/obj/other/bed
@@ -121,26 +121,26 @@ skills          @SG_SKILL_D->query_skills()
                 @SG_SKILL_D->get_skill("jbsj")
 
 define desc of wiz actions
-@.me->set_msgs("clone","%^H_CYAN%^$N%^RESET%^ÑöÌì³¤Ğ¥£ºÍòÄÜµÄÉÏÌìÄÄ£¬Çë´ÍÓèÎÒ$O°É¡£\n$O´ÓÌì¶ø½µ¡¸Å¾¡¹µØÒ»ÏÂ°Ñ%^H_CYAN%^$N%^RESET%^ÔÒÔÎ¹ıÈ¥ÁË¡£\n")
-@.me->set_msgs("destruct","%^H_CYAN%^$N%^RESET%^¶Ô$O¶ñºİºİµØËµ£º½ñÌìÓ²ÊÇÁôÄã²»µÃ¡£\nËµ°Õ·ÉÆğÒ»½Å£¬°Ñ$OÎÈÎÈµØËÍ³öÁËÌ«ÑôÏµ¡£\n")
+@.me->set_msgs("clone","%^H_CYAN%^$N%^RESET%^ä»°å¤©é•¿å•¸ï¼šä¸‡èƒ½çš„ä¸Šå¤©å“ªï¼Œè¯·èµäºˆæˆ‘$Oå§ã€‚\n$Oä»å¤©è€Œé™ã€Œå•ªã€åœ°ä¸€ä¸‹æŠŠ%^H_CYAN%^$N%^RESET%^ç ¸æ™•è¿‡å»äº†ã€‚\n")
+@.me->set_msgs("destruct","%^H_CYAN%^$N%^RESET%^å¯¹$Oæ¶ç‹ ç‹ åœ°è¯´ï¼šä»Šå¤©ç¡¬æ˜¯ç•™ä½ ä¸å¾—ã€‚\nè¯´ç½¢é£èµ·ä¸€è„šï¼ŒæŠŠ$Oç¨³ç¨³åœ°é€å‡ºäº†å¤ªé˜³ç³»ã€‚\n")
 
 erase
 @.me->set_msgs("clone","")
 
-/wiz/flee/cmds/cast tianbian ÏÂÑ©
+/wiz/flee/cmds/cast tianbian ä¸‹é›ª
 
 
 listuser /w /st
 
 /sgdomain/event/ev_position.c
 
-Ë¿¡¢ç±¡¢ÂŞ¡¢¾î¡¢³ñ¡¢¶Ğ¡¢½õ
+ä¸ã€ç»«ã€ç½—ã€ç»¢ã€ç»¸ã€ç¼ã€é”¦
 
 @(EV_WAR)->war("bandit",<a_id>)
 
 @"/sgdomain/event/ev_king.c"->get_name()
 
-no tell          @.ice->set_notell("Ğş±ù(ice)ÕıÔÚÈÚ»¯ÖĞ£¬²»ÏëºÍÈÎºÎÈËËµ»°¡£¡£¡£")
+no tell          @.ice->set_notell("ç„å†°(ice)æ­£åœ¨èåŒ–ä¸­ï¼Œä¸æƒ³å’Œä»»ä½•äººè¯´è¯ã€‚ã€‚ã€‚")
                  @.ice->set_notell(0)
 
 set house        @"/daemons/house_d"->set_house(<id>, <item>,<value>)

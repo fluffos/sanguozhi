@@ -31,14 +31,14 @@ void do_on_close()
 void setup(string dir)
 {
     set_locked("key");
-    set_id("door", "��");
-    set_unit("��");
-    set_adj("�޴����ľ", "�޴��", "��ľ");
-    set_long("����Լ���ɣ���������֮���¡�\n");
+    set_id("door", "门");
+    set_unit("扇");
+    set_adj("巨大的橡木", "巨大的", "橡木");
+    set_long("它高约两丈，极尽华美之能事。\n");
     
     add_hook( "open", (: do_on_open :));
     add_hook( "close", (: do_on_close :));
     set_closed(1);
-    setup_door("����ľ��", dir);
-    set_in_room_desc("һ�Ⱦ޴����ľ��ռȥ��" + DIRECTION_D->cdir(dir) + "ǽ�Ϻܴ�һ���������");
+    setup_door("大橡木门", dir);
+    set_in_room_desc("一扇巨大的橡木门占去了" + DIRECTION_D->cdir(dir) + "墙上很大一部分面积。");
 }

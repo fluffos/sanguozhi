@@ -16,7 +16,7 @@ private void main()
 
     if ( !check_privilege(1) )
     {
-        out("对不起，这条命令只能给大神使用。\n");
+        out("瀵逛笉璧凤紝杩欐潯鍛戒护鍙兘缁欏ぇ绁炰娇鐢ㄣ�俓n");
         return;
     }
 
@@ -26,7 +26,7 @@ private void main()
 
         if ( ob )
         {
-	    outf("%s 正在监听 %s.\n",
+	    outf("%s 姝ｅ湪鐩戝惉 %s.\n",
                    user->query_userid(),
                    ob->query_userid());
 	    flag++;
@@ -34,5 +34,5 @@ private void main()
     }
 
     if ( flag == 0 )
-	out("目前没有任何人被监听。\n");
+	out("鐩墠娌℃湁浠讳綍浜鸿鐩戝惉銆俓n");
 }

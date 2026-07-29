@@ -2,10 +2,10 @@
 inherit LIVING;
 void setup() 
 {
-    set_name("dong zhanggui", "¶­ÕÆ¹ñ");
+    set_name("dong zhanggui", "è‘£æŒæŸœ");
     add_id("dong", "owner", "zhanggui");
     set_gender(1);
-    set_proper_name("¶­ÕÆ¹ñ");
-    set_in_room_desc("µ±ÆÌÕÆ¹ñ " "¶­ÕÆ¹ñ" "(dong zhanggui)");
-    set_long("¶­ÕÆ¹ñÌ§Í·ÍûÁËÄãÒ»ÑÛ£¬\n"+"¿Í¹ÙÒªÂò¶«Î÷Âğ£¿\n\n");
+    set_proper_name("è‘£æŒæŸœ");
+    set_in_room_desc("å½“é“ºæŒæŸœ " "è‘£æŒæŸœ" "(dong zhanggui)");
+    set_long("è‘£æŒæŸœæŠ¬å¤´æœ›äº†ä½ ä¸€çœ¼ï¼Œ\n"+"å®¢å®˜è¦ä¹°ä¸œè¥¿å—ï¼Ÿ\n\n");
 }

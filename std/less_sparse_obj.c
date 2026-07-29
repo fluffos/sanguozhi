@@ -6,9 +6,9 @@
 inherit BASE_OBJ;
 inherit __DIR__"object/vsupport.c";
 
-private static mapping msgs = ([]);
+private mapping msgs = ([]);
 
-varargs void create(mapping long, string array ids, object dest)
+varargs void create(mapping long, string * ids, object dest)
 {
     if (!clonep()) return;
     ::create();
@@ -31,7 +31,7 @@ if(msgs["look"])
       {
     if(arrayp(ids) && sizeof(ids))
       set_long(//"You see nothing special about the "+ids[0]+".");
-               "Äã²¢²»¾õµÃ"+ids[0]+"ÓĞÈÎºÎÌØÊâµÄµØ·½¡£");
+               "ä½ å¹¶ä¸è§‰å¾—"+ids[0]+"æœ‰ä»»ä½•ç‰¹æ®Šçš„åœ°æ–¹ã€‚");
       }
     if(arrayp(ids))
       set_id(ids...);

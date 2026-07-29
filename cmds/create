@@ -5,8 +5,8 @@
 
 #define _DEBUG_ID   "xiaobai"
 
-#define MAIN_TITLE       "\n¹ú¼ÒÏûÍöÑ¡µ¥"
-#define HEADER "¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş\n"
+#define MAIN_TITLE       "\nå›½å®¶æ¶ˆäº¡é€‰å•"
+#define HEADER "ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“\n"
 
 inherit MENUS;
 inherit M_ACCESS;
@@ -46,14 +46,14 @@ void create()
 
     p_mnMain = new_menu( MAIN_TITLE );
 
-    p_quit_item = new_menu_item( "ÍË³ö", (: quit :), "q" );
+    p_quit_item = new_menu_item( "é€€å‡º", (: quit :), "q" );
     p_seperator = new_seperator("-------------------------------------------------------------------------");
     add_menu_item( p_mnMain, p_seperator);
-    add_menu_item( p_mnMain, new_menu_item("±£Áô¹ú¼Ò(reServe nation)", (: reserve_nation :) ,"s"));
-    add_menu_item( p_mnMain, new_menu_item("ÏûÃğ¹ú¼Ò(Remove nation)", (: remove_nation :) ,"r"));
+    add_menu_item( p_mnMain, new_menu_item("ä¿ç•™å›½å®¶(reServe nation)", (: reserve_nation :) ,"s"));
+    add_menu_item( p_mnMain, new_menu_item("æ¶ˆç­å›½å®¶(Remove nation)", (: remove_nation :) ,"r"));
     add_menu_item( p_mnMain, p_quit_item);
    
-    set_menu_prompt ( p_mnMain, "ÊäÈëÖ¸Áî[srq]: ");
+    set_menu_prompt ( p_mnMain, "è¾“å…¥æŒ‡ä»¤[srq]: ");
 #ifdef _DEBUG_ID
     TELL_BUG( _DEBUG_ID, "exiting create()" );
 #endif  // _DEBUG_ID
@@ -71,9 +71,9 @@ private void show_nation()
     dis = map_array(keys, (: COUNTRY_D->get_country(($1),"name")+"("+($1)
     +")" :));
 
-    printf("Èı¹úÖ¾¹ú¼ÒÁĞ±í£º\n");
+    printf("ä¸‰å›½å¿—å›½å®¶åˆ—è¡¨ï¼š\n");
     printf(HEADER + sprintf("%-#79s\n", implode(dis, "\n")));
-    printf("%s¹©Ñ¡ÔñµÄ¹ú¼Ò×ÜÊı£º%d¸ö¡£\n",HEADER,sizeof(dis));
+    printf("%sä¾›é€‰æ‹©çš„å›½å®¶æ€»æ•°ï¼š%dä¸ªã€‚\n",HEADER,sizeof(dis));
 
     return;
 
@@ -84,10 +84,10 @@ private void reserve_nation()
     show_nation();
     
     if ( m_strReserveNation != "" )
-        write( sprintf( "Ä¿Ç°Òª±£ÁôµÄ¹ú¼ÒÊÇ %s(%s)\n", COUNTRY_D->get_country( m_strReserveNation, "name" ), 
+        write( sprintf( "ç›®å‰è¦ä¿ç•™çš„å›½å®¶æ˜¯ %s(%s)\n", COUNTRY_D->get_country( m_strReserveNation, "name" ), 
             m_strReserveNation ) );
     
-    get_input_then_call( (: action_reserve :), "Òª±£ÁôÄÄ¸ö¹ú¼Ò£º" );
+    get_input_then_call( (: action_reserve :), "è¦ä¿ç•™å“ªä¸ªå›½å®¶ï¼š" );
 
 }  // end reserve_nation
 
@@ -97,13 +97,13 @@ private void remove_nation()
     
     if ( m_strReserveNation != "" )
     {
-        write( sprintf( "Ä¿Ç°Òª±£ÁôµÄ¹ú¼ÒÊÇ %s(%s)\n", COUNTRY_D->get_country( m_strReserveNation, "name" ), 
+        write( sprintf( "ç›®å‰è¦ä¿ç•™çš„å›½å®¶æ˜¯ %s(%s)\n", COUNTRY_D->get_country( m_strReserveNation, "name" ), 
             m_strReserveNation ) );
     }
     else
-        write( "Ä¿Ç°Ã»ÓĞ±£Áô¹ú¼Ò\n" );
+        write( "ç›®å‰æ²¡æœ‰ä¿ç•™å›½å®¶\n" );
 
-    get_input_then_call( (: confirm :), "ÒªÏûÍöÄÄ¸ö¹ú¼Ò£º" );
+    get_input_then_call( (: confirm :), "è¦æ¶ˆäº¡å“ªä¸ªå›½å®¶ï¼š" );
     
 }  // end remove_nation
 
@@ -111,28 +111,28 @@ private void confirm( string par_strPara )
 {
     if ( par_strPara == m_strReserveNation )
     {
-        printf( "\n%s ¹úÊÇ±£Áô¹ú¼Ò£¬ÇëÑ¡Ôñ±ğµÄ¹ú¼Ò¡£\n\n", par_strPara );
+        printf( "\n%s å›½æ˜¯ä¿ç•™å›½å®¶ï¼Œè¯·é€‰æ‹©åˆ«çš„å›½å®¶ã€‚\n\n", par_strPara );
         return;
     }
     else if ( COUNTRY_D->nation_exist( par_strPara ) )
     {
-        printf( "\nÒªÁî %s(%s) ÏûÍö¡£\n\n", COUNTRY_D->get_country( par_strPara, "name" ),
+        printf( "\nè¦ä»¤ %s(%s) æ¶ˆäº¡ã€‚\n\n", COUNTRY_D->get_country( par_strPara, "name" ),
             par_strPara  );      
     }
     else
     {
-        write( "\n±§Ç¸£¬Ã»ÓĞÕâ¸ö¹ú¼Ò\n\n" );
+        write( "\næŠ±æ­‰ï¼Œæ²¡æœ‰è¿™ä¸ªå›½å®¶\n\n" );
         return;
     }
 
-    get_input_then_call( (: action, par_strPara :), "È·¶¨Âğ£¿( yES / nO ): " );
+    get_input_then_call( (: action, par_strPara :), "ç¡®å®šå—ï¼Ÿ( yES / nO ): " );
 }
 
 private void action( string par_strPara, string par_strFlag )
 {
     if ( par_strFlag != "y" )
     {
-        write( "È¡Ïû²Ù×÷\n" );
+        write( "å–æ¶ˆæ“ä½œ\n" );
         return;
     }
     
@@ -145,10 +145,10 @@ private void action_reserve( string par_strNation )
     if ( COUNTRY_D->nation_exist( par_strNation ) )
     {
         m_strReserveNation = par_strNation;
-        write( "\nÉèÖÃ³É¹¦¡£\n\n" );      
+        write( "\nè®¾ç½®æˆåŠŸã€‚\n\n" );      
     }
     else
-        write( "\n±§Ç¸£¬Ã»ÓĞÕâ¸ö¹ú¼Ò\n\n" );
+        write( "\næŠ±æ­‰ï¼Œæ²¡æœ‰è¿™ä¸ªå›½å®¶\n\n" );
         
 }  // end action_reserve
 

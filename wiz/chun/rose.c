@@ -10,23 +10,23 @@ inherit M_DAMAGE_SINK;
 void setup()
 {
 ::mudlib_setup();
-set_unit("֦");
+set_unit("枝");
 set_value(9999);
-set_id("rose", HIR+"õ��"+NOR);
-set_long("һ֦���޵�"+HIR+"õ��"+NOR+"(rose)");
+set_id("rose", HIR+"玫瑰"+NOR);
+set_long("一枝娇艳的"+HIR+"玫瑰"+NOR+"(rose)");
 set_size(0);
-set_in_room_desc("һ֦"+HIR+"��õ��"+NOR+"(rose)");
+set_in_room_desc("一枝"+HIR+"红玫瑰"+NOR+"(rose)");
 set_gettable(1);
 set_slot(BREST);
-//set_wearmsg("$N����ǰ����һ֦"+HIR+"��õ��"+NOR+"���Եø��ӽ��޶��ˡ�\n");
-//set_removemsg("$NС�������ؽ�"+HIR+"��õ��"+NOR+"����ǰȡ������\n");
+//set_wearmsg("$N在胸前别上一枝"+HIR+"红玫瑰"+NOR+"，显得更加娇艳动人。\n");
+//set_removemsg("$N小心翼翼地将"+HIR+"红玫瑰"+NOR+"从胸前取下来。\n");
 }
 int smell() {
   object who;
   who = environment(this_object());
   this_body()->set_cur_hp(0);
-  write("���õ����Ϥ����ζʹ�㲻�ɵ�������һ���ˣ�����\n");
-  write("��ֻ��һ����ʹ��������˹�ȥ��\n");
+  write("这朵玫瑰熟悉的香味使你不由得想起了一个人．．．\n");
+  write("你只觉一阵心痛，差点晕了过去．\n");
   return 1;
 }
 
@@ -38,16 +38,16 @@ void do_wear() {
         
   	if ((ob2->ob_state()==BREST))
         {
-                write("���Ѿ�������ͬ��װ���ˡ�\n");
+                write("你已经穿戴了同类装备了。\n");
                 return;
         }
   }   
   set_is_on(1);
-  who->simple_action("$N����ǰ����һ֦"+HIR+"��õ��"+NOR+"û�뵽õ�������������$N�����ѣ�\n");
+  who->simple_action("$N在胸前别上一枝"+HIR+"红玫瑰"+NOR+"没想到玫瑰深深的扎入了$N的心窝！\n");
   who->set_cur_hp(0);
 }
 void do_remove() {
   object who;
   who = owner(this_object());
-  who->simple_action("��������ѪȾ���õ����Ҳ�޷�ȡ�£�\n");
+  who->simple_action("娇艳如鲜血染红的玫瑰再也无法取下！\n");
 }

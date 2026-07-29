@@ -1,4 +1,4 @@
-// p_tuotuo.c "ÃÀÀöµÄĞ¡ÇÌ"
+// p_tuotuo.c "ç¾ä¸½çš„å°ç¿˜"
 #include <mudlib.h>
 #include <sanguo.h>
 inherit LIVING;
@@ -52,74 +52,74 @@ string *query_channel_list() {
 void setup()
 {
    object jia;
-    set_name("girl", "Ğ¡¿ÖÁú");
+    set_name("girl", "å°æé¾™");
     add_id("tuotuo");
     set_gender(2);
-    set_proper_name("ÃÀÀöµÄĞ¡¿ÖÁú");
-    set_in_room_desc("ÃÀÀö¶¯ÈËµÄÉÙÅ®£ºĞ¡¿ÖÁú(girl)");
-    set_long("Ğ¡¿ÖÁúÌ§Í·ÍûÁËÄãÒ»ÑÛ£¬Ì¾ÁËÒ»¿ÚÆø£º
-¡°°¦. . .Äã²»ÊÇÎÒÒªÕÒµÄÈË. . .¡±");
+    set_proper_name("ç¾ä¸½çš„å°æé¾™");
+    set_in_room_desc("ç¾ä¸½åŠ¨äººçš„å°‘å¥³ï¼šå°æé¾™(girl)");
+    set_long("å°æé¾™æŠ¬å¤´æœ›äº†ä½ ä¸€çœ¼ï¼Œå¹äº†ä¸€å£æ°”ï¼š
+â€œå”‰. . .ä½ ä¸æ˜¯æˆ‘è¦æ‰¾çš„äºº. . .â€");
     jia=new("/wiz/fire/obj/wear/skirt.c");
     jia->move(this_object());
     jia->do_wear();
      set_sg_rongmao(35);
-     add_pattern("ÄÁÍ¯ÉîÉîµØÌ¾ÁË¿ÚÆø¡£",function(){ 
+     add_pattern("ç‰§ç«¥æ·±æ·±åœ°å¹äº†å£æ°”ã€‚",function(){ 
 	
         	respond("comfort corydon");
-		respond("say ÓĞÎÒÔÚ£¬Äã»¹²»¸ßĞËÂğ£¿\n");
+		respond("say æœ‰æˆ‘åœ¨ï¼Œä½ è¿˜ä¸é«˜å…´å—ï¼Ÿ\n");
 	
 	});
-     add_pattern("ÄÁÍ¯ÇáÇáÍĞ×¡ÄãµÄÁ³£¬¸øÄãÒ»¸öÉîÇéµÄÎÇ¡£",function(){ 
+     add_pattern("ç‰§ç«¥è½»è½»æ‰˜ä½ä½ çš„è„¸ï¼Œç»™ä½ ä¸€ä¸ªæ·±æƒ…çš„å»ã€‚",function(){ 
 	
         	respond("blush corydon");
 		respond("giggle corydon");
-		respond("say ÎÒÕâ¾Í¸úÄã×ß\n");
+		respond("say æˆ‘è¿™å°±è·Ÿä½ èµ°\n");
 	
 	});
-     add_pattern("ÄÁÍ¯½«ÄãÇáÇáµØÂ§ÔÚ»³Àï¡£",function(){ 
+     add_pattern("ç‰§ç«¥å°†ä½ è½»è½»åœ°æ‚åœ¨æ€€é‡Œã€‚",function(){ 
 	
         	respond("shame corydon");
 		respond("lbao corydon");
 	
 	});
-     add_pattern("ÄÁÍ¯ÉîÇéµØÍû×ÅÑÛÇ°µÄÄã£¬²»½û³ÕÁË¡£",function(){ 
+     add_pattern("ç‰§ç«¥æ·±æƒ…åœ°æœ›ç€çœ¼å‰çš„ä½ ï¼Œä¸ç¦ç—´äº†ã€‚",function(){ 
 	
 		respond("llook corydon");
 	
 	});
-     add_pattern("ÄÁÍ¯°ÑÄã½ô½ôµØ±§ÔÚ»³Àï¡£",function(){ 
+     add_pattern("ç‰§ç«¥æŠŠä½ ç´§ç´§åœ°æŠ±åœ¨æ€€é‡Œã€‚",function(){ 
 	
 		respond("kiss corydon");
 	
 	});
-     add_pattern("ÄÁÍ¯ÔÚÄãµÄ¶ú±ßÇáÇá´µ¿ÚÆø£¬Ïë°ÑÄã»½ĞÑ¡£",function(){ 
+     add_pattern("ç‰§ç«¥åœ¨ä½ çš„è€³è¾¹è½»è½»å¹å£æ°”ï¼Œæƒ³æŠŠä½ å”¤é†’ã€‚",function(){ 
 	
 		respond("lwake");
 	
 	});
-     add_pattern("ÄÁÍ¯±§×¡ÄãµÄÑü£¬ÇáÉùËµ£º¡°¶¼ÊÇÎÒ²»ºÃ£¬½ñºóÔÙÒ²²»ÈÇÄãÉúÆøÁË¡£¡±",function(){ 
+     add_pattern("ç‰§ç«¥æŠ±ä½ä½ çš„è…°ï¼Œè½»å£°è¯´ï¼šâ€œéƒ½æ˜¯æˆ‘ä¸å¥½ï¼Œä»Šåå†ä¹Ÿä¸æƒ¹ä½ ç”Ÿæ°”äº†ã€‚â€",function(){ 
 	
 		respond("blush");
 	
 	});
-     add_pattern("ÄÁÍ¯Â§×ÅÄã£¬ÔÚÄãµÄ¶ú±ßÇÄÉùµÀ£ºÏàË¼ÖªºÎÈÕ£¬´ËÒ¹ÄÑÎªÇé¡£",function(){ 
+     add_pattern("ç‰§ç«¥æ‚ç€ä½ ï¼Œåœ¨ä½ çš„è€³è¾¹æ‚„å£°é“ï¼šç›¸æ€çŸ¥ä½•æ—¥ï¼Œæ­¤å¤œéš¾ä¸ºæƒ…ã€‚",function(){ 
 	
 		respond("lean corydon");
 	
 	});
-     add_pattern("ÄÁÍ¯Çá¸§ÄãµÄĞã·¢Ì¾µ½",function(){ 
+     add_pattern("ç‰§ç«¥è½»æŠšä½ çš„ç§€å‘å¹åˆ°",function(){ 
 	
 		respond("kiss corydon");
 	
 	});
-     add_pattern("ÄÁÍ¯ÇáÇáµØÃşÖøÄãµÄÁ³£¬ÎŞÏŞÉîÇéµÄËµ£º¡°ÎÒºÃÏ²»¶ÄãÅ¶£®£®£®¡±",function(){ 
+     add_pattern("ç‰§ç«¥è½»è½»åœ°æ‘¸è‘—ä½ çš„è„¸ï¼Œæ— é™æ·±æƒ…çš„è¯´ï¼šâ€œæˆ‘å¥½å–œæ¬¢ä½ å“¦ï¼ï¼ï¼â€",function(){ 
 	
 		respond("giggle");
 		respond("kiss fire");
 	
 	});
      
-     add_pattern("ÄÁÍ¯ÉîÇéµØ¿´×ÅÄã£¬²»½û÷öÈ»ÉñÉË£º½ñ³¯Àë±ğÈ¥£¬ºÎÈÕÔÙÏà·ê£¿",function(){ 
+     add_pattern("ç‰§ç«¥æ·±æƒ…åœ°çœ‹ç€ä½ ï¼Œä¸ç¦é»¯ç„¶ç¥ä¼¤ï¼šä»Šæœç¦»åˆ«å»ï¼Œä½•æ—¥å†ç›¸é€¢ï¼Ÿ",function(){ 
 		respond("cry corydon");
 		respond("kiss corydon");
 		respond("lwait corydone");
@@ -127,7 +127,7 @@ void setup()
 		respond("cry");
 	
 	});
-     add_pattern("ÄÁÍ¯×ßÁË%s",function(){ 
+     add_pattern("ç‰§ç«¥èµ°äº†%s",function(){ 
 		respond("jump corydon");
 		respond("lsj corydonf");
 		

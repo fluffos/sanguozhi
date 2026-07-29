@@ -1,4 +1,4 @@
-// condition poison.c ÖÐ¶¾
+// condition poison.c ä¸­æ¯’
 // group@sgz August 23, 1999
 #include <ansi.h>
 #include <mudlib.h>
@@ -18,9 +18,9 @@ void execute_con(int tid, int damage, int duration)
 	WARAI_D->kill_troop(tid, damage);
 	
 	tell(all_inventory(tt),
-	HIR"Ö»¼ûÊ¿±øÃÇÁ³É«·¢Çà£¬¿ÚÍÂ°×Ä­£¬ÕýÊÇÖÐ¶¾µÄ¼£Ïó¡£"+NOR+"\n");
+	HIR"åªè§å£«å…µä»¬è„¸è‰²å‘é’ï¼Œå£åç™½æ²«ï¼Œæ­£æ˜¯ä¸­æ¯’çš„è¿¹è±¡ã€‚"+NOR+"\n");
 	WARAI_D->war_inf(TROOP_D->get_troops(tid,"task_id"),
-	tt->query_id()[1]+"ÊÜÖÐ¶¾À§ÈÅ£¬ËðÊ§"+chinese_number(damage)+"ÈË¡£","b");
+	tt->query_id()[1]+"å—ä¸­æ¯’å›°æ‰°ï¼ŒæŸå¤±"+chinese_number(damage)+"äººã€‚","b");
 	WARAI_D->clear_empty_troop(({tid}));
 	return;
 }

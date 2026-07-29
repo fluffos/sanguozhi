@@ -32,7 +32,7 @@ string disp_tmp;
         list = regexp(list, p_f);
         if(!list)
 	{
-		printf("Ã»ÓĞÕâÑùµÄsemote\n");
+		printf("æ²¡æœ‰è¿™æ ·çš„semote\n");
 		return ;
 	}
 	else
@@ -44,17 +44,17 @@ string disp_tmp;
 			case "/l" :  // just list
 				for(i=0;i<count;i++)
 					printf("%s\n",list[i]);
-				printf("¹²²éµ½£º%d¸ösemote¡£\n",count);
+				printf("å…±æŸ¥åˆ°ï¼š%dä¸ªsemoteã€‚\n",count);
 				return;
 			case "/s" : // similar to show
 			        if(!(wizardp(this_body()->query_userid())))
 			       {
-		                	printf("¶Ô²»Æğ£¬Õâ¸öÑ¡ÏîÖ»¶ÔÎ×Ê¦¿ª·Å¡£\n");
+		                	printf("å¯¹ä¸èµ·ï¼Œè¿™ä¸ªé€‰é¡¹åªå¯¹å·«å¸ˆå¼€æ”¾ã€‚\n");
 	                		return;
         			}
 				for(i=0;i<count;i++)
 				{
-					printf("¡¾ %s ¡¿\n",list[i]);
+					printf("ã€ %s ã€‘\n",list[i]);
 					data=SOUL_D->query_emote(list[i]);
 					m=keys(data);
 					for(j=0;j<sizeof(m);j++)
@@ -69,36 +69,36 @@ string disp_tmp;
 						}
 					}
 				}
-				printf("¹²²éµ½£º%d¸ösemote¡£\n",count);
+				printf("å…±æŸ¥åˆ°ï¼š%dä¸ªsemoteã€‚\n",count);
                                 return;
 			case "/c":
             ob=new("/sgdomain/npc/diaochan");
             for(i=0;i<count;i++)
             {
-                disp_tmp=sprintf("¡¾ %s ¡¿\n",list[i]);
+                disp_tmp=sprintf("ã€ %s ã€‘\n",list[i]);
 				disp+=disp_tmp;
                 data=SOUL_D->query_emote(list[i]);
                 if ( data[""] )
                 {
                    info = SOUL_D->get_soul(list[i], "", ({ }));
-                   disp_tmp=sprintf("Ã»ÓĞÄ¿±ê£º%s",info[1][0]);
+                   disp_tmp=sprintf("æ²¡æœ‰ç›®æ ‡ï¼š%s",info[1][0]);
 				   disp+=disp_tmp;
                 }
                 if ( data["LIV"] )
                 {
                     info = SOUL_D->get_soul(list[i], "LIV", ({ ob }));
-                    disp_tmp=sprintf("¶ÔËûÈË£º%s",info[1][0]);
+                    disp_tmp=sprintf("å¯¹ä»–äººï¼š%s",info[1][0]);
 				   disp+=disp_tmp;
                 }
                 if ( data["STR"] )
                 {
                     info = SOUL_D->get_soul(list[i], "LIV", ({ this_body() }));
-                    disp_tmp=sprintf("¶Ô×Ô¼º£º%s",info[1][0]);
+                    disp_tmp=sprintf("å¯¹è‡ªå·±ï¼š%s",info[1][0]);
 				   disp+=disp_tmp;
                 }
             }
             destruct(ob);
-            disp_tmp=sprintf("¹²²éµ½£º%d¸ösemote¡£\n",count);
+            disp_tmp=sprintf("å…±æŸ¥åˆ°ï¼š%dä¸ªsemoteã€‚\n",count);
 		   disp+=disp_tmp;
 		   more(disp);
 		}

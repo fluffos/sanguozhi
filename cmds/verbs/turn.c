@@ -16,12 +16,12 @@ void do_turn_str(string str)
 		return;
 	}
 	if(!ret)
-		ret="ÄãÃ»·¨µ¹"+o->short()+"¡£\n";
+		ret="ä½ æ²¡æ³•å€’"+o->short()+"ã€‚\n";
 	write(ret);
 	return;
 }
 
-array query_verb_info()
+mixed * query_verb_info()
 {
    return ({ ({ "STR" }), ({ "water" }) });
 }

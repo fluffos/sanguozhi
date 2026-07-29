@@ -8,56 +8,56 @@ inherit __DIR__+"free_menu";
 void do_addcook(string str) {
 	string f_name;
 	object ob,o_h;
-	array cook;
+	mixed * cook;
 	int val;
 	if(OBJ_D->get_obj(str,"type")!="food") {
-		write("Ã»ÓĞ"+str+"ÕâÖÖÊ³Îï¡£\n");
+		write("æ²¡æœ‰"+str+"è¿™ç§é£Ÿç‰©ã€‚\n");
 		return; 
 	}
 	f_name=OBJ_D->get_obj(str,"name");
 	ob=present(str,master);
 	if(!objectp(ob)) {
-		write("ÄãÉíÉÏÃ»ÓĞ"+f_name+"¡£\n");
+		write("ä½ èº«ä¸Šæ²¡æœ‰"+f_name+"ã€‚\n");
 		return;
 	}
 	o_h=SGHOME(p_id);
 	cook=o_h->get_npc(n_id,"cook");
 	if(!sizeof(cook)) cook=({"wotou"});
 	if(member_array(str,cook)!=-1) {
-		write("ÄãµÄ³øÊ¦ÒÑ¾­»á×ö"+f_name+"ÁË¡£\n");
+		write("ä½ çš„å¨å¸ˆå·²ç»ä¼šåš"+f_name+"äº†ã€‚\n");
 		return;
 	}
 	if(sizeof(cook)>10) {
-		write("ÄãµÄ³øÊ¦ÊÖÒÕ¹»¸ß£¬²»ĞèÒªÔÚÑ§ĞÂ»¨ÑùÁË¡£\n");
+		write("ä½ çš„å¨å¸ˆæ‰‹è‰ºå¤Ÿé«˜ï¼Œä¸éœ€è¦åœ¨å­¦æ–°èŠ±æ ·äº†ã€‚\n");
 		return;
 	}
 	modal_pop();
 	poped=0;
 	
 	master->targetted_action(
-		"$N¶Ô$TµÀ£º$m£¬¿´¿´Õâ¸ö£¬ÄÜ²»ÄÜÑ§×Å×öÑ½¡£Ëµ×Åµİ¸ø$t$O¡£\n",slave,ob);
+		"$Nå¯¹$Té“ï¼š$mï¼Œçœ‹çœ‹è¿™ä¸ªï¼Œèƒ½ä¸èƒ½å­¦ç€åšå‘€ã€‚è¯´ç€é€’ç»™$t$Oã€‚\n",slave,ob);
 
 	ob->move(slave);
 		
         DELAY_D->delay_targetted_action(slave,master,
-		"$N×ĞÏ¸ÑĞ¾¿×Å"+f_name+"¡£\n",2);
+		"$Nä»”ç»†ç ”ç©¶ç€"+f_name+"ã€‚\n",2);
 	val=OBJ_D->get_obj(str,"value");
 	val=val*10+20000;
         DELAY_D->delay_targetted_action(slave,master,
-		"$N¶Ô$TµÀ£ºÃ»ÎÊÌâ£¬"+f_name+
-		"Ó¦¸Ã²»ÄÑ×ö£¬$RÄÜ²»ÄÜ¸øÎÒ"+CHINESE_D->chinese_value(val)+
-		"£¬ÎÒ³öÈ¥ÂòĞ©Ô­ÁÏÀ´ÅäÅä¿´¡£\n",4);
+		"$Nå¯¹$Té“ï¼šæ²¡é—®é¢˜ï¼Œ"+f_name+
+		"åº”è¯¥ä¸éš¾åšï¼Œ$Rèƒ½ä¸èƒ½ç»™æˆ‘"+CHINESE_D->chinese_value(val)+
+		"ï¼Œæˆ‘å‡ºå»ä¹°äº›åŸæ–™æ¥é…é…çœ‹ã€‚\n",4);
 	if(MONEY_D->sub_poket_money(master,val)==1) {
 	        DELAY_D->delay_targetted_action(slave,master,
-			"$T¶Ô$NµÀ£ººÃ£¬ºÃ£¬ÕâÊÇ"+CHINESE_D->chinese_value(val)
-			+"£¬ÄãÕâ¾ÍÈ¥×¼±¸°É¡£\n",5);
+			"$Tå¯¹$Né“ï¼šå¥½ï¼Œå¥½ï¼Œè¿™æ˜¯"+CHINESE_D->chinese_value(val)
+			+"ï¼Œä½ è¿™å°±å»å‡†å¤‡å§ã€‚\n",5);
 		cook+=({str});
 		o_h->set_npc(n_id,"cook",cook);
 
 	}
 	else 
 	        DELAY_D->delay_targetted_action(slave,master,
-			"$T¶Ô$NÒ»ÖåÃ¼Í·µÀ£ºÒª»¨ÕâÃ´¶àÇ®£¬ÕâÊÂ»ØÍ·ÔÙËµ°É¡£¡£\n",5);
+			"$Tå¯¹$Nä¸€çš±çœ‰å¤´é“ï¼šè¦èŠ±è¿™ä¹ˆå¤šé’±ï¼Œè¿™äº‹å›å¤´å†è¯´å§ã€‚ã€‚\n",5);
 	destruct(ob);
 	call_out("quit_menu_application",6);
 }
@@ -65,11 +65,11 @@ void do_addcook(string str) {
 void do_reqfood(string str) {
 	string f_name;
 	object ob,o_h;
-	array cook;
+	mixed * cook;
 	int val;
 	
 	if(OBJ_D->get_obj(str,"type")!="food") {
-		write("Ã»ÓĞ"+str+"ÕâÖÖÊ³Îï¡£\n");
+		write("æ²¡æœ‰"+str+"è¿™ç§é£Ÿç‰©ã€‚\n");
 		return; 
 	}
 
@@ -79,7 +79,7 @@ void do_reqfood(string str) {
 	cook=o_h->get_npc(n_id,"cook");
 	if(!sizeof(cook)) cook=({"wotou"});
 	if(member_array(str,cook)==-1) {
-		write("ÄãµÄ³øÊ¦»¹²»»á×ö"+f_name+"ÁË¡£\n");
+		write("ä½ çš„å¨å¸ˆè¿˜ä¸ä¼šåš"+f_name+"äº†ã€‚\n");
 		return;
 	}
 
@@ -87,26 +87,26 @@ void do_reqfood(string str) {
 	poped=0;
 	
 	master->targetted_action(
-		"$N¶Ô$TµÀ£º$m£¬ÌıËµÄãµÄ"+f_name+"×öµÃ²»´í¡£×öÒ»"+
-		OBJ_D->get_obj(str,"unit")+"¸ø$S³¢³¢¡£\n",slave);
+		"$Nå¯¹$Té“ï¼š$mï¼Œå¬è¯´ä½ çš„"+f_name+"åšå¾—ä¸é”™ã€‚åšä¸€"+
+		OBJ_D->get_obj(str,"unit")+"ç»™$Så°å°ã€‚\n",slave);
 
 	val=OBJ_D->get_obj(str,"value");
 	val=val/4;
 
 	if(MONEY_D->sub_all_money(master,val)==1) {
 	        DELAY_D->delay_targetted_action(slave,master,
-			"$N¶Ô$TµÀ£ººÃ£¬ºÃ£¬ÉÔÎ¢µÈÒ»µÈ£¬ÎÒÕâ¾Í×öºÃ¡£\n",2);
+			"$Nå¯¹$Té“ï¼šå¥½ï¼Œå¥½ï¼Œç¨å¾®ç­‰ä¸€ç­‰ï¼Œæˆ‘è¿™å°±åšå¥½ã€‚\n",2);
 		ob=OBJ_D->clone_obj(str);
 		ob->move(master);
 
 	        DELAY_D->delay_targetted_action(slave,master,
-			"$N¶Ô$TµÀ£ººÃÁË£¬Ëµ×Å°ÑÒ»"+OBJ_D->get_obj(str,"unit")+
-			"¸Õ¸ã¶¨µÄ"+f_name+"µİµ½$n1pÊÖÀï¡£\n",5);
+			"$Nå¯¹$Té“ï¼šå¥½äº†ï¼Œè¯´ç€æŠŠä¸€"+OBJ_D->get_obj(str,"unit")+
+			"åˆšæå®šçš„"+f_name+"é€’åˆ°$n1pæ‰‹é‡Œã€‚\n",5);
 
 	}
 	else 
 	        DELAY_D->delay_targetted_action(slave,master,
-			"$N¶Ô$TÒ»ÖåÃ¼Í·µÀ£º¼ÒÀïÁ¬ÂòÃ×µÄÇ®¶¼Ã»ÓĞÁË£¬ÄÄÄÜ×ö"+f_name+"£¿\n",2);
+			"$Nå¯¹$Tä¸€çš±çœ‰å¤´é“ï¼šå®¶é‡Œè¿ä¹°ç±³çš„é’±éƒ½æ²¡æœ‰äº†ï¼Œå“ªèƒ½åš"+f_name+"ï¼Ÿ\n",2);
 	call_out("quit_menu_application",6);
 
 }
@@ -116,7 +116,7 @@ void do_reqfood(string str) {
 void do_askcook() {
 
 	object o_h;
-	array cook;
+	mixed * cook;
 	string msg;
 	o_h=SGHOME(p_id);
 
@@ -127,9 +127,9 @@ void do_askcook() {
 	poped=0;
 
 	master->targetted_action(
-		"$N¶Ô$TµÀ£º$m£¬Äã»á×öĞ©Ê²Ã´ºÃ³ÔµÄÑ½¡£\n",slave);
+		"$Nå¯¹$Té“ï¼š$mï¼Œä½ ä¼šåšäº›ä»€ä¹ˆå¥½åƒçš„å‘€ã€‚\n",slave);
 
-	msg="$N¶Ô$T¾Ï¹ªµÀ£º»Ø$R£¬$s»á×öÒÔÏÂ¶«Î÷£º\n";
+	msg="$Nå¯¹$Té èº¬é“ï¼šå›$Rï¼Œ$sä¼šåšä»¥ä¸‹ä¸œè¥¿ï¼š\n";
 	foreach(string s in cook) {
 		msg+=OBJ_D->get_obj(s,"name")+"("+s+")\n";
 	}
@@ -138,11 +138,11 @@ void do_askcook() {
         DELAY_D->delay_targetted_action(slave,master,
 		msg,3);
 	if(sizeof(cook)<3)
-		msg="$NÒ»½ÅÌßµ½$TµÄÆ¨¹ÉÉÏ£¬´À²Ä£¬²Å»á×öÕâÃ´µã¶«Î÷£¬¸øÎÒ¹öÏÂÈ¥¡£\n";
+		msg="$Nä¸€è„šè¸¢åˆ°$Tçš„å±è‚¡ä¸Šï¼Œè ¢æï¼Œæ‰ä¼šåšè¿™ä¹ˆç‚¹ä¸œè¥¿ï¼Œç»™æˆ‘æ»šä¸‹å»ã€‚\n";
 	else if(sizeof(cook)<7)
-		msg="$N¶Ô$TµãµãÍ·£¬²»´í£¬µ«»¹ÒªÅ¬Á¦¡£\n";
+		msg="$Nå¯¹$Tç‚¹ç‚¹å¤´ï¼Œä¸é”™ï¼Œä½†è¿˜è¦åŠªåŠ›ã€‚\n";
 	else
-		msg="$nÆü²»³ÉÉùµØ±§×Å$tËµ£ººÃÄã¸ö$n1rÕæÓĞ³öÏ¢ÍÛ£¡$n0aÎÒ×ÜËãÅÎµ½ÁËÕâÒ»ÌìÄÅ£¡\n";
+		msg="$næ³£ä¸æˆå£°åœ°æŠ±ç€$tè¯´ï¼šå¥½ä½ ä¸ª$n1rçœŸæœ‰å‡ºæ¯å“‡ï¼$n0aæˆ‘æ€»ç®—ç›¼åˆ°äº†è¿™ä¸€å¤©å‘ï¼\n";
 
         DELAY_D->delay_targetted_action(master,slave,
 		msg,5);
@@ -154,8 +154,8 @@ void do_askcook() {
 void create( )
 {
     set_privilege(1);
-    toplevel = new_menu("\nÇë¶Ô´ó³øÊ¦ÏÂ´ïÖ¸Áî£º");
-    quit_item = new_menu_item("ÍËÏÂ", (:quit_old_place:), "q");
+    toplevel = new_menu("\nè¯·å¯¹å¤§å¨å¸ˆä¸‹è¾¾æŒ‡ä»¤ï¼š");
+    quit_item = new_menu_item("é€€ä¸‹", (:quit_old_place:), "q");
     seperator = new_seperator
     ("----------------------------------------------------------------------");
     space = new_seperator
@@ -163,27 +163,27 @@ void create( )
 
     add_menu_item(toplevel, seperator);
     add_menu_item(toplevel, space);
-    add_menu_item(toplevel, new_menu_item("ÔÚ´Ë¹§ºò",	(: do_stayhere :) ,"1"));
+    add_menu_item(toplevel, new_menu_item("åœ¨æ­¤æ­å€™",	(: do_stayhere :) ,"1"));
 
-    add_menu_item(toplevel, new_menu_item("ÉÍ´ÍÎïÆ·",	(: get_input_then_call,
-		(: do_praise :) ,"ÉÍ´ÍºÎÎï£º" :) ,"2"));
+    add_menu_item(toplevel, new_menu_item("èµèµç‰©å“",	(: get_input_then_call,
+		(: do_praise :) ,"èµèµä½•ç‰©ï¼š" :) ,"2"));
 
-    add_menu_item(toplevel, new_menu_item("Ñ¯ÎÊÇé¿ö",	(: do_getinfo :) ,"3"));
+    add_menu_item(toplevel, new_menu_item("è¯¢é—®æƒ…å†µ",	(: do_getinfo :) ,"3"));
 
-    add_menu_item(toplevel, new_menu_item("¸Ä±äID",	(: get_input_then_call,
-		(: do_changeid :) ,"±äÎªºÎID£º" :) ,"9"));
+    add_menu_item(toplevel, new_menu_item("æ”¹å˜ID",	(: get_input_then_call,
+		(: do_changeid :) ,"å˜ä¸ºä½•IDï¼š" :) ,"9"));
 
-    add_menu_item(toplevel, new_menu_item("³·Ö°", 	(: get_input_then_call,
-	(: do_demote :) ,"È·ÈÏ³·Ö°Âğ(y/n)£¿" :) ,"a"));
+    add_menu_item(toplevel, new_menu_item("æ’¤èŒ", 	(: get_input_then_call,
+	(: do_demote :) ,"ç¡®è®¤æ’¤èŒå—(y/n)ï¼Ÿ" :) ,"a"));
 
-    add_menu_item(toplevel, new_menu_item("Ñ¯ÎÊÊÖÒÕ",	(: do_askcook :) ,"b"));
-    add_menu_item(toplevel, new_menu_item("Ôö¼ÓÊÖÒÕ",	(: get_input_then_call,
-		(: do_addcook :) ,"Ñ§×öÄÄ¶«Î÷£º" :) ,"c"));
+    add_menu_item(toplevel, new_menu_item("è¯¢é—®æ‰‹è‰º",	(: do_askcook :) ,"b"));
+    add_menu_item(toplevel, new_menu_item("å¢åŠ æ‰‹è‰º",	(: get_input_then_call,
+		(: do_addcook :) ,"å­¦åšå“ªä¸œè¥¿ï¼š" :) ,"c"));
 
-    add_menu_item(toplevel, new_menu_item("µã³ÔµÄ",	(: get_input_then_call,
-		(: do_reqfood :) ,"µãĞ©Ê²Ã´£º" :) ,"d"));
+    add_menu_item(toplevel, new_menu_item("ç‚¹åƒçš„",	(: get_input_then_call,
+		(: do_reqfood :) ,"ç‚¹äº›ä»€ä¹ˆï¼š" :) ,"d"));
 
     add_menu_item(toplevel, quit_item);
     add_menu_item(toplevel, space);
-    set_menu_prompt (toplevel, "ÊäÈëÖ¸Áî[12345679q]: ");
+    set_menu_prompt (toplevel, "è¾“å…¥æŒ‡ä»¤[12345679q]: ");
 }

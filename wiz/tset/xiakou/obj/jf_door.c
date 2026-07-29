@@ -1,5 +1,5 @@
 //  jf_door.c
-//  ½«¸®Ğ¡ÃÅ
+//  å°†åºœå°é—¨
 //  created by tset 1/23/98
 //  last updated by tset 1/23/98
  
@@ -31,13 +31,13 @@ void do_on_close()
 
 void setup(string dir)
 {
-    set_id("door", "Ğ¡ÃÅ");
-    set_unit("ÉÈ");
-    set_adj("ÆÕÆÕÍ¨Í¨µÄ"); 
-    set_long("ËüºÁ²»ÆğÑÛ£¬²»×¢Òâ¸ù±¾¿´²»µ½¡£\n");
+    set_id("door", "å°é—¨");
+    set_unit("æ‰‡");
+    set_adj("æ™®æ™®é€šé€šçš„"); 
+    set_long("å®ƒæ¯«ä¸èµ·çœ¼ï¼Œä¸æ³¨æ„æ ¹æœ¬çœ‹ä¸åˆ°ã€‚\n");
  
     add_hook( "open", (: do_on_open :));
     add_hook( "close", (: do_on_close :));
     set_closed(1);   
-    setup_door("Ğ¡ÃÅ", dir);
+    setup_door("å°é—¨", dir);
 }

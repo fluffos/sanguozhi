@@ -5,17 +5,17 @@ inherit M_HORSE_1;
 inherit M_VALUE;
 void setup()
 {
-    set_id("fighthorse", "Õ½Âí");
+    set_id("fighthorse", "æˆ˜é©¬");
     add_id("zhanhorse");
     add_id("horse");
     add_id("ma");
     set_relations("on");
-    set_unit("Æ¥");
-    set_long("Õ½Âí");
+    set_unit("åŒ¹");
+    set_long("æˆ˜é©¬");
     set_max_capacity(VERY_LARGE*2);
     // So people will see: Sitting on the horse you see Rust...
     set_preposition("on");
-    set_in_room_desc("Õ½Âí(fighthorse)");
+    set_in_room_desc("æˆ˜é©¬(fighthorse)");
     set_value(200);
     set_currency_type("silver");
     set_attack_ability(100);

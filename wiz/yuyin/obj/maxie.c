@@ -1,4 +1,4 @@
-//maxie.c ÂéĞ¬ by row
+//maxie.c éº»é‹ by row
 #include <sanguo.h>
 #include <ansi.h>
 #include <mudlib.h>
@@ -9,13 +9,13 @@ inherit M_DAMAGE_SINK;
 void setup()
 {
 ::mudlib_setup();
-set_unit("Ë«");
-set_id("ma xie", YEL+"ÂéĞ¬"+NOR);
+set_unit("åŒ");
+set_id("ma xie", YEL+"éº»é‹"+NOR);
 add_id("shoes","xie");
-set_in_room_desc(YEL+"ÂéĞ¬(ma xie)"+NOR);
-set_long("Ò»Ë«ÓÃÂéÉş±à³ÉµÄĞ¬×Ó£¬´©ÆğÀ´ÓĞµãÔú½Å¡£");
-set_wearmsg("$N´©ÉÏÒ»Ë«"+YEL+"ÂéĞ¬"+NOR+"¡£\n");
-set_removemsg("$N³ıÏÂÒ»Ë«"+YEL+"ÂéĞ¬"+NOR+"¡£\n");
+set_in_room_desc(YEL+"éº»é‹(ma xie)"+NOR);
+set_long("ä¸€åŒç”¨éº»ç»³ç¼–æˆçš„é‹å­ï¼Œç©¿èµ·æ¥æœ‰ç‚¹æ‰è„šã€‚");
+set_wearmsg("$Nç©¿ä¸Šä¸€åŒ"+YEL+"éº»é‹"+NOR+"ã€‚\n");
+set_removemsg("$Né™¤ä¸‹ä¸€åŒ"+YEL+"éº»é‹"+NOR+"ã€‚\n");
 set_gettable(1);
 set_slot(FEET);
 }

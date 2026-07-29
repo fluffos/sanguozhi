@@ -3,50 +3,50 @@ Purpose: add a new job called setppl
 
 Here is the list of files that are creat:
 /sgdomain/job/setppl/setppl.c
-Õâ¸öÎÄ¼şÊÇµ±Íæ¼ÒÏóÌ«ÊØÒªÇósetppl ÈÎÎñÊ±Ëùµ÷ÓÃµÄ¡£
+è¿™ä¸ªæ–‡ä»¶æ˜¯å½“ç©å®¶è±¡å¤ªå®ˆè¦æ±‚setppl ä»»åŠ¡æ—¶æ‰€è°ƒç”¨çš„ã€‚
 
 /sgdomain/cmd/setppl.c
-Õâ¸öÎÄ¼şÊÇÍæ¼ÒÓÃcmd setppl À´ÉèÖÃ¼äµıÊ±µ÷ÓÃµÄ¡£
+è¿™ä¸ªæ–‡ä»¶æ˜¯ç©å®¶ç”¨cmd setppl æ¥è®¾ç½®é—´è°æ—¶è°ƒç”¨çš„ã€‚
 
 
 Here is the list of files that are modified:
 
 /sgdomain/event/ev_job.c
-°Ñsetppl ·ÅÈëµ±Íæ¼ÒÏóÌ«ÊØÑ¯ÎÊ¹¤×÷Ê±µÄ²Ëµ¥ÖĞ¡£
+æŠŠsetppl æ”¾å…¥å½“ç©å®¶è±¡å¤ªå®ˆè¯¢é—®å·¥ä½œæ—¶çš„èœå•ä¸­ã€‚
 
 /sgdomain/event/ev_guy.c
-ĞÂÔö function creat_fake_guy() À´´´½¨Ò»¸ö¼äµı
-ĞÂÔö function array get_array_type() to À´·µ»ØÒ»¸öËæ»úµÄguy type µÄ´ÎĞò 
-±ä¸ü function creat_guy() Ê¹ËüÔÚÒª´´½¨µÄguy ÊÇÒÑ¾­´æÔÚµÄfake guy Ê±·µ»Ø0
+æ–°å¢ function creat_fake_guy() æ¥åˆ›å»ºä¸€ä¸ªé—´è°
+æ–°å¢ function array get_array_type() to æ¥è¿”å›ä¸€ä¸ªéšæœºçš„guy type çš„æ¬¡åº 
+å˜æ›´ function creat_guy() ä½¿å®ƒåœ¨è¦åˆ›å»ºçš„guy æ˜¯å·²ç»å­˜åœ¨çš„fake guy æ—¶è¿”å›0
 
 /daemons/area_d.c
-ĞÂÔö function reduce_soldier() µ±²ÎÊıÎªtype="sum"Ê±£¬ÏÈÊÔÍ¼¼õÉÙfootman£¬
-²»¹»ÔÙÓÃÆäËû±øÖÖ²¹³ä¡£µ±×Ü±øÊıÉÙÓÚ±»¼õÊıÊ±£¬·µ»Ø 0.
+æ–°å¢ function reduce_soldier() å½“å‚æ•°ä¸ºtype="sum"æ—¶ï¼Œå…ˆè¯•å›¾å‡å°‘footmanï¼Œ
+ä¸å¤Ÿå†ç”¨å…¶ä»–å…µç§è¡¥å……ã€‚å½“æ€»å…µæ•°å°‘äºè¢«å‡æ•°æ—¶ï¼Œè¿”å› 0.
 
 /sgdomain/job/fanpeople/fanpeople.c
-ÓÉÓÚfake guy µÄ³öÏÖ£¬¶Ôpeople µÄÕì²â×öÁË±ØÒªµÄµ÷Õû¡£
+ç”±äºfake guy çš„å‡ºç°ï¼Œå¯¹people çš„ä¾¦æµ‹åšäº†å¿…è¦çš„è°ƒæ•´ã€‚
  
 /sgdomain/job/visitpeople/visitpeople.c
-ÓÉÓÚfake guy µÄ³öÏÖ£¬¶Ôpeople µÄÕì²â×ö±ØÒªµÄµ÷Õû¡£
+ç”±äºfake guy çš„å‡ºç°ï¼Œå¯¹people çš„ä¾¦æµ‹åšå¿…è¦çš„è°ƒæ•´ã€‚
 
 /sgdomain/base/control.c
-ĞÂÔö function reduce_ppl ¼õÉÙÅ©·ò¡£
-µ±Å©·ò×ÜÁ¿²»¹»¼õÊÇ£¬Å©³¡½µ¼¶
-Èç¹ûÅ©³¡½µ¼¶Ç°µÈ¼¶Îª1£¬Å©³¡¹Ø±Õ¡£
+æ–°å¢ function reduce_ppl å‡å°‘å†œå¤«ã€‚
+å½“å†œå¤«æ€»é‡ä¸å¤Ÿå‡æ˜¯ï¼Œå†œåœºé™çº§
+å¦‚æœå†œåœºé™çº§å‰ç­‰çº§ä¸º1ï¼Œå†œåœºå…³é—­ã€‚
 
 /sgdomain/cmd/resign.c
-°Ñ setppl ¼ÓÈë²»µÃcmd resign µÄĞĞÁĞ¡£
+æŠŠ setppl åŠ å…¥ä¸å¾—cmd resign çš„è¡Œåˆ—ã€‚
 
 /sgdomain/modules/m_charnpc/guy.c
-²ÎÕÕsuicide citizen µÄ×ö·¨£¬Ê¹µÃfake guy ´æÔÚµÄÊ±¼ä´óÔ¼ÔÚ10·ÖÖÓ×óÓÒ¡£
+å‚ç…§suicide citizen çš„åšæ³•ï¼Œä½¿å¾—fake guy å­˜åœ¨çš„æ—¶é—´å¤§çº¦åœ¨10åˆ†é’Ÿå·¦å³ã€‚
 
 /sgdomain/modules/m_charnpc/guy/guy_thought.c
-Èç¹ûÊÇfake guy ,³õÊÔstatus Ìá¸ß²¢±£Ö¤Õ÷±ø£¬À­Å©·ò£¬À­Ç×±ø³É¹¦¡£
+å¦‚æœæ˜¯fake guy ,åˆè¯•status æé«˜å¹¶ä¿è¯å¾å…µï¼Œæ‹‰å†œå¤«ï¼Œæ‹‰äº²å…µæˆåŠŸã€‚
 
 /sgdomain/modules/m_charnpc/guy/guy_final.c
-ÔÚÕâ¸öÎÄ¼şÖĞ°üº¬ÁË¶ÔÕ÷±ø£¬À­Å©·ò£¬À­Ç×±øfake guy µÄ³Í·£
+åœ¨è¿™ä¸ªæ–‡ä»¶ä¸­åŒ…å«äº†å¯¹å¾å…µï¼Œæ‹‰å†œå¤«ï¼Œæ‹‰äº²å…µfake guy çš„æƒ©ç½š
 
 /help/player/sanguo/job/setppl
-setppl job µÄ°ïÖúÎÄ¼ş¡£
+setppl job çš„å¸®åŠ©æ–‡ä»¶ã€‚
 
 -listen

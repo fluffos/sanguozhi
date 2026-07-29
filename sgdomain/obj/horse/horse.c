@@ -2,12 +2,12 @@
 #include "/wiz/ljty/ljty.h"
 inherit M_HORSE_1;
 inherit M_VALUE;
-static array horse_act=({
-	"¸ßÐËµØÈöÆð»¶À´¡£\n",
-	"½ò½òÓÐÎ¶µØ¿ÐÆðÂ·±ßµÄ²ÝÀ´¡£\n",
-	"Ò¡Ò¡Î²°Í£¬¸Ï×ß²ÔÓ¬¡£\n",
-	"Ò»Éù³¤Ãù£¬Ç°ÌãÃÍµÃÁ¢ÁËÆðÀ´¡£\n",
-	"²»ÖªÔõÃ´·¢ÁËÆ¢Æø£¬ÁªÁÌ¼¸¸öõê×Ó¡£\n"
+nosave protected mixed * horse_act=({
+	"é«˜å…´åœ°æ’’èµ·æ¬¢æ¥ã€‚\n",
+	"æ´¥æ´¥æœ‰å‘³åœ°å•ƒèµ·è·¯è¾¹çš„è‰æ¥ã€‚\n",
+	"æ‘‡æ‘‡å°¾å·´ï¼Œèµ¶èµ°è‹è‡ã€‚\n",
+	"ä¸€å£°é•¿é¸£ï¼Œå‰è¹„çŒ›å¾—ç«‹äº†èµ·æ¥ã€‚\n",
+	"ä¸çŸ¥æ€Žä¹ˆå‘äº†è„¾æ°”ï¼Œè”æ’‚å‡ ä¸ªè¹¶å­ã€‚\n"
 });
 
 private int p_level;
@@ -19,7 +19,7 @@ void horse_heart()
 	call_out("horse_heart",10+random(50));
 //        own=query_owner();
 	if((!find_user(own))&&(!sizeof(get_riders()))){
-		tell_environment(this_object(),short()+"Ò»ÁïÑÌÅÜ²»¼ûÁË¡£\n");
+		tell_environment(this_object(),short()+"ä¸€æºœçƒŸè·‘ä¸è§äº†ã€‚\n");
 		this_object()->remove();
 		return;
 	}
@@ -37,7 +37,7 @@ void setup()
 {
     if(file_name(previous_object())!=OBJ_D)
     {
-        write("·Ç·¨¸´ÖÆ.\n");
+        write("éžæ³•å¤åˆ¶.\n");
         this_object()->remove();
         return;
     }
@@ -56,7 +56,7 @@ int init_obj(string p_id)
 	add_id(p_id+" obj");
 	set_unit(par["unit"]);
 
-	set_in_room_desc("Ò»"+par["unit"]+par["name"]+"("+p_id+")\n");
+	set_in_room_desc("ä¸€"+par["unit"]+par["name"]+"("+p_id+")\n");
 
 	set_long(par["long"]);
 
@@ -88,18 +88,18 @@ string check_obj()
 	object p_id=this_object()->query_primary_id();
 	mixed inf;
 	inf=OBJ_D->get_obj(p_id);
-	ret="ÎïÆ·Àà±ð£º"+sprintf("%-8s  ",OBJ_D->type_name(inf["type"]));
-	ret+="µÈ¼¶£º"+sprintf("%2d",inf["level"])+"\n¼ÛÇ®£º"+
-		((inf["value"] < 0) ? ("ÎÞ¼ÛÖ®±¦"):(CHINESE_D->chinese_value(inf["value"])))+"\n";
-	ret+="¹¥»÷¼¼ÄÜ(¾ö¶¨¹¥»÷³É¹¦ÂÊ)£º+"+sprintf("%2d",inf["att_abi"])+"\n";
-	ret+="ËÙ¶È£º"+100/inf["sp"]+ " ÄÍÁ¦£º"+inf["en"]+"\n";
-	ret+="ËÇÑøÏûºÄ£¬½ð£º"+inf["fe"][0]+" Á¸£º"+inf["fe"][1]+"\n";
-	ret+="¸ºÖØ£º"+chinese_number(inf["size"])+"ÈË¡£\n";
+	ret="ç‰©å“ç±»åˆ«ï¼š"+sprintf("%-8s  ",OBJ_D->type_name(inf["type"]));
+	ret+="ç­‰çº§ï¼š"+sprintf("%2d",inf["level"])+"\nä»·é’±ï¼š"+
+		((inf["value"] < 0) ? ("æ— ä»·ä¹‹å®"):(CHINESE_D->chinese_value(inf["value"])))+"\n";
+	ret+="æ”»å‡»æŠ€èƒ½(å†³å®šæ”»å‡»æˆåŠŸçŽ‡)ï¼š+"+sprintf("%2d",inf["att_abi"])+"\n";
+	ret+="é€Ÿåº¦ï¼š"+100/inf["sp"]+ " è€åŠ›ï¼š"+inf["en"]+"\n";
+	ret+="é¥²å…»æ¶ˆè€—ï¼Œé‡‘ï¼š"+inf["fe"][0]+" ç²®ï¼š"+inf["fe"][1]+"\n";
+	ret+="è´Ÿé‡ï¼š"+chinese_number(inf["size"])+"äººã€‚\n";
 
 //        own=query_owner();
 	if(sizeof(own))
 	{	own=CHAR_D->get_char(own,"name")+"("+own+")";
-		ret+="ÂíÖ÷ÈË£º"+own+"\n";
+		ret+="é©¬ä¸»äººï¼š"+own+"\n";
 	}
 	return ret;
 

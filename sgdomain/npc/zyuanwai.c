@@ -1,7 +1,7 @@
 // by fire@sgz on 27 May 1999
-// zyuanwai.c  ÕÅÔ±Íâ
+// zyuanwai.c  å¼ å‘˜å¤–
 inherit LIVING;
-int learn_wxxy(object who)  //ÎäÑ§ÐÞÑø
+int learn_wxxy(object who)  //æ­¦å­¦ä¿®å…»
 {
   int p_res;
   string p_st;
@@ -9,34 +9,34 @@ int learn_wxxy(object who)  //ÎäÑ§ÐÞÑø
   switch(p_res)
   {
 	case LESS_EXP:
-	this_object()->targetted_action("$N¶Ô$TÐ¦µ½£º¡°Äã¾­Ñé²»×ã£¬Ñ§²»¶®£¡¡±\n",who);
+	this_object()->targetted_action("$Nå¯¹$Tç¬‘åˆ°ï¼šâ€œä½ ç»éªŒä¸è¶³ï¼Œå­¦ä¸æ‡‚ï¼â€\n",who);
 		return;
         case TOO_TIRED:
                 this_object()->targetted_action
-          ("$N¶Ô$TÐ¦µ½£º¡°ÄãÌ«ÀÛÁË£¬ÐÝÏ¢»á¶ùÔÙÀ´Ñ§°É¡£¡±\n",who);
+          ("$Nå¯¹$Tç¬‘åˆ°ï¼šâ€œä½ å¤ªç´¯äº†ï¼Œä¼‘æ¯ä¼šå„¿å†æ¥å­¦å§ã€‚â€\n",who);
                 return 0;
         case TOO_EASY:
                 this_object()->targetted_action
-          ("$N¶Ô$TÐ¦µ½£º¡°Äã¸ÃÕÒ¸ö¸ü¸ßÃ÷µÄÀÏÊ¦ÁË¡£¡±\n",who);
+          ("$Nå¯¹$Tç¬‘åˆ°ï¼šâ€œä½ è¯¥æ‰¾ä¸ªæ›´é«˜æ˜Žçš„è€å¸ˆäº†ã€‚â€\n",who);
                 return 0;
                 case LESS_LITERATE:
-                        this_object()->targetted_action("$N¶Ô$TµÀ£ºÄãµÄÎÄÑ§Ì«²î£¬Ìý²»¶®ÕâÐ©¡£\n",this_body());
+                        this_object()->targetted_action("$Nå¯¹$Té“ï¼šä½ çš„æ–‡å­¦å¤ªå·®ï¼Œå¬ä¸æ‡‚è¿™äº›ã€‚\n",this_body());
                         return 0;
         case CAN_LEARN:
-           this_object()->targetted_action("$NÏò$T´«ÊÚÁËÒ»Ð©»ù±¾ÎäÑ§¼¼·¨¡£\n",who);
+           this_object()->targetted_action("$Nå‘$Tä¼ æŽˆäº†ä¸€äº›åŸºæœ¬æ­¦å­¦æŠ€æ³•ã€‚\n",who);
            p_st=SG_SKILL_D->query_get("sk_wuli");
            who->simple_action(p_st);
            return 1;
         default :
-            write("²»ÖªÎªÊ²Ã´Ëû²»½ÌÄã£¬ÎÊÎÊÎ×Ê¦°É¡£\n");
+            write("ä¸çŸ¥ä¸ºä»€ä¹ˆä»–ä¸æ•™ä½ ï¼Œé—®é—®å·«å¸ˆå§ã€‚\n");
   }
   return 0;
 }
 void setup()
 {
-    set_name("zhang yuanwai", "ÕÅÔ±Íâ");
-    set_proper_name("ÕÅÔ±Íâ");
-    set_in_room_desc("»ªÒõÓÐÃû´ó¸»ºÀ£¬ÕÅÔ±Íâ(zhang yuanwai)");
+    set_name("zhang yuanwai", "å¼ å‘˜å¤–");
+    set_proper_name("å¼ å‘˜å¤–");
+    set_in_room_desc("åŽé˜´æœ‰åå¤§å¯Œè±ªï¼Œå¼ å‘˜å¤–(zhang yuanwai)");
     set_gender(1);
     add_id("zhang");
     set_age(50);
@@ -45,7 +45,7 @@ void setup()
     set_sg_rongmao(-1);
 }
 string long() {
-    return "ÕÅÔ±Íâ£¬¸öÍ·²»¸ß£¬µ«È´ºÜÓÐÒ»Ð©ÍþÑÏ¡£\n";
+    return "å¼ å‘˜å¤–ï¼Œä¸ªå¤´ä¸é«˜ï¼Œä½†å´å¾ˆæœ‰ä¸€äº›å¨ä¸¥ã€‚\n";
 }
 void special_answer(object who, string matt)
 {
@@ -56,18 +56,18 @@ void special_answer(object who, string matt)
      {
          case "rumors":
              this_object()->targetted_action
-              ("$N¶Ô$TµÀ£º±ø»ÄÂíÂÒµÄ£¬²»Ñ§Á½ÊÖÈ­½Å·ÀÉíÔõÃ´ÄÜÐÐ¡£\n",who);
+              ("$Nå¯¹$Té“ï¼šå…µè’é©¬ä¹±çš„ï¼Œä¸å­¦ä¸¤æ‰‹æ‹³è„šé˜²èº«æ€Žä¹ˆèƒ½è¡Œã€‚\n",who);
              break;
          case "wxxy" :
              ob=present("zhan_jishaoxin",who);
              if(!objectp(ob)) {
                  this_object()->targetted_action
-                  ("$N¶Ô$TµÀ£º$SÕâµã¹¦·ò£¬ËäÈ»´ÖÇ³£¬µ«Ò²Ö»´«¼ÒÈË¡£\n",who);
+                  ("$Nå¯¹$Té“ï¼š$Sè¿™ç‚¹åŠŸå¤«ï¼Œè™½ç„¶ç²—æµ…ï¼Œä½†ä¹Ÿåªä¼ å®¶äººã€‚\n",who);
                  break;
              }
              else {
                  this_object()->targetted_action
-                  ("$N¶Ô$TµÀ£º$RÔÚ$s¼ÒÀÍÀÛÐÁ¿à£¬Õâµã´ÖÇ³¹¦·ò£¬ÏëÀ´$RÈÕºó»¹ÊÇÓÃµÃÉÏ¡£\n",who);
+                  ("$Nå¯¹$Té“ï¼š$Råœ¨$så®¶åŠ³ç´¯è¾›è‹¦ï¼Œè¿™ç‚¹ç²—æµ…åŠŸå¤«ï¼Œæƒ³æ¥$Ræ—¥åŽè¿˜æ˜¯ç”¨å¾—ä¸Šã€‚\n",who);
                  if(learn_wxxy(who))
                      destruct(ob);
                  break;

@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is »¨¶ù¶ä¶ä
+// driver is èŠ±å„¿æœµæœµ
 // created date is Thu Apr 28 23:30:08 2011
 #include <mudlib.h>
 #include <ansi.h>
@@ -8,11 +8,11 @@ inherit STORE;
 void setup() {
 set_area("huayin");
 set_light(50);
-set_brief("%^YELLOW%^"+"Ğ¡µê"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"å°åº—"+"%^RESET%^");
 set_long("
-    Äã×ß½ø´åÖĞÎ¨Ò»µÄÒ»¸öĞ¡µê£¬ÒòÎª´åÖĞÈËÉÙ£¬ÕâÀïµÄÉúÒâÒ²²»Ì«
-ºÃ¡£µêĞ¡¶şÕıÀÁÑóÑóµØ×øÔÚÒ»ÅÔ´òî§Ë¯¡£ÓÃlistÖ¸Áî¿ÉÒÔ¿´³öÊÛÖĞµÄ
-ÎïÆ·£¬buyÖ¸Áî¹ºÂò¡£\n\n");
+    ä½ èµ°è¿›æ‘ä¸­å”¯ä¸€çš„ä¸€ä¸ªå°åº—ï¼Œå› ä¸ºæ‘ä¸­äººå°‘ï¼Œè¿™é‡Œçš„ç”Ÿæ„ä¹Ÿä¸å¤ª
+å¥½ã€‚åº—å°äºŒæ­£æ‡’æ´‹æ´‹åœ°ååœ¨ä¸€æ—æ‰“çŒç¡ã€‚ç”¨listæŒ‡ä»¤å¯ä»¥çœ‹å‡ºå”®ä¸­çš„
+ç‰©å“ï¼ŒbuyæŒ‡ä»¤è´­ä¹°ã€‚\n\n");
 set_exits( ([
 "north":"/a/huayin/xiaolu.c",
  ]));

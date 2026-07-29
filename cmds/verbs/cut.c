@@ -12,12 +12,12 @@ void do_cut_str_with_str(string st1,string st2)
 	if(!ob2){ return;}
     if(!ob2->can_cut_with_obj())
 	{
-		write(ob2->short()+"ºÃÏóÃ»·¨ÓÃÀ´ÇÐ¶«Î÷¡£\n");
+		write(ob2->short()+"å¥½è±¡æ²¡æ³•ç”¨æ¥åˆ‡ä¸œè¥¿ã€‚\n");
 		return;
 	}
 	if(!ob1->is_cutable())
 	{
-		write(ob1->short()+"ºÃÏó²»ÄÜÇÐ¡£\n");
+		write(ob1->short()+"å¥½è±¡ä¸èƒ½åˆ‡ã€‚\n");
 		return;
 	}
 	ob2->do_cutting(ob1);
@@ -35,12 +35,12 @@ void do_cut_str(string str)
 		return;
 	}
 	if(!ret)
-		ret=o->short()+"ºÃÏóÃ»·¨ÇÐ¡£\n";
+		ret=o->short()+"å¥½è±¡æ²¡æ³•åˆ‡ã€‚\n";
 	write(ret);
 	return;
 
 }
-array query_verb_info()
+mixed * query_verb_info()
 {
 	return ({ ({ "STR", "STR with STR", }) });
 }

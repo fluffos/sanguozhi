@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is »¨¶ù¶ä¶ä
+// driver is èŠ±å„¿æœµæœµ
 // created date is Wed Jun 15 16:44:46 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,10 +7,10 @@ inherit INDOOR_ROOM;
 void setup() {
 set_area("shangdang");
 set_light(50);
-set_brief("%^YELLOW%^"+"ÒéÊÂÌü"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"è®®äº‹å…"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "south":"/a/shangdang/sd_junying.c",
  ]));
-set_objects(([M_BOARD : ({ 1,"Ç½ÉÏ¹Ò×Å"+"%^MAGENTA%^"+"ÉÏµ³ÁôÑÔ°ñ"+"%^RESET%^", "city.shangdang" }) ]) );
+set_objects(([M_BOARD : ({ 1,"å¢™ä¸ŠæŒ‚ç€"+"%^MAGENTA%^"+"ä¸Šå…šç•™è¨€æ¦œ"+"%^RESET%^", "city.shangdang" }) ]) );
 }

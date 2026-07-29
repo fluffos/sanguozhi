@@ -14,10 +14,10 @@ private nomask void set_plan(string * plan)
 {
     if( !sizeof( plan ))
     {
-        write( "你没有改变你的计划。\n");
+        write( "浣犳病鏈夋敼鍙樹綘鐨勮鍒掋�俓n");
         return;
     }
-    write("你设定计划完成。\n");
+    write("浣犺瀹氳鍒掑畬鎴愩�俓n");
     this_body()->set_plan(implode(plan,"\n"));
 }
 
@@ -25,10 +25,10 @@ private void main()
 {
 #ifdef EVERYONE_HAS_A_PLAN
 
-    out("输入你的计划吧：\n");
+    out("杈撳叆浣犵殑璁″垝鍚э細\n");
     new(EDIT_OB, EDIT_TEXT, 0, (: set_plan :));
 
 #else
-    out("对不起，没有这样功能。\n");
+    out("瀵逛笉璧凤紝娌℃湁杩欐牱鍔熻兘銆俓n");
 #endif
 }

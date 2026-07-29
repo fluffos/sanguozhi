@@ -25,7 +25,7 @@ nomask string make_name_list(mixed * list);
 **
 ** Print moderator/speak infor for a moderated channel.
 */
-static nomask void print_mod_info(string channel_name)
+protected nomask void print_mod_info(string channel_name)
 {
     class channel_info ci = query_channel_info(channel_name);
 
@@ -33,38 +33,38 @@ static nomask void print_mod_info(string channel_name)
     return;
 
     printf(//"It is being moderated by %s.\n",
-           "ÏÖÔÚÓÉ %s Ö÷³ÖÕâ¸öÆµµÀ¡£\n",
+           "ç°åœ¨ç”± %s ä¸»æŒè¿™ä¸ªé¢‘é“ã€‚\n",
             ci->moderator->query_name());
 
     if ( ci->speaker )
     printf(//"The current speaker is %s.\n",
-           "ÏÖÔÚ·¢ÑÔÈËÊÇ£º%s¡£\n",
+           "ç°åœ¨å‘è¨€äººæ˜¯ï¼š%sã€‚\n",
              ci->speaker->query_name());
     else
     //printf("There is no current speaker.\n");
-    printf("ÏÖÔÚÃ»ÓĞ·¢ÑÔÈË¡£\n");
+    printf("ç°åœ¨æ²¡æœ‰å‘è¨€äººã€‚\n");
 
     if ( ci->moderator == this_body() )
     {
     if ( !ci->requestors ||
         !sizeof(ci->requestors) )
         //printf("There are no requestors.\n");
-        printf("ÏÖÔÚÃ»ÓĞÈËÇëÇó·¢ÑÔ¡£\n");
+        printf("ç°åœ¨æ²¡æœ‰äººè¯·æ±‚å‘è¨€ã€‚\n");
     else
         write(iwrap(sprintf(//"Requestors are: %s.\n",
-                            "ÏÖÔÚÇëÇó·¢ÑÔµÄÈËÓĞ£º %s¡£\n",
+                            "ç°åœ¨è¯·æ±‚å‘è¨€çš„äººæœ‰ï¼š %sã€‚\n",
                 make_name_list(ci->requestors))));
     }
     else if ( member_array(this_body(), ci->requestors) != -1 )
     {
     //printf("Your hand is raised to speak.\n");
-    printf("Äã¾ÙÊÖÒªÇó·¢ÑÔ¡£\n");
+    printf("ä½ ä¸¾æ‰‹è¦æ±‚å‘è¨€ã€‚\n");
     }
 }
 
 
 /* this is used when signing off from a channel... */
-static nomask void moderation_signoff(string channel_name)
+protected nomask void moderation_signoff(string channel_name)
 {
     class channel_info ci = query_channel_info(channel_name);
 
@@ -76,19 +76,19 @@ static nomask void moderation_signoff(string channel_name)
     ci->moderator = ci->speaker = ci->requestors = 0;
 
     deliver_notice(channel_name, //"This channel is now unmoderated");
-				"Õâ¸öÆµµÀÏÖÔÚ×ÔÓÉ·¢ÑÔ¡£");
+				"è¿™ä¸ªé¢‘é“ç°åœ¨è‡ªç”±å‘è¨€ã€‚");
     }
     else if ( this_body() == ci->speaker )
     {
     ci->speaker = 0;
     deliver_notice(channel_name,
                sprintf(//"%s is no longer speaking",
-                       "%s Í£Ö¹·¢ÑÔ¡£",
+                       "%s åœæ­¢å‘è¨€ã€‚",
                    this_body()->query_name()));
     }
 }
 
-static nomask int cmd_moderation(string channel_name, string arg)
+protected nomask int cmd_moderation(string channel_name, string arg)
 {
     class channel_info ci = query_channel_info(channel_name);
     string user_channel_name = user_channel_name(channel_name);
@@ -100,31 +100,31 @@ static nomask int cmd_moderation(string channel_name, string arg)
     if ( !ci->moderator )
     {
         printf(//"'%s' is not moderated.\n",
-                "'%s' ÆµµÀÏÖÔÚÎŞÈËÖ÷³Ö¡£\n",
+                "'%s' é¢‘é“ç°åœ¨æ— äººä¸»æŒã€‚\n",
         user_channel_name);
     }
     else if ( tb == ci->speaker )
     {
         printf(//"You are already speaking on '%s'.\n",
-               "ÄãÕıÔÚ '%s' ÆµµÀÉÏ·¢ÑÔ¡£\n",
+               "ä½ æ­£åœ¨ '%s' é¢‘é“ä¸Šå‘è¨€ã€‚\n",
                  user_channel_name);
     }
     else if ( member_array(tb, ci->requestors) == -1 )
     {
         printf(//"Your raise your hand to speak on '%s'.\n",
-               "Äã¾ÙÊÖÒªÇóÔÚ '%s' ÆµµÀÉÏ·¢ÑÔ¡£\n",
+               "ä½ ä¸¾æ‰‹è¦æ±‚åœ¨ '%s' é¢‘é“ä¸Šå‘è¨€ã€‚\n",
            user_channel_name);
         ci->requestors += ({ tb });
         ci->moderator->channel_rcv_string(channel_name,
                       sprintf(//"[%s] (%s raises a hand to speak)\n",
-                              "[%s] (%s¾ÙÊÖÒªÇó·¢ÑÔ)\n",
+                              "[%s] (%sä¸¾æ‰‹è¦æ±‚å‘è¨€)\n",
                           user_channel_name,
                           sender_name));
     }
     else
     {
         printf(//"You already have your hand raised to speak on '%s'.\n",
-               "ÄãÒÑ¾­¾ÙÊÖÒªÇóÔÚ '%s' ÆµµÀÉÏ·¢ÑÔÁË¡£\n",
+               "ä½ å·²ç»ä¸¾æ‰‹è¦æ±‚åœ¨ '%s' é¢‘é“ä¸Šå‘è¨€äº†ã€‚\n",
            user_channel_name);
     }
     }
@@ -133,25 +133,25 @@ static nomask int cmd_moderation(string channel_name, string arg)
     if ( !ci->moderator )
     {
         printf(//"'%s' is not moderated.\n",
-                "'%s' ÆµµÀÏÖÔÚÎŞÈËÖ÷³Ö¡£\n",
+                "'%s' é¢‘é“ç°åœ¨æ— äººä¸»æŒã€‚\n",
                 user_channel_name);
     }
     else if ( member_array(tb, ci->requestors) != -1 )
     {
         printf(//"Your lower your hand to avoid speaking on '%s'.\n",
-               "Äã°ÑÊÖ·ÅÏÂÀ´²»×¼±¸ÔÚ '%s' ÆµµÀÉÏ·¢ÑÔÁË¡£\n",
+               "ä½ æŠŠæ‰‹æ”¾ä¸‹æ¥ä¸å‡†å¤‡åœ¨ '%s' é¢‘é“ä¸Šå‘è¨€äº†ã€‚\n",
            user_channel_name);
         ci->requestors -= ({ tb });
         ci->moderator->channel_rcv_string(channel_name,
                       sprintf(//"[%s] (%s lowers a hand)\n",
-                              "[%s] (%s·ÅÏÂÁË¾ÙÆğµÄÊÖ)\n",
+                              "[%s] (%sæ”¾ä¸‹äº†ä¸¾èµ·çš„æ‰‹)\n",
                           user_channel_name,
                           sender_name));
     }
     else
     {
         printf(//"Your hand is not raised to speak on '%s'.\n",
-               "Äã²¢Ã»ÓĞ¾ÙÊÖÒªÇóÔÚ '%s' ÆµµÀÉÏ·¢ÑÔ¡£\n",
+               "ä½ å¹¶æ²¡æœ‰ä¸¾æ‰‹è¦æ±‚åœ¨ '%s' é¢‘é“ä¸Šå‘è¨€ã€‚\n",
            user_channel_name);
     }
     }
@@ -161,13 +161,13 @@ static nomask int cmd_moderation(string channel_name, string arg)
     if ( !ci->moderator )
     {
         printf(//"'%s' is not moderated.\n",
-               "'%s' ÆµµÀÏÖÔÚÎŞÈËÖ÷³Ö¡£\n",
+               "'%s' é¢‘é“ç°åœ¨æ— äººä¸»æŒã€‚\n",
                 user_channel_name);
     }
     else if ( ci->moderator != tb )
     {
         printf(//"You are not the moderator of '%s'.\n",
-               "Äã²»ÊÇ '%s' ÆµµÀµÄÖ÷³ÖÈË¡£\n",
+               "ä½ ä¸æ˜¯ '%s' é¢‘é“çš„ä¸»æŒäººã€‚\n",
                 user_channel_name);
     }
     else if ( arg == "" )
@@ -175,7 +175,7 @@ static nomask int cmd_moderation(string channel_name, string arg)
         if ( sizeof(ci->requestors) == 0 )
         {
         //printf("Nobody has their hand raised.\n");
-        printf("Ã»ÓĞÈË¾ÙÊÖ¡£\n");
+        printf("æ²¡æœ‰äººä¸¾æ‰‹ã€‚\n");
 
         }
         else
@@ -184,7 +184,7 @@ static nomask int cmd_moderation(string channel_name, string arg)
         ci->requestors = ci->requestors[1..];
         deliver_notice(channel_name,
                    //sprintf("%s will now speak",
-		sprintf("%sÏÖÔÚ¿ªÊ¼·¢ÑÔ¡£",
+		sprintf("%sç°åœ¨å¼€å§‹å‘è¨€ã€‚",
                        ci->speaker->query_name()));
         }
     }
@@ -197,7 +197,7 @@ static nomask int cmd_moderation(string channel_name, string arg)
         if ( sizeof(spkr) == 0 )
         {
         printf(//"'%s' was not found (or did not have their hand raised.\n",
-               "'%s' ²»ÔÚÕâÀï»òÊÇÃ»ÓĞ¾ÙÊÖ¡£\n",
+               "'%s' ä¸åœ¨è¿™é‡Œæˆ–æ˜¯æ²¡æœ‰ä¸¾æ‰‹ã€‚\n",
                arg);
         }
         else
@@ -206,7 +206,7 @@ static nomask int cmd_moderation(string channel_name, string arg)
         ci->requestors -= ({ spkr[0] });
         deliver_notice(channel_name,
                    //sprintf("%s will now speak",
-                   sprintf("%sÏÖÔÚ¿ªÊ¼·¢ÑÔ¡£\n",
+                   sprintf("%sç°åœ¨å¼€å§‹å‘è¨€ã€‚\n",
                        ci->speaker->query_name()));
         }
     }
@@ -221,22 +221,22 @@ static nomask int cmd_moderation(string channel_name, string arg)
         ci->requestors = ({ });
         deliver_notice(channel_name,
 		sprintf(//"%s",
-			"%s ÏÖÔÚÀ´Ö÷³ÖÕâ¸öÆµµÀ¡£",
+			"%s ç°åœ¨æ¥ä¸»æŒè¿™ä¸ªé¢‘é“ã€‚",
                         sender_name));
     }
     else
     {
        // printf("You are not allowed to moderate this channel.\n");
-       printf("ÄãÃ»ÓĞÈ¨ÀûÀ´Ö÷³ÖÕâ¸öÆµµÀ¡£\n");
+       printf("ä½ æ²¡æœ‰æƒåˆ©æ¥ä¸»æŒè¿™ä¸ªé¢‘é“ã€‚\n");
     }
     }
 	else if (arg == "/unmoderate") {
 	  if( this_body() == ci->moderator ) {
 		ci->moderator = ci->speaker = ci->requestors = 0;
-		deliver_notice(channel_name, "Õâ¸öÆµµÀÏÖÔÚ×ÔÓÉ·¢ÑÔ¡£");
+		deliver_notice(channel_name, "è¿™ä¸ªé¢‘é“ç°åœ¨è‡ªç”±å‘è¨€ã€‚");
 	  }
 	  else
-		printf("Äã²»ÊÇ '%s' ÆµµÀµÄÖ÷³ÖÈË¡£\n",channel_name);
+		printf("ä½ ä¸æ˜¯ '%s' é¢‘é“çš„ä¸»æŒäººã€‚\n",channel_name);
 	}
     else
     {

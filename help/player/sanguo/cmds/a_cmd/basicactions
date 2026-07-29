@@ -1,20 +1,20 @@
-Èý¹úÄàÌ¶µÄÒ»Ð©»ù±¾¶¯×÷£º
+ä¸‰å›½æ³¥æ½­çš„ä¸€äº›åŸºæœ¬åŠ¨ä½œï¼š
 
-1¡¢ Ë¯¾õ£ºÏê¼û%^H_CYAN%^help sleep%^RESET%^£»
-2¡¢ ³Ô·¹£ºÕÒµ½Ê³ÎïºóÓÃ %^H_CYAN%^eat %^H_YELLOW%^<obj_id>%^RESET%^ ºÍ %^H_CYAN%^drink %^H_YELLOW%^<obj_id>%^RESET%^ À´³ÔºÈ£»
-3¡¢ ÒÂ×Å£º´©ÒÂ·þ¡¢îø¼×¡¢Ð¬×Ó£¬´÷Ã±ÊÎ¡¢Ê×ÊÎµÈÓÃ %^H_CYAN%^wear %^H_YELLOW%^<obj_id>%^RESET%^£¬
-          ·´Ö®ÓÃ %^H_CYAN%^remove %^H_YELLOW%^<obj_id>%^RESET%^£»
-4¡¢ ÎäÆ÷£º×°±¸Ä³ÏîÎäÆ÷£º%^H_CYAN%^wield %^H_YELLOW%^<obj_id>%^RESET%^£¬
-          ·ÅÏÂÊÖÀïµÄÎäÆ÷£º%^H_CYAN%^unwield%^RESET%^£»
-5¡¢ ÆïÂí£ºÈç¹ûÊÇ×Ô¼ºµÄÂí£¬Ö÷ÒªÊäÈë %^H_CYAN%^mount %^H_YELLOW%^<horse_id>%^RESET%^ ¼´¿É£¬
-          Èç¹û²»ÊÇ×Ô¼ºµÄÂí£¬ÔòÆïÂíÒª¾­¹ýÂíÖ÷ÈËµÄÍ¬Òâ²¢ÇÒÂíµÄ
-          Ö÷ÈËÒªÔÚÂíÉÏ£¬ÁíÒ»¸öÇ°ÌáÊÇ¸ÃÂíµÄ¸ºÖØÊÇÁ½ÈË£»
-          ÏÂÂí£º%^H_CYAN%^stand%^RESET%^£»
-6¡¢ ¸úËæ£ºÈç¹ûÒª¸úËæÄ³ÈË£º%^H_CYAN%^ follow %^H_YELLOW%^<ID>%^RESET%^£¬
-          È¡Ïû¸úËæ£º %^H_CYAN%^follow%^RESET%^£»
-7¡¢ ´æÈ¡£ºÏÈµ½Ç®×¯£¬´æÇ®£º%^H_CYAN%^deposit %^H_MAGENTA%^<amount> %^H_YELLOW%^<type>%^RESET%^£¬
-          ´ÓÇ®×¯È¡Ç®£º%^H_CYAN%^withdraw%^H_MAGENTA%^ <amount> %^H_YELLOW%^<type>%^RESET%^£¬
-          ÈçºÎÈ¡ÙºÂ»£ºÏê¼û %^H_CYAN%^help money%^RESET%^ ºÍ %^H_CYAN%^help call%^RESET%^¡£
+1ã€ ç¡è§‰ï¼šè¯¦è§%^H_CYAN%^help sleep%^RESET%^ï¼›
+2ã€ åƒé¥­ï¼šæ‰¾åˆ°é£Ÿç‰©åŽç”¨ %^H_CYAN%^eat %^H_YELLOW%^<obj_id>%^RESET%^ å’Œ %^H_CYAN%^drink %^H_YELLOW%^<obj_id>%^RESET%^ æ¥åƒå–ï¼›
+3ã€ è¡£ç€ï¼šç©¿è¡£æœã€é“ ç”²ã€éž‹å­ï¼Œæˆ´å¸½é¥°ã€é¦–é¥°ç­‰ç”¨ %^H_CYAN%^wear %^H_YELLOW%^<obj_id>%^RESET%^ï¼Œ
+          åä¹‹ç”¨ %^H_CYAN%^remove %^H_YELLOW%^<obj_id>%^RESET%^ï¼›
+4ã€ æ­¦å™¨ï¼šè£…å¤‡æŸé¡¹æ­¦å™¨ï¼š%^H_CYAN%^wield %^H_YELLOW%^<obj_id>%^RESET%^ï¼Œ
+          æ”¾ä¸‹æ‰‹é‡Œçš„æ­¦å™¨ï¼š%^H_CYAN%^unwield%^RESET%^ï¼›
+5ã€ éª‘é©¬ï¼šå¦‚æžœæ˜¯è‡ªå·±çš„é©¬ï¼Œä¸»è¦è¾“å…¥ %^H_CYAN%^mount %^H_YELLOW%^<horse_id>%^RESET%^ å³å¯ï¼Œ
+          å¦‚æžœä¸æ˜¯è‡ªå·±çš„é©¬ï¼Œåˆ™éª‘é©¬è¦ç»è¿‡é©¬ä¸»äººçš„åŒæ„å¹¶ä¸”é©¬çš„
+          ä¸»äººè¦åœ¨é©¬ä¸Šï¼Œå¦ä¸€ä¸ªå‰ææ˜¯è¯¥é©¬çš„è´Ÿé‡æ˜¯ä¸¤äººï¼›
+          ä¸‹é©¬ï¼š%^H_CYAN%^stand%^RESET%^ï¼›
+6ã€ è·Ÿéšï¼šå¦‚æžœè¦è·ŸéšæŸäººï¼š%^H_CYAN%^ follow %^H_YELLOW%^<ID>%^RESET%^ï¼Œ
+          å–æ¶ˆè·Ÿéšï¼š %^H_CYAN%^follow%^RESET%^ï¼›
+7ã€ å­˜å–ï¼šå…ˆåˆ°é’±åº„ï¼Œå­˜é’±ï¼š%^H_CYAN%^deposit %^H_MAGENTA%^<amount> %^H_YELLOW%^<type>%^RESET%^ï¼Œ
+          ä»Žé’±åº„å–é’±ï¼š%^H_CYAN%^withdraw%^H_MAGENTA%^ <amount> %^H_YELLOW%^<type>%^RESET%^ï¼Œ
+          å¦‚ä½•å–ä¿¸ç¦„ï¼šè¯¦è§ %^H_CYAN%^help money%^RESET%^ å’Œ %^H_CYAN%^help call%^RESET%^ã€‚
 
-ÆäËûµÄÒ»Ð©ÏàÓ¦¶¯×÷ÔòÐèÒªÄ³Ð©ÌØÊâ³¡¾°»òÌØÊâÎïÆ·²ÅÄÜÍê³É£¬
-Çë²ÎÔÄÆäËûÓÐ¹ØµÄ°ïÖúÎÄ¼þ¡£
+å…¶ä»–çš„ä¸€äº›ç›¸åº”åŠ¨ä½œåˆ™éœ€è¦æŸäº›ç‰¹æ®Šåœºæ™¯æˆ–ç‰¹æ®Šç‰©å“æ‰èƒ½å®Œæˆï¼Œ
+è¯·å‚é˜…å…¶ä»–æœ‰å…³çš„å¸®åŠ©æ–‡ä»¶ã€‚

@@ -8,13 +8,13 @@ inherit M_GETTABLE;
 void setup()
 {
         ::mudlib_setup();
-        set_unit("Êø");  
-        set_id("flower", "ÏÊ»¨");
-        set_long("Ò»ÊøĞÂÏÊµÄ»¨£¬ÎÅÆğÀ´·Ç³£Ïã¡£");
-        set_in_room_desc("ÏÊ»¨(flower)");
+        set_unit("æŸ");  
+        set_id("flower", "é²œèŠ±");
+        set_long("ä¸€æŸæ–°é²œçš„èŠ±ï¼Œé—»èµ·æ¥éå¸¸é¦™ã€‚");
+        set_in_room_desc("é²œèŠ±(flower)");
         set_gettable(1);
         set_slot(HEAD); 
-        set_wearmsg("$N¸ßĞËµØÎÅÁËÎÅÏÊ»¨£¬°ÑËü²åÔÚÍ·ÉÏ£¬ºÃÏñÆ¯ÁÁÁËĞí¶à¡£\n");
-        set_removemsg("$NÇáÇáµØ°ÑÒ»ÊøÏÊ»¨´ÓÍ·ÉÏÈ¡ÏÂ¡£\n");
+        set_wearmsg("$Né«˜å…´åœ°é—»äº†é—»é²œèŠ±ï¼ŒæŠŠå®ƒæ’åœ¨å¤´ä¸Šï¼Œå¥½åƒæ¼‚äº®äº†è®¸å¤šã€‚\n");
+        set_removemsg("$Nè½»è½»åœ°æŠŠä¸€æŸé²œèŠ±ä»å¤´ä¸Šå–ä¸‹ã€‚\n");
 }
  

@@ -9,8 +9,8 @@ void setup(){
 
     /* ensure this place is lit, regardless of DEFAULT_LIGHT_LEVEL */
     set_light(1);
-    set_brief("Î÷·½¼«ÀÖÊÀ½ç");
-    set_long("Å¶£®£®£®¿ÉÁ¯µÄÈË£¬ÄãÕæ²»ĞÒ£¬ÓÖµ½ÕâÀïÀ´ÁË¡£");
+    set_brief("è¥¿æ–¹æä¹ä¸–ç•Œ");
+    set_long("å“¦ï¼ï¼ï¼å¯æ€œçš„äººï¼Œä½ çœŸä¸å¹¸ï¼Œåˆåˆ°è¿™é‡Œæ¥äº†ã€‚");
         set_exits( ([
         "out" :  START,
         ]) );

@@ -16,11 +16,11 @@ void create()
 
 private void main(string s) {
     if (!s || s == "") {
-        out("º°Ê²Ã´£¿\n");
+        out("å–Šä»€ä¹ˆï¼Ÿ\n");
         return;
     }
 
-    tell(users()-({this_user()}), this_body()->query_name() + "×İÉù´ó½Ğ£º" + punctuate(s) + "\n", MSG_INDENT);
-    out("Äã×İÉù´ó½Ğ£º" + punctuate(s) + "\n");
+    tell(users()-({this_user()}), this_body()->query_name() + "çºµå£°å¤§å«ï¼š" + punctuate(s) + "\n", MSG_INDENT);
+    out("ä½ çºµå£°å¤§å«ï¼š" + punctuate(s) + "\n");
 }
 

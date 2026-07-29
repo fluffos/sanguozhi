@@ -18,7 +18,7 @@ nomask int query_answer(string p_id)
 nomask void answer_answer(object who)
 {
 	this_object()->targetted_action
-		("$N¶Ô$tËµµÀ£º¡°ÄãËµÊ²Ã´ÎÒÌı²»¶®Ñ½¡£¡±\n",who);
+		("$Nå¯¹$tè¯´é“ï¼šâ€œä½ è¯´ä»€ä¹ˆæˆ‘å¬ä¸æ‡‚å‘€ã€‚â€\n",who);
                 return;
 }
 nomask void be_answered(object who, string item)

@@ -25,29 +25,29 @@ void create()
 {
 	set_privilege(2);
 
-	toplevel = new_menu("\n" + mud_name() + "Çé¸Ğ¶¯´Ê±à¼­Æ÷");
+	toplevel = new_menu("\n" + mud_name() + "æƒ…æ„ŸåŠ¨è¯ç¼–è¾‘å™¨");
 
-	quit_item = new_menu_item("ÍË³ö", (:quit_menu_application:), "q");
-	seperator = new_seperator("\n¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş\n");
+	quit_item = new_menu_item("é€€å‡º", (:quit_menu_application:), "q");
+	seperator = new_seperator("\nã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“\n");
 
 	add_menu_item(toplevel, seperator);
-	add_menu_item(toplevel, new_menu_item("ÁĞ³öÇé¸Ğ¶¯´Ê(List)",
+	add_menu_item(toplevel, new_menu_item("åˆ—å‡ºæƒ…æ„ŸåŠ¨è¯(List)",
 			(: get_input_then_call, (: do_list :),
-			"ÒÔÄÄ¸ö×ÖÄ¸¿ªÍ·£¿(enter ´ú±íËùÓĞµÄ): ":), "l"));
-	add_menu_item(toplevel, new_menu_item("Ñ°ÕÒÒ»¸öÇé¸Ğ¶¯´Ê(Find)",
+			"ä»¥å“ªä¸ªå­—æ¯å¼€å¤´ï¼Ÿ(enter ä»£è¡¨æ‰€æœ‰çš„): ":), "l"));
+	add_menu_item(toplevel, new_menu_item("å¯»æ‰¾ä¸€ä¸ªæƒ…æ„ŸåŠ¨è¯(Find)",
 			(: get_input_then_call, (: do_find :),
-			"ÊäÈëÒª²éÑ¯µÄµ¥´Ê :" :), "f"));
-	add_menu_item(toplevel, new_menu_item("É¾³ıÒ»¸öÇé¸Ğ¶¯´Ê(Delete)",
+			"è¾“å…¥è¦æŸ¥è¯¢çš„å•è¯ :" :), "f"));
+	add_menu_item(toplevel, new_menu_item("åˆ é™¤ä¸€ä¸ªæƒ…æ„ŸåŠ¨è¯(Delete)",
 			(: get_input_then_call, (: do_del :),
-                        "ÊäÈëÒªÉ¾³ıµÄµ¥´Ê :" :), "d"));
-	add_menu_item(toplevel, new_menu_item("ĞŞ¸ÄÒ»¸öÇé¸Ğ¶¯´Ê(Edit)",
+                        "è¾“å…¥è¦åˆ é™¤çš„å•è¯ :" :), "d"));
+	add_menu_item(toplevel, new_menu_item("ä¿®æ”¹ä¸€ä¸ªæƒ…æ„ŸåŠ¨è¯(Edit)",
 			(: get_input_then_call, (: do_edit :),
-			"ÊäÈëÒªĞŞ¸ÄµÄµ¥´Ê :" :), "e") );
-	add_menu_item(toplevel, new_menu_item("ÏÔÊ¾°ïÖúÎÄ¼ş(Help)",
+			"è¾“å…¥è¦ä¿®æ”¹çš„å•è¯ :" :), "e") );
+	add_menu_item(toplevel, new_menu_item("æ˜¾ç¤ºå¸®åŠ©æ–‡ä»¶(Help)",
 			(: do_help :), "h") );
 	add_menu_item(toplevel, quit_item);
 	add_menu_item(toplevel, seperator);
-	set_menu_prompt (toplevel, "ÊäÈëÖ¸Áî[defhlq]: ");
+	set_menu_prompt (toplevel, "è¾“å…¥æŒ‡ä»¤[defhlq]: ");
 }
 void start_menu()
 {
@@ -75,7 +75,7 @@ private void do_list(string arg)
 	list = regexp(list, arg);
     
 	if ( !list ){
-        	printf("Ã»ÓĞÓë '%s' ¶ÔÓ¦µÄÇé¸Ğ´Ê»ã¡£\n", arg);
+        	printf("æ²¡æœ‰ä¸ '%s' å¯¹åº”çš„æƒ…æ„Ÿè¯æ±‡ã€‚\n", arg);
         	return;
     	}
 
@@ -99,34 +99,34 @@ private void do_find(string which)
 	mixed * info;
 
 	if( !which ){
-	        printf("ÄãÒªÖ¸¶¨Ò»¸öÇé¸Ğ¶¯´Ê¡£\n");
+	        printf("ä½ è¦æŒ‡å®šä¸€ä¸ªæƒ…æ„ŸåŠ¨è¯ã€‚\n");
         	return;
 	}
 
 	data = SOUL_D->query_emote(which);
     	if( !data ){
-        	printf("Ã»ÓĞÕâ¸öÇé¸Ğ¶¯´Ê¡£\n");
+        	printf("æ²¡æœ‰è¿™ä¸ªæƒ…æ„ŸåŠ¨è¯ã€‚\n");
         	return;
 	}
 	
 	if ( data[""] ){
         	info = SOUL_D->get_soul(which, "", ({ }));
-        	printf("%s :\nÄã»á¿´µ½£º%sËûÈË»á¿´µ½£º%s\n",
+        	printf("%s :\nä½ ä¼šçœ‹åˆ°ï¼š%sä»–äººä¼šçœ‹åˆ°ï¼š%s\n",
                		which, info[1][0], info[1][1]);
 	}
 	if ( data["LIV"] ){
         	info = SOUL_D->get_soul(which, "LIV", ({ this_object() }));
-        	printf("%s somebody:\nÄã»á¿´µ½£º%sÄ¿±ê»á¿´µ½£º%sËûÈË»á¿´µ½£º%s\n",
+        	printf("%s somebody:\nä½ ä¼šçœ‹åˆ°ï¼š%sç›®æ ‡ä¼šçœ‹åˆ°ï¼š%sä»–äººä¼šçœ‹åˆ°ï¼š%s\n",
                		which, info[1][0], info[1][1], info[1][2]);
     	}
 	if ( data["STR"] ){
         	info = SOUL_D->get_soul(which, "STR", ({ "slowly" }));
-        	printf("%s slowly :\nÄã»á¿´µ½£º%sËûÈË»á¿´µ½£º%s\n",
+        	printf("%s slowly :\nä½ ä¼šçœ‹åˆ°ï¼š%sä»–äººä¼šçœ‹åˆ°ï¼š%s\n",
                		which, info[1][0], info[1][1]);
     	}
     	if ( data["LIV STR"] ){
 	        info = SOUL_D->get_soul(which, "LIV STR", ({ this_object(), "slowly" }));
-        	printf("%s somebody slowly :\nÄã»á¿´µ½£º%sÄ¿±ê»á¿´µ½£º%sËûÈË»á¿´µ½£º%s\n",
+        	printf("%s somebody slowly :\nä½ ä¼šçœ‹åˆ°ï¼š%sç›®æ ‡ä¼šçœ‹åˆ°ï¼š%sä»–äººä¼šçœ‹åˆ°ï¼š%s\n",
                		which, info[1][0], info[1][1], info[1][2]);
     	}
 
@@ -138,34 +138,34 @@ private void do_del(string str)
 {
 	string rule;
 	if( !wizardp( this_body()->query_userid() ) ){
-		printf("ÏÈÉêÇë×öÎ×Ê¦ÔÙÀ´°ïÃ¦°É¡£\n");
+		printf("å…ˆç”³è¯·åšå·«å¸ˆå†æ¥å¸®å¿™å§ã€‚\n");
 		return;
 	};
 	if( !str ){
-		printf("ÄãÒªÉ¾³ıÄÇÒ»¸öemote£¿\n");
+		printf("ä½ è¦åˆ é™¤é‚£ä¸€ä¸ªemoteï¼Ÿ\n");
 		return;
 	};
 
 	sscanf(str, "%s %s", str, rule);
-	if (SOUL_D->remove_emote(str, rule))printf("É¾³ı³É¹¦¡£\n");
-	else printf("É¾³ıÊ§°Ü¡£\n");
+	if (SOUL_D->remove_emote(str, rule))printf("åˆ é™¤æˆåŠŸã€‚\n");
+	else printf("åˆ é™¤å¤±è´¥ã€‚\n");
 
 	prompt_then_return();
 }
 void do_help()
 {
-	printf("\n%10sÇé¸Ğ¶¯´Ê±à¼­Æ÷\n", mud_name());
-	printf("\n\nÇë²ÎÕÕÖ÷²Ëµ¥Ê¹ÓÃ¡£\n");
+	printf("\n%10sæƒ…æ„ŸåŠ¨è¯ç¼–è¾‘å™¨\n", mud_name());
+	printf("\n\nè¯·å‚ç…§ä¸»èœå•ä½¿ç”¨ã€‚\n");
 	if( wizardp( this_body()->query_userid() ) ){
-		printf("\nÇé¸Ğ¶¯´ÊÌæ´ú±äÁ¿ËµÃ÷\n");
-		printf("	1)$N  ×Ô¼ºµÄÒ»°ã³Æºô¡£\n");
-		printf("	2)$T  Ä¿±êµÄÒ»°ã³Æºô¡£\n");
-		printf("	3)$n  ×Ô¼ºµÄ´ú³Æ¡£\n");
-		printf("	4)$M  ×Ô¼ºµÄÃû×Ö¡£\n");
-		printf("	5)$s  ×Ô¼ºµÄÇ«³Æ¡£\n");
-		printf("	6)$S  ×Ô¼ºµÄ×Ô³Æ¡£\n");
-		printf("	7)$R  Ä¿±êµÄ¾´³Æ¡£\n");
-		printf("	8)$r  Ä¿±êµÄÃï³Æ¡£\n");
+		printf("\næƒ…æ„ŸåŠ¨è¯æ›¿ä»£å˜é‡è¯´æ˜\n");
+		printf("	1)$N  è‡ªå·±çš„ä¸€èˆ¬ç§°å‘¼ã€‚\n");
+		printf("	2)$T  ç›®æ ‡çš„ä¸€èˆ¬ç§°å‘¼ã€‚\n");
+		printf("	3)$n  è‡ªå·±çš„ä»£ç§°ã€‚\n");
+		printf("	4)$M  è‡ªå·±çš„åå­—ã€‚\n");
+		printf("	5)$s  è‡ªå·±çš„è°¦ç§°ã€‚\n");
+		printf("	6)$S  è‡ªå·±çš„è‡ªç§°ã€‚\n");
+		printf("	7)$R  ç›®æ ‡çš„æ•¬ç§°ã€‚\n");
+		printf("	8)$r  ç›®æ ‡çš„è”‘ç§°ã€‚\n");
 	};
 	prompt_then_return();
 }
@@ -176,25 +176,25 @@ void do_edit(string str)
 	string verb, rule, content;
 
 	if( !wizardp( this_body()->query_userid() ) ){
-                printf("ÏÈÉêÇë×öÎ×Ê¦ÔÙÀ´°ïÃ¦°É¡£\n");
+                printf("å…ˆç”³è¯·åšå·«å¸ˆå†æ¥å¸®å¿™å§ã€‚\n");
                 return;
         };
 
-	printf("¸ñÊ½£º¶¯´Ê,ÄÚÈİ,¶ÔÏó\n");
+	printf("æ ¼å¼ï¼šåŠ¨è¯,å†…å®¹,å¯¹è±¡\n");
 	sscanf(str, "%s,%s,%s", verb, content, rule);
 	if( !verb || !content ){
-		printf("·Ç·¨µÄ¸ñÊ½¡£\n");
+		printf("éæ³•çš„æ ¼å¼ã€‚\n");
 		return;
 	};
 
 	if( !rule )rule = "";
 	if( rule != "" && rule != "LIV" && rule != "STR" && rule != "LIV STR"){
-		printf("·Ç·¨µÄ¶ÔÏó£¬ºÏ·¨µÄ¶ÔÏóÎª \"\", LIV, STR, LIV STR\n");
+		printf("éæ³•çš„å¯¹è±¡ï¼Œåˆæ³•çš„å¯¹è±¡ä¸º \"\", LIV, STR, LIV STR\n");
 		return;
 	}
 	
-	if(SOUL_D->add_emote(verb, rule, content))printf("ĞŞ¸Ä³É¹¦¡£\n");
-	else printf("ĞŞ¸ÄÊ§°Ü¡£\n");
+	if(SOUL_D->add_emote(verb, rule, content))printf("ä¿®æ”¹æˆåŠŸã€‚\n");
+	else printf("ä¿®æ”¹å¤±è´¥ã€‚\n");
 	
 	prompt_then_return();
 }

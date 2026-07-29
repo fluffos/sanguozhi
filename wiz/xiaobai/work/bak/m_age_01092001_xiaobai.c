@@ -4,15 +4,15 @@
 #include <sanguo.h>
 private int ag_day,ag_month;
 private int chan_disabled;
-static private string lastchatmsg;
-static private int lastchattime;
+nosave private string lastchatmsg;
+nosave private int lastchattime;
 private mixed notell;
 
 mixed set_notell(mixed val) {
         notell=val;
 }
 mixed query_notell() {
-        if(notell==1) return this_object()->query_chinese_id()+"ÏÖÔÚ²»ÏëËµ»°¡£\n";
+        if(notell==1) return this_object()->query_chinese_id()+"çŽ°åœ¨ä¸æƒ³è¯´è¯ã€‚\n";
         return notell;
 }
 
@@ -76,19 +76,19 @@ void age_beat()
                 HP_D->set_max_mp(this_object());
 
                 this_object()->set_age(p_year);
-                tell(this_object(),"¹§Ï²Äã£¬ÓÖ³¤ÁËÒ»Ëê¡£\n");
+                tell(this_object(),"æ­å–œä½ ï¼Œåˆé•¿äº†ä¸€å²ã€‚\n");
 
                 p_shouming=this_body()->query_shouming();
                 if(p_year>=p_shouming)
                 {
-                        write(HIR+"ÄãÑôÊÙÒÑ¾¡£¬¸Ï¿ì×¼±¸ºóÊÂ°É¡£+NOR\n");
+                        write(HIR+"ä½ é˜³å¯¿å·²å°½ï¼Œèµ¶å¿«å‡†å¤‡åŽäº‹å§ã€‚+NOR\n");
                 }
         }
         call_out("age_beat",320);
         if(random(2)) {
                 this_object()->put_m_all_money();  // add by fire on Dec 13, 1997
                 this_object()->save_me();
-                tell(this_object(),"´æ´¢Íê±Ï¡£\n");
+                tell(this_object(),"å­˜å‚¨å®Œæ¯•ã€‚\n");
         }
      if(objectp(this_body()))
    "/sgdomain/home/funs/funs"->main(this_body()->query_primary_id());

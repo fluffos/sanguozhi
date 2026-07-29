@@ -20,7 +20,7 @@ MENU_ITEM quit_item;
 MENU_ITEM goto_main_menu_item;
 MENU_ITEM main_seperator;
 MENU_ITEM blank_seperator;
-string array hints;
+string * hints;
 int     hints_read;
 
 
@@ -39,7 +39,7 @@ void show_next_hint(string input)
       if(hints_read==1)
         {
           //write("No previous hints.\n");
-          write("Ã»ÓĞÖ®Ç°µÄÌáÊ¾ÁË¡£\n");
+          write("æ²¡æœ‰ä¹‹å‰çš„æç¤ºäº†ã€‚\n");
           return;
         }
       write(iwrap(sprintf("%d) %s\n", --hints_read,hints[hints_read-1])));
@@ -55,7 +55,7 @@ void show_next_hint(string input)
   if(hints_read >= sizeof(hints))
     {
       //write("[no more hints]\n\n");
-      write("Ã»ÓĞÖ®ºóµÄÌáÊ¾ÁË¡£\n\n");
+      write("æ²¡æœ‰ä¹‹åçš„æç¤ºäº†ã€‚\n\n");
       goto_menu(previous_menu);
       return;
     }
@@ -67,7 +67,7 @@ void view_question(string area, string file, string question)
   MENU question_menu = new_menu("");
   set_menu_prompt(question_menu,
                   //"[<enter>, (p)revious hint, (b)ack, (q)uit] "
-                  "[<enter>, (p)Ö®Ç°µÄÌáÊ¾£¬(b)·µ»Ø£¬(q)ÍË³ö]");
+                  "[<enter>, (p)ä¹‹å‰çš„æç¤ºï¼Œ(b)è¿”å›ï¼Œ(q)é€€å‡º]");
   set_no_match_function(question_menu,(:show_next_hint:));
   hints = explode(read_file("/help/hints/"+area+"/"+file), "\n")[1..]-({""});
   hints_read = 0;
@@ -79,8 +79,8 @@ void view_question(string area, string file, string question)
 
 void view_dir(string s)
 {
-  string array files = get_dir("/help/hints/"+s+"/*") - ({".","..","README"});
-  string array questions = map(files, (: read_file("/help/hints/"+$(s)
+  string * files = get_dir("/help/hints/"+s+"/*") - ({".","..","README"});
+  string * questions = map(files, (: read_file("/help/hints/"+$(s)
                                                    +"/"+$1,1,1) :));
   MENU m = new_menu(replace_string(s,"_"," "));
   MENU_ITEM item;
@@ -107,11 +107,11 @@ void view_dir(string s)
 
 void create()
 {
-  string array sections;
+  string * sections;
 
   set_privilege(1);
 
-  toplevel      = new_menu(mud_name()+"ÌáÊ¾Ñ¡µ¥"); //" Hint Menu");
+  toplevel      = new_menu(mud_name()+"æç¤ºé€‰å•"); //" Hint Menu");
 
 
   // Since we'll use these things more than once, we can just

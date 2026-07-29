@@ -37,12 +37,12 @@
 ** whether the flags are non-persistent and two (optional)
 ** closures that are used to get/set flag values.
 */
-private static mapping flag_sets;
+private nosave mapping flag_sets;
 
 /*
 ** Stores the persistent and non-persistent flags
 */
-private static mapping non_persist_flags;
+private nosave mapping non_persist_flags;
 private        mapping persist_flags;
 
 

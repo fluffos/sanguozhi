@@ -1,6 +1,6 @@
 #/std/race/human.c
 primary_id "sunday"
-chinese_id "·üÒÂ"
+chinese_id "ä¼è¡£"
 persist_flags ([0:0,])
 can_drop 1
 can_sell 1
@@ -13,8 +13,8 @@ main_prep "in"
 contained_light_added 1
 gender 1
 messages ([])
-def_messages (["invis":"$n´ÓÄãµÄÊÓÒ°ÖĞÍ»È»ÏûÊ§ÁË¡£","menter":"$nÍ»È»³öÏÖÔÚÒ»ÕóÑÌÎíÖĞ¡£","clone":"$nÉìÊÖÁè¿ÕÒ»Ö¸£¬±ä³öÁË$o¡£","vis":"$nÍ»È»³öÏÖÔÚÄãÃæÇ°£¬ÓÖËÆºõÔÚÕâÀïºÜ¾ÃÁË¡£","enter":"$n×ßÁË¹ıÀ´¡£","destruct":"$nÅÛĞäÒ»»Ó£¬$o±»»¯³ÉÒ»¹ÉºÚÑÌ£¬´µÉ¢¿ªÈ¥¡£","home":"$n»Ø¼ÒÈ¥ÁË¡£","leave":"$n³¯$oÀë¿ªÁË¡£","mleave":"$nµÄÉíÓ°ÔÚÒ»ÕóÑÌÎíÖĞ½¥½¥ÒşÈ¥¡£",])
-busy_msg "ÄãÒ»´ÎÊäÈëÌ«¶àÃüÁîÁË.."
+def_messages (["invis":"$nä»ä½ çš„è§†é‡ä¸­çªç„¶æ¶ˆå¤±äº†ã€‚","menter":"$nçªç„¶å‡ºç°åœ¨ä¸€é˜µçƒŸé›¾ä¸­ã€‚","clone":"$nä¼¸æ‰‹å‡Œç©ºä¸€æŒ‡ï¼Œå˜å‡ºäº†$oã€‚","vis":"$nçªç„¶å‡ºç°åœ¨ä½ é¢å‰ï¼Œåˆä¼¼ä¹åœ¨è¿™é‡Œå¾ˆä¹…äº†ã€‚","enter":"$nèµ°äº†è¿‡æ¥ã€‚","destruct":"$nè¢è¢–ä¸€æŒ¥ï¼Œ$oè¢«åŒ–æˆä¸€è‚¡é»‘çƒŸï¼Œå¹æ•£å¼€å»ã€‚","home":"$nå›å®¶å»äº†ã€‚","leave":"$næœ$oç¦»å¼€äº†ã€‚","mleave":"$nçš„èº«å½±åœ¨ä¸€é˜µçƒŸé›¾ä¸­æ¸æ¸éšå»ã€‚",])
+busy_msg "ä½ ä¸€æ¬¡è¾“å…¥å¤ªå¤šå‘½ä»¤äº†.."
 busy 1312198149
 answer_list ({({"settle","settle",}),({"position","position",}),({"localmeeting","localmeeting",}),({"job","job",}),({"zgxy","zgxy",}),({"wxxy","wxxy",}),({"bfxy","bfxy",}),({"guoshi","guoshi",}),})
 ask_list ([])
@@ -48,11 +48,11 @@ ilog_time 1312291986
 money (["gold":4,"silver":128,"coin":0,"bank":48000,])
 sg_home ([])
 name "sunday"
-invis_name "Ä³Ä³"
-chinese_name "·üÒÂ"
+invis_name "æŸæŸ"
+chinese_name "ä¼è¡£"
 response_queue ({})
 channel_list ({"gossip","newbie","weather","rumor","imud_imud_sgz",})
 saved_items "([\"#inventory#\":({\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/money/m_silver\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/money/m_gold\\\",])\",}),\"#base_name#\":\"/std/race/human\",])"
 ag_day 4
 ag_month 8
-jobs (["askobj":(["memo":"ÕÒÂ¤Î÷µÄ%^H_CYAN%^²Ìçß%^RESET%^´ß0","beg_time":0,"assignarea":"huayin","status":"over","lasttimes":({}),"obj_id":"test","count":13,"finish_time":1312029458,]),"visitpeople":(["memo":"Ì½·Ã»ªÒõĞ¡»ï","topics":({2,3,6,9,10,}),"select":10,"beg_time":0,"assignarea":"huayin","status":"over","lasttimes":({}),"score":8,"finish_time":1312034083,"count":2,]),"letter":(["memo":"ËÍĞÅ%^H_CYAN%^×£ÈÚ·òÈË%^RESET%^(zhurong furen)","status":"begin","lasttimes":({}),"beg_time":1312049791,"assignarea":"huayin",]),"findbody":(["memo":"ÕÒ%^H_CYAN%^ĞíñÒ%^RESET%^(xu chu)","beg_time":1311941779,"assignarea":"huayin","status":"begin","lasttimes":({}),"count":2,]),"chopwoods":(["lasttimes":({1311999281,1311999517,1311999705,1311999895,1312000147,1312001056,1312001252,1312002011,1312002195,1312002951,1312003125,1312011659,1312011851,1312012555,1312012757,1312020254,1312020444,1312021321,1312026016,1312027067,1312028381,1312028950,}),"count":88,"finish_time":1312028950,"beg_time":0,]),"patrol":(["area":"huayin","memo":"×¥Ğ¡Íµ","get_thief":1,"beg_time":0,"assignarea":"huayin","status":"over","lasttimes":({1312292286,}),"score":14,"finish_time":1312292286,"count":21,]),"bugao":(["memo":"ºëÅ©µÄ%^YELLOW%^ÀÎ·¿%^RESET%^","beg_time":0,"assignarea":"huayin","status":"over","lasttimes":({}),"count":32,"finish_time":1312027291,]),"spy":(["memo":"Õì²ìºëÅ©","area":"hongnong","size":19,"done_time":1312113722,"path":"/a/hongnong/","beg_time":0,"assignarea":"huayin","status":"over","lasttimes":({1312087315,1312094138,1312103832,1312104953,1312106156,1312106478,1312106730,1312106880,1312106998,1312107465,1312109989,1312112442,1312112648,1312113199,1312113317,1312113775,}),"spied":({"/a/hongnong/hn_dongchengmen","/a/hongnong/hn_dongdajie","/a/hongnong/hn_juhuisuo","/a/hongnong/hn_liangcang","/a/hongnong/hn_datang","/a/hongnong/hn_chengzhongxin","/a/hongnong/hn_kezhan","/a/hongnong/hn_nandajie2","/a/hongnong/hn_yishiting","/a/hongnong/hn_yamen","/a/hongnong/hn_laofang","/a/hongnong/hn_nandajie1","/a/hongnong/tmp","/a/hongnong/hn_chengyipu","/a/hongnong/hn_xidajie","/a/hongnong/hn_junying","/a/hongnong/hn_xichengmen","/a/hongnong/hn_beidajie","/a/hongnong/hn_machang",}),"catched":0,"finish_time":1312113775,"count":16,]),"choppork":(["lasttimes":({}),"count":1,"finish_time":1311998288,"beg_time":0,]),])
+jobs (["askobj":(["memo":"æ‰¾é™‡è¥¿çš„%^H_CYAN%^è”¡é‚•%^RESET%^å‚¬0","beg_time":0,"assignarea":"huayin","status":"over","lasttimes":({}),"obj_id":"test","count":13,"finish_time":1312029458,]),"visitpeople":(["memo":"æ¢è®¿åé˜´å°ä¼™","topics":({2,3,6,9,10,}),"select":10,"beg_time":0,"assignarea":"huayin","status":"over","lasttimes":({}),"score":8,"finish_time":1312034083,"count":2,]),"letter":(["memo":"é€ä¿¡%^H_CYAN%^ç¥èå¤«äºº%^RESET%^(zhurong furen)","status":"begin","lasttimes":({}),"beg_time":1312049791,"assignarea":"huayin",]),"findbody":(["memo":"æ‰¾%^H_CYAN%^è®¸è¤š%^RESET%^(xu chu)","beg_time":1311941779,"assignarea":"huayin","status":"begin","lasttimes":({}),"count":2,]),"chopwoods":(["lasttimes":({1311999281,1311999517,1311999705,1311999895,1312000147,1312001056,1312001252,1312002011,1312002195,1312002951,1312003125,1312011659,1312011851,1312012555,1312012757,1312020254,1312020444,1312021321,1312026016,1312027067,1312028381,1312028950,}),"count":88,"finish_time":1312028950,"beg_time":0,]),"patrol":(["area":"huayin","memo":"æŠ“å°å·","get_thief":1,"beg_time":0,"assignarea":"huayin","status":"over","lasttimes":({1312292286,}),"score":14,"finish_time":1312292286,"count":21,]),"bugao":(["memo":"å¼˜å†œçš„%^YELLOW%^ç‰¢æˆ¿%^RESET%^","beg_time":0,"assignarea":"huayin","status":"over","lasttimes":({}),"count":32,"finish_time":1312027291,]),"spy":(["memo":"ä¾¦å¯Ÿå¼˜å†œ","area":"hongnong","size":19,"done_time":1312113722,"path":"/a/hongnong/","beg_time":0,"assignarea":"huayin","status":"over","lasttimes":({1312087315,1312094138,1312103832,1312104953,1312106156,1312106478,1312106730,1312106880,1312106998,1312107465,1312109989,1312112442,1312112648,1312113199,1312113317,1312113775,}),"spied":({"/a/hongnong/hn_dongchengmen","/a/hongnong/hn_dongdajie","/a/hongnong/hn_juhuisuo","/a/hongnong/hn_liangcang","/a/hongnong/hn_datang","/a/hongnong/hn_chengzhongxin","/a/hongnong/hn_kezhan","/a/hongnong/hn_nandajie2","/a/hongnong/hn_yishiting","/a/hongnong/hn_yamen","/a/hongnong/hn_laofang","/a/hongnong/hn_nandajie1","/a/hongnong/tmp","/a/hongnong/hn_chengyipu","/a/hongnong/hn_xidajie","/a/hongnong/hn_junying","/a/hongnong/hn_xichengmen","/a/hongnong/hn_beidajie","/a/hongnong/hn_machang",}),"catched":0,"finish_time":1312113775,"count":16,]),"choppork":(["lasttimes":({}),"count":1,"finish_time":1311998288,"beg_time":0,]),])

@@ -1,4 +1,4 @@
-//  中门
+//  涓棬
 // cl_mdoor.c by benben
 #include <mudlib.h>
 #include <sanguo.h>
@@ -7,8 +7,8 @@ inherit OUTDOOR_ROOM;
 void setup(){
     set_area("caolu_area");
     set_light(50);
-    set_brief(""+YEL+"中门"+NOR+"");
-    set_long("请加描述。\n\n");
+    set_brief(""+YEL+"涓棬"+NOR+"");
+    set_long("璇峰姞鎻忚堪銆俓n\n");
     set_exits( ([
         "north" :  __DIR__+"cl_qt.c",
         "south" :  __DIR__+"cl_door.c",

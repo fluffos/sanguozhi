@@ -44,21 +44,21 @@ protected nomask void rcv_locate_reply(string orig_mud, string orig_user,
     if ( !p )
     {
 	return_error(orig_mud, orig_user, "unk-user",
-		     sprintf("×ªËÍ locate »Ø´ğ¸ø²»ÖªÃûÍæ¼Ò¡¸%s¡¹",
+		     sprintf("è½¬é€ locate å›ç­”ç»™ä¸çŸ¥åç©å®¶ã€Œ%sã€",
 			     targ_user));
     }
     else
     {
 	string msg;
 
-	msg = sprintf("[locate] Íæ¼Ò¡¸%s¡¹³öÏÖÔÚ %s ÉÏ",
+	msg = sprintf("[locate] ç©å®¶ã€Œ%sã€å‡ºç°åœ¨ %s ä¸Š",
 		      message[1], message[0]);
 	if ( message[3] )
-	    msg += sprintf(" (·¢´ô: %s, ×´Ì¬: %s)",
+	    msg += sprintf(" (å‘å‘†: %s, çŠ¶æ€: %s)",
 			   convert_time(message[2], 2), message[3]);
 	else
-	    msg += sprintf(" (·¢´ô: %s)", convert_time(message[2], 2));
+	    msg += sprintf(" (å‘å‘†: %s)", convert_time(message[2], 2));
     
-	tell(p, msg + "¡£\n", MSG_INDENT);
+	tell(p, msg + "ã€‚\n", MSG_INDENT);
     }
 }

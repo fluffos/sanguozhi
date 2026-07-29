@@ -3,11 +3,11 @@
 
 #include <assert.h>
 
-private static string spell_name;
+private nosave string spell_name;
 
-static void cast_spell(object target, object reagent);
+protected void cast_spell(object target, object reagent);
 
-static void set_spell_name(string s)
+protected void set_spell_name(string s)
 {
     spell_name = s;
 }
@@ -22,7 +22,7 @@ string get_spell_name()
 // is a scroll present?
 // Return a string error message or 1 if it is cool.
 
-static mixed valid_reagent(object reagent)
+protected mixed valid_reagent(object reagent)
 {
     /* DEFAULT: if there is a reagent, then it can't be used */
     if ( reagent )
@@ -32,7 +32,7 @@ static mixed valid_reagent(object reagent)
     return 1;
 }
 
-static mixed valid_target(object target)
+protected mixed valid_target(object target)
 {
     /* DEFAULT: if there is a target, then it is invalid */
     if ( target )
@@ -42,18 +42,18 @@ static mixed valid_target(object target)
     return 1;
 }
 
-static mixed valid_circumstances(mixed target, mixed reagent)
+protected mixed valid_circumstances(mixed target, mixed reagent)
 {
     /* DEFAULT: spells can be cast at any time */
     return 1;
 }
 
-static mixed check_valid_spell(int has_target, int has_reagent)
+protected mixed check_valid_spell(int has_target, int has_reagent)
 {
     return valid_circumstances(has_target, has_reagent);
 }
 
-static mixed check_valid_target(object target, mixed has_reagent)
+protected mixed check_valid_target(object target, mixed has_reagent)
 {
     mixed res;
 
@@ -64,7 +64,7 @@ static mixed check_valid_target(object target, mixed has_reagent)
     return valid_target(target);
 }
 
-static mixed check_valid_reagent(object reagent, mixed has_target)
+protected mixed check_valid_reagent(object reagent, mixed has_target)
 {
     mixed res;
 
@@ -79,8 +79,8 @@ static mixed check_valid_reagent(object reagent, mixed has_target)
     {
         return reagent ?
             sprintf(//"You can't cast that with %s.\n"
-                    "你无法用%s来施展法术。\n", reagent->short()) :
-            "你要借助某个东西来施展法术。\n";
+                    "浣犳棤娉曠敤%s鏉ユ柦灞曟硶鏈�俓n", reagent->short()) :
+            "浣犺鍊熷姪鏌愪釜涓滆タ鏉ユ柦灞曟硶鏈�俓n";
     }
     if ( stringp(res) )
     {
@@ -93,9 +93,9 @@ static mixed check_valid_reagent(object reagent, mixed has_target)
     {
         return target ?
             sprintf(//"You can't cast that on %s.\n",
-                    "你不能对%s施展法术。\n",
+                    "浣犱笉鑳藉%s鏂藉睍娉曟湳銆俓n",
                     target->short()) :
-            "你要把这法术施展在某个东西上。\n";
+            "浣犺鎶婅繖娉曟湳鏂藉睍鍦ㄦ煇涓笢瑗夸笂銆俓n";
     }
     if ( stringp(res) )
     {

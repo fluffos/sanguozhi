@@ -9,5 +9,5 @@ private void main() {
     
     ob->swap_pwd();
 
-    outf("��ǰĿ¼: %s\n", ob->get_variable("pwd") || "NONE");
+    outf("当前目录: %s\n", ob->get_variable("pwd") || "NONE");
 }

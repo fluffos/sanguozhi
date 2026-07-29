@@ -9,7 +9,7 @@ void start(string arg)
   my_id=this_body()->query_id()[0];
   if(!CHAR_D->get_char(my_id,"nation"))
   {
-      write("������˸�һ�ٰ�ְ�Ժ��ٿ����Լ��ɡ�\n");
+      write("等你混了个一官半职以后，再考虑自荐吧。\n");
       return;
   }
   my_task = TASK_D->get_char_task(my_id);
@@ -17,15 +17,15 @@ void start(string arg)
   switch(my_task[1])
   {
       case TT_WAR:
-//////emperor�������¼��У���ֹ��ҷֱ�Ϊ0
+//////emperor加了以下几行，防止玩家分兵为0
 		if (CHAR_D->get_char(CHAR_D->get_char(my_id,"nation"),"type")==TYPE_NPC){
-      		write("����NPC������ҹ�Ա�������쵼���ز��ӡ�\n");
+      		write("你是NPC国的玩家官员，不能领导防守部队。\n");
       		return;
       	}
-//////emperor�������ϼ��У���ֹ��ҷֱ�Ϊ0
+//////emperor加了以上几行，防止玩家分兵为0
         if(CHAR_D->get_char(my_id,"level")<3)
         {
-                write("��Ĺ�ְ̫�ͣ������쵼���ز��ӡ�\n");
+                write("你的官职太低，不能领导防守部队。\n");
                 return;
         }
 
@@ -51,6 +51,6 @@ void start(string arg)
            write(ret); return;
          }
      }
-     write("����û��ʲô����Ҫ���Լ���\n");
+     write("现在没有什么事需要你自荐。\n");
      return;
 }

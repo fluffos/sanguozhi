@@ -19,11 +19,11 @@ string main(string arg) {
     ids = NEWS_D->get_messages(arg);
 
 	if(!sizeof(ids)) {
-		return "<html><head></head><body><h1>Õâ¸öĞÂÎÅ×éÃ»ÓĞÈÎºÎĞÂÎÅ£¡
+		return "<html><head></head><body><h1>è¿™ä¸ªæ–°é—»ç»„æ²¡æœ‰ä»»ä½•æ–°é—»ï¼
 			   </h1></body></html>\n";
 	}
 	ids=sort_array(ids,-1);
-	ret+="<tr><th>ĞòºÅ</td><th>±êÌâ</td><th>ÁôÑÔÈË</td><th>³¤¶È</td><th>ÈÕÆÚ</td></tr>\n";
+	ret+="<tr><th>åºå·</td><th>æ ‡é¢˜</td><th>ç•™è¨€äºº</td><th>é•¿åº¦</td><th>æ—¥æœŸ</td></tr>\n";
 	foreach(int id in ids) {
 		msg = NEWS_D->get_message(arg, id);
 		if (!msg || !msg->body)

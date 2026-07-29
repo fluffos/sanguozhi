@@ -8,5 +8,5 @@ real_name "duan xiong liang"
 url "sgzmud.gicp.net"
 colours (["ROOM_SHORT":"none","ANNOUNCE_CHANNEL":"h_red","NEWS_GROUP_SUBSCRIBED":"cyan","NEWS_TIME":"none","IMUD_IMUD_SGZ_CHANNEL":"h_white","NEWS_MSG_UNREAD":"none","LS_DEFAULT":"cyan","RUMOR_CHANNEL":"orange","NEWS_SUBJECT":"bold","WEATHER_CHANNEL":"h_blue","GOSSIP_CHANNEL":"h_green","MORE":"bold","NEWBIE_CHANNEL":"yellow","TELL":"bold,white","ROOM_EXIT":"magenta","SAY":"none","NEWS_POSTER":"none","TASK_STATUS":"yellow","MENU_CHOICE":"green","TASK_HI":"yellow","LS_LOADED":"yellow","CHANNEL_IMUD":"green","ADMTOOL_HEADING":"none","NEWS_MSG_READ":"green","ADMTOOL_LO":"none","TASK_COMMENT":"yellow","LS_HEADING":"bold","CHANNEL":"green","LS_DIR":"magenta","TASK_LO":"yellow","CONF_CHANNEL":"cyan","NEWS_GROUP_UNSUBSCRIBED":"red","NEWS_CHANNEL":"h_blue","TASK_HEADING":"yellow","WIZ_CHANNEL":"cyan","ADMTOOL_HI":"none",])
 userid "loveyou"
-chinese_id "°ÍÉ½Ò¹Óê"
+chinese_id "å·´å±±å¤œé›¨"
 data_version 2

@@ -8,13 +8,13 @@ inherit M_DAMAGE_SINK;
 void setup()
 {
 ::mudlib_setup();
-set_unit("¼ş");
-set_id("skirt", HIG+"Ò»ÉíÄŞÓğ³¤È¹"+NOR);
-set_in_room_desc(HIG+"Ò»ÉíÄŞÓğ³¤È¹(skirt)"+NOR);
+set_unit("ä»¶");
+set_id("skirt", HIG+"ä¸€èº«éœ“ç¾½é•¿è£™"+NOR);
+set_in_room_desc(HIG+"ä¸€èº«éœ“ç¾½é•¿è£™(skirt)"+NOR);
 set_gettable(1);
 set_slot(TORSO);
-set_wearmsg("$N´©ÉÏ$o£¬Õû¸öÎİÀï¶¼Ó³³öÒ»Æ¬ "+HIG+"ÂÌÉ«µÄ¹âÃ¢¡£"+NOR+"\n");
-set_removemsg("$NÍÑÏÂ$o£¬"+HIG+"ÂÌÉ«µÄ¹âÃ¢"+NOR+"¶ÙÊ±ÏûÊ§ÁË¡£\n");
+set_wearmsg("$Nç©¿ä¸Š$oï¼Œæ•´ä¸ªå±‹é‡Œéƒ½æ˜ å‡ºä¸€ç‰‡ "+HIG+"ç»¿è‰²çš„å…‰èŠ’ã€‚"+NOR+"\n");
+set_removemsg("$Nè„±ä¸‹$oï¼Œ"+HIG+"ç»¿è‰²çš„å…‰èŠ’"+NOR+"é¡¿æ—¶æ¶ˆå¤±äº†ã€‚\n");
 }
 
 

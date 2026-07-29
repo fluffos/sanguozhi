@@ -15,7 +15,7 @@ int do_fill_it(object ob, object with)
         with = present("water", this_body()) || present("water", environment(this_body()));
         if (!with) 
 		{
-            write("用什么？\n");
+            write("鐢ㄤ粈涔堬紵\n");
             return 1;
         }
 //        write("(with water)\n");
@@ -37,7 +37,7 @@ void do_fill_str(string str)
 		return;
 	}
 	if(!ret)
-		ret=o->short()+"好象没法盛东西。\n";
+		ret=o->short()+"濂借薄娌℃硶鐩涗笢瑗裤�俓n";
 	write(ret);
 	return;
 
@@ -47,7 +47,7 @@ void do_fill_str(string str)
     do_fill_it(ob1, ob2);
 }*/
 
-array query_verb_info(string rule)
+mixed * query_verb_info(string rule)
 {
 	return ({ ({ "STR" }) });
 }

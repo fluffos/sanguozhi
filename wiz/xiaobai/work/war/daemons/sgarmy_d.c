@@ -14,7 +14,7 @@ private mapping p_armies=([]);
 private class SGarmy p_army;
 private int p_maxid=1;
 
-static int save_mark;
+nosave protected int save_mark;
 
 #define SAVE_FILE "/data/daemons/sgarmy"
 
@@ -26,32 +26,32 @@ void create()
 // whether an id is valid, 1 for yes, 0 for no
 int id_valid( int par_nId );
 
-// ²éÒ»ÏÂ army ÊÇ·ñºÃµÄ£¬ºÃµÄ»°·µ»Ø 0
+// æŸ¥ä¸€ä¸‹ army æ˜¯å¦å¥½çš„ï¼Œå¥½çš„è¯è¿”å› 0
 int illegal_army( int par_nId );
 
-// ´æÆğËùÓĞÊı¾İ
+// å­˜èµ·æ‰€æœ‰æ•°æ®
 void save_data();
 
-// Ã¿3Ãë¼ì²éÒ»´Î£¬»Ö¸´ÄÜÁ¿£¬npc ²¿¶Ó¶¯×÷
+// æ¯3ç§’æ£€æŸ¥ä¸€æ¬¡ï¼Œæ¢å¤èƒ½é‡ï¼Œnpc éƒ¨é˜ŸåŠ¨ä½œ
 void army_heart();
 
-// ²úÉúÒ»¸öĞÂµÄ army
+// äº§ç”Ÿä¸€ä¸ªæ–°çš„ army
 int new_army_id( class SGarmy par_armyPlan );
 
-// »ñÈ¡Ä³·½Ãæ¾üµÄÕû¸öÊı¾İ
+// è·å–æŸæ–¹é¢å†›çš„æ•´ä¸ªæ•°æ®
 SGarmy get_army( int par_nId );
 
-// Õ½³¡ËùÔÚ
+// æˆ˜åœºæ‰€åœ¨
 string get_wararea( int par_nId );
 
-// ×ª»»ËùÊô³ÇÊĞ
+// è½¬æ¢æ‰€å±åŸå¸‚
 string set_city( int par_nId, string par_strCity );
 string get_city( int par_nId );
 
-// ·½Ãæ¾üµÄÃû×Ö£¬¹ú¼Ò³ÇÊĞÃû²¿·İ
+// æ–¹é¢å†›çš„åå­—ï¼Œå›½å®¶åŸå¸‚åéƒ¨ä»½
 string get_name_prefix( int par_nId )
 
-// ·½Ãæ¾üµÄÃû×Ö£¬ÓÉ¹ú¼Ò³ÇÊĞÃû×é³É
+// æ–¹é¢å†›çš„åå­—ï¼Œç”±å›½å®¶åŸå¸‚åç»„æˆ
 string get_name( int par_nId );
 
 // get side
@@ -211,7 +211,7 @@ int new_army_id( class SGarmy par_armyPlan )
     armyNew->m_strLeader = par_armyPlan->m_strLeader;
     armyNew->m_strSide = par_armyPlan->m_strSide; 
     
-    // xiaobai: ÏÔÊ¾ÑÕÉ«£¬Ç®Á¸ÔİÎŞ
+    // xiaobai: æ˜¾ç¤ºé¢œè‰²ï¼Œé’±ç²®æš‚æ— 
     
     armyNew->m_nCntTroop = 0;
     armyNew->m_mTrpIds = ([]);
@@ -222,7 +222,7 @@ int new_army_id( class SGarmy par_armyPlan )
         
 }  // end new_army_id
 
-// »ñÈ¡Ä³·½Ãæ¾üµÄÕû¸öÊı¾İ
+// è·å–æŸæ–¹é¢å†›çš„æ•´ä¸ªæ•°æ®
 SGarmy get_army( int par_nId )
 {
     if ( !id_valid( par_nId ) )
@@ -232,7 +232,7 @@ SGarmy get_army( int par_nId )
   
 }  // end get_army
 
-// Õ½³¡ËùÔÚ
+// æˆ˜åœºæ‰€åœ¨
 string get_wararea( int par_nId )
 {
     if ( !id_valid( par_nId ) )
@@ -244,7 +244,7 @@ string get_wararea( int par_nId )
     
 }  // end get_wararea
 
-// ×ª»»ËùÊô³ÇÊĞ
+// è½¬æ¢æ‰€å±åŸå¸‚
 string set_city( int par_nId, string par_strCity )
 {
     if ( !id_valid( par_nId ) )
@@ -303,7 +303,7 @@ string get_name( int par_nId )
 	strNationName = COUNTRY_D->get_country( p_army->m_strNationId, "name" );
 	strCityName = AREA_D->get_area( p_army->m_strCityId, "name" );
 
-    sprintf( strRet,"%s%s%s", strNationName, strCityName, "·½Ãæ¾ü" );
+    sprintf( strRet,"%s%s%s", strNationName, strCityName, "æ–¹é¢å†›" );
 	
 	return p_ret;
 	

@@ -12,22 +12,22 @@ void close_passage();
 void setup() 
 {
   set_area("pirate");
-  set_brief("µ¼º½ÊÒ");
+  set_brief("å¯¼èˆªå®¤");
 
-  set_long("ÕâÀïµÄÇ½ÃæÉÏ»­×ÅÒ»·ùÆß´óÑóµÄº½º£Í¼£¬ÉÏÃæ±ê¼Ç×ÅÒ»Ğ©º½ĞĞµÄÂ·Ïß£¬"
-           "¶´¶¥ÉÏ¿Ì×ÅĞÇ¿ÕÍ¼£¬ÊÒÄÚÕıÖĞÑë°Ú×ÅÒ»ÕÅĞ¡Ä¾×À¡£");
+  set_long("è¿™é‡Œçš„å¢™é¢ä¸Šç”»ç€ä¸€å¹…ä¸ƒå¤§æ´‹çš„èˆªæµ·å›¾ï¼Œä¸Šé¢æ ‡è®°ç€ä¸€äº›èˆªè¡Œçš„è·¯çº¿ï¼Œ"
+           "æ´é¡¶ä¸Šåˆ»ç€æ˜Ÿç©ºå›¾ï¼Œå®¤å†…æ­£ä¸­å¤®æ‘†ç€ä¸€å¼ å°æœ¨æ¡Œã€‚");
   set_light(0);
   set_exits( ([
                ]) );
   set_hidden_exits();
-  add_item("ceiling", "stars" , "¶´¶¥", "ĞÇ¿ÕÍ¼",
-           "ÕâÊÇÒ»·ùÓÃÓÚº½º£µÄĞÇ×ùÍ¼¡£");
-  add_item("legs","leg", "×ÀÍÈ", "×ÀÍÈÃ»ÓĞÊ²Ã´ÌØÊâµÄµØ·½¡£");
-  add_item("surface", "×ÀÃæ", "×ÀÃæÃ»ÓĞÊ²Ã´ÌØÊâµÄµØ·½¡£");
-  add_item("passage", "outline", "Í¨µÀ", "Í¨µÀÃ»ÓĞÊ²Ã´ÌØÊâµÄµØ·½¡£");
-  add_item("maps", "º½º£Í¼", 
-           ([ "look" : "º½º£Í¼ÉÏĞ´×ÅĞí¶àÁÊ²İµÄ×Ö¼£¡£",
-            "get" : "Õâº½º£Í¼ÊÇ¿ÌÔÚÇ½ÉÏµÄ£¬ÄãÄÃ²»ÏÂÀ´¡£" ]));
+  add_item("ceiling", "stars" , "æ´é¡¶", "æ˜Ÿç©ºå›¾",
+           "è¿™æ˜¯ä¸€å¹…ç”¨äºèˆªæµ·çš„æ˜Ÿåº§å›¾ã€‚");
+  add_item("legs","leg", "æ¡Œè…¿", "æ¡Œè…¿æ²¡æœ‰ä»€ä¹ˆç‰¹æ®Šçš„åœ°æ–¹ã€‚");
+  add_item("surface", "æ¡Œé¢", "æ¡Œé¢æ²¡æœ‰ä»€ä¹ˆç‰¹æ®Šçš„åœ°æ–¹ã€‚");
+  add_item("passage", "outline", "é€šé“", "é€šé“æ²¡æœ‰ä»€ä¹ˆç‰¹æ®Šçš„åœ°æ–¹ã€‚");
+  add_item("maps", "èˆªæµ·å›¾", 
+           ([ "look" : "èˆªæµ·å›¾ä¸Šå†™ç€è®¸å¤šæ½¦è‰çš„å­—è¿¹ã€‚",
+            "get" : "è¿™èˆªæµ·å›¾æ˜¯åˆ»åœ¨å¢™ä¸Šçš„ï¼Œä½ æ‹¿ä¸ä¸‹æ¥ã€‚" ]));
 
   set_objects( ([
                  "/domains/std/objects/navigation_table" : 1,
@@ -43,7 +43,7 @@ void open_passage()
     {
       return;
     }
-  this_body()->simple_action("±±ÃæµÄÑÒÇ½Ò¡»Î×ÅÏòÒ»ÅÔ»¬¿ª£¬Â¶³öÒ»¸öÍ¨µÀ¡£");
+  this_body()->simple_action("åŒ—é¢çš„å²©å¢™æ‘‡æ™ƒç€å‘ä¸€æ—æ»‘å¼€ï¼Œéœ²å‡ºä¸€ä¸ªé€šé“ã€‚");
   o = load_object("/domains/std/rooms/caves/small_dock.c");
   add_exit("north" , "/domains/std/rooms/caves/small_dock.c");
   o->passage_opened();
@@ -53,7 +53,7 @@ void open_passage()
 
 void passage_opened()
 {
-    receive_inside_msg("±±ÃæµÄÑÒÇ½Ò¡»Î×ÅÏòÒ»ÅÔ»¬¿ª£¬Â¶³öÒ»¸öÍ¨µÀ¡£\n");
+    receive_inside_msg("åŒ—é¢çš„å²©å¢™æ‘‡æ™ƒç€å‘ä¸€æ—æ»‘å¼€ï¼Œéœ²å‡ºä¸€ä¸ªé€šé“ã€‚\n");
     add_exit("north" , "/domains/std/rooms/caves/small_dock.c");
     passage_open = 1;
 }
@@ -64,13 +64,13 @@ void close_passage()
   object o = load_object("/domains/std/rooms/caves/small_dock.c");
   o->passage_closed();
   delete_exit("north");
-  receive_inside_msg("ÑÒÊ¯»¬ÁË»ØÈ¥£¬Ç½Ãæ°ÑÍ¨µÀÓÖµµ×¡ÁË¡£\n");
+  receive_inside_msg("å²©çŸ³æ»‘äº†å›å»ï¼Œå¢™é¢æŠŠé€šé“åˆæ¡£ä½äº†ã€‚\n");
   passage_open = 0;
 }
 
 void passage_closed()
 {
   delete_exit("north");
-  receive_inside_msg("ÑÒÊ¯»¬ÁË»ØÈ¥£¬Ç½Ãæ°ÑÍ¨µÀÓÖµµ×¡ÁË¡£\n");
+  receive_inside_msg("å²©çŸ³æ»‘äº†å›å»ï¼Œå¢™é¢æŠŠé€šé“åˆæ¡£ä½äº†ã€‚\n");
   passage_open = 0;
 }

@@ -58,7 +58,7 @@ void addreputation()
         if((p_id!=p_le)&&(CHAR_D->get_char(p_id,"task")==0))
         {
            CHANNEL_D->deliver_tell("rumor","system",
-             CHAR_D->get_char(p_id,"name")+"Ñá¾ë¹Ù³¡Õù¶·£¬¾ö¶¨¹éÒþÉ½ÁÖ¡£");  
+             CHAR_D->get_char(p_id,"name")+"åŽŒå€¦å®˜åœºäº‰æ–—ï¼Œå†³å®šå½’éšå±±æž—ã€‚");  
 	   CHAR_D->remove_char(p_id);
         }
     }

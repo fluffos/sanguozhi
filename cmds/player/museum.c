@@ -8,17 +8,17 @@ private void main()
         object ob;
         f_name=file_name(this_body()->query_room());
         if(f_name!="/a/huayin/vhall") {
-                write("只有从草芦才能进入博物馆。\n");
+                write("鍙湁浠庤崏鑺︽墠鑳借繘鍏ュ崥鐗╅銆俓n");
                 return;
         }
 
-        this_body()->simple_action("$N到博物馆朝圣去了。\n");
+        this_body()->simple_action("$N鍒板崥鐗╅鏈濆湥鍘讳簡銆俓n");
 
      ob = load_object("/sgdomain/museum/yard");
          if(objectp(ob)) {
                         this_body()->move(ob);
                 this_body()->do_game_command("look");
-                        this_body()->other_action("$N进入了博物馆\n");
+                        this_body()->other_action("$N杩涘叆浜嗗崥鐗╅\n");
          }
      return;
 }

@@ -17,7 +17,7 @@ void do_climb_str(string str) {
 		return;
 	}
 	if(!ret)
-		ret=o->short()+"好象没法爬。\n";
+		ret=o->short()+"濂借薄娌℃硶鐖�俓n";
 	write(ret);
 	return;
 }
@@ -30,6 +30,6 @@ void do_climb_down_obj(object ob) {
     ob->climb("down");
 }
 // up and down will consider later
-array query_verb_info() {
+mixed * query_verb_info() {
     return ({ ({ "STR" }) });
 }

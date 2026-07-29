@@ -1,4 +1,4 @@
-// accountant »¨½³
+// accountant èŠ±åŒ 
 #include <ansi.h>
 #include <mudlib.h>
 #define JOBID "waterflower"
@@ -20,17 +20,17 @@ void setup()
    jia=new(PTORSO+"choup");
    jia->move(this_object());
    jia->do_wear();
-   set_id("hua jiang", "»¨½³");
-   set_in_room_desc("»¨½³(hua jiang)");
+   set_id("hua jiang", "èŠ±åŒ ");
+   set_in_room_desc("èŠ±åŒ (hua jiang)");
    set_long(
-       "ask hua jiang about job¡£\n");
+       "ask hua jiang about jobã€‚\n");
    set_gender(1);
    set_age(50);
    set_sg_rongmao(-1);
    employee="";
    starttime=0;
    add_question("job", "job");
-   add_ask_str("job","$NÏò$TµÀ£ºÓĞÊ²Ã´»¨¿ÉÖÖÂğ£¿\n");
+   add_ask_str("job","$Nå‘$Té“ï¼šæœ‰ä»€ä¹ˆèŠ±å¯ç§å—ï¼Ÿ\n");
 }
 mixed special_answer(object ob, string str)
 {
@@ -58,12 +58,12 @@ void award(object usr)
     isrobot=usr->query_robot();
     if(isrobot)
     {   this_object()->simple_action(
-         "$NµÀ£º¶Ô²»Æğ£¬Éµ¹Ï²»¿ÉÒÔÖÖ»¨¡£\n");
+         "$Né“ï¼šå¯¹ä¸èµ·ï¼Œå‚»ç“œä¸å¯ä»¥ç§èŠ±ã€‚\n");
     }
     else
     {
-        this_object()->simple_action("$NËµµ½£º²»´í£¬²»´í£®\n");
-        this_object()->simple_action("$NËµµÀ£ºÄãÈ¥×ö°É¡£\n",usr);
+        this_object()->simple_action("$Nè¯´åˆ°ï¼šä¸é”™ï¼Œä¸é”™ï¼\n");
+        this_object()->simple_action("$Nè¯´é“ï¼šä½ å»åšå§ã€‚\n",usr);
 	obs = all_inventory( player );
         for( i = 0; i < sizeof( obs ); i++){
         if( obs[i]->can_turn()){
@@ -76,7 +76,7 @@ void award(object usr)
         return;}
 	}
 
-	this_object()->targetted_action("$N¸ø$TÒ»Ö»Ë®ºø¡£\n",usr);
+	this_object()->targetted_action("$Nç»™$Tä¸€åªæ°´å£¶ã€‚\n",usr);
 	ob=new(BOTTLE);
         ob->move(usr);
     	employee = n_id;
@@ -98,7 +98,7 @@ void ask_job(object usr)
     if (employee==n_id)
     {
         this_object()->targetted_action(
-         "$N¶Ô$TµÀ£º»î¶ùÒÑ¾­°²ÅÅ¸øÄãÁË£¬»¹²»È¥×ö£¿\n",usr);
+         "$Nå¯¹$Té“ï¼šæ´»å„¿å·²ç»å®‰æ’ç»™ä½ äº†ï¼Œè¿˜ä¸å»åšï¼Ÿ\n",usr);
         return;
     }
     if(employee!="") // some body working
@@ -108,7 +108,7 @@ void ask_job(object usr)
         if(objectp(e)) // this guy still on line
         {
                 this_object()->targetted_action(
-                 "$N¶Ô$TµÀ£º»î¶ùÏÖÔÚÓĞÈË×ö£¬´ı»á¶ùÔÙÀ´°É¡£\n",usr);
+                 "$Nå¯¹$Té“ï¼šæ´»å„¿ç°åœ¨æœ‰äººåšï¼Œå¾…ä¼šå„¿å†æ¥å§ã€‚\n",usr);
                 return;
          }
     }	
@@ -118,14 +118,14 @@ void ask_job(object usr)
     if(n_lasttimes>m_lasttimes)
     {
       this_object()->targetted_action(
-          "$N¶Ô$TµÀ£ºÄã½ñÌì¸ÉµÄ»î¹»¶àµÄÁË£¬¸ÃĞİÏ¢ĞİÏ¢ÁË¡£\n",usr);
+          "$Nå¯¹$Té“ï¼šä½ ä»Šå¤©å¹²çš„æ´»å¤Ÿå¤šçš„äº†ï¼Œè¯¥ä¼‘æ¯ä¼‘æ¯äº†ã€‚\n",usr);
         return;
     }
 	room=load_object(S_ROOM);
 	if (bowl1=present("bowl", room ))
 	destruct(bowl1);
 	this_object()->targetted_action(
-"$N¶Ô$TµÀ£ºÎÒÒª¸øÄãÒ»µÀÌâ,¿´Äã´ÏÃ÷²»´ÏÃ÷¡£\n",usr);
+"$Nå¯¹$Té“ï¼šæˆ‘è¦ç»™ä½ ä¸€é“é¢˜,çœ‹ä½ èªæ˜ä¸èªæ˜ã€‚\n",usr);
 	ROBOT->robot_test(usr,(:award:));
 }
 

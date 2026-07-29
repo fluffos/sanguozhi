@@ -33,7 +33,7 @@ mixed find_npc_char_old(string c_id)
     o_list=filter_array(o_list,(: $1->query_primary_id()==$(c_id) :));
 	if(!sizeof(o_list)) return 0;
     if(sizeof(o_list)>1) {
-		SGSYS(c_id + "ÓÐ¶à·ÝNPC COPY¡£");
+		SGSYS(c_id + "æœ‰å¤šä»½NPC COPYã€‚");
 	}
 
     return o_list[0];
@@ -161,9 +161,9 @@ void put_on_cloth(string c_id,object o_char){
 			if(!objectp(p))
 				p=OBJ_D->clone_obj(m_wear[k]);
 			if(objectp(p)){
-				p->set_can_sell("×Ô¼º×¨ÓÃµÄ¶«Î÷²»ÄÜÂô¡£\n");
-				p->set_can_drop("×Ô¼º×¨ÓÃµÄ¶«Î÷²»ÄÜ¶ª¡£\n");
-				p->set_can_give("×Ô¼º×¨ÓÃµÄ¶«Î÷²»ÄÜ¸øÈË¡£\n");
+				p->set_can_sell("è‡ªå·±ä¸“ç”¨çš„ä¸œè¥¿ä¸èƒ½å–ã€‚\n");
+				p->set_can_drop("è‡ªå·±ä¸“ç”¨çš„ä¸œè¥¿ä¸èƒ½ä¸¢ã€‚\n");
+				p->set_can_give("è‡ªå·±ä¸“ç”¨çš„ä¸œè¥¿ä¸èƒ½ç»™äººã€‚\n");
 				p->set_owner(c_id);
 				switch(OBJ_D->get_obj(m_wear[k],"type"))
 				{

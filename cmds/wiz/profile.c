@@ -40,7 +40,7 @@ int total(mapping *info) {
     return ret;
 }
 
-static void top_ten() {
+protected void top_ten() {
     mixed *tmp;
     int i, j;
 
@@ -71,7 +71,7 @@ private void main(string str) {
     function compare;
 
 #ifndef __PROFILE_FUNCTIONS__
-    out("Function profiling Ã»ÓĞ±»²ÉÓÃ¡£\n");
+    out("Function profiling æ²¡æœ‰è¢«é‡‡ç”¨ã€‚\n");
     return;
 #else
     if (!str) {
@@ -94,7 +94,7 @@ private void main(string str) {
     obname = evaluate_path(str);
 
     if (!(ob = find_object(obname))) {
-        out("ÕÒ²»µ½Îï¼ş " + obname + "\n");
+        out("æ‰¾ä¸åˆ°ç‰©ä»¶ " + obname + "\n");
         return;
     }
 

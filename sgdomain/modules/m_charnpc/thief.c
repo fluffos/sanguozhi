@@ -22,7 +22,7 @@ void extra_init()
 }
 string long()
 {  
-   return "Ò»¸ö½Æ»«µÄÐ¡Íµ£¬ÕýÔÚ¶«ÕÅÎ÷Íû£¬¿´ÆðÀ´ºÜ²»ÀÏÊµ¡£\n";
+   return "ä¸€ä¸ªç‹¡çŒ¾çš„å°å·ï¼Œæ­£åœ¨ä¸œå¼ è¥¿æœ›ï¼Œçœ‹èµ·æ¥å¾ˆä¸è€å®žã€‚\n";
 }
 int escape()
 {
@@ -48,7 +48,7 @@ int escape()
 
    switch(random(5)){
    case 0:
- 	 this_object()->responda("say Ïë×¥×¡ÎÒ£¬Ã»ÃÅ¡£\n");
+ 	 this_object()->responda("say æƒ³æŠ“ä½æˆ‘ï¼Œæ²¡é—¨ã€‚\n");
 	 break;
    case 1:
  	 this_object()->responda("hehe");
@@ -60,13 +60,13 @@ int escape()
 	   this_object()->responda("face");
 	   break;
    default:
-	   this_object()->responda("say ÈýÊ®Áù¼Æ£¬×ßÎªÉÏ¡£\n");
+	   this_object()->responda("say ä¸‰åå…­è®¡ï¼Œèµ°ä¸ºä¸Šã€‚\n");
    }
 	if(objectp(tar))
 	{
-		this_object()->simple_action("$NÏò"+tar->short()+"ÌÓÈ¥¡£\n");
+		this_object()->simple_action("$Nå‘"+tar->short()+"é€ƒåŽ»ã€‚\n");
 		this_object()->move(tar);
-		this_object()->simple_action("$N´Ó"+env->short()+"ÌÓÁË¹ýÀ´¡£\n");
+		this_object()->simple_action("$Nä»Ž"+env->short()+"é€ƒäº†è¿‡æ¥ã€‚\n");
 		CHAR_D->set_char(p_id,"room",file_name(tar));
 	}
 }
@@ -94,9 +94,9 @@ int be_catch(string p_officer)
 		o->set_job("patrol","get_thief",1);
 		o->responda("hit thief");
 		o->targetted_action(
-			"$N¼¸È­°Ñ$T´ò·­ÔÚµØ£¬ºÈµÀ£ºÀ´ÈË£¬°ÑÔôÈËÀ­ÏÂÈ¥¡£\n",this_object());
+			"$Nå‡ æ‹³æŠŠ$Tæ‰“ç¿»åœ¨åœ°ï¼Œå–é“ï¼šæ¥äººï¼ŒæŠŠè´¼äººæ‹‰ä¸‹åŽ»ã€‚\n",this_object());
 		this_object()->responda("beg");
-		this_object()->simple_action("¼¸ÃûÊ¿±øÉÏÀ´°Ñ$NÍÏÁËÏÂÈ¥¡£\n");
+		this_object()->simple_action("å‡ åå£«å…µä¸Šæ¥æŠŠ$Næ‹–äº†ä¸‹åŽ»ã€‚\n");
 		CHAR_D->remove_char(this_object()->query_id()[0]);
 	}
 }
@@ -105,7 +105,7 @@ void escape_forever()
 {
 	object o_leader;
 	this_object()->simple_action(
-		"$N·­ÉÏÒ»¸öÇ½Í·£¬²»¼ûÁË¡£\n");
+		"$Nç¿»ä¸Šä¸€ä¸ªå¢™å¤´ï¼Œä¸è§äº†ã€‚\n");
 	o_leader=find_body(p_leader);
 	if(objectp(o_leader))
 		o_leader->set_job("patrol","get_thief",-1); // escaped

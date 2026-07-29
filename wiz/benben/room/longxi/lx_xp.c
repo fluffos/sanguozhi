@@ -1,4 +1,4 @@
-//  Ï·Åï by benben
+//  æˆæ£š by benben
 // lx_xp.c 
 #include <mudlib.h>
 #include "/wiz/fire/fire.h"
@@ -7,8 +7,8 @@ inherit ROOM;
 void setup(){
     set_area("longxi");
     set_light(50);
-    set_brief(""+YEL+"--Ï·Åï--"+NOR+"");
-    set_long("    ÃèÊö¡£\n");
+    set_brief(""+YEL+"--æˆæ£š--"+NOR+"");
+    set_long("    æè¿°ã€‚\n");
     set_exits( ([
         "south" :  __DIR__+"lx_bhst3.c",
     ]) );

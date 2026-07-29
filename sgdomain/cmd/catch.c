@@ -10,17 +10,17 @@ void start(string arg)
         p_id=me->query_id()[0];
         if((!me->query_job("patrol","beg_time"))||
         (me->query_job("patrol","status")=="done")){
-                write("ÄãÏÖÔÚ²¢Î´µ£ÈÎÑ²ÂßÈÎÎñ£¬»¹ÊÇÉÙ¹ÜÏĞÊÂÎªÃî¡£\n");
+                write("ä½ ç°åœ¨å¹¶æœªæ‹…ä»»å·¡é€»ä»»åŠ¡ï¼Œè¿˜æ˜¯å°‘ç®¡é—²äº‹ä¸ºå¦™ã€‚\n");
                 return;
         }
         
         if(!arg){
-                write("ÓÃ·¨´íÎó£¬ÓÃ help catch ²é¿´°ïÖú¡£\n");
+                write("ç”¨æ³•é”™è¯¯ï¼Œç”¨ help catch æŸ¥çœ‹å¸®åŠ©ã€‚\n");
                 return;
         }
         tar=present(arg,environment(this_body()));
         if(!objectp(tar)){
-                write("ÄãÒª×¥Ë­£¿\n");
+                write("ä½ è¦æŠ“è°ï¼Ÿ\n");
                 return;
         }
         if(tar->can_catch()){
@@ -59,7 +59,7 @@ void start(string arg)
                         CHAR_D->set_char(arg,"catch_area",0);
                 }
         }
-        write("Èç¹ûÃ»ÓĞÀíÓÉ£¬¾Í²»ÄÜËæ±ã×¥ÈË¡£\n");
+        write("å¦‚æœæ²¡æœ‰ç†ç”±ï¼Œå°±ä¸èƒ½éšä¾¿æŠ“äººã€‚\n");
         return ;
         
 }
@@ -80,26 +80,26 @@ mixed catch_award(string o_id,string p_id)
 		if(repinc>CHAR_D->get_char(o_id,"reputation"))
 			repinc=CHAR_D->get_char(o_id,"reputation");
         if(repinc)
-                mess=CHAR_D->get_char(o_id,"name")+"ÇÜ»ñÁË"+
-                CHAR_D->get_char(p_id,"name")+"£¬"+CHAR_D->get_char(o_id,"name")+
-                "µÄÉùÍûÌá¸ßÁË"+
-                chinese_number(repinc)+"µã¡£"+CHAR_D->get_char(p_id,"name")+
-                  "±»ËÍÍùµ±µØ´óÀÎ¡£";
+                mess=CHAR_D->get_char(o_id,"name")+"æ“’è·äº†"+
+                CHAR_D->get_char(p_id,"name")+"ï¼Œ"+CHAR_D->get_char(o_id,"name")+
+                "çš„å£°æœ›æé«˜äº†"+
+                chinese_number(repinc)+"ç‚¹ã€‚"+CHAR_D->get_char(p_id,"name")+
+                  "è¢«é€å¾€å½“åœ°å¤§ç‰¢ã€‚";
         else
-                mess=CHAR_D->get_char(o_id,"name")+"ÇÜ»ñÁË"+
-                CHAR_D->get_char(p_id,"name")+"¡£"+CHAR_D->get_char(p_id,"name")+
-                   "±»ËÍÍùµ±µØ´óÀÎ¡£";
+                mess=CHAR_D->get_char(o_id,"name")+"æ“’è·äº†"+
+                CHAR_D->get_char(p_id,"name")+"ã€‚"+CHAR_D->get_char(p_id,"name")+
+                   "è¢«é€å¾€å½“åœ°å¤§ç‰¢ã€‚";
         
         CHANNEL_D->deliver_tell("rumor","system",mess);
         CHAR_D->set_char(p_id,"reputation",rep-repred);
         CHAR_D->set_char(o_id,"reputation",
                 CHAR_D->get_char(o_id,"reputation")+repinc);
 //        o_p->move(p_prison);
-//        tell_user(p_id,"µÈÄãÇåĞÑ¹ıÀ´µÄÊ±ºò£¬·¢ÏÖ×Ô¼ºÒÑ¾­ÔÚ´óÀÎÀïÁË¡£\n");
-//      CHAR_D->appear(p_id,p_prison,"µÈ$NÇåĞÑ¹ıÀ´µÄÊ±ºò£¬·¢ÏÖ$nÒÑ¾­ÔÚ´óÀÎÀïÁË¡£\n");
+//        tell_user(p_id,"ç­‰ä½ æ¸…é†’è¿‡æ¥çš„æ—¶å€™ï¼Œå‘ç°è‡ªå·±å·²ç»åœ¨å¤§ç‰¢é‡Œäº†ã€‚\n");
+//      CHAR_D->appear(p_id,p_prison,"ç­‰$Næ¸…é†’è¿‡æ¥çš„æ—¶å€™ï¼Œå‘ç°$nå·²ç»åœ¨å¤§ç‰¢é‡Œäº†ã€‚\n");
 //        CHAR_D->set_char(p_id,"in_prison",5);
 //        CHAR_D->set_char(p_id,"be_caught",time);
 //      CHAR_D->appear(p_id,CHAR_D->get_char(p_id,"area"),
-//              "meeting","$NÔâÇÜÖ®ºó£¬±¥ÊÜ¿àÄÑ£¬µ«ÖÕÓÚÓÖÖØ¼ûÌìÈÕÁË¡£\n");
-        CHAR_D->put_prison(p_id,5,area,"µÈ$NÇåĞÑ¹ıÀ´µÄÊ±ºò£¬·¢ÏÖ×Ô¼ºÒÑ¾­ÔÚ´óÀÎÀïÁË¡£\n");
+//              "meeting","$Né­æ“’ä¹‹åï¼Œé¥±å—è‹¦éš¾ï¼Œä½†ç»ˆäºåˆé‡è§å¤©æ—¥äº†ã€‚\n");
+        CHAR_D->put_prison(p_id,5,area,"ç­‰$Næ¸…é†’è¿‡æ¥çš„æ—¶å€™ï¼Œå‘ç°è‡ªå·±å·²ç»åœ¨å¤§ç‰¢é‡Œäº†ã€‚\n");
 }

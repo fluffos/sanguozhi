@@ -9,15 +9,15 @@ inherit ROOM;
 void setup() 
 {
   set_area("pirate");
-  set_brief("倾斜地道");
+  set_brief("鍊炬枩鍦伴亾");
 
-  set_long("这里什么也没有。\n");
+  set_long("杩欓噷浠�涔堜篃娌℃湁銆俓n");
   set_light(0);
   set_exits( ([
                "south" : "inside_cave",
                ]) );
   set_hidden_exits();
-  set_default_exit ("那边没有出口。\n");
+  set_default_exit ("閭ｈ竟娌℃湁鍑哄彛銆俓n");
 
   set_objects( ([
 

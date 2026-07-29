@@ -16,7 +16,7 @@ HTML;
 
 	if( !arg || !stringp(arg) || arg == "" ){
 		j = 0;
-		html = html + "<head><center><h2>Èı¹úÖ¾³ÇÊĞµØÍ¼</h2></center></head>";
+		html = html + "<head><center><h2>ä¸‰å›½å¿—åŸå¸‚åœ°å›¾</h2></center></head>";
 		html = html + "<center><h3><table border=5><tr>";
 		for( i = 0; i < sizeof(city); i++ ){
 			html = html + sprintf("<th><a href=\"/cgi/sg_map.cgi?=%s\">%s</a></td>", city[i], AREA_D->get_area(city[i], "name"));
@@ -30,13 +30,13 @@ HTML;
 			html = html + @NOFOUND
 <br><br><br>
 <center><h2>
-Èı¹úÖ¾ÖĞÃ»ÓĞÕâ¸ö³ÇÊĞ»ò´Ë³ÇÊĞµÄµØÍ¼ÉĞÎ´Íê³É¡£
+ä¸‰å›½å¿—ä¸­æ²¡æœ‰è¿™ä¸ªåŸå¸‚æˆ–æ­¤åŸå¸‚çš„åœ°å›¾å°šæœªå®Œæˆã€‚
 </h2></center><br><br><br>
 NOFOUND;
 	} else {
-		html = html + sprintf("<head><center><h2>Èı¹úÖ¾³ÇÊĞÕ½³¡µØÍ¼--%s</h2></center></head>", AREA_D->get_area(arg, "name"));
+		html = html + sprintf("<head><center><h2>ä¸‰å›½å¿—åŸå¸‚æˆ˜åœºåœ°å›¾--%s</h2></center></head>", AREA_D->get_area(arg, "name"));
 		html = html + "<center><table border=5>";
-		html = html + "<tr><th>µ±Ç°Ê±³½</td><th>µ±µØÌìÆø</td><th>µ±µØ·çÏò</td></tr>";
+		html = html + "<tr><th>å½“å‰æ—¶è¾°</td><th>å½“åœ°å¤©æ°”</td><th>å½“åœ°é£å‘</td></tr>";
 		html = html + "<tr><th>" + DAY_D->query_string_hour() + "</td>"
 			    + "<th>" + DAY_D->get_weather_short(AREA_D->get_area(arg,"weather")) + "</td>"
 			    + "<th>" + DAY_D->get_wind_short(AREA_D->get_area(arg,"wind")) + "</td></tr></table></center>";

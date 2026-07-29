@@ -1,4 +1,4 @@
-//  Ğ¡Ãí by benben
+//  å°åº™ by benben
 // xy_temple.c 
 #include <mudlib.h>
 #include "/wiz/fire/fire.h"
@@ -7,8 +7,8 @@ inherit ROOM;
 void setup(){
     set_area("xianyang");
     set_light(50);
-    set_brief(""+YEL+"Ğ¡Ãí"+NOR+"");
-    set_long("    ÃèÊö¡£\n");
+    set_brief(""+YEL+"å°åº™"+NOR+"");
+    set_long("    æè¿°ã€‚\n");
     set_exits( ([
         "west" :  __DIR__+"xy_nchx2.c",
     ]) );

@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is 巴山夜雨
+// driver is 宸村北澶滈洦
 // created date is Sun Jun 12 21:44:24 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,7 +7,7 @@ inherit OUTDOOR_ROOM;
 void setup() {
 set_area("bowangpo");
 set_light(50);
-set_brief("%^YELLOW%^"+"道口"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"閬撳彛"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "west":"/a/bowangpo/bwp_zhalan.c",

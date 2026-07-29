@@ -86,15 +86,15 @@
 /wiz/xiaobai/exec.c line 6: Undefined variable 'area_d' before list_area();}
 /wiz/xiaobai/exec.c line 6: Undefined variable 'area_d' before list_areas();}
 /wiz/xiaobai/exec.c line 6: parse error before  0,;}
-/wiz/xiaobai/exec.c line 6: parse error before  "°×ÀÇÉ½",;}
+/wiz/xiaobai/exec.c line 6: parse error before  "ç™½ç‹¼å±±",;}
 /wiz/xiaobai/exec.c line 6: parse error before  0,;}
-/wiz/xiaobai/exec.c line 6: parse error before  "ÓÄÖÝ",;}
+/wiz/xiaobai/exec.c line 6: parse error before  "å¹½å·ž",;}
 /wiz/xiaobai/exec.c line 6: parse error before  48,;}
 /wiz/xiaobai/exec.c line 6: parse error before  "/a/bailangshan/",;
 /wiz/xiaobai/exec.c line 6: parse error before  0,;}
-/wiz/xiaobai/exec.c line 6: parse error before  "°×ÀÇÉ½",;}
+/wiz/xiaobai/exec.c line 6: parse error before  "ç™½ç‹¼å±±",;}
 /wiz/xiaobai/exec.c line 6: parse error before  0,;}
-/wiz/xiaobai/exec.c line 6: parse error before  "ÓÄÖÝ",;}
+/wiz/xiaobai/exec.c line 6: parse error before  "å¹½å·ž",;}
 /wiz/xiaobai/exec.c line 6: parse error before  48,;}
 /wiz/xiaobai/exec.c line 6: parse error before  "/a/bailangshan/",;
 /wiz/xiaobai/exec.c line 6: parse error before ;}
@@ -108,8 +108,8 @@
 /wiz/xiaobai/menu/recovermenu.c line 33: parse error before the end of line
 /wiz/xiaobai/menu/recovermenu.c line 43: Illegal LHS before the end of line
 /wiz/xiaobai/menu/recovermenu.c line 43: parse error before the end of line
-/wiz/xiaobai/menu/recovermenu.c line 49: Undefined variable 'p_mnSelectTroop' before  new_menu( "ÇëÑ¡ÔñÆä
-/wiz/xiaobai/menu/recovermenu.c line 49: Illegal lvalue before  new_menu( "ÇëÑ¡ÔñÆä
+/wiz/xiaobai/menu/recovermenu.c line 49: Undefined variable 'p_mnSelectTroop' before  new_menu( "è¯·é€‰æ‹©å…¶
+/wiz/xiaobai/menu/recovermenu.c line 49: Illegal lvalue before  new_menu( "è¯·é€‰æ‹©å…¶
 /wiz/xiaobai/menu/recovermenu.c line 57: Undefined function out before ;
 /wiz/xiaobai/menu/recovermenu.c line 57: Undefined function output before ;
 /wiz/xiaobai/menu/recovermenu.c line 76: Illegal to use local variable in functional. before  );

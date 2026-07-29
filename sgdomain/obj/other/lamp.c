@@ -12,7 +12,7 @@ void setup()
     set_id(GINI_D->get_msg(m_type,"lamp_id"),GINI_D->get_msg(m_type,"lamp_name"));
     add_id("gini lamp");
     set_unit(GINI_D->get_msg(m_type,"lamp_unit"));
-    //set_id("gini lamp", "%^YELLOW%^ÉñµÆ%^RESET%^");
+    //set_id("gini lamp", "%^YELLOW%^ç¥ç¯%^RESET%^");
     set_size(VERY_SMALL);
     set_gettable(1);
     set_can_drop(0);
@@ -26,7 +26,7 @@ string long() {
 	if (sizeof(m_type))
 		return GINI_D->get_msg(m_type,"lamp_long");
 	else
-		return "Ò»Õµ%^YELLOW%^ÉñµÆ%^RESET%^";
+		return "ä¸€ç›%^YELLOW%^ç¥ç¯%^RESET%^";
 }
 
 mixed set_owner(string owner)

@@ -6,31 +6,31 @@ inherit M_CHAR;
 inherit LIVING;
 void setup()
 {
-    set_name("lao suojiang", "ÀÏËø½³");
+    set_name("lao suojiang", "è€é”åŒ ");
     set_gender(1);
-    set_proper_name("ÀÏËø½³");
-    set_in_room_desc("%^YELLOW%^ÀÏËø½³%^RESET%^(lao suojiang)");
+    set_proper_name("è€é”åŒ ");
+    set_in_room_desc("%^YELLOW%^è€é”åŒ %^RESET%^(lao suojiang)");
     add_id("lao");
     add_id("suojiang");
     set_age(50);
 
-    add_ask_str("cut","$N¶Ô$TµÀ£º$RÄÜ²»ÄÜ°ïÎÒï±°Ñ¼ÒÀïµÄÔ¿³×£¿\n");
+    add_ask_str("cut","$Nå¯¹$Té“ï¼š$Rèƒ½ä¸èƒ½å¸®æˆ‘é”‰æŠŠå®¶é‡Œçš„é’¥åŒ™ï¼Ÿ\n");
     add_question("cut","cut" );
 
 }
 string long() {
 	return
-"%^YELLOW%^ÀÏËø½³%^RESET%^£¬Ã»ÓĞËû´ò²»¿ªµÄ¶«Î÷¡£\n";
+"%^YELLOW%^è€é”åŒ %^RESET%^ï¼Œæ²¡æœ‰ä»–æ‰“ä¸å¼€çš„ä¸œè¥¿ã€‚\n";
 }
 
 mixed can_i_have_key(string p_id) {
 	mixed hus;
 	object me=find_body(p_id);
 	hus=CHAR_D->get_char(p_id,"h");
-	if(!mapp(hus)) return "$N¶Ô$TµÀ£º$R»¹Ã»ÓĞ·¿×Ó£¬ÎÒÔõÃ´¸øÄãÅäÔ¿³×¡£\n";
+	if(!mapp(hus)) return "$Nå¯¹$Té“ï¼š$Rè¿˜æ²¡æœ‰æˆ¿å­ï¼Œæˆ‘æ€ä¹ˆç»™ä½ é…é’¥åŒ™ã€‚\n";
 
 	if(MONEY_D->sub_poket_money(me,10000)==-1) 
-		return "$N¶Ô$TµÀ£ºÅäÔ¿³×ÒªÒ»Á½½ğ×Ó¡£ÄãÉíÉÏµÄÇ®²»¹»¡£\n";
+		return "$Nå¯¹$Té“ï¼šé…é’¥åŒ™è¦ä¸€ä¸¤é‡‘å­ã€‚ä½ èº«ä¸Šçš„é’±ä¸å¤Ÿã€‚\n";
 	return 1;
 
 }
@@ -39,13 +39,13 @@ private void give_key(string p_id) {
 	me=find_body(p_id);
 	okey=new(HOMEKEY);
 	okey->set_owner(p_id);
-	this_object()->targetted_action("$N¶Ô$TµÀ£ºÅäÔ¿³×ÒªÒ»Á½½ğ×Ó¡£\n",me);
-	DELAY_D->delay_simple_action(me,"$NµÀ£ºÃ»ÎÊÌâ¡£\n",1);
-	DELAY_D->delay_targetted_action(me,this_object(),"$N¸ø$TÒ»Á½»Æ½ğ¡£\n",2);
-	DELAY_D->delay_targetted_action(me,this_object(),"$T½Ó¹ıÇ®£¬¿ªÊ¼ï±Ô¿³×¡£\n",3);
+	this_object()->targetted_action("$Nå¯¹$Té“ï¼šé…é’¥åŒ™è¦ä¸€ä¸¤é‡‘å­ã€‚\n",me);
+	DELAY_D->delay_simple_action(me,"$Né“ï¼šæ²¡é—®é¢˜ã€‚\n",1);
+	DELAY_D->delay_targetted_action(me,this_object(),"$Nç»™$Tä¸€ä¸¤é»„é‡‘ã€‚\n",2);
+	DELAY_D->delay_targetted_action(me,this_object(),"$Tæ¥è¿‡é’±ï¼Œå¼€å§‹é”‰é’¥åŒ™ã€‚\n",3);
 
-	DELAY_D->delay_targetted_action(me,this_object(),"$TÌ§ÆğÍ·£ºÔ¿³×ï±ºÃÁË¡£\n",6);
-	DELAY_D->delay_targetted_action(me,this_object(),"$N½Ó¹ı$TµÖ¹ıÀ´µÄÔ¿³×£¬ÂúÒâµØµãÁËµãÍ·¡£\n",7);
+	DELAY_D->delay_targetted_action(me,this_object(),"$TæŠ¬èµ·å¤´ï¼šé’¥åŒ™é”‰å¥½äº†ã€‚\n",6);
+	DELAY_D->delay_targetted_action(me,this_object(),"$Næ¥è¿‡$TæŠµè¿‡æ¥çš„é’¥åŒ™ï¼Œæ»¡æ„åœ°ç‚¹äº†ç‚¹å¤´ã€‚\n",7);
 
 	okey->move(me);	
 }
@@ -64,8 +64,8 @@ private void get_my_house(string p_id) {
 		okey=new(HOMEKEY);
 		okey->set_owner(p_id);
 		this_object()->targetted_action
-			("$N¶Ô$TĞ¦ÎûÎûµØËµ£º$RµÄ·¿×ÓÒÑ¾­¸ãºÃÁË£¬ÕâÊÇÔ¿³×£¬¿ìÈ¥¿´¿´°É¡£\n"+
-			 "ËµÍêµÖ¸ø$t$O\n",this_body(),okey);
+			("$Nå¯¹$Tç¬‘å˜»å˜»åœ°è¯´ï¼š$Rçš„æˆ¿å­å·²ç»æå¥½äº†ï¼Œè¿™æ˜¯é’¥åŒ™ï¼Œå¿«å»çœ‹çœ‹å§ã€‚\n"+
+			 "è¯´å®ŒæŠµç»™$t$O\n",this_body(),okey);
 		okey->move(this_body());
 	}
 
@@ -77,9 +77,9 @@ private void get_my_house(string p_id) {
 
 
 	CHANNEL_D->deliver_tell("gossip",this_object()->short(),
-		"¹§Ï²¹§Ï²£¬"+CHAR_D->get_char(p_id,"name")+
-		"ÔÚ"+AREA_D->get_area(hus["a"],"name")+"µÄ"+
-		HOUSE_D->get_house(hus["id"],"name")+"ÒÑ¾­ÔìºÃÁË£¬´ó¼ÒÈ¥ÇÃËûÒ»¶Ù°É¡£"); 
+		"æ­å–œæ­å–œï¼Œ"+CHAR_D->get_char(p_id,"name")+
+		"åœ¨"+AREA_D->get_area(hus["a"],"name")+"çš„"+
+		HOUSE_D->get_house(hus["id"],"name")+"å·²ç»é€ å¥½äº†ï¼Œå¤§å®¶å»æ•²ä»–ä¸€é¡¿å§ã€‚"); 
 }
 void special_answer(object who, string matt)
 {

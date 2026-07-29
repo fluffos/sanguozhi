@@ -1,9 +1,9 @@
-// »±Ê÷Ö¦ stick.c
+// æ§æ ‘æ stick.c
 inherit SWORD;
 void setup() {
-    set_adj("¸»ÓĞµ¯ĞÔµÄ");
-    set_unit("¸ù");
-    set_id("stick", "»±Ê÷Ö¦");
+    set_adj("å¯Œæœ‰å¼¹æ€§çš„");
+    set_unit("æ ¹");
+    set_id("stick", "æ§æ ‘æ");
     set_weapon_class(15);
     set_size(MEDIUM);
    set_combat_messages("combat-sword");

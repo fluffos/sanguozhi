@@ -23,7 +23,7 @@ void save_me();
 void restore_me(string some_name, int preserve_vars);
 
 void register_failure(string addr);
-static private string tmp_id;
+nosave private string tmp_id;
 
 varargs void modal_push(function input_func,
             mixed prompt,
@@ -90,7 +90,7 @@ nomask void set_password(string str)
 {
     if ( base_name(previous_object()) != CMD_OB_PASSWD )
     //error("illegal attempt to set a password\n");
-    error("ÊÔÍ¼·Ç·¨Éè¶¨ÃÜÂë\n");
+    error("è¯•å›¾éæ³•è®¾å®šå¯†ç \n");
     password = oldcrypt(str, str);
     save_me();
 }
@@ -98,7 +98,7 @@ nomask void set_password(string str)
 private nomask void time_up()
 {
     //write("\nSorry, you've taken too long.\n");
-    write("\n¶Ô²»Æğ£¬Äã»¨ÔÚÁ¬ÏßÉÏµÄÊ±¼äÌ«³¤ÁË£¬ÇëÏÂ´ÎÔÙÀ´¡£\n");
+    write("\nå¯¹ä¸èµ·ï¼Œä½ èŠ±åœ¨è¿çº¿ä¸Šçš„æ—¶é—´å¤ªé•¿äº†ï¼Œè¯·ä¸‹æ¬¡å†æ¥ã€‚\n");
     get_lost();
 }
 
@@ -108,8 +108,8 @@ private nomask int check_site()
     {
     printf(//"Sorry, your site has been banished from " + mud_name() + ".  To ask for\n"
            //"a character, please mail %s.\n",
-           "¶Ô²»Æğ£¬ÄãµÄµØÖ·±»" + mud_name() + "½ûÖ¹Á¬Ïß£¬"
-           "Çë mail µ½ %s À´ÉêÇëÍæ¼ÒÕÊ»§¡£\n",
+           "å¯¹ä¸èµ·ï¼Œä½ çš„åœ°å€è¢«" + mud_name() + "ç¦æ­¢è¿çº¿ï¼Œ"
+           "è¯· mail åˆ° %s æ¥ç”³è¯·ç©å®¶å¸æˆ·ã€‚\n",
            ADMIN_EMAIL);
 
     get_lost();
@@ -129,31 +129,31 @@ private nomask int valid_chinese_id(string str)
     len = strlen(str);
     if ( len > 8 ) // fire change the maximum name from 11 to 8
     {
-    write("¶Ô²»Æğ£¬Õâ¸öĞÕÃûÌ«³¤ÁË£¬Çë»»Ò»¸ö¡£\n");
+    write("å¯¹ä¸èµ·ï¼Œè¿™ä¸ªå§“åå¤ªé•¿äº†ï¼Œè¯·æ¢ä¸€ä¸ªã€‚\n");
     return 0;
     }
 
     if ( (len / 2) * 2 != len ) {
-        write("¶Ô²»Æğ£¬ÇëÓÃÖĞÎÄÊäÈëĞÕÃû¡£\n");
+        write("å¯¹ä¸èµ·ï¼Œè¯·ç”¨ä¸­æ–‡è¾“å…¥å§“åã€‚\n");
         return 0;
     }
     for (i=0; i<len; i++)
         if ((i / 2) * 2 == i) {
             if (str[i] < 176 || str[i] > 247) {
-                write("¶Ô²»Æğ£¬ÇëÓÃÖĞÎÄÊäÈëĞÕÃû¡£\n");
+                write("å¯¹ä¸èµ·ï¼Œè¯·ç”¨ä¸­æ–‡è¾“å…¥å§“åã€‚\n");
                 return 0;
             }
         } else if (str[i] < 161 || str[i] > 254) {
-                write("¶Ô²»Æğ£¬ÇëÓÃÖĞÎÄÊäÈëĞÕÃû¡£\n");
+                write("å¯¹ä¸èµ·ï¼Œè¯·ç”¨ä¸­æ–‡è¾“å…¥å§“åã€‚\n");
                 return 0;
         }
-    if (str == "Ä³ÈË" || BANISH_D->check_name(str)) {
-        write("¶Ô²»Æğ£¬Õâ¸öĞÕÃû±»½ûÖ¹Ê¹ÓÃ£¬Çë»»Ò»¸ö¡£\n");       
+    if (str == "æŸäºº" || BANISH_D->check_name(str)) {
+        write("å¯¹ä¸èµ·ï¼Œè¿™ä¸ªå§“åè¢«ç¦æ­¢ä½¿ç”¨ï¼Œè¯·æ¢ä¸€ä¸ªã€‚\n");       
         return 0;                                               
     }
 /*
     if (NAME_D->check_chinese_id(str)) {
-        write("¶Ô²»Æğ£¬Õâ¸öÃû×ÖÒÑ¾­ÓĞÈËÊ¹ÓÃÁË£¬Çë»»Ò»¸ö¡£\n");
+        write("å¯¹ä¸èµ·ï¼Œè¿™ä¸ªåå­—å·²ç»æœ‰äººä½¿ç”¨äº†ï¼Œè¯·æ¢ä¸€ä¸ªã€‚\n");
         return 0;
     }
 */
@@ -161,7 +161,7 @@ private nomask int valid_chinese_id(string str)
     if(sizeof(chars)) {
         foreach(string c in chars) {
            if(CHAR_D->get_char(c,"type")==TYPE_NPC) {
-              write("¶Ô²»Æğ£¬²»ÄÜÊ¹ÓÃÈı¹úÖĞµÄÈËÎïÃû¡£\n");
+              write("å¯¹ä¸èµ·ï¼Œä¸èƒ½ä½¿ç”¨ä¸‰å›½ä¸­çš„äººç‰©åã€‚\n");
               return 0;
 
            }
@@ -175,13 +175,13 @@ private nomask int valid_name(string str)
     int len;
     string *nousename=({"quit", "exit", "leave", "here", "me", "who", "new"});
     if(member_array(str,nousename) != -1) {
-       write("¶Ô²»Æğ£¬ÕâÑùµÄÃû×ÖÈİÒ×ÒıÆğÏµÍ³»ìÂÒ£¬Çë»»Ò»¸ö¡£\n");
+       write("å¯¹ä¸èµ·ï¼Œè¿™æ ·çš„åå­—å®¹æ˜“å¼•èµ·ç³»ç»Ÿæ··ä¹±ï¼Œè¯·æ¢ä¸€ä¸ªã€‚\n");
        return 0;
     }
     if ( BANISH_D->check_name(str) )
     {
     //write("Sorry, that name is forbidden by the implementors.  Please choose another.\n");
-        write("¶Ô²»Æğ£¬Õâ¸öĞÕÃû±»½ûÖ¹Ê¹ÓÃ£¬Çë»»Ò»¸ö¡£\n");
+        write("å¯¹ä¸èµ·ï¼Œè¿™ä¸ªå§“åè¢«ç¦æ­¢ä½¿ç”¨ï¼Œè¯·æ¢ä¸€ä¸ªã€‚\n");
         return 0;
     }
 
@@ -192,7 +192,7 @@ private nomask int valid_name(string str)
     if ( len < 3 || len > 8 ) // fire change the maximum name from 11 to 8
     {
       //write("Sorry, that name's too long.  Try again.\n> ");
-       write("¶Ô²»Æğ£¬Õâ¸öĞÕÃûÌ«³¤ÁË£¬Çë»»Ò»¸ö¡£\n> ");
+       write("å¯¹ä¸èµ·ï¼Œè¿™ä¸ªå§“åå¤ªé•¿äº†ï¼Œè¯·æ¢ä¸€ä¸ªã€‚\n> ");
        return 0;
     }
 
@@ -212,7 +212,7 @@ private nomask int valid_name(string str)
     {
     //write("Sorry, that name is forbidden by the implementors.  Please\n"
     //      "choose a name containing only letters.\n");
-    write("¶Ô²»Æğ£¬Õâ¸öĞÕÃû²»×¼Ê¹ÓÃ£¬Çë»»Ò»¸öÖ»ÓĞ×ÖÄ¸µÄ¡£\n");
+    write("å¯¹ä¸èµ·ï¼Œè¿™ä¸ªå§“åä¸å‡†ä½¿ç”¨ï¼Œè¯·æ¢ä¸€ä¸ªåªæœ‰å­—æ¯çš„ã€‚\n");
     return 0;
     }
 
@@ -222,19 +222,19 @@ private nomask int valid_name(string str)
 
 private nomask int check_special_commands(string arg)
 {
-    string array b;
+    string * b;
 
     switch(arg)
     {
     	case "who":
         	b = bodies()->query_name();
-		b -= ({ "Ä³ÈË" });
+		b -= ({ "æŸäºº" });
 		if(!sizeof(b)) {
-		        write("ºÃÏóÃ»ÈËÔÚÏßÉÏÓ´¡£\n");
+		        write("å¥½è±¡æ²¡äººåœ¨çº¿ä¸Šå“Ÿã€‚\n");
 		        return 0;
 		}	
 		printf(//"The following people are logged on:\n%s\n",
-	           "ÒÔÏÂµÄÈËÎïÏÖÔÚÕıÔÚÁ¬ÏßÖĞ£º\n%s\n",
+	           "ä»¥ä¸‹çš„äººç‰©ç°åœ¨æ­£åœ¨è¿çº¿ä¸­ï¼š\n%s\n",
         	   wrap(implode(b,", ")));
 	        return 0;
 
@@ -243,11 +243,11 @@ private nomask int check_special_commands(string arg)
     	case "exit":
     	case "leave":
     		//write("Bye.\n");
-    		write("»¶Ó­ÏÂ´ÎÔÙÀ´£¡\n");
+    		write("æ¬¢è¿ä¸‹æ¬¡å†æ¥ï¼\n");
     		get_lost();
     		return 0;
 	case "new":
-		modal_push((: rcv_new_userid :), "Çë¸øÄãµÄÈËÎïÈ¡Ò»¸öÓ¢ÎÄÃû×Ö£º");
+		modal_push((: rcv_new_userid :), "è¯·ç»™ä½ çš„äººç‰©å–ä¸€ä¸ªè‹±æ–‡åå­—ï¼š");
 		return 0;		
     default:
     return 1;
@@ -262,11 +262,11 @@ private nomask void rcv_new_userid(string arg) {
     {
         if ( !valid_name(arg) ) return; /* return for another user id */
         modal_func((: rcv_check_new_user, arg :),
-           "'" + arg + "'  ÕıÈ·Âğ£¿");
+           "'" + arg + "'  æ­£ç¡®å—ï¼Ÿ");
         return;
     }
     else {
-        write("Õâ¸öÓ¢ÎÄÃû×ÖÒÑ¾­±»ÈËÓÃ¹ıÁË£¡\n");
+        write("è¿™ä¸ªè‹±æ–‡åå­—å·²ç»è¢«äººç”¨è¿‡äº†ï¼\n");
         return;
     }
 }
@@ -276,10 +276,10 @@ private nomask void rcv_confirm_new_pass(string first_entry,
 {
     if ( oldcrypt(second_entry, second_entry) != first_entry )
     {
-    write("\nÍà×Ó´©´íÁË²»Òª½ô£¬¿ÉÊÇÃÜÂë²»Ò»ÖÂ¾ÍÊÇ²»ĞĞ£¡\n");
+    write("\nè¢œå­ç©¿é”™äº†ä¸è¦ç´§ï¼Œå¯æ˜¯å¯†ç ä¸ä¸€è‡´å°±æ˜¯ä¸è¡Œï¼\n");
 
 //    modal_func((: rcv_new_password :), "Password: ", 1);
-    modal_func((: rcv_new_password :), "ÇëÊäÈëÃÜÂë£º", 1);
+    modal_func((: rcv_new_password :), "è¯·è¾“å…¥å¯†ç ï¼š", 1);
     return;
     }
 
@@ -307,7 +307,7 @@ private nomask void rcv_new_password(string arg)
     if ( strlen(arg) < 5 )
     {
     //write("Your password must have at least 5 characters in it.\n");
-    write("ÄãµÄÃÜÂë×îÉÙÒªÎå¸ö×Ö·û¡£\n");
+    write("ä½ çš„å¯†ç æœ€å°‘è¦äº”ä¸ªå­—ç¬¦ã€‚\n");
     return;
     }
 
@@ -315,7 +315,7 @@ private nomask void rcv_new_password(string arg)
 
     modal_func((: rcv_confirm_new_pass, oldcrypt(arg, arg) :),
            //"Again to confirm: ", 1);
-           "ÔÙ´ÎºË¶Ô£º", 1);
+           "å†æ¬¡æ ¸å¯¹ï¼š", 1);
 }
 
 private nomask void rcv_check_chinese_id(string chinese_id, string str)
@@ -328,17 +328,17 @@ private nomask void rcv_check_chinese_id(string chinese_id, string str)
     case "n":  case "no":  case "nay":
     modal_func((: rcv_chinese_id :),
            //"Please enter your name (preferably correctly this time): ");
-           "ÇëÖØĞÂÊäÈëÄúµÄÖĞÎÄÃû×Ö£º");
+           "è¯·é‡æ–°è¾“å…¥æ‚¨çš„ä¸­æ–‡åå­—ï¼š");
     break;
 
     case "y":  case "yes":  case "aye":
         set_chinese_id(chinese_id);
-        modal_func((: rcv_new_password :), "ÇëÊäÈëÃÜÂë£º", 1);
+        modal_func((: rcv_new_password :), "è¯·è¾“å…¥å¯†ç ï¼š", 1);
     break;
     
     default:
     //write("Please answer Yes or No.\n");
-    write("Çë»Ø´ğ Yes »ò No .\n");
+    write("è¯·å›ç­” Yes æˆ– No .\n");
     break;
     }
 }
@@ -348,7 +348,7 @@ private nomask void rcv_chinese_id(string arg)
     if ( !arg || arg == "" )
     {
     //write("Sorry, everybody needs a name here.  Please try again.\n");
-        write("¶Ô²»Æğ£¬ÇëÓÃÖĞÎÄÊäÈëĞÕÃû¡£\n");
+        write("å¯¹ä¸èµ·ï¼Œè¯·ç”¨ä¸­æ–‡è¾“å…¥å§“åã€‚\n");
         return;
     }
 
@@ -357,7 +357,7 @@ private nomask void rcv_chinese_id(string arg)
     if ( !valid_chinese_id(arg) ) return;
     
     modal_func((: rcv_check_chinese_id, arg :),
-           "'" + arg + "'  ÕıÈ·Âğ£¿");
+           "'" + arg + "'  æ­£ç¡®å—ï¼Ÿ");
     return;
 }
 
@@ -370,7 +370,7 @@ private nomask void rcv_check_new_user(string the_userid, string str)
     case "n":  case "no":  case "nay":
     modal_func((: rcv_new_userid :),
            //"Please enter your name (preferably correctly this time): ");
-           "ÇëÖØĞÂ¸øÄúµÄÈËÎïÈ¡Ò»¸öÓ¢ÎÄÃû×Ö£º");
+           "è¯·é‡æ–°ç»™æ‚¨çš„äººç‰©å–ä¸€ä¸ªè‹±æ–‡åå­—ï¼š");
     break;
 
     case "y":  case "yes":  case "aye":
@@ -378,8 +378,8 @@ private nomask void rcv_check_new_user(string the_userid, string str)
 //    write(wrap("Unfortunately, "+mud_name()+" is still in the "
 //           "developmental stage, and is not accepting new users. "
 //           "If it is urgent, please use the guest character.")+"\n");
-    write("¶Ô²»Æğ£¬"+mud_name()+"»¹ÔÚ¹¹½¨ÖĞ£¬Ä¿Ç°²»½ÓÊÜĞÂÍæ¼Ò£¬"
-               "ÈçÓĞ¼±ÊÂ£¬¿ÉÒÔÓÃ guest ½øÈë¡£"+"\n");
+    write("å¯¹ä¸èµ·ï¼Œ"+mud_name()+"è¿˜åœ¨æ„å»ºä¸­ï¼Œç›®å‰ä¸æ¥å—æ–°ç©å®¶ï¼Œ"
+               "å¦‚æœ‰æ€¥äº‹ï¼Œå¯ä»¥ç”¨ guest è¿›å…¥ã€‚"+"\n");
     get_lost();
     return;
 #endif /* NO_NEW_PLAYERS */
@@ -392,13 +392,13 @@ private nomask void rcv_check_new_user(string the_userid, string str)
     set_userid(the_userid);
 
     //write("\nAh, a New Player.\n");
-    write("à¸£¬ÊÇĞÂÍæ¼ÒÓ´...\n");
-    modal_func((: rcv_chinese_id :), "ÇëÊäÈëÄãµÄÖĞÎÄÃû×Ö£º");
+    write("å–”ï¼Œæ˜¯æ–°ç©å®¶å“Ÿ...\n");
+    modal_func((: rcv_chinese_id :), "è¯·è¾“å…¥ä½ çš„ä¸­æ–‡åå­—ï¼š");
     break;
 
     default:
     //write("Please answer Yes or No.\n");
-    write("Çë»Ø´ğ Yes »ò No .\n");
+    write("è¯·å›ç­” Yes æˆ– No .\n");
     break;
     }
 }
@@ -421,15 +421,15 @@ private nomask void rcv_password(int fails, string arg)
 //    if ( fails == 2 ) /* if fail the first then kickout */
     {
     //write("\nYou're just too much for me.\nSorry.\n");
-    write("\nÎÒÕæÊÜ²»ÁËÄã£¬¶Ô²»×¡à¶¡£\n");
+    write("\næˆ‘çœŸå—ä¸äº†ä½ ï¼Œå¯¹ä¸ä½å–½ã€‚\n");
     get_lost();
     return;
     }
 
     //write("\nHmmm.....\nI'll give you another chance.\n");
-    write("\nHmmm......\nÎÒÔÙ¸øÄãÒ»´Î»ú»á¡£\n");
+    write("\nHmmm......\næˆ‘å†ç»™ä½ ä¸€æ¬¡æœºä¼šã€‚\n");
     //modal_func((: rcv_password, fails + 1 :), "Password: ", 1);
-    modal_func((: rcv_password, fails + 1 :), "ÇëÊäÈëÃÜÂë£º", 1);
+    modal_func((: rcv_password, fails + 1 :), "è¯·è¾“å…¥å¯†ç ï¼š", 1);
 }
 
 private nomask void modify_guest_userid()
@@ -451,13 +451,13 @@ private nomask void rcv_userid(string arg)
     if ( !arg || arg == "" )
     {
     //write("Sorry, everybody needs a name here.  Please try again.\n");
-    write("¶Ô²»Æğ£¬Ã¿¸öÈË¶¼ÒªÓĞ¸öÃû×Ö£¬ÇëÖØĞÂÀ´¹ı¡£\n");
+    write("å¯¹ä¸èµ·ï¼Œæ¯ä¸ªäººéƒ½è¦æœ‰ä¸ªåå­—ï¼Œè¯·é‡æ–°æ¥è¿‡ã€‚\n");
     return;
     }
 /*
     if ( member_array( arg, wizs)==-1)
     {
-    write("¶Ô²»Æğ£¬ÏÖÔÚÖ»ÓĞÎ×Ê¦²Å¿ÉÒÔ login¡£\n");
+    write("å¯¹ä¸èµ·ï¼Œç°åœ¨åªæœ‰å·«å¸ˆæ‰å¯ä»¥ loginã€‚\n");
     return;
     }
 */
@@ -470,7 +470,7 @@ private nomask void rcv_userid(string arg)
     if ( unguarded(1, (: file_size,
                LINK_PATH(arg) + __SAVE_EXTENSION__ :)) <= 0 )
     {
-        write("ÄúËùÊäÈëµÄÓ¢ÎÄÃû×Ö²»ÕıÈ·£¬ÇëÖØĞÂÀ´¹ı¡£\n");
+        write("æ‚¨æ‰€è¾“å…¥çš„è‹±æ–‡åå­—ä¸æ­£ç¡®ï¼Œè¯·é‡æ–°æ¥è¿‡ã€‚\n");
 	return;
     }
 
@@ -495,7 +495,7 @@ private nomask void rcv_userid(string arg)
     }
 
     //modal_func((: rcv_password, 0 :), "Password: ", 1);
-    modal_func((: rcv_password, 0 :), "ÇëÊäÈëÃÜÂë£º", 1);
+    modal_func((: rcv_password, 0 :), "è¯·è¾“å…¥å¯†ç ï¼š", 1);
    /*
     ** Adjust the time we'll wait for the user
     */
@@ -515,9 +515,9 @@ private nomask void real_logon() {
 #endif
     foreach (match in keys(mudlist)) {
         mixed mud = mudlist[match];
-        if ((strsrch(match, "Èı¹úÖ¾") >= 0) && strsrch(match, "²âÊÔ") < 0) {
+        if ((strsrch(match, "ä¸‰å›½å¿—") >= 0) && strsrch(match, "æµ‹è¯•") < 0) {
             printf("%14s%-14s%16s %4s   %s\n", " ", match, mud[1], 
-            	mud[2] + "", (mud[0] == -1) ? "¿ª·Å" : "¹Ø±Õ");
+            	mud[2] + "", (mud[0] == -1) ? "å¼€æ”¾" : "å…³é—­");
         }
     }
     write("\n");
@@ -533,16 +533,16 @@ private nomask void real_logon() {
  * (intend to modify ... doesn't cut it)
  */
     printf(//"%s is running Lima 0.9r12 (pre-alpha) on %s\n\n",
-           "%sÕıÔÚÔËĞĞ Lima 1.0a2 (Chinese)£¬%s¡£\n±¾´ÎÔËĞĞÊ±¼ä%s¡£\n%s\n\n",
+           "%sæ­£åœ¨è¿è¡Œ Lima 1.0a2 (Chinese)ï¼Œ%sã€‚\næœ¬æ¬¡è¿è¡Œæ—¶é—´%sã€‚\n%s\n\n",
        mud_name(), driver_version(), 
        CHINESE_D->chinese_period(uptime() / 60 * 60), 
        FINGER_D->show_brief_finger());
     if (time() < 962394000) {
-    	printf("ÓÉÓÚÊ±¼ä²îµÄÎÊÌâ£¬Çë %d ÃëºóÔÙ½øÈë¡£\n", 962394000 - time());
+    	printf("ç”±äºæ—¶é—´å·®çš„é—®é¢˜ï¼Œè¯· %d ç§’åå†è¿›å…¥ã€‚\n", 962394000 - time());
     	get_lost();
     	return;
     }    
-    write("Íæ¼Ò£¬ÄúºÃ£¡\n");
+    write("ç©å®¶ï¼Œæ‚¨å¥½ï¼\n");
 #ifdef _ALLOW_B5_
     modal_func((: rcv_userid :), LOGIN_PROMPT);
 #else
@@ -584,8 +584,8 @@ private nomask void rcv_encoding(string arg)
         set_b5(1);
     }
     else {
-        write("Ê¹ÓÃ¹ú±êÂëµÄÍæ¼ÒÇë¼üÈë£ºgb\n");
-        write("¨Ï¥Î¤j¤­½Xªºª±®a½ĞÁä¤J¡Gbig5\n");
+        write("ä½¿ç”¨å›½æ ‡ç çš„ç©å®¶è¯·é”®å…¥ï¼šgb\n");
+        write("ã„ãƒî˜ãçµî€™î€ç”¢å«é¾„î—°î“big5\n");
         return;
     }
 

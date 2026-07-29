@@ -31,7 +31,7 @@ void do_list()
 		}
       
 	  
-	  write("你看这儿象是能买东西的地方吗？\n");
+	  write("浣犵湅杩欏効璞℃槸鑳戒拱涓滆タ鐨勫湴鏂瑰悧锛焅n");
       return;
     }
 }
@@ -39,7 +39,7 @@ int direct_list_obj(object ob)
 {
   return 1;
 }
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ "", })});
 }

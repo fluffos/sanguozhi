@@ -1,6 +1,6 @@
 #/std/race/human.c
 primary_id "phonixs"
-chinese_id "·ÉÄñÁ¹"
+chinese_id "é£é¸Ÿå‡‰"
 persist_flags ([2:0,0:0,])
 can_drop 1
 can_sell 1
@@ -13,8 +13,8 @@ main_prep "in"
 contained_light_added 1
 gender 1
 messages ([])
-def_messages (["invis":"$n´ÓÄãµÄÊÓÒ°ÖĞÍ»È»ÏûÊ§ÁË¡£","enter":"$n×ßÁË¹ıÀ´¡£","menter":"$nÍ»È»³öÏÖÔÚÒ»ÕóÑÌÎíÖĞ¡£","vis":"$nÍ»È»³öÏÖÔÚÄãÃæÇ°£¬ÓÖËÆºõÔÚÕâÀïºÜ¾ÃÁË¡£","clone":"$nÉìÊÖÁè¿ÕÒ»Ö¸£¬±ä³öÁË$o¡£","destruct":"$nÅÛĞäÒ»»Ó£¬$o±»»¯³ÉÒ»¹ÉºÚÑÌ£¬´µÉ¢¿ªÈ¥¡£","mleave":"$nµÄÉíÓ°ÔÚÒ»ÕóÑÌÎíÖĞ½¥½¥ÒşÈ¥¡£","leave":"$n³¯$oÀë¿ªÁË¡£","home":"$n»Ø¼ÒÈ¥ÁË¡£",])
-busy_msg "ÄãÏÖÔÚÕıÃ¦×Å£¡"
+def_messages (["invis":"$nä»ä½ çš„è§†é‡ä¸­çªç„¶æ¶ˆå¤±äº†ã€‚","enter":"$nèµ°äº†è¿‡æ¥ã€‚","menter":"$nçªç„¶å‡ºç°åœ¨ä¸€é˜µçƒŸé›¾ä¸­ã€‚","vis":"$nçªç„¶å‡ºç°åœ¨ä½ é¢å‰ï¼Œåˆä¼¼ä¹åœ¨è¿™é‡Œå¾ˆä¹…äº†ã€‚","clone":"$nä¼¸æ‰‹å‡Œç©ºä¸€æŒ‡ï¼Œå˜å‡ºäº†$oã€‚","destruct":"$nè¢è¢–ä¸€æŒ¥ï¼Œ$oè¢«åŒ–æˆä¸€è‚¡é»‘çƒŸï¼Œå¹æ•£å¼€å»ã€‚","mleave":"$nçš„èº«å½±åœ¨ä¸€é˜µçƒŸé›¾ä¸­æ¸æ¸éšå»ã€‚","leave":"$næœ$oç¦»å¼€äº†ã€‚","home":"$nå›å®¶å»äº†ã€‚",])
+busy_msg "ä½ ç°åœ¨æ­£å¿™ç€ï¼"
 busy 1308403396
 answer_list ({({"settle","settle",}),({"position","position",}),({"localmeeting","localmeeting",}),({"job","job",}),({"zgxy","zgxy",}),({"wxxy","wxxy",}),({"bfxy","bfxy",}),({"guoshi","guoshi",}),})
 ask_list ([])
@@ -47,12 +47,12 @@ ilog_time 1308709868
 money (["bank":0,"coin":55,"silver":60,"gold":13,])
 sg_home ([])
 name "phonixs"
-invis_name "Ä³Ä³"
-chinese_name "·ÉÄñÁ¹"
+invis_name "æŸæŸ"
+chinese_name "é£é¸Ÿå‡‰"
 response_queue ({})
 reply "lddummyb"
 channel_list ({"gossip","newbie","weather","rumor","imud_imud_sgz",})
 saved_items "([\"#inventory#\":({\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/money/m_silver\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/money/m_coin\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/money/m_gold\\\",])\",}),\"#base_name#\":\"/std/race/human\",])"
 ag_day 25
 ag_month 12
-jobs (["letter":(["assignarea":"tianshui","lasttimes":({}),"beg_time":0,"target":"gan ning","status":"over","loyalty":37,"finish_time":1307755740,"count":1,"score":20,"memo":"ËÍĞÅ%^H_CYAN%^¸ÊÄş%^RESET%^(gan ning)",]),"visitwise":(["assignarea":"tianshui","topics":({1,2,3,5,6,7,8,10,}),"lasttimes":({}),"beg_time":0,"status":"over","finish_time":1307778176,"count":93,"score":22,"select":10,"memo":"°İ·Ã%^H_CYAN%^ÅÓµÂ%^RESET%^(pang de)",]),"findbody":(["assignarea":"tianshui","status":"over","finish_time":1307193007,"count":14,"lasttimes":({}),"beg_time":0,"memo":"ÕÒ%^H_CYAN%^¹ØÆ½%^RESET%^(guan ping)",]),"askobj":(["assignarea":"tianshui","obj_id":"test","status":"over","finish_time":1307194843,"count":13,"lasttimes":({}),"beg_time":0,"memo":"ÕÒ½­ÁêµÄ%^H_CYAN%^²Ìçß%^RESET%^´ß0",]),"patrol":(["assignarea":"tianshui","lasttimes":({}),"beg_time":0,"area":"tianshui","status":"over","finish_time":1307756146,"count":4,"score":10,"get_thief":-1,"memo":"µ½%^YELLOW%^ÌìË®æäÕ¾%^RESET%^",]),"visitofficer":(["assignarea":"tianshui","topics":({9,1,2,3,5,6,7,8,10,}),"lasttimes":({}),"beg_time":0,"status":"over","finish_time":1307240300,"count":2,"score":24,"select":10,"memo":"°²¸§%^H_CYAN%^ÁºĞË%^RESET%^(liang xing)",]),"bugao":(["assignarea":"tianshui","status":"over","finish_time":1307191632,"count":10,"lasttimes":({}),"beg_time":0,"memo":"´úÏØµÄ%^YELLOW%^¼¯ÊĞ%^RESET%^",]),"searchwise":(["assignarea":"tianshui","topics":({1,2,3,4,5,6,7,8,9,10,}),"lasttimes":({}),"beg_time":1308403318,"status":"done","finish_time":1308050622,"count":35,"score":29,"select":10,"memo":"°İ·Ã%^H_CYAN%^ĞíñÒ%^RESET%^(xu chu)",]),"fanpeople":(["assignarea":"tianshui","topics":({9,1,2,3,5,6,7,8,10,}),"lasttimes":({}),"beg_time":0,"status":"over","finish_time":1307240714,"count":1,"score":11,"select":10,"memo":"É¿¶¯ÎäÁêĞ¡»ï",]),"choppork":(["finish_time":1307186174,"lasttimes":({}),"beg_time":0,"count":29,]),"chopwoods":(["finish_time":1307175519,"lasttimes":({1307175073,1307175227,1307175393,1307175519,}),"beg_time":0,"count":4,]),"visitpeople":(["assignarea":"tianshui","topics":({1,2,3,4,5,6,7,8,9,10,}),"lasttimes":({1308041006,1308041086,1308041098,}),"beg_time":0,"status":"over","finish_time":1308041098,"count":11,"score":9,"select":10,"memo":"Ì½·ÃÌìË®ÏĞÈË",]),])
+jobs (["letter":(["assignarea":"tianshui","lasttimes":({}),"beg_time":0,"target":"gan ning","status":"over","loyalty":37,"finish_time":1307755740,"count":1,"score":20,"memo":"é€ä¿¡%^H_CYAN%^ç”˜å®%^RESET%^(gan ning)",]),"visitwise":(["assignarea":"tianshui","topics":({1,2,3,5,6,7,8,10,}),"lasttimes":({}),"beg_time":0,"status":"over","finish_time":1307778176,"count":93,"score":22,"select":10,"memo":"æ‹œè®¿%^H_CYAN%^åºå¾·%^RESET%^(pang de)",]),"findbody":(["assignarea":"tianshui","status":"over","finish_time":1307193007,"count":14,"lasttimes":({}),"beg_time":0,"memo":"æ‰¾%^H_CYAN%^å…³å¹³%^RESET%^(guan ping)",]),"askobj":(["assignarea":"tianshui","obj_id":"test","status":"over","finish_time":1307194843,"count":13,"lasttimes":({}),"beg_time":0,"memo":"æ‰¾æ±Ÿé™µçš„%^H_CYAN%^è”¡é‚•%^RESET%^å‚¬0",]),"patrol":(["assignarea":"tianshui","lasttimes":({}),"beg_time":0,"area":"tianshui","status":"over","finish_time":1307756146,"count":4,"score":10,"get_thief":-1,"memo":"åˆ°%^YELLOW%^å¤©æ°´é©¿ç«™%^RESET%^",]),"visitofficer":(["assignarea":"tianshui","topics":({9,1,2,3,5,6,7,8,10,}),"lasttimes":({}),"beg_time":0,"status":"over","finish_time":1307240300,"count":2,"score":24,"select":10,"memo":"å®‰æŠš%^H_CYAN%^æ¢å…´%^RESET%^(liang xing)",]),"bugao":(["assignarea":"tianshui","status":"over","finish_time":1307191632,"count":10,"lasttimes":({}),"beg_time":0,"memo":"ä»£å¿çš„%^YELLOW%^é›†å¸‚%^RESET%^",]),"searchwise":(["assignarea":"tianshui","topics":({1,2,3,4,5,6,7,8,9,10,}),"lasttimes":({}),"beg_time":1308403318,"status":"done","finish_time":1308050622,"count":35,"score":29,"select":10,"memo":"æ‹œè®¿%^H_CYAN%^è®¸è¤š%^RESET%^(xu chu)",]),"fanpeople":(["assignarea":"tianshui","topics":({9,1,2,3,5,6,7,8,10,}),"lasttimes":({}),"beg_time":0,"status":"over","finish_time":1307240714,"count":1,"score":11,"select":10,"memo":"ç…½åŠ¨æ­¦é™µå°ä¼™",]),"choppork":(["finish_time":1307186174,"lasttimes":({}),"beg_time":0,"count":29,]),"chopwoods":(["finish_time":1307175519,"lasttimes":({1307175073,1307175227,1307175393,1307175519,}),"beg_time":0,"count":4,]),"visitpeople":(["assignarea":"tianshui","topics":({1,2,3,4,5,6,7,8,9,10,}),"lasttimes":({1308041006,1308041086,1308041098,}),"beg_time":0,"status":"over","finish_time":1308041098,"count":11,"score":9,"select":10,"memo":"æ¢è®¿å¤©æ°´é—²äºº",]),])

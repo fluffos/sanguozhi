@@ -1,17 +1,17 @@
 //**********************************************
-// write by benben 29/12/97 benben.c Ğ¡¶«Î÷
+// write by benben 29/12/97 benben.c å°ä¸œè¥¿
 #include <mudlib.h>
 inherit LIVING;
 inherit M_ACTIONS;
 inherit M_TRIGGERS;
 void setup() 
 {
-    set_name("ben ben", "Ğ¡¶«Î÷");
-    add_id("ben ben","ben","Ğ¡¶«Î÷");
+    set_name("ben ben", "å°ä¸œè¥¿");
+    add_id("ben ben","ben","å°ä¸œè¥¿");
     set_gender(2);
-    set_proper_name("Ğ¡¶«Î÷");
-    set_in_room_desc("³ø·¿ÀïµÄĞ¡¶«Î÷(Ben ben)");
-    set_long("Ğ¡¶«Î÷ÕıÃ¦µÄÂúÍ·´óº¹£¬ÂúÊÖÓÍÄåµØ¡£Ò»Ì§Í·¿´µ½Äã£º\n"+"¡°»¹Àã×Å¸ÉÂï£¡¿ì¹ıÀ´°ïÃ¦£¡¶¼ÊÇĞ©ºÃ³ÔÀÁ×öµÃ¼Ò»ï£¡¡±\n\n");
+    set_proper_name("å°ä¸œè¥¿");
+    set_in_room_desc("å¨æˆ¿é‡Œçš„å°ä¸œè¥¿(Ben ben)");
+    set_long("å°ä¸œè¥¿æ­£å¿™çš„æ»¡å¤´å¤§æ±—ï¼Œæ»¡æ‰‹æ²¹è…»åœ°ã€‚ä¸€æŠ¬å¤´çœ‹åˆ°ä½ ï¼š\n"+"â€œè¿˜æ¥ç€å¹²å˜›ï¼å¿«è¿‡æ¥å¸®å¿™ï¼éƒ½æ˜¯äº›å¥½åƒæ‡’åšå¾—å®¶ä¼™ï¼â€\n\n");
 	add_question("food","food");
 }
 void special_answer(object who, string matt)
@@ -19,7 +19,7 @@ void special_answer(object who, string matt)
 	switch(matt)
 	{
 		case "food" :
-			this_object()->simple_action("Ğ¡¶«Î÷ĞË¸ß²ÉÁÒµØËµ£º¡°½ñ¶ùÍíÉÏÎÒÇë¿Í¡£ÂúººÈ«Ï¯£¡³ÔÍêÁËÔÛÃÇ³ª¿¨À­OKÈ¥¡£¡±\n");
+			this_object()->simple_action("å°ä¸œè¥¿å…´é«˜é‡‡çƒˆåœ°è¯´ï¼šâ€œä»Šå„¿æ™šä¸Šæˆ‘è¯·å®¢ã€‚æ»¡æ±‰å…¨å¸­ï¼åƒå®Œäº†å’±ä»¬å”±å¡æ‹‰OKå»ã€‚â€\n");
 			return;
 	}
 }

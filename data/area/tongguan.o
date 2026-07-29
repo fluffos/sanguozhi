@@ -1,2 +1,2 @@
-rooms (["dalu":(["b":"´óÂ·",]),"dalu_left":(["b":"´óÂ·",]),"dalu_right":(["b":"´óÂ·",]),"guankou":(["b":"¹Ø¿Ú",]),"kezhan":(["b":"¿ÍÕ»",]),"laofang":(["b":"ÀÎ·¿",]),"shanlu":(["b":"É½Â·",]),"tmp":(["b":"æäÕ¾",]),"xiaojunchang":(["b":"Ğ£¾ü³¡",]),"yingzhai":(["b":"ÓªÕ¯",]),"zhongjunzhang":(["b":"ÖĞ¾üÕÊ",]),])
+rooms (["dalu":(["b":"å¤§è·¯",]),"dalu_left":(["b":"å¤§è·¯",]),"dalu_right":(["b":"å¤§è·¯",]),"guankou":(["b":"å…³å£",]),"kezhan":(["b":"å®¢æ ˆ",]),"laofang":(["b":"ç‰¢æˆ¿",]),"shanlu":(["b":"å±±è·¯",]),"tmp":(["b":"é©¿ç«™",]),"xiaojunchang":(["b":"æ ¡å†›åœº",]),"yingzhai":(["b":"è¥å¯¨",]),"zhongjunzhang":(["b":"ä¸­å†›å¸",]),])
 m_area "tongguan"

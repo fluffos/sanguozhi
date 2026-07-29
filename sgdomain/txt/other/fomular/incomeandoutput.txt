@@ -1,4 +1,4 @@
-µØÇøµÄ½ğ£¬Á¸£¬Îï×ÊµÄ»ù±¾¼ÆËã¹«Ê½:
+åœ°åŒºçš„é‡‘ï¼Œç²®ï¼Œç‰©èµ„çš„åŸºæœ¬è®¡ç®—å…¬å¼:
 gold from one month
 income:
 population/25. * bussiness/100. * (safe+20)/100. * tax/100. * (random(30)+ 70)/100.
@@ -29,7 +29,7 @@ solider number /100
 for one month
 if income + storage < outcome
 the solider will leave until the number get balance
-the rate of stuff / solider is the Îä×°¶È
+the rate of stuff / solider is the æ­¦è£…åº¦
 maxmum 300,000
 the common price is
 1 gold = 10 food

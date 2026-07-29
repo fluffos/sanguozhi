@@ -22,10 +22,10 @@ mixed parse_rule(string str)
 }
 private nomask void got_message(string verb, string rule, string str)
 {
-    string array parts;
+    string * parts;
     if ( str == "" )
     {
-        write("·ÅÆú Addemote¡£\n");
+        write("æ”¾å¼ƒ Addemoteã€‚\n");
         return;
     }
     if (rule=="xx")
@@ -38,10 +38,10 @@ private nomask void got_rule(string verb, string str)
     string rule = parse_rule(str);
     if ( rule == "." )
     {
-        write("·ÅÆú Addemote¡£\n");
+        write("æ”¾å¼ƒ Addemoteã€‚\n");
         return;
     }
-    write("ĞÅÏ¢: ");
+    write("ä¿¡æ¯: ");
     modal_simple((: got_message, verb, rule :));
 }
 nomask private void main(string str)
@@ -50,19 +50,19 @@ nomask private void main(string str)
     string verb = str;
     if (!str)
     {
-        write("ÓÃ·¨£ºaddemote <verb>\n");
+        write("ç”¨æ³•ï¼šaddemote <verb>\n");
         return;
     }
     sscanf(verb, "%s %s", verb, rule);
     if ( !rule )
     {
-        write("(ÓÃ '.' ¿ÉÒÔ·ÅÆúÊäÈë)\nRule: ");
+        write("(ç”¨ '.' å¯ä»¥æ”¾å¼ƒè¾“å…¥)\nRule: ");
         modal_simple((: got_rule, verb :));
     }
     else
     {
         rule = parse_rule(rule);
-        write("ĞÅÏ¢: ");
+        write("ä¿¡æ¯: ");
         modal_simple((: got_message, verb, rule :));
     }
 }

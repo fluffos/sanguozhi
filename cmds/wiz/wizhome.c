@@ -31,12 +31,12 @@ private void main(string arg)
         {
             if( file_name(env) == this_body()->query_home())
             {
-                this_body()->simple_action("$NÒÑ¾­ÔÚ¼ÒÁËÒ®¡£");
+                this_body()->simple_action("$Nå·²ç»åœ¨å®¶äº†è€¶ã€‚");
                 return;
             }
             msgs = this_body()->get_player_message("home");
             if (environment(this_body()))
-                this_body()->my_action( "Äã»Ø¼Òà¶¡£\n");
+                this_body()->my_action( "ä½ å›å®¶å–½ã€‚\n");
             this_body()->other_action( msgs[1]);
         }
         home = this_body()->query_home();
@@ -59,22 +59,22 @@ private void main(string arg)
     home = WIZ_DIR + "/" + arg + "/workroom";
     if ( file_size(home + ".c") <= 0 )
     {
-        out(arg + "ÊôÓÚÎŞ¼Ò¿É¹éÈËÊ¿¡£\n");
+        out(arg + "å±äºæ— å®¶å¯å½’äººå£«ã€‚\n");
         return;
     }
 
     if( file_name( environment( this_body())) == home )
     {
-        this_body()->simple_action("$NÒÑ¾­ÔÚÕâ¶ùÁË£¬±¿µ°£¡");
+        this_body()->simple_action("$Nå·²ç»åœ¨è¿™å„¿äº†ï¼Œç¬¨è›‹ï¼");
         return;
     }
-    this_body()->simple_action("$NÇ°Íù " + arg +
-      " µÄ¼ÒÀïÕÒÈËÁÄÌìÈ¥ÁË¡£");
+    this_body()->simple_action("$Nå‰å¾€ " + arg +
+      " çš„å®¶é‡Œæ‰¾äººèŠå¤©å»äº†ã€‚");
 
     this_body()->move(home);
 
     tell_environment(this_body(), this_body()->query_name() +
-      "¿´Ñù×ÓÊÇÀ´ " + arg + " ¼Ò»ì·¹ÁË¡£\n",
+      "çœ‹æ ·å­æ˜¯æ¥ " + arg + " å®¶æ··é¥­äº†ã€‚\n",
       0, ({ this_body() }));
 
     if(!(this_body()->test_flag(F_BRIEF)))
@@ -84,7 +84,7 @@ private void main(string arg)
 }
 
 int help(){
-    write("ÓÃ·¨: home [player]\nÃ»ÓĞ²ÎÊı»áÈÃÄã»Øµ½×Ô¼º¹¤×÷¼ä¡£\n");
-    write("ºóÃæÈç¹ûÒÔÎ×Ê¦ĞÕÃûÎª²ÎÊı£¬Ôò»áµ½ËûÈËµÄ¹¤×÷¼äÈ¥°İ·Ã¡£\n");
+    write("ç”¨æ³•: home [player]\næ²¡æœ‰å‚æ•°ä¼šè®©ä½ å›åˆ°è‡ªå·±å·¥ä½œé—´ã€‚\n");
+    write("åé¢å¦‚æœä»¥å·«å¸ˆå§“åä¸ºå‚æ•°ï¼Œåˆ™ä¼šåˆ°ä»–äººçš„å·¥ä½œé—´å»æ‹œè®¿ã€‚\n");
     return 1;
 }

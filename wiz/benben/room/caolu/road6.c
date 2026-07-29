@@ -1,4 +1,4 @@
-//  Ğ¡µÀ6 road6.c
+//  å°é“6 road6.c
 // made by benben
 // cl_road6.c 
 #include <mudlib.h>
@@ -8,9 +8,9 @@ inherit OUTDOOR_ROOM;
 void setup(){
     set_area("caolu_area");
     set_light(50);
-    set_brief(""+YEL+"Ğ¡µÀ"+NOR+"");
-    set_long("    ÍùÎ÷20ÀïµØ¾ÍÊÇÏåÑô³ÇÁË£¬¶«ÃæÓĞÒ»×ù´óÉ½£¬ÁÖÂ´ÓÄÉî£¬±ØÓĞ¸ß
-ÈËÒş¾Ó¡£\n\n");
+    set_brief(""+YEL+"å°é“"+NOR+"");
+    set_long("    å¾€è¥¿20é‡Œåœ°å°±æ˜¯è¥„é˜³åŸäº†ï¼Œä¸œé¢æœ‰ä¸€åº§å¤§å±±ï¼Œæ—éº“å¹½æ·±ï¼Œå¿…æœ‰é«˜
+äººéšå±…ã€‚\n\n");
     set_exits( ([
         "west" :  __DIR__+"xiangyang.c",
         "east" :  __DIR__+"cl_road5.c",

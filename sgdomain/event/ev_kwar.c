@@ -33,9 +33,9 @@ void auto_run()
 	{
 	if(tmp_time <= 12)
 	{
-	tell_user(tmp["name"],"ÓùÇ°ÖÐÀÉ½«´«À´ÃØÖ¼£¬Äã±ØÐëÔÚ"
-+chinese_number((12-tmp_time)*5)+"Ð¡Ê±ÄÚ¹¥ÏÂ"+AREA_D->get_area(tmp["city"],"name")
-+"¡£\n");
+	tell_user(tmp["name"],"å¾¡å‰ä¸­éƒŽå°†ä¼ æ¥ç§˜æ—¨ï¼Œä½ å¿…é¡»åœ¨"
++chinese_number((12-tmp_time)*5)+"å°æ—¶å†…æ”»ä¸‹"+AREA_D->get_area(tmp["city"],"name")
++"ã€‚\n");
 	call_out("auto_run",18000);
 	return;
 	}
@@ -48,8 +48,8 @@ void auto_run()
         	if (repred>15000)repred=15000;
 		CHAR_D->set_char(m_id,"reputation",rep-repred);
 		remove_all();
-	mess=CHAR_D->get_char(m_id,"name")+"Î´Íê³ÉÏ×µÛÃØÖ¼£¬ÉùÍû½µµÍ"
-+chinese_number(repred)+"µã¡£";
+	mess=CHAR_D->get_char(m_id,"name")+"æœªå®ŒæˆçŒ®å¸ç§˜æ—¨ï¼Œå£°æœ›é™ä½Ž"
++chinese_number(repred)+"ç‚¹ã€‚";
 		CHANNEL_D->deliver_tell("rumor","system",mess);
 	call_out("auto_run",18000);
 	return;
@@ -136,11 +136,11 @@ void auto_invite(string m_id,string m_city)
 	p_id=m_id;
 	p_city=m_city;
 	p_nationname=COUNTRY_D->get_country(CHAR_D->get_char(p_id,"nation"),"name");
-        if (p_nationname==0)p_nationname="³ÇÊØ";
-	mess=sprintf("Ï×µÛºöÓÐËùË¼£¬ÏÂÖ¼Ú¯¼û%s¡£\n",
+        if (p_nationname==0)p_nationname="åŸŽå®ˆ";
+	mess=sprintf("çŒ®å¸å¿½æœ‰æ‰€æ€ï¼Œä¸‹æ—¨è¯è§%sã€‚\n",
 	CHAR_D->get_char(p_id,"name"),);
-        mess1="ÓùÇ°ÖÐÀÉ½«¸ßÉùÐûµÀ£º»ÊÉÏÓÐÖ¼£¬"
-+p_nationname+CHAR_D->get_char(p_id,"name")+"ËÙÀ´½ú¼û£¡ \n";
+        mess1="å¾¡å‰ä¸­éƒŽå°†é«˜å£°å®£é“ï¼šçš‡ä¸Šæœ‰æ—¨ï¼Œ"
++p_nationname+CHAR_D->get_char(p_id,"name")+"é€Ÿæ¥æ™‹è§ï¼ \n";
 	CHANNEL_D->deliver_tell("rumor","system",mess);
 	CHANNEL_D->deliver_tell("rumor","system",mess1);
 
@@ -197,13 +197,13 @@ if(CHAR_D->get_char(k_id,"nation") ==tmp["name"] && k_city == tmp["city"])
                 repred=rep/10;
                 if (repred>30000)repred=30000;
                 CHAR_D->set_char(t_id,"reputation",rep+repred);
-        mess=CHAR_D->get_char(t_id,"name")+"Íê³ÉÏ×µÛÃØÖ¼£¬Ï²»ñÉùÍû"
-+chinese_number(repred)+"µã¡£";
+        mess=CHAR_D->get_char(t_id,"name")+"å®ŒæˆçŒ®å¸ç§˜æ—¨ï¼Œå–œèŽ·å£°æœ›"
++chinese_number(repred)+"ç‚¹ã€‚";
 		money=CHAR_D->get_char(t_id,"gold");		                
 		t_gold=300+random(300);
 		CHAR_D->set_char(t_id,"gold", money+t_gold);
-	mess1=CHAR_D->get_char(t_id,"name")+"Íê³ÉÏ×µÛÃØÖ¼£¬ÊÜÉÍ»Æ½ð"
-+chinese_number(t_gold)+"Á½¡£";
+	mess1=CHAR_D->get_char(t_id,"name")+"å®ŒæˆçŒ®å¸ç§˜æ—¨ï¼Œå—èµé»„é‡‘"
++chinese_number(t_gold)+"ä¸¤ã€‚";
  	CHANNEL_D->deliver_tell("rumor","system",mess);
 	CHANNEL_D->deliver_tell("rumor","system",mess1);
 	remove_all();

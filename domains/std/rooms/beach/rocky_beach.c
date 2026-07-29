@@ -7,12 +7,12 @@ inherit OUTDOOR_ROOM;
 void
 setup()
 {
-    string m = "ÕâÀïµÄÉ½±Ú¹ıÓÚ¶¸ÇÍ£¬ÄãÎŞ·¨ÅÊµÇ£¬ÒªÈÆÂ·²ÅÄÜ¹ı¡£\n";
-    string o = "Äã»á±»ÑÍËÀµÄ£¡\n";
-  set_brief("Ê¯Ì²");
+    string m = "è¿™é‡Œçš„å±±å£è¿‡äºé™¡å³­ï¼Œä½ æ— æ³•æ”€ç™»ï¼Œè¦ç»•è·¯æ‰èƒ½è¿‡ã€‚\n";
+    string o = "ä½ ä¼šè¢«æ·¹æ­»çš„ï¼\n";
+  set_brief("çŸ³æ»©");
   set_area ("pirate");
-  set_long("ÕâÀïÃ»ÓĞ¶àÉÙÉ³£¬Ïà·´µ½´¦¶¼ÊÇ´ó´óĞ¡Ğ¡µÄËéÊ¯ºÍÊ¯¶Ñ¡£ÈºÉ½ºÍ"
-           "º£Ñó°üÎ§×ÅÄã£¬µ«Äã¿ÉÒÔÉæË®Àë¿ªÕâÀï¡£");
+  set_long("è¿™é‡Œæ²¡æœ‰å¤šå°‘æ²™ï¼Œç›¸ååˆ°å¤„éƒ½æ˜¯å¤§å¤§å°å°çš„ç¢çŸ³å’ŒçŸ³å †ã€‚ç¾¤å±±å’Œ"
+           "æµ·æ´‹åŒ…å›´ç€ä½ ï¼Œä½†ä½ å¯ä»¥æ¶‰æ°´ç¦»å¼€è¿™é‡Œã€‚");
   set_exits( ([
                "west" : m,
                "northeast" :  m,
@@ -24,13 +24,13 @@ setup()
                "southwest" : o,
                ]) );
 
-  add_item("mountains", "steep mountains", "ÈºÉ½",
+  add_item("mountains", "steep mountains", "ç¾¤å±±",
            ([
-             "look" : "ÕâÀïµÄÑÂ±ÚÌ«¶¸ÇÍÁË£¬ÎŞ·¨ÅÊµÇ¡£",
-             "climb" : "ÕâÀïµÄÑÂ±ÚÌ«¶¸ÇÍÁË£¬ÎŞ·¨ÅÊµÇ¡£"
+             "look" : "è¿™é‡Œçš„å´–å£å¤ªé™¡å³­äº†ï¼Œæ— æ³•æ”€ç™»ã€‚",
+             "climb" : "è¿™é‡Œçš„å´–å£å¤ªé™¡å³­äº†ï¼Œæ— æ³•æ”€ç™»ã€‚"
              ]));
 
-  add_item( "sand", "beach", "É³Ì²", "É³µØ", "´Ë´¦É³²»¶à£¬Ê¯Í·µ¹²»ÉÙ¡£");
+  add_item( "sand", "beach", "æ²™æ»©", "æ²™åœ°", "æ­¤å¤„æ²™ä¸å¤šï¼ŒçŸ³å¤´å€’ä¸å°‘ã€‚");
                
   set_hidden_exits("northeast","northwest","south","southeast","southwest", 
                    "north", "east", "west");
@@ -46,7 +46,7 @@ mixed wade(string str)
   if(!str)
     {
       str = "water";
-      write("[ÔÚË®Àï]\n");
+      write("[åœ¨æ°´é‡Œ]\n");
     }
   switch(str)
     {
@@ -54,14 +54,14 @@ mixed wade(string str)
     case "waves":
     case "surf":
     case "ocean":
-      write ("ÄãÔÚº£ÖĞ°ÏÉæ£¬ÓÖ»Øµ½ÁËÑÒ¶´Èë¿Ú¡£\n\n"); 
-      this_body()->other_action("$NÉæË®Àë¿ªÁË¡£\n");
+      write ("ä½ åœ¨æµ·ä¸­è·‹æ¶‰ï¼Œåˆå›åˆ°äº†å²©æ´å…¥å£ã€‚\n\n"); 
+      this_body()->other_action("$Næ¶‰æ°´ç¦»å¼€äº†ã€‚\n");
       this_body()->move(__DIR__ "outside_cave");
       this_body()->do_game_command("look");
-      this_body()->other_action("$NÌÊ×ÅË®³¯ÄãÕâ±ß×ßÁË¹ıÀ´¡£\n");
+      this_body()->other_action("$Næ·Œç€æ°´æœä½ è¿™è¾¹èµ°äº†è¿‡æ¥ã€‚\n");
       return 1;
     default:
-      return "¶àÓŞ´ÀµÄÏë·¨°¡!\n";
+      return "å¤šæ„šè ¢çš„æƒ³æ³•å•Š!\n";
     }
 }
 

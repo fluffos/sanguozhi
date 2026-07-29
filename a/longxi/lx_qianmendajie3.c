@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is 花儿朵朵
+// driver is 鑺卞効鏈垫湹
 // created date is Sat May  7 13:51:39 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,7 +7,7 @@ inherit OUTDOOR_ROOM;
 void setup() {
 set_area("longxi");
 set_light(50);
-set_brief("%^YELLOW%^"+"前门大街"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"鍓嶉棬澶ц"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "west":"/a/longxi/lx_qiandajie4.c",

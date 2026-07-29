@@ -1,4 +1,4 @@
-//  ¶«³ÇÃÅ
+//  ä¸œåŸé—¨
 // xy_egate.c 
 #include <mudlib.h>
 #include "/wiz/fire/fire.h"
@@ -7,8 +7,8 @@ inherit OUTDOOR_ROOM;
 void setup(){
     set_area("xianyang");
     set_light(50);
-    set_brief(""+YEL+"¶«³ÇÃÅ"+NOR+"");
-    set_long("¶«³ÇÃÅ¡£Í¨ÏòãşÑô¡£\n\n");
+    set_brief(""+YEL+"ä¸œåŸé—¨"+NOR+"");
+    set_long("ä¸œåŸé—¨ã€‚é€šå‘æ³¾é˜³ã€‚\n\n");
     set_exits( ([
         "east" :  __DIR__+"?_?.c",
         "west" :  __DIR__+"xy_est2.c",

@@ -45,9 +45,9 @@ void out_skill(string p_sk, object who)
 	if( SG_SKILL_D->query_type(p_sk)!=1 ) ss="("+p_sk+")";
 	p_lev=who->query_sk_level(p_sk);
 	p_exp=who->query_sk_exp(p_sk);
-//modify by suicide in 20011230 for add ¡õ for enable high skills
+//modify by suicide in 20011230 for add â–¡ for enable high skills
 printf("            %s%s%-14s%s%4d    %d%s\n",
-((member_array(p_sk,values(who->query_skill_map()))!=-1)?BLU+"¡õ"+NOR:"  "),        
+((member_array(p_sk,values(who->query_skill_map()))!=-1)?BLU+"â–¡"+NOR:"  "),        
 s_tmp, (stringp(ss)?ss:""), 
 get_disp_color(get_exp_lev(p_sk,p_lev,p_exp,who)),p_lev,p_exp,NOR);
 	return;
@@ -66,29 +66,29 @@ string fight_result(object who)
    p_tmp=p_tmp2*100 / p_tmp;
     switch (p_tmp) {
     case -1:
-	return get_disp_color(p_tmp)+ "$NÉËÊÆ¹ıÖØ£¬¿´À´ÒÑ¾­Ã»¾ÈÁË¡£\n";
+	return get_disp_color(p_tmp)+ "$Nä¼¤åŠ¿è¿‡é‡ï¼Œçœ‹æ¥å·²ç»æ²¡æ•‘äº†ã€‚\n";
     case 0..10:
-        return get_disp_color(p_tmp)+  "$NÒÑ¾­ÑÙÑÙÒ»Ï¢ÁË¡£"+NOR+"\n";   
+        return get_disp_color(p_tmp)+  "$Nå·²ç»å¥„å¥„ä¸€æ¯äº†ã€‚"+NOR+"\n";   
     case 11..25:
-        return get_disp_color(p_tmp)+ "$NÊÜÁËÏàµ±ÖØµÄÉË£¬Ö»ÅÂÓĞÉúÃüÎ£ÏÕ¡£"+NOR+"\n";   
+        return get_disp_color(p_tmp)+ "$Nå—äº†ç›¸å½“é‡çš„ä¼¤ï¼Œåªæ€•æœ‰ç”Ÿå‘½å±é™©ã€‚"+NOR+"\n";   
     case 26..50:
         return get_disp_color(p_tmp)+
-                     "$NÒÑ¾­ÉËºÛÀÛÀÛ£¬ÕıÔÚÃãÁ¦Ö§³Å×Å²»µ¹¡£"+NOR+"\n";   
+                     "$Nå·²ç»ä¼¤ç—•ç´¯ç´¯ï¼Œæ­£åœ¨å‹‰åŠ›æ”¯æ’‘ç€ä¸å€’ã€‚"+NOR+"\n";   
     case 51..75:
         return get_disp_color(p_tmp)+
-                     "$NÊÜÁË¼¸´¦ÉË£¬¿´ÆğÀ´×´¿ö²»Ì«ºÃ¡£"+NOR+"\n";   
+                     "$Nå—äº†å‡ å¤„ä¼¤ï¼Œçœ‹èµ·æ¥çŠ¶å†µä¸å¤ªå¥½ã€‚"+NOR+"\n";   
     case 76..85:
         return get_disp_color(p_tmp)+
-                     "$N¿´ÆğÀ´¿ÉÄÜÊÜÁËĞ©ÇáÉË¡£"+NOR+"\n";   
+                     "$Nçœ‹èµ·æ¥å¯èƒ½å—äº†äº›è½»ä¼¤ã€‚"+NOR+"\n";   
     case 86..95:
         return get_disp_color(p_tmp)+
-                     "$NËÆºõÊÜÁËµãÇáÉË£¬²»¹ı´Ó±íÃæ¿´²»³öÀ´¡£"+NOR+"\n";   
+                     "$Nä¼¼ä¹å—äº†ç‚¹è½»ä¼¤ï¼Œä¸è¿‡ä»è¡¨é¢çœ‹ä¸å‡ºæ¥ã€‚"+NOR+"\n";   
     case 96..99:
         return get_disp_color(p_tmp)+
-                     "$NËÆºõÓĞĞ©Æ£±¹£¬µ«ÈÔÈ»Ê®·ÖÓĞ»îÁ¦¡£"+NOR+"\n";   
+                     "$Nä¼¼ä¹æœ‰äº›ç–²æƒ«ï¼Œä½†ä»ç„¶ååˆ†æœ‰æ´»åŠ›ã€‚"+NOR+"\n";   
     case 100:
         return get_disp_color(p_tmp)+
-                     "$NÆøÉ«ºÜºÃ£¬ºÁ·¢ÎŞÉË¡£"+NOR+"\n";
+                     "$Næ°”è‰²å¾ˆå¥½ï¼Œæ¯«å‘æ— ä¼¤ã€‚"+NOR+"\n";
                      break;
     default:
        printf("the p_tmp is %d\n",p_tmp);

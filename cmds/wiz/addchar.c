@@ -15,7 +15,7 @@ nomask private void main(string str)
     string extra = 0;
     if (!str)
     {
-        write("ÓÃ·¨£ºaddchar <surname> <givenname>\n");
+        write("ç”¨æ³•ï¼šaddchar <surname> <givenname>\n");
         return;
     }
 	extra=CHAR_D->add_char(p_id);

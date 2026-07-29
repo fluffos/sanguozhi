@@ -16,7 +16,7 @@ inherit VERB_OB;
 #define TALK_LOCAL 1
 //inherit LIB_DAEMON;
 /*
-static void create() {
+protected void create() {
     parse_init();
     parse_add_rule("speak", "");
     parse_add_rule("speak", "in WRD");
@@ -25,15 +25,15 @@ static void create() {
 }
 */
 #define CITY_D "/initcity.c"
-array query_verb_info()
+mixed * query_verb_info()
 {
      return ({ ({"in STR","in STR about STR", "STR" }) });
 }
 
-mixed can_speak() { return "ËµÊ²Ã´? ÓÃÊ²Ã´·½ÑÔ?\n"; }
+mixed can_speak() { return "è¯´ä»€ä¹ˆ? ç”¨ä»€ä¹ˆæ–¹è¨€?\n"; }
 
 mixed can_speak_in_str(string str) {
-    if( str ) return "ÄãÏëËµĞ©Ê²Ã´?\n";
+    if( str ) return "ä½ æƒ³è¯´äº›ä»€ä¹ˆ?\n";
     else return 0;
 }
 
@@ -53,11 +53,11 @@ mixed can_speak_in_str_about_str(string lang, string str) {
 	return 1;
 	tell_user("emperor",sprintf("lang=%s,str=%s\n",lang,str));
     if( !lang || !str ) return 0;
-    if(sscanf(lang,"%s.%s",z,j)!=2) return "ÄãÓÃÊ²Ã´·½ÑÔËµ£¿ ¸ñÊ½£ºspeak in <Öİ.¿¤> about <str>.\n";
+    if(sscanf(lang,"%s.%s",z,j)!=2) return "ä½ ç”¨ä»€ä¹ˆæ–¹è¨€è¯´ï¼Ÿ æ ¼å¼ï¼šspeak in <å·.éƒ¡> about <str>.\n";
 	
 	l = CITY_D->GetJun("id",z,j);
-	if(stringp(l)) return "Ã»ÓĞÕâÖÖ·½ÑÔÒ®£¡\n";
-	if(this_body()->GetLanguageLevel(l)<100) return "ºÜ±§Ç¸£¬Ä¿Ç°Äã»¹²»»áËµÕâÖÖ·½ÑÔ£¡\n";
+	if(stringp(l)) return "æ²¡æœ‰è¿™ç§æ–¹è¨€è€¶ï¼\n";
+	if(this_body()->GetLanguageLevel(l)<100) return "å¾ˆæŠ±æ­‰ï¼Œç›®å‰ä½ è¿˜ä¸ä¼šè¯´è¿™ç§æ–¹è¨€ï¼\n";
 	
     if( !environment(this_body()) ) return "You are nowhere right now.\n";
 //    if(sscanf(lang,"%d",l)==1)
@@ -85,13 +85,13 @@ mixed do_speak_in_str_about_str(string lang, string str) {
 //    else str = capitalize(str);
 	if(sscanf(lang,"%s.%s",z,j)==2){
 		l = CITY_D->GetJun("id",z,j);
-		if(stringp(l)) return "Ã»ÓĞÕâÖÖ·½ÑÔÒ®£¡\n";
-		if(this_body()->GetLanguageLevel(l)<100) return "ºÜ±§Ç¸£¬Ä¿Ç°Äã»¹²»»áËµÕâÖÖ·½ÑÔ£¡\n";
+		if(stringp(l)) return "æ²¡æœ‰è¿™ç§æ–¹è¨€è€¶ï¼\n";
+		if(this_body()->GetLanguageLevel(l)<100) return "å¾ˆæŠ±æ­‰ï¼Œç›®å‰ä½ è¿˜ä¸ä¼šè¯´è¿™ç§æ–¹è¨€ï¼\n";
 	}
 	
 //    if(sscanf(lang,"%d",l)==1)
 	tell_user("emperor",sprintf("l = %d\n",l));
-    return (mixed)this_body()->eventSpeak(0, TALK_LOCAL, str, "ËµµÀ", l);
+    return (mixed)this_body()->eventSpeak(0, TALK_LOCAL, str, "è¯´é“", l);
 }
 
 string GetHelp(string str) {

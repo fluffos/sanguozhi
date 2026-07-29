@@ -25,7 +25,7 @@ void do_stand()
 
     if (this_body()->query_prone()) {
         if (this_body()->get_up())
-            this_body()->simple_action("$NÕ¾ÁËÆğÀ´¡£");
+            this_body()->simple_action("$Nç«™äº†èµ·æ¥ã€‚");
         return;
     }
   if(s = environment(this_body())->stand())
@@ -35,7 +35,7 @@ void do_stand()
           if(stringp(s))
             this_body()->simple_action(s);
           else
-            this_body()->simple_action("$NÕ¾ÆğÀ´¡£");
+            this_body()->simple_action("$Nç«™èµ·æ¥ã€‚");
         }
       else
         {
@@ -46,11 +46,11 @@ void do_stand()
     {
       if(environment(environment(this_body())))
         {
-          write("ÄãÕ¾²»ÆğÀ´¡£\n");
+          write("ä½ ç«™ä¸èµ·æ¥ã€‚\n");
         }
       else
         {
-          write("ÄãÒÑ¾­ÊÇÕ¾×ÅµÄÁË¡£\n");
+          write("ä½ å·²ç»æ˜¯ç«™ç€çš„äº†ã€‚\n");
         }
     }
 } 
@@ -60,7 +60,7 @@ void do_stand_up()
   do_stand();
 }
 
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ "" }), ({"unride"}) });
 }

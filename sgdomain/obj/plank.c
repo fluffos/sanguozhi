@@ -1,4 +1,4 @@
-// memorial plank.c ÁéÎ» by row
+// memorial plank.c çµä½ by row
 // for wan especially
 
 #include <ansi.h>
@@ -8,20 +8,20 @@ inherit M_INPUT;
 
 void setup()
 {
-	set_unit("¿é");
-	set_id("plank","%^H_YELLOW%^ÁéÎ»%^RESET%^");
+	set_unit("å—");
+	set_id("plank","%^H_YELLOW%^çµä½%^RESET%^");
 	set_long(
-"               %^YELLOW%^©°©¤©¤©¤©´%^RESET%^\n"+
-"               %^YELLOW%^©¦  %^H_RED%^Äô%^RESET%^  %^YELLOW%^©¦%^RESET%^\n"+
-"               %^YELLOW%^©¦  %^H_RED%^¹«%^RESET%^  %^YELLOW%^©¦%^RESET%^\n"+
-"               %^YELLOW%^©¦  %^H_RED%^Îá%^RESET%^  %^YELLOW%^©¦%^RESET%^\n"+
-"               %^YELLOW%^©¦  %^H_RED%^æ¢%^RESET%^  %^YELLOW%^©¦%^RESET%^\n"+
-"               %^YELLOW%^©¦  %^H_RED%^Ó¨%^RESET%^  %^YELLOW%^©¦%^RESET%^\n"+
-"               %^YELLOW%^©¦  %^H_RED%^Ó¯%^RESET%^  %^YELLOW%^©¦%^RESET%^\n"+
-"               %^YELLOW%^©¦  %^H_RED%^Ö®%^RESET%^  %^YELLOW%^©¦%^RESET%^\n"+
-"               %^YELLOW%^©¦  %^H_RED%^Î»%^RESET%^  %^YELLOW%^©¦%^RESET%^\n"+
-"           %^YELLOW%^©°©¤©Ø©¤©¤©¤©Ø©¤©´%^RESET%^\n"+
-"           %^YELLOW%^©¦ %^H_CYAN%^ÃÃ£ºÍðÍñÆüÁ¢%^RESET%^ %^YELLOW%^©¦%^RESET%^\n"+
-"           %^YELLOW%^©¸©¤©¤©¤©¤©¤©¤©¤©¼%^RESET%^\n");
-	set_in_room_desc("Ò»¿éÁéÎ»ÅÆ(plank)£¬ÉÏÃæ¿Ì×ÅÍö¹ÊÈËµÄÃû»ä¡£\n");
+"               %^YELLOW%^â”Œâ”€â”€â”€â”%^RESET%^\n"+
+"               %^YELLOW%^â”‚  %^H_RED%^è‚%^RESET%^  %^YELLOW%^â”‚%^RESET%^\n"+
+"               %^YELLOW%^â”‚  %^H_RED%^å…¬%^RESET%^  %^YELLOW%^â”‚%^RESET%^\n"+
+"               %^YELLOW%^â”‚  %^H_RED%^å¾%^RESET%^  %^YELLOW%^â”‚%^RESET%^\n"+
+"               %^YELLOW%^â”‚  %^H_RED%^å§Š%^RESET%^  %^YELLOW%^â”‚%^RESET%^\n"+
+"               %^YELLOW%^â”‚  %^H_RED%^èŽ¹%^RESET%^  %^YELLOW%^â”‚%^RESET%^\n"+
+"               %^YELLOW%^â”‚  %^H_RED%^ç›ˆ%^RESET%^  %^YELLOW%^â”‚%^RESET%^\n"+
+"               %^YELLOW%^â”‚  %^H_RED%^ä¹‹%^RESET%^  %^YELLOW%^â”‚%^RESET%^\n"+
+"               %^YELLOW%^â”‚  %^H_RED%^ä½%^RESET%^  %^YELLOW%^â”‚%^RESET%^\n"+
+"           %^YELLOW%^â”Œâ”€â”´â”€â”€â”€â”´â”€â”%^RESET%^\n"+
+"           %^YELLOW%^â”‚ %^H_CYAN%^å¦¹ï¼šå®›å©‰æ³£ç«‹%^RESET%^ %^YELLOW%^â”‚%^RESET%^\n"+
+"           %^YELLOW%^â””â”€â”€â”€â”€â”€â”€â”€â”˜%^RESET%^\n");
+	set_in_room_desc("ä¸€å—çµä½ç‰Œ(plank)ï¼Œä¸Šé¢åˆ»ç€äº¡æ•…äººçš„åè®³ã€‚\n");
 }

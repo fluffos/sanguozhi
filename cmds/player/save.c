@@ -12,11 +12,11 @@ inherit CMD;
 
 private void main(string arg)
 {
-    write("²»ÄÜ´æÅÌ£¬ÏµÍ³»á×Ô¶¯´¢´æ¡£ \n");
+    write("ä¸èƒ½å­˜ç›˜ï¼Œç³»ç»Ÿä¼šè‡ªåŠ¨å‚¨å­˜ã€‚ \n");
     return;
     this_body()->put_m_all_money();  // add by fire on Dec 13, 1997
     this_body()->save_me();
-    out("´æ´¢Íê±Ï¡£\n");
+    out("å­˜å‚¨å®Œæ¯•ã€‚\n");
 
     return;
 }

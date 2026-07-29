@@ -8,15 +8,15 @@ inherit M_VALUE;
 void setup()
 {
     ::mudlib_setup();
-    set_unit("¼ş");
-    set_id("buyi", "²¼ÒÂ");
+    set_unit("ä»¶");
+    set_id("buyi", "å¸ƒè¡£");
     add_id("cloth");
-    set_in_room_desc("²¼ÒÂ(buyi)");
-    set_long("Ò»¼şÆ½³£µÄ°×²¼ÒÂ£¬ËäÈ»ÊÇ´Ö²¼×öµÄ£¬µ¹Ò²ÄÍ´©¡£");
+    set_in_room_desc("å¸ƒè¡£(buyi)");
+    set_long("ä¸€ä»¶å¹³å¸¸çš„ç™½å¸ƒè¡£ï¼Œè™½ç„¶æ˜¯ç²—å¸ƒåšçš„ï¼Œå€’ä¹Ÿè€ç©¿ã€‚");
     set_gettable(1);
     set_slot(TORSO);
-    set_wearmsg("$N´©ÉÏÒ»¼şÆÕÆÕÍ¨Í¨µÄ$o¡£ \n");
-    set_removemsg("$N¶¶¶¶àÂàÂÍÑÏÂÒ»¼ş$o¡£²»»áÊÇÇîµÃÏëÈ¥µ±°É£¿\n");
+    set_wearmsg("$Nç©¿ä¸Šä¸€ä»¶æ™®æ™®é€šé€šçš„$oã€‚ \n");
+    set_removemsg("$NæŠ–æŠ–å—¦å—¦è„±ä¸‹ä¸€ä»¶$oã€‚ä¸ä¼šæ˜¯ç©·å¾—æƒ³å»å½“å§ï¼Ÿ\n");
     set_attack_ability(-1);
     set_defence_power(1);
     set_defence_ability(-1);

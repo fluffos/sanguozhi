@@ -1,11 +1,11 @@
-// vpool.c ³ØÌÁ±ß
+// vpool.c æ± å¡˜è¾¹
 inherit OBJ;
 void setup()
 {
   set_attached(1);
-  set_unit("Æ¬");
-  set_id("pool","³ØÌÁ", "water","chitang");
-  set_long("¾ÍÊÇÒ»¸öÆÕÍ¨µÄÐ¡³ØÌÁ£¬ÓÎÓÎÓ¾»¹ÊÇ²»´í¡£");
+  set_unit("ç‰‡");
+  set_id("pool","æ± å¡˜", "water","chitang");
+  set_long("å°±æ˜¯ä¸€ä¸ªæ™®é€šçš„å°æ± å¡˜ï¼Œæ¸¸æ¸¸æ³³è¿˜æ˜¯ä¸é”™ã€‚");
 }
 int swim(string s)
 {
@@ -14,16 +14,16 @@ int swim(string s)
 	p_sjlev=this_body()->query_sk_level("jbsj");
 	p_sjexp=this_body()->query_sk_exp("jbsj");
 	if (p_hp<15)
-	{ write("ÕâÃ´ÀÛÁË»¹¸ÒÓÎ£¬²»ÅÂÑÍËÀÑ½¡£\n");
-	this_body()->other_action("$NÍÑÁËÒÂ·þ×¼±¸Íù³ØÌÁÀïÌø£¬ÓÌÔ¥ÁË°ëÌìÓÖÃ»ÌøÏÂÈ¥¡£\n");
+	{ write("è¿™ä¹ˆç´¯äº†è¿˜æ•¢æ¸¸ï¼Œä¸æ€•æ·¹æ­»å‘€ã€‚\n");
+	this_body()->other_action("$Nè„±äº†è¡£æœå‡†å¤‡å¾€æ± å¡˜é‡Œè·³ï¼ŒçŠ¹è±«äº†åŠå¤©åˆæ²¡è·³ä¸‹åŽ»ã€‚\n");
 	return 1;
 	}
-	write ( "ÄãÌøµ½³ØÌÁÀï£¬¾¡ÇéµØÓÎÁËÒ»»á£¬ÅÀÉÏ°¶Ê±£¬¸Ðµ½ÐÄÇéÒì³£Êæ³©¡£\n");
-	this_body()->other_action("$NÌøµ½ÁË³ØÌÁÀï£¬ºúÂÒÆËÌÚÁËÒ»Õó¾ÍÉÏÀ´ÁË\n");
+	write ( "ä½ è·³åˆ°æ± å¡˜é‡Œï¼Œå°½æƒ…åœ°æ¸¸äº†ä¸€ä¼šï¼Œçˆ¬ä¸Šå²¸æ—¶ï¼Œæ„Ÿåˆ°å¿ƒæƒ…å¼‚å¸¸èˆ’ç•…ã€‚\n");
+	this_body()->other_action("$Nè·³åˆ°äº†æ± å¡˜é‡Œï¼Œèƒ¡ä¹±æ‰‘è…¾äº†ä¸€é˜µå°±ä¸Šæ¥äº†\n");
 	this_body()->do_game_command("xixi");
 	if((p_sjlev<30) && (p_sjexp<1000))
 	{
-	write("ÄãµÄÓÎÓ¾¼¼ÊõÌá¸ßÁË¡£\n");
+	write("ä½ çš„æ¸¸æ³³æŠ€æœ¯æé«˜äº†ã€‚\n");
 	this_body()->set_sg_skill("jbsj", p_sjlev, p_sjexp+10);
 	}
 	this_body()->set_cur_hp(p_hp-12);

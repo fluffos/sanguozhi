@@ -1,6 +1,6 @@
 #/std/race/human.c
 primary_id "lorll"
-chinese_id "ÎŞÁÄ"
+chinese_id "æ— èŠ"
 persist_flags ([0:0,])
 can_drop 1
 can_sell 1
@@ -13,8 +13,8 @@ main_prep "in"
 contained_light_added 1
 gender 1
 messages ([])
-def_messages (["invis":"$n´ÓÄãµÄÊÓÒ°ÖĞÍ»È»ÏûÊ§ÁË¡£","enter":"$n×ßÁË¹ıÀ´¡£","menter":"$nÍ»È»³öÏÖÔÚÒ»ÕóÑÌÎíÖĞ¡£","mleave":"$nµÄÉíÓ°ÔÚÒ»ÕóÑÌÎíÖĞ½¥½¥ÒşÈ¥¡£","vis":"$nÍ»È»³öÏÖÔÚÄãÃæÇ°£¬ÓÖËÆºõÔÚÕâÀïºÜ¾ÃÁË¡£","destruct":"$nÅÛĞäÒ»»Ó£¬$o±»»¯³ÉÒ»¹ÉºÚÑÌ£¬´µÉ¢¿ªÈ¥¡£","clone":"$nÉìÊÖÁè¿ÕÒ»Ö¸£¬±ä³öÁË$o¡£","home":"$n»Ø¼ÒÈ¥ÁË¡£","leave":"$n³¯$oÀë¿ªÁË¡£",])
-busy_msg "ÄãÒ»´ÎÊäÈëÌ«¶àÃüÁîÁË.."
+def_messages (["invis":"$nä»ä½ çš„è§†é‡ä¸­çªç„¶æ¶ˆå¤±äº†ã€‚","enter":"$nèµ°äº†è¿‡æ¥ã€‚","menter":"$nçªç„¶å‡ºç°åœ¨ä¸€é˜µçƒŸé›¾ä¸­ã€‚","mleave":"$nçš„èº«å½±åœ¨ä¸€é˜µçƒŸé›¾ä¸­æ¸æ¸éšå»ã€‚","vis":"$nçªç„¶å‡ºç°åœ¨ä½ é¢å‰ï¼Œåˆä¼¼ä¹åœ¨è¿™é‡Œå¾ˆä¹…äº†ã€‚","destruct":"$nè¢è¢–ä¸€æŒ¥ï¼Œ$oè¢«åŒ–æˆä¸€è‚¡é»‘çƒŸï¼Œå¹æ•£å¼€å»ã€‚","clone":"$nä¼¸æ‰‹å‡Œç©ºä¸€æŒ‡ï¼Œå˜å‡ºäº†$oã€‚","home":"$nå›å®¶å»äº†ã€‚","leave":"$næœ$oç¦»å¼€äº†ã€‚",])
+busy_msg "ä½ ä¸€æ¬¡è¾“å…¥å¤ªå¤šå‘½ä»¤äº†.."
 busy 1304940514
 answer_list ({({"settle","settle",}),({"position","position",}),({"localmeeting","localmeeting",}),({"job","job",}),({"zgxy","zgxy",}),({"wxxy","wxxy",}),({"bfxy","bfxy",}),({"guoshi","guoshi",}),})
 ask_list ([])
@@ -46,12 +46,12 @@ ilog_time 1306751671
 money (["gold":2,"coin":0,"silver":100,])
 sg_home ([])
 name "lorll"
-invis_name "Ä³Ä³"
-chinese_name "ÎŞÁÄ"
+invis_name "æŸæŸ"
+chinese_name "æ— èŠ"
 response_queue ({})
 reply "huaer"
 channel_list ({"gossip","newbie","weather","rumor","imud_imud_sgz",})
 saved_items "([\"#inventory#\":({\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/money/m_gold\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/money/m_silver\\\",])\",}),\"#base_name#\":\"/std/race/human\",])"
 ag_day 3
 ag_month 3
-jobs (["fanpeople":(["assignarea":"changan","status":"begin","beg_time":1306753395,"memo":"É¿¶¯ÚÛĞ¡»ï",]),"choppork":(["beg_time":0,"finish_time":1304670665,"count":5,"lasttimes":({1304670439,1304670665,}),]),"chopwoods":(["beg_time":0,"finish_time":1304671805,"count":31,"lasttimes":({1304663245,1304663429,1304665815,1304665917,1304667965,1304668371,1304669453,1304670013,1304670111,1304671065,1304671227,1304671313,1304671447,1304671551,1304671805,}),]),"findbody":(["beg_time":0,"assignarea":"changan","status":"over","finish_time":1304943648,"count":16,"memo":"ÕÒÖí¸çö¦(zgl)","lasttimes":({1304942000,1304942032,1304942408,1304942502,1304942546,1304942580,1304942654,1304942712,1304943064,1304943302,1304943338,1304943648,}),]),"askobj":(["status":"over","finish_time":1304941900,"memo":"ÕÒäü¹ØµÄ%^H_CYAN%^²Ìçß%^RESET%^´ß0","obj_id":"test","beg_time":0,"assignarea":"changan","count":23,"lasttimes":({1304938122,1304938160,1304938272,1304938602,1304938838,1304939216,1304940036,1304940210,1304940490,1304940590,1304940660,1304940846,1304940966,1304941024,1304941086,1304941138,1304941486,1304941582,1304941662,1304941722,1304941788,1304941900,}),]),])
+jobs (["fanpeople":(["assignarea":"changan","status":"begin","beg_time":1306753395,"memo":"ç…½åŠ¨è°¯å°ä¼™",]),"choppork":(["beg_time":0,"finish_time":1304670665,"count":5,"lasttimes":({1304670439,1304670665,}),]),"chopwoods":(["beg_time":0,"finish_time":1304671805,"count":31,"lasttimes":({1304663245,1304663429,1304665815,1304665917,1304667965,1304668371,1304669453,1304670013,1304670111,1304671065,1304671227,1304671313,1304671447,1304671551,1304671805,}),]),"findbody":(["beg_time":0,"assignarea":"changan","status":"over","finish_time":1304943648,"count":16,"memo":"æ‰¾çŒªå“¥é“(zgl)","lasttimes":({1304942000,1304942032,1304942408,1304942502,1304942546,1304942580,1304942654,1304942712,1304943064,1304943302,1304943338,1304943648,}),]),"askobj":(["status":"over","finish_time":1304941900,"memo":"æ‰¾æ½¼å…³çš„%^H_CYAN%^è”¡é‚•%^RESET%^å‚¬0","obj_id":"test","beg_time":0,"assignarea":"changan","count":23,"lasttimes":({1304938122,1304938160,1304938272,1304938602,1304938838,1304939216,1304940036,1304940210,1304940490,1304940590,1304940660,1304940846,1304940966,1304941024,1304941086,1304941138,1304941486,1304941582,1304941662,1304941722,1304941788,1304941900,}),]),])

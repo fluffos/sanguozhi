@@ -185,11 +185,11 @@ void plot_map(mapping rooms)
 				else l1+=" "+nn+" ";
 				if( stringp(rooms[rr]["e"]["east"]) ) l1+="--";
 				else l1+="  ";
-				if( !(sizeof(l2)%8)&&stringp(rooms[rr]["e"]["southwest"]) ) l2+="£Ø  "; 
+				if( !(sizeof(l2)%8)&&stringp(rooms[rr]["e"]["southwest"]) ) l2+="Ôºè  "; 
 				else l2+="    ";
-				if( stringp(rooms[rr]["e"]["south"]) ) l2+="©¶  ";
+				if( stringp(rooms[rr]["e"]["south"]) ) l2+="‚îÇ  ";
 				else l2+="    ";
-				if( stringp(rooms[rr]["e"]["southeast"]) ) l2+="£‹";
+				if( stringp(rooms[rr]["e"]["southeast"]) ) l2+="Ôºº";
 				else l2+="     ";
 			}
 		}

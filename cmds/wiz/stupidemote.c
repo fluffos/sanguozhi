@@ -8,10 +8,10 @@ inherit CMD;
 
 nomask private void main(string str) {
     if (!str) {
-        write("ÓÃ·¨£ºstupidemote verb\n");
+        write("ç”¨æ³•ï¼šstupidemote verb\n");
         return;
     }
-    SOUL_D->add_emote(str, "", "$N"+str+"¡£", 0);
-    SOUL_D->add_emote(str, "STR", "$N"+str+"$o¡£", 0);
+    SOUL_D->add_emote(str, "", "$N"+str+"ã€‚", 0);
+    SOUL_D->add_emote(str, "STR", "$N"+str+"$oã€‚", 0);
     out("Added.\n");
 }

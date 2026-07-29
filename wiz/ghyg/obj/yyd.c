@@ -1,4 +1,4 @@
-// candy.c ´ó°×ÍÃÄÌÌÇ by fire on Jan 7, 1998
+// candy.c å¤§ç™½å…”å¥¶ç³– by fire on Jan 7, 1998
 #include <sanguo.h>
 inherit OBJ;
 inherit M_GETTABLE;
@@ -20,20 +20,20 @@ void eat_dan()
 	}
 	if(this_body()->query_gender()==1) {
 		this_body()->simple_action(
-"$NÆÈ²»¼°´ıµØ¡¸¹¾àà¡¹Ò»ÏÂ·şÏÂÒ»Ã¶%^H_MAGENTA%^ÑøÑÕµ¤%^RESET%^£¬Ò»±ß²»¿ÉÖÃĞÅµØÃşÁËÄ£×Ô¼ºµÄÃæ¿×¡£\n");
+"$Nè¿«ä¸åŠå¾…åœ°ã€Œå’•å™œã€ä¸€ä¸‹æœä¸‹ä¸€æš%^H_MAGENTA%^å…»é¢œä¸¹%^RESET%^ï¼Œä¸€è¾¹ä¸å¯ç½®ä¿¡åœ°æ‘¸äº†æ¨¡è‡ªå·±çš„é¢å­”ã€‚\n");
 	}
 	else {
 		this_body()->simple_action(
-"$NÄéÆğÒ»Ã¶%^H_MAGENTA%^ÑøÑÕµ¤%^RESET%^£¬ÇáÇáµØ·ÅÈë¿ÚÖĞ£¬ÑÊÁËÏÂÈ¥¡£\n$NÁ¬Ã¦ÕÒµ½Ò»ÃæÍ­¾µ£¬ÕÕÁËÓÖÕÕ£¬·¢¾õ×Ô¼º±äµÃ¸ü¼ÓÃÀÀö¶¯ÈËÁË¡£\n");
+"$Næ‹ˆèµ·ä¸€æš%^H_MAGENTA%^å…»é¢œä¸¹%^RESET%^ï¼Œè½»è½»åœ°æ”¾å…¥å£ä¸­ï¼Œå’½äº†ä¸‹å»ã€‚\n$Nè¿å¿™æ‰¾åˆ°ä¸€é¢é“œé•œï¼Œç…§äº†åˆç…§ï¼Œå‘è§‰è‡ªå·±å˜å¾—æ›´åŠ ç¾ä¸½åŠ¨äººäº†ã€‚\n");
 	}
 }
 void setup()
-{   set_id("yangyan dan", "%^H_MAGENTA%^ÑøÑÕµ¤%^RESET%^");
-    set_long("Ò»Á£ÓÕÈËµÄ%^H_MAGENTA%^ÑøÑÕµ¤%^RESET%^£¬ÌıËµ·şÁË¿ÉÒÔÊ¹ÈË±äµÃ¸üÆ¯ÁÁ¡£");
+{   set_id("yangyan dan", "%^H_MAGENTA%^å…»é¢œä¸¹%^RESET%^");
+    set_long("ä¸€ç²’è¯±äººçš„%^H_MAGENTA%^å…»é¢œä¸¹%^RESET%^ï¼Œå¬è¯´æœäº†å¯ä»¥ä½¿äººå˜å¾—æ›´æ¼‚äº®ã€‚");
     set_size(VERY_SMALL);
     set_gettable(1);
     set_num_eats(1);
-    set_unit("Á£");
+    set_unit("ç²’");
     set_eat_action((: eat_dan :));
     set_last_eat_action( (: eat_dan :));
 }

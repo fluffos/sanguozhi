@@ -4,11 +4,11 @@ inherit M_WEAPON;
 inherit M_CHOPPER;
 inherit M_INPUT;
 void setup() {
-    set_adj("Ä¥µÃÑ©ÁÁµÄ");
-    set_id("tigudao", ""+HIC+"ÌŞ¹Çµ¶"+NOR+"","dao");
-    set_unit("±ú");
-    set_in_room_desc("Ò»±úÇĞÖíÈâÊ±ÓÃµÃµ½µÄ"+HIC+"ÌŞ¹Çµ¶"+NOR+"(tigudao)\n");
-    set_long("ÕâÊÇÒ»±úÄ¥µÃÑ©ÁÁµÄÌŞ¹Çµ¶£¬²»¹ı±ÈÆğÕÅÍÀ»§ÊÖÖĞµÄÄÇ±ú£¬¾ÍĞ¡ÁËÒ»ºÅÁË¡£\n");
+    set_adj("ç£¨å¾—é›ªäº®çš„");
+    set_id("tigudao", ""+HIC+"å‰”éª¨åˆ€"+NOR+"","dao");
+    set_unit("æŸ„");
+    set_in_room_desc("ä¸€æŸ„åˆ‡çŒªè‚‰æ—¶ç”¨å¾—åˆ°çš„"+HIC+"å‰”éª¨åˆ€"+NOR+"(tigudao)\n");
+    set_long("è¿™æ˜¯ä¸€æŸ„ç£¨å¾—é›ªäº®çš„å‰”éª¨åˆ€ï¼Œä¸è¿‡æ¯”èµ·å¼ å± æˆ·æ‰‹ä¸­çš„é‚£æŸ„ï¼Œå°±å°äº†ä¸€å·äº†ã€‚\n");
     set_attack_ability(2);
     set_attack_power(10);
     set_defence_ability(10);

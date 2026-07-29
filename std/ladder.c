@@ -4,5 +4,5 @@
 inherit STAIRS;
 
 void more_create(mixed up_dest, mixed down_dest, int attached) {
-    setup_messages("Ìİ×Ó", up_dest, down_dest);
+    setup_messages("æ¢¯å­", up_dest, down_dest);
 }

@@ -63,7 +63,7 @@ int enter(string c_id)
 	if(objectp(o)) HP_D->set_max_mp(o);
 	//added by suicide in 2001.8.16 for give cloth to all those naked players
         if(!CHAR_D->char_exist(c_id))
-           {object cloth=OBJ_D->clone_obj("buyi");//·Çchar½ÇÉ«¸øÒ»¼ş²¼ÒÂ
+           {object cloth=OBJ_D->clone_obj("buyi");//écharè§’è‰²ç»™ä¸€ä»¶å¸ƒè¡£
             if (objectp(cloth)&&objectp(0))
                {
                cloth->move(o);
@@ -74,7 +74,7 @@ int enter(string c_id)
         }
         else
            {mapping wear = CHAR_D->get_char(c_id,"wear");
-            if (!wear || !wear["torso"])  //Èç¹ûcahrÃ»ÓĞÒÂ·ş,¸øÒ»¼ş²¼ÒÂ
+            if (!wear || !wear["torso"])  //å¦‚æœcahræ²¡æœ‰è¡£æœ,ç»™ä¸€ä»¶å¸ƒè¡£
                CHAR_D->add_char_wear(c_id,"buyi");
            }
 

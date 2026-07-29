@@ -1,6 +1,6 @@
 // m_ask.c  by fire on Dec 23 1997
 private string *answer_list = ({}); // list for answers
-static private int p_first;
+nosave private int p_first;
 private mapping ask_list=([]);
 private mapping asklist=([]); // this is used for extra ask from job
 mixed set_asklist(string q, string p,mixed v)
@@ -66,13 +66,13 @@ nomask void ans_def_name(object who)
 	m_zi=this_object()->query_sg_zi();
 	if(m_zi)
 	{
-		m_zi="×Ö"+m_zi;
+		m_zi="å­—"+m_zi;
 	}
 	else
 	{
 		m_zi="";
 	}
-this_object()->simple_action("$NÐ¦×ÅËµµÀ£ºÎÒÄË"+m_name+m_zi+"£¬Çë¶à¶àÖ¸½Ì£¿\n")
+this_object()->simple_action("$Nç¬‘ç€è¯´é“ï¼šæˆ‘ä¹ƒ"+m_name+m_zi+"ï¼Œè¯·å¤šå¤šæŒ‡æ•™ï¼Ÿ\n")
 ;
 	return;
 }
@@ -80,7 +80,7 @@ nomask void ans_def_here(object who)
 {
 	string m_name;
 	m_name=environment(this_body())->short();
-this_object()->simple_action("$NÐ¦×ÅËµµÀ£ºÕâÀïÊÇ"+m_name+"Ï²»¶Õâ¶ùÂð£¿\n");
+this_object()->simple_action("$Nç¬‘ç€è¯´é“ï¼šè¿™é‡Œæ˜¯"+m_name+"å–œæ¬¢è¿™å„¿å—ï¼Ÿ\n");
 	return;
 }
 nomask void ans_def_all(object who)
@@ -92,10 +92,10 @@ nomask void ans_def_all(object who)
     sum=sizeof(answer_list);
     if(!sum ||(objectp(this_object()->query_link())&&!CHAR_D->char_exist(p_id) ))
     {   this_object()->targetted_action(
-"$N¶Ô$T²»ÄÍ·³µØËµµÀ£¬ÎÒÊ²Ã´¶¼²»ÖªµÀ£¬±ðÎÊÎÒ¡£\n",who);
+"$Nå¯¹$Tä¸è€çƒ¦åœ°è¯´é“ï¼Œæˆ‘ä»€ä¹ˆéƒ½ä¸çŸ¥é“ï¼Œåˆ«é—®æˆ‘ã€‚\n",who);
          return;
     }
-    ans="$N¶Ô$TËµµÀ£ºÎÒÖªµÀÏÂÃæÕâÐ©£¬¿´¿´ÄÄÐ©¶ÔÄãÓÐÓÃ¡£\n";
+    ans="$Nå¯¹$Tè¯´é“ï¼šæˆ‘çŸ¥é“ä¸‹é¢è¿™äº›ï¼Œçœ‹çœ‹å“ªäº›å¯¹ä½ æœ‰ç”¨ã€‚\n";
     for(i=0;i<sum;++i)
       ans=ans+answer_list[i][0]+"\n";
 	ext_ans=who->query_asklist();
@@ -114,7 +114,7 @@ nomask void ans_def_all(object who)
 }
 nomask void ans_def_rumors(object who)
 {
-this_object()->simple_action("$NÐ¦×ÅËµµÀ£º³¤Ê±¼äÃ»³öÃÅÁË£¬ºÃÏóÒ²Ã»Ìýµ½Ê²Ã´ÓÐÐÂµÄÏûÏ¢¡£\n");
+this_object()->simple_action("$Nç¬‘ç€è¯´é“ï¼šé•¿æ—¶é—´æ²¡å‡ºé—¨äº†ï¼Œå¥½è±¡ä¹Ÿæ²¡å¬åˆ°ä»€ä¹ˆæœ‰æ–°çš„æ¶ˆæ¯ã€‚\n");
 	return;
 }
 nomask void ans_def_dunno(object who)
@@ -125,19 +125,19 @@ nomask void ans_def_dunno(object who)
 	switch(p_tmp)
 	{
 		case 0:
-this_object()->targetted_action("$N¶Ô$TËµµÀ£ºÄãËµÊ²Ã´ÎÒÌý²»¶®Ñ½¡£\n",who);
+this_object()->targetted_action("$Nå¯¹$Tè¯´é“ï¼šä½ è¯´ä»€ä¹ˆæˆ‘å¬ä¸æ‡‚å‘€ã€‚\n",who);
 			return;
 		case 1:
-this_object()->targetted_action("$N¶Ô$TËµµÀ£ºÄãÎÊµÃÊÂÎÒÔõÃ´Ò»µã¸ÅÄî¶¼Ã»ÓÐÑ½¡£\n",who);
+this_object()->targetted_action("$Nå¯¹$Tè¯´é“ï¼šä½ é—®å¾—äº‹æˆ‘æ€Žä¹ˆä¸€ç‚¹æ¦‚å¿µéƒ½æ²¡æœ‰å‘€ã€‚\n",who);
 			return;
 		case 2:
-this_object()->targetted_action("$N¶Ô$TËµµÀ£ºÕâ¸öÎÊÌâ×îºÃÎÊÎÊ±ðÈË¡£\n",who);
+this_object()->targetted_action("$Nå¯¹$Tè¯´é“ï¼šè¿™ä¸ªé—®é¢˜æœ€å¥½é—®é—®åˆ«äººã€‚\n",who);
 			return;
 		case 3:
-this_object()->targetted_action("$N¶Ô$TµÉ´óÁËÑÛ¾¦£ºàÅ£¿\n",who);
+this_object()->targetted_action("$Nå¯¹$Tçžªå¤§äº†çœ¼ç›ï¼šå—¯ï¼Ÿ\n",who);
 			return;
 		case 4:
-this_object()->targetted_action("$N¶Ô$TËµµÀ£ººÜ±§Ç¸£¬ÕâÒ²ÕýÊÇÎÒÏëÎÊµÄÎÊÌâÑ½¡£\n",who);
+this_object()->targetted_action("$Nå¯¹$Tè¯´é“ï¼šå¾ˆæŠ±æ­‰ï¼Œè¿™ä¹Ÿæ­£æ˜¯æˆ‘æƒ³é—®çš„é—®é¢˜å‘€ã€‚\n",who);
 			return;
 	}
 	return;

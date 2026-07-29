@@ -23,7 +23,7 @@
 #include <socket.h>
 #include <http_d.h>
 
-private static object http_sock;
+private nosave object http_sock;
 
 // figures out what is being requested, and how to get there
 private nomask string convert_to_actual_path(string path) {

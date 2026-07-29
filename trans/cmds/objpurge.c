@@ -24,15 +24,15 @@ private void main(string arg)
 
     if ( !check_privilege(1) )
         //error("Must be an admin to use objpurge.\n");
-        error("Ö»ÓĞ´óÉñ²Å¿ÉÒÔÓÃ objpurge\n");
+        error("åªæœ‰å¤§ç¥æ‰å¯ä»¥ç”¨ objpurge\n");
     obs = get_obs(arg);
     //outf("Removing %d objects of class %s\n",
-    outf("É¾³ı %d ¸öÊôÓÚ %s µÄÎï¼ş¡£\n", sizeof(obs), arg);
+    outf("åˆ é™¤ %d ä¸ªå±äº %s çš„ç‰©ä»¶ã€‚\n", sizeof(obs), arg);
     obs->remove();
 
     obs = filter_array(obs, (: $1 :));  /* remove zeros */
     //outf("Destructing %d objects of class %s\n"
-    outf("´İ»Ù %d ¸öÊôÓÚ %s µÄÎï¼ş¡£\n", sizeof(obs), arg);
+    outf("æ‘§æ¯ %d ä¸ªå±äº %s çš„ç‰©ä»¶ã€‚\n", sizeof(obs), arg);
 
     map_array(obs, (: destruct :));
 }

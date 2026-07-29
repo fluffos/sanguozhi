@@ -10,17 +10,17 @@ private void main(string str) {
     string rule;
     if ( !is_directory(wiz_dir(this_user())) )
     {
-        out("对不起，只有全职巫师才能删除 emote。\n");
+        out("瀵逛笉璧凤紝鍙湁鍏ㄨ亴宸笀鎵嶈兘鍒犻櫎 emote銆俓n");
         return;
     }
 
     if (!str) {
-        out("用法：rmemote <verb>\n");
+        out("鐢ㄦ硶锛歳memote <verb>\n");
         return;
     }
     sscanf(str, "%s %s", str, rule);
     if (SOUL_D->remove_emote(str, rule))
-        out("删除成功。\n");
-    else out("删除失败。\n");
+        out("鍒犻櫎鎴愬姛銆俓n");
+    else out("鍒犻櫎澶辫触銆俓n");
 }
 

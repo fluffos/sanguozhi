@@ -27,11 +27,11 @@ protected nomask void rcv_tell(string orig_mud, string orig_user,
     if ( !p )
     {
 	return_error(orig_mud, orig_user, "unk-user",
-		     sprintf("Ã»ÓĞ¡¸%s¡¹Õâ¸öÍæ¼Ò", targ_user));
+		     sprintf("æ²¡æœ‰ã€Œ%sã€è¿™ä¸ªç©å®¶", targ_user));
     }
     else
     {
-	tell(p, sprintf("¡¸%s@%s¡¹¸æËßÄã£º%s\n",
+	tell(p, sprintf("ã€Œ%s@%sã€å‘Šè¯‰ä½ ï¼š%s\n",
 			message[0], orig_mud, message[1]));
 	p->set_reply(message[0]+"@" + orig_mud);
     }

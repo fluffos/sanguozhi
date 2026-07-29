@@ -10,13 +10,13 @@
 */
 
 
-static mapping dispatch = ([]);
-static mapping personal_bindings = ([]);
-static string* modules = ({});
-static mapping module_objects = ([]);
-static mapping module_func_names = ([]);
+nosave protected mapping dispatch = ([]);
+nosave protected mapping personal_bindings = ([]);
+nosave protected string* modules = ({});
+nosave protected mapping module_objects = ([]);
+nosave protected mapping module_func_names = ([]);
 
-static void call_user_func(string, mixed);
+protected void call_user_func(string, mixed);
 
 
 //:FUNCTION setup_for_save
@@ -33,26 +33,26 @@ void setup_for_save()
     this_object()->add_save(({ "personal_bindings", "modules" }));
 }
 
-static void
+protected void
 shell_bind(string command, function f)
 {
   dispatch[command] = f;
 }
 
-static void
+protected void
 shell_bind_if_undefined(string command, function f)
 {
     if ( !dispatch[command] )
         dispatch[command] = f;
 }
 
-static void
+protected void
 shell_unbind(string command)
 {
   map_delete(dispatch, command);
 }
 
-static int
+protected int
 bind(string command, string *argv)
 {
   string fname;
@@ -68,7 +68,7 @@ bind(string command, string *argv)
   this_object()->save();
 }
 
-static void
+protected void
 unbind(string* argv)
 {
   string command;
@@ -85,7 +85,7 @@ unbind(string* argv)
 }
 
 
-static void
+protected void
 call_user_func(string fname, mixed argv)
 {
   string module;
@@ -100,7 +100,7 @@ call_user_func(string fname, mixed argv)
     }
 }
 
-static int
+protected int
 load_module(mixed argv)
 {
   string* flist;
@@ -131,7 +131,7 @@ load_module(mixed argv)
 }
 
 
-static void
+protected void
 set_module_path(string* mpath)
 {
   modules = mpath;

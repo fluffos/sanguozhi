@@ -1,11 +1,11 @@
-Ïû³ıNPC         @CHAR_D->remove_char("id_name")
-Ïû³ıOBJ         @OBJ_D->remove_obj("id")
+æ¶ˆé™¤NPC         @CHAR_D->remove_char("id_name")
+æ¶ˆé™¤OBJ         @OBJ_D->remove_obj("id")
 
-Ğ¡··            @CHAR_D->set_char("id_name","just_sell",1)
+å°è´©            @CHAR_D->set_char("id_name","just_sell",1)
 
-ÏÔÊ¾ÈËÎï        @CHAR_D->get_char("row")
-×ª»»ID          @CHAR_D->set_char("jingyang seller","id","jingyang mafan")
-ËùÓĞ¹¤½³ÁĞ±í£º  listchar /1 /v is_maker 1
+æ˜¾ç¤ºäººç‰©        @CHAR_D->get_char("row")
+è½¬æ¢ID          @CHAR_D->set_char("jingyang seller","id","jingyang mafan")
+æ‰€æœ‰å·¥åŒ åˆ—è¡¨ï¼š  listchar /1 /v is_maker 1
 
 add obj	        @OBJ_D->add_obj("obj_id","type")
 get obj         @OBJ_D->get_obj("obj_id")
@@ -100,31 +100,31 @@ gini add        @GINI_D->add_typ("xxb","gender")
 
 
 define desc of wiz actions
-@.me->set_msgs("clone","%^H_CYAN%^$N%^RESET%^ÑöÌì³¤Ğ¥£ºÍòÄÜµÄÉÏÌìÄÄ£¬Çë´ÍÓèÎÒ$O°É¡£\n$O´ÓÌì¶ø½µ¡¸Å¾¡¹µØÒ»ÏÂ°Ñ%^H_CYAN%^$N%^RESET%^ÔÒÔÎ¹ıÈ¥ÁË¡£\n")
-@.me->set_msgs("destruct","%^H_CYAN%^$N%^RESET%^¶Ô$O¶ñºİºİµØËµ£º½ñÌìÓ²ÊÇÁôÄã²»µÃ¡£\nËµ°Õ·ÉÆğÒ»½Å£¬°Ñ$OÎÈÎÈµØËÍ³öÁËÌ«ÑôÏµ¡£\n")
+@.me->set_msgs("clone","%^H_CYAN%^$N%^RESET%^ä»°å¤©é•¿å•¸ï¼šä¸‡èƒ½çš„ä¸Šå¤©å“ªï¼Œè¯·èµäºˆæˆ‘$Oå§ã€‚\n$Oä»å¤©è€Œé™ã€Œå•ªã€åœ°ä¸€ä¸‹æŠŠ%^H_CYAN%^$N%^RESET%^ç ¸æ™•è¿‡å»äº†ã€‚\n")
+@.me->set_msgs("destruct","%^H_CYAN%^$N%^RESET%^å¯¹$Oæ¶ç‹ ç‹ åœ°è¯´ï¼šä»Šå¤©ç¡¬æ˜¯ç•™ä½ ä¸å¾—ã€‚\nè¯´ç½¢é£èµ·ä¸€è„šï¼ŒæŠŠ$Oç¨³ç¨³åœ°é€å‡ºäº†å¤ªé˜³ç³»ã€‚\n")
 
 erase
 @.me->set_msgs("clone","")
 
-/wiz/flee/cmds/cast tianbian ÏÂÑ©
+/wiz/flee/cmds/cast tianbian ä¸‹é›ª
 
 
 listuser /w /st
 
 /sgdomain/event/ev_position.c
 
-Ë¿¡¢ç±¡¢ÂŞ¡¢¾î¡¢³ñ¡¢¶Ğ¡¢½õ
+ä¸ã€ç»«ã€ç½—ã€ç»¢ã€ç»¸ã€ç¼ã€é”¦
 
 @(EV_WAR)->war("bandit",<a_id>)
 
 create boy
     @"/sgdomain/event/ev_guy.c"->create_boy("xiangping")
     
-¸Ä±äÌì¸³£º
+æ”¹å˜å¤©èµ‹ï¼š
     @.xiaobai->init_sg_gifts(29,18,23)
     @.xiaobai->set_sg_rongmao(29)
 
-¸Ä±ä»ù±¾ĞŞÑø£º
+æ”¹å˜åŸºæœ¬ä¿®å…»ï¼š
     @.xiaobai->set_sg_skill("sk_zhimou",56,1000)
     @.xiaobai->set_sg_skill("sk_wuli",76,1000)
     @.xiaobai->set_sg_skill("sk_meili",60,1000)

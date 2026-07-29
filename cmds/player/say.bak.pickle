@@ -17,10 +17,10 @@ void create()
 
 private void main(string s) {
     if (!s || s == "") {
-        out("ËµÊ²Ã´£¿\n");
+        out("è¯´ä»€ä¹ˆï¼Ÿ\n");
         return;
     }
-    this_body()->simple_action("$NËµµÀ£º$o", punctuate(s));
+    this_body()->simple_action("$Nè¯´é“ï¼š$o", punctuate(s));
 }
 
 nomask int valid_resend(string ob) {

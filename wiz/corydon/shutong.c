@@ -1,4 +1,4 @@
-// marry_yahuan.c "Ñ¾»·"
+// marry_yahuan.c "ä¸«ç¯"
 #include <mudlib.h>
 #include <ansi.h>
 inherit LIVING;
@@ -17,18 +17,18 @@ string *query_channel_list() {
 object jia;
 void setup() 
 {
-    add_id("shu tong","ÊéÍ¯","tong");
+    add_id("shu tong","ä¹¦ç«¥","tong");
     set_gender(1);
-    set_proper_name("ÊéÍ¯");
-    set_in_room_desc("ÄÁÍ¯¼ÒµÄ ÊéÍ¯(shu tong)");
-    set_long("Ò»¸öÊéÍ¯£¬ÕıÔÚà«à«×ÔÓï¡£\n");
+    set_proper_name("ä¹¦ç«¥");
+    set_in_room_desc("ç‰§ç«¥å®¶çš„ ä¹¦ç«¥(shu tong)");
+    set_long("ä¸€ä¸ªä¹¦ç«¥ï¼Œæ­£åœ¨å–ƒå–ƒè‡ªè¯­ã€‚\n");
     jia=new("/sgdomain/obj/cloth/torso/buyi.c");
     jia->move(this_object());
     jia->do_wear();
     set_sg_rongmao(25);
- add_pattern("%s×ßÁË%s",function(string left, string right){
+ add_pattern("%sèµ°äº†%s",function(string left, string right){
                  
-                respond("say :ÊéÖĞ×ÔÓĞ»Æ½ğÎİ£¬ÊéÖĞ×ÔÓĞÑÕÈçÓñ...¿ÚË®ÏÂÀ´ÁË...oops,KÊéKÊé");
+                respond("say :ä¹¦ä¸­è‡ªæœ‰é»„é‡‘å±‹ï¼Œä¹¦ä¸­è‡ªæœ‰é¢œå¦‚ç‰...å£æ°´ä¸‹æ¥äº†...oops,Kä¹¦Kä¹¦");
 });
 
 }

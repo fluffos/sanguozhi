@@ -25,7 +25,7 @@ private nomask void confirm_new_password(string s1, string s2)
 
     if(s1 != s2)
     {
-        write("ÃÜÂë±ØĞë·ûºÏ¡£\n");
+        write("å¯†ç å¿…é¡»ç¬¦åˆã€‚\n");
     }
     else
     {   mixed ret;
@@ -36,7 +36,7 @@ private nomask void confirm_new_password(string s1, string s2)
         if (stringp(ret))
            write(ret);
         else
-           write("ÃÜÂëÉè¶¨Íê³É¡£\n");
+           write("å¯†ç è®¾å®šå®Œæˆã€‚\n");
     }
 
     done();
@@ -48,12 +48,12 @@ private nomask void get_new_password(string s)
 
     if ( strlen(s) < 5 )
     {
-        write("ÄãµÄÃÜÂë±ØĞëÓÉÎå¸ö»òÒÔÉÏµÄ×ÖÄ¸×é³É¡£\nÃÜÂë¸ü¸ÄÊ§°Ü¡£\n");
+        write("ä½ çš„å¯†ç å¿…é¡»ç”±äº”ä¸ªæˆ–ä»¥ä¸Šçš„å­—æ¯ç»„æˆã€‚\nå¯†ç æ›´æ”¹å¤±è´¥ã€‚\n");
         done();
     }
     else
     {
-        modal_func((: confirm_new_password, s :), "ÇëÔÙÊäÈëÒ»´Î£º", 1);
+        modal_func((: confirm_new_password, s :), "è¯·å†è¾“å…¥ä¸€æ¬¡ï¼š", 1);
     }
 }
 
@@ -63,12 +63,12 @@ private nomask void confirm_current_password(string s)
 
     if ( !this_user()->matches_password(s) )
     {
-        write("ÃÜÂë²»·ûºÏ¡£\nÃÜÂë¸ü¸ÄÊ§°Ü¡£\n");
+        write("å¯†ç ä¸ç¬¦åˆã€‚\nå¯†ç æ›´æ”¹å¤±è´¥ã€‚\n");
         done();
     }
     else
     {
-        modal_func((: get_new_password :), "ÇëÊäÈëĞÂÃÜÂë£º", 1);
+        modal_func((: get_new_password :), "è¯·è¾“å…¥æ–°å¯†ç ï¼š", 1);
     }
 }
 
@@ -76,16 +76,16 @@ void start_cmd(string arg)
 {
     if (!clonep() || (base_name(previous_object()) != base_name()))
     {
-        write("ÊÔÍ¼·Ç·¨Ê¹ÓÃ passwd ÃüÁî¡£\n");
+        write("è¯•å›¾éæ³•ä½¿ç”¨ passwd å‘½ä»¤ã€‚\n");
         destruct();
         return;
     }
     if (!arg)
-        modal_push((: confirm_current_password :), "ÇëÊäÈëÄãµ±Ç°µÄÃÜÂë£º");
+        modal_push((: confirm_current_password :), "è¯·è¾“å…¥ä½ å½“å‰çš„å¯†ç ï¼š");
     else
     {
         id = arg;
-        modal_push((: get_new_password :), "ÇëÊäÈëĞÂÃÜÂë£º");
+        modal_push((: get_new_password :), "è¯·è¾“å…¥æ–°å¯†ç ï¼š");
     }
 }
 

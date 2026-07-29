@@ -6,15 +6,15 @@ inherit OBJ;
 inherit M_GETTABLE;
 
 void setup() {
-	set_adj("·¢³öÏÌÎ¶µÄ");
-	set_long("ÕâÊÇÒ»Æ¿ÓÃ¶À¼ÒÅä·½µ÷³öÀ´µÄ%^H_CYAN%^Â±Ö­%^RESET%^¡£\n");
-	set_id("cruet", "%^H_CYAN%^Â±Ö­Æ¿%^RESET%^");
-	set_unit("¸ö");
-	set_in_room_desc("Ò»¸öĞ¡Æ¿×Ó£¬ÀïÃæ×°×Å%^H_CYAN%^Â±Ö­%^RESET%^(cruet)¡£\n");
+	set_adj("å‘å‡ºå’¸å‘³çš„");
+	set_long("è¿™æ˜¯ä¸€ç“¶ç”¨ç‹¬å®¶é…æ–¹è°ƒå‡ºæ¥çš„%^H_CYAN%^å¤æ±%^RESET%^ã€‚\n");
+	set_id("cruet", "%^H_CYAN%^å¤æ±ç“¶%^RESET%^");
+	set_unit("ä¸ª");
+	set_in_room_desc("ä¸€ä¸ªå°ç“¶å­ï¼Œé‡Œé¢è£…ç€%^H_CYAN%^å¤æ±%^RESET%^(cruet)ã€‚\n");
 	set_can_give(0);
 	set_is_keeping(1);
 	set_can_drop(0);
-	set_can_drop("°ÑÕâ¸öÆ¿×Ó¶ªÁË¾Í×ö²»³É¶¹¸¯ÁË¡£\n");
+	set_can_drop("æŠŠè¿™ä¸ªç“¶å­ä¸¢äº†å°±åšä¸æˆè±†è…äº†ã€‚\n");
 	set_size(VERY_SMALL);
 }
 mixed direct_turn_obj()
@@ -34,34 +34,34 @@ int turn()
 	if(this_body()->query_job("makedoufu","beg_time")==0)
 	{
 	this_body()->simple_action(
-	"$NÒ»²»Ğ¡ĞÄ£¬Æ¿×ÓÍÑÊÖ¶ø³ö£¬µôÔÚµØÉÏË¤ÆÆÁË£¬¶ÙÊ±ÏãÎ¶ËÄÒç¡£\n");
+	"$Nä¸€ä¸å°å¿ƒï¼Œç“¶å­è„±æ‰‹è€Œå‡ºï¼Œæ‰åœ¨åœ°ä¸Šæ‘”ç ´äº†ï¼Œé¡¿æ—¶é¦™å‘³å››æº¢ã€‚\n");
 	destruct(cruet);
 	return 1;
 	}
 	if( !guozi = present("guozi", room) )
 	{
-	write("ÄãÏë°Ñ%^H_CYAN%^Â±Ö­%^RESET%^µ¹ÔÚÊ²Ã´µØ·½£¿\n");
+	write("ä½ æƒ³æŠŠ%^H_CYAN%^å¤æ±%^RESET%^å€’åœ¨ä»€ä¹ˆåœ°æ–¹ï¼Ÿ\n");
 	return 1;
 	}
 	isfill=guozi->query_isfill();
 	if(!isfill)
 	{
-	write("¹ø×ÓÀïÊ²Ã´Ò²Ã»ÓĞ£¬±ğÀË·ÑÕâÃ´ºÃµÄ%^H_CYAN%^Â±Ö­%^RESET%^¡£\n");
+	write("é”…å­é‡Œä»€ä¹ˆä¹Ÿæ²¡æœ‰ï¼Œåˆ«æµªè´¹è¿™ä¹ˆå¥½çš„%^H_CYAN%^å¤æ±%^RESET%^ã€‚\n");
 	return 1;
 	}
 	stat=guozi->query_islu();
 	if(stat==1)
 	{
-	write("¹ø×ÓÀïµÄ%^B_WHITE%^%^H_YELLOW%^¶¹½¬%^RESET%^ÒÑ¾­µã¹ı%^H_CYAN%^Â±%^RESET%^ÁË¡£\n");
+	write("é”…å­é‡Œçš„%^B_WHITE%^%^H_YELLOW%^è±†æµ†%^RESET%^å·²ç»ç‚¹è¿‡%^H_CYAN%^å¤%^RESET%^äº†ã€‚\n");
 	return 1;
 	}
 	status=guozi->query_status();
 	if(status<35)
 	{
-	write("¹ø×ÓÀïµÄ%^B_WHITE%^%^H_YELLOW%^¶¹½¬%^RESET%^»¹Ã»ÓĞÖóºÃ£¬²»ÄÜµã%^H_CYAN%^Â±%^RESET%^(wave fan)¡£\n");
+	write("é”…å­é‡Œçš„%^B_WHITE%^%^H_YELLOW%^è±†æµ†%^RESET%^è¿˜æ²¡æœ‰ç…®å¥½ï¼Œä¸èƒ½ç‚¹%^H_CYAN%^å¤%^RESET%^(wave fan)ã€‚\n");
 	return 1;
 	}
-      this_body()->simple_action("$NÄÃ³öĞ¡Æ¿×Ó£¬½«%^H_CYAN%^Â±Ö­%^RESET%^Ğ¡ĞÄÒíÒíµØµ¹ÈëÁË´ó¹ø×ÓÖĞµÄ%^B_WHITE%^%^H_YELLOW%^¶¹½¬%^RESET%^Àï£¬µãÂ±Íê³ÉÁË£¡\n");
+      this_body()->simple_action("$Næ‹¿å‡ºå°ç“¶å­ï¼Œå°†%^H_CYAN%^å¤æ±%^RESET%^å°å¿ƒç¿¼ç¿¼åœ°å€’å…¥äº†å¤§é”…å­ä¸­çš„%^B_WHITE%^%^H_YELLOW%^è±†æµ†%^RESET%^é‡Œï¼Œç‚¹å¤å®Œæˆäº†ï¼\n");
 	guozi->set_islu();
 	destruct(cruet);
 	return 1;

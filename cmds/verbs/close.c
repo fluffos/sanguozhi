@@ -24,11 +24,11 @@ mixed do_close_str(string str) {
 		return;
 	}
 	if(!ret)
-		ret=o->short()+"好象没法关。\n";
+		ret=o->short()+"濂借薄娌℃硶鍏炽�俓n";
 	write(ret);
 	return;
 }
 
-array query_verb_info() {
+mixed * query_verb_info() {
   return ({ ({ "STR" }) });
 }

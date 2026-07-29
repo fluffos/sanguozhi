@@ -15,24 +15,24 @@ void start(string arg)
 	p_area=CHAR_D->get_char(p_id,"area");
 
 	if( (!arg)||(arg=="") ){
-		write("ÓÃ·¨£ºcmd build <Éú²ú»ùµØID>\n");
-		write("Àı×Ó£ºcmd build farm  ½¨Ôì(Éı¼¶)Å©³¡\n");
-		write("ÏêÏ¸Éú²ú»ùµØÃû³ÆÇë info b.\n");        
+		write("ç”¨æ³•ï¼šcmd build <ç”Ÿäº§åŸºåœ°ID>\n");
+		write("ä¾‹å­ï¼šcmd build farm  å»ºé€ (å‡çº§)å†œåœº\n");
+		write("è¯¦ç»†ç”Ÿäº§åŸºåœ°åç§°è¯· info b.\n");        
 		return;
 	}
 	f_id=arg;
 	if( !CHAR_D->get_char(p_id,"nation") ){
-		write("µÈÄã»ìÁË¸öÒ»¹Ù°ëÖ°ÒÔºó£¬ÔÙ¿¼ÂÇ½¨ÔìÉú²ú»ùµØµÄÎÊÌâ°É¡£\n");
+		write("ç­‰ä½ æ··äº†ä¸ªä¸€å®˜åŠèŒä»¥åï¼Œå†è€ƒè™‘å»ºé€ ç”Ÿäº§åŸºåœ°çš„é—®é¢˜å§ã€‚\n");
 		return;
 	}
 	if((CHAR_D->get_char(p_id,"level")<2))
 	{
-		write("ÄãµÄ¹ÙÖ°Ì«µÍ£¬²»ÄÜ½¨Òé½¨ÔìÉú²ú»ùµØ¡£\n");
+		write("ä½ çš„å®˜èŒå¤ªä½ï¼Œä¸èƒ½å»ºè®®å»ºé€ ç”Ÿäº§åŸºåœ°ã€‚\n");
 		return;
 	}
 	my_task = TASK_D->get_char_task(p_id);
 	if( my_task[1] != TT_LOCALMEETING ){
-		write("Õâ¸öÎÊÌâ»¹ÊÇÔÚµØÇø»áÒéÉÏÌ¸°É¡£\n");
+		write("è¿™ä¸ªé—®é¢˜è¿˜æ˜¯åœ¨åœ°åŒºä¼šè®®ä¸Šè°ˆå§ã€‚\n");
 		return;
 	}
 	if(((file_name(environment(this_body())))!=
@@ -40,41 +40,41 @@ void start(string arg)
 		(AREA_D->get_area(p_area,"meeting"))))||(p_area!=
 		environment(this_body())->get_area()))
 	{
-		write("Õâ¸öÎÊÌâ±ØĞëÔÚ»áÒéÖ®ËùÌÖÂÛ¡£\n");
+		write("è¿™ä¸ªé—®é¢˜å¿…é¡»åœ¨ä¼šè®®ä¹‹æ‰€è®¨è®ºã€‚\n");
 		return;
 	}
 	task_id = my_task[0];
 	if( TASK_D->get_task(task_id,"suggestion") ){
-		write("ÏÖÔÚÕıÔÚÌÖÂÛÆäËûµÄÒéÌâ£¬ÄãµÄÒâ¼ûµÈ»á¶ùÔÙËµ°É¡£\n");
+		write("ç°åœ¨æ­£åœ¨è®¨è®ºå…¶ä»–çš„è®®é¢˜ï¼Œä½ çš„æ„è§ç­‰ä¼šå„¿å†è¯´å§ã€‚\n");
 		return;
 	}
 	if(((TASK_D->get_task(task_id,"timaim")-TASK_D->get_task(task_id,"timer"))<3)
 		&&(TASK_D->get_task(task_id,"stage")!=0))
 	{
-		write("Ê±¼ä²»¶àÁË£¬»ØÍ·ÔÙÌá°É¡£\n");
+		write("æ—¶é—´ä¸å¤šäº†ï¼Œå›å¤´å†æå§ã€‚\n");
                 return;
         }
 /*	ret=(PJOB+"build/build")->get_build_job(p_area); // the job is for the area
         if(stringp(ret) ){
-            	printf("ÄãÃÇµØÇøµÄµÄ%s¹¤×÷»¹Ã»ÓĞÍê³ÉÄØ¡£\n",ret);
+            	printf("ä½ ä»¬åœ°åŒºçš„çš„%så·¥ä½œè¿˜æ²¡æœ‰å®Œæˆå‘¢ã€‚\n",ret);
             	return;
         } */
 
 	ret=BASE_D->can_build(p_area,f_id);
 	if(stringp(ret)) {
-		printf("½¨ÒéÎŞĞ§£¬Ô­Òò£º%s\n",ret);
+		printf("å»ºè®®æ— æ•ˆï¼ŒåŸå› ï¼š%s\n",ret);
 		return;
 	}
 	if(ret==1) {
-		t_string="½¨Ôì"+BASE_D->get_base(f_id,"name");
+		t_string="å»ºé€ "+BASE_D->get_base(f_id,"name");
                (EV_LOCALMEETING)->get_suggestion(task_id,p_id,"build",f_id);
 	}
 	else {
-		t_string="Éı¼¶"+BASE_D->get_base(f_id,"name");
+		t_string="å‡çº§"+BASE_D->get_base(f_id,"name");
 		(EV_LOCALMEETING)->get_suggestion(task_id,p_id,"update",f_id);
 	}
 	p_talk=sprintf(
-	"$NµÀ£º±¾µØÇøµØ´óÈË¶à£¬µ«Éú²úÉĞÇÒ²»×ã¡£$sÒÔÎªÎÒÃÇµ±%s£¬ÒÔ¼ÓÇ¿±¾µØµÄ¾­¼ÃÊµÁ¦¡£\n",
+	"$Né“ï¼šæœ¬åœ°åŒºåœ°å¤§äººå¤šï¼Œä½†ç”Ÿäº§å°šä¸”ä¸è¶³ã€‚$sä»¥ä¸ºæˆ‘ä»¬å½“%sï¼Œä»¥åŠ å¼ºæœ¬åœ°çš„ç»æµå®åŠ›ã€‚\n",
 	t_string);
     this_body()->simple_action(p_talk);
 }

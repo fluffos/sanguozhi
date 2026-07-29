@@ -11,35 +11,35 @@ private string locked, key_type;
 private int door_damaged = 0;
 
 string unlock_msg =
-"$NÓÃ³ÇÃÅÔ¿³×´ò¿ª³ÇÃÅµÄ¿ªÃÅ×°ÖÃ£¬Ö»Òª°Ñ$oÍÆ¿ª¾ÍĞĞÁË¡£\n"; 
+"$Nç”¨åŸé—¨é’¥åŒ™æ‰“å¼€åŸé—¨çš„å¼€é—¨è£…ç½®ï¼Œåªè¦æŠŠ$oæ¨å¼€å°±è¡Œäº†ã€‚\n"; 
 
 string unlock_fail =
-"$N°ÑÔ¿³×²åÈë¿ªÃÅ×°ÖÃµÄ¿×Àï£¬µ«$oÒ»µã·´Ó¦Ò²Ã»ÓĞ¡£\n";
+"$NæŠŠé’¥åŒ™æ’å…¥å¼€é—¨è£…ç½®çš„å­”é‡Œï¼Œä½†$oä¸€ç‚¹ååº”ä¹Ÿæ²¡æœ‰ã€‚\n";
 
-string lock_msg = "$NÓÃ³ÇÃÅÔ¿³×´ò¿ª³ÇÃÅµÄ¹ØÃÅ×°ÖÃ£¬$o±»¹Ì¶¨ËøÉÏÁË¡£\n";
+string lock_msg = "$Nç”¨åŸé—¨é’¥åŒ™æ‰“å¼€åŸé—¨çš„å…³é—¨è£…ç½®ï¼Œ$oè¢«å›ºå®šé”ä¸Šäº†ã€‚\n";
 
-string lock_fail = "$N°ÑÔ¿³×²åÈë¹ØÃÅ×°ÖÃµÄ¿×Àï£¬µ«$oÒ»µã·´Ó¦Ò²Ã»ÓĞ¡£\n";
+string lock_fail = "$NæŠŠé’¥åŒ™æ’å…¥å…³é—¨è£…ç½®çš„å­”é‡Œï¼Œä½†$oä¸€ç‚¹ååº”ä¹Ÿæ²¡æœ‰ã€‚\n";
 
-string chuang_msg = "$NµÄ²¿¶ÓÓÃ¹¥³Ç³µÊ¹¾¢µÄ×²$o£¬³ÇÃÅÓĞµãÊÜËğÁË¡£\n";
+string chuang_msg = "$Nçš„éƒ¨é˜Ÿç”¨æ”»åŸè½¦ä½¿åŠ²çš„æ’$oï¼ŒåŸé—¨æœ‰ç‚¹å—æŸäº†ã€‚\n";
 
 string chuang_fail =
-"$NµÄ²¿¶ÓÊ¹¾¢µÄ×²$o£¬µ«ËüÎÆË¿²»¶¯£¬Ò»µãĞ§¹ûÒ²Ã»ÓĞ¡£\n"; 
+"$Nçš„éƒ¨é˜Ÿä½¿åŠ²çš„æ’$oï¼Œä½†å®ƒçº¹ä¸ä¸åŠ¨ï¼Œä¸€ç‚¹æ•ˆæœä¹Ÿæ²¡æœ‰ã€‚\n"; 
 
 string chuang_final_msg =
-"$NµÄ²¿¶ÓÃÍµÄÒ»ÏÂ°Ñ$o×²¿ªÁË£¬È«¾üÒ»Æ¬»¶ºô£¬¾ÍÒªÏò³ÇÀïÓ¿½ø¡£\n"; 
+"$Nçš„éƒ¨é˜ŸçŒ›çš„ä¸€ä¸‹æŠŠ$oæ’å¼€äº†ï¼Œå…¨å†›ä¸€ç‰‡æ¬¢å‘¼ï¼Œå°±è¦å‘åŸé‡Œæ¶Œè¿›ã€‚\n"; 
 
-string xiufu_msg = "$NÖ¸»Ó²¿¶Ó¿ìËÙµÄĞŞ¸´$o£¬Ê¹Ëü¼Ó¹ÌÁË´Ë¡£\n";
+string xiufu_msg = "$NæŒ‡æŒ¥éƒ¨é˜Ÿå¿«é€Ÿçš„ä¿®å¤$oï¼Œä½¿å®ƒåŠ å›ºäº†æ­¤ã€‚\n";
 
 string xiufu_fail =
-"$NÖ¸»Ó²¿¶ÓĞŞ¸´$o£¬µ«Ò»Æ¬Ã¦ÂÒ£¬Ö¸»ÓÊ§Áé£¬³ÇÃÅÃ»ÓĞ±ä»¯¡£\n"; 
+"$NæŒ‡æŒ¥éƒ¨é˜Ÿä¿®å¤$oï¼Œä½†ä¸€ç‰‡å¿™ä¹±ï¼ŒæŒ‡æŒ¥å¤±çµï¼ŒåŸé—¨æ²¡æœ‰å˜åŒ–ã€‚\n"; 
 
 string xiufu_nouse_msg = 
-"$NÖ¸»Ó²¿¶ÓĞŞ¸´$o£¬µ«Ò»Ğ©µĞÈË³å»÷Ö®ºó£¬ÓÖÆÆ»µÁË²»ÉÙ£¬ÓëÃ»ĞŞÖ®Ç°Ò»Ñù¡£\n";
+"$NæŒ‡æŒ¥éƒ¨é˜Ÿä¿®å¤$oï¼Œä½†ä¸€äº›æ•Œäººå†²å‡»ä¹‹åï¼Œåˆç ´åäº†ä¸å°‘ï¼Œä¸æ²¡ä¿®ä¹‹å‰ä¸€æ ·ã€‚\n";
 
 string xiufu_final_msg =
-"$oÒ²¾­ĞŞµ½×î´óµÄ¼á¹Ì³Ì¶ÈÁË£¬²»ÄÜÔÙĞŞÁË¡£\n";
+"$oä¹Ÿç»ä¿®åˆ°æœ€å¤§çš„åšå›ºç¨‹åº¦äº†ï¼Œä¸èƒ½å†ä¿®äº†ã€‚\n";
 
-function my_open_hook = (: short() + "ËøÉÏÁË¡£\n"    
+function my_open_hook = (: short() + "é”ä¸Šäº†ã€‚\n"    
                         :);
 
 int is_lockable() { return 1; }
@@ -108,7 +108,7 @@ void xiufu()
 {
   object ob = present("muchai",this_body());
   //write("(with " + ob->short() + ")\n");
-  write("(ÓÃ"+ob->short() + ")\n");
+  write("(ç”¨"+ob->short() + ")\n");
   xiufu_with(ob);
 }
 
@@ -117,13 +117,13 @@ void chuang_with(object ob)
 {
   if(!locked)
     //write("It's not locked.\n");
-  write("ËüÃ»ÓĞËøÉÏ¡£\n");     
+  write("å®ƒæ²¡æœ‰é”ä¸Šã€‚\n");     
 
   if(door_damaged) write("the door damaged\n");
   /*mixed ex = call_hooks("prevent_chuanging", HOOK_YES_NO_ERROR);
 
   if(!ex) ex = //"You can't seem to get it open.\n";
-               "ÄãÎŞ·¨°ÑËüÅª¿ª¡£\n"; 
+               "ä½ æ— æ³•æŠŠå®ƒå¼„å¼€ã€‚\n"; 
   if(stringp(ex))
     {
       write(ex);
@@ -155,7 +155,7 @@ void chuang_with(object ob)
 void chuang()
 {
   object ob= present("gongchengche", environment(this_body()));
-  write("(ÓÃ"+ob->short() + ")\n");
+  write("(ç”¨"+ob->short() + ")\n");
   chuang_with(ob);
 }
 
@@ -165,7 +165,7 @@ void unlock_with(object ob)
 
   /*mixed ex = call_hooks("prevent_unlock", HOOK_YES_NO_ERROR);
   if (!ex) ex = //"You can't seem to unlock it.\n";
-  "ÄãÎŞ·¨°ÑÕâËø´ò¿ª¡£\n";
+  "ä½ æ— æ³•æŠŠè¿™é”æ‰“å¼€ã€‚\n";
     if (stringp(ex)) {
       write(ex);
       return;
@@ -187,7 +187,7 @@ void unlock()
 {
   object ob = present("key", this_body());
   //write("(with " + ob->short() + ")\n");
-  write("(ÓÃ"+ob->short() + ")\n");
+  write("(ç”¨"+ob->short() + ")\n");
   unlock_with(ob);
 }
 
@@ -195,7 +195,7 @@ void lock_with(object ob)
 {
   if(door_damaged) 
     {
-      write("Ëü¼º¾­»µÁË£¬ÎŞ·¨ÏÖÊ¹ËüËøÉÏ¡£\n");
+      write("å®ƒå·±ç»åäº†ï¼Œæ— æ³•ç°ä½¿å®ƒé”ä¸Šã€‚\n");
     }
   else
     {
@@ -214,7 +214,7 @@ void lock_with(object ob)
 void lock() {
     object ob = present("key", this_body());
     //write("(with " + ob->short() + ")\n");
-    write("(ÓÃ"+ ob->short() + ")\n");
+    write("(ç”¨"+ ob->short() + ")\n");
     lock_with(ob);
 }
 
@@ -226,37 +226,37 @@ mixed direct_chuang_obj(object ob)
 {
     if (!locked)
       return //"It isn't locked.\n";
-               "ËüÃ»ÓĞËøÉÏ¡£\n";
+               "å®ƒæ²¡æœ‰é”ä¸Šã€‚\n";
     if (present("gongchengche", environment(this_body())))
       return 1;
-    return "ÓÃÊ²Ã´£¿\n";     
+    return "ç”¨ä»€ä¹ˆï¼Ÿ\n";     
 }
 
 mixed direct_xiufu_obj(object ob)
 {
   if (present("muchai",this_body()))
     return 1;
-  return "ÓÃÊ²Ã´£¿\n";     
+  return "ç”¨ä»€ä¹ˆï¼Ÿ\n";     
 }
 
 mixed direct_unlock_obj(object ob) {
     if (!locked)
         return //"It isn't locked.\n";
-               "ËüÃ»ÓĞËøÉÏ¡£\n"; 
+               "å®ƒæ²¡æœ‰é”ä¸Šã€‚\n"; 
     if (present("key", this_body()))
         return 1;
     return //"With what?\n";
-           "ÓÃÊ²Ã´£¿\n";     
+           "ç”¨ä»€ä¹ˆï¼Ÿ\n";     
 }
 
 mixed direct_lock_obj(object ob) {
     if (locked)
         return //"It is already locked.\n";
-               "ËüÒÑ¾­±»ËøÉÏÁË¡£\n";
+               "å®ƒå·²ç»è¢«é”ä¸Šäº†ã€‚\n";
     if (present("key", this_body()))
         return 1;
     return //"With what?";
-           "ÓÃÊ²Ã´£¿\n";    
+           "ç”¨ä»€ä¹ˆï¼Ÿ\n";    
 }
 
 mixed direct_unlock_obj_with_obj(object ob1, object ob2) {

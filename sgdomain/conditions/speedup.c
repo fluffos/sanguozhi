@@ -1,4 +1,4 @@
-// condition hide.c Òş²Ø
+// condition hide.c éšè—
 // group@sgz August 23, 1999
 #include <ansi.h>
 #include <mudlib.h>
@@ -18,7 +18,7 @@ void execute_con(int tid, int damage, int duration)
 	
 	if (duration <= 3)
 	{ tell(all_inventory(tt),
-	  HIR"ËÙ¹¥Ê±¼äÒÑ¹ı¡£"+NOR+"\n");
+	  HIR"é€Ÿæ”»æ—¶é—´å·²è¿‡ã€‚"+NOR+"\n");
 	  if (TROOP_D->get_troops(tid, "sugong"))
 		TROOP_D->set_troops(tid,"sugong", 0);
 	}	

@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is 巴山夜雨
+// driver is 宸村北澶滈洦
 // created date is Sat May 28 19:24:28 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,9 +7,9 @@ inherit OUTDOOR_ROOM;
 void setup() {
 set_area("wuling");
 set_light(50);
-set_brief("%^YELLOW%^"+"西门"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"瑗块棬"+"%^RESET%^");
 set_long("
-    这里是武陵的西门,有两个官兵正守在门口,盘查过往商客。\n\n");
+    杩欓噷鏄闄电殑瑗块棬,鏈変袱涓畼鍏垫瀹堝湪闂ㄥ彛,鐩樻煡杩囧線鍟嗗銆俓n\n");
 set_exits( ([
 "east":"/a/wuling/wl_dadao1.c",
  ]));

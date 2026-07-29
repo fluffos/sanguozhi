@@ -6,7 +6,7 @@
 **
 ** Interface:
 **
-**   mixed * query_variable(string userid, string * varlist)
+**   array query_variable(string userid, string * varlist)
 **
 **     Return an array of variable values.  0 is returned if
 **     the specified user does not exist.
@@ -38,7 +38,7 @@
 
 inherit M_ACCESS;
 
-static private string * legal_user_query =
+nosave private string * legal_user_query =
 ({
     "failures",
     "email",
@@ -47,14 +47,14 @@ static private string * legal_user_query =
     "url",
     "chinese_id",
 });
-static private string * legal_user_set =
+nosave private string * legal_user_set =
 ({
     "failures",
     "password",
     "chinese_id",
 });
 
-static private string * legal_body_query =
+nosave private string * legal_body_query =
 ({
     "nickname",
     "plan",     /* only when EVERYONE_HAS_A_PLAN */
@@ -63,7 +63,7 @@ static private string * legal_body_query =
     "title2",
     "sg_zi",
 });
-static private string * legal_body_set =
+nosave private string * legal_body_set =
 ({
     "plan",     /* only when EVERYONE_HAS_A_PLAN */
     "wiz_position",
@@ -109,7 +109,7 @@ nomask mixed * query_variable(string userid, string * vlist)
 
     if ( !check_privilege(1) )
     //error("insufficient privilege to query variables\n");
-    error("ÄãÎÞÈ¨²éÑ¯±äÁ¿\n");
+    error("ä½ æ— æƒæŸ¥è¯¢å˜é‡\n");
     results = ({ });
 
     foreach ( var in vlist )
@@ -138,7 +138,7 @@ nomask mixed * query_variable(string userid, string * vlist)
     }
     else
         //error("illegal variable request\n");
-        error("·Ç·¨±äÁ¿ÇëÇó\n");
+        error("éžæ³•å˜é‡è¯·æ±‚\n");
     if ( which->ob )
     {
         results += ({ query_online_object(which->ob, var) });
@@ -171,7 +171,7 @@ nomask void set_variable(string userid, string varname, mixed value)
 
     if ( !check_privilege(1) )
     //error("insufficient privilege to set variables\n");
-    error("ÄãÎÞÈ¨Éè¶¨±äÁ¿\n");
+    error("ä½ æ— æƒè®¾å®šå˜é‡\n");
     if ( member_array(varname, legal_user_set) != -1 )
     {
     fname = LINK_PATH(userid);
@@ -192,7 +192,7 @@ nomask void set_variable(string userid, string varname, mixed value)
     fname += __SAVE_EXTENSION__;
     if ( !is_file(fname) )
     //error("no such user\n");
-      error("Ã»ÓÐÕâ¸öÍæ¼Ò\n");
+      error("æ²¡æœ‰è¿™ä¸ªçŽ©å®¶\n");
 
     lines = regexp(explode(read_file(fname), "\n"),
           "^" + varname + " ",
@@ -212,10 +212,10 @@ private nomask void nuke_user(string userid) {
     object o;
     mixed err;
     if ( o = find_user(userid) ) {
-	o->receive_private_msg("ºÃ°É£¬ÄÇÔÙ¼ûÀ²£¡\n");
+	o->receive_private_msg("å¥½å§ï¼Œé‚£å†è§å•¦ï¼\n");
 	if (o->query_body()) {
     	    CHANNEL_D->deliver_channel("rumor", o->query_body()->query_name() 
-    	    + "×ÔÉ±ÁË¡£\n");
+    	    + "è‡ªæ€äº†ã€‚\n");
     	}
 	CHAR_D->remove_char(userid);
         o->quit();
@@ -241,7 +241,7 @@ private nomask void confirm_passwd(string userid, string arg) {
     string pwd;
     pwd = unguarded (1, (: query_variable, userid, ({ "password" }) :))[0];
     if (( crypt(arg, arg) != pwd ) && ( oldcrypt(arg, arg) != pwd )) {
-   	write("\nÃÜÂë´íÎó¡£\n");
+   	write("\nå¯†ç é”™è¯¯ã€‚\n");
    	this_user()->modal_pop();
 	return;
     }
@@ -251,7 +251,7 @@ private nomask void confirm_passwd(string userid, string arg) {
 
 public nomask void suicide() {
     this_user()->modal_push((: confirm_passwd, this_user()->query_userid() :), 
-    	"Èç¹ûÄãÈ·¶¨Òª×ÔÉ±µÄ»°£¬ÇëÊäÈëÄãµÄÃÜÂë£º");
+    	"å¦‚æžœä½ ç¡®å®šè¦è‡ªæ€çš„è¯ï¼Œè¯·è¾“å…¥ä½ çš„å¯†ç ï¼š");
 }
 
                                      

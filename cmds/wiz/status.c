@@ -27,7 +27,7 @@ void main() {
   
   DELIM;
   printf("%-39s   %s\n",
-         "×ÊÔ´ÓÃÍ¾","Á¿");
+         "èµ„æºç”¨é€”","é‡");
   DELIM;
 
   foreach (string key, mixed value in rusage())

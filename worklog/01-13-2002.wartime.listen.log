@@ -1,25 +1,25 @@
 01/13/2002 listen
 Update  /sgdomain/menu/pos.c
-        Ôö¼Ó¹úÍõ¸ü¸Ä±¾¹úwartime Ê±¼äµÄÑ¡Ïî£¬ÒÔ¼°Ïà¹Øfunction.
+        å¢åŠ å›½ç‹æ›´æ”¹æœ¬å›½wartime æ—¶é—´çš„é€‰é¡¹ï¼Œä»¥åŠç›¸å…³function.
         
 update /sgdomain/cmd/war.c
-        ÓÉÓÚ¸ü¸ÄÁËwar time ÏµÍ³£¬ËùÒÔ¸ü¸ÄÁËÅĞ¶ÏÊÇ·ñÄÜ³ö±øµÄ²âÊÔ,È¡ÏûÁËcmd war time À´²é¿´war time µÄ·½Ê½
+        ç”±äºæ›´æ”¹äº†war time ç³»ç»Ÿï¼Œæ‰€ä»¥æ›´æ”¹äº†åˆ¤æ–­æ˜¯å¦èƒ½å‡ºå…µçš„æµ‹è¯•,å–æ¶ˆäº†cmd war time æ¥æŸ¥çœ‹war time çš„æ–¹å¼
       
 creat /sgdomain/cmd/wartime.c
-	ÓÉÓÚĞÂµÄwar time ÏµÍ³ÃüÁîÂÔÎ¢¸´ÔÓ£¬cmd wartime Ìæ´úÔ­ÏÈ cmd war time µÄ¹¦ÄÜ.
+	ç”±äºæ–°çš„war time ç³»ç»Ÿå‘½ä»¤ç•¥å¾®å¤æ‚ï¼Œcmd wartime æ›¿ä»£åŸå…ˆ cmd war time çš„åŠŸèƒ½.
 	
 update /daemons/country_d.c
-	ÔÚadd_country function ÖĞÔö¼ÓÁË³õÊ¼war time µÄ´úÂë¡£Íæ¼Ò¹úµÄwar time ÓÉ¶ÀÁ¢Ç°µÄ¹ú¼ÒÖĞ¼Ì³Ğ¡£
-	npc ¹ú¼ÒµÄwar time È¡random Êı¾İ¡£
-	ÓÃCOUNTRY_D->init_wartime(country_id) ¿ÉÒÔÓÃramdon Êı¾İ³õÊ¼»¯Ò»¸ö¹ú¼ÒµÄwar time Êı¾İ¡£
+	åœ¨add_country function ä¸­å¢åŠ äº†åˆå§‹war time çš„ä»£ç ã€‚ç©å®¶å›½çš„war time ç”±ç‹¬ç«‹å‰çš„å›½å®¶ä¸­ç»§æ‰¿ã€‚
+	npc å›½å®¶çš„war time å–random æ•°æ®ã€‚
+	ç”¨COUNTRY_D->init_wartime(country_id) å¯ä»¥ç”¨ramdon æ•°æ®åˆå§‹åŒ–ä¸€ä¸ªå›½å®¶çš„war time æ•°æ®ã€‚
 	line 101
 	init_temp_wartime () start temp war time with 15 min
 
 update /daemons/day_d.c
-	È¡ÏûÁË¾ÉµÄwar time ÏµÍ³
-	ÓÃDAY_D->block_war(int Ğ¡Ê±) À´ÉèÖÃÔÚÎ´À´µÄ¶àÉÙĞ¡Ê±ÄÚ²»ÄÜwar (0 ±íÊ¾¿ª·ÅÕ½Õù)
-	ÓÃDAY_D->English_time(int time) ¿ÉÒÔÀ´±íÊ¾µ±Ç°Ê±¼äµÄÍ¨Ë×±íÊ¾·¨ (time ÓÃ time()µÄreturn Öµ£©
+	å–æ¶ˆäº†æ—§çš„war time ç³»ç»Ÿ
+	ç”¨DAY_D->block_war(int å°æ—¶) æ¥è®¾ç½®åœ¨æœªæ¥çš„å¤šå°‘å°æ—¶å†…ä¸èƒ½war (0 è¡¨ç¤ºå¼€æ”¾æˆ˜äº‰)
+	ç”¨DAY_D->English_time(int time) å¯ä»¥æ¥è¡¨ç¤ºå½“å‰æ—¶é—´çš„é€šä¿—è¡¨ç¤ºæ³• (time ç”¨ time()çš„return å€¼ï¼‰
 	
 update /sgdomain/event/war/def_arrange.c line 74
-	µ÷ÓÃCOUNTRY_D->init_temp_wartime(string c_id)À´¿ªÊ¼ÁÙÊ±war time
+	è°ƒç”¨COUNTRY_D->init_temp_wartime(string c_id)æ¥å¼€å§‹ä¸´æ—¶war time
   

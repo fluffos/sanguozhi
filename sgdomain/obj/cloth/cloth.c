@@ -23,7 +23,7 @@ int query_level()
 void setup()
 {    if(file_name(previous_object())!=OBJ_D)
     {
-        write("·Ç·¨¸´ÖÆ.\n");
+        write("éžæ³•å¤åˆ¶.\n");
         destruct(this_object());
         return;
     }
@@ -38,7 +38,7 @@ int init_obj(string p_id)
 	add_id(p_id+" obj");
 	set_unit(par["unit"]);
 
-	set_in_room_desc("Ò»"+par["unit"]+par["name"]+"("+p_id+")\n");
+	set_in_room_desc("ä¸€"+par["unit"]+par["name"]+"("+p_id+")\n");
 
 	set_size(par["size"]);
 	set_gettable(1); // food always can get
@@ -74,18 +74,18 @@ string check_obj()
 	mixed inf;
 	inf=OBJ_D->get_obj(p_id);
 
-	ret="ÎïÆ·Àà±ð£º"+sprintf("%-8s  ",OBJ_D->type_name(inf["type"]))+"×ÓÀà±ð£º"+
+	ret="ç‰©å“ç±»åˆ«ï¼š"+sprintf("%-8s  ",OBJ_D->type_name(inf["type"]))+"å­ç±»åˆ«ï¼š"+
 		OBJ_D->type_name(inf["sub_type"])+"\n";
-	ret+="µÈ¼¶£º"+sprintf("%2d",inf["level"])+"        ¼ÛÇ®£º"+
-		((inf["value"] < 0) ? ("ÎÞ¼ÛÖ®±¦"):(CHINESE_D->chinese_value(inf["value"])))+"\n";
-	ret+="¹¥»÷¼¼ÄÜÔö¼Ó(¹¥»÷³É¹¦ÂÊ)£º"+sprintf("%2d",inf["att_abi"])+
-		"  ·À»¤Á¦£º+"+inf["def_pow"]+"\n";
-	ret+="ÖØÁ¿£º"+
-		((inf["size"]>5) ? (chinese_number(inf["size"]/2)+"½ï¡£\n")
-		: "ºÜÇá\n" );
+	ret+="ç­‰çº§ï¼š"+sprintf("%2d",inf["level"])+"        ä»·é’±ï¼š"+
+		((inf["value"] < 0) ? ("æ— ä»·ä¹‹å®"):(CHINESE_D->chinese_value(inf["value"])))+"\n";
+	ret+="æ”»å‡»æŠ€èƒ½å¢žåŠ (æ”»å‡»æˆåŠŸçŽ‡)ï¼š"+sprintf("%2d",inf["att_abi"])+
+		"  é˜²æŠ¤åŠ›ï¼š+"+inf["def_pow"]+"\n";
+	ret+="é‡é‡ï¼š"+
+		((inf["size"]>5) ? (chinese_number(inf["size"]/2)+"æ–¤ã€‚\n")
+		: "å¾ˆè½»\n" );
 	one_name=CHAR_D->get_char(owner,"name");
 	if(one_name);
-		ret+="ËùÓÐÕß£º"+one_name+"("+owner+")\n";
+		ret+="æ‰€æœ‰è€…ï¼š"+one_name+"("+owner+")\n";
 	return ret;
 
 }

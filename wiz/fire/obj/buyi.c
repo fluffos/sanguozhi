@@ -1,4 +1,4 @@
-//by jiezhao on Dec 25 1997 buyi.c ²¼ÒÂ
+//by jiezhao on Dec 25 1997 buyi.c å¸ƒè¡£
 #include <sanguo.h>
 #include <mudlib.h>
 #include <bodyslots.h>
@@ -8,13 +8,13 @@ inherit M_DAMAGE_SINK;
 void setup()
 {
 ::mudlib_setup();
-set_adj("²¼");
-set_unit("¼ş");
-set_id("cloth", "ÒÂ");
+set_adj("å¸ƒ");
+set_unit("ä»¶");
+set_id("cloth", "è¡£");
 add_id("linen");
 add_id("buyi");
-set_long("Ò»¼şÆÆ²¼ÒÂ£¬ÉÏÃæ´òÂúÁË²¹¶¡¡£");
-set_in_room_desc("²¼ÒÂ(cloth)");
+set_long("ä¸€ä»¶ç ´å¸ƒè¡£ï¼Œä¸Šé¢æ‰“æ»¡äº†è¡¥ä¸ã€‚");
+set_in_room_desc("å¸ƒè¡£(cloth)");
 set_gettable(1);
 set_slot(TORSO);
 }

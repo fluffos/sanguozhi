@@ -19,7 +19,7 @@ string long_func() {
 }
 
 void setup() {
-    set_id("crowd", "»À»∫");
+    set_id("crowd", "‰∫∫Áæ§");
     set_in_room_desc("A crowd of LPC coders mills around.");
     set_long( (: long_func :) );
 }

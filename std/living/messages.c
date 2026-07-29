@@ -9,7 +9,7 @@ void do_player_message(string message, mixed arg) {
 
     mess = query_msg(message) || 
         //"$N $vdo not have a message for '"+message+"'.\n";
-        "$N没有'"+message+"'这条信息。\n";
+        "$N娌℃湁'"+message+"'杩欐潯淇℃伅銆俓n";
     if (pointerp(mess))
     mess = choice(mess);
 
@@ -20,7 +20,7 @@ string *get_player_message(string message, mixed arg) {
     mixed mess;
 
     mess = query_msg(message) || //"$N $vdo not have a message for '"+message+"'.\n";
-           "$N没有'"+message+"'这条信息。\n";
+           "$N娌℃湁'"+message+"'杩欐潯淇℃伅銆俓n";
     if (pointerp(mess))
     mess = choice(mess);
     return action( ({ this_object() }), mess, arg);

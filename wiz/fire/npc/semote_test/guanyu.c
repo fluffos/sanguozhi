@@ -1,4 +1,4 @@
-// farmer.c "Å©·ò"
+// farmer.c "å†œå¤«"
 #include <mudlib.h>
 #include <sanguo.h>
 inherit MONSTER;
@@ -6,11 +6,11 @@ void setup()
 {
     object wep;
     object horse;
-    set_name("guan yu", "¹ØÓð");
+    set_name("guan yu", "å…³ç¾½");
     add_id("guan"); 
     set_gender(1);
-    set_proper_name("¹ØÓð");
-    set_in_room_desc("¹ØÓð(guan yu)");
+    set_proper_name("å…³ç¾½");
+    set_in_room_desc("å…³ç¾½(guan yu)");
     set_age(28);
     set_sg_rank(R_DJJ);
     set_shengwang(100000);

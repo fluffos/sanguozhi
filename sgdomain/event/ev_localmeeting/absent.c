@@ -9,7 +9,7 @@ mixed find_absent(int task_id)
 	string p_leader;
 	int i,sum;
 	object o_id;
-	array p_ret=({});
+	mixed * p_ret=({});
 	string p_id;
 	m_chars=TASK_D->get_task(task_id,"chars");
 	k_chars=keys(m_chars);
@@ -50,7 +50,7 @@ void begin_absent(int task_id,int p_type)
 		if(i==0)
 			p_namelist=CHAR_D->get_char(p_id,"name");
 		else
-			p_namelist+="£¬"+CHAR_D->get_char(p_id,"name");
+			p_namelist+="ï¼Œ"+CHAR_D->get_char(p_id,"name");
 			p_reputation=CHAR_D->get_char(p_id,"reputation");
 			p_loyalty=CHAR_D->get_char(p_id,"loyalty");
 			if(p_reputation>10000) p_reputation-=1000;
@@ -63,15 +63,15 @@ void begin_absent(int task_id,int p_type)
         if(p_type)
 	{
 		if(objectp(o_leader))
-                        o_leader->simple_action("$NÉîÉîµØÌ¾ÁË¿ÚÆøµÀ£º"+p_namelist+"ÓÖÔçÔçÀë»á¡£\n");
+                        o_leader->simple_action("$Næ·±æ·±åœ°å¹äº†å£æ°”é“ï¼š"+p_namelist+"åˆæ—©æ—©ç¦»ä¼šã€‚\n");
 		CHANNEL_D->deliver_tell("rumor","system",
-			p_namelist+"ÌáÔçÍË³öµØÇø»áÒé£¬ÆäÉùÍûÓëÖÒ³Ï¶ÈÏÂ½µ¡£\n");
+			p_namelist+"ææ—©é€€å‡ºåœ°åŒºä¼šè®®ï¼Œå…¶å£°æœ›ä¸Žå¿ è¯šåº¦ä¸‹é™ã€‚\n");
 	}
 	else
 	{
 		if(objectp(o_leader))
-                        o_leader->simple_action("$NÉîÉîµØÌ¾ÁË¿ÚÆøµÀ£º"+p_namelist+"ÓÖÎ´ÄÜ°´Ê±³öÏ¯»áÒé¡£\n");
+                        o_leader->simple_action("$Næ·±æ·±åœ°å¹äº†å£æ°”é“ï¼š"+p_namelist+"åˆæœªèƒ½æŒ‰æ—¶å‡ºå¸­ä¼šè®®ã€‚\n");
 		CHANNEL_D->deliver_tell("rumor","system",
-                        p_namelist+"Î´°´Ê±³öÏ¯µØÇø»áÒé£¬ÆäÉùÍûÓëÖÒ³Ï¶ÈÏÂ½µ¡£\n");
+                        p_namelist+"æœªæŒ‰æ—¶å‡ºå¸­åœ°åŒºä¼šè®®ï¼Œå…¶å£°æœ›ä¸Žå¿ è¯šåº¦ä¸‹é™ã€‚\n");
 	}
 }

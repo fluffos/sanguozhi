@@ -3,7 +3,7 @@ inherit OUTDOOR_ROOM;
 void setup() {
 set_area("tongguan");
 set_light(50);
-set_brief("%^YELLOW%^"+"äü¹ØæäÕ¾"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"æ½¼å…³é©¿ç«™"+"%^RESET%^");
 set_long("");
 set_objects( (["/sgdomain/yizhan/mafu.c" : 1 ]) );
 // connection added by buzzer 

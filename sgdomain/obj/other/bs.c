@@ -1,5 +1,5 @@
 // by fire on Jan 8 1998
-// dunjia.c ¶İ¼×ÌìÊé
+// dunjia.c éç”²å¤©ä¹¦
 #include <ansi.h>
 #include <sanguo.h>
 
@@ -15,35 +15,35 @@ int study_book()
   int p_res;
   string p_st;
   p_res=LEARNCHECK_D->check_can_learn_skills(m_sk,m_lev);
-  this_body()->simple_action("$N·­¿ª$o×ĞÏ¸ÔÄ¶ÁÁË°ë¸öÊ±³½¡£\n",this_object());  
+  this_body()->simple_action("$Nç¿»å¼€$oä»”ç»†é˜…è¯»äº†åŠä¸ªæ—¶è¾°ã€‚\n",this_object());  
   switch(p_res)
   {
         case TOO_TIRED:
-                this_body()->simple_action("$NÏëÑĞ¾¿±øÊé£¬¿Éî§Ë¯µÃÁ¬ÑÛ¾¦¶¼Õö²»¿ª¡£\n");
+                this_body()->simple_action("$Næƒ³ç ”ç©¶å…µä¹¦ï¼Œå¯çŒç¡å¾—è¿çœ¼ç›éƒ½çä¸å¼€ã€‚\n");
 		break;
         case LESS_EXP:
-                this_body()->simple_action("$N°ÑÊé·­ÁË°ëÌì£¬×ÜÊÇÁì»á²»ÁËÆäÖĞµÄ°ÂÃî¡£\n");
+                this_body()->simple_action("$NæŠŠä¹¦ç¿»äº†åŠå¤©ï¼Œæ€»æ˜¯é¢†ä¼šä¸äº†å…¶ä¸­çš„å¥¥å¦™ã€‚\n");
                 break;
         case TOO_EASY:
-                this_body()->simple_action("$N·¢ÏÖÕâ±¾ÊéÌ«¼òµ¥ÁË¡£\n");
+                this_body()->simple_action("$Nå‘ç°è¿™æœ¬ä¹¦å¤ªç®€å•äº†ã€‚\n");
                 break;
 	case TOO_DIFFICULT:
-		this_body()->simple_action("$N·¢ÏÖÕâ±¾ÊéÌ«À§ÄÑ¡£\n");
+		this_body()->simple_action("$Nå‘ç°è¿™æœ¬ä¹¦å¤ªå›°éš¾ã€‚\n");
 		break;
 	case LESS_LITERATE:
-		this_body()->simple_action("$NÎÄÑ§ĞŞÑø²»×ã£¬ÎŞ·¨Àí½â£¡\n");
+		this_body()->simple_action("$Næ–‡å­¦ä¿®å…»ä¸è¶³ï¼Œæ— æ³•ç†è§£ï¼\n");
 		break;
 	case 15:
-		this_body()->simple_action("$NÊÜ»ù±¾ĞŞÑøËùÏŞ£¬²»ÄÜÔÙÑ§Ï°ÕâÖÖ¼¼ÄÜÁË£¡\n");
+		this_body()->simple_action("$Nå—åŸºæœ¬ä¿®å…»æ‰€é™ï¼Œä¸èƒ½å†å­¦ä¹ è¿™ç§æŠ€èƒ½äº†ï¼\n");
 		break;
         case CAN_LEARN:
                 p_st=SG_SKILL_D->query_get(m_sk);
                 this_body()->simple_action(p_st);
-		DELAY_D->delay_simple_action(this_body(),"$N¶ÁÍêÊé£¬ÂíÉÏ°ÑËü¹§¹§¾´¾´µØÊé·Å»Øµ½ÁËÊé¼ÜÉÏ¡£\n");
+		DELAY_D->delay_simple_action(this_body(),"$Nè¯»å®Œä¹¦ï¼Œé©¬ä¸ŠæŠŠå®ƒæ­æ­æ•¬æ•¬åœ°ä¹¦æ”¾å›åˆ°äº†ä¹¦æ¶ä¸Šã€‚\n");
                 break;
         default :
 		SGSYS("return value from sk_learn_d is "+p_res);
-                write("²»ÖªÎªÊ²Ã´ÄãÑ§²»»á£¬ÎÊÎÊÎ×Ê¦°É¡£\n");
+                write("ä¸çŸ¥ä¸ºä»€ä¹ˆä½ å­¦ä¸ä¼šï¼Œé—®é—®å·«å¸ˆå§ã€‚\n");
   }
   this_object()->remove();
   return 0;
@@ -56,11 +56,11 @@ void set_lev (int l) {
 }
 
 void setup() {
-    set_adj("×°¶©¾«Ï¸µÄ");
-    set_unit("±¾");
+    set_adj("è£…è®¢ç²¾ç»†çš„");
+    set_unit("æœ¬");
     set_size(VERY_SMALL);
     set_id("cang shu");
-    set_long("Ò»±¾×°¶©¾«Ï¸µÄ»ÊÊÒ²ØÊé£¬ÊéÒ³ÒÑ¾­ÓĞµã·¢»Æ¡£\n");
+    set_long("ä¸€æœ¬è£…è®¢ç²¾ç»†çš„çš‡å®¤è—ä¹¦ï¼Œä¹¦é¡µå·²ç»æœ‰ç‚¹å‘é»„ã€‚\n");
     set_study_action((: study_book :));
     set_gettable(1);
     set_can_drop(0);

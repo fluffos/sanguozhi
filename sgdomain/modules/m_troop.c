@@ -16,8 +16,8 @@ string* get_arrival_msg()
         position=TROOP_D->get_troops(m_id,"position");
         MAP_D->set_map_cell(p_area, position[1],position[0],"addtroop",m_id);
 	p_name=TROOP_D->get_troops(m_id,"name");
-	return ({p_name+"³åÁË¹ýÀ´£®\n",
- p_name+"ºÆºÆµ´µ´µØ¿ªÁË¹ýÀ´£®\n"});
+	return ({p_name+"å†²äº†è¿‡æ¥ï¼Ž\n",
+ p_name+"æµ©æµ©è¡è¡åœ°å¼€äº†è¿‡æ¥ï¼Ž\n"});
 }
 string* get_departure_msg()
 {
@@ -28,8 +28,8 @@ string* get_departure_msg()
 		position=TROOP_D->get_troops(m_id,"position");
 	MAP_D->set_map_cell(p_area, position[1],position[0],"subtroop",m_id);
 	p_name=TROOP_D->get_troops(m_id,"name");
-        return ({p_name+"Ïò$o¿ªÈ¥£®\n",
-p_name+"ÔÚÒ»ÕóÐúÄÖÖÐÏò$oÀëÈ¥ÁË£®\n"});
+        return ({p_name+"å‘$oå¼€åŽ»ï¼Ž\n",
+p_name+"åœ¨ä¸€é˜µå–§é—¹ä¸­å‘$oç¦»åŽ»äº†ï¼Ž\n"});
 }
 string *get_player_message(string message, mixed arg) {
     string *mess;
@@ -68,7 +68,7 @@ string show_obj() {
 		if(!o->is_troop()) continue;
 		tmp=o->query_in_room_desc();
 		if(o==this_object())
-			tmp="%^H_GREEN%^¡õ%^RESET%^"+tmp;
+			tmp="%^H_GREEN%^â–¡%^RESET%^"+tmp;
 		else
 			tmp="  "+tmp;
 		ret=ret+tmp+"\n";
@@ -87,7 +87,7 @@ void notify_move()
     foreach(curr in inv)  {
         if(curr->query_link())
 			tell(curr,sprintf(
-               "%%^ROOM_EXIT%%^%s [Î»ÖÃ£º%s¿ÉÐÐ¾ü·½Ïò£º%s]%%^RESET%%^\n", 
+               "%%^ROOM_EXIT%%^%s [ä½ç½®ï¼š%så¯è¡Œå†›æ–¹å‘ï¼š%s]%%^RESET%%^\n", 
 			   env->short(),env->query_str_pos(), env->show_exits()));
         if (!curr->test_flag(F_BRIEF))
 		   tell(curr, env->long());
@@ -106,7 +106,7 @@ void do_looking(int forced_look)
 	if(!objectp(env)) return;
 	p_name=query_in_room_desc();
     this_look_is_forced = forced_look;
-	printf("%%^ROOM_EXIT%%^%s [Î»ÖÃ£º%s¿ÉÐÐ¾ü·½Ïò£º%s]%%^RESET%%^\n", 
+	printf("%%^ROOM_EXIT%%^%s [ä½ç½®ï¼š%så¯è¡Œå†›æ–¹å‘ï¼š%s]%%^RESET%%^\n", 
 			   env->short(),env->query_str_pos(), env->show_exits());
 	//    printf("%s [exits: %s]\n", environment(this_object())->long(),
 //environment(this_object())->show_exits());
@@ -116,9 +116,9 @@ void do_looking(int forced_look)
 	write(show_obj());
 		/*    switch(random(3))
     {
-        case 0: write("ÄãÕýÔË³ïá¡á¢ÓÚ"+p_name+"ÖÐ£®\n"); break;
-	case 1: write("ÄãÕýÑ²ÊÓÓÚ"+p_name+"ÖÐ£®\n"); break;
-	case 2: write("Äã¸ßÂíÀ«²½ÓÚ"+p_name+"ÖÐ£®\n"); break;
+        case 0: write("ä½ æ­£è¿ç­¹å¸·å¹„äºŽ"+p_name+"ä¸­ï¼Ž\n"); break;
+	case 1: write("ä½ æ­£å·¡è§†äºŽ"+p_name+"ä¸­ï¼Ž\n"); break;
+	case 2: write("ä½ é«˜é©¬é˜”æ­¥äºŽ"+p_name+"ä¸­ï¼Ž\n"); break;
     } */
 }
 varargs string inventory_recurse(int depth, mixed avoid) 
@@ -145,7 +145,7 @@ string long()
         int i, sum;
 	mixed soldier;
         p_ret=TROOP_D->get_troops(m_id,"name");
-        p_ret+="\n¾üÖÐ´ó½«£º\n";
+        p_ret+="\nå†›ä¸­å¤§å°†ï¼š\n";
         
         chars=TROOP_D->get_troops(m_id,"chars");
         for(i=0;i<sizeof(chars);++i)
@@ -163,7 +163,7 @@ string long()
 	{	string *s_typ;
 		s_typ=keys(soldier);
 		sum=sizeof(soldier);
-		p_ret+=" ±øÖÖ¡¡  ÊýÁ¿¡¡ ÑµÁ·  Ê¿Æø¡¡»ú¶¯Á¦\n";	
+		p_ret+=" å…µç§ã€€  æ•°é‡ã€€ è®­ç»ƒ  å£«æ°”ã€€æœºåŠ¨åŠ›\n";	
 		for(i=0;i<sum;++i)
 		{
                         p_ret+=sprintf(" %s  %6d %s %4d %s %4d %s %4d %s\n",
@@ -196,7 +196,7 @@ void setup(int p_id)
     c_id=TROOP_D->get_troops(p_id,"name");
     set_id("troop"+p_id, c_id);
    set_relations("on");
-    set_unit("¸ö");
+    set_unit("ä¸ª");
     set_max_capacity(VERY_LARGE*20);
     
     set_in_room_desc(c_id+"(troop"+p_id+")");

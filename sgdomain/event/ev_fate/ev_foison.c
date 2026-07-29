@@ -18,8 +18,8 @@ void do_fate(string city,int r)
                     "st"         :10
                   ]);
 FATE_D->area_effect(city,effect,r);
-  msg = "%^B_MAGENTA%^%^H_CYAN%^¡¾ÌìµÀ¡¿£º"+AREA_D->get_area(city,"name")+
-               "Ï²»ñ·áÊÕ£¬µÈ¼¶Îª"+chinese_number(r)+"£¬µ±µØ°ÙÐÕ»¶ÌìÏ²µØ¡£%^RESET%^\n";
+  msg = "%^B_MAGENTA%^%^H_CYAN%^ã€å¤©é“ã€‘ï¼š"+AREA_D->get_area(city,"name")+
+               "å–œèŽ·ä¸°æ”¶ï¼Œç­‰çº§ä¸º"+chinese_number(r)+"ï¼Œå½“åœ°ç™¾å§“æ¬¢å¤©å–œåœ°ã€‚%^RESET%^\n";
  tell(users(),msg);
  //SGSYS(msg);
 }

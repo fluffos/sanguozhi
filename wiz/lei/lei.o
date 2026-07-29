@@ -1,6 +1,6 @@
 #/std/race/elf.c
 primary_id "lei"
-chinese_id "ĞĞÕş×Ü±à ³¤½Ö"
+chinese_id "è¡Œæ”¿æ€»ç¼– é•¿è¡—"
 persist_flags ([0:0,5:1,2:0,])
 psets ([])
 last_location 
@@ -10,9 +10,9 @@ main_prep "in"
 contained_light_added 1
 gender 1
 messages ([])
-def_messages (["leave":"$N³¯$oÀë¿ªÁË¡£","invis":"$N´ÓÄãµÄÊÓÒ°ÖĞÍ»È»ÏûÊ§ÁË¡£","destruct":"$NÅÛĞäÒ»»Ó£¬$o±»»¯³ÉÒ»¹ÉºÚÑÌ£¬´µÉ¢¿ªÈ¥¡£","clone":"$NÉìÊÖÁè¿ÕÒ»Ö¸£¬±ä³öÁË$o¡£","mleave":"$NµÄÉíÓ°ÔÚÒ»ÕóÑÌÎíÖĞ½¥½¥ÒşÈ¥¡£","home":"$N»Ø¼ÒÈ¥ÁË¡£","enter":"$N×ßÁË¹ı
+def_messages (["leave":"$Næœ$oç¦»å¼€äº†ã€‚","invis":"$Nä»ä½ çš„è§†é‡ä¸­çªç„¶æ¶ˆå¤±äº†ã€‚","destruct":"$Nè¢è¢–ä¸€æŒ¥ï¼Œ$oè¢«åŒ–æˆä¸€è‚¡é»‘çƒŸï¼Œå¹æ•£å¼€å»ã€‚","clone":"$Nä¼¸æ‰‹å‡Œç©ºä¸€æŒ‡ï¼Œå˜å‡ºäº†$oã€‚","mleave":"$Nçš„èº«å½±åœ¨ä¸€é˜µçƒŸé›¾ä¸­æ¸æ¸éšå»ã€‚","home":"$Nå›å®¶å»äº†ã€‚","enter":"$Nèµ°äº†è¿‡
 
-À´¡£","menter":"$NÍ»È»³öÏÖÔÚÒ»ÕóÑÌÎíÖĞ¡£","vis":"$NÍ»È»³öÏÖÔÚÄãÃæÇ°£¬ÓÖËÆºõÔÚÕâÀïºÜ¾ÃÁË¡£",])
+æ¥ã€‚","menter":"$Nçªç„¶å‡ºç°åœ¨ä¸€é˜µçƒŸé›¾ä¸­ã€‚","vis":"$Nçªç„¶å‡ºç°åœ¨ä½ é¢å‰ï¼Œåˆä¼¼ä¹åœ¨è¿™é‡Œå¾ˆä¹…äº†ã€‚",])
 answer_list ({})
 sg_wuli 30
 sg_zhimou 30
@@ -39,12 +39,12 @@ ilog_time 8847839830
 money (["coin":0,"gold":0,"silver":0,"bank":0,])
 start_location "/wiz/benben/workroom"
 name "lei"
-describe "ËûÊÇ×Ü±à£¬Ğ­µ÷¹¤×÷²»¸É»îµÄ×Ê²ú½×¼¶¡£"
-invis_name "¾ÅÍ·Äñ"
-chinese_name "³¤½Ö"
+describe "ä»–æ˜¯æ€»ç¼–ï¼Œåè°ƒå·¥ä½œä¸å¹²æ´»çš„èµ„äº§é˜¶çº§ã€‚"
+invis_name "ä¹å¤´é¸Ÿ"
+chinese_name "é•¿è¡—"
 skills (["combat/disarm":(/10,2,/),"combat":(/5,0,/),])
-title "³¤½Ö(lei) ¶÷£¬¶÷¡£¡£¡£"
-wiz_position "×Ü±à"
+title "é•¿è¡—(lei) æ©ï¼Œæ©ã€‚ã€‚ã€‚"
+wiz_position "æ€»ç¼–"
 guilds ([])
 reply "tset"
 channel_list ({"wiz","news","gossip","newbie","announce","sgz",})

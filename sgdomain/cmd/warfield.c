@@ -7,8 +7,8 @@ void start(string arg)
         string ret;
         if(arg=="")
         {
-                write("ÓÃ·¨´íÎó£¡");
-                write("ÓÃ cmd help warfield ²é¿´ÏêÏ¸°ïÖú¡£\n");
+                write("ç”¨æ³•é”™è¯¯ï¼");
+                write("ç”¨ cmd help warfield æŸ¥çœ‹è¯¦ç»†å¸®åŠ©ã€‚\n");
                 return;
         }
         if(arg=="here")
@@ -20,7 +20,7 @@ void start(string arg)
                 tmp=AREA_D->check_area("area",arg);
                 if(sizeof(tmp)==0)
                 {
-                        write("Ã»ÓĞ´Ë´¦µÄµØÍ¼£¬ÓÃmap²éÔÄÄ¿Ç°ÒÑÓĞµÄµØÍ¼¡£\n");
+                        write("æ²¡æœ‰æ­¤å¤„çš„åœ°å›¾ï¼Œç”¨mapæŸ¥é˜…ç›®å‰å·²æœ‰çš„åœ°å›¾ã€‚\n");
                             return;
                 }
                 arg=tmp[0];

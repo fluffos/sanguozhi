@@ -16,9 +16,9 @@
 inherit SHELL;
 inherit M_COMPLETE;
 
-private static int last_time, accumulate;	//last_timeÉÏ´ÎÖ´ÐÐÃüÁîµÄÊ±¼ä, accumulateÒ»ÃëÄÚÀÛ¼ÆÖ´ÐÐÃüÁîµÄ¸öÊý
+private nosave int last_time, accumulate;	//last_timeä¸Šæ¬¡æ‰§è¡Œå‘½ä»¤çš„æ—¶é—´, accumulateä¸€ç§’å†…ç´¯è®¡æ‰§è¡Œå‘½ä»¤çš„ä¸ªæ•°
 
-string array query_path() {
+string * query_path() {
     return ({ CMD_DIR_PLAYER "/" });
 }
      
@@ -41,7 +41,7 @@ void set_variable(string name, mixed value)
       return;
     default:
       error(//"Bad player shell variable."
-            "´íÎóµÄÍæ¼Ò shell ±äÁ¿");
+            "é”™è¯¯çš„çŽ©å®¶ shell å˜é‡");
     }
 }
 
@@ -57,7 +57,7 @@ void unset_variable(string name, mixed value)
       return;
     default:
       error(//"Bad player shell variable."
-            "´íÎóµÄÍæ¼Ò shell ±äÁ¿");
+            "é”™è¯¯çš„çŽ©å®¶ shell å˜é‡");
 
     }
 }
@@ -83,10 +83,10 @@ private nomask string expand_one_argument(string arg)
     return arg;
 }
 
-static void execute_command(string * argv, string original_input)
+protected void execute_command(string * argv, string original_input)
 {
     mixed tmp;
-    array winner;
+    mixed * winner;
     string argument;
     
     int t;
@@ -103,7 +103,7 @@ static void execute_command(string * argv, string original_input)
     	if (accumulate == 8) 
 		{
 			//printf("jin le start_busy() qian mian\n");
-    	    this_body()->start_busy(2, "ÄãÒ»´ÎÊäÈëÌ«¶àÃüÁîÁË..");
+    	    this_body()->start_busy(2, "ä½ ä¸€æ¬¡è¾“å…¥å¤ªå¤šå‘½ä»¤äº†..");
     	}
     	if (accumulate >= 8) return;
     }
@@ -143,17 +143,17 @@ static void execute_command(string * argv, string original_input)
     {
         string channel_name;
 
-		//printf("find_cmd_in_path() over, winer »ñÈ¡Ê§°Ü\n");
+		//printf("find_cmd_in_path() over, winer èŽ·å–å¤±è´¥\n");
         if ( this_body()->do_game_command(original_input) )
             return;
-		//printf("this_body()->do_game_command() Ö´ÐÐ¹ýÁË\n");
+		//printf("this_body()->do_game_command() æ‰§è¡Œè¿‡äº†\n");
         /* try a channel */
         channel_name = CHANNEL_D->is_valid_channel(argv[0], this_body()->query_channel_list());
         if ( channel_name )
         {
             /* ### strictly speaking, players can't use I3 channels */
             int chan_type = channel_name[0..4] == "imud_";
-			//printf("ÔÚcmd_channel()Ç°Ãæ\n");
+			//printf("åœ¨cmd_channel()å‰é¢\n");
             CHANNEL_D->cmd_channel(channel_name,
                                     implode(argv[1..], " "),
                                     chan_type);
@@ -161,12 +161,12 @@ static void execute_command(string * argv, string original_input)
         }
 
 //### This is a hack until the parser can tell me if a word is a verb.
-		//printf("µ½ÕâÀ´ËµÃ÷ÃüÁîÐÐÓÐ´íÎó\n");
+		//printf("åˆ°è¿™æ¥è¯´æ˜Žå‘½ä»¤è¡Œæœ‰é”™è¯¯\n");
         if(is_file(CMD_DIR_VERBS "/" + argv[0] + ".c"))
             write(this_body()->nonsense());
         else
             printf(//"I don't know the word: %s.\n"
-                   "Ã»ÓÐ %s Õâ¸öÃüÁî»ò¶¯´Ê¡£\n", argv[0]);
+                   "æ²¡æœ‰ %s è¿™ä¸ªå‘½ä»¤æˆ–åŠ¨è¯ã€‚\n", argv[0]);
 
         return;
     }
@@ -177,7 +177,7 @@ static void execute_command(string * argv, string original_input)
     winner[0]->call_main(argument,0,0,0,0,0,argument);
 }
 
-static nomask string query_save_path(string userid)
+protected nomask string query_save_path(string userid)
 {
     return PSHELL_PATH(userid);
 }

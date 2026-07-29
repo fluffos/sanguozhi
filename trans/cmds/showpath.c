@@ -14,5 +14,5 @@ private void main()
     string * paths = this_body()->query_shell_ob()->query_path();
 
     out(iwrap(//"Your current path is: "
-              "你当前的目录是：" + implode(paths, (: $1 + ", " + $2 :)) + "\n"));
+              "浣犲綋鍓嶇殑鐩綍鏄細" + implode(paths, (: $1 + ", " + $2 :)) + "\n"));
 }

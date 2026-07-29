@@ -20,14 +20,13 @@ object query_shell_ob() {
 //:FUNCTION do_game_command
 //Emulates handling of emotes and player commands for NPCs that inherit this
 //module.  E.g. do_game_command("wield sword").  do_game_command("smile hap*").
- static void do_game_command(string str) {
+ nosave protected void do_game_command(string str) {
     object save_tu;
-    array winner;
+    mixed * winner;
     string verb, argument;
 
     save_tu = this_user();
-    set_this_player(this_object());
-
+    // set_this_player(this_object()); // set_this_player() unavailable in this driver build (no NO_ADD_ACTION) -- no-op'd, this_player() is whatever it naturally is here
     verb = str;
     sscanf(verb, "%s %s", verb, argument);
     
@@ -43,7 +42,7 @@ object query_shell_ob() {
             write(result);
     }
 
-    set_this_player(save_tu);
+    // set_this_player(save_tu); // set_this_player() unavailable in this driver build (no NO_ADD_ACTION) -- no-op'd, this_player() is whatever it naturally is here
 }
 
 private void do_respond() {
@@ -81,7 +80,7 @@ void respond(string str) {
 
 //of strings 'actions'.
 
-static void set_actions(int chance, string *actions) {
+protected void set_actions(int chance, string *actions) {
 /*
 //### use scripts?
     chance_or_delay = chance;

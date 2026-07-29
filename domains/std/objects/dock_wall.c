@@ -6,10 +6,10 @@ inherit M_READABLE;
 
  void setup()
 {
-  set_id ("wall", "Ç½", "ÃúÎÄ", "inscription", "writing", "passage");
-  set_unit("Ãæ");
-  set_in_room_desc ("ÄÏÃæµÄÇ½ÉÏ¿Ì×ÅÒ»Ğ©ÃúÎÄ¡£");
-  set_long ("ÕâĞ©ÃúÎÄ±»¿ÌÔÚÇ½ÉÏ£¬Äã×¢Òâµ½ÔÚÃúÎÄÏÂ·½£¬ËÆºõÓĞÒ»¸öÍ¨µÀµÄÂÖÀª¡£\n");
-  set_text ("ÉÏÃæĞ´µÀ:\tÎŞÍıÎñÇó\n");
+  set_id ("wall", "å¢™", "é“­æ–‡", "inscription", "writing", "passage");
+  set_unit("é¢");
+  set_in_room_desc ("å—é¢çš„å¢™ä¸Šåˆ»ç€ä¸€äº›é“­æ–‡ã€‚");
+  set_long ("è¿™äº›é“­æ–‡è¢«åˆ»åœ¨å¢™ä¸Šï¼Œä½ æ³¨æ„åˆ°åœ¨é“­æ–‡ä¸‹æ–¹ï¼Œä¼¼ä¹æœ‰ä¸€ä¸ªé€šé“çš„è½®å»“ã€‚\n");
+  set_text ("ä¸Šé¢å†™é“:\tæ— å¦„åŠ¡æ±‚\n");
   set_size (TOO_LARGE);
 }

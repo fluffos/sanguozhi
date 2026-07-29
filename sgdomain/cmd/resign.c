@@ -13,7 +13,7 @@ void confirm_resign(string p_idd,mixed p_input)
         p_id = this_body()->query_id()[0];
 //        cut_rep=random(50);
         if(p_input=="yes"){
-                write("Äã¾ö¶¨·ÅÆú"HIY""+job_memo1+""NOR"µÄ¹¤×÷¡£\n");
+                write("ä½ å†³å®šæ”¾å¼ƒ"HIY""+job_memo1+""NOR"çš„å·¥ä½œã€‚\n");
                 this_body()->resign_job(p_idd);
                 rep=CHAR_D->get_char(p_id,"reputation");
                 if( (rep-cut_rep)<10 ){
@@ -22,12 +22,12 @@ void confirm_resign(string p_idd,mixed p_input)
 		cut_rep=random(rep/20);
 		if (cut_rep>250) cut_rep=250;
                 rep=rep-cut_rep;
-                write("ÄãµÄÉùÍûÏÂ½µÁË"+chinese_number(cut_rep)+"µã¡£\n");
+                write("ä½ çš„å£°æœ›ä¸‹é™äº†"+chinese_number(cut_rep)+"ç‚¹ã€‚\n");
                 CHAR_D->set_char(p_id,"reputation",rep);
                 return;
         }
         else
-        write("¹¤×÷ÊÇ²»ÄÜËæ±ã·ÅÆúµÄÑ½¡£\n");
+        write("å·¥ä½œæ˜¯ä¸èƒ½éšä¾¿æ”¾å¼ƒçš„å‘€ã€‚\n");
         return; 
 }
 void start(string arg)
@@ -36,28 +36,28 @@ void start(string arg)
         int beg_time,time;
         time=time();
         if( (!arg)||(arg=="") ){
-                write("ÓÃ·¨: cmd resign <job_id>\n");
-                write("Àı×Ó£ºcmd resign whisper (·ÅÆú²ß·´µĞ½«µÄ¹¤×÷)\n");
+                write("ç”¨æ³•: cmd resign <job_id>\n");
+                write("ä¾‹å­ï¼šcmd resign whisper (æ”¾å¼ƒç­–åæ•Œå°†çš„å·¥ä½œ)\n");
                 return;
         }
         if( member_array(arg, forbiden) != -1 ){
-                write("Äã²»ÄÜ·ÅÆúÕâÏî¹¤×÷¡£\n");
+                write("ä½ ä¸èƒ½æ”¾å¼ƒè¿™é¡¹å·¥ä½œã€‚\n");
                 return;
         }
         beg_time = this_body()->query_job(arg,"beg_time");
         if (beg_time==0){
-                write("Äã²¢Ã»ÓĞÁì¹ıÕâÏî¹¤×÷¡£\n");
+                write("ä½ å¹¶æ²¡æœ‰é¢†è¿‡è¿™é¡¹å·¥ä½œã€‚\n");
                 return;
         }
         job_memo=JOB_D->query_job(arg,"name");
         job_memo1=job_memo;
         job_id=arg;
         if ((time-beg_time)/60<8){
-                write("Äã¸Õ¸Õ²Å½ÓÊÜ¹¤×÷£¬ÖÁÉÙÏÈÊÔÊÔÔÙ¿¼ÂÇ·ÅÆú°É¡£\n");
+                write("ä½ åˆšåˆšæ‰æ¥å—å·¥ä½œï¼Œè‡³å°‘å…ˆè¯•è¯•å†è€ƒè™‘æ”¾å¼ƒå§ã€‚\n");
                 return;
         } else {
-                write("Äã¾ö¶¨ÁËÒª·ÅÆú"HIY""+job_memo+
-""NOR"ÕâÏî¹¤×÷Âğ£¿£¨½«»áÓĞÒ»¶¨ËğÊ§£©\nÈ·¶¨ÇëÊäÈëyes£¬ÈÎÒâ¼ü»Ø³µºóÍË³ö¡£\n");
+                write("ä½ å†³å®šäº†è¦æ”¾å¼ƒ"HIY""+job_memo+
+""NOR"è¿™é¡¹å·¥ä½œå—ï¼Ÿï¼ˆå°†ä¼šæœ‰ä¸€å®šæŸå¤±ï¼‰\nç¡®å®šè¯·è¾“å…¥yesï¼Œä»»æ„é”®å›è½¦åé€€å‡ºã€‚\n");
                 this_body()->modal_push((: confirm_resign,arg:),"",0,0);
         }
 }

@@ -2,9 +2,9 @@
 /* Do not remove the headers from this file! see /USAGE for more info. */
 
 
-private static object my_sparse_obj;
+private nosave object my_sparse_obj;
 
-void add_item(mixed array stuff ...)
+void add_item(mixed * stuff ...)
 {
     if(mapp(stuff[<1]))
     {

@@ -64,7 +64,7 @@ void char_special_answer(object who, string matt)
 void special_answer(object who,string matt)
 {
     if(!(CHAR_D->char_exist(this_object()->query_id()[0]))) {
-	this_object()->targetted_action("$N¶Ô$TËµµÀ£¬¶Ô²»Æğ£¬ÎÒ²»ÖªµÀ¡£\n",who);
+	this_object()->targetted_action("$Nå¯¹$Tè¯´é“ï¼Œå¯¹ä¸èµ·ï¼Œæˆ‘ä¸çŸ¥é“ã€‚\n",who);
 	return;
     }
     char_special_answer( who, matt);

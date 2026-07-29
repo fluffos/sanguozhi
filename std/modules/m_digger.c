@@ -25,7 +25,7 @@ private void answer_question(string input)
 
 void do_digging(object arg)
 {
-  object array o;
+  object * o;
 
 
   if(!arg)
@@ -36,7 +36,7 @@ void do_digging(object arg)
         {
         case 0:
           //write("There is nothing in which to dig here.\n");
-          write("这里没有什么东西好挖的。\n");      
+          write("杩欓噷娌℃湁浠�涔堜笢瑗垮ソ鎸栫殑銆俓n");      
           return;
         case 1:
           printf("[in %s]\n",o[0]->short());
@@ -45,7 +45,7 @@ void do_digging(object arg)
         default:
           modal_push((:answer_question:),
                                   //"What do you want to dig in? "
-                                  "你要挖什么？");
+                                  "浣犺鎸栦粈涔堬紵");
           return;
         }
     }

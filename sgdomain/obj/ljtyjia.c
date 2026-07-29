@@ -10,13 +10,13 @@ inherit M_DAMAGE_SINK;
 void setup()
 {
 ::mudlib_setup();
-set_unit("¼ş");
-set_id("ljtyjia", HIG+"ÁáççÏ¸»·¼×"+NOR);
-set_in_room_desc(HIG+"ÁáççÏ¸»·¼×(ljtyjia)"+NOR);
+set_unit("ä»¶");
+set_id("ljtyjia", HIG+"ç²ç‘ç»†ç¯ç”²"+NOR);
+set_in_room_desc(HIG+"ç²ç‘ç»†ç¯ç”²(ljtyjia)"+NOR);
 set_gettable(1);
 set_slot(TORSO);
-set_wearmsg("$N´©ÉÏ$o£¬Õû¸öÎİÀï¶¼Ó³³öÒ»Æ¬ "+HIG+"ÂÌÉ«µÄ¹âÃ¢¡£"+NOR+"\n");
-set_removemsg("$NÍÑÏÂ$o£¬"+HIG+"ÂÌÉ«µÄ¹âÃ¢"+NOR+"¶ÙÊ±ÏûÊ§ÁË¡£\n");
+set_wearmsg("$Nç©¿ä¸Š$oï¼Œæ•´ä¸ªå±‹é‡Œéƒ½æ˜ å‡ºä¸€ç‰‡ "+HIG+"ç»¿è‰²çš„å…‰èŠ’ã€‚"+NOR+"\n");
+set_removemsg("$Nè„±ä¸‹$oï¼Œ"+HIG+"ç»¿è‰²çš„å…‰èŠ’"+NOR+"é¡¿æ—¶æ¶ˆå¤±äº†ã€‚\n");
 set_attack_ablity(0);
 set_defence_power(250);
 set_defence_ablity(1000);

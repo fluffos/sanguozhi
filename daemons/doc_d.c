@@ -65,7 +65,7 @@ inherit M_DAEMON_DATA;
 
 private void continue_scan();
 private int last_time;
-private array files_to_do, dirs_to_do;
+private mixed * files_to_do, dirs_to_do;
 
 void scan_mudlib() {
     printf("Starting scan ...\n");
@@ -86,7 +86,7 @@ void complete_rebuild() {
 private:
 // ---------------------------------------------------------------------
 
-static private string * filtered_dirs = ({
+nosave private string * filtered_dirs = ({
   "/data/", "/ftp/", "/help/", "/include/",
   "/log/", "/open/", "/tmp/", "/user/"
 });
@@ -101,7 +101,7 @@ void process_file(string fname)
 {
     string file = read_file(fname);
     string line;
-    array lines;
+    mixed * lines;
     string outfile = 0;
     int empty;
     int last_line = -20;
@@ -173,8 +173,8 @@ void process_file(string fname)
 }
 
 void continue_scan() {
-    array files;
-    array item;
+    mixed * files;
+    mixed * item;
 
   for (int i = 0; i < 10; i++) {
     if (sizeof(dirs_to_do)) {

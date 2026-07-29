@@ -2,7 +2,7 @@
 #include <mudlib.h>
 #include <daemons.h>
 #include <log.h>
-#define DO_CHAT(x) 	tell(users(),"%^H_WHITE%^¡¾Í¶Æ±¡¿"+x+"%^RESET%^\n")
+#define DO_CHAT(x) 	tell(users(),"%^H_WHITE%^ã€æŠ•ç¥¨ã€‘"+x+"%^RESET%^\n")
 #define MAX_CHAN_NUM 	4
 inherit CMD;
 private mapping votes;
@@ -37,12 +37,12 @@ void main(string str)
 	if( !mapp(votes) ) votes = (["close":([ ]), "open":([ ]), ]);
 	if (!what||!stringp(what)||what==""||what=="help") show_help();
 	else if( !CHAR_D->char_exist(id) && !wizardp(id) )
-		write("Ö»ÓĞÓÎÏ·½ÇÉ«²ÅÓĞÈ¨Í¶Æ±£¡\n");
+		write("åªæœ‰æ¸¸æˆè§’è‰²æ‰æœ‰æƒæŠ•ç¥¨ï¼\n");
 	else if( what=="check" ) do_check(who);
 	else if( what=="close" ) do_close(who);
 	else if( what=="open"  ) do_open(who);
 	else 
-		write("²»ºÏÀíµÄÑ¡Ôñ£¡\n");
+		write("ä¸åˆç†çš„é€‰æ‹©ï¼\n");
 	return;
 }
 void do_check(string str)
@@ -52,19 +52,19 @@ void do_check(string str)
 	string tt, ss;
 	if( str=="open"){
 		tmp = votes["open"];
-		ss = "ÕıÔÚ¾ÙĞĞ¶ÔÒÔÏÂÍæ¼Ò¿ªÆô½»Ì¸ÆµµÀµÄ±í¾ö£º\n";
+		ss = "æ­£åœ¨ä¸¾è¡Œå¯¹ä»¥ä¸‹ç©å®¶å¼€å¯äº¤è°ˆé¢‘é“çš„è¡¨å†³ï¼š\n";
 	} else if( str=="close" ){ 
 		tmp = votes["close"];
-		ss = "ÕıÔÚ¾ÙĞĞ¶ÔÒÔÏÂÍæ¼Ò¹Ø±Õ½»Ì¸ÆµµÀµÄ±í¾ö£º\n";
+		ss = "æ­£åœ¨ä¸¾è¡Œå¯¹ä»¥ä¸‹ç©å®¶å…³é—­äº¤è°ˆé¢‘é“çš„è¡¨å†³ï¼š\n";
 	} else {
-		write("²»ºÏÀíµÄÑ¡Ôñ£¡\n");
+		write("ä¸åˆç†çš„é€‰æ‹©ï¼\n");
 		return;
 	}
 	foreach(string s in keys(tmp)){
 		ob = find_body(s);
-		if( !objectp(ob) ) tt = "Ä³Ä³("+s+")";
+		if( !objectp(ob) ) tt = "æŸæŸ("+s+")";
 		else tt = ob->query_name()+"("+s+")";
-		ss+=sprintf("%-20s£ºÓÉ%sÌáÒé£¬%sÈËÖ§³Ö£¬»¹²î%sÆ±Í¨¹ı£¡\n",
+		ss+=sprintf("%-20sï¼šç”±%sæè®®ï¼Œ%säººæ”¯æŒï¼Œè¿˜å·®%sç¥¨é€šè¿‡ï¼\n",
 			tt, tmp[s]["player"], chinese_number(sizeof(tmp[s]["who"])),
 			chinese_number(tmp[s]["no"]+1-sizeof(tmp[s]["who"])),
 			);
@@ -83,7 +83,7 @@ void do_time()
 			tmp1 = tmp[ss];
 			if( !mapp(tmp1)||tmp1["time"]+600<time() ){
 				map_delete(tmp, ss);
-				DO_CHAT("ÓÉÓÚÌ«¾Ã²»ÄÜ´ï³ÉÍ³Ò»µÄÒâ¼û£¬¶Ô"+(objectp(find_body(ss))?find_body(ss)->query_name():ss)+"("+ss+")Í¶Æ±È¡ÏûÁË£¡");
+				DO_CHAT("ç”±äºå¤ªä¹…ä¸èƒ½è¾¾æˆç»Ÿä¸€çš„æ„è§ï¼Œå¯¹"+(objectp(find_body(ss))?find_body(ss)->query_name():ss)+"("+ss+")æŠ•ç¥¨å–æ¶ˆäº†ï¼");
 			}
 		}
 		votes["close"] = tmp;
@@ -94,7 +94,7 @@ void do_time()
                         tmp1 = tmp[ss];
                         if( !mapp(tmp1)||tmp1["time"]+600<time() ){
                                 map_delete(tmp, ss);
-                                DO_CHAT("ÓÉÓÚÌ«¾Ã²»ÄÜ´ï³ÉÍ³Ò»µÄÒâ¼û£¬¶Ô"+(objectp(find_body(ss))?find_body(ss)->query_name():ss)+"("+ss+")Í¶Æ±È¡ÏûÁË£¡");
+                                DO_CHAT("ç”±äºå¤ªä¹…ä¸èƒ½è¾¾æˆç»Ÿä¸€çš„æ„è§ï¼Œå¯¹"+(objectp(find_body(ss))?find_body(ss)->query_name():ss)+"("+ss+")æŠ•ç¥¨å–æ¶ˆäº†ï¼");
                         }
                 }
                 votes["open"] = tmp;
@@ -106,11 +106,11 @@ void do_close(string str)
 	mapping tmp;
 	string *ids;
 	if( !objectp(ob=find_body(str)) )
-		write("Ã»ÓĞ\""+str+"\"Õâ¸öÍæ¼Ò£¡\n");
+		write("æ²¡æœ‰\""+str+"\"è¿™ä¸ªç©å®¶ï¼\n");
 	else if( ob->chan_disabled() )
-		write("ËûµÄ½»Ì¸ÆµµÀÒÑ¾­±»¹Ø±ÕÁË£¡\n");
+		write("ä»–çš„äº¤è°ˆé¢‘é“å·²ç»è¢«å…³é—­äº†ï¼\n");
 	else if (wizardp(str))
-		write("ÎŞ·¨¹Ø±ÕÎ×Ê¦µÄ½»Ì¸ÆµµÀ¡£\n");
+		write("æ— æ³•å…³é—­å·«å¸ˆçš„äº¤è°ˆé¢‘é“ã€‚\n");
 	else {
 		tmp = votes["close"];
 		tmp = tmp[str];
@@ -118,31 +118,31 @@ void do_close(string str)
                 ids = filter_array(ids, (: CHAR_D->char_exist($1) :));
 		if( !tmp||!mapp(tmp) ){
 			if( sizeof(votes["close"])>MAX_CHAN_NUM ){
-				write("ÒÑ¾­ÓĞÌ«¶àµÄÍ¶Æ±ÕıÔÚ½øĞĞ£¬ÇëÉÔµÈ£¡\n");
+				write("å·²ç»æœ‰å¤ªå¤šçš„æŠ•ç¥¨æ­£åœ¨è¿›è¡Œï¼Œè¯·ç¨ç­‰ï¼\n");
 				return;
 			}
 			tmp = (["time":time(), "who":({ }), "no": sizeof(ids)/2,"player":this_body()->query_primary_id() ]);
 			tmp["who"]-=({ this_body()->query_primary_id() });
                         tmp["who"]+=({ this_body()->query_primary_id() });
 			votes["close"][str] = tmp;
-			DO_CHAT(this_body()->query_name()+"ÌáÒé¹Ø±Õ"+ob->query_name()+"µÄ½»Ì¸ÆµµÀ£¡\n");
+			DO_CHAT(this_body()->query_name()+"æè®®å…³é—­"+ob->query_name()+"çš„äº¤è°ˆé¢‘é“ï¼\n");
 			LOG_D->log(LOG_VOTE, 
 				sprintf("%s attemp to close %s's channel at %s\n",
 				this_body()->query_primary_id(), str, ctime(time())));
 		} else if( member_array(this_body()->query_primary_id(), tmp["who"])!=-1 ) {
-			write("ÄãÒÑ¾­Í¶¹ıÒ»Æ±ÁË£¡\n");
+			write("ä½ å·²ç»æŠ•è¿‡ä¸€ç¥¨äº†ï¼\n");
 		} else {
 			tmp["who"]-=({ this_body()->query_primary_id() });
 			tmp["who"]+=({ this_body()->query_primary_id() });
 			votes["close"][str] = tmp;
 			if( sizeof(tmp["who"])>tmp["no"] ){
-				DO_CHAT(this_body()->query_name()+"Í¶Æ±Ö§³Ö¹Ø±Õ"+ob->query_name()+"µÄ½»Ì¸ÆµµÀ£¬¾öÒéÍ¨¹ıÁË£¡");
+				DO_CHAT(this_body()->query_name()+"æŠ•ç¥¨æ”¯æŒå…³é—­"+ob->query_name()+"çš„äº¤è°ˆé¢‘é“ï¼Œå†³è®®é€šè¿‡äº†ï¼");
 				ob->disable_chan();
 				tmp = votes["close"];
 				map_delete(tmp, str);
 				votes["close"] = tmp;
 			} else {
-				DO_CHAT(this_body()->query_name()+"Í¶Æ±Ö§³Ö¹Ø±Õ"+ob->query_name()+"µÄ½»Ì¸ÆµµÀ£¬»¹²î"+chinese_number(tmp["no"]+1-sizeof(tmp["who"]))+"Æ±Í¨¹ı£¡");
+				DO_CHAT(this_body()->query_name()+"æŠ•ç¥¨æ”¯æŒå…³é—­"+ob->query_name()+"çš„äº¤è°ˆé¢‘é“ï¼Œè¿˜å·®"+chinese_number(tmp["no"]+1-sizeof(tmp["who"]))+"ç¥¨é€šè¿‡ï¼");
 			}
 		}
 	}
@@ -153,9 +153,9 @@ void do_open(string str)
         mapping tmp;
         string *ids;
         if( !objectp(ob=find_body(str)) )
-                write("Ã»ÓĞ\""+str+"\"Õâ¸öÍæ¼Ò£¡\n");
+                write("æ²¡æœ‰\""+str+"\"è¿™ä¸ªç©å®¶ï¼\n");
         else if( !ob->chan_disabled() )
-                write("ËûµÄ½»Ì¸ÆµµÀ²¢Ã»ÓĞ±»¹Ø±Õ£¡\n");
+                write("ä»–çš„äº¤è°ˆé¢‘é“å¹¶æ²¡æœ‰è¢«å…³é—­ï¼\n");
         else {
                 tmp = votes["open"];
                 tmp = tmp[str];
@@ -163,28 +163,28 @@ void do_open(string str)
                 ids = filter_array(ids, (: CHAR_D->char_exist($1) :));
                 if( !tmp||!mapp(tmp) ){
 			if( sizeof(votes["open"])>MAX_CHAN_NUM ){
-                                write("ÒÑ¾­ÓĞÌ«¶àµÄÍ¶Æ±ÕıÔÚ½øĞĞ£¬ÇëÉÔµÈ£¡\n");
+                                write("å·²ç»æœ‰å¤ªå¤šçš„æŠ•ç¥¨æ­£åœ¨è¿›è¡Œï¼Œè¯·ç¨ç­‰ï¼\n");
                                 return;
                         }
 			tmp = (["time":time(), "who":({ }), "no": sizeof(ids)/2,"player":this_body()->query_primary_id() ]);
                         tmp["who"]-=({ this_body()->query_primary_id() });
                         tmp["who"]+=({ this_body()->query_primary_id() });
                         votes["open"][str] = tmp;
-                        DO_CHAT(this_body()->query_name()+"ÌáÒé´ò¿ª"+ob->query_name()+"µÄ½»Ì¸ÆµµÀ£¡\n");
+                        DO_CHAT(this_body()->query_name()+"æè®®æ‰“å¼€"+ob->query_name()+"çš„äº¤è°ˆé¢‘é“ï¼\n");
                 } else if( member_array(this_body()->query_primary_id(), tmp["who"])!=-1 ) {
-                        write("ÄãÒÑ¾­Í¶¹ıÒ»Æ±ÁË£¡\n");
+                        write("ä½ å·²ç»æŠ•è¿‡ä¸€ç¥¨äº†ï¼\n");
                 } else {
                         tmp["who"]-=({ this_body()->query_primary_id() });
                         tmp["who"]+=({ this_body()->query_primary_id() });
                         votes["open"][str] = tmp;
                         if( sizeof(tmp["who"])>tmp["no"] ){
-                                DO_CHAT(this_body()->query_name()+"Í¶Æ±Ö§³Ö´ò¿ª"+ob->query_name()+"µÄ½»Ì¸ÆµµÀ£¬¾öÒéÍ¨¹ıÁË£¡");
+                                DO_CHAT(this_body()->query_name()+"æŠ•ç¥¨æ”¯æŒæ‰“å¼€"+ob->query_name()+"çš„äº¤è°ˆé¢‘é“ï¼Œå†³è®®é€šè¿‡äº†ï¼");
                                 ob->enable_chan();
 				tmp = votes["open"];
                                 map_delete(tmp, str);
                                 votes["open"] = tmp;
                         } else {
-                                DO_CHAT(this_body()->query_name()+"Í¶Æ±Ö§³Ö´ò¿ª"+ob->query_name()+"µÄ½»Ì¸ÆµµÀ£¬»¹²î"+chinese_number(tmp["no"]+1-sizeof(tmp["who"]))+"Æ±Í¨¹ı£¡");
+                                DO_CHAT(this_body()->query_name()+"æŠ•ç¥¨æ”¯æŒæ‰“å¼€"+ob->query_name()+"çš„äº¤è°ˆé¢‘é“ï¼Œè¿˜å·®"+chinese_number(tmp["no"]+1-sizeof(tmp["who"]))+"ç¥¨é€šè¿‡ï¼");
                         }
                 }
         }
@@ -192,10 +192,10 @@ void do_open(string str)
 void show_help()
 {
         string help = @HELP
-vote close xxx          --> Í¶Æ±Í¬Òâ¹Ø±ÕÄ³¸öÍæ¼ÒµÄ½»Ì¸ÆµµÀ¡£
-vote open  xxx          --> Í¶Æ±Í¬Òâ¿ªÆôÄ³¸öÍæ¼ÒµÄ½»Ì¸ÆµµÀ¡£
-vote check close|open   --> ²é¿´µ±Ç°¿ªÆô(¹Ø±Õ)±í¾öµÄ½ø³Ì¡£
-vote board              --> ²Î¼ÓÍ¶Æ±°æµÄ±í¾ö
+vote close xxx          --> æŠ•ç¥¨åŒæ„å…³é—­æŸä¸ªç©å®¶çš„äº¤è°ˆé¢‘é“ã€‚
+vote open  xxx          --> æŠ•ç¥¨åŒæ„å¼€å¯æŸä¸ªç©å®¶çš„äº¤è°ˆé¢‘é“ã€‚
+vote check close|open   --> æŸ¥çœ‹å½“å‰å¼€å¯(å…³é—­)è¡¨å†³çš„è¿›ç¨‹ã€‚
+vote board              --> å‚åŠ æŠ•ç¥¨ç‰ˆçš„è¡¨å†³
 HELP;
         write(help);
 }

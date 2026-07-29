@@ -10,5 +10,5 @@ private void main(string* arg) {
      outf("Ok.\n");
   else
      //outf("Failed to make directory: %s\n", arg[0]);
-     outf("½¨Á¢Ä¿Â¼ %s Ê§°Ü¡£\n", arg[0]);
+     outf("å»ºç«‹ç›®å½• %s å¤±è´¥ã€‚\n", arg[0]);
 }

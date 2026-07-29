@@ -34,7 +34,7 @@ mixed query_items()
         i = sizeof(stored_items);
         if(!i)
         {
-                return "Õâ¶ùµÄ»õ»¹Ã»½øÄØ\n";
+                return "è¿™å„¿çš„è´§è¿˜æ²¡è¿›å‘¢\n";
         }
         else
         {
@@ -43,15 +43,15 @@ mixed query_items()
                         items_available += ({ ({ stored_items[i][1] }) +({stored_items[i][2] }) + ({stored_items[i][4]}) });
                 }
                 j = sizeof(items_available);
-                write("±¾´¦ÏÖÓĞÏÂÁĞÎïÆ·£º \n
+                write("æœ¬å¤„ç°æœ‰ä¸‹åˆ—ç‰©å“ï¼š \n
 --------------------------------------------------------\n");
-printf("          »õÎïÃû³Æ             ¼ÛÇ®\n");
+printf("          è´§ç‰©åç§°             ä»·é’±\n");
                 for( m=0; m < j; m++)
                 {
                         printf("%20s          %s", items_available[m][0],items_available[m][1]);
                 }
                 return 
-"--------------------------------------------------------\n¿´¿´ÄãĞèÒªµãÊ²Ã´\n";
+"--------------------------------------------------------\nçœ‹çœ‹ä½ éœ€è¦ç‚¹ä»€ä¹ˆ\n";
         }
 }
 mixed list()
@@ -92,7 +92,7 @@ void buy_sth(string item, int number)
 		    p_itemvalue=ob->query_absolutevalue();
 		    if( p_buyersmoney < p_itemvalue )
 		    {
-			write("Ç®Ã»´ø¹»Ñ½¡£\n");
+			write("é’±æ²¡å¸¦å¤Ÿå‘€ã€‚\n");
 		        destruct(ob);
 			return;
 		    }
@@ -100,14 +100,14 @@ void buy_sth(string item, int number)
 		    {	
 	                    if((ob->move(this_body())) == MOVE_OK)
 			    {		
-                    		this_body()->simple_action("$NÔÚ´ËÂòÏÂÁËÒ»"+
-                                        ob->query_unit()+ob->short()+"¡£\n"); 
+                    		this_body()->simple_action("$Nåœ¨æ­¤ä¹°ä¸‹äº†ä¸€"+
+                                        ob->query_unit()+ob->short()+"ã€‚\n"); 
 				this_body()->set_all_con_money(p_buyersmoney - p_itemvalue);
 		                return;
 			     }
 			    else
 			    {
-				write("ºÃÏóÃ»·¨ÄÃ²»ÁËÁË¡£\n");
+				write("å¥½è±¡æ²¡æ³•æ‹¿ä¸äº†äº†ã€‚\n");
 			        destruct(ob);
 				return;
 			    }
@@ -116,10 +116,10 @@ void buy_sth(string item, int number)
                 }
             }
         }
-	write("ÄãÒªµÄ¶«Î÷Õâ¶ùºÃÏóÃ»ÓĞ¡£\n");
+	write("ä½ è¦çš„ä¸œè¥¿è¿™å„¿å¥½è±¡æ²¡æœ‰ã€‚\n");
 	return;
     }
-    write("Õâ¶ù»¹Ã»½ø»õÄØ¡£\n");
+    write("è¿™å„¿è¿˜æ²¡è¿›è´§å‘¢ã€‚\n");
 }
 mixed buy(string item, int number)
 {

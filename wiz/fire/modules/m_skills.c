@@ -10,7 +10,7 @@ class sg_skill set_sg_skill(string skill, int p_level,int p_exp)
 {
     class sg_skill cs = sg_skills[skill];
     if ( member_array(skill, SG_SKILL_D->query_skills()) == -1 )
-        error("没有此种技能\n");
+        error("娌℃湁姝ょ鎶�鑳絓n");
     if ( !cs )
     {
         cs = sg_skills[skill] = new(class sg_skill,

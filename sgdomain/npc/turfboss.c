@@ -10,10 +10,10 @@ return this_object();
 
 void setup()
 {
-    set_name("turf boss", "ÅÜÂí³¡ÀÏ°å");
+    set_name("turf boss", "è·‘é©¬åœºè€æ¿");
     add_id("boss");
     set_gender(1);
-    set_proper_name("ÅÜÂí³¡ÀÏ°å");
-    set_in_room_desc("ÅÜÂí³¡ÀÏ°å(turf boss)");
-    set_long("ÅÜÂí³¡ÀÏ°åĞ¦Á³Ó¯Ó¯µØ¿´×ÅÄã£¬¸ãµÃÄãÓĞÒ»ÖÖ²»ÍæÒ»°Ñ²»ºÃÒâË¼µÄ¸Ğ¾õ¡£¡±");
+    set_proper_name("è·‘é©¬åœºè€æ¿");
+    set_in_room_desc("è·‘é©¬åœºè€æ¿(turf boss)");
+    set_long("è·‘é©¬åœºè€æ¿ç¬‘è„¸ç›ˆç›ˆåœ°çœ‹ç€ä½ ï¼Œæå¾—ä½ æœ‰ä¸€ç§ä¸ç©ä¸€æŠŠä¸å¥½æ„æ€çš„æ„Ÿè§‰ã€‚â€");
 }

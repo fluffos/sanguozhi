@@ -10,49 +10,49 @@ void start(string arg)
 	string p_area1;
 	p_id=this_body()->query_id()[0];
 	p_area1=CHAR_D->get_char(p_id,"area");
-//        write("ÕıÔÚĞŞ¸Ä³ÌĞò£¬ÇëÏÈ²»ÒªÑµÁ·¡£\n"); return;
+//        write("æ­£åœ¨ä¿®æ”¹ç¨‹åºï¼Œè¯·å…ˆä¸è¦è®­ç»ƒã€‚\n"); return;
         my_id=this_body()->query_id()[0];
 
 /*if( !wizardp(this_body()) ){
-        write("Á·±øÔİÊ±½ûÖ¹¡£\n");
+        write("ç»ƒå…µæš‚æ—¶ç¦æ­¢ã€‚\n");
         return;
 };*/
         if(!CHAR_D->get_char(my_id,"nation"))
-        {  write("µÈÄã»ìÁË¸öÒ»¹Ù°ëÖ°ÒÔºó£¬ÔÙÀ´¿¼ÂÇÁ·±øµÄÎÊÌâ°É¡£\n");
+        {  write("ç­‰ä½ æ··äº†ä¸ªä¸€å®˜åŠèŒä»¥åï¼Œå†æ¥è€ƒè™‘ç»ƒå…µçš„é—®é¢˜å§ã€‚\n");
           return;
         }
         my_task = TASK_D->get_char_task(my_id);
         if(my_task[1]!=TT_LOCALMEETING)
-        {  write("Õâ¸öÎÊÌâ»¹ÊÇÔÚµØÇø»áÒéÉÏÌ¸°É¡£\n");
+        {  write("è¿™ä¸ªé—®é¢˜è¿˜æ˜¯åœ¨åœ°åŒºä¼šè®®ä¸Šè°ˆå§ã€‚\n");
            return;
         }
 	if(((file_name(environment(this_body())))!=
 ((AREA_D->get_area(p_area1,"path"))+(AREA_D->get_area(p_area1,"meeting"))))||(p_area1!=
 		environment(this_body())->get_area()))
 	{
-		write("Õâ¸öÎÊÌâ±ØĞëÔÚ»áÒéÖ®ËùÌÖÂÛ¡£\n");
+		write("è¿™ä¸ªé—®é¢˜å¿…é¡»åœ¨ä¼šè®®ä¹‹æ‰€è®¨è®ºã€‚\n");
 		return;
 	}
         task_id=my_task[0];
         if(TASK_D->get_task(task_id,"suggestion"))
-        {   write("ÏÖÔÚÕıÔÚÌÖÂÛÆäËûµÄÒéÌâ£¬ÄãµÄÒâ¼ûµÈ»á¶ùÔÙËµ°É¡£\n");
+        {   write("ç°åœ¨æ­£åœ¨è®¨è®ºå…¶ä»–çš„è®®é¢˜ï¼Œä½ çš„æ„è§ç­‰ä¼šå„¿å†è¯´å§ã€‚\n");
             return;
         }
         if(((TASK_D->get_task(task_id,"timaim")-
                 TASK_D->get_task(task_id,"timer"))<3)&&
                 (TASK_D->get_task(task_id,"stage")!=0))
         {
-                write("Ê±¼ä²»¶àÁË£¬»ØÍ·ÔÙÌá°É¡£\n");
+                write("æ—¶é—´ä¸å¤šäº†ï¼Œå›å¤´å†æå§ã€‚\n");
                 return;
         }
         p_soldier=AREA_D->get_area(CHAR_D->get_char(my_id,
              "area"),"soldier");
         if(p_soldier<50)
-        {   write("Ò»¹²²ÅÄÇ¼¸¸ö±ø£¬ÓĞÊ²Ã´ºÃÁ·µÄ£¿£¡\n");
+        {   write("ä¸€å…±æ‰é‚£å‡ ä¸ªå…µï¼Œæœ‰ä»€ä¹ˆå¥½ç»ƒçš„ï¼Ÿï¼\n");
             return;
         } 
         this_body()->simple_action(
-"$NµÀ£º³£ÑÔµÀ£¬±ø¹ó¾«¶ø²»¹ó¶à£¬$sÔ¸Áì±øÏ°ÑİÕó·¨£¬ÒÔ×³¾üÍş¡£\n");
+"$Né“ï¼šå¸¸è¨€é“ï¼Œå…µè´µç²¾è€Œä¸è´µå¤šï¼Œ$sæ„¿é¢†å…µä¹ æ¼”é˜µæ³•ï¼Œä»¥å£®å†›å¨ã€‚\n");
         (EV_LOCALMEETING)->get_suggestion(task_id,
             my_id,"train");
 }

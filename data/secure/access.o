@@ -1,8 +1,8 @@
 #/secure/daemons/secure_d.c
-privileges (["mudren":([":":({}),"":({}),]),])
+privileges (["mudren":(["":({}),":":({}),]),"fluffos":(["":({}),":":({}),]),])
 read_access ([])
 write_access (["wiz":({-1,([]),}),])
-wizards (["mudren":1,])
+wizards (["mudren":1,"fluffos":1,])
 domains ([])
 domainlists ([])
 errors ([])

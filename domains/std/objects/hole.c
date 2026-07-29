@@ -9,8 +9,8 @@ void
 setup() 
 {
     
-    set_id("小洞");
-    set_long("这个洞没有什么特殊的。\n");
+    set_id("灏忔礊");
+    set_long("杩欎釜娲炴病鏈変粈涔堢壒娈婄殑銆俓n");
     set_size(MEDIUM);
     set_max_capacity(LARGE);
 }

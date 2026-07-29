@@ -9,8 +9,8 @@
  * in_room_desc: A longer string for rooms.  Titles for players.
  */
 /* if these are zero, sane defaults are used based on 'names'. */
-private static mixed long;
-private static mixed in_room_desc;
+private nosave mixed long;
+private nosave mixed in_room_desc;
 /* our description when we haven't been touched.  Really an
  * in_room_desc, not a long */
 private string untouched_long;
@@ -45,11 +45,11 @@ string get_base_long()
 
     if(!is_visible())
       return //"Funny, you don't see anything at all.";
-             "ÄãÑÛÇ°Ò»Æ¬ÆáºÚ£¬Ê²Ã´Ò²¿´²»µ½¡£\n";
+             "ä½ çœ¼å‰ä¸€ç‰‡æ¼†é»‘ï¼Œä»€ä¹ˆä¹Ÿçœ‹ä¸åˆ°ã€‚\n";
     res = evaluate(long);
     if (!res)
         return //"You see nothing special about " + short() + "\n";
-               short()+"¿´ÆðÀ´Ã»Ê²Ã´ÌØÊâµÄ¡£\n";
+               short()+"çœ‹èµ·æ¥æ²¡ä»€ä¹ˆç‰¹æ®Šçš„ã€‚\n";
     return res; //    return wrap(res);
 }
 
@@ -68,7 +68,7 @@ string long()
   return get_base_long() + get_extra_long();
 }
 
-static string array discarded_message;
+nosave protected string * discarded_message;
 
 string untouched_long() {
     return untouched_long;
@@ -96,7 +96,7 @@ string show_in_room()
         str = short();
         if (!str) return 0;
 
-        return "Õâ¶ùÓÐºÜ¶à" + short() + "¡£\n";
+        return "è¿™å„¿æœ‰å¾ˆå¤š" + short() + "ã€‚\n";
     }
     if (our_count > 1 )
     {
@@ -105,7 +105,7 @@ string show_in_room()
             return 0;
 
         //      if( query_ob_flag( AUTO_IN_ROOM_DESC ) )
-        return sprintf("Õâ¶ùÓÐ%s", chinese_number(our_count)+query_unit()+short());
+        return sprintf("è¿™å„¿æœ‰%s", chinese_number(our_count)+query_unit()+short());
     }
 
     if (!test_flag(TOUCHED) && (str = untouched_long()))
@@ -129,12 +129,12 @@ string show_in_room()
 
 //:FUNCTION set_in_room_desc
 //Set the description an object has when it is sitting in a room
-static void set_in_room_desc( mixed arg )
+protected void set_in_room_desc( mixed arg )
 {
   in_room_desc = evaluate(arg);
 }
 
-string query_posessive(){  return "ËüµÄ"; }
+string query_posessive(){  return "å®ƒçš„"; }
 
 //:FUNCTION
 //set the untouched description of the object.  This is the way the object

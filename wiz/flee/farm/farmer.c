@@ -20,14 +20,14 @@ void setup()
         cloth->move(this_object());
         cloth->do_wear();
 
-        set_name("farmer", "Å©·ò");
+        set_name("farmer", "å†œå¤«");
         set_gender(1);
 	set_age(20+random(40));
-	set_proper_name("Ò»Î»ÕıÇÚÀÍ¸ûÔÅµÄÅ©·ò(farmer)");
-        set_in_room_desc("Ò»Î»ÕıÇÚÀÍ¸ûÔÅµÄÅ©·ò(farmer)");
+	set_proper_name("ä¸€ä½æ­£å‹¤åŠ³è€•è€˜çš„å†œå¤«(farmer)");
+        set_in_room_desc("ä¸€ä½æ­£å‹¤åŠ³è€•è€˜çš„å†œå¤«(farmer)");
 	
 	add_question("order", "order");
-        add_ask_str("order", "$NÏò$TÇ×ÇĞµÄÑ¯ÎÊµÀ£º½üÀ´×¯¼ÚµÄ³¤ÊÆÈçºÎ°¢£¿\n");
+        add_ask_str("order", "$Nå‘$Täº²åˆ‡çš„è¯¢é—®é“ï¼šè¿‘æ¥åº„ç¨¼çš„é•¿åŠ¿å¦‚ä½•é˜¿ï¼Ÿ\n");
 
 call_out("do_consider", 60);
 }
@@ -44,10 +44,10 @@ int check_order(object ob)
 	job = ob->query_job("do_farm", "");
 	name = ob->query_id()[0];
 	if( !job||!mapp(job)||job["beg_time"]<=0 )
-		this_object()->targetted_action("$NÏò$TµãÍ·Ğ¦µÀ£ºÍĞ¸££¬ÍĞ¸££¬Ò»ÇĞ¶¼ºÃ£¡\n", ob);
+		this_object()->targetted_action("$Nå‘$Tç‚¹å¤´ç¬‘é“ï¼šæ‰˜ç¦ï¼Œæ‰˜ç¦ï¼Œä¸€åˆ‡éƒ½å¥½ï¼\n", ob);
 	else if( job["beg_time"]+3600<time() ){
 		this_object()->responda("sigh");
-		this_object()->targetted_action("$N¶Ô$TÉËĞÄµÄËµ£º$RÊèÓÚ²é¿´£¬±¾¼¾¿ÅÁ£ÎŞÊÕ£¡\n", ob);
+		this_object()->targetted_action("$Nå¯¹$Tä¼¤å¿ƒçš„è¯´ï¼š$Rç–äºæŸ¥çœ‹ï¼Œæœ¬å­£é¢—ç²’æ— æ”¶ï¼\n", ob);
 		ob->finish_job("do_farm");
 		ob->set_job("do_farm","succ",0);
 		ob->set_job("do_farm","time",0);
@@ -59,7 +59,7 @@ int check_order(object ob)
 			leader-=({name});
 			leader+=({name});
 		}
-		this_object()->targetted_action("$N¶Ô$T¹§¾´µÄËµ£º$R£¬ÇëÖ¸Ê¾£¡\n", ob);
+		this_object()->targetted_action("$Nå¯¹$Tæ­æ•¬çš„è¯´ï¼š$Rï¼Œè¯·æŒ‡ç¤ºï¼\n", ob);
 		new(JOB_MENU)->start_menu();
 	}
 	return 1;
@@ -102,15 +102,15 @@ string get_quest(string msg)
 	if( !msg||msg==""||!stringp(msg) )  return jobs[random(sizeof(jobs))];
         if( member_array(msg, jobs) == -1 ) return "No such type\n";
         switch( msg ){
-                case "fire" : return "Í»Æğ´ó»ğ£¬ÔÚ×¯¼ÚµØÀïÈ¼ÉÕ¡£\n";
-                case "water": return "Ìì½µ±©Óê£¬×¯¼Ú±»ºéË®ÑÍÃ»¡£\n";
-                case "rats" : return "ÌïÊó·è¿ñ·±Ö³£¬×¯¼ÚÎ£ÔÚµ©Ï¦¡£\n";
-		case "bugs" : return "»È³æÂşÌì±éÒ°µÄ·ÉÀ´£¬ÍÌÊ³×Å×¯¼Ú¡£\n";
+                case "fire" : return "çªèµ·å¤§ç«ï¼Œåœ¨åº„ç¨¼åœ°é‡Œç‡ƒçƒ§ã€‚\n";
+                case "water": return "å¤©é™æš´é›¨ï¼Œåº„ç¨¼è¢«æ´ªæ°´æ·¹æ²¡ã€‚\n";
+                case "rats" : return "ç”°é¼ ç–¯ç‹‚ç¹æ®–ï¼Œåº„ç¨¼å±åœ¨æ—¦å¤•ã€‚\n";
+		case "bugs" : return "è—è™«æ¼«å¤©éé‡çš„é£æ¥ï¼Œåé£Ÿç€åº„ç¨¼ã€‚\n";
         }
 }
 void do_finish_job(object ob)
 {
-        tell_user(ob->query_id()[0], "\nÄãµÄÖÖÖ²×¯¼ÚµÄ¹¤×÷Íê³ÉÁË¡£\n");
+        tell_user(ob->query_id()[0], "\nä½ çš„ç§æ¤åº„ç¨¼çš„å·¥ä½œå®Œæˆäº†ã€‚\n");
         ob->finish_job("do_farm");
         ob->set_job("do_farm", "job",  0);
         ob->set_job("do_farm", "time", 0);

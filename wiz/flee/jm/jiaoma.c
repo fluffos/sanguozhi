@@ -1,4 +1,4 @@
-// ½ĞÂî
+// å«éª‚
 #include <mudlib.h>
 #include <daemons.h>
 #include <ansi.h>
@@ -19,27 +19,27 @@ void main(object ob, string who)
 	p_name=CHAR_D->get_char(ob->query_primary_id(),"name");
 	where = TROOP_D->get_troop_area(p_id);
 	if(!(CHAR_D->get_char(ob->query_primary_id(),"skills")))
-        {       write("Äã²»»á½ĞÂîÖ®¼Æ¡£\n");
+        {       write("ä½ ä¸ä¼šå«éª‚ä¹‹è®¡ã€‚\n");
                 return;
 	}
 	if(!p_skill=CHAR_D->get_char(ob->query_primary_id(),"skills")["jiaoma"])
-        {       write("Äã²»»á½ĞÂîÖ®¼Æ¡£\n");
+        {       write("ä½ ä¸ä¼šå«éª‚ä¹‹è®¡ã€‚\n");
                 return;
 	}
 	if( !p_id){
-                write("Ö»ÓĞÉíÔÚ¾üÖĞ²ÅÄÜ½ĞÂîµĞ·½Ê¿Æø¡£\n");
+                write("åªæœ‰èº«åœ¨å†›ä¸­æ‰èƒ½å«éª‚æ•Œæ–¹å£«æ°”ã€‚\n");
                 return;
         }	
 	// In the furture, We have to consider theplayer's ablility
 	// add the exp of this jimou, reduce mp, etc.
 	
 	if ( !e_id || TROOP_D->get_troop_area(e_id)!=where)
-		{ write("¶Ô·½²»ÔÚ´ËÕ½³¡ÉÏ¡£\n");
+		{ write("å¯¹æ–¹ä¸åœ¨æ­¤æˆ˜åœºä¸Šã€‚\n");
 			return;
 		}
 	
 	if (TROOP_D->get_troop_side(e_id) ==TROOP_D->get_troop_side(p_id))
-                {write ("²»¿ÉÏò¼º·½²¿¶ÓÊ©ÓÃ´Ë¼Æ¡£\n");
+                {write ("ä¸å¯å‘å·±æ–¹éƒ¨é˜Ÿæ–½ç”¨æ­¤è®¡ã€‚\n");
                         return;
                 }
 	x =TROOP_D->get_troop_position(p_id)[0];
@@ -49,16 +49,16 @@ void main(object ob, string who)
                 y2 = TROOP_D->get_troop_position(e_id)[1];
 
                 if( (x-x2)*(x-x2)+(y-y2)*(y-y2) > 9 ){
-			write("ÄãÀëµĞÈËÌ«Ô¶ÎŞ·¨Ê©¼Æ¡£\n");
+			write("ä½ ç¦»æ•Œäººå¤ªè¿œæ— æ³•æ–½è®¡ã€‚\n");
 			return;}
                 tell(deep_inventory(TROOP_D->find_troop(e_id)),
-	"Ê¿±øÒ»ÕóĞú»©£¬Ô­À´ÊÇ"+p_name+"¶ÔÄãµÄ²¿¶ÓÊ¹ÓÃÇ£ÖÆÖ®¼Æ¡£\n",
+	"å£«å…µä¸€é˜µå–§å“—ï¼ŒåŸæ¥æ˜¯"+p_name+"å¯¹ä½ çš„éƒ¨é˜Ÿä½¿ç”¨ç‰µåˆ¶ä¹‹è®¡ã€‚\n",
                         MSG_INDENT);
                 // In future, we have to consider effects of the
                 // ablility of general, zhenxing, dixing, etc.
                 // Now the damage depends only on the No of bowman
 	ob->simple_action(SG_SKILL_D->query_use("jiaoma"));
-	ob->start_busy(10, "ÄãÕıÃ¦ÓÚÇ£ÖÆµĞ·½Ê¿ÆøÄØ¡£");
+	ob->start_busy(10, "ä½ æ­£å¿™äºç‰µåˆ¶æ•Œæ–¹å£«æ°”å‘¢ã€‚");
 	
 	call_out("show_result", 5+random(5), ob, who);
 }
@@ -93,8 +93,8 @@ void show_result(object ob, string who)
 	TROOP_D->add_morale(e_id,mora);
 	mora = 0 - mora;
 	 WARAI_D->war_inf(TROOP_D->get_troops(p_id,"task_id"),
-TROOP_D->find_troop(p_id)->query_id()[1]+"Ê¹ÓÃ½ĞÂîÖ®¼ÆÊ¹"+
-TROOP_D->find_troop(e_id,)->query_id()[1]+"½µµÍÊ¿Æø"+chinese_number(mora)+
-"µã¡£","b");
+TROOP_D->find_troop(p_id)->query_id()[1]+"ä½¿ç”¨å«éª‚ä¹‹è®¡ä½¿"+
+TROOP_D->find_troop(e_id,)->query_id()[1]+"é™ä½å£«æ°”"+chinese_number(mora)+
+"ç‚¹ã€‚","b");
 	return;
 }

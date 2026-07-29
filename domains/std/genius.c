@@ -18,26 +18,26 @@ int ends_with(string str, string suff) {
 void setup() {
     int *handle;
     
-    set_name("Logical Genius", "Âß¼­Ìì²Å");
+    set_name("Logical Genius", "é€»è¾‘å¤©æ‰");
     set_gender(1);
-    set_proper_name("Âß¼­Ìì²Å");
-    set_in_room_desc("Âß¼­Ìì²ÅÒÔ»³ÒÉµÄÑÛ¹âÉÏÏÂ´òÁ¿×ÅÄã¡£");
+    set_proper_name("é€»è¾‘å¤©æ‰");
+    set_in_room_desc("é€»è¾‘å¤©æ‰ä»¥æ€€ç–‘çš„çœ¼å…‰ä¸Šä¸‹æ‰“é‡ç€ä½ ã€‚");
     add_id("dude");
     add_id("genius");
-    set_long("Âß¼­Ìì²Å¿´ÁËÄãÒ»ÑÛ...\nÂß¼­Ìì²ÅËµ£ºÀ´£¬¸øÎÒ½²½²ÄãµÄÃû×ÖºÃÂğ£¿");
+    set_long("é€»è¾‘å¤©æ‰çœ‹äº†ä½ ä¸€çœ¼...\né€»è¾‘å¤©æ‰è¯´ï¼šæ¥ï¼Œç»™æˆ‘è®²è®²ä½ çš„åå­—å¥½å—ï¼Ÿ");
 
-    add_pattern("%sËµµÀ£º%s¡£", function(string name, mixed sub) {
+    add_pattern("%sè¯´é“ï¼š%sã€‚", function(string name, mixed sub) {
         if (functionp(sub)) {
 	    if (evaluate(sub, lower_case(name)))
-		return "say ÕıÈ·£®";
+		return "say æ­£ç¡®ï¼";
 	    else
-		return "say ÄãËµ»Ñ¡£";
+		return "say ä½ è¯´è°ã€‚";
 	}
 	if (sub && intp(sub))
-	    return "say ÎÒ²»¶®ÄãËµµÄÊÇÊ²Ã´ÒâË¼¡£";
+	    return "say æˆ‘ä¸æ‡‚ä½ è¯´çš„æ˜¯ä»€ä¹ˆæ„æ€ã€‚";
 	if (random(5))
 	    return 0;
-	return "say ±ğÏ¹³¶£¬ÎÒÖ»¶ÔÄãµÄÃû×Ö¸ĞĞËÈ¤¡£";
+	return "say åˆ«çæ‰¯ï¼Œæˆ‘åªå¯¹ä½ çš„åå­—æ„Ÿå…´è¶£ã€‚";
     }, 0, "say_rule");
     
     add_sub_pattern("say_rule", "%s name %s", (: $2 :), 0, "predicate");

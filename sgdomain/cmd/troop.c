@@ -22,23 +22,23 @@ void start(string arg)
         p_id=this_body()->query_primary_id();
 	pt_id=TROOP_D->get_char_troop(this_body()->query_id()[0]);	
 	if(!pt_id)
-	{write("战争中才可以查看部队指挥官。\n");
+	{write("鎴樹簤涓墠鍙互鏌ョ湅閮ㄩ槦鎸囨尌瀹樸�俓n");
 	return;
 	}
 	
 	if(t_id=get_t_id(arg)<0)
-	{write("你要查看哪一只部队？\n");
+	{write("浣犺鏌ョ湅鍝竴鍙儴闃燂紵\n");
 		return;
 	}
 	
 	t_id = get_t_id(arg);	
 	t_name = TROOP_D->get_troops(t_id,"name");	
  	if(TROOP_D->get_troops(t_id,"area")!=TROOP_D->get_troops(pt_id,"area"))
-	{ write("你管别的战场干嘛？\n");
+	{ write("浣犵鍒殑鎴樺満骞插槢锛焅n");
 		return;
 	}
 
-	write(t_name+"中的指挥官有:  \n");
+	write(t_name+"涓殑鎸囨尌瀹樻湁:  \n");
 	   chars=TROOP_D->get_troops(t_id,"chars");
    foreach(string c in chars)
    {

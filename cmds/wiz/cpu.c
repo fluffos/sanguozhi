@@ -5,11 +5,11 @@
 inherit CMD;
 string obj_static() {
 	string ret;
-	ret="ÎïÆ·×ÜÊý£º"+sizeof(objects())+"\n";
-	ret+="ÉúÃü×ÜÊý£º"+sizeof(objects((:$1->is_living():)))+"\n";
-	ret+="ÊÒÄÚ·¿¼ä×ÜÊý£º"+sizeof(objects((:$1->is_indoors():)))+"\n";
-	ret+="»§Íâ·¿¼ä×ÜÊý£º"+sizeof(objects((:$1->is_outdoors():)))+"\n";
-	ret+="daemon ÎïÆ·×ÜÊý£º"+sizeof(objects((:$1->direct_check_obj():)))+"\n";
+	ret="ç‰©å“æ€»æ•°ï¼š"+sizeof(objects())+"\n";
+	ret+="ç”Ÿå‘½æ€»æ•°ï¼š"+sizeof(objects((:$1->is_living():)))+"\n";
+	ret+="å®¤å†…æˆ¿é—´æ€»æ•°ï¼š"+sizeof(objects((:$1->is_indoors():)))+"\n";
+	ret+="æˆ·å¤–æˆ¿é—´æ€»æ•°ï¼š"+sizeof(objects((:$1->is_outdoors():)))+"\n";
+	ret+="daemon ç‰©å“æ€»æ•°ï¼š"+sizeof(objects((:$1->direct_check_obj():)))+"\n";
 	return ret;
 }
 void main() {

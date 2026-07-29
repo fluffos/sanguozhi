@@ -13,7 +13,7 @@ private object worker1,worker2;
 //static private string *tasks=({ "sleep","workhard","nowork","idle",
 //							 "fight","nomal","rest","steal"});
 
-static private string *tasks=({ "sleep","workhard","idle","poor"});
+nosave private string *tasks=({ "sleep","workhard","idle","poor"});
 
 object get_master() {
 	return SGBASE(p_area,f_id);
@@ -36,19 +36,19 @@ void destruct_me() {
 void finish_job() {
 	if(score <=5) {
 		slave->responda("snicker");
-		tell(master,"ºÜ²»ĞÒ£¬ÈÎÎñÍê³ÉµÃÒ»ËúºıÍ¿¡£\n");
+		tell(master,"å¾ˆä¸å¹¸ï¼Œä»»åŠ¡å®Œæˆå¾—ä¸€å¡Œç³Šæ¶‚ã€‚\n");
 	}
 	else if(score<10) {
 		slave->responda("addoil "+p_id);
-		tell(master,"ÈÎÎñÍê³ÉµÄ²»´í£¬»Ø´ğÍêÎÊÌâ¾Í¿ÉÒÔµÃ½±ÁË¡£\n");
+		tell(master,"ä»»åŠ¡å®Œæˆçš„ä¸é”™ï¼Œå›ç­”å®Œé—®é¢˜å°±å¯ä»¥å¾—å¥–äº†ã€‚\n");
 	}
 	else if(score < 15) {
 		slave->responda("admire "+p_id);
-		tell(master,"ÈÎÎñÍê³ÉµÄºÃ¼«ÁË£¬»Ø´ğÍêÎÊÌâ¾Í¿ÉÒÔµÃ½±ÁË¡£\n");
+		tell(master,"ä»»åŠ¡å®Œæˆçš„å¥½æäº†ï¼Œå›ç­”å®Œé—®é¢˜å°±å¯ä»¥å¾—å¥–äº†ã€‚\n");
 	}
 	else {
 		slave->responda("flatter "+p_id);
-		tell(master,"ÈÎÎñÍê³ÉµÄ²»¿ÉË¼ÒéµØºÃ£¬»Ø´ğÍêÎÊÌâ¾Í¿ÉÒÔµÃ½±ÁË¡£\n");
+		tell(master,"ä»»åŠ¡å®Œæˆçš„ä¸å¯æ€è®®åœ°å¥½ï¼Œå›ç­”å®Œé—®é¢˜å°±å¯ä»¥å¾—å¥–äº†ã€‚\n");
 	}
 	destruct_me();
 	return;
@@ -144,9 +144,9 @@ int check_status() {
 }
 
 void start() {
-	slave->targetted_action("$N¶Ô$TÒ»ĞĞÀñµÀ£º$RÕâ±ßÇë¡£\n",master);
+	slave->targetted_action("$Nå¯¹$Tä¸€è¡Œç¤¼é“ï¼š$Rè¿™è¾¹è¯·ã€‚\n",master);
 	DELAY_D->delay_targetted_action(master,slave,
-		"$NËæ$T×ß½øÁË"+p_roomname+"¡£\n",1);
+		"$Néš$Tèµ°è¿›äº†"+p_roomname+"ã€‚\n",1);
 	call_out("check_status",2);
 }
 void  init(object m,object s){

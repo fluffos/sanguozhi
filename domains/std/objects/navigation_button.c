@@ -7,15 +7,15 @@ inherit OBJ;
 
 void setup() {
     
-    set_id("button", "°´Å¥");
-    set_long("ÕâÌõ°´Å¥¿ÉÄÜÊÇÓÃÀ´´ò¿ªÄãÀ´Â·ÉÏµÄÍ¨µÀµÄ¡£\n");
-    set_in_room_desc("Äã¿´µ½¾ÍÔÚÍ¨µÀÒ»ÅÔµÄÇ½ÉÏ£¬ÓĞÒ»¸ö°´Å¥¡£");
+    set_id("button", "æŒ‰é’®");
+    set_long("è¿™æ¡æŒ‰é’®å¯èƒ½æ˜¯ç”¨æ¥æ‰“å¼€ä½ æ¥è·¯ä¸Šçš„é€šé“çš„ã€‚\n");
+    set_in_room_desc("ä½ çœ‹åˆ°å°±åœ¨é€šé“ä¸€æ—çš„å¢™ä¸Šï¼Œæœ‰ä¸€ä¸ªæŒ‰é’®ã€‚");
     set_size(VERY_SMALL);
 }
 
 int press(string n)
 {
-  this_body()->simple_action("$N°´¶¯Ç½ÉÏµÄ°´Å¥¡£");
+  this_body()->simple_action("$NæŒ‰åŠ¨å¢™ä¸Šçš„æŒ‰é’®ã€‚");
   environment(this_object())->open_passage();
   return 1;
 }

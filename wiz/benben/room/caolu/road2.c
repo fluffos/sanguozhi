@@ -1,4 +1,4 @@
-//  小路 road2.c
+//  灏忚矾 road2.c
 // made by benben
 // cl_road2.c 
 #include <mudlib.h>
@@ -8,9 +8,9 @@ inherit OUTDOOR_ROOM;
 void setup(){
     set_area("caolu_area");
     set_light(50);
-    set_brief(""+YEL+"小路"+NOR+"");
-    set_long("    转出树林，猛然望见一座清幽的茅庐坐落在山脚下，翠竹掩隐，
-极是清雅，脚下的小路通向那里。\n\n");
+    set_brief(""+YEL+"灏忚矾"+NOR+"");
+    set_long("    杞嚭鏍戞灄锛岀寷鐒舵湜瑙佷竴搴ф竻骞界殑鑼呭簮鍧愯惤鍦ㄥ北鑴氫笅锛岀繝绔规帺闅愶紝
+鏋佹槸娓呴泤锛岃剼涓嬬殑灏忚矾閫氬悜閭ｉ噷銆俓n\n");
     set_exits( ([
         "north" :  __DIR__+"cl_door.c",
         "south" :  __DIR__+"cl_road3.c",

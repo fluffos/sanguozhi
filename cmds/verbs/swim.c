@@ -23,7 +23,7 @@ void do_swim()
     }
   else if(!s)
     {
-      write("你要在哪里游泳？\n");
+      write("浣犺鍦ㄥ摢閲屾父娉筹紵\n");
       return;
     }
 }
@@ -40,7 +40,7 @@ void do_swim_in_obj(object ob, string str) {
       }
     if(!s)
       {
-        write("你不能在那里面游泳！\n");
+        write("浣犱笉鑳藉湪閭ｉ噷闈㈡父娉筹紒\n");
       }
 }
 
@@ -50,7 +50,7 @@ int direct_swim_in_obj(object ob)
 }
 
 
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ "", "in OBJ", }),({  }) });
 

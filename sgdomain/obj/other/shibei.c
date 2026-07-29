@@ -7,7 +7,7 @@
 // Public interface (aka how to use this thing):
 //   object ob = new(BOARD, "Your board's name", "linked.newsgroup");
 //   ob->move(where_ever_you_want);
-// Modified for ±¾³Ç»úÃÜ   by suicide in 2000.08.06
+// Modified for æœ¬åŸæœºå¯†   by suicide in 2000.08.06
 inherit OBJ;
 inherit M_READABLE;
 inherit CLASS_NEWSMSG;
@@ -32,7 +32,7 @@ private nomask int filter_removed(int elem) {
 }
 int query_logical_id(int p_id)
 {
-    int array ids = sort_array(filter_array(
+    int * ids = sort_array(filter_array(
       NEWS_D->get_messages(linked_group), (: filter_removed :)), 1);
     int i;
     for (i = 1; i < sizeof(ids) + 1; i++)
@@ -49,7 +49,7 @@ nomask void create(string name, string group) {
         error("No linked newsgroup in board.\n");
     set_group(group);
     board_name = name;
-    set_id("shibei", "Ê¯±®");
+    set_id("shibei", "çŸ³ç¢‘");
     set_attached(1);
     add_id("news board");
     set_in_room_desc( (: do_desc :) );
@@ -77,27 +77,27 @@ private nomask varargs string format_message_line(int id) {
         return 0;                      // Do not display removed messages.
     else
         subject = msg->subject;
-    return sprintf( "%-35s ¡¾%-10s %s¡¿", 
+    return sprintf( "%-35s ã€%-10s %sã€‘", 
       subject[0..34],
       msg->poster,
       intp(msg->time) ? ctime(msg->time)[4..9] : msg->time);
 }
 // Format all message lines.
-private nomask string array query_message_lines() {
-    int array ids = sort_array(filter_array(
+private nomask string * query_message_lines() {
+    int * ids = sort_array(filter_array(
       NEWS_D->get_messages(linked_group), (: filter_removed :)), -1);
     int i,j;
-    string array tmp;
+    string * tmp;
     tmp = map_array(ids, (: format_message_line($1) :));
     j=sizeof(tmp);
     for (i = 1; i < sizeof(tmp) + 1; i++)
-        tmp[i-1] = sprintf("%4d£º", j--) + tmp[i-1];
+        tmp[i-1] = sprintf("%4dï¼š", j--) + tmp[i-1];
     return tmp;
 }
 // Make the long description.
 private nomask string list_headers() {
-    return "  ĞòºÅ   ±êÌâ                               ¼ÍÂ¼ÈË      ÈÕÆÚ\n" +
-      repeat_string("¡ş", 34) + "\n" + implode(query_message_lines(), "\n");
+    return "  åºå·   æ ‡é¢˜                               çºªå½•äºº      æ—¥æœŸ\n" +
+      repeat_string("ã€“", 34) + "\n" + implode(query_message_lines(), "\n");
 }
 // Needed for M_READABLE
 nomask int has_entries() {
@@ -113,17 +113,17 @@ string org_string(string str,string w_id) {
    m_area = CHAR_D->get_char(p_id,"area");
    w_area = CHAR_D->get_char(w_id,"area");
    if(m_nation!=my_nation) 
-      return "ÕâÊÇËû¹úµÄ¹ú¼Ò»úÃÜ ÄãÎŞ·¨²éÑ¯¡£\n";
+      return "è¿™æ˜¯ä»–å›½çš„å›½å®¶æœºå¯† ä½ æ— æ³•æŸ¥è¯¢ã€‚\n";
    if (str[0]=='@')
-    {if (m_area!=w_area)       //²»ÊÇÍ¬³Ç
-       return "ÕâÊÇ"+AREA_D->get_area(w_area,"name")+"µÄµØÇø»úÃÜ£¬ÄãÎŞ·¨²éÑ¯¡£\n";
+    {if (m_area!=w_area)       //ä¸æ˜¯åŒåŸ
+       return "è¿™æ˜¯"+AREA_D->get_area(w_area,"name")+"çš„åœ°åŒºæœºå¯†ï¼Œä½ æ— æ³•æŸ¥è¯¢ã€‚\n";
      if (str[1]=='@')
        {if(CHAR_D->get_char(p_id,"level")<2) 
-		return "ÕâÊÇÕâÊ±±¾³Ç¾øÃÜÎÄ¼ş£¬ÄãÎŞÈ¨²éÑ¯¡£\n"; 
-        str="¡¾±¾³Ç¾øÃÜ¡¿\n"+str[2..<1];
+		return "è¿™æ˜¯è¿™æ—¶æœ¬åŸç»å¯†æ–‡ä»¶ï¼Œä½ æ— æƒæŸ¥è¯¢ã€‚\n"; 
+        str="ã€æœ¬åŸç»å¯†ã€‘\n"+str[2..<1];
        }
      else
-        str="¡¾±¾³Ç»úÃÜ¡¿\n"+str[1..<1];
+        str="ã€æœ¬åŸæœºå¯†ã€‘\n"+str[1..<1];
      return str;
     }
       
@@ -140,16 +140,16 @@ string org_string(string str,string w_id) {
    
    switch(sec_level) {
       case 1: // nomal secret
-         return "¡¾ÃØÃÜ¡¿\n"+str;
+         return "ã€ç§˜å¯†ã€‘\n"+str;
       case 2: // 
          if(CHAR_D->get_char(p_id,"level")<2) 
-		return "ÕâÊÇ»úÃÜÎÄ¼ş£¬ÄãÎŞÈ¨²éÑ¯¡£\n";
-	return "¡¾»úÃÜ¡¿\n"+str;
+		return "è¿™æ˜¯æœºå¯†æ–‡ä»¶ï¼Œä½ æ— æƒæŸ¥è¯¢ã€‚\n";
+	return "ã€æœºå¯†ã€‘\n"+str;
       case 3:
          if((CHAR_D->get_char(p_id,"ranknation"))||
 		( AREA_D->get_area(CHAR_D->get_char(p_id,"area"),"leader")==p_id  ))
-		return "¡¾¾øÃÜ¡¿\n"+str;
-	return "ÕâÊÇ¾øÃÜÎÄ¼ş£¬ÄãÎŞÈ¨²éÑ¯¡£\n";
+		return "ã€ç»å¯†ã€‘\n"+str;
+	return "è¿™æ˜¯ç»å¯†æ–‡ä»¶ï¼Œä½ æ— æƒæŸ¥è¯¢ã€‚\n";
 
    }
 }
@@ -160,7 +160,7 @@ nomask mixed read_entry(string str) {
     class news_msg msg;
     int id;
     int p_id=0;
-    int array ids = sort_array(filter_array(NEWS_D->get_messages(linked_group),
+    int * ids = sort_array(filter_array(NEWS_D->get_messages(linked_group),
       (: filter_removed :)), 1);
     if ((str == "next")||(str=="new")) 
     {
@@ -175,34 +175,34 @@ nomask mixed read_entry(string str) {
 		}
 	}
 	if(!p_id)
-            return "Ã»ÓĞĞÂµÄÀúÊ·¼ÍÂ¼ÁË¡£\n";
+            return "æ²¡æœ‰æ–°çš„å†å²çºªå½•äº†ã€‚\n";
     }
     else
     {
         if (sscanf(str, "%d", id) != 1)
-            return "ÄãÒªÔÄ¶ÁµÚ¼¸ÌõÀúÊ·¼ÍÂ¼£¿\n";
+            return "ä½ è¦é˜…è¯»ç¬¬å‡ æ¡å†å²çºªå½•ï¼Ÿ\n";
         if (id <= 0 || id > sizeof(ids))
-            return "Ê¯±®ÉÏÃ»ÓĞÕâÌõÀúÊ·¼ÍÂ¼¡£\n";
+            return "çŸ³ç¢‘ä¸Šæ²¡æœ‰è¿™æ¡å†å²çºªå½•ã€‚\n";
 	p_id=ids[id-1];
     }
     msg = NEWS_D->get_message(linked_group, p_id);
     this_body()->set_news_group_id(linked_group, p_id+1);
-    return query_logical_id(p_id)+"£º"+
+    return query_logical_id(p_id)+"ï¼š"+
 		format_message_line(p_id) + "\n"+
-		repeat_string("¡ş", 34)+"\n" + msg->body;
+		repeat_string("ã€“", 34)+"\n" + msg->body;
 }
 // Helpful text for those used to type 'read 1'.
 nomask mixed direct_read_obj(object ob) {
-    return "ÓÃ·¨£ºread about <number> £º¶ÁµÚ¼¸ºÅÀúÊ·¼ÍÂ¼£¬\n
-read about next £º¶ÁÏÂÒ»ÌõÀúÊ·¼ÍÂ¼¡£\n";
+    return "ç”¨æ³•ï¼šread about <number> ï¼šè¯»ç¬¬å‡ å·å†å²çºªå½•ï¼Œ\n
+read about next ï¼šè¯»ä¸‹ä¸€æ¡å†å²çºªå½•ã€‚\n";
 }
 // Short description.
 private nomask string do_desc() {
     string tmp;
-    int array a_id=sort_array(NEWS_D->get_messages(linked_group),1);
-    int array a_idleft=sort_array(filter_array(NEWS_D->get_messages(linked_group),
+    int * a_id=sort_array(NEWS_D->get_messages(linked_group),1);
+    int * a_idleft=sort_array(filter_array(NEWS_D->get_messages(linked_group),
       (: filter_removed :)), 1);
-    int array a_idneedread;
+    int * a_idneedread;
     int curr_id = this_body()->get_news_group_id(linked_group);
     int all_news,left_news;
     if(sizeof(a_id)==0) a_id=0;
@@ -223,9 +223,9 @@ private nomask string do_desc() {
     left_news=sizeof(a_idneedread);
     all_news=sizeof(a_idleft);
     if(left_news==0)
-	tmp=sprintf("¡¾¹²ÓĞ%dÌõÀúÊ·¼ÍÂ¼¡¿",all_news);
+	tmp=sprintf("ã€å…±æœ‰%dæ¡å†å²çºªå½•ã€‘",all_news);
     else
-        tmp=sprintf("¡¾¹²ÓĞ%dÌõÀúÊ·¼ÍÂ¼£¬ÆäÖĞ%dÌõÎ´¶Á¡¿",all_news,left_news);
+        tmp=sprintf("ã€å…±æœ‰%dæ¡å†å²çºªå½•ï¼Œå…¶ä¸­%dæ¡æœªè¯»ã€‘",all_news,left_news);
     return board_name + tmp+"(board)";
 }
 // For board commands like post etc.

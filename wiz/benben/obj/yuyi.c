@@ -1,4 +1,4 @@
-//yuyi.c ÄŞÉÑÓğÒÂ by benben
+//yuyi.c éœ“è£³ç¾½è¡£ by benben
 #include <sanguo.h>
 #include <mudlib.h>
 #include <bodyslots.h>
@@ -7,12 +7,12 @@ inherit M_GETTABLE;
 inherit M_DAMAGE_SINK;
 void setup(){	
 ::mudlib_setup();
-    set_adj("ÃÀÂ×ÃÀÛ¼µÄ");	
-    set_unit("¼ş");	 
-    set_id("yuyi", "ÄŞÉÑÓğÒÂ");		
+    set_adj("ç¾ä¼¦ç¾å¥‚çš„");	
+    set_unit("ä»¶");	 
+    set_id("yuyi", "éœ“è£³ç¾½è¡£");		
         add_id("feather cloth");	
-    set_long("Ò»¼şÇáÈç²õÒíµÄÄŞÉÑÓğÒÂ¡£");	
-    set_in_room_desc("ÄŞÉÑÓğÒÂ(yuyi)");	
+    set_long("ä¸€ä»¶è½»å¦‚è‰ç¿¼çš„éœ“è£³ç¾½è¡£ã€‚");	
+    set_in_room_desc("éœ“è£³ç¾½è¡£(yuyi)");	
     set_gettable(1);	
     set_slot(TORSO);
 }

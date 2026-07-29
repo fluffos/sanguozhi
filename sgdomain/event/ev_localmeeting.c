@@ -72,7 +72,7 @@ void local_meeting(string a_id)
         int *task,i;
         object ob_char;
         CHANNEL_D->deliver_tell("rumor","system",
-            sprintf("%sÕıÔÚ¾ÙĞĞµØÇø»áÒé¡£",AREA_D->get_area(a_id,"name")));
+            sprintf("%sæ­£åœ¨ä¸¾è¡Œåœ°åŒºä¼šè®®ã€‚",AREA_D->get_area(a_id,"name")));
         t_num=TASK_D->add_task(TT_LOCALMEETING);
         TASK_D->set_task(t_num,"area",a_id);
         s_room=AREA_D->get_area(a_id,"path")+
@@ -109,7 +109,7 @@ void local_meeting(string a_id)
                         {
                                 if(file_name(environment(CHAR_D->find_char(u_list[i])))!=s_room)
                                 (EV_INFORMSB)->inform_sb(u_list[i],
-                                AREA_D->get_area(a_id,"name")+"ÒªÕÙ¿ªµØ·½»áÒé£¬Çë$RËÙÈ¥¡£");    
+                                AREA_D->get_area(a_id,"name")+"è¦å¬å¼€åœ°æ–¹ä¼šè®®ï¼Œè¯·$Ré€Ÿå»ã€‚");    
                         }
                         else
                         {
@@ -119,15 +119,15 @@ void local_meeting(string a_id)
                                     if(CHAR_D->get_char(u_list[i],"room")!= s_room)
                                     {
                                         (EV_INFORMSB)->inform_sb(u_list[i],
-                                                AREA_D->get_area(a_id,"name")+"ÒªÕÙ¿ªµØ·½»áÒé£¬Çë$RËÙÈ¥¡£");    
+                                                AREA_D->get_area(a_id,"name")+"è¦å¬å¼€åœ°æ–¹ä¼šè®®ï¼Œè¯·$Ré€Ÿå»ã€‚");    
                                         if(objectp(ob_char))
                                         {
-                                                ob_char->simple_action("$N¹°ÊÖµÀ£º$sÓĞÒªÊÂÔÚÉí£¬Õâ±ã¸æ´Ç£¬ÍòÍû¼ûÁÂ¡£\n");
-                                                ob_char->simple_action("$N¼±´Ò´ÒµØÀë¿ªÁË¡£\n");
+                                                ob_char->simple_action("$Næ‹±æ‰‹é“ï¼š$sæœ‰è¦äº‹åœ¨èº«ï¼Œè¿™ä¾¿å‘Šè¾ï¼Œä¸‡æœ›è§è°…ã€‚\n");
+                                                ob_char->simple_action("$Næ€¥åŒ†åŒ†åœ°ç¦»å¼€äº†ã€‚\n");
                                         }
                                         CHAR_D->put_char(u_list[i],s_room);
                                       if(objectp(ob_char))
-                                        ob_char->simple_action("$N¼±´Ò´ÒµØ×ßÁË¹ıÀ´¡£\n");
+                                        ob_char->simple_action("$Næ€¥åŒ†åŒ†åœ°èµ°äº†è¿‡æ¥ã€‚\n");
                                     }
                                 }
                                 else
@@ -138,7 +138,7 @@ void local_meeting(string a_id)
                                         {
                                                 CHAR_D->put_char(u_list[i],s_room);
                                                 ob_char=CHAR_D->find_char(u_list[i]); if(objectp(ob_char))
-                                                ob_char->simple_action("$N¼±´Ò´ÒµØ×ßÁË¹ıÀ´¡£\n");
+                                                ob_char->simple_action("$Næ€¥åŒ†åŒ†åœ°èµ°äº†è¿‡æ¥ã€‚\n");
                                         }
                                 }
                         }
@@ -147,7 +147,7 @@ void local_meeting(string a_id)
         AREA_D->set_area(a_id,"status",ST_MEETING);
         ob_char = CHAR_D->find_char(p_leader);
         if(objectp(ob_char))
-              ob_char->simple_action("$NÀÊÉùµÀ£ºÖîÎ»ÉÔ°²ÎğÔï£¬»áÒéÂíÉÏ¿ªÊ¼¡£\n");
+              ob_char->simple_action("$Næœ—å£°é“ï¼šè¯¸ä½ç¨å®‰å‹¿ç‡¥ï¼Œä¼šè®®é©¬ä¸Šå¼€å§‹ã€‚\n");
         m_us[p_leader]=LMP_LEADER;
         TASK_D->set_task(t_num,"start_time",time());
         TASK_D->set_task(t_num,"chars",m_us);
@@ -168,9 +168,9 @@ void meet_announce(int p_id)
         if(objectp(o_char))
         {
                 o_char->simple_action
-                ("$NµÀ£ºÁĞÎ»½«¾ü¡¢´óÈË£¬$S½ñÈÕÇëÄãÃÇÀ´¾ÍÊÇÌ¸Ì¸±¾µØÇøµÄ¾üÊÂÓëÄÚÕşÊÂÎñ¡£\n");
+                ("$Né“ï¼šåˆ—ä½å°†å†›ã€å¤§äººï¼Œ$Sä»Šæ—¥è¯·ä½ ä»¬æ¥å°±æ˜¯è°ˆè°ˆæœ¬åœ°åŒºçš„å†›äº‹ä¸å†…æ”¿äº‹åŠ¡ã€‚\n");
                 o_char->simple_action
-                ("$N½Ó×ÅµÀ£ºÖîÎ»²»±Ø¾ĞÀñ£¬Çë³©ËùÓûÑÔ¡£\n");
+                ("$Næ¥ç€é“ï¼šè¯¸ä½ä¸å¿…æ‹˜ç¤¼ï¼Œè¯·ç•…æ‰€æ¬²è¨€ã€‚\n");
         }
         call_out("begin_absent",20,p_id,0);
         TASK_D->set_task(p_id,"stage",LMS_PROCESS);
@@ -189,9 +189,9 @@ void meet_readytoend(int p_id)
         if(objectp(o_char))
         {
                 o_char->simple_action
-                ("$NµÀ£ºÁĞÎ»½«¾ü¡¢´óÈË£¬Ê±³½²»Ôç£¬»¹ÓĞºÎÊÂÒªÒé£¿\n");
+                ("$Né“ï¼šåˆ—ä½å°†å†›ã€å¤§äººï¼Œæ—¶è¾°ä¸æ—©ï¼Œè¿˜æœ‰ä½•äº‹è¦è®®ï¼Ÿ\n");
                 o_char->simple_action
-                ("$N½Ó×ÅµÀ£ºÈçÈôÎŞÊÂ£¬ÖîÎ»¾ÍÔçĞ©»Ø¸®ĞªÏ¢È¥°É¡£\n");
+                ("$Næ¥ç€é“ï¼šå¦‚è‹¥æ— äº‹ï¼Œè¯¸ä½å°±æ—©äº›å›åºœæ­‡æ¯å»å§ã€‚\n");
         }
         TASK_D->set_task(p_id,"stage",LMS_END);
         TASK_D->set_task(p_id,"timaim",LML_END);
@@ -206,21 +206,21 @@ void meet_over(int p_id)
         string *p_list;
         int i;
         p_area=TASK_D->get_task(p_id,"area");
-        p_leader=AREA_D->get_area(p_area,"leader");  // Ì«ÊØ id
+        p_leader=AREA_D->get_area(p_area,"leader");  // å¤ªå®ˆ id
         o_char=CHAR_D->find_char(p_leader);
         if(objectp(o_char))
         {
                 if(TASK_D->get_task(p_id,"war_leader")) // will have war 
                 {
-                        o_char->simple_action("±ø¹óÉñËÙ£¬´ó¼ÒÏÈÈ¥×¼±¸£¬¼´¿Ì·¢±ø¡£");
+                        o_char->simple_action("å…µè´µç¥é€Ÿï¼Œå¤§å®¶å…ˆå»å‡†å¤‡ï¼Œå³åˆ»å‘å…µã€‚");
 
                 }
                 else {
                         o_char->simple_action
-                                        ("$NÆğÉíµÀ£º½ñÈÕ±ãµ½ÕâÀï£¬ÁĞÎ»½«¾ü¡¢´óÈË£¬ÇëÔç»Ø¡£\n");
+                                        ("$Nèµ·èº«é“ï¼šä»Šæ—¥ä¾¿åˆ°è¿™é‡Œï¼Œåˆ—ä½å°†å†›ã€å¤§äººï¼Œè¯·æ—©å›ã€‚\n");
                         if(TASK_D->get_task(p_id,"trainleader"))
                                         o_char->simple_action(
-                                          "$N½Ó×ÅµÀ£º²Î¼ÓÁ·±øµÄ¾ÍÈ¥×¼±¸°É¡£\n");
+                                          "$Næ¥ç€é“ï¼šå‚åŠ ç»ƒå…µçš„å°±å»å‡†å¤‡å§ã€‚\n");
                 }
         }
         m_us=TASK_D->get_task(p_id,"chars");
@@ -231,14 +231,14 @@ void meet_over(int p_id)
             // remove the task from each id that joined the meeting            
             CHAR_D->set_char(p_list[i],"task",TASK_NONE);
 
-            // Èç¹ûÊÇÒ»¸ö npc ÓÖ²»ÊÇÌ«ÊØ£¬¾ÍÈÃËûÏûÊ§
+            // å¦‚æœæ˜¯ä¸€ä¸ª npc åˆä¸æ˜¯å¤ªå®ˆï¼Œå°±è®©ä»–æ¶ˆå¤±
             if( ( p_leader != p_list[i] ) && ( CHAR_D->get_char_status(p_list[i])!= STATUS_ONLINE ) )
             {
                 o_char=CHAR_D->find_char(p_list[i]);
                 if(objectp(o_char))
                 {
                         o_char->simple_action
-                        ("$N¹°ÊÖµÀ£º$s¸æ´Ç£¡\n$NÆğÉí´Ò´ÒÀë¿ªÁË¡£\n");
+                        ("$Næ‹±æ‰‹é“ï¼š$så‘Šè¾ï¼\n$Nèµ·èº«åŒ†åŒ†ç¦»å¼€äº†ã€‚\n");
                 }
 
                 CHAR_D->remove_npc_char(p_list[i]);
@@ -308,35 +308,35 @@ void ask_localmeeting(object who, object officer)
         (OFFICER_D->query_area_officer_title(
          AREA_D->get_area(m_area,"level"),0,0))[0]);
           officer->targetted_action
-         ("$N¶Ô$TĞ¦µÀ£ºÒª¿ªµØÇø»áÒé£¿´ËÊÂ$s¿É×ö²»ÁËÖ÷£¬ĞèÇëÊ¾±¾µØ"+m_title+"¡£\n",who);
+         ("$Nå¯¹$Tç¬‘é“ï¼šè¦å¼€åœ°åŒºä¼šè®®ï¼Ÿæ­¤äº‹$så¯åšä¸äº†ä¸»ï¼Œéœ€è¯·ç¤ºæœ¬åœ°"+m_title+"ã€‚\n",who);
          return;
     }
         if(((CHAR_D->get_char(m_id,"nation"))!=(CHAR_D->get_char(y_id,"nation")))
            ||((CHAR_D->get_char(m_id,"nation"))!=(CHAR_D->get_char(y_id,"nation"))))
         {
         officer->targetted_action
-         ("$N¶Ô$TĞ¦µÀ£ºĞ»Ğ»$m$RµÄ¹ØĞÄ£¬ÎÒÃÇ»á°²ÅÅµÄ¡£\n",who);
+         ("$Nå¯¹$Tç¬‘é“ï¼šè°¢è°¢$m$Rçš„å…³å¿ƒï¼Œæˆ‘ä»¬ä¼šå®‰æ’çš„ã€‚\n",who);
          return;
         }
         if((file_name(environment(officer)))!=
                 ((AREA_D->get_area(m_area,"path"))+(AREA_D->get_area(m_area,"meeting"))))
         {
         officer->targetted_action
-         ("$N¶Ô$TÒ¡Ò¡Í·£¬Ğ¦µÀ£º´Ë´¦·Ç»áÒéÖ®Ëù¡£\n",who);
+         ("$Nå¯¹$Tæ‘‡æ‘‡å¤´ï¼Œç¬‘é“ï¼šæ­¤å¤„éä¼šè®®ä¹‹æ‰€ã€‚\n",who);
          return;
         }
 
         if(CHAR_D->get_char(y_id,"level")<2)
         {
                 officer->targetted_action
-                       ("$N¶Ô$TÒ¡Ò¡Í·£¬$RÄËÏĞÖ°ÈËÔ±£¬ÕâµØÇø»áÒé¾Í²»±ØÌ«²ÙĞÄÁË¡£\n",who);
+                       ("$Nå¯¹$Tæ‘‡æ‘‡å¤´ï¼Œ$Rä¹ƒé—²èŒäººå‘˜ï¼Œè¿™åœ°åŒºä¼šè®®å°±ä¸å¿…å¤ªæ“å¿ƒäº†ã€‚\n",who);
                 return;
         }
 
         if(CHAR_D->get_char(y_id,"area")!=m_area)
         {
                 officer->targetted_action
-                       ("$N¶Ô$TÒ¡Ò¡Í·£¬$R·Ç±¾µØ¹ÙÔ±£¬ÕâµØÇø»áÒé¾Í²»±ØÌ«²ÙĞÄÁË¡£\n",who);
+                       ("$Nå¯¹$Tæ‘‡æ‘‡å¤´ï¼Œ$Réæœ¬åœ°å®˜å‘˜ï¼Œè¿™åœ°åŒºä¼šè®®å°±ä¸å¿…å¤ªæ“å¿ƒäº†ã€‚\n",who);
                 return;
         }
 
@@ -346,33 +346,33 @@ void ask_localmeeting(object who, object officer)
         {
         case LM_OK:
         officer->targetted_action
-         ("$N¶Ô$TµÀ£º$m$R£¬ÈÃ$s¿¼ÂÇÒ»ÏÂ¡£\n",who);
+         ("$Nå¯¹$Té“ï¼š$m$Rï¼Œè®©$sè€ƒè™‘ä¸€ä¸‹ã€‚\n",who);
                 if(CHAR_D->get_char(m_id,"status")==STATUS_ONLINE)
                 {
-                        tell_user(m_id,"Í¬Òâ¿ª»áÇëÊäÈë cmd localmeeting¡£\n");
+                        tell_user(m_id,"åŒæ„å¼€ä¼šè¯·è¾“å…¥ cmd localmeetingã€‚\n");
                 }
                 else
                 {
-        officer->targetted_action("$N¶Ô$TµãÍ·µÀ£ººÃ°É¡£\n",who);
+        officer->targetted_action("$Nå¯¹$Tç‚¹å¤´é“ï¼šå¥½å§ã€‚\n",who);
                 local_meeting(CHAR_D->get_char(m_id,"area"));
                 }
                 return;
         case LM_OTHERTASK:
         officer->targetted_action
-         ("$N¶Ô$TÒ¡ÁËÒ¡Í·£¬µÀ£º$sÏÖÔÚÌ«Ã¦£¬·Ö²»¿ªÉíÑ½¡£\n",who);
+         ("$Nå¯¹$Tæ‘‡äº†æ‘‡å¤´ï¼Œé“ï¼š$sç°åœ¨å¤ªå¿™ï¼Œåˆ†ä¸å¼€èº«å‘€ã€‚\n",who);
          return;
         case LM_ALREADYLOCALMEETING:
         officer->targetted_action
-         ("$N¶Ô$TµÀ£º$m$R£¬¿´À´ÄãÊÇÃ¦ºıÍ¿ÁË£¬ÎÒµÈÔÚ´Ë²»ÕıÔÚÉÌÒé±¾ÇøÊÂÎñÂğ£¿\n",who);
+         ("$Nå¯¹$Té“ï¼š$m$Rï¼Œçœ‹æ¥ä½ æ˜¯å¿™ç³Šæ¶‚äº†ï¼Œæˆ‘ç­‰åœ¨æ­¤ä¸æ­£åœ¨å•†è®®æœ¬åŒºäº‹åŠ¡å—ï¼Ÿ\n",who);
          return;
         case LM_NOENOUTHCHAR :
         officer->targetted_action
-         ("$N¶Ô$TĞ¦µÀ£º$m$R£¬¾ÍÄãºÍÎÒ£¬»¹¿ªÊ²Ã´»áÑ½¡£\n",who);
+         ("$Nå¯¹$Tç¬‘é“ï¼š$m$Rï¼Œå°±ä½ å’Œæˆ‘ï¼Œè¿˜å¼€ä»€ä¹ˆä¼šå‘€ã€‚\n",who);
          return;
         case LM_TOOMANYABSENT:
         default:
         officer->targetted_action
-         ("$N¶Ô$TĞ¦µÀ£º$m$R£¬ÖÚÈË½ÔÓĞÊÂÏµÉí£¬¿´À´»áÒéÖ»µÃÔñËûÈÕ¾ÙĞĞ¡£\n",who);
+         ("$Nå¯¹$Tç¬‘é“ï¼š$m$Rï¼Œä¼—äººçš†æœ‰äº‹ç³»èº«ï¼Œçœ‹æ¥ä¼šè®®åªå¾—æ‹©ä»–æ—¥ä¸¾è¡Œã€‚\n",who);
          return;
         }
 }

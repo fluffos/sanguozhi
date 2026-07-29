@@ -95,9 +95,9 @@ void worker_act(string str) {
 
 	if(s_v=="S") {
 		if(s_o=="O")
-			s_str="$NËµµÀ£º"+s_str;
+			s_str="$Nè¯´é“ï¼š"+s_str;
 		else
-			s_str="$N¶Ô$TËµµÀ£º"+s_str;
+			s_str="$Nå¯¹$Tè¯´é“ï¼š"+s_str;
 		s_v="T";
 	}
 
@@ -123,7 +123,7 @@ void do_scenario(string what) {
 	string sent;
 	if(!mapp(p_scenario[what])) return;
 	if(!sizeof(p_scenario)) return;
-	foreach(string tit,array par in p_scenario[what]) {
+	foreach(string tit,mixed *par in p_scenario[what]) {
 		sent=par[0]+par[1]+par[2];
 		worker_act(sent);
 	}
@@ -145,25 +145,25 @@ int add_act(string scen,string what,string typ,int delay,string str) {
 
 int base_scenario_init(){
 	create_scenario("bye");
-	add_act("bye","gc","WSO",1,"Ê±ºò²»ÔçÁË£¬$sÏÈ¸É»îÈ¥ÁË¡£\n");
+	add_act("bye","gc","WSO",1,"æ—¶å€™ä¸æ—©äº†ï¼Œ$så…ˆå¹²æ´»å»äº†ã€‚\n");
 	add_act("bye","aggree","MEW",2,"nod");
 	add_act("bye","bow","WEM",3,"bow");
 	add_act("bye","bow2","WEH",3,"bow");
-	add_act("bye","leave","WTO",4,"$N×ªÉíÀë¿ªÁË¡£");
+	add_act("bye","leave","WTO",4,"$Nè½¬èº«ç¦»å¼€äº†ã€‚");
 
 	create_scenario("noise4");
-	add_act("noise4","n1","HTM",1,"$NÇÄÉù¶Ô$TµÀ£º$R¿´ÔõÃ´°ì¡£\n");
+	add_act("noise4","n1","HTM",1,"$Næ‚„å£°å¯¹$Té“ï¼š$Rçœ‹æ€ä¹ˆåŠã€‚\n");
 	add_act("noise4","n2","MEO",2,"pat");
 
 	create_scenario("look");
 	add_act("look","lk","MEO",0,"look"); // just a simple look
-	add_act("look","lkb","MTW",1,"$N¶Ô$T´ÓÉÏµ½ÏÂ×Ğ×ĞÏ¸Ï¸´òÁ¿ÁËÒ»·¬¡£\n");
-	add_act("look","lbr","MTW",2,"$N·¢ÏÖ£º\n"+get_look_desc());
+	add_act("look","lkb","MTW",1,"$Nå¯¹$Tä»ä¸Šåˆ°ä¸‹ä»”ä»”ç»†ç»†æ‰“é‡äº†ä¸€ç•ªã€‚\n");
+	add_act("look","lbr","MTW",2,"$Nå‘ç°ï¼š\n"+get_look_desc());
 
 	create_scenario("ask");
-	add_act("ask","a1","MTH",0,"$NÓÃÑ¯ÎÊµÄÄ¿¹â¿´ÁË¿´$T¡£\n"); // just a simple look
-	add_act("ask","a2","HTM",1,"$N¶Ô$T»áÒâµØµãµãÍ·¡£\n");
-	add_act("ask","lbr","HTW",2,"$NµÀ£º"+get_ask_desc());
+	add_act("ask","a1","MTH",0,"$Nç”¨è¯¢é—®çš„ç›®å…‰çœ‹äº†çœ‹$Tã€‚\n"); // just a simple look
+	add_act("ask","a2","HTM",1,"$Nå¯¹$Tä¼šæ„åœ°ç‚¹ç‚¹å¤´ã€‚\n");
+	add_act("ask","lbr","HTW",2,"$Né“ï¼š"+get_ask_desc());
 
 }
 
@@ -284,11 +284,11 @@ void gave_problem() {
 void announce_score(int score) {
 	create_scenario("announce");
 	if(score>0) 
-		add_act("announce","a1","MTO",7,"%^H_GREEN%^$N¹¤×÷²»´í£¬´ó¼ÒµÄ¸É¾¢ÕÇÁË"+score+"µã¡£%^RESET%^\n"); 
+		add_act("announce","a1","MTO",7,"%^H_GREEN%^$Nå·¥ä½œä¸é”™ï¼Œå¤§å®¶çš„å¹²åŠ²æ¶¨äº†"+score+"ç‚¹ã€‚%^RESET%^\n"); 
 	else if(score==0) 
-		add_act("announce","a1","MTO",7,"$N¹¤×÷Ã»ÓĞÊ²Ã´³É¼¨¡£\n"); 
+		add_act("announce","a1","MTO",7,"$Nå·¥ä½œæ²¡æœ‰ä»€ä¹ˆæˆç»©ã€‚\n"); 
 	else 
-		add_act("announce","a1","MTO",7,"%^H_RED%^$N¹¤×÷Ê§Îó£¬´ó¼ÒµÄ¸É¾¢½µÁË"+((-1)*score)+"µã¡£%^RESET%^\n"); 
+		add_act("announce","a1","MTO",7,"%^H_RED%^$Nå·¥ä½œå¤±è¯¯ï¼Œå¤§å®¶çš„å¹²åŠ²é™äº†"+((-1)*score)+"ç‚¹ã€‚%^RESET%^\n"); 
 
 	do_scenario("announce");
 

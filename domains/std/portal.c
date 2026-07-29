@@ -5,10 +5,10 @@ inherit PORTAL;
 
 void setup ()
 {
-  set_in_room_desc ("ÕâÀïÓĞÒ»¸öÂÖ»ØÌ¨¡£");
-  set_long ("¿´ÆğÀ´ÏóÊÇ¸öÂÖ»ØÌ¨¡£");
-  add_adj ("ÊµÑéµÄ","rust's");
-  add_id ("portal", "ÂÖ»ØÌ¨");
+  set_in_room_desc ("è¿™é‡Œæœ‰ä¸€ä¸ªè½®å›å°ã€‚");
+  set_long ("çœ‹èµ·æ¥è±¡æ˜¯ä¸ªè½®å›å°ã€‚");
+  add_adj ("å®éªŒçš„","rust's");
+  add_id ("portal", "è½®å›å°");
   set_destination ("/domains/std/room3");
-  set_look_in_desc ("ÄãËÆºõ¿´¼ûÁËÒ»Ğ©±ğ´¦µÄ¾°Îï¡£");
+  set_look_in_desc ("ä½ ä¼¼ä¹çœ‹è§äº†ä¸€äº›åˆ«å¤„çš„æ™¯ç‰©ã€‚");
 }

@@ -2,11 +2,11 @@
 // this is used to handle npc chars auto action
 void add_hook(string, function);
 private string *p_autosay=({
-"ÀÏ·ò×Ý¹ÛÌìÏÂ£¬ÕæÕýÊÇÂÒÊÀ³öÓ¢ÐÛ°¡¡£\n",
-"¿´À´¶«ººµ±ÕæÊÇÆøÊýÒÑ¾¡ÁË¡£\n",
+"è€å¤«çºµè§‚å¤©ä¸‹ï¼ŒçœŸæ­£æ˜¯ä¹±ä¸–å‡ºè‹±é›„å•Šã€‚\n",
+"çœ‹æ¥ä¸œæ±‰å½“çœŸæ˜¯æ°”æ•°å·²å°½äº†ã€‚\n",
 });
 private string *p_autochat=({
-"·üÁú·ï³û£¬µÃÒ»¿É°²ÌìÏÂ£¬µÃ¶þÂï£¬¾ÍÄÑËµÁË. . . .",
+"ä¼é¾™å‡¤é›ï¼Œå¾—ä¸€å¯å®‰å¤©ä¸‹ï¼Œå¾—äºŒå˜›ï¼Œå°±éš¾è¯´äº†. . . .",
 });
 void add_say(string s) {
    p_autosay+=({s});
@@ -55,19 +55,19 @@ void do_mymovearea() {
         p_desarea=p_a[random(sizeof(p_a))];
         if(objectp(p_o))
         {
-           p_o->simple_action("$NµÀ£º´Ë´¦ÒÑ¾­´ý¹»£¬¸Ã»»»»µØ·½ÁË¡£\n");
-           p_o->simple_action("$N´Ò´ÒÀë¿ªÁË£®\n");
+           p_o->simple_action("$Né“ï¼šæ­¤å¤„å·²ç»å¾…å¤Ÿï¼Œè¯¥æ¢æ¢åœ°æ–¹äº†ã€‚\n");
+           p_o->simple_action("$NåŒ†åŒ†ç¦»å¼€äº†ï¼Ž\n");
         }
         CHAR_D->appear(p_id,p_desarea);
-        CHANNEL_D->deliver_tell("rumor","system","ÌýËµ"+
-        CHAR_D->get_char(p_id,"name")+"µ½ÁË"+AREA_D->get_area(p_desarea, "name")+"Ò»´ø¡£");
+        CHANNEL_D->deliver_tell("rumor","system","å¬è¯´"+
+        CHAR_D->get_char(p_id,"name")+"åˆ°äº†"+AREA_D->get_area(p_desarea, "name")+"ä¸€å¸¦ã€‚");
 }
 void do_myannouncearea() {
      string p_area;
      string p_id=this_object()->query_primary_id();
      p_area=this_object()->query_room()->get_area();
     CHANNEL_D->deliver_tell("gossip",CHAR_D->get_char(p_id,"name"), AREA_D->get_area(p_area,
-"name")+"ÕæÊÇ¸öºÃµØ·½£¬ÀÏ·ò»¹Òª¶àÓÎÀÀ¼¸ÈÕ¡£");
+"name")+"çœŸæ˜¯ä¸ªå¥½åœ°æ–¹ï¼Œè€å¤«è¿˜è¦å¤šæ¸¸è§ˆå‡ æ—¥ã€‚");
 }
 void do_my_semote()
 {
@@ -107,7 +107,7 @@ int valid_check()
     object env;
     env=environment(this_object());
     if(!objectp(env)) {
-        SGSYS(this_object()->short()+"Ã»ÓÐ»·¾³¡£");
+        SGSYS(this_object()->short()+"æ²¡æœ‰çŽ¯å¢ƒã€‚");
         return 0;       
     }
     return 1;

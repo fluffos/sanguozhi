@@ -1,4 +1,4 @@
-// boy.c the body of ÎÊÂ·Ğ¡ÄĞº¢
+// boy.c the body of é—®è·¯å°ç”·å­©
 // last modified by xiaobai, Sep. 14, 2001
 
 // #define _DEBUG_ID   "xiaobai"
@@ -6,12 +6,12 @@
 inherit PMODULES+"m_charnpc";
 
 private string my_leader="";
-private string* strBadIdArr = ({});  // ¼ÇÂ¼·ÅÆúµÄ id
+private string* strBadIdArr = ({});  // è®°å½•æ”¾å¼ƒçš„ id
 private string my_target;
 private mapping my_require=([]);
 private int m_nCntInput = 0;  /*!< counter for input */
 
-static string *my_desire=({"mantou"});
+nosave protected string *my_desire=({"mantou"});
 //static string *my_desire=({"mantou","niurou","liji","liyu","doufu","kaoya"});
 
 void my_select(string str);
@@ -22,7 +22,7 @@ void prepare_answer();
 void my_select(string str);
 void no_answer();
 
-//! ÖĞ¶ÏºÍÄ³ÈËµÄ½»Ì¸£¬ºÍ no_answer ÀàËÆ
+//! ä¸­æ–­å’ŒæŸäººçš„äº¤è°ˆï¼Œå’Œ no_answer ç±»ä¼¼
 void abort();
 
 void fail_answer();
@@ -40,9 +40,9 @@ void setup()
 {  
         call_out("my_heart",5);
         add_question("somebody","somebody"); 
-        add_ask_str("somebody","$N¶Ô$TÕĞÁËÕĞÊÖ£º$c£¬¹ıÀ´£¬$CÏòÄã´òÌı¸öÈË£¬ºÃ²»ºÃ¡£\n");       
+        add_ask_str("somebody","$Nå¯¹$Tæ‹›äº†æ‹›æ‰‹ï¼š$cï¼Œè¿‡æ¥ï¼Œ$Cå‘ä½ æ‰“å¬ä¸ªäººï¼Œå¥½ä¸å¥½ã€‚\n");       
         add_question("xianren","xianren");
-        add_ask_str("xianren","$NÏò$TÎÊµ½£º¡°²»Öª×î½üÓĞÃ»ÓĞÌıËµÊ²Ã´ÏÉÈËµÄÏûÏ¢£¿\n");     
+        add_ask_str("xianren","$Nå‘$Té—®åˆ°ï¼šâ€œä¸çŸ¥æœ€è¿‘æœ‰æ²¡æœ‰å¬è¯´ä»€ä¹ˆä»™äººçš„æ¶ˆæ¯ï¼Ÿ\n");     
 }
 void extra_init()
 {
@@ -50,16 +50,16 @@ void extra_init()
 }
 string long()
 {  
-        return "Ò»¸öµ÷Æ¤µÄĞ¡ÄĞº¢£¬»ëÉíÔàÙâÙâ£¬²»¹ı¿´ÆğÀ´·Ç³£»úÁé¡£\n";
+        return "ä¸€ä¸ªè°ƒçš®çš„å°ç”·å­©ï¼Œæµ‘èº«è„å…®å…®ï¼Œä¸è¿‡çœ‹èµ·æ¥éå¸¸æœºçµã€‚\n";
 }
 void do_my_speak()
 {  
         switch(random(5)){  
                 case 0:
-                        this_object()->simple_action("$NËµµÀ£ºÕâ¶ùÎÒ×îÊì£¬Ã»ÓĞÎÒ²»ÈÏÊ¶µÄÈË¡£\n");
+                        this_object()->simple_action("$Nè¯´é“ï¼šè¿™å„¿æˆ‘æœ€ç†Ÿï¼Œæ²¡æœ‰æˆ‘ä¸è®¤è¯†çš„äººã€‚\n");
                         break;
                 case 1:
-                        this_object()->simple_action("$NµÀ£ºË­ÄÜ¸øÎÒ¿éÌÇ³Ô¡£\n");
+                        this_object()->simple_action("$Né“ï¼šè°èƒ½ç»™æˆ‘å—ç³–åƒã€‚\n");
                         break;
                 case 2:
                         this_object()->responda("xixi");
@@ -68,7 +68,7 @@ void do_my_speak()
                         this_object()->responda("kick");
                         break;
                 default: 
-                this_object()->responda("say Ë­ÒªÕÒÈËÕÒ²»µÀ£¬ÎÊÎÒ×¼Ã»´í¡£\n");
+                this_object()->responda("say è°è¦æ‰¾äººæ‰¾ä¸é“ï¼Œé—®æˆ‘å‡†æ²¡é”™ã€‚\n");
                 break;
         }
 }
@@ -143,27 +143,27 @@ string assign_desire()
 	mak=OBJ_D->get_obj_maker(typ);
 	if(!sizeof(mak)) return "mantou"; // no place to get it
 	val=OBJ_D->get_obj(typ,"value");
-	if(val>1500) return "mantou"; // too expensive 20 silver*/ //ÏÖÔÚÏÈÒ»ÂÉ¸øÂøÍ·£¬Áô´ıÒÔºóÔÙÍêÉÆ
+	if(val>1500) return "mantou"; // too expensive 20 silver*/ //ç°åœ¨å…ˆä¸€å¾‹ç»™é¦’å¤´ï¼Œç•™å¾…ä»¥åå†å®Œå–„
 	return "mantou";
 //	return typ;
 }
 void answer_xianren(object who)
 {
         string p_id = who->query_id()[0];
-        object o;  // ºÍ boy ½»Ì¸µÄÈËµÄ obj
+        object o;  // å’Œ boy äº¤è°ˆçš„äººçš„ obj
 
         if ( my_leader != "" )
-        // ÓĞÈËºÍ boy ½»Ì¸£¬»¹Ã»ÓĞ½áÊø
+        // æœ‰äººå’Œ boy äº¤è°ˆï¼Œè¿˜æ²¡æœ‰ç»“æŸ
         {
             o = present( my_leader, environment( this_object() ) );
 
             if( objectp( o ) )
             {
-                this_object()->targetted_action("$N¶Ô$TµÀ£ºÎÒÕıÃ¦×ÅÄØ¡£\n",who);
+                this_object()->targetted_action("$Nå¯¹$Té“ï¼šæˆ‘æ­£å¿™ç€å‘¢ã€‚\n",who);
                 return;
             }
             else
-            // xiaobai: 10-22-2001, ÄÇ¸öÈË²»ÔÚÃæÇ°£¬È¡ÏûºÍËûµÄ½»Ì¸
+            // xiaobai: 10-22-2001, é‚£ä¸ªäººä¸åœ¨é¢å‰ï¼Œå–æ¶ˆå’Œä»–çš„äº¤è°ˆ
             {
                 abort();
             }
@@ -171,13 +171,13 @@ void answer_xianren(object who)
 
         if( member_array( p_id, strBadIdArr ) != -1 )
         {
-            this_object()->targetted_action("$N¶Ô$TµÀ£ºÄã¸Õ¸Õ²Å·³¹ıÎÒ£¬ÇëµÈÒ»»á¶ùÔÙÀ´¡£\n",who);
+            this_object()->targetted_action("$Nå¯¹$Té“ï¼šä½ åˆšåˆšæ‰çƒ¦è¿‡æˆ‘ï¼Œè¯·ç­‰ä¸€ä¼šå„¿å†æ¥ã€‚\n",who);
             return;
         }
 
         my_leader = p_id;
 
-        this_object()->targetted_action("$N¶Ô$TµÀ£º$mÒªÕÒË­Ñ½¡£\n",who);
+        this_object()->targetted_action("$Nå¯¹$Té“ï¼š$mè¦æ‰¾è°å‘€ã€‚\n",who);
         o = find_user( my_leader );
         if(!objectp(o))
         {
@@ -185,33 +185,33 @@ void answer_xianren(object who)
             return;
         }
         
-        tell_user(my_leader,"ÇëÊäÈëÒªÕÒ½ÇÉ«µÄID\n");
+        tell_user(my_leader,"è¯·è¾“å…¥è¦æ‰¾è§’è‰²çš„ID\n");
         
-        tell_user(my_leader,"»ªÍÓ(hua tuo)£¬ÓÚ¼ª(yu ji)£¬ĞíÉÛ(xu zijiang)£¬×ó´È(zuo ci)£¬°ü´òÌı(bao dating)£¬ÄÏ»ªÀÏÏÉ(nanhua laoxian)\n");
+        tell_user(my_leader,"åé™€(hua tuo)ï¼Œäºå‰(yu ji)ï¼Œè®¸é‚µ(xu zijiang)ï¼Œå·¦æ…ˆ(zuo ci)ï¼ŒåŒ…æ‰“å¬(bao dating)ï¼Œå—åè€ä»™(nanhua laoxian)\n");
         
-        o->modal_push((: input_xianren :),"Äã´òËãÕÒË­¡£");
+        o->modal_push((: input_xianren :),"ä½ æ‰“ç®—æ‰¾è°ã€‚");
         
-        // xiaobai: Ô­À´Ê±¼äÎª60
+        // xiaobai: åŸæ¥æ—¶é—´ä¸º60
         call_out( "no_answer", 30 + random(10) );
 }
 
 void answer_somebody(object who)
 {
         string p_id=who->query_id()[0];
-        object o;  // ºÍ boy ½»Ì¸µÄÈËµÄ obj
+        object o;  // å’Œ boy äº¤è°ˆçš„äººçš„ obj
         
         if ( my_leader != "" )
-        // ÓĞÈËºÍ boy ½»Ì¸£¬»¹Ã»ÓĞ½áÊø
+        // æœ‰äººå’Œ boy äº¤è°ˆï¼Œè¿˜æ²¡æœ‰ç»“æŸ
         {
             o = present( my_leader, environment( this_object() ) );
 
             if( objectp( o ) )
             {
-                this_object()->targetted_action("$N¶Ô$TµÀ£ºÎÒÕıÃ¦×ÅÄØ¡£\n",who);
+                this_object()->targetted_action("$Nå¯¹$Té“ï¼šæˆ‘æ­£å¿™ç€å‘¢ã€‚\n",who);
                 return;
             }
             else
-            // xiaobai: 10-22-2001, ÄÇ¸öÈË²»ÔÚÃæÇ°£¬È¡ÏûºÍËûµÄ½»Ì¸
+            // xiaobai: 10-22-2001, é‚£ä¸ªäººä¸åœ¨é¢å‰ï¼Œå–æ¶ˆå’Œä»–çš„äº¤è°ˆ
             {
                 abort();
             }
@@ -219,7 +219,7 @@ void answer_somebody(object who)
         
         if( member_array( p_id, strBadIdArr ) != -1 )
         {
-            this_object()->targetted_action("$N¶Ô$TµÀ£ºÄã¸Õ¸Õ²Å·³¹ıÎÒ£¬ÇëµÈÒ»»á¶ùÔÙÀ´¡£\n",who);
+            this_object()->targetted_action("$Nå¯¹$Té“ï¼šä½ åˆšåˆšæ‰çƒ¦è¿‡æˆ‘ï¼Œè¯·ç­‰ä¸€ä¼šå„¿å†æ¥ã€‚\n",who);
             return;
         }
 #ifdef _DEBUG_ID
@@ -228,14 +228,14 @@ void answer_somebody(object who)
 
         my_leader=p_id;
 
-        this_object()->targetted_action("$N¶Ô$TµÀ£º$mÒªÕÒË­Ñ½¡£\n",who);
+        this_object()->targetted_action("$Nå¯¹$Té“ï¼š$mè¦æ‰¾è°å‘€ã€‚\n",who);
 
         o = find_user(my_leader);
         if(!objectp(o)) {no_answer(); return;}
-        tell_user(my_leader,"ÇëÊäÈëÒªÕÒ½ÇÉ«µÄID\n");
-        o->modal_push((: input_name :),"Äã´òËãÕÒË­¡£");
+        tell_user(my_leader,"è¯·è¾“å…¥è¦æ‰¾è§’è‰²çš„ID\n");
+        o->modal_push((: input_name :),"ä½ æ‰“ç®—æ‰¾è°ã€‚");
         
-        // xiaobai: Ô­À´Ê±¼äÎª60
+        // xiaobai: åŸæ¥æ—¶é—´ä¸º60
         call_out("no_answer", 30 + random(10) );
 
 }
@@ -244,7 +244,7 @@ void input_xianren(string str)
         object o;
         if(!CHAR_D->char_exist(str))
         {
-                write("Ã»ÓĞÕâ¸ö½ÇÉ«¡£\n");
+                write("æ²¡æœ‰è¿™ä¸ªè§’è‰²ã€‚\n");
                 no_answer();
                 return;
         }
@@ -253,7 +253,7 @@ void input_xianren(string str)
         o->modal_pop();
         my_target=str;
         this_body()->simple_action(
-                "$NµÀ£ºÎÒÏëÕÒ"+CHAR_D->get_char(my_target,"name")+"¡£\n");
+                "$Né“ï¼šæˆ‘æƒ³æ‰¾"+CHAR_D->get_char(my_target,"name")+"ã€‚\n");
 
         this_object()->responda("consider");
         call_out("prepare_answer",1);
@@ -263,7 +263,7 @@ void input_name(string str)
         object o;
         if(!CHAR_D->char_exist(str))
         {
-                write("Ã»ÓĞÕâ¸ö½ÇÉ«¡£\n");
+                write("æ²¡æœ‰è¿™ä¸ªè§’è‰²ã€‚\n");
                 no_answer();
                 return;
         }
@@ -272,7 +272,7 @@ void input_name(string str)
         o->modal_pop();
         my_target=str;
         this_body()->simple_action(
-                "$NµÀ£ºÎÒÏëÕÒ"+CHAR_D->get_char(my_target,"name")+"¡£\n");
+                "$Né“ï¼šæˆ‘æƒ³æ‰¾"+CHAR_D->get_char(my_target,"name")+"ã€‚\n");
 
         this_object()->responda("consider");
                 
@@ -283,18 +283,18 @@ void prepare_answer()
     string my_area;
 
     my_area=environment(this_object())->get_area();
-	tell_user("huaer",sprintf("½øÁËboy.c / prepare_answer()ÖĞ, my_area = %s\n",my_area));
+	tell_user("huaer",sprintf("è¿›äº†boy.c / prepare_answer()ä¸­, my_area = %s\n",my_area));
     if( my_target!="hua tuo"&&my_target!="xu zijiang"&&my_target!="bao dating"&&my_target!="zuo ci"&&my_target!="yu ji"&&my_target!="nanhua laoxian" ){
     if(CHAR_D->get_char(my_target,"area")!=my_area){
        
          if(CHAR_D->get_char(my_target,"my_area")!=my_area)
-                        this_object()->simple_action("$NÒ¡Ò¡Í·µÀ£º"+CHAR_D->get_char(my_target,"name")+"£¿Ã»ÌıËµ¹ı¡£´ó¸Å²»×¡ÔÚÕâ¸öµØÇø°É¡£\n");
+                        this_object()->simple_action("$Næ‘‡æ‘‡å¤´é“ï¼š"+CHAR_D->get_char(my_target,"name")+"ï¼Ÿæ²¡å¬è¯´è¿‡ã€‚å¤§æ¦‚ä¸ä½åœ¨è¿™ä¸ªåœ°åŒºå§ã€‚\n");
                 else
-                        this_object()->simple_action("ÕâÀïÓĞÄÇÃ´¶à"+CHAR_D->get_char(my_target,"name")+"£¬ÎÒÔõÃ´ÖªµÀÄãÒªÕÒÄÄ¸ö¡£\n");
-                DELAY_D->delay_simple_action(this_body(),"$NÊ§ÍûµØÌ¾ÁË¿ÚÆø¡£\n",1);
+                        this_object()->simple_action("è¿™é‡Œæœ‰é‚£ä¹ˆå¤š"+CHAR_D->get_char(my_target,"name")+"ï¼Œæˆ‘æ€ä¹ˆçŸ¥é“ä½ è¦æ‰¾å“ªä¸ªã€‚\n");
+                DELAY_D->delay_simple_action(this_body(),"$Nå¤±æœ›åœ°å¹äº†å£æ°”ã€‚\n",1);
                 remove_call_out("no_answer");
 
-                // xiaobai: ¼Ç×¡Õâ¸ö id  20 Ãë
+                // xiaobai: è®°ä½è¿™ä¸ª id  20 ç§’
                 mark_id( my_leader );
 
                 my_leader=""; 
@@ -302,11 +302,11 @@ void prepare_answer()
                 return;
            }
 	if(objectp(find_body(my_target))) { // this is a player
-             this_object()->simple_action("ÎÒÖªµÀ"+CHAR_D->get_char(my_target,"name")+"ÔÚÄÄ¶ù£¬µ«ÊÇ²»Ïë¸æËßÄã¡£\n");
+             this_object()->simple_action("æˆ‘çŸ¥é“"+CHAR_D->get_char(my_target,"name")+"åœ¨å“ªå„¿ï¼Œä½†æ˜¯ä¸æƒ³å‘Šè¯‰ä½ ã€‚\n");
 
                 remove_call_out("no_answer");
                 
-                // xiaobai: ¼Ç×¡Õâ¸ö id  20 Ãë
+                // xiaobai: è®°ä½è¿™ä¸ª id  20 ç§’
                 mark_id( my_leader );
                 
                 my_leader="";
@@ -319,8 +319,8 @@ void prepare_answer()
                 my_require[my_target]=assign_desire();
 
 
-        this_object()->simple_action("$NµÀ£º"+CHAR_D->get_char(my_target,"name")+"Âï£¬ÎÒÖªµÀÔÚÄÄ¶ù£¬²»¹ıÄãÒª¸øÎÒÒ»·İ"+
-		OBJ_D->get_obj(my_require[my_target],"name")+"("+my_require[my_target]+")¡£ÎÒ²Å¸æËßÄã¡£\n");
+        this_object()->simple_action("$Né“ï¼š"+CHAR_D->get_char(my_target,"name")+"å˜›ï¼Œæˆ‘çŸ¥é“åœ¨å“ªå„¿ï¼Œä¸è¿‡ä½ è¦ç»™æˆ‘ä¸€ä»½"+
+		OBJ_D->get_obj(my_require[my_target],"name")+"("+my_require[my_target]+")ã€‚æˆ‘æ‰å‘Šè¯‰ä½ ã€‚\n");
 //        destruct(o);
 
        // xiaobai: reset the counter of input
@@ -342,9 +342,9 @@ void request_selection()
             return;
     }
     
-    tell_user(my_leader, "ÇëÊäÈë¶Ô²ß£º1 £º¸øÇ®£¬2 £º¸øÌÇ£¬ 3£º´ğÓ¦ÒªÇó£¬ 0 £º·ÅÆú\n");
+    tell_user(my_leader, "è¯·è¾“å…¥å¯¹ç­–ï¼š1 ï¼šç»™é’±ï¼Œ2 ï¼šç»™ç³–ï¼Œ 3ï¼šç­”åº”è¦æ±‚ï¼Œ 0 ï¼šæ”¾å¼ƒ\n");
     
-    o->modal_push((: my_select :), "ÇëÊäÈë¶Ô²ß£º1 £º¸øÇ®£¬2 £º¸øÌÇ£¬3£º´ğÓ¦ÒªÇó£¬ 0 £º·ÅÆú\n");
+    o->modal_push((: my_select :), "è¯·è¾“å…¥å¯¹ç­–ï¼š1 ï¼šç»™é’±ï¼Œ2 ï¼šç»™ç³–ï¼Œ3ï¼šç­”åº”è¦æ±‚ï¼Œ 0 ï¼šæ”¾å¼ƒ\n");
         
 }  // end quest_selection
 
@@ -359,27 +359,27 @@ void my_select(string str)
         {
         case "1":  // give money
                 this_body()->targetted_action(
-                        "$NÅÄÅÄ$TµÄÍ·Ëµ£¬ÄãÒªµÄ¶«Î÷ÎÒÃ»ÓĞ£¬¸øÄãÒ»Á½½ğ×Ó£¬Äã×Ô¼º¿´×ÅÈ¥Âò°É¡£\n",
+                        "$Næ‹æ‹$Tçš„å¤´è¯´ï¼Œä½ è¦çš„ä¸œè¥¿æˆ‘æ²¡æœ‰ï¼Œç»™ä½ ä¸€ä¸¤é‡‘å­ï¼Œä½ è‡ªå·±çœ‹ç€å»ä¹°å§ã€‚\n",
         this_object());
          if(this_body()->query_all_con_money()<10000)
          {
             DELAY_D->delay_simple_action(this_object(),
-                                "$NµÀ£ºÄãÄÄÓĞÇ®£¬Æ­ÈË¡£\n",1);
+                                "$Né“ï¼šä½ å“ªæœ‰é’±ï¼Œéª—äººã€‚\n",1);
                         call_out("fail_answer",2);
          }
          else
          {  this_body()->set_all_con_money( 
                                 this_body()->query_all_con_money() -10000);
             DELAY_D->delay_simple_action(this_object(),
-                                "$N¸ßĞËµØÌøÁËÆğÀ´¡£\n",1);
+                                "$Né«˜å…´åœ°è·³äº†èµ·æ¥ã€‚\n",1);
             DELAY_D->delay_targetted_action(this_body(),this_object(),
-                                "$N¸ø$TÒ»Á½½ğ×Ó¡£\n",2);
+                                "$Nç»™$Tä¸€ä¸¤é‡‘å­ã€‚\n",2);
                         call_out("succ_answer",3);
          }
          break;
         case "2":
                 this_body()->targetted_action(
-                      "$NÅÄÅÄ$TµÄÍ·Ëµ£¬ÄãÒªµÄ¶«Î÷ÎÒÃ»ÓĞ£¬¸øÄãÒ»¿éÌÇ£¬Äã¿´ºÃ²»ºÃ¡£\n",
+                      "$Næ‹æ‹$Tçš„å¤´è¯´ï¼Œä½ è¦çš„ä¸œè¥¿æˆ‘æ²¡æœ‰ï¼Œç»™ä½ ä¸€å—ç³–ï¼Œä½ çœ‹å¥½ä¸å¥½ã€‚\n",
          this_object());
         {
                         
@@ -387,44 +387,44 @@ void my_select(string str)
                         if(!objectp(o))
                         {
                                 DELAY_D->delay_simple_action(this_object(),
-                                        "$NµÀ£ºÄãÄÄÓĞÌÇ£¬Æ­ÈË¡£\n",1);
+                                        "$Né“ï¼šä½ å“ªæœ‰ç³–ï¼Œéª—äººã€‚\n",1);
                                 call_out("fail_answer",2);
                         }
                         else
                         {   string c_id=o->query_chinese_id();
                                 destruct(o);
                                 DELAY_D->delay_simple_action(this_object(),
-                                "$N¸ßĞËµØÌøÁËÆğÀ´¡£\n",1);
+                                "$Né«˜å…´åœ°è·³äº†èµ·æ¥ã€‚\n",1);
                    DELAY_D->delay_targetted_action(this_body(),this_object(),
-                                "$N¸ø$TÒ»¿é"+c_id+"¡£\n",2);
+                                "$Nç»™$Tä¸€å—"+c_id+"ã€‚\n",2);
                                 call_out("succ_answer",3);
                         }
          }
          break;
         case "3":
                 this_body()->targetted_action(
-                        "$NÅÄÅÄ$TµÄÍ·Ëµ£ººÃ°É£¬¾Í´ğÓ¦ÄãµÄÌõ¼ş°É¡£\n",this_object());
+                        "$Næ‹æ‹$Tçš„å¤´è¯´ï¼šå¥½å§ï¼Œå°±ç­”åº”ä½ çš„æ¡ä»¶å§ã€‚\n",this_object());
         {
                         o=present(my_require[my_target],this_body());
                         if(!objectp(o))
                         {
                                 DELAY_D->delay_simple_action(this_object(),
-                                        "$NµÀ£ºÄãÄÄÓĞÎÒÏëÒªµÄ£¬Æ­ÈË¡£\n",1);
+                                        "$Né“ï¼šä½ å“ªæœ‰æˆ‘æƒ³è¦çš„ï¼Œéª—äººã€‚\n",1);
                                 call_out("fail_answer",2);
                         }
                         else
                         {   string c_id=o->query_chinese_id();
                                 destruct(o);
                                 DELAY_D->delay_simple_action(this_object(),
-                                "$N¸ßĞËµØÌøÁËÆğÀ´¡£\n",1);
+                                "$Né«˜å…´åœ°è·³äº†èµ·æ¥ã€‚\n",1);
                    DELAY_D->delay_targetted_action(this_body(),this_object(),
-                                "$N¸ø$TÒ»·İ"+c_id+"¡£\n",2);
+                                "$Nç»™$Tä¸€ä»½"+c_id+"ã€‚\n",2);
                                 call_out("succ_answer",3);
                         }
          }
          break;
         default:
-                this_body()->targetted_action("$N¶Ô$TµÀ£ºËãÁË£¬²»ÎÊÄãÁË¡£\n",
+                this_body()->targetted_action("$Nå¯¹$Té“ï¼šç®—äº†ï¼Œä¸é—®ä½ äº†ã€‚\n",
                    this_object());
                 // xiaobai:
                 call_out("no_answer",1);
@@ -449,7 +449,7 @@ void succ_answer()
         {
                 SGSYS("CAN'T FIND "+my_target);
                 this_object()->simple_action
-           ("$NÖåÁËÖåÃ¼Í·£¬Ææ¹Ö£¬ÎÒÔõÃ´ÓÖÏë²»ÆğËûÔÚÄÄ¶ùÁË¡£\n");
+           ("$Nçš±äº†çš±çœ‰å¤´ï¼Œå¥‡æ€ªï¼Œæˆ‘æ€ä¹ˆåˆæƒ³ä¸èµ·ä»–åœ¨å“ªå„¿äº†ã€‚\n");
                 return;
         }
         env=o->query_room();
@@ -457,15 +457,15 @@ void succ_answer()
         {
                 SGSYS("CAN'T FIND "+my_target+"'s ROOM");
                 this_object()->simple_action
-        ("$NÖåÁËÖåÃ¼Í·£¬Ææ¹Ö£¬ÎÒÔõÃ´ÓÖÏë²»ÆğËûÔÚÄÄ¶ùÁË¡£\n");
+        ("$Nçš±äº†çš±çœ‰å¤´ï¼Œå¥‡æ€ªï¼Œæˆ‘æ€ä¹ˆåˆæƒ³ä¸èµ·ä»–åœ¨å“ªå„¿äº†ã€‚\n");
                 return;
         }
         this_object()->responda("say "+CHAR_D->get_char(my_target,"name")+
-                "ÏÖÔÚÕıÔÚ"+
-                AREA_D->get_area(env->get_area(),"name")+"µÄ"+
-                env->short()+"¡£\n");
+                "ç°åœ¨æ­£åœ¨"+
+                AREA_D->get_area(env->get_area(),"name")+"çš„"+
+                env->short()+"ã€‚\n");
 
-        // xiaobai: ¼Ç×¡Õâ¸ö id  20 Ãë
+        // xiaobai: è®°ä½è¿™ä¸ª id  20 ç§’
         mark_id( my_leader );
         my_leader="";
 
@@ -474,7 +474,7 @@ void succ_answer()
 
 void fail_answer()
 {
-    this_object()->simple_action("$NºßµÀ£ºĞ¡Æø¹í¡£\n");
+    this_object()->simple_action("$Nå“¼é“ï¼šå°æ°”é¬¼ã€‚\n");
     this_object()->responda("kick "+my_leader);
 
     // xiaobai: let the user select other thing
@@ -497,26 +497,26 @@ void no_answer()
 {
         object o;
         remove_call_out("no_answer");
-        this_object()->simple_action("$N²»ÄÍ·³µØµÀ£ººÃºÃÏëÇå³şÁË£¬¹ıÒ»»á¶ùÔÙÀ´¡£\n");
+        this_object()->simple_action("$Nä¸è€çƒ¦åœ°é“ï¼šå¥½å¥½æƒ³æ¸…æ¥šäº†ï¼Œè¿‡ä¸€ä¼šå„¿å†æ¥ã€‚\n");
         o=find_user(my_leader);
         if(objectp(o))
                 o->modal_pop();
-        // xiaobai: ¼Ç×¡Õâ¸ö id  20 Ãë
+        // xiaobai: è®°ä½è¿™ä¸ª id  20 ç§’
         mark_id( my_leader );
 
         my_leader="";
 }
 
-//! ÖĞ¶ÏºÍÄ³ÈËµÄ½»Ì¸£¬ºÍ no_answer ÀàËÆ
+//! ä¸­æ–­å’ŒæŸäººçš„äº¤è°ˆï¼Œå’Œ no_answer ç±»ä¼¼
 void abort()
 {
         object o;
         remove_call_out("no_answer");
-        this_object()->simple_action( "$N×ÔÑÔ×ÔÓïµÀ£º¸Õ²ÅºÍÎÒËµ»°µÄÈË²»ÖªµÀµ½ÄÄÀïÈ¥ÁË¡£" );
+        this_object()->simple_action( "$Nè‡ªè¨€è‡ªè¯­é“ï¼šåˆšæ‰å’Œæˆ‘è¯´è¯çš„äººä¸çŸ¥é“åˆ°å“ªé‡Œå»äº†ã€‚" );
         o=find_user(my_leader);
         if(objectp(o))
                 o->modal_pop();
-        // xiaobai: ¼Ç×¡Õâ¸ö id  20 Ãë
+        // xiaobai: è®°ä½è¿™ä¸ª id  20 ç§’
         mark_id( my_leader );
 
         my_leader="";

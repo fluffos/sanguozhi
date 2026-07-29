@@ -9,17 +9,17 @@ private void main(string str) {
   string dest;
   if ( !adminp(this_user()) )
     {
-      out("�Բ���ֻ�Դ��񿪷š�\n");
+      out("对不起，只对大神开放。\n");
       return;
     }
   
   if (!str) {
-    out("�÷�: mvemote <target> <destination>\n");
+    out("用法: mvemote <target> <destination>\n");
     return;
   }
   sscanf(str, "%s %s", str, dest);
   if (SOUL_D->move_emote(str, dest))
-    out("�ƶ��ˡ�\n");
-  else out("ʧ���ˡ�\n");
+    out("移动了。\n");
+  else out("失败了。\n");
 }
 

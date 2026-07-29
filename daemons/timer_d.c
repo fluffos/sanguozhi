@@ -23,7 +23,7 @@ class timer_info
 /*
 ** This maps timer owners to a timer_info structure.
 */
-static private mapping timers;
+nosave private mapping timers;
 
 void create()
 {
@@ -40,10 +40,10 @@ nomask void process_timer(object owner)
 
     if ( data->time_left == 0 )
         //notice = "The timer has expired";
-        notice = "Õâ¸ö¼ÆÊ±Æ÷¹ıÆÚÁË";
+        notice = "è¿™ä¸ªè®¡æ—¶å™¨è¿‡æœŸäº†";
     else
         notice = sprintf(//"%d:%02d left on the timer",
-                         "¼ÆÊ±Æ÷»¹Ê£ %d:%02d",
+                         "è®¡æ—¶å™¨è¿˜å‰© %d:%02d",
              data->time_left / 60, data->time_left % 60);
     if ( data->channel_name )
         CHANNEL_D->deliver_notice(data->channel_name, notice);
@@ -59,7 +59,7 @@ nomask void process_timer(object owner)
         else
             t = data->delay;
         notice = sprintf(//"Timer rescheduled for %d:%02d",
-                         "¼ÆÊ±Æ÷ÖØĞÂ¶¨Ê±Îª %d:%02d",
+                         "è®¡æ—¶å™¨é‡æ–°å®šæ—¶ä¸º %d:%02d",
                          data->delay / 60, data->delay % 60);
         if ( data->channel_name )
             CHANNEL_D->deliver_notice(data->channel_name, notice);
@@ -93,12 +93,12 @@ varargs nomask string add_timer(int delay,      /* timer delay */
 
     if ( !delay || notify > delay )
     //return "Bad parameters.\n";
-      return ("²ÎÊı´íÎó¡£\n");
+      return ("å‚æ•°é”™è¯¯ã€‚\n");
     if ( !owner )
         owner = this_user();
     if ( !owner )
         //return "No owner.\n";
-        return "Ã»ÓĞËùÊôÕß¡£\n";
+        return "æ²¡æœ‰æ‰€å±è€…ã€‚\n";
 
     /*
     ** Compute the first delay time
@@ -124,13 +124,13 @@ varargs nomask string add_timer(int delay,      /* timer delay */
         string notice;
 
         notice = sprintf(//"timer set to %d:%02d",
-                         "¼ÆÊ±Æ÷Éè¶¨Îª %d:%02d",
+                         "è®¡æ—¶å™¨è®¾å®šä¸º %d:%02d",
                           delay/60, delay%60);
 
         CHANNEL_D->deliver_notice(channel, notice);
     }
     //return "Done.\n";
-    return "Íê³ÉÉè¶¨¡£\n";
+    return "å®Œæˆè®¾å®šã€‚\n";
 }
 
 mapping query_timers()

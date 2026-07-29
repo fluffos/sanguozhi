@@ -22,7 +22,7 @@ inherit M_INPUT;
 inherit CLASS_MAILMSG;
 
 //### make it private so it can't be changed?
-static object   mailbox_ob;
+nosave protected object   mailbox_ob;
 
 
 /*
@@ -30,7 +30,7 @@ static object   mailbox_ob;
 **
 ** Return a temporary filename for editing mail messages
 */
-static nomask string tmp_fname()
+protected nomask string tmp_fname()
 {
     return "/tmp/tmail." + this_user()->query_userid();
 }
@@ -41,7 +41,7 @@ static nomask string tmp_fname()
 ** Get a message key from a user's message number.
 ** 0 is returned if the user number is out of bounds.
 */
-static nomask int get_message_key(int user_num)
+protected nomask int get_message_key(int user_num)
 {
     int * mail_keys;
 
@@ -54,7 +54,7 @@ static nomask int get_message_key(int user_num)
     if ( user_num < 0 || user_num >= sizeof(mail_keys) )
     {
     //write("Message number out of bounds.\n");
-    write("ĞÅ¼şºÅÂë³¬³ö·¶Î§ÁË¡£\n");
+    write("ä¿¡ä»¶å·ç è¶…å‡ºèŒƒå›´äº†ã€‚\n");
     return 0;
     }
 
@@ -66,7 +66,7 @@ static nomask int get_message_key(int user_num)
 **
 ** Format a list of names (as in To: or CC:).  Returns an array of lines.
 */
-static nomask string * format_name_list(string prompt, string * names)
+nosave protected nomask string * format_name_list(string prompt, string * names)
 {
     if ( !names || !sizeof(names) )
     return ({ });
@@ -80,29 +80,29 @@ static nomask string * format_name_list(string prompt, string * names)
 **
 ** Build an array of strings containing a mail message.
 */
-static nomask string * build_message(int mail_key, int supress_header)
+nosave protected nomask string * build_message(int mail_key, int supress_header)
 {
     string *    output;
     class mail_msg msg;
 
     msg = mailbox_ob->get_one_message(mail_key);
     if ( !msg )
-        return ({ "*** ÓÊ¼ş¶ªÊ§£¡ ***" });
+        return ({ "*** é‚®ä»¶ä¸¢å¤±ï¼ ***" });
 
     output = ({});
     if ( !supress_header )
     {
     output += format_name_list(//"To     : ",
-                               "ÊÕĞÅÈË £º",  msg->to_list);
+                               "æ”¶ä¿¡äºº ï¼š",  msg->to_list);
     output += format_name_list(//"Cc     : ",
-                               "ºÍ     £º",  msg->cc_list);
+                               "å’Œ     ï¼š",  msg->cc_list);
     output += ({ //"From   : "
-                 "¼ÄĞÅÈË £º" + msg->sender });
+                 "å¯„ä¿¡äºº ï¼š" + msg->sender });
     output += ({ //"Date   : "
-                 "ÈÕÆÚ   £º" + ctime(msg->date) });
+                 "æ—¥æœŸ   ï¼š" + ctime(msg->date) });
 
     output += explode(iwrap(//"Subject: "
-                            "ÌâÄ¿£º" + msg->subject),"\n");
+                            "é¢˜ç›®ï¼š" + msg->subject),"\n");
 
     output += ({ sprintf("%'-'39s","-") });
     }
@@ -119,7 +119,7 @@ static nomask string * build_message(int mail_key, int supress_header)
 ** Write the array of lines to the wizard's dead.letter.  Does nothing
 ** if the player is not a wizard or no home dir exists.
 */
-static nomask void write_dead_letter(string * buf)
+protected nomask void write_dead_letter(string * buf)
 {
     if ( wizardp(this_user()) &&
     file_size("/wiz/"+this_user()->query_userid()) == -2 )
@@ -137,7 +137,7 @@ static nomask void write_dead_letter(string * buf)
 ** Build an array of lines for the body of a message to be included into
 ** another message (prefixed with "> ")
 */
-static nomask string * build_body_inclusion(string * body)
+nosave protected nomask string * build_body_inclusion(string * body)
 {
     return map_array(body, (: "> " + $1 :));
 }
@@ -173,14 +173,14 @@ private nomask void send_mail_message(string subject,
     if ( !sizeof(name_list) )
     {
     //write("No valid destination.\n");
-    write("ÊÕĞÅÈËĞÕÃû´íÎó¡£\n");
+    write("æ”¶ä¿¡äººå§“åé”™è¯¯ã€‚\n");
     if ( use_dead_letter )
         write_dead_letter(buf);
     return;
     }
 
     write(implode(format_name_list(//"Mail sent to: ",
-                                   "¼ÄĞÅ¸ø£º",
+                                   "å¯„ä¿¡ç»™ï¼š",
                                     name_list), "\n") + "\n");
 }
 
@@ -198,7 +198,7 @@ private nomask void send_mail_message(string subject,
 ** entry -- usage information cannot be printed from these commands.
 */
 
-static nomask void cmd_read(int user_num,
+protected nomask void cmd_read(int user_num,
                 string outputfile,
                 int supress_header)
 {
@@ -220,10 +220,10 @@ static nomask void cmd_read(int user_num,
 
     if ( !write_file(outputfile, implode(output,"\n")) )
         //write("Failed.\n");
-        write("Ê§°Ü¡£\n");
+        write("å¤±è´¥ã€‚\n");
     else
         //printf("Saved message to %s.\n",outputfile);
-        printf("ĞÅ¼ş´æµ½ÎÄ¼ş %s ¡£\n", outputfile);
+        printf("ä¿¡ä»¶å­˜åˆ°æ–‡ä»¶ %s ã€‚\n", outputfile);
     return;
     }
 
@@ -234,7 +234,7 @@ static nomask void cmd_read(int user_num,
 }
 
 
-static nomask void cmd_headers(string rangestr)
+protected nomask void cmd_headers(string rangestr)
 {
     int   i,j;
     string* output;
@@ -250,7 +250,7 @@ static nomask void cmd_headers(string rangestr)
     mail_keys = mailbox_ob->query_message_keys();
     if ( !sizeof(mail_keys) )
     return //write("No mail.\n");
-           write("Ã»ÓĞĞÅ¼ş¡£\n");
+           write("æ²¡æœ‰ä¿¡ä»¶ã€‚\n");
 
     nums = ([ ]);
     for ( i = sizeof(mail_keys); i--; )
@@ -274,7 +274,7 @@ static nomask void cmd_headers(string rangestr)
         if ( !msg )
             output +=
             ({ sprintf("  %-3d %-15s  %10s  %s",
-                nums[key], "", "", "*** ÓÊ¼ş¶ªÊ§£¡ ***")
+                nums[key], "", "", "*** é‚®ä»¶ä¸¢å¤±ï¼ ***")
             });
         else
            output +=
@@ -329,23 +329,23 @@ private nomask void mailer_get_subject(string to_list, string arg)
     (: mailer_done_edit, to_list, subject :));
 }
 
-static nomask void cmd_mail(string to_list)
+protected nomask void cmd_mail(string to_list)
 {
     //Until a new maskable editor is in place, don't allow a null
     // to line.
     if ( !stringp(to_list) )
     {
     //write("No destination.\n");
-    write("Ã»ÓĞÊÕĞÅÈË¡£\n");
+    write("æ²¡æœ‰æ”¶ä¿¡äººã€‚\n");
     return;
     }
 
     //write("Subject: ");
-    write("ÌâÄ¿£º");
+    write("é¢˜ç›®ï¼š");
     modal_simple((: mailer_get_subject, to_list :));
 }
 
-static nomask void cmd_reply(int user_num, int reply_all)
+protected nomask void cmd_reply(int user_num, int reply_all)
 {
     int key;
     class mail_msg msg;
@@ -361,13 +361,13 @@ static nomask void cmd_reply(int user_num, int reply_all)
     msg = mailbox_ob->get_one_message(key);
     if ( !msg )
     {
-        write("*** ´íÎó£ºÓÊ¼ş¶ªÊ§£¡\n");
+        write("*** é”™è¯¯ï¼šé‚®ä»¶ä¸¢å¤±ï¼\n");
         return;
     }
     body = build_body_inclusion(msg->body);
     body = implode(body, "\n");
     body = sprintf(//"On %s %s wrote:\n%s\n",
-                   "ÔÚ %s £¬%s Ğ´µÀ£º\n%s\n",
+                   "åœ¨ %s ï¼Œ%s å†™é“ï¼š\n%s\n",
            ctime(msg->date),
            msg->sender,
            body);
@@ -386,7 +386,7 @@ static nomask void cmd_reply(int user_num, int reply_all)
 }
 
 
-static nomask void cmd_delete(string arg)
+protected nomask void cmd_delete(string arg)
 {
     int *   mail_keys;
     int     i;
@@ -405,39 +405,39 @@ static nomask void cmd_delete(string arg)
     {
         mailbox_ob->delete_message(mail_keys[i-1]);
         //printf("Message %d deleted.\n",i);
-        printf("ĞÅ¼ş %d É¾³ıÁË¡£\n", i);
+        printf("ä¿¡ä»¶ %d åˆ é™¤äº†ã€‚\n", i);
     }
 }
 
 
-static nomask void cmd_setcurrent(mixed arg)
+protected nomask void cmd_setcurrent(mixed arg)
 {
     int count;
 
     if ( !(count = mailbox_ob->query_message_count()) )
     return //printf("No messages.\n");
-           printf("Ã»ÓĞĞÅ¼ş¡£\n");
+           printf("æ²¡æœ‰ä¿¡ä»¶ã€‚\n");
 
     if ( !arg )
     return (void)printf(//"Current message is: %d\n",
-                        "ÏÖÔÚĞÅ¼şºÅÂëÎª£º%d\n",
+                        "ç°åœ¨ä¿¡ä»¶å·ç ä¸ºï¼š%d\n",
                 mailbox_ob->query_message_index() + 1);
 
     arg = to_int( arg );
     if ( arg <= 0 || arg > count )
     {
     //printf("Message number out of range.\n");
-    printf("ĞÅ¼şºÅÂë³¬³ö·¶Î§¡£\n");
+    printf("ä¿¡ä»¶å·ç è¶…å‡ºèŒƒå›´ã€‚\n");
     return;
     }
     mailbox_ob->set_message_index(arg - 1);
 
     //printf("Current message now set to: %d\n",arg);
-    printf("ÏÖÔÚĞÅ¼şºÅÂëÉè¶¨Îª£º%d\n", arg);
+    printf("ç°åœ¨ä¿¡ä»¶å·ç è®¾å®šä¸ºï¼š%d\n", arg);
 }
 
 
-static nomask void cmd_forward(int user_num, string newto)
+protected nomask void cmd_forward(int user_num, string newto)
 {
     int         key;
     string *        body;
@@ -449,14 +449,14 @@ static nomask void cmd_forward(int user_num, string newto)
     msg = mailbox_ob->get_one_message(key);
     if ( !msg )
     {
-        write("*** ´íÎó£ºÓÊ¼ş¶ªÊ§£¡\n");
+        write("*** é”™è¯¯ï¼šé‚®ä»¶ä¸¢å¤±ï¼\n");
         return;
     }
     body = build_body_inclusion(msg->body);
     body = ({//"Begin forwarded message:",
-             "¿ªÊ¼×ªĞÅ£º",
+             "å¼€å§‹è½¬ä¿¡ï¼š",
          sprintf(//"On %s %s wrote:",
-                 "ÔÚ %s £¬$s Ğ´µÀ£º\n%s\n",
+                 "åœ¨ %s ï¼Œ$s å†™é“ï¼š\n%s\n",
              ctime(msg->date),
              msg->sender)
      }) + body;
@@ -471,7 +471,7 @@ static nomask void cmd_forward(int user_num, string newto)
 void send_news_reply(string subject, string * text, string * to)
 {
     if ( base_name(previous_object()) != NEWSREADER )
-        error("°²È«ÎÊÌâ£º" + base_name(previous_object()) + "ÊÔÍ¼Ê¹ÓÃ\n");
+        error("å®‰å…¨é—®é¢˜ï¼š" + base_name(previous_object()) + "è¯•å›¾ä½¿ç”¨\n");
 
     send_mail_message(subject, text, to, 0, 0);
 }

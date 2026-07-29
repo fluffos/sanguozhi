@@ -37,7 +37,7 @@ mixed can_look_str(string str)
 	}
 	here=environment(here);
     }
-    return "这似乎不太可能。\n";
+    return "杩欎技涔庝笉澶彲鑳姐�俓n";
 }
 void do_look() {
     environment(this_body())->do_looking(1);
@@ -56,10 +56,10 @@ void do_my_look_obj(object ob)
     {
         string p_name;    
         p_name=this_body()->short();
-        tell(({ ob }) ,p_name+"正盯着你看，不知打的什么鬼主意。\n",MSG_INDENT);
+        tell(({ ob }) ,p_name+"姝ｇ洴鐫�浣犵湅锛屼笉鐭ユ墦鐨勪粈涔堥涓绘剰銆俓n",MSG_INDENT);
     }
 }
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ 
          ({"STR",""}),

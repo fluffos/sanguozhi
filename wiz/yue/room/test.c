@@ -1,4 +1,4 @@
-//  С��
+//  小店
 // vstore.c write by fire on 12.19.1997
 #include <mudlib.h>
 #include <sanguo.h>
@@ -10,11 +10,11 @@ inherit STORE;
 void setup(){
     set_area("xbv_area");
     set_light(50);
-    set_brief(""+YEL+"--���С��--"+NOR+"");
+    set_brief(""+YEL+"--乡村小店--"+NOR+"");
     set_long(
-"    ���߽�����Ψһ��һ��С�꣬��Ϊ�������٣����������Ҳ��̫
-�á���С���������������һ�Դ��˯�������һ���и���ˮ�ס���
-�����Թ�ˮ��\n\n"
+"    你走进村中唯一的一个小店，因为村中人少，这里的生意也不太
+好。店小二正懒洋洋地坐在一旁打瞌睡。房间的一角有个大水缸。看
+来可以灌水。\n\n"
 );
     set_exits( ([
         "east" :  __DIR__+"vcenter.c"

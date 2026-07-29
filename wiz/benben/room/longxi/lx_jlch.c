@@ -1,4 +1,4 @@
-//  ½ÇÁ¦³¡ by benben
+//  è§’åŠ›åœº by benben
 // lx_jlch.c 
 #include <mudlib.h>
 #include "/wiz/fire/fire.h"
@@ -7,8 +7,8 @@ inherit OUTDOOR_ROOM;
 void setup(){
     set_area("longxi");
     set_light(50);
-    set_brief(""+YEL+"--½ÇÁ¦³¡--"+NOR+"");
-    set_long("    ÃèÊö¡£\n");
+    set_brief(""+YEL+"--è§’åŠ›åœº--"+NOR+"");
+    set_long("    æè¿°ã€‚\n");
     set_exits( ([
         "north" :  __DIR__+"lx_qmst1.c",
     ]) );

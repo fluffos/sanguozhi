@@ -1,85 +1,85 @@
-#define R_KING 1 // Ö÷¹«
-// ³ÆµÛºónational genernal rank
-#define R_DJJ 2 // ´ó½«¾ü
-#define R_BQJJ 3 // æôÆï½«¾ü
-#define R_CQJJ 4 // ³µÆï½«¾ü
-#define R_WJJ 5 // ÎÀ½«¾ü
-#define R_QJJ 6 // Ç°½«¾ü
-#define R_HJJ 7 // ºó½«¾ü
-#define R_ZJJ 8 // ×ó½«¾ü
-#define R_YJJ 9 // ÓÒ½«¾ü
-#define R_PJJ 10 // ñÔ½«¾ü
-#define R_YMJJ 11 // ÑÀÃÅ½«¾ü
-#define R_XW 12 // Ğ£Î¾
-// ³ÆµÛÇ°national genernal rank
-#define R_Q_DJJ 20 // ´ó½«¾ü
-#define R_Q_JJ 21 // ½«¾ü
-#define R_Q_PJJ 22 // Æ«½«¾ü
-// ³ÆµÛºónational officer rank
-#define R_CX 101 // Ø©Ïà
-#define R_ZX 102 // Ô×Ïà
-#define R_SM 103 // Ë¾Âí
-#define R_ST 104 // Ë¾Í½
-#define R_SK 105 // Ë¾¿Õ
-#define R_LBSS 106 // Àñ²¿ÉĞÊé
-#define R_BBSS 107 // ±ø²¿ÉĞÊé
-#define R_GBSS 108 // ¹¤²¿ÉĞÊé
-#define R_CBSS 109 // ²Æ²¿ÉĞÊé
-#define R_NBSS 110 // Å©²¿ÉĞÊé
-#define R_XBSS 111 // ĞÌ²¿ÉĞÊé
-#define R_LBSL 112 // Àñ²¿ÊÌÀÉ
-#define R_BBSL 113 // ±ø²¿ÊÌÀÉ
-#define R_GBSL 114 // ¹¤²¿ÊÌÀÉ
-#define R_CBSL 115 // ²Æ²¿ÊÌÀÉ
-#define R_NBSL 116 // Å©²¿ÊÌÀÉ
-#define R_XBSL 117 // ĞÌ²¿ÊÌÀÉ
-#define R_DXS 118 // ´óÑ§Ê¿
-#define R_XS 119 // Ñ§Ê¿
-// ³ÆµÛÇ°national officer rank
-#define P_Q_JS 130 // ¾üÊ¦     1	   5		100
-#define P_Q_FJS 131 // ¸±¾üÊ¦  3	   4		50
-#define P_Q_ZP 132 // Ö÷²¾	²»ÏŞ      3		10
+#define R_KING 1 // ä¸»å…¬
+// ç§°å¸ånational genernal rank
+#define R_DJJ 2 // å¤§å°†å†›
+#define R_BQJJ 3 // éª éª‘å°†å†›
+#define R_CQJJ 4 // è½¦éª‘å°†å†›
+#define R_WJJ 5 // å«å°†å†›
+#define R_QJJ 6 // å‰å°†å†›
+#define R_HJJ 7 // åå°†å†›
+#define R_ZJJ 8 // å·¦å°†å†›
+#define R_YJJ 9 // å³å°†å†›
+#define R_PJJ 10 // è£¨å°†å†›
+#define R_YMJJ 11 // ç‰™é—¨å°†å†›
+#define R_XW 12 // æ ¡å°‰
+// ç§°å¸å‰national genernal rank
+#define R_Q_DJJ 20 // å¤§å°†å†›
+#define R_Q_JJ 21 // å°†å†›
+#define R_Q_PJJ 22 // åå°†å†›
+// ç§°å¸ånational officer rank
+#define R_CX 101 // ä¸ç›¸
+#define R_ZX 102 // å®°ç›¸
+#define R_SM 103 // å¸é©¬
+#define R_ST 104 // å¸å¾’
+#define R_SK 105 // å¸ç©º
+#define R_LBSS 106 // ç¤¼éƒ¨å°šä¹¦
+#define R_BBSS 107 // å…µéƒ¨å°šä¹¦
+#define R_GBSS 108 // å·¥éƒ¨å°šä¹¦
+#define R_CBSS 109 // è´¢éƒ¨å°šä¹¦
+#define R_NBSS 110 // å†œéƒ¨å°šä¹¦
+#define R_XBSS 111 // åˆ‘éƒ¨å°šä¹¦
+#define R_LBSL 112 // ç¤¼éƒ¨ä¾éƒ
+#define R_BBSL 113 // å…µéƒ¨ä¾éƒ
+#define R_GBSL 114 // å·¥éƒ¨ä¾éƒ
+#define R_CBSL 115 // è´¢éƒ¨ä¾éƒ
+#define R_NBSL 116 // å†œéƒ¨ä¾éƒ
+#define R_XBSL 117 // åˆ‘éƒ¨ä¾éƒ
+#define R_DXS 118 // å¤§å­¦å£«
+#define R_XS 119 // å­¦å£«
+// ç§°å¸å‰national officer rank
+#define P_Q_JS 130 // å†›å¸ˆ     1	   5		100
+#define P_Q_FJS 131 // å‰¯å†›å¸ˆ  3	   4		50
+#define P_Q_ZP 132 // ä¸»ç°¿	ä¸é™      3		10
 //////////////////////////local officer and general////////////
 // generals for level 5 city
-#define RL5_DJ 30 // ´ó½«
-#define RL5_FJ 31 // ¸±½«
-#define RL5_YJ 32 // ÑÀ½«
-#define RL5_WG 33 // Îä¹Ù
-#define RL4_DJ 40 // ´ó½«£º  1	  4	   50
-#define RL4_FJ 41 // ¸±½«£º  3	  3	   10
-#define RL4_YJ 42 // ÑÀ½«£º  4	  2	   5
-#define RL4_WG 43 // Îä¹Ù£º  ²»ÏŞ	  1	   1
-#define RL3_WJ 50 // Îä½«£º  1	  3	   10
-#define RL3_YJ 51 // ÑÀ½«£º  3	  2	   5
-#define RL3_WG 52 // Îä¹Ù£º  5	  1	   1
-#define RL2_WJ 60 // Îä½«£º  1	  2	   5
-#define RL2_WG 61 // Îä¹Ù£º  2	  1	   1
-#define RL1_WJ 70 //Îä½«£º  1	  2	   5
-#define RL1_WG 71 //Îä¹Ù£º  2	  1	   1
+#define RL5_DJ 30 // å¤§å°†
+#define RL5_FJ 31 // å‰¯å°†
+#define RL5_YJ 32 // ç‰™å°†
+#define RL5_WG 33 // æ­¦å®˜
+#define RL4_DJ 40 // å¤§å°†ï¼š  1	  4	   50
+#define RL4_FJ 41 // å‰¯å°†ï¼š  3	  3	   10
+#define RL4_YJ 42 // ç‰™å°†ï¼š  4	  2	   5
+#define RL4_WG 43 // æ­¦å®˜ï¼š  ä¸é™	  1	   1
+#define RL3_WJ 50 // æ­¦å°†ï¼š  1	  3	   10
+#define RL3_YJ 51 // ç‰™å°†ï¼š  3	  2	   5
+#define RL3_WG 52 // æ­¦å®˜ï¼š  5	  1	   1
+#define RL2_WJ 60 // æ­¦å°†ï¼š  1	  2	   5
+#define RL2_WG 61 // æ­¦å®˜ï¼š  2	  1	   1
+#define RL1_WJ 70 //æ­¦å°†ï¼š  1	  2	   5
+#define RL1_WG 71 //æ­¦å®˜ï¼š  2	  1	   1
 ///////////////////////////////////////////////////////////////
-#define RL5_TS 150 // Ì«ÊØ£¬	1	  5	   100  
-#define RL5_JS 151 // ¾üÊ¦£º	1	  5	   100	
-#define RL5_FJS 152 // ¸±¾üÊ¦£º2	  4	   50
-#define RL5_CZG 153 // ²ÆÕş¹Ù£¬2	  3	   10
-#define RL5_NYG 154 // Å©Òµ¹Ù£º2	  3	   10	
-#define RL5_GYG 155 // ¹¤Òµ¹Ù£º2	  3	   10 
-#define RL5_SY 156 // ÊéÒ¯£º  10	  2	   5
-#define RL5_WEG 157 // ÎÄ¹Ù:   ²»ÏŞ 	  1	   1   
-#define RL4_TS 160 // Ì«ÊØ£¬	1	  4	   50  
-#define RL4_JS 161 // ¾üÊ¦£º	1	  4	   50	
-#define RL4_CZG 162 // ²ÆÕş¹Ù£¬1	  3	   10
-#define RL4_NYG 163 // Å©Òµ¹Ù£º1	  3	   10	
-#define RL4_GYG 164 // ¹¤Òµ¹Ù£º1	  3	   10 
-#define RL4_SY 165 // ÊéÒ¯£º  5	  2	   5
-#define RL4_WEG 166 // ÎÄ¹Ù:   ²»ÏŞ 	  1	   1
-#define RL3_ZTS 170 // ÕòÌ«ÊØ£¬1	  3	   10  
-#define RL3_ZJS 171 // Õò¾üÊ¦£º1	  3	   10	
-#define RL3_SY 172 // ÊéÒ¯£º  3	  2	   5
-#define RL3_WEG 173 // ÎÄ¹Ù:   5 	  1	   1
-#define RL2_CZ 180 // ´å³¤£¬	1	  2	   5  
-#define RL2_SY 181 // ÊéÒ¯£º  1	  2	   5
-#define RL2_WEG 182 // ÎÄ¹Ù:   2 	  1	   1
-#define RL1_ZJ 190 // Ö÷½«£¬	1	  2	   5  
-#define RL1_SY 191 // ÊéÒ¯£º  1	  2	   5
-#define RL1_WEG 192 // ÎÄ¹Ù:   2 	  1	   1
-#define R_SG 1000 // É¢¹Ù(ÏĞÖ°)
+#define RL5_TS 150 // å¤ªå®ˆï¼Œ	1	  5	   100  
+#define RL5_JS 151 // å†›å¸ˆï¼š	1	  5	   100	
+#define RL5_FJS 152 // å‰¯å†›å¸ˆï¼š2	  4	   50
+#define RL5_CZG 153 // è´¢æ”¿å®˜ï¼Œ2	  3	   10
+#define RL5_NYG 154 // å†œä¸šå®˜ï¼š2	  3	   10	
+#define RL5_GYG 155 // å·¥ä¸šå®˜ï¼š2	  3	   10 
+#define RL5_SY 156 // ä¹¦çˆ·ï¼š  10	  2	   5
+#define RL5_WEG 157 // æ–‡å®˜:   ä¸é™ 	  1	   1   
+#define RL4_TS 160 // å¤ªå®ˆï¼Œ	1	  4	   50  
+#define RL4_JS 161 // å†›å¸ˆï¼š	1	  4	   50	
+#define RL4_CZG 162 // è´¢æ”¿å®˜ï¼Œ1	  3	   10
+#define RL4_NYG 163 // å†œä¸šå®˜ï¼š1	  3	   10	
+#define RL4_GYG 164 // å·¥ä¸šå®˜ï¼š1	  3	   10 
+#define RL4_SY 165 // ä¹¦çˆ·ï¼š  5	  2	   5
+#define RL4_WEG 166 // æ–‡å®˜:   ä¸é™ 	  1	   1
+#define RL3_ZTS 170 // é•‡å¤ªå®ˆï¼Œ1	  3	   10  
+#define RL3_ZJS 171 // é•‡å†›å¸ˆï¼š1	  3	   10	
+#define RL3_SY 172 // ä¹¦çˆ·ï¼š  3	  2	   5
+#define RL3_WEG 173 // æ–‡å®˜:   5 	  1	   1
+#define RL2_CZ 180 // æ‘é•¿ï¼Œ	1	  2	   5  
+#define RL2_SY 181 // ä¹¦çˆ·ï¼š  1	  2	   5
+#define RL2_WEG 182 // æ–‡å®˜:   2 	  1	   1
+#define RL1_ZJ 190 // ä¸»å°†ï¼Œ	1	  2	   5  
+#define RL1_SY 191 // ä¹¦çˆ·ï¼š  1	  2	   5
+#define RL1_WEG 192 // æ–‡å®˜:   2 	  1	   1
+#define R_SG 1000 // æ•£å®˜(é—²èŒ)

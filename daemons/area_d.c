@@ -17,34 +17,34 @@ inherit __DIR__+"area_d/head";
 inherit __DIR__+"area_d/stat_me";
 inherit __DIR__+"area_d/soldiernumber";
 private mapping areas;
-static private string *stlist;
-static private mapping a_ld=([]);
-static private string *a_list=({});
-static private string *a_list_all=({});
-static private mapping zhou_head=([
-"ÓÄÖİ":"beiping"
-,"¼½Öİ":"nanpi"
-,"ÇàÖİ":"beihai"
-,"ÙğÖİ":"ye"
-,"Ô¥Öİ":"xuchang"
-,"ĞìÖİ":"xuzhou"
-,"²¢Öİ":"taiyuan"
-,"Ë¾Á¥":"luoyang"
-,"ÓºÖİ":"changan"
-,"Á¹Öİ":"xiliang"
-,"ÁºÖİ":"hanzhong"
-,"ÒæÖİ":"chengdu"
-,"±±¾£Öİ":"xiangyang"
-,"ÄÏ¾£Öİ":"jiangling"
-,"Û«Öİ":"lujiang"
-,"ÑïÖİ":"jianye"
-,"½»Öİ":"nanhai"
+nosave private string *stlist;
+nosave private mapping a_ld=([]);
+nosave private string *a_list=({});
+nosave private string *a_list_all=({});
+nosave private mapping zhou_head=([
+"å¹½å·":"beiping"
+,"å†€å·":"nanpi"
+,"é’å·":"beihai"
+,"å…–å·":"ye"
+,"è±«å·":"xuchang"
+,"å¾å·":"xuzhou"
+,"å¹¶å·":"taiyuan"
+,"å¸éš¶":"luoyang"
+,"é›å·":"changan"
+,"å‡‰å·":"xiliang"
+,"æ¢å·":"hanzhong"
+,"ç›Šå·":"chengdu"
+,"åŒ—è†å·":"xiangyang"
+,"å—è†å·":"jiangling"
+,"éƒ¢å·":"lujiang"
+,"æ‰¬å·":"jianye"
+,"äº¤å·":"nanhai"
 ]);
 
 #define SAVE_FILE "/data/daemons/areas"
-static private int m_modified;
+nosave private int m_modified;
 
-//! °üÀ¨ÔÚÑµÁ·²¿¶ÓÔÚÄÚµÄ³ÇÊĞ±øÁ¦(Õ½ÕùÖĞµÄ²¿¶Ó²»ÏûºÄ³ÇÀïµÄ)
+//! åŒ…æ‹¬åœ¨è®­ç»ƒéƒ¨é˜Ÿåœ¨å†…çš„åŸå¸‚å…µåŠ›(æˆ˜äº‰ä¸­çš„éƒ¨é˜Ÿä¸æ¶ˆè€—åŸé‡Œçš„)
 mapping get_area_totaltroop( string par_strCity );
 
 string get_zhou_head(string zhou) {
@@ -107,20 +107,20 @@ string add_area(string p_id)
     if(!areas[p_id])
     {   areas[p_id]=([]);
         m_modified=1;
-        return "ĞÂµØÇøÔö¼Ó³É¹¦£®\n";
+        return "æ–°åœ°åŒºå¢åŠ æˆåŠŸï¼\n";
     }
     else
-    {   return "¸ÃµØÇøÒÑ¾­´æÔÚ£®\n";
+    {   return "è¯¥åœ°åŒºå·²ç»å­˜åœ¨ï¼\n";
     }
 }
 // this function should be just used in the early develop 
 // time. later to use it may cause other conflict
 string remove_area(string p_id) 
 {  if (!areas[p_id]) 
-      return "¸ÃµØÇø²»´æÔÚ£®\n";
+      return "è¯¥åœ°åŒºä¸å­˜åœ¨ï¼\n";
    map_delete(areas, p_id);
    m_modified=1;
-   return "µØÇøÉ¾³ı³É¹¦£®\n";
+   return "åœ°åŒºåˆ é™¤æˆåŠŸï¼\n";
 }
 int add_neighbor(string p_id1,string p_id2)
 {   if((!areas[p_id1])||(!areas[p_id2]))
@@ -147,25 +147,25 @@ int rm_neighbor(string p_id1,string p_id2)
     return 1;
 }
 //modified by suicide in 2000.02.20
-//¸ü¸ÄÁËstÎï×ÊµÄÊı¾İ¸ñÊ½.
+//æ›´æ”¹äº†stç‰©èµ„çš„æ•°æ®æ ¼å¼.
 //old:(["food":11200,
 //      "wine":1000,
 //      "cotten":100,
-//    ])   Îï×ÊÃû:ÊıÁ¿
+//    ])   ç‰©èµ„å:æ•°é‡
 //new:(["food":(["num":11200,"price":100,"maxstock":100]),
 //      "wine":(["num":12200,"price":200,"maxstock":150]),
 //      "cotten":(["num":2200,"price":400,"maxstock":200]),
-//num==ÊıÁ¿ price==³É±¾¼Û maxstock==µØÇø×î´ó±£ÁôÖµ
+//num==æ•°é‡ price==æˆæœ¬ä»· maxstock==åœ°åŒºæœ€å¤§ä¿ç•™å€¼
 void set_area_st(string p_id,string st_name,mixed para_name,mixed para_value) {
    if(!sizeof(areas[p_id]["st"])) 
       areas[p_id]["st"]=([]);
    if(!sizeof(areas[p_id]["st"][st_name])) 
       areas[p_id]["st"][st_name]=([]);
-   if(intp(para_name)) //ÎªÁË±£³Ö¶ÔÒÔÇ°codeµÄ¼æÈİ
+   if(intp(para_name)) //ä¸ºäº†ä¿æŒå¯¹ä»¥å‰codeçš„å…¼å®¹
      {
      if (para_name<=0)
 
-/* xiaobai: 22-10-2001, ´Ë´¦±ÊÎó£¬Îï×ÊÃû³ÆÓ¦¸ÃÊÇ st_name
+/* xiaobai: 22-10-2001, æ­¤å¤„ç¬”è¯¯ï¼Œç‰©èµ„åç§°åº”è¯¥æ˜¯ st_name
      
          map_delete(areas[p_id]["st"],para_name);
 
@@ -198,7 +198,7 @@ void add_area_st(string p_id,string para_name,int num,int price) {
        areas[p_id]["st"][para_name]["left"]  = total%(areas[p_id]["st"][para_name]["num"]+num);
        areas[p_id]["st"][para_name]["num"]+=num;
    } 
-   if (member_array("maxstock",keys(areas[p_id]["st"][para_name]))!=-1)//Èç¹ûÓĞmaxstockµÄÉè¶¨
+   if (member_array("maxstock",keys(areas[p_id]["st"][para_name]))!=-1)//å¦‚æœæœ‰maxstockçš„è®¾å®š
       {
       if (areas[p_id]["st"][para_name]["num"]>areas[p_id]["st"][para_name]["maxstock"])
          COUNTRY_D->add_country_st(areas[p_id]["nation"],para_name,
@@ -218,7 +218,7 @@ void add_area_st(string p_id,string para_name,int num,int price) {
 string set_area(string p_id,string para_name,mixed para_value)
 {
 	string p_ret;
-    if(!areas[p_id]) return "¸ÃµØÇø²»´æÔÚ£®\n";
+    if(!areas[p_id]) return "è¯¥åœ°åŒºä¸å­˜åœ¨ï¼\n";
     if(intp(para_value)&&(para_value<0))  para_value=0;
     switch (para_name)
     {
@@ -226,31 +226,31 @@ string set_area(string p_id,string para_name,mixed para_value)
         case "morale":
         case "safe":
                 if(para_value>200) {
-                        //SGSYS(sprintf("%sµÄ%s³¬¸ß£¬ÖµÎª:%d£¬ÏÖÇ¿ÖÆÎª200",p_id,para_name,
+                        //SGSYS(sprintf("%sçš„%sè¶…é«˜ï¼Œå€¼ä¸º:%dï¼Œç°å¼ºåˆ¶ä¸º200",p_id,para_name,
                         //para_value));
                         para_value=200;
                 }
 				areas[p_id][para_name]=para_value;
-				p_ret="µØÇø²ÎÊıÉèÖÃ³É¹¦£®\n";
+				p_ret="åœ°åŒºå‚æ•°è®¾ç½®æˆåŠŸï¼\n";
 				break;
 		case "addneighbor": // neighbor
 				if (add_neighbor(p_id,para_value))
-					p_ret = "ÏàÁÚÇøÓòÉèÖÃ³É¹¦£®\n";
+					p_ret = "ç›¸é‚»åŒºåŸŸè®¾ç½®æˆåŠŸï¼\n";
 				else
-					p_ret= "ÏàÁÚÇøÓòÉèÖÃÊ§°Ü£®\n";
+					p_ret= "ç›¸é‚»åŒºåŸŸè®¾ç½®å¤±è´¥ï¼\n";
 				break;
 		case "rmneighbor": // neighbor
 				if (rm_neighbor(p_id,para_value))
-					p_ret = "ÏàÁÚÇøÓòÉèÖÃ³É¹¦£®\n";
+					p_ret = "ç›¸é‚»åŒºåŸŸè®¾ç½®æˆåŠŸï¼\n";
 				else
-					p_ret= "ÏàÁÚÇøÓòÉèÖÃÊ§°Ü£®\n";
+					p_ret= "ç›¸é‚»åŒºåŸŸè®¾ç½®å¤±è´¥ï¼\n";
 				break;
 		default:
 				if(member_array(para_name,stlist)!=-1)
 					set_area_st(p_id,para_name,para_value,0);//suicide 2000.02.26
 				else
 					areas[p_id][para_name]=para_value;
-				p_ret="µØÇø²ÎÊıÉèÖÃ³É¹¦£®\n";
+				p_ret="åœ°åŒºå‚æ•°è®¾ç½®æˆåŠŸï¼\n";
 				break;
     }
     m_modified=1;
@@ -378,8 +378,8 @@ int get_area_st_price(string p_id,string stuff) {
 mixed get_area(string p_id,string para_name)
 {  	if (!areas[p_id]) 
 		return 0;
-	//write("½øÁËAREA_D->get_area()º¯Êı£¬²ÎÊıp_id = " + p_id + " ²ÎÊıpara_name = " + para_name + "\n"); DEBUG
-	//write("areas[p_id]µÄÖµÊÇ " + areas[p_id] + "\n");
+	//write("è¿›äº†AREA_D->get_area()å‡½æ•°ï¼Œå‚æ•°p_id = " + p_id + " å‚æ•°para_name = " + para_name + "\n"); DEBUG
+	//write("areas[p_id]çš„å€¼æ˜¯ " + areas[p_id] + "\n");
    switch(para_name)
    {
      case "status" :
@@ -410,7 +410,7 @@ mixed get_area(string p_id,string para_name)
         return get_area_product_level( p_id);
      case "importancestr":
         return get_area_importancestr(p_id);
-     case "leader": // query Ì«ÊØ
+     case "leader": // query å¤ªå®ˆ
         return get_area_leader(p_id);
      case "soldier":
         return get_area_soldier(p_id,"sum");
@@ -419,7 +419,7 @@ mixed get_area(string p_id,string para_name)
         return p_id;
    case "": return areas[p_id];
 	default:
-		//printf("Ö´ĞĞmember_array()Ö®Ç°stlist = %s\n", stlist);
+		//printf("æ‰§è¡Œmember_array()ä¹‹å‰stlist = %s\n", stlist);
         if(member_array(para_name,stlist)!=-1)
            return get_area_st(p_id,para_name,0);//suicide 2000.02.26
         else
@@ -451,9 +451,9 @@ int get_income(string p_id,string p_item)
     {  case "gold":
          p_tmp=p_population/25.*p_business/100.* 
            (p_safe+20)/100. * p_localtax/100.;
-         //p_tmp=p_tmp/2.;    //suicide in 2001.8.21 for ¼õÉÙÔÂ½ğÊÕÈëÎªÔ­À´µÄ50%
-                            //ÕâÑùÈË¿ÚºÍ¿É¹©Ñø±øÁ¦µÄ±ÈÀı»ù±¾ÊÇ20:1
-                            //ËãÉÏÅ©³¡,10k±øĞèÒª2.5k goldÎ¬³Ö
+         //p_tmp=p_tmp/2.;    //suicide in 2001.8.21 for å‡å°‘æœˆé‡‘æ”¶å…¥ä¸ºåŸæ¥çš„50%
+                            //è¿™æ ·äººå£å’Œå¯ä¾›å…»å…µåŠ›çš„æ¯”ä¾‹åŸºæœ¬æ˜¯20:1
+                            //ç®—ä¸Šå†œåœº,10kå…µéœ€è¦2.5k goldç»´æŒ
          break;
        case "food":
          p_tmp=p_population*10.*p_agriculture/100.*
@@ -496,7 +496,7 @@ int get_output(string p_id, string p_item)
     mapping p_bing;
     float ret;
     
-/* xiaobai: Nov. 12, 2001 °ÑÑµÁ·ÖĞµÄ±øÁ¦Ò²Ëã½øÀ´
+/* xiaobai: Nov. 12, 2001 æŠŠè®­ç»ƒä¸­çš„å…µåŠ›ä¹Ÿç®—è¿›æ¥
     p_bing=get_area(p_id, "troop");
 */
     p_bing = get_area_totaltroop( p_id );    
@@ -527,7 +527,7 @@ void nation_income()
         int p_nationtax,p_ran,p_goldin, p_foodin, p_stuffin;
         int p_gold,p_food,p_stuff, p_month;
         float p_tmp;
-        array p_date;
+        mixed * p_date;
         string p_nation;
         p_nation=AREA_D->get_area(p_id,"nation");
         p_date=DAY_D->query_date();
@@ -634,7 +634,7 @@ string pick_area(){
 	return a_list[random(sizeof(a_list))];
 }
 // this is used to check if an area is
-// ÍêÕû£¬Ò»ÖÂ
+// å®Œæ•´ï¼Œä¸€è‡´
 void area_check()
 {  string* list;
    int i, *head_title;
@@ -645,14 +645,14 @@ void area_check()
        p_id=list[i];
        if (!areas[list[i]]["level"])
        {  CHANNEL_D->deliver_emote("announce","notice"
-            ,sprintf("µØÇø %s Ã»ÓĞÉè¶¨µÈ¼¶\n",list[i]));
+            ,sprintf("åœ°åŒº %s æ²¡æœ‰è®¾å®šç­‰çº§\n",list[i]));
             break;
        }
        if((areas[p_id]["level"])&&(!areas[p_id]["population"]))
             area_init();
        if(!areas[p_id]["nation"])
        {   CHANNEL_D->deliver_emote("announce","notice"
-            ,sprintf("µØÇø %s Ã»ÓĞÉè¶¨ËùÊô¹ú\n",list[i]));
+            ,sprintf("åœ°åŒº %s æ²¡æœ‰è®¾å®šæ‰€å±å›½\n",list[i]));
            break;
        }
        head_title=OFFICER_D->query_area_officer_title(areas[p_id]["level"]
@@ -714,20 +714,20 @@ int add_soldier(string p_id,string typ,int num,int morale,int train) {
 }
 
 mixed query_area_info(string a_id){
-   if(areas[a_id]) return areas[a_id]; else return "Ã»ÓĞ"+a_id+"Õâ¸öµØÇø¡£\n";
+   if(areas[a_id]) return areas[a_id]; else return "æ²¡æœ‰"+a_id+"è¿™ä¸ªåœ°åŒºã€‚\n";
 }
 
-//! °üÀ¨ÔÚÑµÁ·²¿¶ÓÔÚÄÚµÄ³ÇÊĞ±øÁ¦(Õ½ÕùÖĞµÄ²¿¶Ó²»ÏûºÄ³ÇÀïµÄ)
+//! åŒ…æ‹¬åœ¨è®­ç»ƒéƒ¨é˜Ÿåœ¨å†…çš„åŸå¸‚å…µåŠ›(æˆ˜äº‰ä¸­çš„éƒ¨é˜Ÿä¸æ¶ˆè€—åŸé‡Œçš„)
 mapping get_area_totaltroop( string par_strCity )
 {
 	mapping mTroop,mTotal,mTmp;
 	int nTaskId;
-	int array nTroopIdArr;
-	string array strTypeArr;
+	int * nTroopIdArr;
+	string * strTypeArr;
 	string strType;
 	
 	//tell_user("huaer",sprintf("par_strCity = %s\n",par_strCity));
-    mTroop = get_area(par_strCity, "troop");  // ³ÇÀïµÄ
+    mTroop = get_area(par_strCity, "troop");  // åŸé‡Œçš„
     mTotal = ([]);
     nTaskId = TASK_D->get_area_task_id( par_strCity );
     nTroopIdArr = ({});
@@ -745,7 +745,7 @@ mapping get_area_totaltroop( string par_strCity )
     {
 
 #ifdef _DEBUG_ID
-    TELL_BUG( _DEBUG_ID, sprintf( "%sÓĞ²¿¶ÓÔÚÑµÁ·¡£", par_strCity ) );
+    TELL_BUG( _DEBUG_ID, sprintf( "%sæœ‰éƒ¨é˜Ÿåœ¨è®­ç»ƒã€‚", par_strCity ) );
 #endif  // _DEBUG_ID
 
         nTroopIdArr = TASK_D->get_task( nTaskId, "def_army" );

@@ -1,14 +1,14 @@
-// vpeople.c "´åÃñ"
+// vpeople.c "æ‘æ°‘"
 #include <mudlib.h>
 inherit LIVING;
 inherit M_WANDER;
 void setup()
 {
-    set_name("people", "´åÃñ");
+    set_name("people", "æ‘æ°‘");
     add_id("cunmin");	 
    set_gender(1);
-    set_proper_name("ÎŞËùÊÂÊÂµÄ´åÃñ");
-    set_in_room_desc("ÎŞËùÊÂÊÂµÄ´åÃñ(people)");
+    set_proper_name("æ— æ‰€äº‹äº‹çš„æ‘æ°‘");
+    set_in_room_desc("æ— æ‰€äº‹äº‹çš„æ‘æ°‘(people)");
     set_movement_time(20);
     set_wander_area("xbv_area");
 }

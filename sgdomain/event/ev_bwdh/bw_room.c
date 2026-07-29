@@ -6,12 +6,12 @@ inherit OUTDOOR_ROOM;
 
 varargs void receive_inside_msg(string msg, object * exclude, int message_type,mixed other)
 {
-	msg = HIY+"¡¼Èü³¡ÖÐ¡½"+NOR+msg;
+	msg = HIY+"ã€–èµ›åœºä¸­ã€—"+NOR+msg;
 	tell_from_inside(MSG_ROOM, msg, 0);
 }
 void setup(){
         set_light(50);
-        set_brief(""+YEL+"±ÈÎä´ó»áÈü³¡"+NOR+"");
-	set_long("Õâ¶ù¾ÍÊÇÌìÏÂÓ¢ÐÛÕù¶á°ÔÖ÷µÄµØ·½¡£");
+        set_brief(""+YEL+"æ¯”æ­¦å¤§ä¼šèµ›åœº"+NOR+"");
+	set_long("è¿™å„¿å°±æ˜¯å¤©ä¸‹è‹±é›„äº‰å¤ºéœ¸ä¸»çš„åœ°æ–¹ã€‚");
        set("no_fight", 0);
 }

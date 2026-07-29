@@ -1,4 +1,4 @@
-// cutter.c by fire Èý¹úÏ÷µ¶
+// cutter.c by fire ä¸‰å›½å‰Šåˆ€
 // this cmd is used create quick char
 inherit CMD;
 void main()

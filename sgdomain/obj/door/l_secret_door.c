@@ -10,7 +10,7 @@ string extra_long_stuff()
 {
     if( query_closed())
         return "";
-    return capitalize( short()) + "是开着的。\n";
+    return capitalize( short()) + "鏄紑鐫�鐨勩�俓n";
 }
 
 

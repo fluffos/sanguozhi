@@ -1,4 +1,4 @@
-//  校场 by benben
+//  鏍″満 by benben
 // lx_jch.c 
 #include <mudlib.h>
 #include "/wiz/fire/fire.h"
@@ -7,8 +7,8 @@ inherit OUTDOOR_ROOM;
 void setup(){
     set_area("longxi");
     set_light(50);
-    set_brief(""+YEL+"--校场--"+NOR+"");
-    set_long("    描述。\n");
+    set_brief(""+YEL+"--鏍″満--"+NOR+"");
+    set_long("    鎻忚堪銆俓n");
     set_exits( ([
         "north" :  __DIR__+"lx_camp.c",
     ]) );

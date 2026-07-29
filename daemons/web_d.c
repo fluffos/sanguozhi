@@ -9,15 +9,15 @@ string get_group_name(string gid) {
 		n_id=gid[7..<1];
 		if(!COUNTRY_D->nation_exist(n_id))
 			return "";
-		return COUNTRY_D->get_country(n_id,"name")+"ÁôÑÔ";
+		return COUNTRY_D->get_country(n_id,"name")+"ç•™è¨€";
 	}
 
-	if(gid=="caolu") return mud_name()+"ÁôÑÔ°å"; 
-	if(gid=="marriage") return "Ï²½áÁ¼Ôµ";
-	if(gid=="newbie") return "ĞÂÊÖ°ïÖú"; 
-	if(gid=="ranks") return "Èı¹úÅÅÃû"; 
-	if(gid=="war") return "Èı¹úÕ½»ğ"; 
-	if(gid=="progress") return "Î×Ê¦Í¨¸æ"; 
+	if(gid=="caolu") return mud_name()+"ç•™è¨€æ¿"; 
+	if(gid=="marriage") return "å–œç»“è‰¯ç¼˜";
+	if(gid=="newbie") return "æ–°æ‰‹å¸®åŠ©"; 
+	if(gid=="ranks") return "ä¸‰å›½æ’å"; 
+	if(gid=="war") return "ä¸‰å›½æˆ˜ç«"; 
+	if(gid=="progress") return "å·«å¸ˆé€šå‘Š"; 
 	return "";
 }
 

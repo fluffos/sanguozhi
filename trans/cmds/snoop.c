@@ -22,9 +22,9 @@ int rc;
             msg = implode(arg[1], " ");
         else
             msg = //"no reason given";
-                  "Ã»À´ÓÉ";
+                  "æ²¡æ¥ç”±";
         msg = sprintf(//"%s snooped %s because: %s\n",
-                      "%s ¼àÌý %s Ô­Òò£º%s\n",
+                      "%s ç›‘å¬ %s åŽŸå› ï¼š%s\n",
           this_user()->query_userid(),
           arg[0]->query_link()->query_userid(),
           msg);

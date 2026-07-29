@@ -8,7 +8,7 @@ inherit CMD;
 #define DATA_FILE       "/data/find.codes"
 #define TMP_DATA_FILE   "/data/find.tmp"
 
-mixed array stack;
+mixed * stack;
 string path;
 int building_database = 0;
 
@@ -17,14 +17,14 @@ private void end_building()
     cp(TMP_DATA_FILE,DATA_FILE);
     rm(TMP_DATA_FILE);
     printf(//"Locate DB build done.\n"
-           "��Ѷ��Ϣ���ݿ⽨����ɡ�\n");
+           "查讯消息数据库建立完成。\n");
     building_database = 0;
 }
 
 private void do_building()
 {
     int i = ITERS_PER_CALL;
-    string array        this_dir;
+    string *        this_dir;
 
     while(i--)
     {
@@ -81,7 +81,7 @@ private void begin_database_build()
     if(is_file(TMP_DATA_FILE) && !rm(TMP_DATA_FILE))
     {
         out(//"You don't have permission to do that.\n"
-            "��û����������Ȩ�ޡ�\n");
+            "你没有这样做的权限。\n");
         return;
     }
     do_building();
@@ -96,7 +96,7 @@ private void main(mixed * arg, mapping flags)
 
     if (!arg[0] && !flags["u"])
     {
-        out( "�÷�: findfile <string>\n");
+        out( "用法: findfile <string>\n");
         return;
     }
     if(flags["u"])
@@ -104,23 +104,23 @@ private void main(mixed * arg, mapping flags)
         if(building_database)
         {
             out(//"Already building database.\n");
-                "�Ѿ��ڽ������ݿ�����С�\n");
+                "已经在建立数据库过程中。\n");
             return;
         }
         //out("Building database... This takes a while.\n");
-        out("��ʼ�������ݿ�... ���Ժ�\n");
+        out("开始建立数据库... 请稍候。\n");
         begin_database_build();
         return;
     }
     else
     {
-        /* arg[0] is an array of strings. use just the first */
+        /* arg[0] is an mixed * of strings. use just the first */
         find = arg[0];
         ed_start(DATA_FILE);
         outstr = ed_cmd(sprintf("1,$g#%s#p", find));
 if( !sizeof(outstr))
         out( //"No matching files found.\n"
-            "�Ҳ�����Ӧ���ļ���\n");
+            "找不到对应的文件。\n");
 else
     out( outstr );
         ed_cmd("q");

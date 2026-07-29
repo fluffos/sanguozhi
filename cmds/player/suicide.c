@@ -12,23 +12,23 @@ nomask void main(string arg) {
     string my_id=this_user()->query_userid();
     if(CHAR_D->get_char(my_id,"ranknation")==R_KING)
     {
-         write("ÉíÎªÒ»¹úÖ®¾ıÔõÄÜËæ±ãÇáÉí£¿\n");
+         write("èº«ä¸ºä¸€å›½ä¹‹å›æ€èƒ½éšä¾¿è½»èº«ï¼Ÿ\n");
          return;
     }
     if(MUSEUM_D->char_exist(my_id))
     {
-         write("ÒÑ¾­½øÁËµä²Ø¹İ£¬ÔõÃ´ºÃÒâË¼ÔÚ×ÔÉ±£¿\n");
+         write("å·²ç»è¿›äº†å…¸è—é¦†ï¼Œæ€ä¹ˆå¥½æ„æ€åœ¨è‡ªæ€ï¼Ÿ\n");
          return;
     }
     if(AREA_D->get_area(CHAR_D->get_char(my_id,"area"),"leader")==my_id)
     {
-         write("ÉíÎªÊ×Áì£¬ÔõÄÜËæ±ãÇáÉí£¿\n");
+         write("èº«ä¸ºé¦–é¢†ï¼Œæ€èƒ½éšä¾¿è½»èº«ï¼Ÿ\n");
          return;
     }
 
     if(wizardp(this_user()))
     {
-        write("ÉíÎªÎ×Ê¦£¬ÔõÄÜËæ±ãÇáÉí£¿\n");
+        write("èº«ä¸ºå·«å¸ˆï¼Œæ€èƒ½éšä¾¿è½»èº«ï¼Ÿ\n");
         return;
     }
     USER_D->suicide();    

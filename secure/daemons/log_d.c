@@ -16,7 +16,7 @@ inherit M_ACCESS;
 ** Map the symbolic log names to their respective log files.  Note that
 ** many names can map to a single file.
 */
-private static mapping legal_logs = ([
+private mapping legal_logs = ([
     LOG_AUTODOC         : DIR_LOG "/AUTODOC",
     LOG_BANISH          : DIR_LOG "/banishes",
     LOG_BUG             : DIR_LOG "/BUGS",
@@ -43,7 +43,7 @@ private static mapping legal_logs = ([
     LOG_CAST			: DIR_LOG "/cast",
 ]);
 
-private static string * timestamps = ({
+private string * timestamps = ({
     LOG_CHANNEL,
 });
 
@@ -55,7 +55,7 @@ void log(string which, string what)
 {
     if ( !legal_logs[which] )
         error("illegal attempt to log to "
-              "试图非法记录文档 " + which + "\n");
+              "璇曞浘闈炴硶璁板綍鏂囨。 " + which + "\n");
 
     if ( member_array(which, timestamps) != -1 )
         what = ctime(time()) + ": " + what;

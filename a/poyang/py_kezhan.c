@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is 巴山夜雨
+// driver is 宸村北澶滈洦
 // created date is Thu Jun  2 20:59:16 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,7 +7,7 @@ inherit OUTDOOR_ROOM;
 void setup() {
 set_area("poyang");
 set_light(50);
-set_brief("%^YELLOW%^"+"客栈"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"瀹㈡爤"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "south":"/a/poyang/py_xijie.c",

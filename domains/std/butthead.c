@@ -31,7 +31,7 @@ void initiate_beavis()
 
 
 void setup() {
-    set_name("Butthead", "°ÍÌØº£µÂ");
+    set_name("Butthead", "å·´ç‰¹æµ·å¾·");
     set_gender(1);
     set_proper_name("Butthead");
     set_in_room_desc("Butthead is here, scoping for chicks."); 

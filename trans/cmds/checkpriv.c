@@ -17,7 +17,7 @@ private void main(mixed arg)
     if ( !arg )
     {
         out(//"Usage: checkpriv <privilege>\n"
-            "ÓÃ·¨£ºcheckpriv <ÌØÈ¨¼¶±ğ>\n");
+            "ç”¨æ³•ï¼šcheckpriv <ç‰¹æƒçº§åˆ«>\n");
 
         return;
     }
@@ -31,16 +31,16 @@ private void main(mixed arg)
     if ( !SECURE_D->valid_privilege(arg) )
     {
         printf(//"'%s' is not a valid privilege.\n"
-               "'%s' ²»ÊÇÒ»¸öºÏ·¨µÄÌØÈ¨¼¶±ğ¡£\n" , arg + "");
+               "'%s' ä¸æ˜¯ä¸€ä¸ªåˆæ³•çš„ç‰¹æƒçº§åˆ«ã€‚\n" , arg + "");
 
         return;
     }
 
     if ( check_privilege(arg) )
         outf(//"Verified.  You have privilege '%s'\n"
-             "½á¹ûÈ·ÈÏ£ºÄãÓµÓĞÌØÈ¨¼¶±ğ '%s'\n", arg + "");
+             "ç»“æœç¡®è®¤ï¼šä½ æ‹¥æœ‰ç‰¹æƒçº§åˆ« '%s'\n", arg + "");
     else
         outf(//"Sorry.  You do not have privilege '%s'\n"
-             "¶Ô²»Æğ£¬ÄãÃ»ÓĞÌØÈ¨¼¶±ğ '%s'\n", arg + "");
+             "å¯¹ä¸èµ·ï¼Œä½ æ²¡æœ‰ç‰¹æƒçº§åˆ« '%s'\n", arg + "");
         
 }

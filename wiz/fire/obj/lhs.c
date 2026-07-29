@@ -1,13 +1,13 @@
-// ÀÏ»±Ê÷
+// è€æ§æ ‘
 // lhs.c
 #include <mudlib.h>
 #include <sanguo.h>
 inherit OBJ;
 inherit M_CLIMBABLE;
 void setup() {
-    set_unit("¿Ã");
-    set_id("tree","°ÙÄêÀÏ»±Ê÷");
-    set_long("Ò»¿Ã±¥¾­²×É£µÄ°ÙÄêÀÏ»±Ê÷£¬¿ÉÒÔÅÀÅÀÊÔÊÔ(climb)¡£\n");
-    set_in_room_desc("Ò»¿Ã°ÙÄêÀÏ»±Ê÷(tree)\n");
+    set_unit("æ£µ");
+    set_id("tree","ç™¾å¹´è€æ§æ ‘");
+    set_long("ä¸€æ£µé¥±ç»æ²§æ¡‘çš„ç™¾å¹´è€æ§æ ‘ï¼Œå¯ä»¥çˆ¬çˆ¬è¯•è¯•(climb)ã€‚\n");
+    set_in_room_desc("ä¸€æ£µç™¾å¹´è€æ§æ ‘(tree)\n");
     set_up_destination(FROOMPATH+"vhuaishu_shang");
 }

@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is »¨¶ù¶ä¶ä
+// driver is èŠ±å„¿æœµæœµ
 // created date is Sat May  7 14:39:27 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,10 +7,10 @@ inherit INDOOR_ROOM;
 void setup() {
 set_area("longxi");
 set_light(50);
-set_brief("%^YELLOW%^"+"ÍÁµØÃí"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"åœŸåœ°åº™"+"%^RESET%^");
 set_long("
-    ÕâÊÇÒ»¼äÊ®·ÖÆÆ¾ÉµÄÍÁµØÃí£¬Ò²²»Öª»Ä·ÏÁË¶à¾Ã£¬ÁºÉÏµØÏÂ²¼ÂúÁË
-»Ò³¾¡£ÍÁµØÉñÏñááÃæµÄÇ½ÉÏÓĞ¸ö¶´¿Ú£¬ÀÏÊóÅÀ½øÅÀ³ö£¬¶ñĞÄ¼«ÁË¡£\n\n");
+    è¿™æ˜¯ä¸€é—´ååˆ†ç ´æ—§çš„åœŸåœ°åº™ï¼Œä¹Ÿä¸çŸ¥è’åºŸäº†å¤šä¹…ï¼Œæ¢ä¸Šåœ°ä¸‹å¸ƒæ»¡äº†
+ç°å°˜ã€‚åœŸåœ°ç¥åƒå¾Œé¢çš„å¢™ä¸Šæœ‰ä¸ªæ´å£ï¼Œè€é¼ çˆ¬è¿›çˆ¬å‡ºï¼Œæ¶å¿ƒæäº†ã€‚\n\n");
 set_exits( ([
 "south":"/a/longxi/lx_xiaoxiang3.c",
  ]));

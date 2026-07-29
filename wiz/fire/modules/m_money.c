@@ -32,16 +32,16 @@ string query_what_look()
 	switch(m_rate)
 	{
 		case 1:
-			s=s+"ÎÄÇ®(coin)";
+			s=s+"æ–‡é’±(coin)";
 			break;
 		case 100:
-			s=s+"Á½Òø×Ó(silver)";
+			s=s+"ä¸¤é“¶å­(silver)";
 			break;
 		case 10000:
-			s=s+"Á½½ğ×Ó(gold)";
+			s=s+"ä¸¤é‡‘å­(gold)";
 			break;
 		default:
-			s=s+"Î´Öª»õ±Ò(money)";
+			s=s+"æœªçŸ¥è´§å¸(money)";
 			break;
 	}
 	return s;

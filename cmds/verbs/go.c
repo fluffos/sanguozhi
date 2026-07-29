@@ -14,7 +14,7 @@ int need_to_see() {
 }
 //###should be s
 //###should be shared somehow with drive.c
-string array normal_dirs = ({  "up", "down", "north", "south", "east",
+string * normal_dirs = ({  "up", "down", "north", "south", "east",
 "west", "northwest", "northeast", "southwest", "southeast" ,"bedroom"});
 void do_go_wrd_obj(string prep, object ob) 
 {
@@ -70,13 +70,13 @@ mixed can_go_str(string str)
 	string fn;
 	object o_rom;
 	fn=env->query_exit_value(str);
-	if(!stringp(fn)) return "ËÆºõ²»Ì«¿ÉÄÜ³¯ÄÇ¸ö·½Ïò×ß¡£\n";
+	if(!stringp(fn)) return "ä¼¼ä¹ä¸å¤ªå¯èƒ½æœé‚£ä¸ªæ–¹å‘èµ°ã€‚\n";
 
 	o_rom=load_object(fn);
-	if(!objectp(o_rom)) return "ËÆºõ²»Ì«¿ÉÄÜ³¯ÄÇ¸ö·½Ïò×ß¡£\n";
+	if(!objectp(o_rom)) return "ä¼¼ä¹ä¸å¤ªå¯èƒ½æœé‚£ä¸ªæ–¹å‘èµ°ã€‚\n";
 
            if(env_another->is_horse() && o_rom->is_indoors()) 
-          return "Äã±ØĞëÏÂÂí²ÅÄÜ½øÈ¥¡£\n";
+          return "ä½ å¿…é¡»ä¸‹é©¬æ‰èƒ½è¿›å»ã€‚\n";
 
 		   if(env_another->is_troop()) {
 				value=default_checks();
@@ -89,7 +89,7 @@ mixed can_go_str(string str)
         
     if( is_normal )
     {   
-        return "ËÆºõ²»Ì«¿ÉÄÜ³¯ÄÇ¸ö·½Ïò×ß¡£\n";
+        return "ä¼¼ä¹ä¸å¤ªå¯èƒ½æœé‚£ä¸ªæ–¹å‘èµ°ã€‚\n";
     }
 
 }
@@ -101,10 +101,10 @@ void do_go_str(string str)
     }
     this_body()->do_go_somewhere(str);
         if(random(6)==1) {
-//                this_body()->start_busy(1,"ÄãÕıÃ¦×Å¸ÏÂ·ÄØ¡£");
+//                this_body()->start_busy(1,"ä½ æ­£å¿™ç€èµ¶è·¯å‘¢ã€‚");
 	}
 }
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ "STR" }), ({ "leave" }), ({ "down OBJ",
  "up OBJ", "around OBJ:v", "to OBJ:v", "over OBJ", "on OBJ", "into OBJ", "in OBJ", "STR" }) });

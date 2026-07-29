@@ -5,23 +5,23 @@
 inherit OBJ;
 void setup()
 {
-  set_id("roses", HIR+"Ãµ¹å"+NOR);
-  set_long("Ò»´Ø½¿ÑÞµÄÃµ¹å£¬ÕâÒìÏã¶øÓÐ´ÌµÄÃµ¹åÄã»¹ÊÇ²»Òª²É°É(zhe)¡£\n");
+  set_id("roses", HIR+"çŽ«ç‘°"+NOR);
+  set_long("ä¸€ç°‡å¨‡è‰³çš„çŽ«ç‘°ï¼Œè¿™å¼‚é¦™è€Œæœ‰åˆºçš„çŽ«ç‘°ä½ è¿˜æ˜¯ä¸è¦é‡‡å§(zhe)ã€‚\n");
   set_size(VERY_SMALL);
- set_unit("´Ø");
-  set_in_room_desc("Ò»´Ø½¿ÑÞµÄ"+HIR+"Ãµ¹å"+NOR+"(roses)");
+ set_unit("ç°‡");
+  set_in_room_desc("ä¸€ç°‡å¨‡è‰³çš„"+HIR+"çŽ«ç‘°"+NOR+"(roses)");
   }
 
 int smell() {
-  write("ÕâÃµ¹åÉ¢·¢×Å×íÈËµÄÒìÏã¡£\n");
+  write("è¿™çŽ«ç‘°æ•£å‘ç€é†‰äººçš„å¼‚é¦™ã€‚\n");
   return 1;
 }
 
 int zhe(string n) {
   object o_rose;
-  this_body()->simple_action("$NÈÌ²»×¡ÕªÏÂÒ»¶äÃµ¹å¡£\n");
+  this_body()->simple_action("$Nå¿ä¸ä½æ‘˜ä¸‹ä¸€æœµçŽ«ç‘°ã€‚\n");
   if (!random(5)) {
-  	this_body()->simple_action("$N²»Ð¡ÐÄÈÃÃµ¹åÔúÁËÒ»ÏÂ£¬ºÃÌÛ¡£\n");
+  	this_body()->simple_action("$Nä¸å°å¿ƒè®©çŽ«ç‘°æ‰Žäº†ä¸€ä¸‹ï¼Œå¥½ç–¼ã€‚\n");
   	this_body()->set_cur_hp(0);
   }
   o_rose=new("/wiz/chun/rose.c");

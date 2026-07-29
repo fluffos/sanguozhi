@@ -1,4 +1,4 @@
-//by jiezhao on Dec 25 1997 longdao.c ÇàÁúÙÈÔÂµ¶
+//by jiezhao on Dec 25 1997 longdao.c é’é¾™åƒæœˆåˆ€
 #include <sanguo.h>
 #include <mudlib.h>
 #include <ansi.h>
@@ -7,17 +7,17 @@ inherit M_VALUE;
 
 void setup()
 {
-set_adj(HIC+"ÇàÁúÙÈÔÂ"+NOR);
-set_unit("±ú");
-set_id("yanyue blade", HIC+"µ¶"+NOR);
+set_adj(HIC+"é’é¾™åƒæœˆ"+NOR);
+set_unit("æŸ„");
+set_id("yanyue blade", HIC+"åˆ€"+NOR);
 add_id("blade");
 add_id("dao");
-set_long("Õâ¾ÍÊÇ¹ØÓğ³£ÓÃµÄ±øÆ÷¡£ÉÏÃæ¿Ì×ÅÒ»¸ö´ó´óµÄ¹Ø×Ö£¡");
-set_in_room_desc(HIC+"ÇàÁúÙÈÔÂµ¶"+NOR+"(yanyue blade)");
+set_long("è¿™å°±æ˜¯å…³ç¾½å¸¸ç”¨çš„å…µå™¨ã€‚ä¸Šé¢åˆ»ç€ä¸€ä¸ªå¤§å¤§çš„å…³å­—ï¼");
+set_in_room_desc(HIC+"é’é¾™åƒæœˆåˆ€"+NOR+"(yanyue blade)");
 set_weapon_class(75);
 set_size(LARGE);
 set_value(5000);
 set_currency_type("gold");
-set_wield_message("Ö»¼û¾«¹âÒ»ÉÁ£¬$NµÄÊÖÖĞ¶àÁËÒ»°Ñ"+HIC+"ÇàÁúÙÈÔÂµ¶"+NOR+"£¡\n");
-set_unwield_message("$N½«ÑªÁÜÀìµÄ"+HIC+"ÇàÁúÙÈÔÂµ¶"+NOR+"²å»ØÑü¼ä¡£");
+set_wield_message("åªè§ç²¾å…‰ä¸€é—ªï¼Œ$Nçš„æ‰‹ä¸­å¤šäº†ä¸€æŠŠ"+HIC+"é’é¾™åƒæœˆåˆ€"+NOR+"ï¼\n");
+set_unwield_message("$Nå°†è¡€æ·‹æ¼“çš„"+HIC+"é’é¾™åƒæœˆåˆ€"+NOR+"æ’å›è…°é—´ã€‚");
 }

@@ -3,7 +3,7 @@
 // by row on Feb 2000
 inherit __DIR__+"union_channel_d/suggest";
 
-static mapping wiz_listeners=([]);
+nosave protected mapping wiz_listeners=([]);
 
 mixed query_list(string p_nation) {
 	string *list;
@@ -20,13 +20,13 @@ mixed query_list(string p_nation) {
 void deliever_tell(string p_id,string n_id,string msg) {
 	string *list;
 	string teller;
-	if(!p_id) teller="Ä³ÈË£º";
-	else teller=CHAR_D->get_char(p_id,"name")+"£º";
+	if(!p_id) teller="æŸäººï¼š";
+	else teller=CHAR_D->get_char(p_id,"name")+"ï¼š";
 	if(p_id=="no teller") teller="";
 	
-	if(!sizeof(msg)) msg="¡£¡£¡£";
+	if(!sizeof(msg)) msg="ã€‚ã€‚ã€‚";
 	list=query_list(n_id);
-	msg="%^H_YELLOW%^¡¾¶«ºº¹¬Í¢¡¿"+teller+msg;
+	msg="%^H_YELLOW%^ã€ä¸œæ±‰å®«å»·ã€‘"+teller+msg;
 	if(msg[<1]!='\n')
 		msg+="\n";
 	msg=replace_string(msg,"%^RESET%^","%^RESET%^%^H_YELLOW%^");
@@ -52,7 +52,7 @@ mixed deliever_semote(string p_id,string n_id,string msg)
 			deliever_tell("no teller",n_id,ss[1][1]);
 			return 1;
 		}
-		return "Ê²Ã´£¿\n";
+		return "ä»€ä¹ˆï¼Ÿ\n";
 	}
 	else {
 		o=find_body(p2);
@@ -65,7 +65,7 @@ mixed deliever_semote(string p_id,string n_id,string msg)
 				return 1;
 			}
 		}
-		return "Ê²Ã´£¿\n";
+		return "ä»€ä¹ˆï¼Ÿ\n";
 	}
 }
 
@@ -80,12 +80,12 @@ void deliever_secure(string p_id, string n_id, string msg)
 	list = query_list(n_id);
 	list = filter_array(list, (: CHAR_D->get_char($1, "ranknation"):) );
 
-	if(!p_id) teller="Ä³ÈË£º";
-        else teller=CHAR_D->get_char(p_id,"name")+"£º";
+	if(!p_id) teller="æŸäººï¼š";
+        else teller=CHAR_D->get_char(p_id,"name")+"ï¼š";
         if( p_id=="no teller" ) teller="";
-        if(!sizeof(msg)) msg="¡£¡£¡£";
+        if(!sizeof(msg)) msg="ã€‚ã€‚ã€‚";
 
-        msg="%^H_YELLOW%^¡¾¶«ºº¹¬Í¢¡¿"+teller+msg;
+        msg="%^H_YELLOW%^ã€ä¸œæ±‰å®«å»·ã€‘"+teller+msg;
         if(msg[<1]!='\n') msg+="\n";
         msg=replace_string(msg,"%^RESET%^","%^RESET%^%^H_CYAN%^");
         msg+="%^RESET%^";
@@ -116,7 +116,7 @@ mixed deliever_enter(string p_id, string msg) {
 	{
 		o=find_body(p_id);
 		if(!objectp(o)) return "wrong\n";
-		if(!wizardp(o)) return "Ö»ÓĞÎ×Ê¦¼°¹¬Í¢¹ÙÔ±²Å¿ÉÊÕÌı¸ÃÆµµÀ¡£\n";
+		if(!wizardp(o)) return "åªæœ‰å·«å¸ˆåŠå®«å»·å®˜å‘˜æ‰å¯æ”¶å¬è¯¥é¢‘é“ã€‚\n";
 		n_id=msg[1..<1];
 		if (n_id == "all") {
                         string *countries = COUNTRY_D->list_countries();
@@ -126,7 +126,7 @@ mixed deliever_enter(string p_id, string msg) {
 		}
 		else {
 	                if(!COUNTRY_D->nation_exist(n_id))
-	                        return "Ã»ÓĞÕâ¸ö¹ú¼Ò¡£\n";
+	                        return "æ²¡æœ‰è¿™ä¸ªå›½å®¶ã€‚\n";
 	                add_wiz_listener(p_id,n_id);
 		}
 		return "ok\n";
@@ -136,7 +136,7 @@ mixed deliever_enter(string p_id, string msg) {
 	{
                 o=find_body(p_id);
                 if(!objectp(o)) return "wrong\n";
-                if(!wizardp(o)) return "ÄãÒª×öÊ²Ã´£¿\n";
+                if(!wizardp(o)) return "ä½ è¦åšä»€ä¹ˆï¼Ÿ\n";
                 n_id=msg[1..<1];
                 if (n_id == "all") {
                         string *countries = COUNTRY_D->list_countries();
@@ -146,14 +146,14 @@ mixed deliever_enter(string p_id, string msg) {
                 }
                 else {
                         if(!COUNTRY_D->nation_exist(n_id))
-                                return "Ã»ÓĞÕâ¸ö¹ú¼Ò¡£\n";
+                                return "æ²¡æœ‰è¿™ä¸ªå›½å®¶ã€‚\n";
 			sub_wiz_listener(p_id,n_id);
                 }
 		return "ok\n";
 	}
 		
 	n_id=CHAR_D->get_char(p_id,"nation");
-	if(!n_id) return "Ö»ÓĞ¹ÙÔ±²ÅÄÜÊ¹ÓÃ¹ú¼ÒÆµµÀ¡£\n";
+	if(!n_id) return "åªæœ‰å®˜å‘˜æ‰èƒ½ä½¿ç”¨å›½å®¶é¢‘é“ã€‚\n";
 	switch(msg[0]) {
 	case '*': // this is a semote
 		return deliever_semote(p_id,n_id,msg[1..<1]);

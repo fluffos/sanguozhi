@@ -15,23 +15,23 @@ void confirm_resign(mixed p_input)
 	if( !COUNTRY_D->nation_exist(CHAR_D->get_char(p_id,"nation")) )
 	{
 	this_user()->finish_job(job_id);
-	write("Äã¾ö¶¨·ÅÆú""HIY"+job_memo1+"µÄ¹¤×÷¡£\n");
+	write("ä½ å†³å®šæ”¾å¼ƒ""HIY"+job_memo1+"çš„å·¥ä½œã€‚\n");
 	return;
 	}
 	rep=CHAR_D->get_char(p_id,"reputation");
 	
 if ((rep-cut_rep)<10)
 	{
-	write("Äã¾ö¶¨·ÅÆú""HIY"+job_memo1+"µÄ¹¤×÷¡£\n");
+	write("ä½ å†³å®šæ”¾å¼ƒ""HIY"+job_memo1+"çš„å·¥ä½œã€‚\n");
 	return;
 	}
 	rep=rep-cut_rep;
-	write("Äã¾ö¶¨·ÅÆú""HIY"+job_memo1+"µÄ¹¤×÷¡£\n");
-	write("ÄãµÄÉùÍûÏÂ½µÁË"+chinese_number(rep)+"µã¡£\n");
+	write("ä½ å†³å®šæ”¾å¼ƒ""HIY"+job_memo1+"çš„å·¥ä½œã€‚\n");
+	write("ä½ çš„å£°æœ›ä¸‹é™äº†"+chinese_number(rep)+"ç‚¹ã€‚\n");
 	return;
 	}
 	else
-	write("¹¤×÷ÊÇ²»ÄÜËæ±ã·ÅÆúµÄÑ½¡£\n");
+	write("å·¥ä½œæ˜¯ä¸èƒ½éšä¾¿æ”¾å¼ƒçš„å‘€ã€‚\n");
 	this_user()->modal_pop();
 	return; 
 }
@@ -42,14 +42,14 @@ void start(string arg)
 	time=time();
 	if((!arg)||(arg==""))
 	{
-	write("ÓÃ·¨: cmd resign <job_id>\n");
-	write("Àý×Ó£ºcmd resign whisper (·ÅÆú²ß·´µÐ½«µÄ¹¤×÷)\n");
+	write("ç”¨æ³•: cmd resign <job_id>\n");
+	write("ä¾‹å­ï¼šcmd resign whisper (æ”¾å¼ƒç­–åæ•Œå°†çš„å·¥ä½œ)\n");
 	return;
 	}
 	beg_time=this_user()->query_job(arg,"beg_time");
 	if (beg_time=0)
 	{
-	write("Äã²¢Ã»ÓÐÁì¹ýÕâÏî¹¤×÷¡£\n");
+	write("ä½ å¹¶æ²¡æœ‰é¢†è¿‡è¿™é¡¹å·¥ä½œã€‚\n");
 	return;
 	}
 	job_memo=this_user()->query_job(arg,"memo");
@@ -57,12 +57,12 @@ void start(string arg)
 	job_id=arg;
 	if ((time-beg_time)/60<5)
 	{
-	write("Äã¸Õ¸Õ²Å½ÓÊÜ¹¤×÷£¬ÖÁÉÙÏÈÊÔÊÔÔÙ¿¼ÂÇ·ÅÆú°É¡£\n");
+	write("ä½ åˆšåˆšæ‰æŽ¥å—å·¥ä½œï¼Œè‡³å°‘å…ˆè¯•è¯•å†è€ƒè™‘æ”¾å¼ƒå§ã€‚\n");
 	return;
 	}
 	else
 	{
-	write("Äã¾ö¶¨ÁËÒª·ÅÆú""HIY"+job_memo+"NOR""ÕâÏî¹¤×÷Âð£¿£¨½«»áÓÐÒ»¶¨ËðÊ§£©\nÈ·¶¨ÇëÊäÈëyes£¬ÈÎÒâ¼ü»Ø³µºóÍË³ö¡£\n");
+	write("ä½ å†³å®šäº†è¦æ”¾å¼ƒ""HIY"+job_memo+"NOR""è¿™é¡¹å·¥ä½œå—ï¼Ÿï¼ˆå°†ä¼šæœ‰ä¸€å®šæŸå¤±ï¼‰\nç¡®å®šè¯·è¾“å…¥yesï¼Œä»»æ„é”®å›žè½¦åŽé€€å‡ºã€‚\n");
 	this_user()->modal_push((: confirm_resign :),"",0,0);
 	}
 }

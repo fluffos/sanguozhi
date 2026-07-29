@@ -1,8 +1,8 @@
 /* example
-**	"commando":(["name" : "Ãñ±ø",     		chinese name
+**	"commando":(["name" : "æ°‘å…µ",     		chinese name
 **		     "lvl" : 1, 	  		troop level
 **		     "type" : "cavalry",  		troop category
-**		     "forbiden" : ({"¡ù" }), 		terrian can not enter
+**		     "forbiden" : ({"â€»" }), 		terrian can not enter
 **           "cost":(["gold":1, "food":1 ]) 	cost
 **		     "recruit":(["gold":1, "food":1 ]) 	recruit cost
 */

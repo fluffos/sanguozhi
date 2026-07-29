@@ -33,23 +33,23 @@ void setup(string a_id,string fd)
 	}
 	master_name=CHAR_D->get_char(master,"name");
 	base_name=BASE_D->get_base(f_id,"name");
-	set_name("zong jian","×Ü¼à");
+	set_name("zong jian","æ€»ç›‘");
 	add_id("zong");
 	add_id("leader");
 	set_gender(1);
-    set_proper_name("×Ü¼à");
+    set_proper_name("æ€»ç›‘");
 
-   	set_in_room_desc(base_name+"×Ü¼à(zong jian)");
+   	set_in_room_desc(base_name+"æ€»ç›‘(zong jian)");
 	set_age(40);
 	set_sg_rongmao(-1);
 
-	add_ask_str("order","$N¶Ô$TµÀ£º¡°×Ü¼à´óÈË¡±£¬×î½üÒ»Ïò¿ÉºÃ°¡¡£\n");
+	add_ask_str("order","$Nå¯¹$Té“ï¼šâ€œæ€»ç›‘å¤§äººâ€ï¼Œæœ€è¿‘ä¸€å‘å¯å¥½å•Šã€‚\n");
 	add_question("order","order" );
 	
 }
 string long() {
-	return master_name+"¼ÒµÄ´ó¹Ü¼Ò£¬ÏÖÔÚÕýÌæ"+master_name+
-		"ÔÚÕâ¶ù¿´Ì¯×Ó£¬´úÀí"+base_name+"×Ü¼à¡£\n";
+	return master_name+"å®¶çš„å¤§ç®¡å®¶ï¼ŒçŽ°åœ¨æ­£æ›¿"+master_name+
+		"åœ¨è¿™å„¿çœ‹æ‘Šå­ï¼Œä»£ç†"+base_name+"æ€»ç›‘ã€‚\n";
 }
 int am_i_ok() {
 	object o_h=SGBASE(p_area,f_id);
@@ -63,8 +63,8 @@ void special_answer(object who, string matt)
 	p_id=who->query_primary_id();
 	if(!am_i_ok()) {
 		this_object()->simple_action(
-			"Ò»¸öÏÂÈËÅÜ¹ýÀ´ÔÚ$N¶ú±ßàÖ¹¾ÁËÐ©Ê²Ã´£¬$NÁ³É«Ò»±äµÀ£ºÖªµÀÁË£¬ÂíÉÏ¾ÍÈ¥¡£\n");
-		this_object()->simple_action("$N´Ò´ÒÃ¦Ã¦Àë¿ªÁË¡£\n");
+			"ä¸€ä¸ªä¸‹äººè·‘è¿‡æ¥åœ¨$Nè€³è¾¹å˜€å’•äº†äº›ä»€ä¹ˆï¼Œ$Nè„¸è‰²ä¸€å˜é“ï¼šçŸ¥é“äº†ï¼Œé©¬ä¸Šå°±åŽ»ã€‚\n");
+		this_object()->simple_action("$NåŒ†åŒ†å¿™å¿™ç¦»å¼€äº†ã€‚\n");
 		destruct(this_object());
 		return;
 
@@ -79,7 +79,7 @@ void special_answer(object who, string matt)
  (CHAR_D->get_char(p_id,"ranknation")>0)))
 		{
 			this_object()->targetted_action(
-				"$NÁ¬Ã¦¹ªÉíµÀ£º$m$RÕæÊÇÕÛÉ±Ð¡ÈËÁË£¬$RÓÐºÍ·Ô¸À¡£\n",who);
+				"$Nè¿žå¿™èº¬èº«é“ï¼š$m$RçœŸæ˜¯æŠ˜æ€å°äººäº†ï¼Œ$Ræœ‰å’Œå©å’ã€‚\n",who);
         new (__DIR__+"farm_menu")->start_menu(who,this_object(),p_area,f_id);
 		}
 		else {

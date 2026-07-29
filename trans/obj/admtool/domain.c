@@ -44,23 +44,23 @@ private nomask void write_domain_menu()
           "\n"
           );
 */
-    write("¹ÜÀí¹¤¾ß£ºÇøÓò¹ÜÀí\n"
+    write("ç®¡ç†å·¥å…·ï¼šåŒºåŸŸç®¡ç†\n"
           "\n"
-          "    l                 - ÇøÓòÁĞ±í\n"       
-          "    s [ÇøÓò]          - ÏÔÊ¾Ä³ÇøÓòĞÅÏ¢\n"
+          "    l                 - åŒºåŸŸåˆ—è¡¨\n"       
+          "    s [åŒºåŸŸ]          - æ˜¾ç¤ºæŸåŒºåŸŸä¿¡æ¯\n"
           "\n"
-          "    c [ÇøÓò]          - ½¨Á¢Ò»¸öÇøÓò                 [´óÉñ]\n" 
-          "    C [ÇøÓò]          - ½¨Á¢Ò»¸ö³éÏóÇøÓò(ÎŞÄ¿Â¼)     [´óÉñ]\n"
-          "    d [ÇøÓò]          - É¾³ıÒ»¸öÇøÓò                 [´óÉñ]\n"              
+          "    c [åŒºåŸŸ]          - å»ºç«‹ä¸€ä¸ªåŒºåŸŸ                 [å¤§ç¥]\n" 
+          "    C [åŒºåŸŸ]          - å»ºç«‹ä¸€ä¸ªæŠ½è±¡åŒºåŸŸ(æ— ç›®å½•)     [å¤§ç¥]\n"
+          "    d [åŒºåŸŸ]          - åˆ é™¤ä¸€ä¸ªåŒºåŸŸ                 [å¤§ç¥]\n"              
           "\n"
-          "    u [ÓÃ»§]          - ÏÔÊ¾ÓÃ»§ĞÅÏ¢\n"
-          "    a [ÓÃ»§] [ÇøÓò]   - °ÑÓÃ»§¼ÓÈëÒ»¸öÇøÓò           [ÓòÖ÷]\n"
-          "    A [ÓÃ»§] [ÇøÓò]   - ÌáÉıÓÃ»§ÎªÓòÖ÷               [ÓòÖ÷]\n"      
-          "    r [ÓÃ»§] [ÇøÓò]   - °ÑÓÃ»§´ÓÇøÓòÖĞÉ¾³ı           [ÓòÖ÷]\n"      
+          "    u [ç”¨æˆ·]          - æ˜¾ç¤ºç”¨æˆ·ä¿¡æ¯\n"
+          "    a [ç”¨æˆ·] [åŒºåŸŸ]   - æŠŠç”¨æˆ·åŠ å…¥ä¸€ä¸ªåŒºåŸŸ           [åŸŸä¸»]\n"
+          "    A [ç”¨æˆ·] [åŒºåŸŸ]   - æå‡ç”¨æˆ·ä¸ºåŸŸä¸»               [åŸŸä¸»]\n"      
+          "    r [ç”¨æˆ·] [åŒºåŸŸ]   - æŠŠç”¨æˆ·ä»åŒºåŸŸä¸­åˆ é™¤           [åŸŸä¸»]\n"      
           "\n"                                          
-          "    m        - Ö÷Ñ¡µ¥\n"
-          "    q        - ÍË³ö\n"
-          "    ?        - °ïÖú\n"
+          "    m        - ä¸»é€‰å•\n"
+          "    q        - é€€å‡º\n"
+          "    ?        - å¸®åŠ©\n"
           "\n"
           );      
           
@@ -74,12 +74,12 @@ private nomask void list_domains()
     if ( !sizeof(domains) )
     {
         //write("There are no domains.\n");
-        write("Ã»ÓĞÈÎºÎÇøÓò¡£\n");
+        write("æ²¡æœ‰ä»»ä½•åŒºåŸŸã€‚\n");
     }
     else
     {
         printf(//"The following domains exist:\n%-#78s\n",
-               "´æÔÚÏÂÁĞÇøÓò£º\n%-#78s\n",
+               "å­˜åœ¨ä¸‹åˆ—åŒºåŸŸï¼š\n%-#78s\n",
                implode(sort_array(domains, 1), "\n") + "\n");
     }
 }
@@ -93,7 +93,7 @@ private nomask void show_domain_info(string domain)
     if ( !members )
     {
         //printf("There is no domain named '%s'\n", domain);
-        printf("Ã»ÓĞÒÔ %s ÎªÃûµÄÇøÓò\n", domain);
+        printf("æ²¡æœ‰ä»¥ %s ä¸ºåçš„åŒºåŸŸ\n", domain);
     }
     else
     {
@@ -101,22 +101,22 @@ private nomask void show_domain_info(string domain)
         members -= lords;
 
         //printf("Domain %s:\n", domain);
-        printf("ÇøÓò %s£º\n", domain);
+        printf("åŒºåŸŸ %sï¼š\n", domain);
 
         switch ( sizeof(lords) )
         {
         case 0:
             //write("Lords:   (none)\n");
-            write("ÓòÖ÷£º       (¿ÕÈ±)\n");
+            write("åŸŸä¸»ï¼š       (ç©ºç¼º)\n");
             break;
 
         case 1:
             //printf("Lord:    %s\n", lords[0]);
-            printf("ÓòÖ÷£º      %s\n", lords[0]);
+            printf("åŸŸä¸»ï¼š      %s\n", lords[0]);
             break;
 
         default:
-            printf("ÓòÖ÷£º      %s\n", //"Lords:   %s\n", 
+            printf("åŸŸä¸»ï¼š      %s\n", //"Lords:   %s\n", 
                    implode(lords, ", "));
             break;
         }
@@ -125,16 +125,16 @@ private nomask void show_domain_info(string domain)
         {
         case 0:
             //write("Members: (none)\n");
-            write("³ÉÔ±£º       (ÎŞ)\n");
+            write("æˆå‘˜ï¼š       (æ— )\n");
             break;
 
         case 1:
             //printf("Member:  %s\n", members[0]);
-            printf("³ÉÔ±£º      %s\n", members[0]);
+            printf("æˆå‘˜ï¼š      %s\n", members[0]);
             break;
 
         default:
-            printf("³ÉÔ±£º      %s\n",//"Members: %s\n",
+            printf("æˆå‘˜ï¼š      %s\n",//"Members: %s\n",
              implode(members, ", "));
             break;
         }
@@ -152,7 +152,7 @@ private nomask void create_domain(int no_domain_dir, string domain)
         return;
 
     //write("Domain created.\n");
-    write("ÇøÓò½¨³É¡£\n");
+    write("åŒºåŸŸå»ºæˆã€‚\n");
 
     if ( !no_domain_dir )
     {
@@ -160,9 +160,9 @@ private nomask void create_domain(int no_domain_dir, string domain)
 
         mkdir(dirname);
         //printf("Created %s\n", dirname);
-        printf("½¨Á¢ %s\n", dirname);
+        printf("å»ºç«‹ %s\n", dirname);
         printf(//"Setting protection level of %s\n",
-               "Éè¶¨ %s µÄ±£»¤¼¶±ğ\n", dirname);
+               "è®¾å®š %s çš„ä¿æŠ¤çº§åˆ«\n", dirname);
         
         write_error(SECURE_D->set_protection(dirname,
                                              1,
@@ -179,7 +179,7 @@ private nomask void delete_domain(string domain)
         return;
 
     //write("Domain deleted.\n");
-    write("ÇøÓòÉ¾µôÁË¡£\n");
+    write("åŒºåŸŸåˆ æ‰äº†ã€‚\n");
 }
 
 private nomask void show_users_domains(string user)
@@ -189,10 +189,10 @@ private nomask void show_users_domains(string user)
     domains = SECURE_D->query_domains(user) || ({ });
     if ( !sizeof(domains) )
         //printf("Wizard %s doesn't belong to any domain.\n", user);
-        printf("Î×Ê¦ %s ²»ÊôÓÚÈÎºÎÒ»¸öÇøÓò¡£\n", user);
+        printf("å·«å¸ˆ %s ä¸å±äºä»»ä½•ä¸€ä¸ªåŒºåŸŸã€‚\n", user);
     else
         printf(//"Wizard %s belongs to %s.\n", 
-               "Î×Ê¦ %s ÊôÓÚ %s¡£\n", user,
+               "å·«å¸ˆ %s å±äº %sã€‚\n", user,
                implode(sort_array(domains, 1), ", "));
 }
 
@@ -203,7 +203,7 @@ private nomask void add_user_to_domain(int lord, string user, string domain)
         return;
 
     printf(//"Added %s %s %s.\n",
-           "ÈÃ %s %s¡£\n", user, lord ? "³ÉÎª "+domain+" µÄÓòÖ÷" : "¼ÓÈë "+domain);
+           "è®© %s %sã€‚\n", user, lord ? "æˆä¸º "+domain+" çš„åŸŸä¸»" : "åŠ å…¥ "+domain);
 }
 
 private nomask void remove_user_from_domain(string user, string domain)
@@ -213,7 +213,7 @@ private nomask void remove_user_from_domain(string user, string domain)
         return;
 
     //printf("Removed %s from %s.\n", user, domain);
-    printf("°Ñ %s ´Ó %s ÇøÓòÖĞÉ¾³ı¡£\n", user, domain);
+    printf("æŠŠ %s ä» %s åŒºåŸŸä¸­åˆ é™¤ã€‚\n", user, domain);
 }
 
 private nomask void receive_domain_input(string str)
@@ -225,7 +225,7 @@ private nomask void receive_domain_input(string str)
         if ( sscanf(str, "%s %s", str, arg) != 2 )
         {
             //write("** Format is: <option> <argument>\n");
-            write("** ¸ñÊ½£º<option> <argument>\n");
+            write("** æ ¼å¼ï¼š<option> <argument>\n");
             write_domain_menu();
             return;
         }
@@ -236,50 +236,50 @@ private nomask void receive_domain_input(string str)
     case "l":
         if ( arg )
             //write("** No argument is required.\n");
-            write("** ÎŞĞè²ÎÊı¡£\n");
+            write("** æ— éœ€å‚æ•°ã€‚\n");
         list_domains();
         break;
 
     case "s":
         do_one_arg(//"Show information on which domain? ",
-                   "ÏÔÊ¾ÄÄÒ»¸öÇøÓòµÄĞÅÏ¢£¿",
+                   "æ˜¾ç¤ºå“ªä¸€ä¸ªåŒºåŸŸçš„ä¿¡æ¯ï¼Ÿ",
                    (: show_domain_info :),
                    arg);
         break;
 
     case "c":
         do_one_arg(//"Name for the new domain? ",
-                   "ĞÂÇøÓòµÄÃû³Æ£¿",
+                   "æ–°åŒºåŸŸçš„åç§°ï¼Ÿ",
                    (: create_domain, 0 :),
                    arg);
         break;
 
     case "C":
         do_one_arg(//"Name for the new domain? ",
-                   "ĞÂÇøÓòµÄÃû³Æ£¿",
+                   "æ–°åŒºåŸŸçš„åç§°ï¼Ÿ",
                    (: create_domain, 1 :),      /* 1 == no_domain_dir */
                    arg);
         break;
 
     case "d":
         do_one_arg(//"Delete which domain? ",
-                   "É¾³ıÄÄÒ»¸öÇøÓò£¿",     
+                   "åˆ é™¤å“ªä¸€ä¸ªåŒºåŸŸï¼Ÿ",     
                    (: delete_domain :),
                    arg);
         break;
 
     case "u":
         do_one_arg(//"Show information for which user? ",
-                   "ÏÔÊ¾ÄÄÒ»¸öÓÃ»§µÄĞÅÏ¢£¿",     
+                   "æ˜¾ç¤ºå“ªä¸€ä¸ªç”¨æˆ·çš„ä¿¡æ¯ï¼Ÿ",     
                    (: show_users_domains :),
                    arg);
         break;
 
     case "a":
         do_two_args(//"Add which user? ",
-                    "Ôö¼ÓÄÄ¸öÓÃ»§£¿",    
+                    "å¢åŠ å“ªä¸ªç”¨æˆ·ï¼Ÿ",    
                     //"Add '%s' to which domain? ",
-                    "Ôö¼Ó %s µ½ÄÄ¸öÇøÓò£¿",
+                    "å¢åŠ  %s åˆ°å“ªä¸ªåŒºåŸŸï¼Ÿ",
                     (: add_user_to_domain, 0 :),
                     arg);
         break;
@@ -287,8 +287,8 @@ private nomask void receive_domain_input(string str)
     case "A":
         do_two_args(//"Add which user as a lord? ",
                     //"Add '%s' to which domain? ",
-                    "°ÑÄÄ¸öÓÃ»§ÌáÉıÎªÓòÖ÷£¿",
-                    "Ôö¼Ó %s µ½ÄÄ¸öÇøÓò£¿", 
+                    "æŠŠå“ªä¸ªç”¨æˆ·æå‡ä¸ºåŸŸä¸»ï¼Ÿ",
+                    "å¢åŠ  %s åˆ°å“ªä¸ªåŒºåŸŸï¼Ÿ", 
                     (: add_user_to_domain, 1 :), /* 1 == lord */
                     arg);
         break;
@@ -296,8 +296,8 @@ private nomask void receive_domain_input(string str)
     case "r":
         do_two_args(//"Remove which user? ",
                     //"Remove '%s' from which domain? ",
-                    "É¾³ıÄÄ¸öÓÃ»§£¿",
-                    "°Ñ %s ´ÓÄÄ¸öÇøÓòÖĞÉ¾³ı£¿",
+                    "åˆ é™¤å“ªä¸ªç”¨æˆ·ï¼Ÿ",
+                    "æŠŠ %s ä»å“ªä¸ªåŒºåŸŸä¸­åˆ é™¤ï¼Ÿ",
                     (: remove_user_from_domain :),
                     arg);
         break;
@@ -312,7 +312,7 @@ private nomask void receive_domain_input(string str)
     }
 }
 
-static nomask void begin_domain_menu()
+protected nomask void begin_domain_menu()
 {
     modal_func((: receive_domain_input :), PROMPT_DOMAIN);
     write_domain_menu();

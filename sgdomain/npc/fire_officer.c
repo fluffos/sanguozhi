@@ -22,14 +22,14 @@ int ask_jbhj(object player);
 
 void setup()
 {
-	set_name("officer", "��Ա");
-	set_in_room_desc("һλ��ɷ���Ĺ�Ա(officer)");
-	set_long("һλ��ɷ���Ĺ�Ա(officer)");
+	set_name("officer", "官员");
+	set_in_room_desc("一位神采飞扬的官员(officer)");
+	set_long("一位神采飞扬的官员(officer)");
 	set_gender(1);
 	add_question("extinguisher", "");
-	add_question("ˮ��", "");
+	add_question("水龙", "");
 	add_question("job", "");
-	add_question("���", "");		
+	add_question("灭火", "");		
 	add_question("jbhj", "");
 	num_tool = 4;
 	is_fire = 0;
@@ -40,9 +40,9 @@ mixed special_answer(object ob, string str)
 	player = this_body();
 
 	if( !str || !stringp(str) )return ::special_answer(ob, str);
-	if( str == "extinguisher" || str == "ˮ��" )
+	if( str == "extinguisher" || str == "水龙" )
 		ask_tool( player );
-	else if( str == "job" || str == "���")
+	else if( str == "job" || str == "灭火")
 		ask_job( player );
 	else if( str == "jbhj" )
 		ask_jbhj( player );
@@ -61,13 +61,13 @@ int ask_tool(object player)
 	object extinguisher;
 
 	if( num_tool <= 0 ){
-		this_object()->simple_action("$Nҡͷ����ˮ�������������ˣ���Ȼ�������\n");
+		this_object()->simple_action("$N摇头道：水龙都被人拿完了，请等会再来。\n");
 		return 1;
 	};
 	num_tool--;
 	call_out("add_tool", 900);
 	extinguisher = new( EXTI );
-	this_object()->targetted_action("$N֣�صİѽ�һ��ˮ����$T��\n", player);
+	this_object()->targetted_action("$N郑重的把交一条水龙给$T。\n", player);
 	extinguisher->move( player );
 	return 1;	
 }
@@ -78,16 +78,16 @@ int ask_job(object player)
 	string room_name;
 
 	if( !tool = present("extinguisher", player) ){
-		this_object()->simple_action("$NЦ����лл���ģ����ǻᰲ�ŵġ�\n");
+		this_object()->simple_action("$N笑道：谢谢关心，我们会安排的。\n");
 		return 1;
 	};
 	if( is_fire == 1 ){
 		if( !room || !objectp( room ) ){
 			call_out("set_fire", 100);
-			this_object()->simple_action("$N˵��������һ�а��ã�û��ʲô�𻼡�\n");
+			this_object()->simple_action("$N说道：现在一切安好，没有什么火患。\n");
 			return 1;
 		} else {
-			this_object()->simple_action("$N�鿴��һ�£����ŵ�ͼָ��ָ����������л��֣���ȥ��\n");
+			this_object()->simple_action("$N查看了一下，对着地图指了指，这儿可能有火灾，快去。\n");
 			printf("\n%s\n", room->get_brief());
 	 		printf("\n%s\n", room->long());
 			is_fire = 1;
@@ -99,13 +99,13 @@ int ask_job(object player)
 		room_name = CITY_MAP + room_name;
 		if( !file_size(room_name) || !room = load_object( room_name )
 			|| room_name == "warroom.c" ){
-			this_object()->simple_action("$N̾��һ��������û���ֻ�Դ���Ķ���\n");
+			this_object()->simple_action("$N叹了一口气：还没发现火源在哪儿。\n");
 			return 1;
 		};
 		fire = new( FIRE );
 		fire->move( room );
 		fire->set("owner", this_object());
-		this_object()->simple_action("$N�鿴��һ�£����ŵ�ͼָ��ָ����������л��֣���ȥ��\n");
+		this_object()->simple_action("$N查看了一下，对着地图指了指，这儿可能有火灾，快去。\n");
 		is_fire = 1;
 		printf("\n%s\n", room->get_brief());
 		printf("\n%s\n", room->long());

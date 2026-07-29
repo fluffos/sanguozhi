@@ -1,4 +1,4 @@
-// niurou.c ÎåÏãÅ£Èâ¸É by benben
+// niurou.c äº”é¦™ç‰›è‚‰å¹² by benben
 #include <sanguo.h>
 inherit M_VALUE;
 inherit OBJ;
@@ -9,27 +9,27 @@ void eat_tan()
 	string p_use;
 	p_use=this_body()->query_userid();
         if((p_use=="benben")||(p_use=="fire"))
-		this_body()->simple_action("$NÄÃÆğÎåÏãÅ£Èâ¸É³ÔÁË¼¸¿Ú£¬ºÃÏãÑ½£¬¿´$n¿©Ö¨¿©Ö¨½ÀµÄÕâÃ´Ïã£¬Äã
-ÈÌ²»×¡ÑÊÁË¿Ú¿ÚË®¡£\n");
+		this_body()->simple_action("$Næ‹¿èµ·äº”é¦™ç‰›è‚‰å¹²åƒäº†å‡ å£ï¼Œå¥½é¦™å‘€ï¼Œçœ‹$nå’¯å±å’¯å±åš¼çš„è¿™ä¹ˆé¦™ï¼Œä½ 
+å¿ä¸ä½å’½äº†å£å£æ°´ã€‚\n");
 	else
-		this_body()->simple_action("$NÄÃÆğÎåÏãÅ£Èâ¸É³ÔÁË¼¸¿Ú£¬Ö»Ìıµ½¡°¿¦àê¡±Ò»Éù£¬$nµÄÑÀ±»àÔµô
-ÁË£¬Ô­À´Ò§ÁË¿ÚÅ£½î¡£\n");
+		this_body()->simple_action("$Næ‹¿èµ·äº”é¦™ç‰›è‚‰å¹²åƒäº†å‡ å£ï¼Œåªå¬åˆ°â€œå–€åš“â€ä¸€å£°ï¼Œ$nçš„ç‰™è¢«å˜£æ‰
+äº†ï¼ŒåŸæ¥å’¬äº†å£ç‰›ç­‹ã€‚\n");
 }
 void eat_last_tan()
 {
 	string p_use;
 	p_use=this_body()->query_userid();
         if((p_use=="benben")||(p_use=="fire"))
-this_body()->simple_action("$N°ÑÊ£ÏÂµÄÎåÏãÅ£Èâ¸ÉÒ»°Ñ·Åµ½×ìÀï£¬ºÃ¹ıñ«Ñ½£¬ÔÙÀ´Ò»°ü¡£\n");
+this_body()->simple_action("$NæŠŠå‰©ä¸‹çš„äº”é¦™ç‰›è‚‰å¹²ä¸€æŠŠæ”¾åˆ°å˜´é‡Œï¼Œå¥½è¿‡ç˜¾å‘€ï¼Œå†æ¥ä¸€åŒ…ã€‚\n");
 	else
-this_body()->simple_action("$N°ÑÊ£ÏÂµÄÎåÏãÅ£Èâ¸ÉÒ»°Ñ·Åµ½×ìÀï£¬¡°ÎÒµÄÂèÑ½£¡¡±£¬$N²Ò½Ğ
-Ò»Éù£¬ÍÂ³öÂú¿ÚËéÑÀ¡£\n");
+this_body()->simple_action("$NæŠŠå‰©ä¸‹çš„äº”é¦™ç‰›è‚‰å¹²ä¸€æŠŠæ”¾åˆ°å˜´é‡Œï¼Œâ€œæˆ‘çš„å¦ˆå‘€ï¼â€ï¼Œ$Næƒ¨å«
+ä¸€å£°ï¼Œåå‡ºæ»¡å£ç¢ç‰™ã€‚\n");
 }
 void setup()
-{   set_id("niurou","ÎåÏãÅ£Èâ¸É");
-    set_long("Ò»°ü³ÇÚòÃíµÄÎåÏãÅ£Èâ¸É¡£");
-    set_adj("³ÇÚòÃí");
-    set_unit("´ü");
+{   set_id("niurou","äº”é¦™ç‰›è‚‰å¹²");
+    set_long("ä¸€åŒ…åŸéšåº™çš„äº”é¦™ç‰›è‚‰å¹²ã€‚");
+    set_adj("åŸéšåº™");
+    set_unit("è¢‹");
     set_gettable(1);
     set_num_eats(2);
     set_value(1);

@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is »¨¶ù¶ä¶ä
+// driver is èŠ±å„¿æœµæœµ
 // created date is Wed Jun 15 16:36:26 2011
 #include <mudlib.h>
 #include <ansi.h>
@@ -9,7 +9,7 @@ inherit STORE;
 void setup() {
 set_area("shangdang");
 set_light(50);
-set_brief("%^YELLOW%^"+"¾Û»áËù"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"èšä¼šæ‰€"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "south":"/a/shangdang/sd_dongdajie.c",

@@ -18,14 +18,14 @@
 /*
 ** Constant definition stuff
 */
-private static mapping basic_obs;
-private static mapping funcs;
+private nosave mapping basic_obs;
+private nosave mapping funcs;
 
 /*
 ** Parsing context
 */
-private static object * cur_obs;
-private static int cur_indent;
+private nosave object * cur_obs;
+private nosave int cur_indent;
 
 
 private void parse_dsc_line(string line)

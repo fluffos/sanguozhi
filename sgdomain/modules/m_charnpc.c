@@ -27,12 +27,12 @@ string query_title(string p_id,string c_id)
 ret="";
        if(CHAR_D->get_char(p_id,"is_tmp"))
             return c_id+"("+p_id+")";
-//        ret="¡¾"+CHAR_D->get_char(p_id,"reputationstr")+NOR+"¡¿";
+//        ret="ã€"+CHAR_D->get_char(p_id,"reputationstr")+NOR+"ã€‘";
 	p_tmp=COUNTRY_D->get_country(CHAR_D->get_char(p_id,"nation"),"name");	
 	if(p_tmp)
 		ret+=p_tmp;
 	p_tmp=OFFICER_D->query_rank_name(CHAR_D->get_char(p_id,"ranknation"));
-	if(p_tmp!="©¥©¥")
+	if(p_tmp!="â”â”")
 	{
 		ret+=p_tmp;
 	}
@@ -42,14 +42,14 @@ ret="";
 		if(p_tmp)
 			ret+=p_tmp;
 		p_tmp=OFFICER_D->query_rank_name(CHAR_D->get_char(p_id,"ranklocal"));
-		if(p_tmp=="©¥©¥")
-			p_tmp=" ÒþÊ¿ ";//"Òþ¾ÓÏÍÈË";
+		if(p_tmp=="â”â”")
+			p_tmp=" éšå£« ";//"éšå±…è´¤äºº";
 		ret+=p_tmp;
 	}
 	ret+=c_id;
 	p_tmp=CHAR_D->get_char(p_id,"zi");
 	if(p_tmp)
-		ret+="£¬×Ö"+p_tmp;
+		ret+="ï¼Œå­—"+p_tmp;
 	ret+="("+p_id+")";
 	return ret;
 }
@@ -157,14 +157,14 @@ void npc_char_set_gift(mixed p_gift,mixed p_skills)
 	{
 		env->move(p_room);
 		if(!p_message)
-			p_message="$NÆï×Å$o×ßÁË¹ýÀ´£®\n";
+			p_message="$Néª‘ç€$oèµ°äº†è¿‡æ¥ï¼Ž\n";
 		this_object()->target_action(p_message,env);
 	}
 	else
 	{
 		this_object()->move(p_room);
 		if(!p_message)
-			p_message="$N×ßÁË¹ýÀ´£®\n";
+			p_message="$Nèµ°äº†è¿‡æ¥ï¼Ž\n";
 		this_object()->simple_action(p_message);
 	}
 }*/

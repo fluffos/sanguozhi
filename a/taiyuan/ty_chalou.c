@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is »¨¶ù¶ä¶ä
+// driver is èŠ±å„¿æœµæœµ
 // created date is Thu May 26 19:56:32 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -9,12 +9,12 @@ inherit STORE;
 void setup() {
 set_area("taiyuan");
 set_light(50);
-set_brief("%^YELLOW%^"+"²èÂ¥"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"èŒ¶æ¥¼"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "south":"/a/taiyuan/ty_dongdajie1.c",
  ]));
-set_objects((["/sgdomain/obj/other/board.c" : ({ 1,"Ì«Ô­µÄ²èÂ¥£¬ÃÅ¿Ú¹Ò×ÅÒ»¡°²èÂ¥¡±ÕĞÅÆ¡£listÁĞ³ö»õÆ·£¬buy¹ºÂò¡£\n\n"}) ]) );
+set_objects((["/sgdomain/obj/other/board.c" : ({ 1,"å¤ªåŸçš„èŒ¶æ¥¼ï¼Œé—¨å£æŒ‚ç€ä¸€â€œèŒ¶æ¥¼â€æ‹›ç‰Œã€‚liståˆ—å‡ºè´§å“ï¼Œbuyè´­ä¹°ã€‚\n\n"}) ]) );
 add_object("/sgdomain/obj/foodanddrink/mantou.c");
 add_object("/sgdomain/obj/foodanddrink/ypjd.c");
 

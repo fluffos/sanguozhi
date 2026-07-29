@@ -15,7 +15,7 @@ void follow_the_script_dumbass()
 
 
 void setup() {
-    set_name("Beavis", "��ά˹");
+    set_name("Beavis", "比维斯");
     set_gender(1);
     set_proper_name("Beavis");
     set_in_room_desc("Beavis mills about, periodically scratching his nads.");

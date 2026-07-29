@@ -5,17 +5,17 @@ string get_area_importancestr(string p_id)
    switch(i)
    {
     case AI_INDUSTRY:
-       return "工业";
+       return "宸ヤ笟";
     case AI_AGRICULTURE:
-       return "农业";
+       return "鍐滀笟";
     case AI_BUSINESS:
-       return "商业";
+       return "鍟嗕笟";
     case AI_SAFE:
-       return "安定";
+       return "瀹夊畾";
     case AI_MILITARY:
-       return "军事";
+       return "鍐涗簨";
     default:
-       return "均衡";
+       return "鍧囪　";
    }
 }
 string get_area_statusstr(string p_id)
@@ -25,15 +25,15 @@ string get_area_statusstr(string p_id)
         switch(p_st)
         {
         case ST_NOOFFICER:
-                return "空白";
+                return "绌虹櫧";
         case ST_NORMAL:
-                return "正常";
+                return "姝ｅ父";
         case ST_WAR:
-                return "战争";
+                return "鎴樹簤";
         case ST_MEETING:
-                return "会议";
+                return "浼氳";
        case ST_TRAIN:
-              return "练兵";
+              return "缁冨叺";
         }
-        return "未知";
+        return "鏈煡";
 }

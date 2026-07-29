@@ -4,8 +4,8 @@
 
 //### This stuff needs to be linked to affect commands.
 //### some of these also should probably be bits
-private static int stunned, asleep, chance, prone; // fire move busy from static to normal variable
-private string busy_msg; // private static string busy_msg;
+private nosave int stunned, asleep, chance, prone; // fire move busy from static to normal variable
+private string busy_msg; // private nosave string busy_msg;
 private int busy;
 
 int query_ghost() {
@@ -27,9 +27,9 @@ int query_prone() {
 mixed query_busy(int shown) {
     if ( !shown ) return busy;
     if ( busy > time() )
-        return busy_msg + "£º»¹Ê£"+ CHINESE_D->chinese_period(busy - time());
+        return busy_msg + "ï¼šè¿˜å‰©"+ CHINESE_D->chinese_period(busy - time());
     else
-        return "²»Ã¦¡£";
+        return "ä¸å¿™ã€‚";
 }
 
 int lie_down() {
@@ -73,7 +73,7 @@ void start_busy(int n, mixed msg)
     if(busy<(time()+n))
     busy = time() + n;
     if (!msg)
-        msg = "ÄãÏÖÔÚÕıÃ¦×Å£¡";
+        msg = "ä½ ç°åœ¨æ­£å¿™ç€ï¼";
     if (pointerp(msg))  
         busy_msg = msg[random(sizeof(msg))];
     else
@@ -98,24 +98,24 @@ mixed check_condition(int urgent) {
     }
 
     if (query_prone())
-        return "ÄãÒªÏÈÕ¾ÆğÀ´¡£\n";//"You will have to get up first.\n";
+        return "ä½ è¦å…ˆç«™èµ·æ¥ã€‚\n";//"You will have to get up first.\n";
     
     if (urgent && stunned > time())
         return //"$N $vare still recovering from that last blow, ";
-               "$N»¹Ã»ÓĞ´ÓÖØ´´ÖĞËÕĞÑ¹ıÀ´£¬";
+               "$Nè¿˜æ²¡æœ‰ä»é‡åˆ›ä¸­è‹é†’è¿‡æ¥ï¼Œ";
 
     if (asleep) {
         if (urgent) {
             if (random(5)<=chance++) {
                 wake_up();
-//FIXME: print_result takes a class combat_result array now.
+//FIXME: print_result takes a class combat_result * now.
 #if 0
                 print_result("wakeup");
 #endif
             } else
-                return "ÄãÆ´ÃüÒªĞÑ¹ıÀ´£¬µ«»¹ÊÇÊ§°ÜÁË¡£\n";
+                return "ä½ æ‹¼å‘½è¦é†’è¿‡æ¥ï¼Œä½†è¿˜æ˜¯å¤±è´¥äº†ã€‚\n";
         } else {                                          
-            return "ÄãÕıÔÚË¯ÃßÖĞ¡£\n";
+            return "ä½ æ­£åœ¨ç¡çœ ä¸­ã€‚\n";
         }
     }
 

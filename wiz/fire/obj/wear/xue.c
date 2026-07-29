@@ -8,9 +8,9 @@ inherit M_GETTABLE;
 void setup()
 {
 ::mudlib_setup();
-set_unit("Ë«");
-set_id("xue", HIB+"±ªÍ·³¸ĞĞÑ¥"+NOR);
-set_in_room_desc(HIG+"±ªÍ·³¸ĞĞÑ¥(xue)"+NOR);
+set_unit("åŒ");
+set_id("xue", HIB+"è±¹å¤´æ£è¡Œé´"+NOR);
+set_in_room_desc(HIG+"è±¹å¤´æ£è¡Œé´(xue)"+NOR);
 set_gettable(1);
 set_slot(FEET);
 }

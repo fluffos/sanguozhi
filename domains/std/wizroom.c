@@ -3,8 +3,8 @@
 inherit INDOOR_ROOM;
 mixed can_go_up()
 {
-    if( environment( this_body())->is_vehicle()) return "ÄãÒª×ßÏÂÀ´²ÅĞĞ¡£\n";
-   if(!adminp(this_body())) return "Ö»ÓĞadminºÍarch²ÅÄÜÉÏÈ¥¡£\n";
+    if( environment( this_body())->is_vehicle()) return "ä½ è¦èµ°ä¸‹æ¥æ‰è¡Œã€‚\n";
+   if(!adminp(this_body())) return "åªæœ‰adminå’Œarchæ‰èƒ½ä¸Šå»ã€‚\n";
     return 1;
 }
 int do_go_up(){ 
@@ -13,7 +13,7 @@ int do_go_up(){
 }
 mixed can_go_down()
 {
-    if( environment( this_body())->is_vehicle()) return "ÄãÒª×ßÏÂÀ´²ÅĞĞ¡£\n";
+    if( environment( this_body())->is_vehicle()) return "ä½ è¦èµ°ä¸‹æ¥æ‰è¡Œã€‚\n";
     return 1;
 }
 int do_go_down()
@@ -24,16 +24,16 @@ int do_go_down()
 void setup(){
     object door;
     set_area("wiz_area");
-    set_brief("Î×Ê¦´óÌü");
-    set_long("»¶Ó­À´µ½ LIMA£¬ÕâÀïÊÇÎ×Ê¦ÃÇÌÖÂÛºÍ·¢±íÓë LP MUD ºÍ MudOS Ïà"
-"¹ØÎÊÌâµÄÂÛÌ³¡£ÄãÒ²¿ÉÒÔÔÚÕâÀïÑ¯ÎÊÒ»Ğ©ÓĞ¹ØÖĞÎÄ MUD µÄ¼¼ÊõĞÔÎÊÌâ¡£"
-"ÓÉÓÚºº»¯»¹²»¹»³ä·Ö£¬LIMA ÈÔÓĞĞí¶àµÄµØ·½ÓĞ´ıÍêÉÆ£¬»¶Ó­´ó¼Ò¶àÌáÒâ¼û¡£\n"
-"        Ê¹ÓÃĞÂÎÅÏµÍ³£¬ÇëÓÃ news ÃüÁî¡£\n"
-"        Ê¹ÓÃÍæ¼ÒÑ¡µ¥£¬ÇëÓÃ menu ÃüÁî¡£\n"
-"        Ê¹ÓÃÓÊ¼şÏµÍ³£¬ÇëÓÃ mail ÃüÁî¡£\n"
-"±±ÃæÇ½ÉÏÏâ×ÅÒ»¸öÉÁ¹âµÄÂÖ»ØÌ¨£¬¿ÉÒÔÈ¥ÍùÈË¼ä¡£Î÷ÃæÊÇ¾²ÊÒ£¬ËüµÄÃÅÕı");
-    set_state_description( "oak_door_off", "¹Ø×Å¡£\n");
-    set_state_description( "oak_door_on", "¿ª×Å¡£\n");
+    set_brief("å·«å¸ˆå¤§å…");
+    set_long("æ¬¢è¿æ¥åˆ° LIMAï¼Œè¿™é‡Œæ˜¯å·«å¸ˆä»¬è®¨è®ºå’Œå‘è¡¨ä¸ LP MUD å’Œ MudOS ç›¸"
+"å…³é—®é¢˜çš„è®ºå›ã€‚ä½ ä¹Ÿå¯ä»¥åœ¨è¿™é‡Œè¯¢é—®ä¸€äº›æœ‰å…³ä¸­æ–‡ MUD çš„æŠ€æœ¯æ€§é—®é¢˜ã€‚"
+"ç”±äºæ±‰åŒ–è¿˜ä¸å¤Ÿå……åˆ†ï¼ŒLIMA ä»æœ‰è®¸å¤šçš„åœ°æ–¹æœ‰å¾…å®Œå–„ï¼Œæ¬¢è¿å¤§å®¶å¤šææ„è§ã€‚\n"
+"        ä½¿ç”¨æ–°é—»ç³»ç»Ÿï¼Œè¯·ç”¨ news å‘½ä»¤ã€‚\n"
+"        ä½¿ç”¨ç©å®¶é€‰å•ï¼Œè¯·ç”¨ menu å‘½ä»¤ã€‚\n"
+"        ä½¿ç”¨é‚®ä»¶ç³»ç»Ÿï¼Œè¯·ç”¨ mail å‘½ä»¤ã€‚\n"
+"åŒ—é¢å¢™ä¸Šé•¶ç€ä¸€ä¸ªé—ªå…‰çš„è½®å›å°ï¼Œå¯ä»¥å»å¾€äººé—´ã€‚è¥¿é¢æ˜¯é™å®¤ï¼Œå®ƒçš„é—¨æ­£");
+    set_state_description( "oak_door_off", "å…³ç€ã€‚\n");
+    set_state_description( "oak_door_on", "å¼€ç€ã€‚\n");
     set_exits( ([
                  "east" : "example_room1.c",
                  "south" : "monster_room.c",
@@ -46,15 +46,15 @@ void setup(){
            "/domains/std/magic_torch" : 1,
     "/domains/std/large_oak_door" : ({ "west" }),
     ]) );
-    set_default_exit( "´©Ç½¶ø¹ı»áºÜÌÛÒ®£¬»¹ÊÇ×ßÕıÂ·µÄºÃ¡£\n");
+    set_default_exit( "ç©¿å¢™è€Œè¿‡ä¼šå¾ˆç–¼è€¶ï¼Œè¿˜æ˜¯èµ°æ­£è·¯çš„å¥½ã€‚\n");
     door = present( "door");
     if( !door->query_closed())
     door->do_on_open();
-        set_objects( ([M_BOARD : ({ 1, "Ğ¦Ì¸ÌìÏÂÊÂ", "wiz.com" }) ]) );
+        set_objects( ([M_BOARD : ({ 1, "ç¬‘è°ˆå¤©ä¸‹äº‹", "wiz.com" }) ]) );
 }
 int sound ()
 {
-  write ("ÄÏÎŞ°¢ÃÖÍÓ·ğ... Ë­ÔÚÄî¾­ ?!\n");
+  write ("å—æ— é˜¿å¼¥é™€ä½›... è°åœ¨å¿µç» ?!\n");
   return 1; // Let the parser know the listen was successfull
 }
 string query_board()

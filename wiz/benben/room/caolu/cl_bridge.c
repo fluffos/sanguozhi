@@ -1,4 +1,4 @@
-//  小桥 bridge.c
+//  灏忔ˉ bridge.c
 // made by benben
 // cl_bridge.c 
 #include <mudlib.h>
@@ -8,8 +8,8 @@ inherit OUTDOOR_ROOM;
 void setup(){
     set_area("caolu_area");
     set_light(50);
-    set_brief(""+YEL+"小桥"+NOR+"");
-    set_long("    桥下溪水流水潺潺，岸边老树上枯藤垂挂而下。\n\n");
+    set_brief(""+YEL+"灏忔ˉ"+NOR+"");
+    set_long("    妗ヤ笅婧按娴佹按娼烘胶锛屽哺杈硅�佹爲涓婃灟钘ゅ瀭鎸傝�屼笅銆俓n\n");
     set_exits( ([
         "west" :  __DIR__+"cl_road4.c",
         "east" :  __DIR__+"cl_road3.c",

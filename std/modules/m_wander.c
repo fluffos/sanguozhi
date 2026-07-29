@@ -18,9 +18,9 @@ The important functions to call in your monster are
 
 private string *obvious_exits;
 private string enter_msg = //"$N enters.\n";
-                           "$N走了过来。\n";     
+                           "$N璧颁簡杩囨潵銆俓n";     
 private string exit_msg = //"$N exits.\n";   
-                          "$N离开了。\n";
+                          "$N绂诲紑浜嗐�俓n";
 private string wander_area;
 
 private int movement_time = 20;
@@ -106,7 +106,7 @@ write(my_exit); write(monster_exit);
         		{
             			if (inv[i]->query("leader") == this_object())
             			{
-			                set_this_player(inv[i]);
+			                // set_this_player(inv[i]); // set_this_player() unavailable in this driver build (no NO_ADD_ACTION) -- no-op'd, this_player() is whatever it naturally is here
 			                this_user()->do_go_somewhere(my_exit);
 				}
         		}

@@ -20,7 +20,7 @@ private void main( mixed * arg )
 
     if ( targets ) {
         targets = filter(targets->query_body(), (: objectp($1) ? environment($1) : 0 :));
-    outf("%-10s%-14s%-s\n","Ãû×Ö","·¿¼ä","ÎÄ¼ş");
+    outf("%-10s%-14s%-s\n","åå­—","æˆ¿é—´","æ–‡ä»¶");
     out("---------------------------------------------------------------\n");
 
         map_array(targets, (: outf("%-10s[%-14s] %-s\n",
@@ -30,7 +30,7 @@ private void main( mixed * arg )
     }
     else {
 	if(!target) {
-	    out("ÕÒ²»µ½Õâ¸öÍæ¼Ò¡£");
+	    out("æ‰¾ä¸åˆ°è¿™ä¸ªç©å®¶ã€‚");
 	    return;
 	}
         out(environment(target)->get_brief()+"\n");

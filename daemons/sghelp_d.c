@@ -12,10 +12,10 @@
 #define MAXNEWTIME 1209600 // two weeks
 inherit M_ACCESS;
 private mapping topics;
-private static mapping real_topics;
-private static int  pending_count;
-private static object   initiator;
-private static int root_length;
+private nosave mapping real_topics;
+private nosave int  pending_count;
+private nosave object   initiator;
+private nosave int root_length;
 nomask void rebuild_data();
 int add_new_topic();
 void save_data()
@@ -59,10 +59,10 @@ nomask void rebuild_data()
 {   string * lines;
     string * dirs;
     if ( pending_count )
-    {  write("SGHELP_D ÕıÔÚÖØ½¨Èı¹úÖ¾°ïÖúÏµÍ³£¡\n");
+    {  write("SGHELP_D æ­£åœ¨é‡å»ºä¸‰å›½å¿—å¸®åŠ©ç³»ç»Ÿï¼\n");
        return;
     }
-    write("SGHELP_D ¿ªÊ¼ÖØ½¨Èı¹úÖ¾°ïÖúÏµÍ³ ... \n");
+    write("SGHELP_D å¼€å§‹é‡å»ºä¸‰å›½å¿—å¸®åŠ©ç³»ç»Ÿ ... \n");
     initiator = this_user();
     dirs = (get_dir(ROOT+"*"));
     real_topics=([]);
@@ -89,7 +89,7 @@ int add_new_topic()
          topics[r]["p"]=real_topics[r];
       } 
       if(initiator)
-         tell(initiator,sprintf("ĞÂÔö%dÌõ°ïÖúĞÅÏ¢¡£\n",sizeof(rtop)));
+         tell(initiator,sprintf("æ–°å¢%dæ¡å¸®åŠ©ä¿¡æ¯ã€‚\n",sizeof(rtop)));
    } 
    rtop=keys(real_topics);
    top-=rtop;
@@ -98,7 +98,7 @@ int add_new_topic()
      foreach(string r in top)
         map_delete(topics, r);
       if(initiator)
-         tell(initiator,sprintf("É¾³ı%dÌõ°ïÖúĞÅÏ¢¡£\n",sizeof(top)));
+         tell(initiator,sprintf("åˆ é™¤%dæ¡å¸®åŠ©ä¿¡æ¯ã€‚\n",sizeof(top)));
    }
    rtop=keys(topics);
    foreach(string r in rtop)
@@ -117,7 +117,7 @@ int add_new_topic()
    }
    if ( initiator )
    {
-     tell(initiator,"Èı¹úÖ¾°ïÖúÏµÍ³ÖØ½¨Íê³É¡£\n");
+     tell(initiator,"ä¸‰å›½å¿—å¸®åŠ©ç³»ç»Ÿé‡å»ºå®Œæˆã€‚\n");
      initiator = 0;
    }
    real_topics=0;
@@ -145,11 +145,11 @@ string get_count(string arg)
    string pathname;
    string ret="";
    string *tmp;
-   if(!topics[arg]) return "Ã»ÓĞ´Ë°ïÖúÖ÷Ìâ¡£\n";
-   if(!topics[arg]["p"]) return "´Ë°ïÖúÖ÷ÌâÄÚÈİ»¹Ã»ÓĞÍê³É¡£\n";
+   if(!topics[arg]) return "æ²¡æœ‰æ­¤å¸®åŠ©ä¸»é¢˜ã€‚\n";
+   if(!topics[arg]["p"]) return "æ­¤å¸®åŠ©ä¸»é¢˜å†…å®¹è¿˜æ²¡æœ‰å®Œæˆã€‚\n";
    pathname=ROOT+topics[arg]["p"];
    if(file_size(pathname)<=0)
-      return "BUG BUG BUG¡£\n";
+      return "BUG BUG BUGã€‚\n";
    if(topics[arg]["t"])
    {  ret=arg+" : " + topics[arg]["t"] +"\n";
       ret+=BAR;
@@ -167,7 +167,7 @@ string get_count(string arg)
       if(sizeof(list))
       {
         int kk=0;
-        ret+="\n±¾Ö÷ÌâÊÇÒ»¸ö°ïÖúÀà£¬ÆäÖĞ°üÀ¨ÒÔÏÂÖ÷Ìâ£º\n"+BAR;
+        ret+="\næœ¬ä¸»é¢˜æ˜¯ä¸€ä¸ªå¸®åŠ©ç±»ï¼Œå…¶ä¸­åŒ…æ‹¬ä»¥ä¸‹ä¸»é¢˜ï¼š\n"+BAR;
         foreach( string b in list)
         {  ret+=sprintf("%-12s: %-20s",b,get_topic(b,"t"));
            if(kk==1) ret+="\n";         
@@ -183,7 +183,7 @@ string get_count(string arg)
    {
       int kk=0;
       string* idx;
-      ret+="\n±¾Ö÷ÌâËùÊôÀà£º\n"+BAR;
+      ret+="\næœ¬ä¸»é¢˜æ‰€å±ç±»ï¼š\n"+BAR;
       idx=sort_array(tmp,1);
       foreach( string b in idx)
       {  ret+=sprintf("%-12s: %-20s",b,get_topic(b,"t"));
@@ -196,7 +196,7 @@ string get_count(string arg)
    {
      int kk=0;
      string *idx;
-     ret+="\nÏà¹Ø°ïÖú£º\n"+BAR;
+     ret+="\nç›¸å…³å¸®åŠ©ï¼š\n"+BAR;
      idx=sort_array(topics[arg]["related"],1);
      foreach( string b in idx)
      {  ret+=sprintf("%-12s: %-20s",b,get_topic(b,"t"));
@@ -209,33 +209,33 @@ string get_count(string arg)
 }
 mixed add_parent(string me,string par)
 {
-   if(!topics[me]) return "Ã»ÓĞ"+me+"Õâ¸ö°ïÖúÖ÷Ìâ\n";
-   if(!topics[par]) return "Ã»ÓĞ"+par+"Õâ¸ö°ïÖúÀà\n";
-   if(!topics[par]["is_parent"]) return par+"²»ÊÇ°ïÖúÀà\n";
+   if(!topics[me]) return "æ²¡æœ‰"+me+"è¿™ä¸ªå¸®åŠ©ä¸»é¢˜\n";
+   if(!topics[par]) return "æ²¡æœ‰"+par+"è¿™ä¸ªå¸®åŠ©ç±»\n";
+   if(!topics[par]["is_parent"]) return par+"ä¸æ˜¯å¸®åŠ©ç±»\n";
    if(!topics[me]["parent"]) topics[me]["parent"]=({});
    topics[me]["parent"]-=({par});
    topics[me]["parent"]+=({par});
    save_data();
-   return me +" ¼ÓÈë " + par + " Àà£¬³É¹¦!\n";      
+   return me +" åŠ å…¥ " + par + " ç±»ï¼ŒæˆåŠŸ!\n";      
 }
 mixed sub_parent(string me,string par)
 {
-   if(!topics[me]) return "Ã»ÓĞ"+me+"Õâ¸ö°ïÖúÖ÷Ìâ\n";
+   if(!topics[me]) return "æ²¡æœ‰"+me+"è¿™ä¸ªå¸®åŠ©ä¸»é¢˜\n";
    if(!topics[me]["parent"]) topics[me]["parent"]=({});
    topics[me]["parent"]-=({par});
    save_data();
-   return me +" ´Ó " + par + " ÀàÖĞÉ¾³ı£¬³É¹¦!\n";      
+   return me +" ä» " + par + " ç±»ä¸­åˆ é™¤ï¼ŒæˆåŠŸ!\n";      
 }
 
 mixed add_related(string me,string rel)
 {
-   if(!topics[me]) return "Ã»ÓĞ"+me+"Õâ¸ö°ïÖúÖ÷Ìâ\n";
-   if(!topics[rel]) return "Ã»ÓĞ"+rel+"Õâ¸ö°ïÖúÀà\n";
+   if(!topics[me]) return "æ²¡æœ‰"+me+"è¿™ä¸ªå¸®åŠ©ä¸»é¢˜\n";
+   if(!topics[rel]) return "æ²¡æœ‰"+rel+"è¿™ä¸ªå¸®åŠ©ç±»\n";
    if(!topics[me]["related"]) topics[me]["related"]=({});
    topics[me]["related"]-=({rel});
    topics[me]["related"]+=({rel});
    save_data();
-   return rel +" ³ÉÎª " + me + " µÄÏà¹ØÖ÷Ìâ!\n";
+   return rel +" æˆä¸º " + me + " çš„ç›¸å…³ä¸»é¢˜!\n";
 }
 void system_check()
 {
@@ -244,11 +244,11 @@ void system_check()
    list-=({"main"});
    foreach(string top in list)
    {  if(!topics[top]["t"])
-         write(top+" Ã»ÓĞÌâÄ¿¡£\n");
+         write(top+" æ²¡æœ‰é¢˜ç›®ã€‚\n");
       if(sizeof(topics[top]["parent"]-({"topics","classes","new"}))<1 )
-         write(top+" Ã»ÓĞËùÊôÀà¡£\n");
+         write(top+" æ²¡æœ‰æ‰€å±ç±»ã€‚\n");
       if(file_size(ROOT+topics[top]["p"])<=0)
-         write("ÕÒ²»µ½ "+top+" µÄ°ïÖúÎÄ¼ş¡£\n");
+         write("æ‰¾ä¸åˆ° "+top+" çš„å¸®åŠ©æ–‡ä»¶ã€‚\n");
    }
 }
 mixed find_wrong()
@@ -258,11 +258,11 @@ mixed find_wrong()
    list-=({"main"});
    foreach(string top in list)
    {  if(!topics[top]["t"])
-         return top+" Ã»ÓĞÌâÄ¿¡£\n";
+         return top+" æ²¡æœ‰é¢˜ç›®ã€‚\n";
       if(sizeof(topics[top]["parent"]-({"topics","classes","new"}))<1 )
-         return top+" Ã»ÓĞËùÊôÀà¡£\n";
+         return top+" æ²¡æœ‰æ‰€å±ç±»ã€‚\n";
       if(file_size(ROOT+topics[top]["p"])<=0)
-         return "ÕÒ²»µ½ "+top+" µÄ°ïÖúÎÄ¼ş¡£\n";
+         return "æ‰¾ä¸åˆ° "+top+" çš„å¸®åŠ©æ–‡ä»¶ã€‚\n";
    }
-   return "ÕÒ²»µ½²»ÍêÕûµÄ°ïÖúÖ÷Ìâ¡£\n";
+   return "æ‰¾ä¸åˆ°ä¸å®Œæ•´çš„å¸®åŠ©ä¸»é¢˜ã€‚\n";
 }

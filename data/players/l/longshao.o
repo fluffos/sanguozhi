@@ -1,6 +1,6 @@
 #/std/race/human.c
 primary_id "longshao"
-chinese_id "ÁúÉÙ"
+chinese_id "é¾™å°‘"
 persist_flags ([0:0,])
 can_drop 1
 can_sell 1
@@ -13,8 +13,8 @@ main_prep "in"
 contained_light_added 1
 gender 1
 messages ([])
-def_messages (["vis":"$nÍ»È»³öÏÖÔÚÄãÃæÇ°£¬ÓÖËÆºõÔÚÕâÀïºÜ¾ÃÁË¡£","clone":"$nÉìÊÖÁè¿ÕÒ»Ö¸£¬±ä³öÁË$o¡£","invis":"$n´ÓÄãµÄÊÓÒ°ÖĞÍ»È»ÏûÊ§ÁË¡£","menter":"$nÍ»È»³öÏÖÔÚÒ»ÕóÑÌÎíÖĞ¡£","enter":"$n×ßÁË¹ıÀ´¡£","mleave":"$nµÄÉíÓ°ÔÚÒ»ÕóÑÌÎíÖĞ½¥½¥ÒşÈ¥¡£","destruct":"$nÅÛĞäÒ»»Ó£¬$o±»»¯³ÉÒ»¹ÉºÚÑÌ£¬´µÉ¢¿ªÈ¥¡£","home":"$n»Ø¼ÒÈ¥ÁË¡£","leave":"$n³¯$oÀë¿ªÁË¡£",])
-busy_msg "ÄãÒ»´ÎÊäÈëÌ«¶àÃüÁîÁË.."
+def_messages (["vis":"$nçªç„¶å‡ºç°åœ¨ä½ é¢å‰ï¼Œåˆä¼¼ä¹åœ¨è¿™é‡Œå¾ˆä¹…äº†ã€‚","clone":"$nä¼¸æ‰‹å‡Œç©ºä¸€æŒ‡ï¼Œå˜å‡ºäº†$oã€‚","invis":"$nä»ä½ çš„è§†é‡ä¸­çªç„¶æ¶ˆå¤±äº†ã€‚","menter":"$nçªç„¶å‡ºç°åœ¨ä¸€é˜µçƒŸé›¾ä¸­ã€‚","enter":"$nèµ°äº†è¿‡æ¥ã€‚","mleave":"$nçš„èº«å½±åœ¨ä¸€é˜µçƒŸé›¾ä¸­æ¸æ¸éšå»ã€‚","destruct":"$nè¢è¢–ä¸€æŒ¥ï¼Œ$oè¢«åŒ–æˆä¸€è‚¡é»‘çƒŸï¼Œå¹æ•£å¼€å»ã€‚","home":"$nå›å®¶å»äº†ã€‚","leave":"$næœ$oç¦»å¼€äº†ã€‚",])
+busy_msg "ä½ ä¸€æ¬¡è¾“å…¥å¤ªå¤šå‘½ä»¤äº†.."
 busy 1311703794
 answer_list ({({"settle","settle",}),({"position","position",}),({"localmeeting","localmeeting",}),({"job","job",}),({"zgxy","zgxy",}),({"wxxy","wxxy",}),({"bfxy","bfxy",}),({"guoshi","guoshi",}),})
 ask_list ([])
@@ -48,12 +48,12 @@ ilog_time 1311703380
 money (["gold":126,"silver":34,"coin":0,"bank":0,])
 sg_home ([])
 name "longshao"
-invis_name "Ä³Ä³"
-chinese_name "ÁúÉÙ"
+invis_name "æŸæŸ"
+chinese_name "é¾™å°‘"
 response_queue ({})
 reply "tiandi"
 channel_list ({"gossip","newbie","weather","rumor","imud_imud_sgz",})
 saved_items "([\"#inventory#\":({\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/money/m_silver\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/money/m_gold\\\",])\",}),\"#base_name#\":\"/std/race/human\",])"
 ag_day 19
 ag_month 1
-jobs (["patrol":(["assignarea":"gongan","area":"gongan","score":1,"memo":"µ½%^YELLOW%^Ã©Îİ%^RESET%^","status":"done","lasttimes":({}),"finish_time":1310933524,"count":1,"beg_time":1310995322,]),"findbody":(["assignarea":"jiangling","lasttimes":({}),"finish_time":1310828209,"memo":"ÕÒ%^H_CYAN%^ÀÖ½ø%^RESET%^(yue jin)","count":10,"beg_time":0,"status":"over",]),"spy":(["assignarea":"chibi","size":38,"area":"xuchang","done_time":1311477269,"catched":0,"memo":"Õì²ìĞí²ı","status":"begin","spied":({}),"lasttimes":({1311693606,}),"finish_time":1311477351,"path":"/a/xuchang/","count":119,"beg_time":1311693606,]),"askobj":(["assignarea":"jiangling","lasttimes":({}),"obj_id":"test","finish_time":1311475780,"memo":"ÕÒÂ¤Î÷µÄ%^H_CYAN%^²Ìçß%^RESET%^´ß0","count":13,"beg_time":0,"status":"over",]),"choppork":(["lasttimes":({}),"finish_time":1310820310,"count":34,"beg_time":0,]),"bugao":(["assignarea":"jiangling","lasttimes":({}),"finish_time":1310827442,"memo":"Ì«Ô­µÄ%^YELLOW%^Ì«Ñ§ÌÃ%^RESET%^","count":20,"beg_time":0,"status":"begin",]),"localbuy":(["what":"food","area":"jiangling","memo":"¹ºÂòÁ¸Ê³","beg_time":1310932760,]),"whisper":(["assignarea":"chibi","topics":({}),"score":20,"memo":"²ß·´%^H_CYAN%^·®³í%^RESET%^(fan chou)","status":"done","beg_time":1311703770,]),"visitpeople":(["assignarea":"chibi","topics":({4,1,2,3,6,7,8,9,10,}),"score":28,"memo":"Ì½·Ã³à±ÚÏĞÈË","status":"over","select":10,"lasttimes":({1311696005,1311696053,1311696055,1311696500,1311696502,1311696508,1311696716,1311696976,1311697054,1311697264,1311697268,1311697482,1311698143,1311698145,1311698897,1311703740,1311703742,}),"finish_time":1311703742,"count":17,"beg_time":0,]),"visitofficer":(["assignarea":"chibi","topics":({1,2,3,4,6,7,8,9,10,}),"score":18,"memo":"°²¸§%^H_CYAN%^ÃÓóÃ%^RESET%^(mi zhu)","status":"done","select":10,"lasttimes":({1311693814,1311694080,1311695359,1311695423,1311695503,1311695541,1311695583,1311695671,1311695721,}),"finish_time":1311695721,"count":9,"beg_time":1311695723,]),"suggest":(["lasttimes":({1311695905,}),"finish_time":1310932760,"count":5,"beg_time":1311695905,]),"searchwise":(["lasttimes":({1311703750,}),"finish_time":1311703750,"count":1,"beg_time":0,]),"recruit":(["lasttimes":({}),"area":"jiangling","memo":"Õ÷200±ø","beg_time":1310932625,"left":200,]),])
+jobs (["patrol":(["assignarea":"gongan","area":"gongan","score":1,"memo":"åˆ°%^YELLOW%^èŒ…å±‹%^RESET%^","status":"done","lasttimes":({}),"finish_time":1310933524,"count":1,"beg_time":1310995322,]),"findbody":(["assignarea":"jiangling","lasttimes":({}),"finish_time":1310828209,"memo":"æ‰¾%^H_CYAN%^ä¹è¿›%^RESET%^(yue jin)","count":10,"beg_time":0,"status":"over",]),"spy":(["assignarea":"chibi","size":38,"area":"xuchang","done_time":1311477269,"catched":0,"memo":"ä¾¦å¯Ÿè®¸æ˜Œ","status":"begin","spied":({}),"lasttimes":({1311693606,}),"finish_time":1311477351,"path":"/a/xuchang/","count":119,"beg_time":1311693606,]),"askobj":(["assignarea":"jiangling","lasttimes":({}),"obj_id":"test","finish_time":1311475780,"memo":"æ‰¾é™‡è¥¿çš„%^H_CYAN%^è”¡é‚•%^RESET%^å‚¬0","count":13,"beg_time":0,"status":"over",]),"choppork":(["lasttimes":({}),"finish_time":1310820310,"count":34,"beg_time":0,]),"bugao":(["assignarea":"jiangling","lasttimes":({}),"finish_time":1310827442,"memo":"å¤ªåŸçš„%^YELLOW%^å¤ªå­¦å ‚%^RESET%^","count":20,"beg_time":0,"status":"begin",]),"localbuy":(["what":"food","area":"jiangling","memo":"è´­ä¹°ç²®é£Ÿ","beg_time":1310932760,]),"whisper":(["assignarea":"chibi","topics":({}),"score":20,"memo":"ç­–å%^H_CYAN%^æ¨Šç¨ %^RESET%^(fan chou)","status":"done","beg_time":1311703770,]),"visitpeople":(["assignarea":"chibi","topics":({4,1,2,3,6,7,8,9,10,}),"score":28,"memo":"æ¢è®¿èµ¤å£é—²äºº","status":"over","select":10,"lasttimes":({1311696005,1311696053,1311696055,1311696500,1311696502,1311696508,1311696716,1311696976,1311697054,1311697264,1311697268,1311697482,1311698143,1311698145,1311698897,1311703740,1311703742,}),"finish_time":1311703742,"count":17,"beg_time":0,]),"visitofficer":(["assignarea":"chibi","topics":({1,2,3,4,6,7,8,9,10,}),"score":18,"memo":"å®‰æŠš%^H_CYAN%^ç³œç«º%^RESET%^(mi zhu)","status":"done","select":10,"lasttimes":({1311693814,1311694080,1311695359,1311695423,1311695503,1311695541,1311695583,1311695671,1311695721,}),"finish_time":1311695721,"count":9,"beg_time":1311695723,]),"suggest":(["lasttimes":({1311695905,}),"finish_time":1310932760,"count":5,"beg_time":1311695905,]),"searchwise":(["lasttimes":({1311703750,}),"finish_time":1311703750,"count":1,"beg_time":0,]),"recruit":(["lasttimes":({}),"area":"jiangling","memo":"å¾200å…µ","beg_time":1310932625,"left":200,]),])

@@ -13,5 +13,5 @@ private void main(string notused)
   int hp = this_body()->query_hp();
   int sp = this_body()->query_sp();
  
-  this_body()->my_action("$N±¨¸æ:  HP: " + hp + "  SP: " + sp + ".\n");
+  this_body()->my_action("$NæŠ¥å‘Š:  HP: " + hp + "  SP: " + sp + ".\n");
 }

@@ -5,7 +5,7 @@
 
 inherit CMD;
 
-private void main(string array argv)
+private void main(string * argv)
 {
   mixed result;
 
@@ -15,16 +15,16 @@ private void main(string array argv)
 
   if(result == -1)
     {
-      out("ÄãµÄÃüÁîÂ·¾¶ÖĞÓĞÕâÃ´Ò»¸öÎÄ¼ş£¬µ«ËüÃ»ÓĞ main() º¯Êı¡£\n");
+      out("ä½ çš„å‘½ä»¤è·¯å¾„ä¸­æœ‰è¿™ä¹ˆä¸€ä¸ªæ–‡ä»¶ï¼Œä½†å®ƒæ²¡æœ‰ main() å‡½æ•°ã€‚\n");
       return;
     }
 
   if(!result)
     {
-      out("ÄãµÄÃüÁîÂ·¾¶ÖĞÃ»ÓĞÕâ¸öÎÄ¼ş¡£\n");
+      out("ä½ çš„å‘½ä»¤è·¯å¾„ä¸­æ²¡æœ‰è¿™ä¸ªæ–‡ä»¶ã€‚\n");
       return;
     }
-  outf("%s Î»ÓÚ£º%s\n", argv[0], result[1]);
+  outf("%s ä½äºï¼š%s\n", argv[0], result[1]);
   return;
 }
 

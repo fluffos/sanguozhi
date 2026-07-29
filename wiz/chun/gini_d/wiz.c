@@ -1,34 +1,34 @@
 //wiz.c by fire on July 5 1999
 private mapping m_act=
 ([ 
-  "long" : "°ïÖú¾«ÁéµÄÍâ±ílookÊ±¡£",
-  "toosoon" : "¸æËß²»ÄÜÔÚ¶ÌÊ±¼äÄÚÈÃginiÖØ¸´Ä³ÏîÊÂÇé¡£",
-  "ask" : "ÕÙ»½giniÊ±¶ÔginiµÄÓÃÓï¡£",
-  "name" : "giniµÄÃû×Ö¡£",
-  "title" : "ÔÚ·¿¼äÖÐµÄÃèÊö¡£",
-  "go" : "gini´Ó±ð´¦»Øµ½Ö÷ÈËÉí±ß¡£",
+  "long" : "å¸®åŠ©ç²¾çµçš„å¤–è¡¨lookæ—¶ã€‚",
+  "toosoon" : "å‘Šè¯‰ä¸èƒ½åœ¨çŸ­æ—¶é—´å†…è®©ginié‡å¤æŸé¡¹äº‹æƒ…ã€‚",
+  "ask" : "å¬å”¤giniæ—¶å¯¹giniçš„ç”¨è¯­ã€‚",
+  "name" : "giniçš„åå­—ã€‚",
+  "title" : "åœ¨æˆ¿é—´ä¸­çš„æè¿°ã€‚",
+  "go" : "giniä»Žåˆ«å¤„å›žåˆ°ä¸»äººèº«è¾¹ã€‚",
   "disappear" : 
-    "Ö÷ÈËÀë¿ªÏßÊ±µÄ×Ô¶¯ÏûÊ§¡£ÒÑginiÎªÖ÷ÓïµÄsimple_act,\n"+
-     "²»ÄÜÓÐact¶ÔÏó¡£ÓëÆäËû¶¯×÷µÄ¶¨Òå²»Í¬¡£",
-  "come" : "°Ñgini´Ó±ðµÄ·¿¼äÕÐÀ´¡£",
-  "random" : "giniµÄËæ»ú¶¯×÷",
-  "birth" : "giniµ®Éú£¬µ±Íæ¼ÒÁªÏßÊ±¡£",
-  "return" : "ÈÃginiÏûÊ§¡£",
-  "call_old_player" : "ÈÃginiÕÒÀÏÍæ¼Ò°ïÖú¡£",
-  "nooldplyer" : "ÕÒ²»µ½¸ßÊÖ¡£",
-  "call" : "ÕÙ»½gini",
-  "noneed" : "Íæ¼ÒµÈ¼¶Ì«¸ß£¬gini²»Ô¸Òâ°ïÖú¡£",
-  "magic" : "gini Ê©·¨¡£",
-  "readhint" : "gini ¶ÁÌáÊ¾ hint",
-  "do" :  "ÈÃginiÖ´ÐÐÖ¸Áî¡£",
-  "know" : "ÕÙ»½giniµÄ»Ø´ð¡£",
-  "busy" : "giniÕýÔÚÖ´ÐÐÒ»ÏòÈÎÎñ£¬²»ÄÜ½ÓÊÜÏÂÒ»ÏîÈÎÎñ¡£",
+    "ä¸»äººç¦»å¼€çº¿æ—¶çš„è‡ªåŠ¨æ¶ˆå¤±ã€‚å·²giniä¸ºä¸»è¯­çš„simple_act,\n"+
+     "ä¸èƒ½æœ‰actå¯¹è±¡ã€‚ä¸Žå…¶ä»–åŠ¨ä½œçš„å®šä¹‰ä¸åŒã€‚",
+  "come" : "æŠŠginiä»Žåˆ«çš„æˆ¿é—´æ‹›æ¥ã€‚",
+  "random" : "giniçš„éšæœºåŠ¨ä½œ",
+  "birth" : "giniè¯žç”Ÿï¼Œå½“çŽ©å®¶è”çº¿æ—¶ã€‚",
+  "return" : "è®©giniæ¶ˆå¤±ã€‚",
+  "call_old_player" : "è®©giniæ‰¾è€çŽ©å®¶å¸®åŠ©ã€‚",
+  "nooldplyer" : "æ‰¾ä¸åˆ°é«˜æ‰‹ã€‚",
+  "call" : "å¬å”¤gini",
+  "noneed" : "çŽ©å®¶ç­‰çº§å¤ªé«˜ï¼Œginiä¸æ„¿æ„å¸®åŠ©ã€‚",
+  "magic" : "gini æ–½æ³•ã€‚",
+  "readhint" : "gini è¯»æç¤º hint",
+  "do" :  "è®©giniæ‰§è¡ŒæŒ‡ä»¤ã€‚",
+  "know" : "å¬å”¤giniçš„å›žç­”ã€‚",
+  "busy" : "giniæ­£åœ¨æ‰§è¡Œä¸€å‘ä»»åŠ¡ï¼Œä¸èƒ½æŽ¥å—ä¸‹ä¸€é¡¹ä»»åŠ¡ã€‚",
 
-  "lamp_id" : "ÕÙ»½giniÐÅÎïµÄid",
-  "lamp_long" : "ÕÙ»½giniÐÅÎïµÄÃèÊö¡£",
-  "lamp_unit" : "ÕÙ»½giniÐÅÎïµÄµ¥Î»¡£",
-  "lamp_name" : "ÕÙ»½giniÐÅÎïµÄÃû³Æ¡£",
-  "gender" : "giniµÄÐÔ±ð£º1 ÄÐ£¬2 Å®",
+  "lamp_id" : "å¬å”¤giniä¿¡ç‰©çš„id",
+  "lamp_long" : "å¬å”¤giniä¿¡ç‰©çš„æè¿°ã€‚",
+  "lamp_unit" : "å¬å”¤giniä¿¡ç‰©çš„å•ä½ã€‚",
+  "lamp_name" : "å¬å”¤giniä¿¡ç‰©çš„åç§°ã€‚",
+  "gender" : "giniçš„æ€§åˆ«ï¼š1 ç”·ï¼Œ2 å¥³",
 ]) ;
 
 string *get_n_act() {
@@ -43,16 +43,16 @@ mixed do_gini_check(string typ) {
 	if(!mapp(acts)) return acts;
 	r_keys=keys(acts);
 	n_keys=keys(m_act);
-	ret="gini ÀàÐÍ£º"+typ+"\n";
+	ret="gini ç±»åž‹ï¼š"+typ+"\n";
 	ret="---------------------------------------------------\n";
-	if(!sizeof(r_keys)) ret+= "»¹Ã»ÓÐ¶¨ÒåÈÎºÎ¶¯×÷¡£\n";
+	if(!sizeof(r_keys)) ret+= "è¿˜æ²¡æœ‰å®šä¹‰ä»»ä½•åŠ¨ä½œã€‚\n";
 	else
 	foreach(string k in r_keys) {
-		ret+="¹Ø¼ü×Ö£º%^H_GREEN%^"+k+"%^RESET%^";
-		ret+="  ½âÊÍ£º%^H_RED%^"+m_act[k]+"%^RESET%^\n";
+		ret+="å…³é”®å­—ï¼š%^H_GREEN%^"+k+"%^RESET%^";
+		ret+="  è§£é‡Šï¼š%^H_RED%^"+m_act[k]+"%^RESET%^\n";
 		ks=acts[k];
 		if(!sizeof(ks)) {
-			ret+="   »¹Ã»ÓÐ¶¨Òå¡£\n";
+			ret+="   è¿˜æ²¡æœ‰å®šä¹‰ã€‚\n";
 			continue; 
 		}
 		foreach(string s in ks) {
@@ -62,13 +62,13 @@ mixed do_gini_check(string typ) {
 	}
 	n_keys-=r_keys;
 	if(sizeof(n_keys)) {
-		ret+="%^H_RED%^»¹ÓÐÒÔÏÂ¶¯×÷Ã»ÓÐ¶¨Òå¡£%^H_RED%^\n";
+		ret+="%^H_RED%^è¿˜æœ‰ä»¥ä¸‹åŠ¨ä½œæ²¡æœ‰å®šä¹‰ã€‚%^H_RED%^\n";
 		ret+=
 		"----------------------------------------------\n";
 		foreach(string k in n_keys) {
-			ret+="¹Ø¼ü×Ö£º%^H_GREEN%^"+k+"%^RESET%^";
-			ret+="  ½âÊÍ£º%^H_RED%^"+m_act[k]+"%^RESET%^\n";
-			ret+="  ÁÐ×Ó£º"+GINI_D->get_msg("gini",k);
+			ret+="å…³é”®å­—ï¼š%^H_GREEN%^"+k+"%^RESET%^";
+			ret+="  è§£é‡Šï¼š%^H_RED%^"+m_act[k]+"%^RESET%^\n";
+			ret+="  åˆ—å­ï¼š"+GINI_D->get_msg("gini",k);
 			if(ret[<1]!='\n') ret+="\n";
 		}
 	}
@@ -78,28 +78,28 @@ mixed do_gini_check(string typ) {
 string act_rule() {
 	string ret;
 	ret=
-"gini¶¯×÷¹æ·¶½âÊÍ£º
-Ò»¸öginiµÄ¶¯×÷°üÀ¨Á½²¿·Ö£ºµÚÒ»²¿·ÖÊÇ%^H_RED%^Á½×ÖÄ¸µÄËµÃ÷£¬
-%^RESET%^µÚ¶þ²¿·ÖÊÇ%^H_RED%^¾ßÌåµÄ¶¯×÷%^RESET%^£¬ËµÃ÷²¿·ÖÓÐÒÔÏÂ¹æ·¶£º
-1 %^H_BLUE%^GE%^RESET%^£ºgini×öemote¡£
-   ÀýÈç£º%^H_GREEN%^GEhi%^RESET%^  Ôògini»á%^RED%^À¶É«´ó¾«Áé³¤Ò¾µ½µØ£¬ÀÊÉùµÀ£ºÐ¡ÈËÀ¶É«´ó¾«ÁéÕâÏáÓÐÀñÁË£¡%^RESET%^
-2 %^H_BLUE%^GM%^RESET%^£ºgini¶ÔÖ÷ÈË×öemote¡£
-   ÀýÈç£º%^H_GREEN%^GMhi%^RESET%^  Ôògini»á%^RED%^À¶É«´ó¾«ÁéÓÑÉÆµØºÍÄã´òÁË¸öÕÐºô¡£%^RESET%^
-3 %^H_BLUE%^GA%^RESET%^£ºgini(¶ÔÖ÷ÈË)×ö¶¯×÷
-   ÀýÈç£º%^H_GREEN%^GA$NÅÄÁËÅÄ$TµÄÍ·%^RESET%^  Ôògini»á%^RED%^À¶É«´ó¾«ÁéÅÄÁËÅÄÄãµÄÍ·%^RESET%^
-   ÀýÈç£º%^H_GREEN%^GA$NÅÄÁËÅÄÍ·%^RESET%^  Ôògini»á%^RED%^À¶É«´ó¾«ÁéÅÄÁËÅÄÍ·%^RESET%^
-4 %^H_BLUE%^ME%^RESET%^£ºÖ÷ÈË×öemote
-   ÀýÈç£º%^H_GREEN%^MEhehe%^RESET%^  ÔòÄã»á%^RED%^Äã¡¸ºÙºÙºÙ£®£®£®¡¹µØ¼éÐ¦ÁË¼¸Éù¡£%^RESET%^
-5 %^H_BLUE%^MG%^RESET%^£ºÖ÷ÈË¶Ôgini×öemote
-   ÀýÈç£º%^H_GREEN%^MGpat%^RESET%^  ÔòÄã»á%^RED%^ÄãÇáÇáµØÅÄÁËÅÄÀ¶É«´ó¾«ÁéµÄÍ·¡£%^RESET%^\n";
+"giniåŠ¨ä½œè§„èŒƒè§£é‡Šï¼š
+ä¸€ä¸ªginiçš„åŠ¨ä½œåŒ…æ‹¬ä¸¤éƒ¨åˆ†ï¼šç¬¬ä¸€éƒ¨åˆ†æ˜¯%^H_RED%^ä¸¤å­—æ¯çš„è¯´æ˜Žï¼Œ
+%^RESET%^ç¬¬äºŒéƒ¨åˆ†æ˜¯%^H_RED%^å…·ä½“çš„åŠ¨ä½œ%^RESET%^ï¼Œè¯´æ˜Žéƒ¨åˆ†æœ‰ä»¥ä¸‹è§„èŒƒï¼š
+1 %^H_BLUE%^GE%^RESET%^ï¼šginiåšemoteã€‚
+   ä¾‹å¦‚ï¼š%^H_GREEN%^GEhi%^RESET%^  åˆ™giniä¼š%^RED%^è“è‰²å¤§ç²¾çµé•¿æ–åˆ°åœ°ï¼Œæœ—å£°é“ï¼šå°äººè“è‰²å¤§ç²¾çµè¿™åŽ¢æœ‰ç¤¼äº†ï¼%^RESET%^
+2 %^H_BLUE%^GM%^RESET%^ï¼šginiå¯¹ä¸»äººåšemoteã€‚
+   ä¾‹å¦‚ï¼š%^H_GREEN%^GMhi%^RESET%^  åˆ™giniä¼š%^RED%^è“è‰²å¤§ç²¾çµå‹å–„åœ°å’Œä½ æ‰“äº†ä¸ªæ‹›å‘¼ã€‚%^RESET%^
+3 %^H_BLUE%^GA%^RESET%^ï¼šgini(å¯¹ä¸»äºº)åšåŠ¨ä½œ
+   ä¾‹å¦‚ï¼š%^H_GREEN%^GA$Næ‹äº†æ‹$Tçš„å¤´%^RESET%^  åˆ™giniä¼š%^RED%^è“è‰²å¤§ç²¾çµæ‹äº†æ‹ä½ çš„å¤´%^RESET%^
+   ä¾‹å¦‚ï¼š%^H_GREEN%^GA$Næ‹äº†æ‹å¤´%^RESET%^  åˆ™giniä¼š%^RED%^è“è‰²å¤§ç²¾çµæ‹äº†æ‹å¤´%^RESET%^
+4 %^H_BLUE%^ME%^RESET%^ï¼šä¸»äººåšemote
+   ä¾‹å¦‚ï¼š%^H_GREEN%^MEhehe%^RESET%^  åˆ™ä½ ä¼š%^RED%^ä½ ã€Œå˜¿å˜¿å˜¿ï¼Žï¼Žï¼Žã€åœ°å¥¸ç¬‘äº†å‡ å£°ã€‚%^RESET%^
+5 %^H_BLUE%^MG%^RESET%^ï¼šä¸»äººå¯¹giniåšemote
+   ä¾‹å¦‚ï¼š%^H_GREEN%^MGpat%^RESET%^  åˆ™ä½ ä¼š%^RED%^ä½ è½»è½»åœ°æ‹äº†æ‹è“è‰²å¤§ç²¾çµçš„å¤´ã€‚%^RESET%^\n";
 ret+=
-"6 %^H_BLUE%^MA%^RESET%^£ºÖ÷ÈË(¶Ôgini)×ö¶¯×÷
-   ÀýÈç£º%^H_GREEN%^MA$N¶Ô$T´óº°Ò»Éù£º×¡¿Ú¡£%^RESET%^  ÔòÄã»á%^RED%^Äã¶ÔÀ¶É«´ó¾«Áé´óº°Ò»Éù£º×¡¿Ú¡£%^RESET%^
-7 %^H_BLUE%^GS%^RESET%^£ºgini Ëµ»°
-   ÀýÈç£º%^H_GREEN%^MS´ÓÇ°ÓÐ×øÉ½. . .%^RESET%^  Ôògini»á%^RED%^À¶É«´ó¾«ÁéËµµÀ£º´ÓÇ°ÓÐ×øÉ½. . .%^RESET%^
-8 %^H_BLUE%^GT%^RESET%^£ºgini tell Ö÷ÈË
-   ÀýÈç£º%^H_GREEN%^GThi%^RESET%^  Ôògini»á%^RED%^À¶É«´ó¾«Áé(fire gini)¸æËßÄã£ºhi%^RESET%^
-9 Èç¹ûÈ±Ê¡£¬ÔòÎªMA : Ö÷ÈË¶Ôgini×öemote
-   ÀýÈç£º%^H_GREEN%^$N¶Ô$T´óº°Ò»Éù£º×¡¿Ú¡£%^RESET%^  ÔòÄã»á%^RED%^Äã¶ÔÀ¶É«´ó¾«Áé´óº°Ò»Éù£º×¡¿Ú¡£%^RESET%^\n";
+"6 %^H_BLUE%^MA%^RESET%^ï¼šä¸»äºº(å¯¹gini)åšåŠ¨ä½œ
+   ä¾‹å¦‚ï¼š%^H_GREEN%^MA$Nå¯¹$Tå¤§å–Šä¸€å£°ï¼šä½å£ã€‚%^RESET%^  åˆ™ä½ ä¼š%^RED%^ä½ å¯¹è“è‰²å¤§ç²¾çµå¤§å–Šä¸€å£°ï¼šä½å£ã€‚%^RESET%^
+7 %^H_BLUE%^GS%^RESET%^ï¼šgini è¯´è¯
+   ä¾‹å¦‚ï¼š%^H_GREEN%^MSä»Žå‰æœ‰åå±±. . .%^RESET%^  åˆ™giniä¼š%^RED%^è“è‰²å¤§ç²¾çµè¯´é“ï¼šä»Žå‰æœ‰åå±±. . .%^RESET%^
+8 %^H_BLUE%^GT%^RESET%^ï¼šgini tell ä¸»äºº
+   ä¾‹å¦‚ï¼š%^H_GREEN%^GThi%^RESET%^  åˆ™giniä¼š%^RED%^è“è‰²å¤§ç²¾çµ(fire gini)å‘Šè¯‰ä½ ï¼šhi%^RESET%^
+9 å¦‚æžœç¼ºçœï¼Œåˆ™ä¸ºMA : ä¸»äººå¯¹giniåšemote
+   ä¾‹å¦‚ï¼š%^H_GREEN%^$Nå¯¹$Tå¤§å–Šä¸€å£°ï¼šä½å£ã€‚%^RESET%^  åˆ™ä½ ä¼š%^RED%^ä½ å¯¹è“è‰²å¤§ç²¾çµå¤§å–Šä¸€å£°ï¼šä½å£ã€‚%^RESET%^\n";
 return ret;
 }

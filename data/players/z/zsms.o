@@ -1,6 +1,6 @@
 #/std/race/human.c
 primary_id "zsms"
-chinese_id "×íÉúÃÎËÀ"
+chinese_id "é†‰ç”Ÿæ¢¦æ­»"
 persist_flags ([0:0,])
 can_drop 1
 can_sell 1
@@ -13,8 +13,8 @@ main_prep "in"
 contained_light_added 1
 gender 1
 messages ([])
-def_messages (["home":"$n»Ø¼ÒÈ¥ÁË¡£","mleave":"$nµÄÉíÓ°ÔÚÒ»ÕóÑÌÎíÖĞ½¥½¥ÒşÈ¥¡£","enter":"$n×ßÁË¹ıÀ´¡£","invis":"$n´ÓÄãµÄÊÓÒ°ÖĞÍ»È»ÏûÊ§ÁË¡£","vis":"$nÍ»È»³öÏÖÔÚÄãÃæÇ°£¬ÓÖËÆºõÔÚÕâÀïºÜ¾ÃÁË¡£","destruct":"$nÅÛĞäÒ»»Ó£¬$o±»»¯³ÉÒ»¹ÉºÚÑÌ£¬´µÉ¢¿ªÈ¥¡£","menter":"$nÍ»È»³öÏÖÔÚÒ»ÕóÑÌÎíÖĞ¡£","leave":"$n³¯$oÀë¿ªÁË¡£","clone":"$nÉìÊÖÁè¿ÕÒ»Ö¸£¬±ä³öÁË$o¡£",])
-busy_msg "ÄãÕıÃ¦×ÅÕì²ìÄØ¡£"
+def_messages (["home":"$nå›å®¶å»äº†ã€‚","mleave":"$nçš„èº«å½±åœ¨ä¸€é˜µçƒŸé›¾ä¸­æ¸æ¸éšå»ã€‚","enter":"$nèµ°äº†è¿‡æ¥ã€‚","invis":"$nä»ä½ çš„è§†é‡ä¸­çªç„¶æ¶ˆå¤±äº†ã€‚","vis":"$nçªç„¶å‡ºç°åœ¨ä½ é¢å‰ï¼Œåˆä¼¼ä¹åœ¨è¿™é‡Œå¾ˆä¹…äº†ã€‚","destruct":"$nè¢è¢–ä¸€æŒ¥ï¼Œ$oè¢«åŒ–æˆä¸€è‚¡é»‘çƒŸï¼Œå¹æ•£å¼€å»ã€‚","menter":"$nçªç„¶å‡ºç°åœ¨ä¸€é˜µçƒŸé›¾ä¸­ã€‚","leave":"$næœ$oç¦»å¼€äº†ã€‚","clone":"$nä¼¸æ‰‹å‡Œç©ºä¸€æŒ‡ï¼Œå˜å‡ºäº†$oã€‚",])
+busy_msg "ä½ æ­£å¿™ç€ä¾¦å¯Ÿå‘¢ã€‚"
 busy 1306670419
 answer_list ({({"settle","settle",}),({"position","position",}),({"localmeeting","localmeeting",}),({"job","job",}),({"zgxy","zgxy",}),({"wxxy","wxxy",}),({"bfxy","bfxy",}),({"guoshi","guoshi",}),})
 ask_list ([])
@@ -48,11 +48,11 @@ ilog_time 1308143220
 money (["coin":50,"silver":95,"gold":2,])
 sg_home ([])
 name "zsms"
-invis_name "Ä³Ä³"
-chinese_name "×íÉúÃÎËÀ"
+invis_name "æŸæŸ"
+chinese_name "é†‰ç”Ÿæ¢¦æ­»"
 response_queue ({})
 channel_list ({"gossip","newbie","weather","rumor","imud_imud_sgz",})
 saved_items "([\"#inventory#\":({\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/money/m_silver\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/money/m_gold\\\",])\",\"([\\\"#base_name#\\\":\\\"/sgdomain/obj/money/m_coin\\\",])\",}),\"#base_name#\":\"/std/race/human\",])"
 ag_day 28
 ag_month 1
-jobs (["chopwoods":(["finish_time":1306505689,"count":7,"beg_time":0,"lasttimes":({1306503093,1306503683,1306504763,1306504989,1306505155,1306505375,1306505689,}),]),"spy":(["catched":0,"spied":({"/a/anding/ad_nanchengmen","/a/anding/ad_chengnanjie2","/a/anding/ad_kezhan","/a/anding/ad_chengnanjie1","/a/anding/ad_xiaodian","/a/anding/ad_guanzhai","/a/anding/ad_chengzhongxin","/a/anding/ad_chengxijie","/a/anding/ad_jiuguan","/a/anding/ad_yamen","/a/anding/ad_datang","/a/anding/ad_xichengmen","/a/anding/ad_chengdongjie","/a/anding/ad_minzhai","/a/anding/ad_dongchengmen","/a/anding/ad_junying","/a/anding/ad_xiaochang","/a/anding/ad_yishiting",}),"beg_time":0,"path":"/a/anding/","size":19,"finish_time":1306670782,"memo":"Õì²ì°²¶¨","area":"anding","assignarea":"wuling","status":"over","count":1,"lasttimes":({1306670782,}),]),"choppork":(["finish_time":1306669278,"count":27,"beg_time":0,"lasttimes":({1306669278,}),]),"letter":(["beg_time":0,"target":"wang ping","finish_time":1306671706,"memo":"ËÍĞÅ%^H_CYAN%^ÍõÆ½%^RESET%^(wang ping)","loyalty":44,"assignarea":"wuling","status":"over","count":1,"score":20,"lasttimes":({1306671706,}),]),"patrol":(["get_thief":-1,"beg_time":0,"finish_time":1306672148,"memo":"µ½%^YELLOW%^´åÖĞĞÄ%^RESET%^","area":"wuling","assignarea":"wuling","status":"over","count":1,"score":14,"lasttimes":({1306672148,}),]),])
+jobs (["chopwoods":(["finish_time":1306505689,"count":7,"beg_time":0,"lasttimes":({1306503093,1306503683,1306504763,1306504989,1306505155,1306505375,1306505689,}),]),"spy":(["catched":0,"spied":({"/a/anding/ad_nanchengmen","/a/anding/ad_chengnanjie2","/a/anding/ad_kezhan","/a/anding/ad_chengnanjie1","/a/anding/ad_xiaodian","/a/anding/ad_guanzhai","/a/anding/ad_chengzhongxin","/a/anding/ad_chengxijie","/a/anding/ad_jiuguan","/a/anding/ad_yamen","/a/anding/ad_datang","/a/anding/ad_xichengmen","/a/anding/ad_chengdongjie","/a/anding/ad_minzhai","/a/anding/ad_dongchengmen","/a/anding/ad_junying","/a/anding/ad_xiaochang","/a/anding/ad_yishiting",}),"beg_time":0,"path":"/a/anding/","size":19,"finish_time":1306670782,"memo":"ä¾¦å¯Ÿå®‰å®š","area":"anding","assignarea":"wuling","status":"over","count":1,"lasttimes":({1306670782,}),]),"choppork":(["finish_time":1306669278,"count":27,"beg_time":0,"lasttimes":({1306669278,}),]),"letter":(["beg_time":0,"target":"wang ping","finish_time":1306671706,"memo":"é€ä¿¡%^H_CYAN%^ç‹å¹³%^RESET%^(wang ping)","loyalty":44,"assignarea":"wuling","status":"over","count":1,"score":20,"lasttimes":({1306671706,}),]),"patrol":(["get_thief":-1,"beg_time":0,"finish_time":1306672148,"memo":"åˆ°%^YELLOW%^æ‘ä¸­å¿ƒ%^RESET%^","area":"wuling","assignarea":"wuling","status":"over","count":1,"score":14,"lasttimes":({1306672148,}),]),])

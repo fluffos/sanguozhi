@@ -3,14 +3,14 @@
 #include <ansi.h>
 #include <mudlib.h>
 // #include <area.h>
-#define MORN HIG+"¶«·½Â¶³öÒ»Ë¿ÀèÃ÷µÄÊï¹â£¬ĞÂµÄÒ»Ìì¿ªÊ¼ÁË¡£"+NOR
-#define NOON HIW+"Ì«ÑôÉıµ½ÁËÕıÌì¶¥£¬ÒÑ¾­ÊÇÖĞÎçÁË¡£"+NOR
-#define AFTN HIR+"Ì«ÑôÂäÉ½ÁË£¬Î÷·½Ìì¼Ê±»ÂäÈÕÓ³³öÒ»Æ¬»ğºì¡£"+NOR
-#define NIGT HIB+"ÒÑ¾­ÊÇ×ÓÒ¹ÁË£¬ÖÜÎ§µÄÒ»ÇĞ¶¼ÁıÕÖÔÚºÚ°µÖ®ÖĞ¡£"+NOR
-#define SPRING HIG+"´ºÌìÀ´ÁË£¬´óµØ³ÊÏÖÒ»Æ¬ÂÌÉ«¡£"+NOR
-#define SUMMER HIR+"ÏÄÌìÀ´ÁË£¬Ğ¡ºÓÀïÂúÊÇ³àÉíÏ·Ë®µÄº¢Í¯¡£"+NOR
-#define AUTUMN HIY+"ÇïÌìÀ´ÁË£¬ÈË¼ä³äÂúÁË·áÊÕµÄÏ²ÔÃ¡£"+NOR
-#define WINTER HIC+"¶¬ÌìÀ´ÁË£¬½à°×µÄÑ©ËÆºõÔÚ¾»»¯ÈË¼äµÄ×ï¶ñ¡£"+NOR
+#define MORN HIG+"ä¸œæ–¹éœ²å‡ºä¸€ä¸é»æ˜çš„æ›™å…‰ï¼Œæ–°çš„ä¸€å¤©å¼€å§‹äº†ã€‚"+NOR
+#define NOON HIW+"å¤ªé˜³å‡åˆ°äº†æ­£å¤©é¡¶ï¼Œå·²ç»æ˜¯ä¸­åˆäº†ã€‚"+NOR
+#define AFTN HIR+"å¤ªé˜³è½å±±äº†ï¼Œè¥¿æ–¹å¤©é™…è¢«è½æ—¥æ˜ å‡ºä¸€ç‰‡ç«çº¢ã€‚"+NOR
+#define NIGT HIB+"å·²ç»æ˜¯å­å¤œäº†ï¼Œå‘¨å›´çš„ä¸€åˆ‡éƒ½ç¬¼ç½©åœ¨é»‘æš—ä¹‹ä¸­ã€‚"+NOR
+#define SPRING HIG+"æ˜¥å¤©æ¥äº†ï¼Œå¤§åœ°å‘ˆç°ä¸€ç‰‡ç»¿è‰²ã€‚"+NOR
+#define SUMMER HIR+"å¤å¤©æ¥äº†ï¼Œå°æ²³é‡Œæ»¡æ˜¯èµ¤èº«æˆæ°´çš„å­©ç«¥ã€‚"+NOR
+#define AUTUMN HIY+"ç§‹å¤©æ¥äº†ï¼Œäººé—´å……æ»¡äº†ä¸°æ”¶çš„å–œæ‚¦ã€‚"+NOR
+#define WINTER HIC+"å†¬å¤©æ¥äº†ï¼Œæ´ç™½çš„é›ªä¼¼ä¹åœ¨å‡€åŒ–äººé—´çš„ç½ªæ¶ã€‚"+NOR
 #define DAY_LENGTH 240
 #define W_SUNN 0
 #define W_RAIN 1
@@ -20,20 +20,20 @@
 #define W_BIGRAIN 5
 #define W_HALL 6
 #define MAXWEATHERTYPE 7
-#define SUNN HIG+"Ì«Ñô³öÀ´ÁË£¬À¶À¶µÄÌì¿ÕÃ»ÓĞÒ»Ë¿ÔÆ²Ê¡£"+NOR
-#define RAIN HIB+"ÌìÉÏÏÂÆğÓêÀ´¡£"+NOR
-#define FOGG HIW+"ÆğÎíÁË¡£"+NOR
-#define SNOW HIW+"ÌìÉÏ¾²¾²µØÆ®ÆğÑ©À´¡£"+NOR
-#define WIND HIR+"Æğ·çÁË£¬. . . ."+NOR
-#define BIGRAIN HIG+"´óÓêÇãÅè¶ø½µ£¬µÀÂ·Ò»Æ¬ÄàÅ¢¡£"+NOR
-#define HALL HIC+"Ò»ÕóÉÁµç¹ıºó£¬Ìì¿Õ½µÏÂÁË±ù±¢¡£"+NOR
-#define W_UNKNOW HIR+"ÌìÆø²»Ã÷²»°×¡£"+NOR
-static private int p_day;
-static private int p_month;
-static private int p_hour;
-static private mapping p_weather=(["ly_area" : 0,"xbv_area" : 0 , 
+#define SUNN HIG+"å¤ªé˜³å‡ºæ¥äº†ï¼Œè“è“çš„å¤©ç©ºæ²¡æœ‰ä¸€ä¸äº‘å½©ã€‚"+NOR
+#define RAIN HIB+"å¤©ä¸Šä¸‹èµ·é›¨æ¥ã€‚"+NOR
+#define FOGG HIW+"èµ·é›¾äº†ã€‚"+NOR
+#define SNOW HIW+"å¤©ä¸Šé™é™åœ°é£˜èµ·é›ªæ¥ã€‚"+NOR
+#define WIND HIR+"èµ·é£äº†ï¼Œ. . . ."+NOR
+#define BIGRAIN HIG+"å¤§é›¨å€¾ç›†è€Œé™ï¼Œé“è·¯ä¸€ç‰‡æ³¥æ³ã€‚"+NOR
+#define HALL HIC+"ä¸€é˜µé—ªç”µè¿‡åï¼Œå¤©ç©ºé™ä¸‹äº†å†°é›¹ã€‚"+NOR
+#define W_UNKNOW HIR+"å¤©æ°”ä¸æ˜ä¸ç™½ã€‚"+NOR
+nosave private int p_day;
+nosave private int p_month;
+nosave private int p_hour;
+nosave private mapping p_weather=(["ly_area" : 0,"xbv_area" : 0 , 
 "xiakou" : 1 , "others" : 0 ]);
-static private mapping p_weather_next=(["ly_area" : 0,"xbv_area" : 0 , 
+nosave private mapping p_weather_next=(["ly_area" : 0,"xbv_area" : 0 , 
 "xiakou" : 1 , "others" : 0 ]);
 void arrange_weather_next()
 {
@@ -101,9 +101,9 @@ void show_weather()
 				p_w=p_weather[area_name];
 				w_info=weather_str_desc(p_w)+"\n";
 				if(env->is_indoors())
-					w_info="¡¾´°Íâ¡¿"+w_info;
+					w_info="ã€çª—å¤–ã€‘"+w_info;
 				else
-					w_info="¡¾ÌìÆø¡¿"+w_info;
+					w_info="ã€å¤©æ°”ã€‘"+w_info;
 	        		tell(({user}), w_info, MSG_INDENT);
 			}
 		}

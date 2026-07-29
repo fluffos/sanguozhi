@@ -1,4 +1,4 @@
-// tuzi.c "¶ú¶ä³¤³¤µÄÍÃ×Ó"
+// tuzi.c "è€³æœµé•¿é•¿çš„å…”å­"
 #include <mudlib.h>
 #include <sanguo.h>
 inherit LIVING;
@@ -17,12 +17,12 @@ string *query_channel_list() {
 void setup()
 {
     object jia;
-    set_name("tuzi", "¶ú¶ä³¤³¤µÄÍÃ×Ó");
+    set_name("tuzi", "è€³æœµé•¿é•¿çš„å…”å­");
     add_id("rabbit");
     set_gender(1);
-    set_proper_name("ÑÛ¾¦ºìºìµÄ£¬¶ú¶ä³¤³¤µÄÍÃ×Ó");
-    set_in_room_desc("Ò»Ö»ÑÛ¾¦ºìºìµÄ£¬¶ú¶ä³¤³¤µÄÍÃ×Ó(rabbit)");
-    set_long("¿É°®µÄÍÃ×ÓÍá×ÅÍ·ÍûÁËÄãÒ»ÑÛ£¬Ò»Á³µÄÌìÕæ£º¡°Äã²»ÊÇ´ó»ÒÀÇ°É£¿. . .¡±");    
+    set_proper_name("çœ¼ç›çº¢çº¢çš„ï¼Œè€³æœµé•¿é•¿çš„å…”å­");
+    set_in_room_desc("ä¸€åªçœ¼ç›çº¢çº¢çš„ï¼Œè€³æœµé•¿é•¿çš„å…”å­(rabbit)");
+    set_long("å¯çˆ±çš„å…”å­æ­ªç€å¤´æœ›äº†ä½ ä¸€çœ¼ï¼Œä¸€è„¸çš„å¤©çœŸï¼šâ€œä½ ä¸æ˜¯å¤§ç°ç‹¼å§ï¼Ÿ. . .â€");    
     set_sg_rongmao(35);
     set_movement_time(20);
     set_wander_area("xbv_area");
@@ -31,19 +31,19 @@ void setup()
     jia=new("/wiz/fire/obj/wear/skirt.c");
     jia->move(this_object());
     jia->do_wear();
-     add_pattern("%sÉîÉîµØÌ¾ÁË¿ÚÆø¡£",function(){ 
-       	if ($1=="Ğ¡Èá")
+     add_pattern("%sæ·±æ·±åœ°å¹äº†å£æ°”ã€‚",function(){ 
+       	if ($1=="å°æŸ”")
 	{
         	respond("comfort rou");
-		respond("say ÄãÕæµÄ²»ÏëÒªÒ»Ö»¶ú¶ä³¤³¤µÄÑÛ¾¦ºìºìµÄÍÃ×ÓÂğ£¿~~");
+		respond("say ä½ çœŸçš„ä¸æƒ³è¦ä¸€åªè€³æœµé•¿é•¿çš„çœ¼ç›çº¢çº¢çš„å…”å­å—ï¼Ÿ~~");
 	}
 	else
 	{
 		respond("en");
 	}
 	});
-     add_pattern("%sÇáÇáÍĞ×¡ÄãµÄÁ³£¬¸øÄãÒ»¸öÉîÇéµÄÎÇ¡£",function(){ 
-	if ($1=="Ğ¡Èá")
+     add_pattern("%sè½»è½»æ‰˜ä½ä½ çš„è„¸ï¼Œç»™ä½ ä¸€ä¸ªæ·±æƒ…çš„å»ã€‚",function(){ 
+	if ($1=="å°æŸ”")
 	{
 		respond("hug2 rou");
                 respond("kiss1 rou");	
@@ -51,19 +51,19 @@ void setup()
 	else
 	{
 		respond("angry");
-		respond(":´ó½ĞµÀ£º±ğÅöÎÒ£¬²»È»ÎÒ¾Í°ÑÄã¶ú¶ä°ÎµÄ¸úÎÒÒ»Ñù³¤£¬ºß£¡\n");
+		respond(":å¤§å«é“ï¼šåˆ«ç¢°æˆ‘ï¼Œä¸ç„¶æˆ‘å°±æŠŠä½ è€³æœµæ‹”çš„è·Ÿæˆ‘ä¸€æ ·é•¿ï¼Œå“¼ï¼\n");
 	}
 	});
 
-	add_pattern("%sµÄ¼çÍ··ÅÉù´ó¿Ş¡£",function(){
-        if ($1=="Ğ¡Èá")
+	add_pattern("%sçš„è‚©å¤´æ”¾å£°å¤§å“­ã€‚",function(){
+        if ($1=="å°æŸ”")
         {
                 respond("tender rou");
-                respond("whisper rou ÏëÔÆ¶ùÁË£¿¸øËûĞ´·âĞÅ°É£¿");
+                respond("whisper rou æƒ³äº‘å„¿äº†ï¼Ÿç»™ä»–å†™å°ä¿¡å§ï¼Ÿ");
         }
         });
-     add_pattern("%s½«ÄãÇáÇáµØÂ§ÔÚ»³Àï¡£",function(){ 
-	if ($1=="Ğ¡Èá")
+     add_pattern("%så°†ä½ è½»è½»åœ°æ‚åœ¨æ€€é‡Œã€‚",function(){ 
+	if ($1=="å°æŸ”")
 	{
         	respond("kiss rou");
 		respond("hug rou");
@@ -71,80 +71,80 @@ void setup()
 	else
 	{
 		respond("angry");
-		respond("say ÍÃ×ÓÃÇ£¬ÏºÃ×ÃÇ£¬ÏÌ²ËÌ«¹ó£¡\n");
+		respond("say å…”å­ä»¬ï¼Œè™¾ç±³ä»¬ï¼Œå’¸èœå¤ªè´µï¼\n");
 	}
 	});
-     add_pattern("%s¾ªÑÈµØ°¡ÁËÒ»Éù¡£",function(){ 
-	if ($1=="Ğ¡Èá")
+     add_pattern("%sæƒŠè®¶åœ°å•Šäº†ä¸€å£°ã€‚",function(){ 
+	if ($1=="å°æŸ”")
 	{
 		respond("sweat rou");
 	}
 	else
 	{
 		respond("angry");
-		respond(":¿´¶¼²»¿´ÄãÒ»ÑÛ£¬ºß~~~~~~~\n");
+		respond(":çœ‹éƒ½ä¸çœ‹ä½ ä¸€çœ¼ï¼Œå“¼~~~~~~~\n");
 	}
 	});
-     add_pattern("%s°ÑÄã½ô½ôµØ±§ÔÚ»³Àï¡£",function(){ 
-	if ($1=="Ğ¡Èá")
+     add_pattern("%sæŠŠä½ ç´§ç´§åœ°æŠ±åœ¨æ€€é‡Œã€‚",function(){ 
+	if ($1=="å°æŸ”")
 	{
 		respond("hug2 rou");
 	}
 	else
 	{
 		respond("hammer");
-		respond("say ÔÙÅöÎÒ£¬ÎÒ¿ÉÒª½ĞÀÇ¸ç¸çÁË~~~~~~ÀÇÀ´ÁË£¡£¡£¡\n");
+		respond("say å†ç¢°æˆ‘ï¼Œæˆ‘å¯è¦å«ç‹¼å“¥å“¥äº†~~~~~~ç‹¼æ¥äº†ï¼ï¼ï¼\n");
 	}
 	});
-     add_pattern("%sÔÚÄãµÄ¶ú±ßÇáÇá´µ¿ÚÆø£¬Ïë°ÑÄã»½ĞÑ¡£",function(){ 
-	if ($1=="Ğ¡Èá")
+     add_pattern("%såœ¨ä½ çš„è€³è¾¹è½»è½»å¹å£æ°”ï¼Œæƒ³æŠŠä½ å”¤é†’ã€‚",function(){ 
+	if ($1=="å°æŸ”")
 	{
 		respond("wake");
-                respond("whisper rou ÔÆ¶ù²»ÔÚÒ®£¬Ç×Ç×ÎÒºÃ²»ºÃ£¿");
+                respond("whisper rou äº‘å„¿ä¸åœ¨è€¶ï¼Œäº²äº²æˆ‘å¥½ä¸å¥½ï¼Ÿ");
                 respond("pure rou");
 	}
 
 	else
 	{
 		respond("angry");
-		respond("say ±ğÅöÎÒ\n");
+		respond("say åˆ«ç¢°æˆ‘\n");
 	}
 	});
-     add_pattern("%s±§×¡ÄãµÄÑü£¬ÇáÉùËµ£º¡°¶¼ÊÇÎÒ²»ºÃ£¬½ñºóÔÙÒ²²»ÈÇÄãÉúÆøÁË¡£¡±",function(){ 
-	if ($1=="Ğ¡Èá")
+     add_pattern("%sæŠ±ä½ä½ çš„è…°ï¼Œè½»å£°è¯´ï¼šâ€œéƒ½æ˜¯æˆ‘ä¸å¥½ï¼Œä»Šåå†ä¹Ÿä¸æƒ¹ä½ ç”Ÿæ°”äº†ã€‚â€",function(){ 
+	if ($1=="å°æŸ”")
 	{
 		respond("lhong");
 	}
 	else
 	{
 		respond("angry");
-		respond("say ±ğÅöÎÒ\n");
+		respond("say åˆ«ç¢°æˆ‘\n");
 	}
 	});
-     add_pattern("%sÂ§×ÅÄã£¬ÔÚÄãµÄ¶ú±ßÇÄÉùµÀ£ºÏàË¼ÖªºÎÈÕ£¬´ËÒ¹ÄÑÎªÇé¡£",function(){ 
-	if ($1=="Ğ¡Èá")
+     add_pattern("%sæ‚ç€ä½ ï¼Œåœ¨ä½ çš„è€³è¾¹æ‚„å£°é“ï¼šç›¸æ€çŸ¥ä½•æ—¥ï¼Œæ­¤å¤œéš¾ä¸ºæƒ…ã€‚",function(){ 
+	if ($1=="å°æŸ”")
 	{
 		respond("lkao");
 	}
 	else
 	{
 		respond("angry");
-		respond("say ±ğÅöÎÒ\n");
+		respond("say åˆ«ç¢°æˆ‘\n");
 	}
 	});
-     add_pattern("%sÇáÇáµØÅÄÁËÅÄÄãµÄÍ·¡£",function(){ 
-	if ($1=="Ğ¡Èá")
+     add_pattern("%sè½»è½»åœ°æ‹äº†æ‹ä½ çš„å¤´ã€‚",function(){ 
+	if ($1=="å°æŸ”")
 	{
 		respond("pout rou");
 	}
 	else
 	{
 		respond("heng");
-		respond("say ±ğÅöÎÒ\n");
+		respond("say åˆ«ç¢°æˆ‘\n");
 	}
 	});
-     add_pattern("%sÇáÇáµØÃşÖøÄãµÄÁ³£¬ÎŞÏŞÉîÇéµÄËµ£º¡°ÎÒºÃÏ²»¶ÄãÅ¶£®£®£®¡±",function(){ 
-	if ($1=="Ğ¡Èá")
+     add_pattern("%sè½»è½»åœ°æ‘¸è‘—ä½ çš„è„¸ï¼Œæ— é™æ·±æƒ…çš„è¯´ï¼šâ€œæˆ‘å¥½å–œæ¬¢ä½ å“¦ï¼ï¼ï¼â€",function(){ 
+	if ($1=="å°æŸ”")
 	{
 		respond("touch rou");
 		respond("hug rou");
@@ -152,15 +152,15 @@ void setup()
 	else
 	{
 		respond("angry");
-		respond("say ºúËµĞ©Ê²Ã´£¬±ğÅöÎÒ\n");
+		respond("say èƒ¡è¯´äº›ä»€ä¹ˆï¼Œåˆ«ç¢°æˆ‘\n");
 	}
 	});
-     add_pattern("%s¶ÔÄã·¢³öÕóÕóÒùĞ¦¡£",function(){ 
+     add_pattern("%så¯¹ä½ å‘å‡ºé˜µé˜µæ·«ç¬‘ã€‚",function(){ 
 		respond("angry");
-		respond("say Çë·Å×ğÖØÒ»µã\n");
+		respond("say è¯·æ”¾å°Šé‡ä¸€ç‚¹\n");
 	});
-     add_pattern("%s¶ÔÄãËµµÀ£ºËÍ¾ıÇ§Àï£¬ÖÕÓĞÒ»±ğ£¬ÔÛÃÇ¾Í´Ë±ğ¹ı£¡",function(){ 
-	if ($1=="Ğ¡Èá")
+     add_pattern("%så¯¹ä½ è¯´é“ï¼šé€å›åƒé‡Œï¼Œç»ˆæœ‰ä¸€åˆ«ï¼Œå’±ä»¬å°±æ­¤åˆ«è¿‡ï¼",function(){ 
+	if ($1=="å°æŸ”")
 	{	respond("cry rou");
 		respond("kiss rou");
 		respond("lwait rou");
@@ -172,38 +172,38 @@ void setup()
 		respond("wave");
 	}
 	});
-     add_pattern("Ğ¡Èá×ßÁË%s",function(){ 
+     add_pattern("å°æŸ”èµ°äº†%s",function(){ 
 		respond("jump rou");
 		respond("lsj rou");
 		
 	});
 
-     add_pattern("%sÕ£Õ£ÑÛ£¬Ò»¶Ô»áËµ»°µÄÑÛ¾¦ÉÁÉÁ¶¯ÈË£¡",function(){
-        if ($1=="Ğ¡Èá")
+     add_pattern("%sçœ¨çœ¨çœ¼ï¼Œä¸€å¯¹ä¼šè¯´è¯çš„çœ¼ç›é—ªé—ªåŠ¨äººï¼",function(){
+        if ($1=="å°æŸ”")
         {
                 respond("en rou");
-                respond("say ÎªÊ²Ã´Õ£ÑÛ£¿ÊÇ²»ÊÇ¶ÔË­ÓĞÒâË¼ÁË£¿");
+                respond("say ä¸ºä»€ä¹ˆçœ¨çœ¼ï¼Ÿæ˜¯ä¸æ˜¯å¯¹è°æœ‰æ„æ€äº†ï¼Ÿ");
         	respond("angry tuzi");
         }
         else
         {
                 respond("pure");
-                respond("say ÄãµÄÑÛ¾¦ºÃ´óÅ¶~~~~~~~~@_@\n");
+                respond("say ä½ çš„çœ¼ç›å¥½å¤§å“¦~~~~~~~~@_@\n");
         }
         });
         
  
 
-      add_pattern("%s¿´ÆğÀ´Ò»Á³ÌìÕæ£®£®£®ºÃ¿É°®Ò®¡«¡«¡«",function(){
-        if ($1=="Ğ¡Èá")
+      add_pattern("%sçœ‹èµ·æ¥ä¸€è„¸å¤©çœŸï¼ï¼ï¼å¥½å¯çˆ±è€¶ï½ï½ï½",function(){
+        if ($1=="å°æŸ”")
         {
                 respond("pure rou");
-                respond("say ÎÒÊÇ²»ÊÇÒ»Ö»¿É°®µÄÍÃ±¦±¦ÄØ£¿");
+                respond("say æˆ‘æ˜¯ä¸æ˜¯ä¸€åªå¯çˆ±çš„å…”å®å®å‘¢ï¼Ÿ");
         }
 	});   
 
-      add_pattern("%sÒ¡ÁËÒ¡Í·¡£",function(){
-        if ($1=="Ğ¡Èá")
+      add_pattern("%sæ‘‡äº†æ‘‡å¤´ã€‚",function(){
+        if ($1=="å°æŸ”")
         {
                 respond("pout");
                 respond("inn rou");
@@ -212,11 +212,11 @@ void setup()
         else
         {
                 respond("heng tuzi");
-                respond(":¶ñºİºİµÄ½ĞµÀ£ºÄã¸ÒËµ²»£¿£¿£¿\n");
+                respond(":æ¶ç‹ ç‹ çš„å«é“ï¼šä½ æ•¢è¯´ä¸ï¼Ÿï¼Ÿï¼Ÿ\n");
         }
         });
-      add_pattern("%sµãÁËµãÍ·¡£",function(){
-        if ($1=="Ğ¡Èá")
+      add_pattern("%sç‚¹äº†ç‚¹å¤´ã€‚",function(){
+        if ($1=="å°æŸ”")
         {
                 respond("jump rou");
                 respond("kiss1");
@@ -225,7 +225,7 @@ void setup()
         else
         {
                 respond("thank");
-                respond("say Ğ»Ğ»´ó»ÒÀÇ¸ç¸ç~~~~~~~~~~\n");
+                respond("say è°¢è°¢å¤§ç°ç‹¼å“¥å“¥~~~~~~~~~~\n");
         }
         });
 }

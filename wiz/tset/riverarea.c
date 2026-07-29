@@ -1,4 +1,4 @@
-// riverarea.c "小河"
+// riverarea.c "灏忔渤"
 #include <mudlib.h>
 #include <ansi.h>
 inherit WATER_ROOM;
@@ -6,15 +6,15 @@ inherit WATER_ROOM;
 void setup(){
     set_area("huayin");
     set_light(2);
-    set_brief(YEL+"小河"+NOR);
-    set_long("\n一条清清的小河。\n\n");
+    set_brief(YEL+"灏忔渤"+NOR);
+    set_long("\n涓�鏉℃竻娓呯殑灏忔渤銆俓n\n");
 
     set_exits( ([
         "north" : __DIR__+"southopen",
     ]) );
 
-    set_enter_msg("south", "$N小心翼翼地走进小河。\n");
-    set_exit_msg("north", "$N从小河里走上岸去。\n");
+    set_enter_msg("south", "$N灏忓績缈肩考鍦拌蛋杩涘皬娌炽�俓n");
+    set_exit_msg("north", "$N浠庡皬娌抽噷璧颁笂宀稿幓銆俓n");
     set_objects( ([
         "/sgdomain/job/fishing/pound" : 1,
        "/sgdomain/job/fishing/yufu" : 1,

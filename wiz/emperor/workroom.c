@@ -1,16 +1,16 @@
 /* workroom.c
-** Coded by Ğş±ù@Èı¹ú
+** Coded by ç„å†°@ä¸‰å›½
 ** Code generated with RoomMaker v0.9.1 coded by Onyx@RedDragon
 ** Do not remove this header.
 */
 #include <ansi.h>
 
 inherit INDOOR_ROOM;
-static string * nogo = ({
-"\n$NÌ§½ÅÏëÍùÀï×ßÈ¥£¬ÓÌÔ¥ÁËÒ»ÏÂ£¬ÓÖ·ÅÆúÁË¡£\n\n",
-"\nÎİ×ÓÀïÑóÒç×ÅÒ»¹ÉÀÁÑóÑóµÄÆø·Õ£¬$NÁ¬¶¯¶¼ÀÁµÃ¶¯ÁË¡£\n\n",
+nosave protected string * nogo = ({
+"\n$NæŠ¬è„šæƒ³å¾€é‡Œèµ°å»ï¼ŒçŠ¹è±«äº†ä¸€ä¸‹ï¼Œåˆæ”¾å¼ƒäº†ã€‚\n\n",
+"\nå±‹å­é‡Œæ´‹æº¢ç€ä¸€è‚¡æ‡’æ´‹æ´‹çš„æ°”æ°›ï¼Œ$Nè¿åŠ¨éƒ½æ‡’å¾—åŠ¨äº†ã€‚\n\n",
 });
-string * going = ({ "·ÉÒ»°ã","Í·Ò²²»»Ø","Ò»¹Ä×÷Æø", });
+string * going = ({ "é£ä¸€èˆ¬","å¤´ä¹Ÿä¸å›","ä¸€é¼“ä½œæ°”", });
 int do_go_backdoor() {
     object r;
     if( !wizardp(this_body()) ) {
@@ -19,9 +19,9 @@ int do_go_backdoor() {
     }
     r = load_object(query_exits()[query_exit_directions(1)[random(sizeof(query_exit_directions(1)))]]);
     this_body()->simple_action("\n$N"+going[random(sizeof(going))]+
-        "µØÏòºóÃÅ³åÈ¥£¬½á¹û¡£¡£¡£¡£\n\n");
+        "åœ°å‘åé—¨å†²å»ï¼Œç»“æœã€‚ã€‚ã€‚ã€‚\n\n");
     this_body()->move(r);
-    tell_environment(this_body(), sprintf("\n%sÊ§»êÂäÆÇµØ×ßÁË¹ıÀ´¡£\n\n",
+    tell_environment(this_body(), sprintf("\n%så¤±é­‚è½é­„åœ°èµ°äº†è¿‡æ¥ã€‚\n\n",
         this_body()->short()), 0, ({ this_body() }) );
     this_body()->force_look();
     return 1;
@@ -30,11 +30,11 @@ int do_go_backdoor() {
 void setup(){
     set_area("westside");
     set_light(50);
-        set_brief(""+YEL+"ÇàÇàµÄĞ¡Ä¾Îİ"+NOR+"");
+        set_brief(""+YEL+"é’é’çš„å°æœ¨å±‹"+NOR+"");
     set_long("
-    Ğ¡Ä¾ÎİÀïµÄ°ÚÉèºÜ¼òµ¥£¬Ò»ÕÅĞ¡²è¼¸£¬Ò»ÕÅ³¤³¤µÄ´óÉ³·¢¡£Ã»ÓĞ
-ÒÎ×Ó, ·¿ÎİµÄÖ÷ÈËËÆºõÏ²»¶Ï¯µØ¶ø×ø¡£Í¸¹ıÒ»ÉÈÂäµØÊ½´ó´°×Ó£¬¿ÉÒÔ
-¿´µ½Ò»¸ö¿É°®µÄĞ¡ÓÎÓ¾³ØÒÀÙËÔÚ×ØéµÊ÷´ÔÖ®ÏÂ¡£
+    å°æœ¨å±‹é‡Œçš„æ‘†è®¾å¾ˆç®€å•ï¼Œä¸€å¼ å°èŒ¶å‡ ï¼Œä¸€å¼ é•¿é•¿çš„å¤§æ²™å‘ã€‚æ²¡æœ‰
+æ¤…å­, æˆ¿å±‹çš„ä¸»äººä¼¼ä¹å–œæ¬¢å¸­åœ°è€Œåã€‚é€è¿‡ä¸€æ‰‡è½åœ°å¼å¤§çª—å­ï¼Œå¯ä»¥
+çœ‹åˆ°ä¸€ä¸ªå¯çˆ±çš„å°æ¸¸æ³³æ± ä¾ååœ¨æ£•æ¦ˆæ ‘ä¸›ä¹‹ä¸‹ã€‚
 \n\n"
 );
     set_exits( ([
@@ -49,8 +49,8 @@ void setup(){
         "luoyang" : "/sgdomain/area/cities/luoyang/ly_ly.c",
     ]) );
     set_hidden_exits("fire", "row", "suicide", "ice", "bwdh", "palace", "caolu", "luoyang");
-    set_enter_msg("house","\n$NÍÆ¿ªÃÅ£¬õæÊÖõæ½ÅµØ×ßÁË½øÀ´¡£\n\n");
-    set_enter_msg("goup","\n$N¾ª»ÌÊ§´ëµØ´Ó´ô´ôÎİÌÓÁË³öÀ´¡£\n\n");
+    set_enter_msg("house","\n$Næ¨å¼€é—¨ï¼Œè¹‘æ‰‹è¹‘è„šåœ°èµ°äº†è¿›æ¥ã€‚\n\n");
+    set_enter_msg("goup","\n$NæƒŠæƒ¶å¤±æªåœ°ä»å‘†å‘†å±‹é€ƒäº†å‡ºæ¥ã€‚\n\n");
     set_objects( ([
 "/wiz/ice/obj/furniture/sofa.c":1,
     ]) );

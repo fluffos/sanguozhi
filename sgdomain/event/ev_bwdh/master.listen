@@ -50,18 +50,18 @@ void leave() {
 	destruct(o_env);
 }
 void setup(){        
-	set_name("master", HIY+"ÎäÑ§×ÚÊ¦"+NOR);
+	set_name("master", HIY+"æ­¦å­¦å®—å¸ˆ"+NOR);
         add_id("matrial master");
-        set_in_room_desc("Ò»Î»ÍşÕòº£ÄÚµÄÎäÑ§×ÚÊ¦(master)");
-        set_long("Ò»Î»ÍşÕòº£ÄÚµÄÎäÑ§×ÚÊ¦(master)");
+        set_in_room_desc("ä¸€ä½å¨é•‡æµ·å†…çš„æ­¦å­¦å®—å¸ˆ(master)");
+        set_long("ä¸€ä½å¨é•‡æµ·å†…çš„æ­¦å­¦å®—å¸ˆ(master)");
 	set_age(50);
         set_gender(1);
 	add_question("join", "join");
-        add_ask_str("join", "$NÏò$T¹ªÉíÎÊµÀ£º$R£¬$s±¨Ãû²Î¼Ó¡£\n");
+        add_ask_str("join", "$Nå‘$Tèº¬èº«é—®é“ï¼š$Rï¼Œ$sæŠ¥åå‚åŠ ã€‚\n");
 	stage = 0;
 }
 string long() {
-        return "Ò»Î»ÍşÕòº£ÄÚµÄÎäÑ§×ÚÊ¦(master)\n";
+        return "ä¸€ä½å¨é•‡æµ·å†…çš„æ­¦å­¦å®—å¸ˆ(master)\n";
 }
 mixed special_answer(object ob, string str){
 	string name, nation, *who;
@@ -72,32 +72,32 @@ mixed special_answer(object ob, string str){
 	name = ob->query_id()[0];
 
 	if( stage < 1 )	
-		this_object()->targetted_action("$N¶Ô$TµÀ£º±§Ç¸£¬´ó»á»¹Î´ÕÙ¿ªÄØ¡£\n", ob);
+		this_object()->targetted_action("$Nå¯¹$Té“ï¼šæŠ±æ­‰ï¼Œå¤§ä¼šè¿˜æœªå¬å¼€å‘¢ã€‚\n", ob);
 	else if( stage > 1 )
-		this_object()->targetted_action("$N¶Ô$TµÀ£º±§Ç¸£¬´ó»áÒÑ¾­¿ªÊ¼ÁË¡£\n", ob);
+		this_object()->targetted_action("$Nå¯¹$Té“ï¼šæŠ±æ­‰ï¼Œå¤§ä¼šå·²ç»å¼€å§‹äº†ã€‚\n", ob);
 	else if( !nation = CHAR_D->get_char(name, "nation") )	
-		this_object()->targetted_action("$N¶Ô$TµÀ£º±§Ç¸£¬ÎŞ¹ú¼®ÈËÊ¿²»ÄÜ²Î¼Ó¡£\n", ob);
+		this_object()->targetted_action("$Nå¯¹$Té“ï¼šæŠ±æ­‰ï¼Œæ— å›½ç±äººå£«ä¸èƒ½å‚åŠ ã€‚\n", ob);
 
 	else if( (level ==1 ) && (my_level<50))
-		this_object()->targetted_action("$N¶Ô$TµÀ£º±§Ç¸£¬ÕâÊÇ"+s_level+"±ÈÈü£¬ÄãµÄÎäÁ¦²»¹»¡£\n", ob);
+		this_object()->targetted_action("$Nå¯¹$Té“ï¼šæŠ±æ­‰ï¼Œè¿™æ˜¯"+s_level+"æ¯”èµ›ï¼Œä½ çš„æ­¦åŠ›ä¸å¤Ÿã€‚\n", ob);
 
 	else if( (level ==0 ) && (my_level>=50))
-		this_object()->targetted_action("$N¶Ô$TµÀ£º±§Ç¸£¬ÕâÊÇ"+s_level+"±ÈÈü£¬ÄãµÄÎäÁ¦Ì«¸ß¡£\n", ob);
+		this_object()->targetted_action("$Nå¯¹$Té“ï¼šæŠ±æ­‰ï¼Œè¿™æ˜¯"+s_level+"æ¯”èµ›ï¼Œä½ çš„æ­¦åŠ›å¤ªé«˜ã€‚\n", ob);
 
 	else if( fighter&&mapp(fighter) ){	
 		who = fighter[nation];
 		if( !who || !arrayp(who) ) who = ({ });
 		if( member_array(name, who) != -1 )	
-			this_object()->targetted_action("$N¶Ô$TµÀ£ºÇëÉÔµÈ£¬´ó»áÂíÉÏ¿ªÊ¼¡£\n", ob);
+			this_object()->targetted_action("$Nå¯¹$Té“ï¼šè¯·ç¨ç­‰ï¼Œå¤§ä¼šé©¬ä¸Šå¼€å§‹ã€‚\n", ob);
 		else if( sizeof(who) == 2 )
-			this_object()->targetted_action("$N¶Ô$TµÀ£º¹ó¹úÒÑÓĞÁ½ÈË²ÎÈü£¬ÇëÏÂ½ìÔÙÀ´¡£\n", ob);
+			this_object()->targetted_action("$Nå¯¹$Té“ï¼šè´µå›½å·²æœ‰ä¸¤äººå‚èµ›ï¼Œè¯·ä¸‹å±Šå†æ¥ã€‚\n", ob);
 		else {
 			who = who - ({name});
 			who = who + ({name});
 			fighter[nation] = who;
 			this_object()->responda("nod");
-			do_chat(COUNTRY_D->get_country(nation, "name")+"µÄ"+
-				CHAR_D->get_char(name,"name")+"ÒªÏòÌìÏÂÈºĞÛÌôÕ½¡£");
+			do_chat(COUNTRY_D->get_country(nation, "name")+"çš„"+
+				CHAR_D->get_char(name,"name")+"è¦å‘å¤©ä¸‹ç¾¤é›„æŒ‘æˆ˜ã€‚");
 		}	
 	}	
 	return;
@@ -117,15 +117,15 @@ void start(int tt,int p_level,string p_area){
 	which	= tt;
 	level = p_level;
 
-	s_level=(p_level==1 ? "°ÔÍõ¼¶" : "ÈëÃÅ¼¶");
+	s_level=(p_level==1 ? "éœ¸ç‹çº§" : "å…¥é—¨çº§");
 
 	area=p_area;
 	fighter = ([ ]);
 	if( !tt || !intp(tt) ) tt = 1;
 	call_out("auto_run", 10);
-	do_chat("µÚ"+chinese_number(tt)+"½ìÈı¹úÖ¾Ö®"+s_level+
-		"Îä½«Õù°Ô´ó»á¾ÍÒª¿ªÊ¼ÁË£¬ÓĞÒâÓÚÌìÏÂÓ¢ĞÛÒ»±È¸ßµÍÕß£¬ÇëËÙÀ´"+
-		AREA_D->get_area(area,"name")+"±¨Ãû¡£");
+	do_chat("ç¬¬"+chinese_number(tt)+"å±Šä¸‰å›½å¿—ä¹‹"+s_level+
+		"æ­¦å°†äº‰éœ¸å¤§ä¼šå°±è¦å¼€å§‹äº†ï¼Œæœ‰æ„äºå¤©ä¸‹è‹±é›„ä¸€æ¯”é«˜ä½è€…ï¼Œè¯·é€Ÿæ¥"+
+		AREA_D->get_area(area,"name")+"æŠ¥åã€‚");
 	add_connect();	
 }
 void start_now(){
@@ -140,9 +140,9 @@ void auto_run(){
 	if( stage == 1 ){  // Waiting for players
 		time++;
 		if( time >= 9 ) stage = 2;
-		do_chat("ÓĞÒâ²Î¼Ó"+s_level+"Îä½«Õù°Ô´ó»áÕß£¬ÇëËÙÀ´"+
-			AREA_D->get_area(area,"name")+"±¨Ãû¡£");
-		do_chat("±¨ÃûÊ±¼ä»¹ÓĞ£º"+chinese_number(9-time)+"·ÖÖÓ¡£");
+		do_chat("æœ‰æ„å‚åŠ "+s_level+"æ­¦å°†äº‰éœ¸å¤§ä¼šè€…ï¼Œè¯·é€Ÿæ¥"+
+			AREA_D->get_area(area,"name")+"æŠ¥åã€‚");
+		do_chat("æŠ¥åæ—¶é—´è¿˜æœ‰ï¼š"+chinese_number(9-time)+"åˆ†é’Ÿã€‚");
 		call_out("auto_run", 60);
 	} else if( stage == 2 ){ // Initial fight
 		stage = 3;
@@ -161,7 +161,7 @@ void do_init_fight(){
 	nations = COUNTRY_D->list_countries();
 	foreach( nn in nations ){
 		if( member_array(nn, keys(fighter)) != -1 )continue;
-		do_chat(COUNTRY_D->get_country(nn, "name")+"ÆúÈ¨£¬²»²Î¼Ó±¾´Î´ó»á¡£");
+		do_chat(COUNTRY_D->get_country(nn, "name")+"å¼ƒæƒï¼Œä¸å‚åŠ æœ¬æ¬¡å¤§ä¼šã€‚");
 	}	
 	all = ({ });
 	winner = ({ });
@@ -169,7 +169,7 @@ void do_init_fight(){
 		if( arrayp(fighter[nn]) ) all = all + fighter[nn];
 	}	
 	if( sizeof(all) < 2 ){
-		do_chat("²Î¼ÓÈËÊıÌ«ÉÙ£¬´Ë´Î´ó»á¾Í´Ë½áÊø¡£");
+		do_chat("å‚åŠ äººæ•°å¤ªå°‘ï¼Œæ­¤æ¬¡å¤§ä¼šå°±æ­¤ç»“æŸã€‚");
 		stage = 0;
 		leave();
 	};
@@ -179,7 +179,7 @@ void process_fight(){
 	remove_call_out("process_fight");
 	if( sizeof(all) == 1 ){
 		winner = winner + ({ all[0] });
-		do_chat(CHAR_D->get_char(all[0],"name")+"ÂÖ¿Õ£¬Ö±½Ó½øÈëÏÂÒ»¾Ö¡£");
+		do_chat(CHAR_D->get_char(all[0],"name")+"è½®ç©ºï¼Œç›´æ¥è¿›å…¥ä¸‹ä¸€å±€ã€‚");
 		all = ({ });
 		process_fight();
 	} else if( sizeof(all) == 0 ){
@@ -187,7 +187,7 @@ void process_fight(){
 		else {
 			all = winner;
 			winner = ({ });
-			do_chat("µÚ"+chinese_number(turn)+"¾Ö±ÈÈüÍê±Ï£¬ÏÂÒ»¾ÖÂíÉÏ¿ªÊ¼¡£");
+			do_chat("ç¬¬"+chinese_number(turn)+"å±€æ¯”èµ›å®Œæ¯•ï¼Œä¸‹ä¸€å±€é©¬ä¸Šå¼€å§‹ã€‚");
 			turn++;
 			cang = 0;
 			call_out("process_fight", 5);
@@ -198,7 +198,7 @@ void process_fight(){
 		two = all[random(sizeof(all))];
 		all = all - ({ two });
 		cang++;
-		do_chat("µÚ"+chinese_number(turn)+"¾ÖµÚ"+chinese_number(cang)+"³¡±ÈÈü£º"+CHAR_D->get_char(one,"name")+"£ö£ó"+CHAR_D->get_char(two,"name")+"¡£");
+		do_chat("ç¬¬"+chinese_number(turn)+"å±€ç¬¬"+chinese_number(cang)+"åœºæ¯”èµ›ï¼š"+CHAR_D->get_char(one,"name")+"ï½–ï½“"+CHAR_D->get_char(two,"name")+"ã€‚");
 		call_out("put_players", 5);
 	}
 	return;
@@ -209,7 +209,7 @@ void put_players(){
 	env = load_object(BW_ROOM);
 	o_one = CHAR_D->find_char(one);
 	if( !o_one || !objectp(o_one) ){
-		do_chat(CHAR_D->get_char(one,"name")+"È±Ï¯ËãÊä£¡");
+		do_chat(CHAR_D->get_char(one,"name")+"ç¼ºå¸­ç®—è¾“ï¼");
 		//do_player_win(two);
 		winner = winner - ({ two });
 		winner = winner + ({ two });
@@ -218,7 +218,7 @@ void put_players(){
 	};
 	o_two = CHAR_D->find_char(two);
 	if( !o_two || !objectp(o_two) ){
-                do_chat(CHAR_D->get_char(two,"name")+"È±Ï¯ËãÊä£¡");
+                do_chat(CHAR_D->get_char(two,"name")+"ç¼ºå¸­ç®—è¾“ï¼");
                 //do_player_win(one);
 		winner = winner - ({ one });
 		winner = winner + ({ one });
@@ -229,9 +229,9 @@ void put_players(){
 	o_two->move(env);
 	o_one->set_cur_hp(o_one->query_cur_max_hp());
 	o_two->set_cur_hp(o_two->query_cur_max_hp());
-	o_one->simple_action("$N¿ì²½×ß½ø"+env->short()+"¡£\n");
-	o_two->simple_action("$N¿ì²½×ß½ø"+env->short()+"¡£\n");
-	do_chat("µÚ"+chinese_number(turn)+"¾ÖµÚ"+chinese_number(cang)+"³¡±ÈÈü¿ªÊ¼¡£");
+	o_one->simple_action("$Nå¿«æ­¥èµ°è¿›"+env->short()+"ã€‚\n");
+	o_two->simple_action("$Nå¿«æ­¥èµ°è¿›"+env->short()+"ã€‚\n");
+	do_chat("ç¬¬"+chinese_number(turn)+"å±€ç¬¬"+chinese_number(cang)+"åœºæ¯”èµ›å¼€å§‹ã€‚");
 	a_id=o_one->query_primary_id();
 	b_id=o_two->query_primary_id();
 	FIGHT_D->add_fight(a_id,({b_id}),COMBAT_FIGHT); // 1 is common fight
@@ -277,9 +277,9 @@ void do_player_win(string who){
 	o_two->move(environment(this_object()));
 	o_one->stop_fight(0);
 	o_two->stop_fight(0);
-	do_chat("µÚ"+chinese_number(turn)+"¾ÖµÚ"+chinese_number(cang)+
-		"³¡£º"+CHAR_D->get_char(who,"name")+"Ê¤£¡");
-	do_chat("Ê¤Õß½±ÀøÎåÁ½»Æ½ğ£¬¸ºÕß½±Àø¶şÁ½»Æ½ğ¡£");
+	do_chat("ç¬¬"+chinese_number(turn)+"å±€ç¬¬"+chinese_number(cang)+
+		"åœºï¼š"+CHAR_D->get_char(who,"name")+"èƒœï¼");
+	do_chat("èƒœè€…å¥–åŠ±äº”ä¸¤é»„é‡‘ï¼Œè´Ÿè€…å¥–åŠ±äºŒä¸¤é»„é‡‘ã€‚");
 
 	call_out("process_fight", 10);
 }
@@ -289,8 +289,8 @@ void annouce_winner(){
 	name  = winner[0];
 	cname = CHAR_D->get_char(name, "name");
 	king  = CHAR_D->get_char(name, "nation");
-	do_chat("µÚ"+chinese_number(which)+"½ìÈı¹úÖ¾"+s_level+"Ö®Îä½«Õù°Ô´ó»áµ½´Ë½áÊø£¡");
-	do_chat(cname+"¼¼Ñ¹ÈºĞÛ£¬ÓÂ¶á±¾½ìµÄ°ÔÖ÷£¡");
+	do_chat("ç¬¬"+chinese_number(which)+"å±Šä¸‰å›½å¿—"+s_level+"ä¹‹æ­¦å°†äº‰éœ¸å¤§ä¼šåˆ°æ­¤ç»“æŸï¼");
+	do_chat(cname+"æŠ€å‹ç¾¤é›„ï¼Œå‹‡å¤ºæœ¬å±Šçš„éœ¸ä¸»ï¼");
 	
 	r_money=(level==1 ? 50 : 20 );
 	CHAR_D->set_char(name,"gold",
@@ -299,12 +299,12 @@ void annouce_winner(){
 	CHAR_D->set_char(name, "reputation", CHAR_D->get_char(name, "reputation")+1000);
 	CHAR_D->set_char(king, "reputation", CHAR_D->get_char(king, "reputation")+1000);
 
-	do_chat(cname+"»ñÉÍ½ğ"+chinese_number(r_money)+"Á½¡£");
-	do_chat(cname+"»ñÉùÍûÒ»Ç§µã¡£");
-	do_chat(COUNTRY_D->get_country(king, "name")+"µÄ¹úÍõ"+CHAR_D->get_char(king,"name")+"»ñÉùÍûÒ»Ç§µã¡£");
-	do_chat("ÇàÉ½²»¸Ä£¬ÂÌË®³¤Á÷£¬¸÷Î»Ó¢ĞÛºÀ½Ü£¬ÎÒÃÇÀ´ÄêÔÙ»á¡£");
-	HIS("µÚ"+chinese_number(which)+"½ì"+s_level+"Èı¹úÖ¾Ö®Îä½«Õù°Ô´ó»áÔÚ"+
-		AREA_D->get_area(area,"name")+"¾ÙĞĞ\n"+cname+"¼¼Ñ¹ÈºĞÛ£¬ÓÂ¶á±¾½ìµÄ°ÔÖ÷£¡");
+	do_chat(cname+"è·èµé‡‘"+chinese_number(r_money)+"ä¸¤ã€‚");
+	do_chat(cname+"è·å£°æœ›ä¸€åƒç‚¹ã€‚");
+	do_chat(COUNTRY_D->get_country(king, "name")+"çš„å›½ç‹"+CHAR_D->get_char(king,"name")+"è·å£°æœ›ä¸€åƒç‚¹ã€‚");
+	do_chat("é’å±±ä¸æ”¹ï¼Œç»¿æ°´é•¿æµï¼Œå„ä½è‹±é›„è±ªæ°ï¼Œæˆ‘ä»¬æ¥å¹´å†ä¼šã€‚");
+	HIS("ç¬¬"+chinese_number(which)+"å±Š"+s_level+"ä¸‰å›½å¿—ä¹‹æ­¦å°†äº‰éœ¸å¤§ä¼šåœ¨"+
+		AREA_D->get_area(area,"name")+"ä¸¾è¡Œ\n"+cname+"æŠ€å‹ç¾¤é›„ï¼Œå‹‡å¤ºæœ¬å±Šçš„éœ¸ä¸»ï¼");
 	leave();
 //	destruct(this_object());
 }

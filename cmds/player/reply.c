@@ -16,17 +16,17 @@ private void main(string arg)
     string      tmp, tmp2;
     if(!arg || arg == "")
       {
-        out("用法：reply <message>\n");
+        out("鐢ㄦ硶锛歳eply <message>\n");
         return;
       }
     target = this_body()->query_reply();
     if(!target) {
-        out( "没有找到回答的对象。\n" );
+        out( "娌℃湁鎵惧埌鍥炵瓟鐨勫璞°�俓n" );
         return;
     }
     if( !find_user( target ) && !sscanf( target, "%s@%s", tmp, tmp2 ) )
     { 
-        out( "没有找到回答的对象。\n" );
+        out( "娌℃湁鎵惧埌鍥炵瓟鐨勫璞°�俓n" );
         return;
     }
     resend(CMD_OB_TELL, sprintf("~%s %s", target, arg));

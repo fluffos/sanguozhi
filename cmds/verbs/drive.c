@@ -12,7 +12,7 @@
 inherit VERB_OB;
 
 //###should be shared somehow with go.c
-string array normal_dirs = ({ "north", "south", "east", "west", "northwest", "northeast", "southwest", "southeast" });
+string * normal_dirs = ({ "north", "south", "east", "west", "northwest", "northeast", "southwest", "southeast" });
 
 
 private mixed can_go_that_way(object ob, string str)
@@ -22,7 +22,7 @@ private mixed can_go_that_way(object ob, string str)
 
     is_normal = (member_array(str, normal_dirs) != -1);
     if(!environment(ob))
-      return "ÄãÒªÔÚ·½ÏòÅÌºóÃæ²ÅÄÜ¿¨³µ¡£\n";
+      return "ä½ è¦åœ¨æ–¹å‘ç›˜åŽé¢æ‰èƒ½å¡è½¦ã€‚\n";
     value = environment(ob)->query_exit_value(str, is_normal);
     if (stringp(value) && value[0] == '#')
         return value[1..];
@@ -32,7 +32,7 @@ private mixed can_go_that_way(object ob, string str)
         return 1;
 
     if (is_normal)
-        return "ºÃÏó²»ÄÜ×ßÄÇ¸ö·½Ïò¡£\n";
+        return "å¥½è±¡ä¸èƒ½èµ°é‚£ä¸ªæ–¹å‘ã€‚\n";
 
     return 0;
 }
@@ -50,7 +50,7 @@ void do_drive_str(string str)
 
 mixed can_drive_obj()
 {
-  return "ÄãÒªÖ¸¶¨Ò»¸ö·½Ïò²ÅÐÐ¡£\n";
+  return "ä½ è¦æŒ‡å®šä¸€ä¸ªæ–¹å‘æ‰è¡Œã€‚\n";
 }
  
 int can_drive_obj_str(object ob, string str)
@@ -66,7 +66,7 @@ void do_drive_obj_str(object o, string str)
 }
 
 
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ "STR", "OBJ", "OBJ STR" }) });
 }

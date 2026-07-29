@@ -29,13 +29,13 @@ void do_on_close()
 
 void setup(string dir)
 {
-    set_id("door", "ÃÅ");
-    set_unit("ÉÈ");
-    set_long("Ëü¸ßÔ¼Á½ÕÉ£¬¼«¾¡»ªÃÀÖ®ÄÜÊÂ¡£\n");
+    set_id("door", "é—¨");
+    set_unit("æ‰‡");
+    set_long("å®ƒé«˜çº¦ä¸¤ä¸ˆï¼Œæå°½åç¾ä¹‹èƒ½äº‹ã€‚\n");
     
     add_hook( "open", (: do_on_open :));
     add_hook( "close", (: do_on_close :));
     set_closed(1);
-    setup_door("´óÏğÄ¾ÃÅ", dir);
-    set_in_room_desc("³ÇÃÅ(largedoor)\n");
+    setup_door("å¤§æ©¡æœ¨é—¨", dir);
+    set_in_room_desc("åŸé—¨(largedoor)\n");
 }

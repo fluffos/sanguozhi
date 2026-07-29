@@ -21,7 +21,7 @@ private void main(string arg)
 
     if ( !arg || arg == "" )
     {
-        out("ÓÃ·¨: iftp mudname\n");
+        out("ç”¨æ³•: iftp mudname\n");
         return;
     }
     matches = case_insensitive_complete(translate(arg),
@@ -29,7 +29,7 @@ private void main(string arg)
     switch ( sizeof(matches) )
     {
     case 0:
-        out("Ã»ÓĞ¶ÔÓ¦µÄ MUD ÕıÔÚ¿ª·ÅÖĞ¡£\n");
+        out("æ²¡æœ‰å¯¹åº”çš„ MUD æ­£åœ¨å¼€æ”¾ä¸­ã€‚\n");
         return;
 
     case 1:
@@ -46,7 +46,7 @@ private void main(string arg)
             }
         if ( !matches )
             break;
-        outf("ÒÔÏÂµÄ MUD ¶¼¶ÔÓ¦ÁËÄúµÄÒªÇó: %s\n",
+        outf("ä»¥ä¸‹çš„ MUD éƒ½å¯¹åº”äº†æ‚¨çš„è¦æ±‚: %s\n",
                implode(matches, ", "));
         return;
     }

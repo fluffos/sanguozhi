@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is »¨¶ù¶ä¶ä
+// driver is èŠ±å„¿æœµæœµ
 // created date is Wed Jun 15 20:15:08 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,11 +7,11 @@ inherit INDOOR_ROOM;
 void setup() {
 set_area("hongnong");
 set_light(50);
-set_brief("%^YELLOW%^"+"ÒéÊÂÌü"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"è®®äº‹å…"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "north":"/a/hongnong/hn_datang.c",
 "west":"/a/hongnong/hn_nandajie2.c",
  ]));
-set_objects(([M_BOARD : ({ 1,"Ç½ÉÏ¹Ò×Å"+"%^MAGENTA%^"+"ºëÅ©ÁôÑÔ°ñ"+"%^RESET%^", "city.hongnong" }) ]) );
+set_objects(([M_BOARD : ({ 1,"å¢™ä¸ŠæŒ‚ç€"+"%^MAGENTA%^"+"å¼˜å†œç•™è¨€æ¦œ"+"%^RESET%^", "city.hongnong" }) ]) );
 }

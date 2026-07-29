@@ -1,5 +1,5 @@
 //  jiudai.c
-//  ╬ф╢Э
+//  И┘▓Х╒▀
 //  created by tset 1/17/98
 //  last updated by tset 1/19/98
 
@@ -12,17 +12,17 @@ inherit M_DRINK_CONTAINER;
 inherit M_DRINKABLE;
 
 void setup() {
-        set_id("jiudai", "╬ф╢Э", "skin");
-        set_long("р╩╦Ж©иртв╟╬ф╨мк╝╣д╬ф╢Э║ё");
+        set_id("jiudai", "И┘▓Х╒▀", "skin");
+        set_long("Д╦─Д╦╙Е▐╞Д╩╔Хё┘И┘▓Е▓▄Ф╟╢Г └И┘▓Х╒▀Ц─┌");
         set_gettable(1);
         set_num_drinks(5);
         set_value(100);
         set_currency_type("coin");
-        set_con("цв╬ф");
-   set_drink_action((: this_body()->simple_action("$NдцфП╬ф╢Э╨хак╪╦©з"+
-        query_con()+"║ё\n") :));
-   set_last_drink_action( (: this_body()->simple_action("$Nр║акр║╬ф╢Эё╛"+
-        "р╩яО╡╠╟яюОцФ╣д"+query_con()+"╨х╣цр╩╦и╤Ч╬║║ё\n") :));
-   set_finish_drink_action( (: write("╬ф╢Эря╬╜©уак║ё\n") :));
+        set_con("Г╠ЁИ┘▓");
+   set_drink_action((: this_body()->simple_action("$NФ▀©Х╣╥И┘▓Х╒▀Е√²Д╨├Е┤═Е▐ё"+
+        query_con()+"Ц─┌\n") :));
+   set_last_drink_action( (: this_body()->simple_action("$NФ▒┤Д╨├Ф▒┤И┘▓Х╒▀О╪▄"+
+        "Д╦─Ф┴╛Х└√Ф┼┼И┤▄И²╒Г └"+query_con()+"Е√²Е╬≈Д╦─Е╧╡Д╨▄Е╟╫Ц─┌\n") :));
+   set_finish_drink_action( (: write("И┘▓Х╒▀Е╥╡Г╩▐Г╘╨Д╨├Ц─┌\n") :));
 }
 

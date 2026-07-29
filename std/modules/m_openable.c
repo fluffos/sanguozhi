@@ -24,8 +24,8 @@ varargs void add_adj();
 varargs void remove_adj();
 
 private int closed;
-private string open_msg =  "$N´ò¿ª$o¡£";//"$N $vopen a $o.";
-private string close_msg = "$N¹ØÉÏ$o¡£";//"$N $vclose a $o.";
+private string open_msg =  "$Næ‰“å¼€$oã€‚";//"$N $vopen a $o.";
+private string close_msg = "$Nå…³ä¸Š$oã€‚";//"$N $vclose a $o.";
 private string open_desc;
 private string closed_desc;
 
@@ -93,7 +93,7 @@ int open_with(object with)
     if (!query_closed())
     {
         write(//"It is already open.\n"
-              "ËüÒÑ¾­´ò¿ªÁË¡£\n");
+              "å®ƒå·²ç»æ‰“å¼€äº†ã€‚\n");
         return 1;
     }
 
@@ -101,7 +101,7 @@ int open_with(object with)
 //A yes/no/error hook which can prevent an object from being opened.
 
     ex = call_hooks("prevent_open", HOOK_YES_NO_ERROR);
-    if (!ex) ex = short() + "ºÃÏó´ò²»¿ª¡£\n";
+    if (!ex) ex = short() + "å¥½è±¡æ‰“ä¸å¼€ã€‚\n";
     if (stringp(ex)) {
         write(ex);
         return 1;
@@ -110,7 +110,7 @@ int open_with(object with)
     this_body()->simple_action(open_msg, this_object());
     set_closed(0);
     if (ex = inv_list(all_inventory())) {
-        write("ÔÚÀïÃæÄã·¢ÏÖÁË£º\n"+ex);
+        write("åœ¨é‡Œé¢ä½ å‘ç°äº†ï¼š\n"+ex);
     }
 //:HOOK open
 //called when an object is opened.  The return value is ignored.
@@ -122,13 +122,13 @@ int open_with(object with)
 mixed close() {
     mixed tmp;
     if (query_closed()) {
-        write("ËüÒÑ¾­¹ØÉÏÁË¡£\n");
+        write("å®ƒå·²ç»å…³ä¸Šäº†ã€‚\n");
         return 1;
     }
 //:HOOK prevent_close
 //A yes/no/error hook that can prevent an object from being closed
     tmp = call_hooks("prevent_close", HOOK_YES_NO_ERROR);
-    if (!tmp) tmp = short() + "ºÃÏó¹Ø²»ÉÏ¡£\n";//"doesn't seem to want to close.\n";
+    if (!tmp) tmp = short() + "å¥½è±¡å…³ä¸ä¸Šã€‚\n";//"doesn't seem to want to close.\n";
     if (stringp(tmp)) return tmp;
     
     this_body()->simple_action(close_msg, this_object());
@@ -148,20 +148,20 @@ int is_open()
 /* Verb interaction */
 mixed direct_open_obj(object ob) {
     if (!query_closed())
-      return "ËüÒÑ¾­´ò¿ªÁË¡£\n";//"It is already open.\n";
+      return "å®ƒå·²ç»æ‰“å¼€äº†ã€‚\n";//"It is already open.\n";
     return 1;
 }
 
 mixed direct_close_obj(object ob) {
     if (query_closed())
-        return "ËüÒÑ¾­¹ØÉÏÁË¡£\n";//"It is already closed.\n";
+        return "å®ƒå·²ç»å…³ä¸Šäº†ã€‚\n";//"It is already closed.\n";
     return 1;
 }
 
 
 string extra_long_stuff()
 {
-    return short() + "ÊÇ" + (query_closed() ? "¹Ø×ÅµÄ" : "¿ª×ÅµÄ") + "¡£\n";
+    return short() + "æ˜¯" + (query_closed() ? "å…³ç€çš„" : "å¼€ç€çš„") + "ã€‚\n";
 }
 
 
@@ -172,5 +172,5 @@ void internal_setup() {
     set_closed(1);
     
     add_hook("extra_long", (: extra_long_stuff :));
-    add_hook("prevent_look_in", (: closed ? "ËüÊÇ¹Ø×ÅµÄ¡£\n" : (mixed)1 :));
+    add_hook("prevent_look_in", (: closed ? "å®ƒæ˜¯å…³ç€çš„ã€‚\n" : (mixed)1 :));
 }

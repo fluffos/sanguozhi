@@ -1,4 +1,4 @@
-//  º¯¹È¹Ø by benben
+//  å‡½è°·å…³ by benben
 // hangu_guankou.c
 #include <mudlib.h>
 #include <sanguo.h>
@@ -7,8 +7,8 @@ inherit OUTDOOR_ROOM;
 void setup(){
     set_area("hangu");
     set_light(50);
-    set_brief(""+YEL+"º¯¹È¹Ø"+NOR+"");
-    set_long("    ÕâÀïÊÇº¯¹È¹Ø£¬¹ıÁË¹Ø¾ÍÊÇÎ¼Ë®£¬ÊÇÍ¨Íù³¤°²µÄ±Ø¾­Ö®µØ¡£
+    set_brief(""+YEL+"å‡½è°·å…³"+NOR+"");
+    set_long("    è¿™é‡Œæ˜¯å‡½è°·å…³ï¼Œè¿‡äº†å…³å°±æ˜¯æ¸­æ°´ï¼Œæ˜¯é€šå¾€é•¿å®‰çš„å¿…ç»ä¹‹åœ°ã€‚
 \n\n");
     set_exits( ([
         "north" :  __DIR__+"hangu_camp.c",

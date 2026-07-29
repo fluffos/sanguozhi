@@ -16,7 +16,7 @@ void main()
         CHAR_D->add_char("li guan");
         CHAR_D->set_char("li guan","body","marriage/lg");
         CHAR_D->set_char("li guan","is_tmp",1);
-        CHAR_D->appear("li guan",p_area,"meeting","$N兴致勃勃地走了过来。\n");
+        CHAR_D->appear("li guan",p_area,"meeting","$N鍏磋嚧鍕冨媰鍦拌蛋浜嗚繃鏉ャ�俓n");
         CHAR_D->find_char("li guan")->set_boygirl("group","zhou feng");
         CHAR_D->remove_char_d("li guan");
 

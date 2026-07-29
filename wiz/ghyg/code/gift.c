@@ -3,23 +3,23 @@
 #define MAXFOOD 200
 #define MAXDRINK 200
 #define HPTIME 20   // every 20 second reduce one food and drink
-private string sg_zi;   // ×Ö
-private int sg_wuli;  // ÎäÁ¦ from 10 to 30 with special weapon can be higher
-private int sg_zhimou;  // ÖÇÄ± as above this are orignal one, can't changed
-private int sg_meili; // ÷ÈÁ¦
-private int sg_age; // ÄêÁä;
-private int sg_shouming; // ÊÙÃü = max age over than that will die
-private int sg_rongmao; // ÈİÃ² from 10 to 30;
+private string sg_zi;   // å­—
+private int sg_wuli;  // æ­¦åŠ› from 10 to 30 with special weapon can be higher
+private int sg_zhimou;  // æ™ºè°‹ as above this are orignal one, can't changed
+private int sg_meili; // é­…åŠ›
+private int sg_age; // å¹´é¾„;
+private int sg_shouming; // å¯¿å‘½ = max age over than that will die
+private int sg_rongmao; // å®¹è²Œ from 10 to 30;
 private int sg_cur_hp; //  if one is
 private int sg_cur_max_hp; // from 100 and increase every year; before 30
                         // decrease after 50
 private int sg_max_hp;  // the real max hp
-private int sg_cur_mp;		// Flee add for Ä±ÂÔ 04121999
+private int sg_cur_mp;		// Flee add for è°‹ç•¥ 04121999
 private int sg_cur_max_mp;
 private int sg_max_mp;
 private int sg_food;   // the food
 private int sg_drink;  // the drink
-static int last_hp_check;
+nosave protected int last_hp_check;
 #define SG_DEFAULT 20
 #define SG_RANGE 6
 int hp_check();
@@ -74,7 +74,7 @@ nomask int query_sg_drink()
 	hp_check();
 	return sg_drink;
 }
-// ÄêÁä and ÊÙÃü*****************************************
+// å¹´é¾„ and å¯¿å‘½*****************************************
 nomask int query_age()
 {
        return sg_age;
@@ -91,7 +91,7 @@ void set_shouming(int i)
 {
         sg_shouming=i;
 }
-// ½¡¿µ ****************************************************
+// å¥åº· ****************************************************
 int hp_check()
 {
 	int p_time=time();
@@ -219,7 +219,7 @@ nomask void init_sg_gifts(int p_wuli,int p_zhimou,int p_meili)
 }
 // used for hp system
 //******************* RANK ****************
-int query_is_junzhu()   // ÊÇ·ñ¾ıÖ÷
+int query_is_junzhu()   // æ˜¯å¦å›ä¸»
 {
 	string p_id;
 	p_id=this_object()->query_id()[0];
@@ -227,7 +227,7 @@ int query_is_junzhu()   // ÊÇ·ñ¾ıÖ÷
 		return 1;
 	return 0;
 }
-int query_is_jiangjun() // ÊÇ·ñ½«¾ü
+int query_is_jiangjun() // æ˜¯å¦å°†å†›
 {
 	string p_id;
 	int p_rank;
@@ -240,7 +240,7 @@ int query_is_jiangjun() // ÊÇ·ñ½«¾ü
 		return 1;
 	return 0;
 }
-int query_is_guan() // ÊÇ·ñÎª¹Ù
+int query_is_guan() // æ˜¯å¦ä¸ºå®˜
 {
 	string p_id;
 	int p_rank;
@@ -267,8 +267,8 @@ mixed direct_score_liv(object liv)
 }
 // This function is used to controlling the hp and mp
 // of players and char npcs.
-// Max hp depends on age and ÎäÑ§ĞŞÑø.
-// Max mp depends on age as well and ±ø·¨ĞŞÑø.
+// Max hp depends on age and æ­¦å­¦ä¿®å…».
+// Max mp depends on age as well and å…µæ³•ä¿®å…».
 // the hp part we use a daemon hp_d to handle
 // now i think daemon is easier than the modules
 void resign_status()

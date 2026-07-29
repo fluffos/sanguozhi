@@ -1,4 +1,4 @@
-// farmer.c "农夫"
+// farmer.c "鍐滃か"
 #include <mudlib.h>
 #include <sanguo.h>
 inherit MONSTER;
@@ -6,14 +6,14 @@ void setup()
 {
     object wep;
     object xi,jia,zhu;
-    set_name("Lv bu", "吕布");
+    set_name("Lv bu", "鍚曞竷");
     set_gender(1);
     set_sg_max_hp(1000);
     set_cur_max_hp(1000);
     set_cur_hp(1000);
-    set_proper_name("吕布");
-    set_in_room_desc("吕布(Lv bu)");
-    set_long("此乃天下第一勇士人称『温候』的吕布吕奉先！！\n");
+    set_proper_name("鍚曞竷");
+    set_in_room_desc("鍚曞竷(Lv bu)");
+    set_long("姝や箖澶╀笅绗竴鍕囧＋浜虹О銆庢俯鍊欍�忕殑鍚曞竷鍚曞鍏堬紒锛乗n");
     set_age(28);
     set_sg_rank(R_DJJ);
     set_shengwang(100000);

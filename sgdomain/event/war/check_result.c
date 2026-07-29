@@ -7,27 +7,27 @@ void war_def_win(int p_id);
 
 void war_log(int p_id,int r) {
 	string msg;
-	array a_tmp,a_gen,a_trp;
+	mixed * a_tmp,a_gen,a_trp;
 	mapping m_trp;
 	int i;
 	string title,aut;
 	title=AREA_D->get_area(TASK_D->get_task(p_id,"att_area"),"name")+
-		"½ø¹¥"
+		"è¿›æ”»"
 		+AREA_D->get_area(TASK_D->get_task(p_id,"def_area"),"name");
-	aut="Õ½·¸£º"
+	aut="æˆ˜çŠ¯ï¼š"
 		+CHAR_D->get_char(TASK_D->get_task(p_id,"att_leader"),"name")+
 		"("+TASK_D->get_task(p_id,"att_leader")+")";
 
 	if(r==0) 
-		TASK_D->set_task(p_id,"msg_result","½á¹û£º·ÀÊØ·½Ê¤Àû¡£");
+		TASK_D->set_task(p_id,"msg_result","ç»“æœï¼šé˜²å®ˆæ–¹èƒœåˆ©ã€‚");
 	else
-		TASK_D->set_task(p_id,"msg_result","½á¹û£º½ø¹¥·½Ê¤Àû¡£");
+		TASK_D->set_task(p_id,"msg_result","ç»“æœï¼šè¿›æ”»æ–¹èƒœåˆ©ã€‚");
 	msg=TASK_D->get_task(p_id,"msg_title");
-	msg+="\n½ø¹¥·½£º\n";
+	msg+="\nè¿›æ”»æ–¹ï¼š\n";
 	a_tmp=TASK_D->get_task(p_id,"msg_att_party");
 	if(sizeof(a_tmp)) {
 		for(i=0;i<sizeof(a_tmp);++i) {
-			msg+="    µÚ"+chinese_number(i+1)+"¾üÍÅ£º\n      ½«¾ü£º";
+			msg+="    ç¬¬"+chinese_number(i+1)+"å†›å›¢ï¼š\n      å°†å†›ï¼š";
 			m_trp=a_tmp[i];
 			a_gen=m_trp["generals"];
 			foreach(string s in a_gen) {
@@ -36,7 +36,7 @@ void war_log(int p_id,int r) {
 			a_trp=m_trp["troops"]; 
 			if(sizeof(a_trp))
 			foreach(string t,int n in a_trp) {
-				msg+="\n     "+WARAI_D->get_soldier(t,"name")+"£º"+
+				msg+="\n     "+WARAI_D->get_soldier(t,"name")+"ï¼š"+
 					chinese_number(n);
 			}
 			msg+="\n";
@@ -46,11 +46,11 @@ void war_log(int p_id,int r) {
 	msg+=TASK_D->get_task(p_id,"msg_total_att_soldiers");
 
 
-	msg+="\n·ÀÊØ·½£º\n";
+	msg+="\né˜²å®ˆæ–¹ï¼š\n";
 	a_tmp=TASK_D->get_task(p_id,"msg_def_party");
 	if(sizeof(a_tmp)) {
 		for(i=0;i<sizeof(a_tmp);++i) {
-			msg+="    µÚ"+chinese_number(i+1)+"¾üÍÅ£º\n      ½«¾ü£º";
+			msg+="    ç¬¬"+chinese_number(i+1)+"å†›å›¢ï¼š\n      å°†å†›ï¼š";
 			m_trp=a_tmp[i];
 			a_gen=m_trp["generals"];
 			foreach(string s in a_gen) {
@@ -59,7 +59,7 @@ void war_log(int p_id,int r) {
 			a_trp=m_trp["troops"]; 
 			if(sizeof(a_trp))
 			foreach(string t,int n in a_trp) {
-				msg+="\n     "+WARAI_D->get_soldier(t,"name")+"£º"+
+				msg+="\n     "+WARAI_D->get_soldier(t,"name")+"ï¼š"+
 					chinese_number(n);
 			}
 			msg+="\n";
@@ -67,7 +67,7 @@ void war_log(int p_id,int r) {
 	}
 	msg+=TASK_D->get_task(p_id,"msg_total_def_soldiers");
 
-	msg+="\nÕ½Õù½áÊø£º\n";
+	msg+="\næˆ˜äº‰ç»“æŸï¼š\n";
 	msg+=TASK_D->get_task(p_id,"msg_att_left")+"\n";
 	msg+=TASK_D->get_task(p_id,"msg_def_left")+"\n";
 	msg+=TASK_D->get_task(p_id,"msg_result")+"\n";
@@ -86,12 +86,12 @@ void bandit_def_win(int p_id)
         def_area=TASK_D->get_task(p_id,"def_area");
         def_leader=TASK_D->get_task(p_id,"def_leader");
         p_dis=CHAR_D->get_char(def_leader,"name")+
- "ÂÊ¾ü·ÜÓÂÕ÷Õ½£¬ÖÕÓÚ´òÍËÁË"+att_name+"µÄ½ø¹¥£¬"+AREA_D->get_area(def_area,"name")+
-"¾üÃñ»¶Ï²Çì¹¦£¡\n";
+ "ç‡å†›å¥‹å‹‡å¾æˆ˜ï¼Œç»ˆäºæ‰“é€€äº†"+att_name+"çš„è¿›æ”»ï¼Œ"+AREA_D->get_area(def_area,"name")+
+"å†›æ°‘æ¬¢å–œåº†åŠŸï¼\n";
         CHANNEL_D->deliver_tell("rumor","system",p_dis);
        	release_army(p_id);
         TASK_D->remove_task(p_id);
-	HIS(CHAR_D->get_char(def_leader,"name")+"ÂÊ¾ü·ÜÓÂÕ÷Õ½£¬ÖÕÓÚ´òÍËÁË"+att_name+"µÄ½ø¹¥£¬±£ÎÀÁË"+AREA_D->get_area(def_area,"name")+"¡£");
+	HIS(CHAR_D->get_char(def_leader,"name")+"ç‡å†›å¥‹å‹‡å¾æˆ˜ï¼Œç»ˆäºæ‰“é€€äº†"+att_name+"çš„è¿›æ”»ï¼Œä¿å«äº†"+AREA_D->get_area(def_area,"name")+"ã€‚");
 }
 void bandit_att_win(int p_id)
 {
@@ -104,12 +104,12 @@ void bandit_att_win(int p_id)
         def_leader=TASK_D->get_task(p_id,"def_leader");
         att_leader=TASK_D->get_task(p_id,"att_leader");
         p_dis=CHAR_D->get_char(def_leader,"name")+
- "Ö¸»Ó²»Á¦£¬±ø°ÜÈçÉ½µ¹£¬"+CHAR_D->get_char(att_leader,"name")+
-"Áì±øÑªÏ´"+AREA_D->get_area(def_area,"name")+"£¡\n";
+ "æŒ‡æŒ¥ä¸åŠ›ï¼Œå…µè´¥å¦‚å±±å€’ï¼Œ"+CHAR_D->get_char(att_leader,"name")+
+"é¢†å…µè¡€æ´—"+AREA_D->get_area(def_area,"name")+"ï¼\n";
         CHANNEL_D->deliver_tell("rumor","system",p_dis);
        	release_army(p_id);
         TASK_D->remove_task(p_id);
-	HIS(CHAR_D->get_char(def_leader,"name")+"Ö¸»Ó²»Á¦£¬±ø°ÜÈçÉ½µ¹£¬"+CHAR_D->get_char(att_leader,"name")+"Áì±øÑªÏ´"+AREA_D->get_area(def_area,"name")+"£¡");
+	HIS(CHAR_D->get_char(def_leader,"name")+"æŒ‡æŒ¥ä¸åŠ›ï¼Œå…µè´¥å¦‚å±±å€’ï¼Œ"+CHAR_D->get_char(att_leader,"name")+"é¢†å…µè¡€æ´—"+AREA_D->get_area(def_area,"name")+"ï¼");
 }
 void check_result(int p_id)
 {
@@ -172,24 +172,24 @@ void announce_att_win(string def_leader,string att_leader,string def_area) {
 	a_nation=CHAR_D->get_char(att_leader,"nation");
 
 	if(stringp(d_name))
-		p_dis=a_name+"ÂÊ¾ü·ÜÓÂÕ÷Õ½£¬°Ñ"+d_name+"µÄ¾ü¶ÓÒ»¾Ù¼ßÃğ¡£Îª"+
+		p_dis=a_name+"ç‡å†›å¥‹å‹‡å¾æˆ˜ï¼ŒæŠŠ"+d_name+"çš„å†›é˜Ÿä¸€ä¸¾æ­¼ç­ã€‚ä¸º"+
 			COUNTRY_D->get_country(a_nation,"name")+
-			"¶áÏÂÁË"+AREA_D->get_area(def_area,"name")+"¡£";
+			"å¤ºä¸‹äº†"+AREA_D->get_area(def_area,"name")+"ã€‚";
 	else
-		p_dis=a_name+"Í»·¢Ææ±ø£¬Îª"+
+		p_dis=a_name+"çªå‘å¥‡å…µï¼Œä¸º"+
 			COUNTRY_D->get_country(a_nation,"name")+
-			"ÄÃÏÂÁËÎŞ½«·ÀÊØµÄ"+AREA_D->get_area(def_area,"name")+"¡£";
+			"æ‹¿ä¸‹äº†æ— å°†é˜²å®ˆçš„"+AREA_D->get_area(def_area,"name")+"ã€‚";
 	CHANNEL_D->deliver_tell("rumor","system",p_dis);
 	HIS(p_dis);
 
-	p_dis=CHAR_D->get_char(a_nation,"name")+"Æ¥·ò£¬Äã¶áÎÒ³Ç³Ø£¬ÎÒÓëÄãÊÄ²»Á½Á¢£¡";
+	p_dis=CHAR_D->get_char(a_nation,"name")+"åŒ¹å¤«ï¼Œä½ å¤ºæˆ‘åŸæ± ï¼Œæˆ‘ä¸ä½ èª“ä¸ä¸¤ç«‹ï¼";
 	CHANNEL_D->deliver_tell("gossip",CHAR_D->get_char(d_nation,"name"),p_dis);
 
     if(stringp(d_name))
-		p_dis=CHAR_D->get_char(d_nation,"name")+"³ôÔô£¬½ĞÄãÖªµÀÎÒµÄÀ÷º¦£¬"+
-			"Îª°ÙĞÕÃâÊÜÕ½»ğÖ®¿à£¬Äã»¹ÊÇÔçÔç¹é½µ°É¡£¡¸¹ş¹ş¡¹£¡£¡";
+		p_dis=CHAR_D->get_char(d_nation,"name")+"è‡­è´¼ï¼Œå«ä½ çŸ¥é“æˆ‘çš„å‰å®³ï¼Œ"+
+			"ä¸ºç™¾å§“å…å—æˆ˜ç«ä¹‹è‹¦ï¼Œä½ è¿˜æ˜¯æ—©æ—©å½’é™å§ã€‚ã€Œå“ˆå“ˆã€ï¼ï¼";
 	else
-		p_dis="Ë­½ĞÄã²»ÅÉ½«·ÀÊØ£¬ÖªµÀÎÒµÄÀ÷º¦ÁË°É¡£¡¸¹ş¹ş¡¹£¡£¡";
+		p_dis="è°å«ä½ ä¸æ´¾å°†é˜²å®ˆï¼ŒçŸ¥é“æˆ‘çš„å‰å®³äº†å§ã€‚ã€Œå“ˆå“ˆã€ï¼ï¼";
 	CHANNEL_D->deliver_tell("gossip",CHAR_D->get_char(a_nation,"name"),p_dis);
 
 	return;
@@ -220,21 +220,21 @@ void war_punish_defence1(string def_area,string att_leader) {
 	d_nation=AREA_D->get_area(def_area,"nation");
 	a_nation=CHAR_D->get_char(att_leader,"nation");
 
-//    1 ÈË¿ÚÏÂ½µÒ»°ë¡£
+//    1 äººå£ä¸‹é™ä¸€åŠã€‚
 	tmp=AREA_D->get_area(def_area,"population");
 	tmp/=2;
 	AREA_D->set_area(def_area,"population",tmp);
-//    2 °²È«ÏÂ½µÒ»°ëÈç¹û´óÓÚ30£¬ÔÙ½µµ½30¡£ safe=(400-safe)/10
+//    2 å®‰å…¨ä¸‹é™ä¸€åŠå¦‚æœå¤§äº30ï¼Œå†é™åˆ°30ã€‚ safe=(400-safe)/10
 	tmp=AREA_D->get_area(def_area,"safe");
 	tmp=(400-tmp)/10;
 	AREA_D->set_area(def_area,"safe",tmp);
-//    3 ½ğ£¬Ç®£¬Îï¼õÉÙµ½30%¡£
+//    3 é‡‘ï¼Œé’±ï¼Œç‰©å‡å°‘åˆ°30%ã€‚
 	AREA_D->set_area(def_area,"gold",
 		AREA_D->get_area(def_area,"gold")*3/10);
 
 	AREA_D->set_area(def_area,"nation",a_nation);
 
-//    4 Ô­À´µÄ±øÇåÁã£¬ËùÓĞµÄÎï×Ê¼õÉÙ80%¡£
+//    4 åŸæ¥çš„å…µæ¸…é›¶ï¼Œæ‰€æœ‰çš„ç‰©èµ„å‡å°‘80%ã€‚
 	AREA_D->set_area(def_area,"troop",([])); // remove all old troop
 	tmp=AREA_D->get_area(def_area,"st");
 	if(sizeof(tmp)) {
@@ -259,10 +259,10 @@ void war_punish_defence(string def_area,string att_leader,string d_nation) {
 	string *d_officers;
 	string *d_otherareas;
 
-	tell_user("huaer","½øÁËwar_punish_defence()ÁË\n");
+	tell_user("huaer","è¿›äº†war_punish_defence()äº†\n");
 	a_nation=CHAR_D->get_char(att_leader,"nation");
 
-//    5 ËùÓĞ¹ÙÔ±(ÎŞÂÛÍæ¼ÒNPCÔÚÏßÓë·ñ)ËğÊ§5%µÄÉùÍû¡£
+//    5 æ‰€æœ‰å®˜å‘˜(æ— è®ºç©å®¶NPCåœ¨çº¿ä¸å¦)æŸå¤±5%çš„å£°æœ›ã€‚
 	d_officers=CHAR_D->check_char("nation",d_nation);
 	if(sizeof(d_officers)) {
 		foreach(string off in d_officers) {
@@ -274,11 +274,11 @@ void war_punish_defence(string def_area,string att_leader,string d_nation) {
 	}
 
 	
-//  c ±»Õ¼ÁìÇøµÄ¹ÙÔ±£º
+//  c è¢«å é¢†åŒºçš„å®˜å‘˜ï¼š
 	d_officers=CHAR_D->check_char_area("nation",d_nation,def_area);
 	d_otherareas=AREA_D->check_area("nation",d_nation);
 	d_otherareas-=({def_area});
-	if(!sizeof(d_otherareas)) // Íö¹úÁË¡£
+	if(!sizeof(d_otherareas)) // äº¡å›½äº†ã€‚
 	{
 		mixed wear;
 		COUNTRY_D->remove_country(d_nation);
@@ -292,10 +292,10 @@ void war_punish_defence(string def_area,string att_leader,string d_nation) {
 			CHAR_D->set_char(d_nation,"wear",wear);
 
 		}
-		HIS(COUNTRY_D->get_country(d_nation, "name")+"Íö¹úÁË£¬µ«¾ıÖ÷"+CHAR_D->get_char(d_nation, "name")+"½ÄĞÒÌÓÍÑÁË¡£");
+		HIS(COUNTRY_D->get_country(d_nation, "name")+"äº¡å›½äº†ï¼Œä½†å›ä¸»"+CHAR_D->get_char(d_nation, "name")+"ä¾¥å¹¸é€ƒè„±äº†ã€‚");
 		return;
 	}
-//    1 ¹ÙÔ±×ªµÀËüµØ
+//    1 å®˜å‘˜è½¬é“å®ƒåœ°
 // if a npc char and has vancy, will give a position
 // if a play char will give no position
 	if(sizeof(d_officers)) {
@@ -305,15 +305,15 @@ void war_punish_defence(string def_area,string att_leader,string d_nation) {
 			random_position(of,t_area);
 		}
 	}
-//    4 Èç¹ûÓĞ¹ú¼Ò¹ÙÔ±ÌÓÏòÊ×¶¼£¬¿É´ø»áÔ­µØ10%µÄ½ğ£¬Á¸ºÍÎï×Ê¡£
+//    4 å¦‚æœæœ‰å›½å®¶å®˜å‘˜é€ƒå‘é¦–éƒ½ï¼Œå¯å¸¦ä¼šåŸåœ°10%çš„é‡‘ï¼Œç²®å’Œç‰©èµ„ã€‚
 // consider later
-	tell_user("huaer","war_punish_defence()Ö´ĞĞÍêÁË\n");
+	tell_user("huaer","war_punish_defence()æ‰§è¡Œå®Œäº†\n");
 
 }
 
 void war_award_attack1(string att_leader,string *att_party,string def_area) {
 
-	tell_user("huaer","½øÁËwar_award_attack1()\n");
+	tell_user("huaer","è¿›äº†war_award_attack1()\n");
 	CHAR_D->set_char(att_leader,"area",def_area);
 	CHAR_D->set_char(att_leader,"npcarmy",AREA_D->get_area_soldier(def_area,"footman"));//2001.4.19
 
@@ -331,7 +331,7 @@ void war_award_attack1(string att_leader,string *att_party,string def_area) {
 			R_SG,def_area);
 		att_party-=({att_party[0]});
 	}
-	tell_user("huaer","war_award_attack1()Ö´ĞĞÍêÁË\n");
+	tell_user("huaer","war_award_attack1()æ‰§è¡Œå®Œäº†\n");
 	//return;
 }
 	
@@ -347,7 +347,7 @@ void war_award_attack(string def_area, string att_area, string att_leader, strin
 	object o,o_room;
 	int i;
 
-	tell_user("huaer","½øÁËwar_award_attack()ÁË\n");
+	tell_user("huaer","è¿›äº†war_award_attack()äº†\n");
 
 	//def_area=par[0];
 	//att_leader=par[2];
@@ -365,30 +365,30 @@ void war_award_attack(string def_area, string att_area, string att_leader, strin
 	o=CHAR_D->find_char(att_leader);
 
 	if(objectp(o))
-		o->simple_action("$NµÀ£º½ñÈÕ´ó°ÜµĞ¾ü£¬¿ÉÏ²¿ÉºØ£¬ÖîÎ»½ÔÓĞ½±ÉÍ¡£\n");
+		o->simple_action("$Né“ï¼šä»Šæ—¥å¤§è´¥æ•Œå†›ï¼Œå¯å–œå¯è´ºï¼Œè¯¸ä½çš†æœ‰å¥–èµã€‚\n");
 
-	DELAY_D->delay_simple_action(o,"%^H_GREEN%^²¿¶ÓµÄÊ¿ÆøÉÏÉıÁË¡£%^RESET%^\n\n",1);
-	DELAY_D->delay_simple_action(o,"%^H_WHITE%^$NµÄ¾­Ñé£¬ÉùÍûÉÏÉıÁË¡£%^RESET%^\n\n",2);
-	DELAY_D->delay_simple_action(o,"%^H_BLUE%^ËùÓĞ²ÎÕ½Íæ¼ÒµÄ¾­Ñé£¬ÉùÍûÉÏÉıÁË¡£%^RESET%^\n\n",3);
-	DELAY_D->delay_simple_action(o,"%^H_GREEN%^Ö÷¹«"+CHAR_D->get_char(a_nation,"name")
-		+"µÄÉùÍûÉÏÉıÁË¡£%^RESET%^\n\n",4);
-	DELAY_D->delay_simple_action(o,"$NµÀ£ºÕâĞí¶àºÃ³ÔºÃºÈµÄ£¬ÖîÎ»¾ÍËæ±ãÓÃ°É¡£\n\n",5);
-	DELAY_D->delay_simple_action(o,"%^H_BLUE%^ÖÚÈË¶¼¸ßĞËµØÌøÁËÆğÀ´¡£%^RESET%^\n\n",6);
+	DELAY_D->delay_simple_action(o,"%^H_GREEN%^éƒ¨é˜Ÿçš„å£«æ°”ä¸Šå‡äº†ã€‚%^RESET%^\n\n",1);
+	DELAY_D->delay_simple_action(o,"%^H_WHITE%^$Nçš„ç»éªŒï¼Œå£°æœ›ä¸Šå‡äº†ã€‚%^RESET%^\n\n",2);
+	DELAY_D->delay_simple_action(o,"%^H_BLUE%^æ‰€æœ‰å‚æˆ˜ç©å®¶çš„ç»éªŒï¼Œå£°æœ›ä¸Šå‡äº†ã€‚%^RESET%^\n\n",3);
+	DELAY_D->delay_simple_action(o,"%^H_GREEN%^ä¸»å…¬"+CHAR_D->get_char(a_nation,"name")
+		+"çš„å£°æœ›ä¸Šå‡äº†ã€‚%^RESET%^\n\n",4);
+	DELAY_D->delay_simple_action(o,"$Né“ï¼šè¿™è®¸å¤šå¥½åƒå¥½å–çš„ï¼Œè¯¸ä½å°±éšä¾¿ç”¨å§ã€‚\n\n",5);
+	DELAY_D->delay_simple_action(o,"%^H_BLUE%^ä¼—äººéƒ½é«˜å…´åœ°è·³äº†èµ·æ¥ã€‚%^RESET%^\n\n",6);
 
 	
-//    1 ¹¥·½Ö÷Ë§³ÉÎªÕ¼ÁìÇøÌ«ÊØ¡£
+//    1 æ”»æ–¹ä¸»å¸…æˆä¸ºå é¢†åŒºå¤ªå®ˆã€‚
 // already
-//   2 ¹¥·½Ö÷Ë§ÉùÍûÕÇ1000¡£
+//   2 æ”»æ–¹ä¸»å¸…å£°æœ›æ¶¨1000ã€‚
 	CHAR_D->set_char(att_leader,"reputation",
 		CHAR_D->get_char(att_leader,"reputation")+1000);
-//    3 ¹¥·½Ö÷Ë§»ù±¾ĞŞÑøµÈ¼¶ÕÇÒ»¼¶¡£¸ÃÎª¾­Ñé1000
+//    3 æ”»æ–¹ä¸»å¸…åŸºæœ¬ä¿®å…»ç­‰çº§æ¶¨ä¸€çº§ã€‚è¯¥ä¸ºç»éªŒ1000
 	if(objectp(o))
 		if(o->query_link())
 //			o->increase_level();
 			o->award_exp(1000);
 
-//    4 ËæĞĞ½«Áì(ÔÚÏß)ÉùÍûÕÇ200¡£
-//    5 »ù±¾ĞŞÑø¾­ÑéÕÇ500¡£
+//    4 éšè¡Œå°†é¢†(åœ¨çº¿)å£°æœ›æ¶¨200ã€‚
+//    5 åŸºæœ¬ä¿®å…»ç»éªŒæ¶¨500ã€‚
 	chars-=({att_leader }) ;
 	if(sizeof(chars)){
 		foreach(string d in chars) {
@@ -401,11 +401,11 @@ void war_award_attack(string def_area, string att_area, string att_leader, strin
 			CHAR_D->set_char(d,"reputation",rep);
 		}
 	}
-//    6 »¹ÓĞ¿ÉÄÜÇÀµ½Ğ©½ğÒø²ÆÎï¡£
-//    7 ½ø¹¥·½¹úÍõÉùÍûÉı1000¡£
+//    6 è¿˜æœ‰å¯èƒ½æŠ¢åˆ°äº›é‡‘é“¶è´¢ç‰©ã€‚
+//    7 è¿›æ”»æ–¹å›½ç‹å£°æœ›å‡1000ã€‚
 	CHAR_D->set_char(a_nation,"reputation",
 		CHAR_D->get_char(a_nation,"reputation")+1000);
-//    8 ²¿¶ÓÊ¿ÆøÊ¿ÆøÉÏÉı20¡£¾­Ñé²»±ä
+//    8 éƒ¨é˜Ÿå£«æ°”å£«æ°”ä¸Šå‡20ã€‚ç»éªŒä¸å˜
 	AREA_D->set_area(def_area,"morale",
 		AREA_D->get_area(def_area,"morale")+20);
 //	AREA_D->set_area(def_area,"train",
@@ -462,7 +462,7 @@ foreach (string t in keys(def_troop_left))
 if (sum>0)
   {
   dis = COUNTRY_D->get_country(p_nation,"name")+AREA_D->get_area(def_area,"name")+chinese_number(sum)
-        +"²Ğ±ø°Ü½«ÌÓ»ØÊ×¶¼"+AREA_D->get_area(captital,"name");
+        +"æ®‹å…µè´¥å°†é€ƒå›é¦–éƒ½"+AREA_D->get_area(captital,"name");
   CHANNEL_D->deliver_tell("rumor","system",dis);
   }
 
@@ -479,8 +479,8 @@ void war_att_win(int p_id) {
 	string def_nation=AREA_D->get_area(def_area,"nation");
 	army_res_change(p_id);
 	//2001.4.13
-	if (CHAR_D->get_char(def_nation,"type")==TYPE_NPC) //NPC¹úÍõ,Î´·ÖÅäÍê±ÏÉÏÕ½³¡µÄ±øÁ¦·µ»ØÊ×¶¼²¼·À
-	   if (CHAR_D->get_char(def_nation,"area")!=def_area)  //¶øÇÒ²»ÊÇNPC¹úµÄÊ×¶¼±»¹¥Õ¼
+	if (CHAR_D->get_char(def_nation,"type")==TYPE_NPC) //NPCå›½ç‹,æœªåˆ†é…å®Œæ¯•ä¸Šæˆ˜åœºçš„å…µåŠ›è¿”å›é¦–éƒ½å¸ƒé˜²
+	   if (CHAR_D->get_char(def_nation,"area")!=def_area)  //è€Œä¸”ä¸æ˜¯NPCå›½çš„é¦–éƒ½è¢«æ”»å 
 	       npc_army_back_to_captital(p_id);
 	//
 	war_punish_defence1(def_area, att_leader); // clear def_area first
@@ -490,19 +490,19 @@ void war_att_win(int p_id) {
 	("/sgdomain/event/ev_kwar.c")->job_done(att_leader, def_area);
 
 	call_out("announce_att_win",1,def_leader,att_leader,def_area);
-	tell_user("huaer","call_out announce_att_win ÍêÁË\n");
+	tell_user("huaer","call_out announce_att_win å®Œäº†\n");
 
 	call_out("war_punish_defence",2,def_area,att_leader,def_nation);
-	tell_user("huaer","call_out war_punish_defence ÍêÁË\n");
+	tell_user("huaer","call_out war_punish_defence å®Œäº†\n");
 
 	call_out("war_award_attack1",3,att_leader,att_party,def_area);
-	tell_user("huaer","call_out war_award_attack1 ÍêÁË\n");
+	tell_user("huaer","call_out war_award_attack1 å®Œäº†\n");
 
-	//call_out("war_award_attack",6,def_area,att_area,att_leader,att_party); //Ô­À´ÊÇÑÓ³Ù4Ãë
-	//tell_user("huaer","call_out war_award_attack ÍêÁË\n");
+	//call_out("war_award_attack",6,def_area,att_area,att_leader,att_party); //åŸæ¥æ˜¯å»¶è¿Ÿ4ç§’
+	//tell_user("huaer","call_out war_award_attack å®Œäº†\n");
 
-	call_out("war_fresh_body",9,att_party);	//Ô­À´ÊÇÑÓ³Ù7Ãë
-	call_out("war_fresh_body",10,def_party);	//Ô­À´ÊÇÑÓ³Ù8Ãë
+	call_out("war_fresh_body",9,att_party);	//åŸæ¥æ˜¯å»¶è¿Ÿ7ç§’
+	call_out("war_fresh_body",10,def_party);	//åŸæ¥æ˜¯å»¶è¿Ÿ8ç§’
 	// for han di's job
 	
 }
@@ -512,13 +512,13 @@ void announce_def_win(string def_leader,string att_leader,string def_area) {
 	string d_name,a_name;
 	d_name=CHAR_D->get_char(def_leader,"name");
 	a_name=CHAR_D->get_char(att_leader,"name");
-	p_dis=d_name+"ÂÊ¾ü·ÜÓÂÕ÷Õ½£¬°Ñ"+a_name+"´òµÃ¶ª¿øÆú¼×£¬ÀÇ±·ÌÓ´Ü¡£"
-		+AREA_D->get_area(def_area,"name")+"¾üÃñ»¶Ï²Çì¹¦£¡\n";
+	p_dis=d_name+"ç‡å†›å¥‹å‹‡å¾æˆ˜ï¼ŒæŠŠ"+a_name+"æ‰“å¾—ä¸¢ç›”å¼ƒç”²ï¼Œç‹¼ç‹ˆé€ƒçªœã€‚"
+		+AREA_D->get_area(def_area,"name")+"å†›æ°‘æ¬¢å–œåº†åŠŸï¼\n";
 	HIS(p_dis);
     	CHANNEL_D->deliver_tell("rumor","system",p_dis);
-	p_dis=a_name+"Æ¥·ò£¬ÔİÇÒ·ÅÄãÒ»Ìõ¹·Ãü£¬Èô»¹ÓĞÏÂ´Î£¬¶¨½ĞÄãÓĞÀ´ÎŞ»Ø£¡";
+	p_dis=a_name+"åŒ¹å¤«ï¼Œæš‚ä¸”æ”¾ä½ ä¸€æ¡ç‹—å‘½ï¼Œè‹¥è¿˜æœ‰ä¸‹æ¬¡ï¼Œå®šå«ä½ æœ‰æ¥æ— å›ï¼";
 	CHANNEL_D->deliver_tell("gossip",d_name,p_dis);
-	p_dis=d_name+"³ôÔô£¬ĞİÒªÈç´Ë²ş¿ñ£¬ÎÒ¶¨»á¾íÍÁÖØÀ´£¡ºß£¡";
+	p_dis=d_name+"è‡­è´¼ï¼Œä¼‘è¦å¦‚æ­¤çŒ–ç‹‚ï¼Œæˆ‘å®šä¼šå·åœŸé‡æ¥ï¼å“¼ï¼";
 	CHANNEL_D->deliver_tell("gossip",a_name,p_dis);
 	return;
 }
@@ -527,7 +527,7 @@ void war_punish_attack(string *att_party,string a_area){
 	string *chars;
 	string a_nation;	
 	int rep;
-// ËùÓĞ²ÎÕ½¹ÙÔ±ÉùÍûÏÂ½µ10%(×î´ó²»³¯¹ı1000)¡£
+// æ‰€æœ‰å‚æˆ˜å®˜å‘˜å£°æœ›ä¸‹é™10%(æœ€å¤§ä¸æœè¿‡1000)ã€‚
 	if(sizeof(att_party)) {
 		foreach(string id in att_party) {
 			rep=CHAR_D->get_char(id,"reputation");
@@ -537,7 +537,7 @@ void war_punish_attack(string *att_party,string a_area){
 		
 		}
 	}
-//    2 ËùÓĞÔ­µØ¹ÙÔ±ÉùÍûÏÂ½µ5%(×î´ó²»³¬¹ı500)¡£
+//    2 æ‰€æœ‰åŸåœ°å®˜å‘˜å£°æœ›ä¸‹é™5%(æœ€å¤§ä¸è¶…è¿‡500)ã€‚
 	a_nation=AREA_D->get_area(a_area,"nation");
 	chars=CHAR_D->check_char_area("nation",a_nation,a_area);
 	chars-=att_party;
@@ -550,18 +550,18 @@ void war_punish_attack(string *att_party,string a_area){
 		}
 	}
 
-//    3 ½ø¹¥·½¹úÍõÉùÍû½µ5%(×î´ó²»³¬¹ı1000)¡£
+//    3 è¿›æ”»æ–¹å›½ç‹å£°æœ›é™5%(æœ€å¤§ä¸è¶…è¿‡1000)ã€‚
 	rep=CHAR_D->get_char(a_nation,"reputation");
 	if(rep>20000) rep-=1000;
 	else rep=rep*95/100;
 	CHAR_D->set_char(a_nation,"reputation",rep);
 
-//    4 ËğÊ§½ğÎï×ÊÁ¸²İ¡£ // this will be later
-//    5 µØ·½°²¶¨ÏÂ½µ30¡£
+//    4 æŸå¤±é‡‘ç‰©èµ„ç²®è‰ã€‚ // this will be later
+//    5 åœ°æ–¹å®‰å®šä¸‹é™30ã€‚
 	rep=AREA_D->get_area(a_area,"safe");
 	rep-=30; if(rep<=0) rep=1;
 	AREA_D->set_area(a_area,"safe",rep);
-//    6 ¾ü¶ÓÊ¿ÆøÏÂ½µ20¡£
+//    6 å†›é˜Ÿå£«æ°”ä¸‹é™20ã€‚
 	rep=AREA_D->get_area(a_area,"morale");
 	rep-=20; if(rep<=0) rep=1;
 	AREA_D->set_area(a_area,"morale",rep);
@@ -590,20 +590,20 @@ void war_award_defence(mixed par)
 	o=CHAR_D->find_char(p_leader);
 
 	if(objectp(o))
-		o->simple_action("$NµÀ£º½ñÈÕ´ó°ÜµĞ¾ü£¬¿ÉÏ²¿ÉºØ¡£ÖîÎ»½ÔÓĞ½±ÉÍ¡£\n");
+		o->simple_action("$Né“ï¼šä»Šæ—¥å¤§è´¥æ•Œå†›ï¼Œå¯å–œå¯è´ºã€‚è¯¸ä½çš†æœ‰å¥–èµã€‚\n");
 
-	DELAY_D->delay_simple_action(o,"%^H_GREEN%^µ±µØµÄ°²¶¨ÉÏÉıÁË¡£%^RESET%^\n\n",1);
-	DELAY_D->delay_simple_action(o,"%^H_GREEN%^²¿¶ÓµÄÊ¿Æø¾­ÑéÉÏÉıÁË¡£%^RESET%^\n\n",2);
-	DELAY_D->delay_simple_action(o,"%^H_WHITE%^$NµÄ¾­Ñé¾­Ñé£¬ÉùÍû£¬µØÇø¹±Ï×ÉÏÉıÁË¡£%^RESET%^\n\n",3);
-	DELAY_D->delay_simple_action(o,"%^H_BLUE%^ËùÓĞ²ÎÕ½Íæ¼ÒµÄ¾­Ñé£¬ÉùÍû£¬µØÇø¹±Ï×ÉÏÉıÁË¡£%^RESET%^\n\n",4);
-	DELAY_D->delay_simple_action(o,"$NµÀ£ºÕâĞí¶àºÃ³ÔºÃºÈµÄ£¬ÖîÎ»¾ÍËæ±ãÓÃ°É¡£\n\n",5);
-	DELAY_D->delay_simple_action(o,"%^H_BLUE%^ÖÚÈË¶¼¸ßĞËµØÌøÁËÆğÀ´¡£%^RESET%^\n\n",6);
+	DELAY_D->delay_simple_action(o,"%^H_GREEN%^å½“åœ°çš„å®‰å®šä¸Šå‡äº†ã€‚%^RESET%^\n\n",1);
+	DELAY_D->delay_simple_action(o,"%^H_GREEN%^éƒ¨é˜Ÿçš„å£«æ°”ç»éªŒä¸Šå‡äº†ã€‚%^RESET%^\n\n",2);
+	DELAY_D->delay_simple_action(o,"%^H_WHITE%^$Nçš„ç»éªŒç»éªŒï¼Œå£°æœ›ï¼Œåœ°åŒºè´¡çŒ®ä¸Šå‡äº†ã€‚%^RESET%^\n\n",3);
+	DELAY_D->delay_simple_action(o,"%^H_BLUE%^æ‰€æœ‰å‚æˆ˜ç©å®¶çš„ç»éªŒï¼Œå£°æœ›ï¼Œåœ°åŒºè´¡çŒ®ä¸Šå‡äº†ã€‚%^RESET%^\n\n",4);
+	DELAY_D->delay_simple_action(o,"$Né“ï¼šè¿™è®¸å¤šå¥½åƒå¥½å–çš„ï¼Œè¯¸ä½å°±éšä¾¿ç”¨å§ã€‚\n\n",5);
+	DELAY_D->delay_simple_action(o,"%^H_BLUE%^ä¼—äººéƒ½é«˜å…´åœ°è·³äº†èµ·æ¥ã€‚%^RESET%^\n\n",6);
 
-//    1 µØ·½°²¶¨½µ10¡£
+//    1 åœ°æ–¹å®‰å®šé™10ã€‚
 	rep=AREA_D->get_area(d_area,"safe");
 	rep-=10;
 	AREA_D->set_area(d_area,"safe",rep);
-//    2 ¾ü¶ÓÊ¿Æø¾­ÑéÉÏÉı20¡£ // no need the morale increase in the arrange stage
+//    2 å†›é˜Ÿå£«æ°”ç»éªŒä¸Šå‡20ã€‚ // no need the morale increase in the arrange stage
 //	rep=AREA_D->get_area(d_area,"morale");
 //	rep+=20;
 //	AREA_D->set_area(d_area,"morale",rep);
@@ -611,22 +611,22 @@ void war_award_defence(mixed par)
 //	rep+=20;
 //	AREA_D->set_area(d_area,"train",rep);
 
-//    3 ¿ÉµÃ²¿·ÖµĞ·½½ğÁ¸Îï¡£ // not yet
+//    3 å¯å¾—éƒ¨åˆ†æ•Œæ–¹é‡‘ç²®ç‰©ã€‚ // not yet
 
-//    4 Ö÷Ë§»ù±¾ĞŞÑø¾­ÑéÉÏÉı1000¡£
+//    4 ä¸»å¸…åŸºæœ¬ä¿®å…»ç»éªŒä¸Šå‡1000ã€‚
 	if(objectp(o))
 		if(o->query_link())
 			o->award_exp(800);
-//    5 Ö÷Ë§ÉùÍûÉı300¡£
+//    5 ä¸»å¸…å£°æœ›å‡300ã€‚
 	rep=CHAR_D->get_char(p_leader,"reputation");
 	rep+=300;
 	CHAR_D->set_char(p_leader,"reputation",rep);
-//    6 Ö÷Ë§µØÇø¹±Ï×ÕÇ10¡£
+//    6 ä¸»å¸…åœ°åŒºè´¡çŒ®æ¶¨10ã€‚
 	rep=CHAR_D->get_char(p_leader,"localcontribution");
 	rep+=10;
 	CHAR_D->set_char(p_leader,"localcontribution",rep);
 
-//    7 Ì«ÊØºÍÆäËû²ÎÕ½ÔÚÏßÍæ¼ÒµÃÒ»°ëÖ÷Ë§½±Àø¡£
+//    7 å¤ªå®ˆå’Œå…¶ä»–å‚æˆ˜åœ¨çº¿ç©å®¶å¾—ä¸€åŠä¸»å¸…å¥–åŠ±ã€‚
 	chars-=({p_leader }) ;
 	if(sizeof(chars)){
 		foreach(string d in chars) {

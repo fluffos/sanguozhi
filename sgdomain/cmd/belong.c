@@ -7,9 +7,9 @@ inherit M_INPUT;
 mixed is_valid_owner(string owner_id)
 {object owner;
  if (!owner=find_body(owner_id))
-    return "ÎªÁË°²È«£¬ÄãËùÉè¶¨µÄ¸ÃIDÓµÓĞÕß±ØĞëÔÚÏß£¡\n";
+    return "ä¸ºäº†å®‰å…¨ï¼Œä½ æ‰€è®¾å®šçš„è¯¥IDæ‹¥æœ‰è€…å¿…é¡»åœ¨çº¿ï¼\n";
  if (wizardp(owner))
-    return "ÄãËùÉè¶¨µÄ¸ÃIDÓµÓĞÕß²»ÄÜÊÇÎ×Ê¦£¡\n";
+    return "ä½ æ‰€è®¾å®šçš„è¯¥IDæ‹¥æœ‰è€…ä¸èƒ½æ˜¯å·«å¸ˆï¼\n";
  return 1;
 }
 
@@ -18,7 +18,7 @@ void confirm_do(object dummy,string owner,string arg)
 if (arg=="Y"||arg=="y")
    {
    dummy->set_owner(owner);
-   write("%^CYAN%^Äã½«´óÃ×ID<"+dummy->query_userid()+">ÒÆ½»¸øÍæ¼Ò<"+owner+">%^RESET%^\n");
+   write("%^CYAN%^ä½ å°†å¤§ç±³ID<"+dummy->query_userid()+">ç§»äº¤ç»™ç©å®¶<"+owner+">%^RESET%^\n");
    modal_pop();
    return;
    }
@@ -26,7 +26,7 @@ else
    {
    if (arg=="N"||arg=="n")
       {
-      write("%^CYAN%^Äã¾ö¶¨ÔÙÉ÷ÖØ¿¼ÂÇ¿¼ÂÇ!%^RESET%^\n");
+      write("%^CYAN%^ä½ å†³å®šå†æ…é‡è€ƒè™‘è€ƒè™‘!%^RESET%^\n");
       modal_pop();
       return;
 	}
@@ -34,7 +34,7 @@ else
       {
       modal_pop();
       modal_push((: confirm_do, dummy,owner:), 
-      "%^CYAN%^ÄãÈ·¶¨Òª½«´óÃ×ID<"+dummy->query_userid()+">ÒÆ½»¸øÍæ¼Ò<"+owner+">Âï?ÇëÊäÈëY/N?%^RESET%^\n");
+      "%^CYAN%^ä½ ç¡®å®šè¦å°†å¤§ç±³ID<"+dummy->query_userid()+">ç§»äº¤ç»™ç©å®¶<"+owner+">å˜›?è¯·è¾“å…¥Y/N?%^RESET%^\n");
       } 
    }
 
@@ -45,15 +45,15 @@ void start(string arg)
 {string dummy_id,other_owner_id;
  mixed ret;
  if (!arg||arg=="")
-    {printf("Õâ¸öIDµÄÓµÓĞÕßÊÇ%s\n",this_user()->query_owner());
+    {printf("è¿™ä¸ªIDçš„æ‹¥æœ‰è€…æ˜¯%s\n",this_user()->query_owner());
      return;}
  if (sscanf(arg, "%s to %s", dummy_id,other_owner_id)==2)
     {object dummy;
      if (!dummy=find_user(dummy_id))
-       {write("½øĞĞ´óÃ×IDÒÆ½»£¬´óÃ×ID±ØĞëÔÚÏß£¡\n");
+       {write("è¿›è¡Œå¤§ç±³IDç§»äº¤ï¼Œå¤§ç±³IDå¿…é¡»åœ¨çº¿ï¼\n");
         return;}
      if (dummy->query_owner()!=this_user()->query_userid())
-       {write("Äã²»ÊÇ¸Ã´óÃ×IDµÄÓµÓĞÕß£¬ÎŞ·¨ÒÆ½»Æä¸ø±ğÈË£¡\n");
+       {write("ä½ ä¸æ˜¯è¯¥å¤§ç±³IDçš„æ‹¥æœ‰è€…ï¼Œæ— æ³•ç§»äº¤å…¶ç»™åˆ«äººï¼\n");
         return;}
      ret = is_valid_owner(other_owner_id);
      if (stringp(ret))
@@ -61,22 +61,22 @@ void start(string arg)
      else
         {
          modal_push((: confirm_do, dummy,other_owner_id:), 
-        "%^CYAN%^ÄãÈ·¶¨Òª½«´óÃ×ID<"+dummy_id+">ÒÆ½»¸øÍæ¼Ò<"+other_owner_id+">Âï?ÇëÊäÈëY/N?%^RESET%^");
+        "%^CYAN%^ä½ ç¡®å®šè¦å°†å¤§ç±³ID<"+dummy_id+">ç§»äº¤ç»™ç©å®¶<"+other_owner_id+">å˜›?è¯·è¾“å…¥Y/N?%^RESET%^");
 
          //dummy->set_owner(other_owner_id);
-         //write("%^CYAN%^Äã½«´óÃ×ID<"+dummy_id+">ÒÆ½»¸øÍæ¼Ò<"+other_owner_id+">%^RESET%^\n");
+         //write("%^CYAN%^ä½ å°†å¤§ç±³ID<"+dummy_id+">ç§»äº¤ç»™ç©å®¶<"+other_owner_id+">%^RESET%^\n");
         }
    }
  else
     {
      if (this_user()->query_owner()!="")
        {
-        write("Ö»ÓĞ¸ÃIDµÄÓµÓĞÕßÍ¨¹ıÃüÁî %^CYAN%^cmd belong <´óÃ×ID> to <ÒÆ½»ID>%^RESET%^²ÅÄÜ×ª»»ÓµÓĞÕß£¡\n");
+        write("åªæœ‰è¯¥IDçš„æ‹¥æœ‰è€…é€šè¿‡å‘½ä»¤ %^CYAN%^cmd belong <å¤§ç±³ID> to <ç§»äº¤ID>%^RESET%^æ‰èƒ½è½¬æ¢æ‹¥æœ‰è€…ï¼\n");
         return;
        }
      if (wizardp(this_body()))
        {
-        write("Î×Ê¦ID²»ÄÜÉè¶¨ÓµÓĞÕß£¡\n");
+        write("å·«å¸ˆIDä¸èƒ½è®¾å®šæ‹¥æœ‰è€…ï¼\n");
         return;
        }
        
@@ -86,10 +86,10 @@ void start(string arg)
      else
         {
          modal_push((: confirm_do, this_user(),arg:), 
-        "%^CYAN%^ÄãÈ·¶¨Òª½«×Ô¼ºµÄËùÓĞÕßID³õÊ¼Éè¶¨Îª<"+arg+">Âï?ÇëÊäÈëY/N?%^RESET%^");
+        "%^CYAN%^ä½ ç¡®å®šè¦å°†è‡ªå·±çš„æ‰€æœ‰è€…IDåˆå§‹è®¾å®šä¸º<"+arg+">å˜›?è¯·è¾“å…¥Y/N?%^RESET%^");
 
          //this_user()->set_owner(arg);
-         //write("%^CYAN%^Äã½«×Ô¼ºµÄËùÓĞÕßID³õÊ¼Éè¶¨Îª"+arg+"%^RESET%^\n");
+         //write("%^CYAN%^ä½ å°†è‡ªå·±çš„æ‰€æœ‰è€…IDåˆå§‹è®¾å®šä¸º"+arg+"%^RESET%^\n");
         }
     }
 

@@ -20,7 +20,7 @@ void do_light_str(string str) {
 		write(ret);
 		return;
 	}
-	write("ÄãÃ»·¨µã×Å"+o->short()+"¡£\n");
+	write("ä½ æ²¡æ³•ç‚¹ç€"+o->short()+"ã€‚\n");
 	return;
 }
 
@@ -33,7 +33,7 @@ void do_light_str_with_str(string str , string str2) {
 	if(!o2) return;
 	ret=o1->direct_light_obj_with_obj(o1, 0);
 	if(!ret)
-		ret="ÄãÃ»·¨µã×Å"+o1->short()+"¡£\n";
+		ret="ä½ æ²¡æ³•ç‚¹ç€"+o1->short()+"ã€‚\n";
 	if(stringp(ret))
 	{
 		write(ret);
@@ -41,7 +41,7 @@ void do_light_str_with_str(string str , string str2) {
 	}
 	ret=o2->indirect_light_obj_with_obj();
 	if(!ret)
-		ret=o2->short()+"µã²»ÁË"+o1->short()+"¡£\n";
+		ret=o2->short()+"ç‚¹ä¸äº†"+o1->short()+"ã€‚\n";
 	if(stringp(ret))
 	{
 		write(ret);
@@ -53,7 +53,7 @@ void do_light_str_with_str(string str , string str2) {
 	return;
 }
 
-array query_verb_info() {
+mixed * query_verb_info() {
     return ({ ({ "STR", "STR with STR" }) });
 }
 

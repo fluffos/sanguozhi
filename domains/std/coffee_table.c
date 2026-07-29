@@ -6,8 +6,8 @@ inherit CONTAINER;
 
 void setup() {
     
-    set_id("table", "×À×Ó");
-    set_adj("¿§·È", "small", "wooden");
+    set_id("table", "æ¡Œå­");
+    set_adj("å’–å•¡", "small", "wooden");
     set_long("It's a simple square table, about 2 feet across, with a plywood surface and simple wooden legs.");
     set_flag(ATTACHED);
     set_preposition("on");

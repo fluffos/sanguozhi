@@ -14,8 +14,8 @@ void do_fate(string city,int r)
                     "gold"       :-20
                   ]);
 FATE_D->area_effect(city,effect,r);
-  msg = "%^B_RED%^%^H_YELLOW%^¡¾ÌìµÀ¡¿"+AREA_D->get_area(city,"name")+
-               "Ôâµ½"+chinese_number(r)+"¼¶ºéË®Ï®»÷£¬µ±µØËğÊ§²ÒÖØ¡£\n%^RESET%^";
+  msg = "%^B_RED%^%^H_YELLOW%^ã€å¤©é“ã€‘"+AREA_D->get_area(city,"name")+
+               "é­åˆ°"+chinese_number(r)+"çº§æ´ªæ°´è¢­å‡»ï¼Œå½“åœ°æŸå¤±æƒ¨é‡ã€‚\n%^RESET%^";
  tell(users(),msg);
  //SGSYS(msg);
 }

@@ -23,7 +23,7 @@ mixed call_main(mixed arg1, mixed arg2, mixed arg3, mixed arg4,
 
     if (previous_object() != this_user()->query_shell_ob())
     //error("Illegal attempt to fake a command.\n");
-	//    error("ÆóÍ¼·Ç·¨Ê¹ÓÃ¼ÙÃüÁî\n");
+	//    error("ä¼å›¾éæ³•ä½¿ç”¨å‡å‘½ä»¤\n");
 	tell_user("huaer",sprintf("p obj is %O  shell is %O",previous_object(),this_user()->query_shell_ob()));
 	//printf("jin le cmd.c / call_main()\n");
 	
@@ -46,7 +46,7 @@ mixed call_main(mixed arg1, mixed arg2, mixed arg3, mixed arg4,
     return done_outputing();
 }
 
-static nomask varargs
+nosave protected nomask varargs
 void resend(string ob, mixed arg1, mixed arg2) {
     if (ob->valid_resend(base_name()))
     ob->do_resend(arg1, arg2);

@@ -15,10 +15,10 @@ private mapping capacities = ([]);
 private mapping max_capacities = ([]);
 
 
-void set_relations(string array...);
+void set_relations(string *...);
 
 
-static int valid_prep(string prep) {
+protected int valid_prep(string prep) {
     return !!relations[prep];
 }
 
@@ -29,7 +29,7 @@ varargs void set_max_capacity(int cap, string relation)
   if(!relation) relation = query_prep();
   if(!relations[relation])
     //error("Invalid relation");
-    error("·Ç·¨¹ØÏµ");
+    error("éæ³•å…³ç³»");
   max_capacities[relation] = cap;
 }
 
@@ -49,7 +49,7 @@ varargs void set_capacity (int cap, string relation)
   if(!relations[relation])
     {
       //error("Invalid relation");
-      error("·Ç·¨¹ØÏµ");
+      error("éæ³•å…³ç³»");
     }
   capacities[relation] = cap;
 }
@@ -67,11 +67,11 @@ varargs int query_capacity(string relation)
 //Set the relations which are legal for a complex container.  Example:
 //set_relations("on", "in", "under").  The first one is the default
 //relation (the one used by set_objects(), etc)
-void set_relations(string array rels...) {
+void set_relations(string * rels...) {
     /* Ok, a bit tricky here.  We can't remove relations if there is an
        object occupying that, so we remove all relations with no objects,
        and add the new ones */
-    foreach (string rel, object array obs in relations) {
+    foreach (string rel, object * obs in relations) {
     if (!sizeof(obs))
         map_delete(relations, rel);
     }
@@ -80,7 +80,7 @@ void set_relations(string array rels...) {
         relations[str] = ({ });
 }
 
-string array get_relations()
+string * get_relations()
 {
   return keys(relations);
 }
@@ -99,11 +99,11 @@ mixed receive_object( object target, string relation )
 
     if( target == this_object() )
     //return "You can't move an object inside itself.\n";
-    return "ÄãÎŞ·¨°ÑÎïÌå·Åµ½Ëü×Ô¼ºµÄÀïÃæ¡£\n";
+    return "ä½ æ— æ³•æŠŠç‰©ä½“æ”¾åˆ°å®ƒè‡ªå·±çš„é‡Œé¢ã€‚\n";
     /* Have to be a bit stricter here to keep relations[] sane */
     if (!relations[relation])
     //return "You can't put things " + relation + " that.\n";
-    return "Äã²»ÄÜ°Ñ¶«Î÷ÕâÑù·Å¡£(" + relation + ")\n";
+    return "ä½ ä¸èƒ½æŠŠä¸œè¥¿è¿™æ ·æ”¾ã€‚(" + relation + ")\n";
 #ifdef USE_SIZE
     x = target->get_size();
 #else
@@ -164,19 +164,19 @@ string look_in( string relation )
 //in something use prevent_look_in.
     ex = call_hooks("prevent_look_" + relation, HOOK_YES_NO_ERROR);
     if (!ex) ex = //"That doesn't seem possible.";
-                  "ÕâºÃÏó²»Ì«¿ÉÄÜ¡£";
+                  "è¿™å¥½è±¡ä¸å¤ªå¯èƒ½ã€‚";
     if (stringp(ex))
     return ex;
 
     if (!valid_prep(relation))
         //return "There is nothing there.\n";
-        return "ÄãÃ»ÓĞ¿´µ½Ê²Ã´¡£\n";
+        return "ä½ æ²¡æœ‰çœ‹åˆ°ä»€ä¹ˆã€‚\n";
     inv = inv_list(relations[relation]);
     if ( !inv )
-    inv = "Ê²Ã´Ò²Ã»ÓĞ";
+    inv = "ä»€ä¹ˆä¹Ÿæ²¡æœ‰";
 
     return (sprintf( //"%s %s you see: \n%s\n",
-                     "ÔÚ%s¿´µ½£º\n%s\n",
+                     "åœ¨%sçœ‹åˆ°ï¼š\n%s\n",
     prep_calc(query_prep(), short()),
     inv ));
 }
@@ -189,7 +189,7 @@ string long()
     res = simple_long();
     if (!inventory_visible()) return res;
 
-    foreach (string rel, object array obs in relations) {
+    foreach (string rel, object * obs in relations) {
     contents = inv_list(obs, 1);
     if (contents)
         res += introduce_contents(rel) + contents;
@@ -231,7 +231,7 @@ mixed indirect_get_obj_from_obj(object ob1, object ob2) {
     if (relations["in"] && member_array(ob1, relations["in"]) != -1) {
     if (this_object()->query_closed()) {
         return short()+//" is closed.\n";
-                                       "¹ØÉÏÁË¡£\n";
+                                       "å…³ä¸Šäº†ã€‚\n";
     }
     }
     return 1;
@@ -240,11 +240,11 @@ mixed indirect_get_obj_from_obj(object ob1, object ob2) {
 int stat_me()
 {
     write(//"Container capacity: "
-           "ÈİÆ÷µÄÈİÁ¿£º"+query_capacity()+"/"+query_max_capacity()+"\n");
+           "å®¹å™¨çš„å®¹é‡ï¼š"+query_capacity()+"/"+query_max_capacity()+"\n");
     write("Prepositions: " 
-           "½é´Ê£º" + implode(keys(relations), ",") + "\n");
+           "ä»‹è¯ï¼š" + implode(keys(relations), ",") + "\n");
     write(//"It contains:\n"
-          "ËüÀïÃæÓĞ£º\n"  + show_contents() + "\n");
+          "å®ƒé‡Œé¢æœ‰ï¼š\n"  + show_contents() + "\n");
 
     return ::stat_me();
 }

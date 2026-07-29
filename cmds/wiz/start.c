@@ -11,17 +11,17 @@ inherit CMD;
 private void main(mixed *arg) {
     string where;
     if (!arg[0]) {
-        outf("ÄãµÄÆğÊ¼µØµãÎª: %s\n", this_body()->query_start_location() );
+        outf("ä½ çš„èµ·å§‹åœ°ç‚¹ä¸º: %s\n", this_body()->query_start_location() );
         return;
     }
     if( arg[0]->is_living() )
     {
-        out("ÄãÔÚËµÉ¶ÄØ£¿£¡\n");
+        out("ä½ åœ¨è¯´å•¥å‘¢ï¼Ÿï¼\n");
         return;
     }
     where = file_name(arg[0]);
     this_body()->set_start_location( where );
-    outf("ÄãÉè¶¨ÆğÊ¼µØµãÎª: %s.\n", where );
+    outf("ä½ è®¾å®šèµ·å§‹åœ°ç‚¹ä¸º: %s.\n", where );
     return;
 }
 

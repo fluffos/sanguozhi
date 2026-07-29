@@ -1,5 +1,5 @@
 /* ex_room
-** Coded by Ğş±ù@Èı¹úÖ¾×ÜÕ¾
+** Coded by ç„å†°@ä¸‰å›½å¿—æ€»ç«™
 ** Code generated with RoomMaker v0.9.1 coded by Onyx@RedDragon
 ** Do not remove this header.
 */
@@ -10,9 +10,9 @@ inherit ROOM;
 
 void setup(){
     set_light(50);
-        set_brief(""+YEL+"Õ¹ÀÀÌü"+NOR+"");
+        set_brief(""+YEL+"å±•è§ˆå…"+NOR+"");
     set_long(
-"\n    ÕâÀïÊÇ¼Ò¾ßÕ¹ÀÀÌü£¬µ½´¦°ÚµÄ¶¼ÊÇ¼Ò¾ß¡£\n\n",
+"\n    è¿™é‡Œæ˜¯å®¶å…·å±•è§ˆå…ï¼Œåˆ°å¤„æ‘†çš„éƒ½æ˜¯å®¶å…·ã€‚\n\n",
 );
     set_exits( ([
 "up" :  "/wiz/ice/idleroom",

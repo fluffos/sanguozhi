@@ -14,7 +14,7 @@ void create()
   no_redirection();
 }
 
-#define SYNTAX "用法：codefor <LPC 的表达式>\n" //"USAGE:  codefor <lpc expression>\n"
+#define SYNTAX "鐢ㄦ硶锛歝odefor <LPC 鐨勮〃杈惧紡>\n" //"USAGE:  codefor <lpc expression>\n"
 
 //prototype
 string doith(string arg);

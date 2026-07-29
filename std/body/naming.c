@@ -10,7 +10,7 @@
 #include <commands.h>           /* for CMD_OB_xxx */
 
 #include <sanguo.h>
-private string name = "ÉñÃØ¹ıÂ·¿Í";
+private string name = "ç¥ç§˜è¿‡è·¯å®¢";
 private string describe;
 private string invis_name;
 private string nickname;
@@ -24,9 +24,9 @@ object query_link();
 string number_of(int num, string what);
 void save_me();
 string query_reflexive();
-void remove_id(string array id...);
-void add_id(string array id...);
-void set_id(string array id...);
+void remove_id(string * id...);
+void add_id(string * id...);
+void set_id(string * id...);
 
 string in_room_desc();
 
@@ -43,7 +43,7 @@ string query_chinese_name()
 
 string query_name()
 {
-    if ( invis_name == chinese_name || !invis_name ) invis_name = "Ä³Ä³";
+    if ( invis_name == chinese_name || !invis_name ) invis_name = "æŸæŸ";
     if ( !is_visible() ) return invis_name;
     return query_chinese_name();
 }
@@ -51,7 +51,7 @@ string query_name()
 string query_long_name()
 {
     if (query_ghost())
-        return query_chinese_name() + "µÄ»êÆÇ";
+        return query_chinese_name() + "çš„é­‚é­„";
 #ifdef USE_TITLES
     return query_title();
 #else
@@ -74,18 +74,18 @@ string query_idle_string()
     object link = query_link();
     int idle_time;
     string result = "";
-    if(!objectp(link)) return "¶ÏÏßÁË£¿";
+    if(!objectp(link)) return "æ–­çº¿äº†ï¼Ÿ";
     if ( interactive(link) )
        idle_time = query_idle(link)/60;
     if ( !idle_time )
       return "";
 
     if( idle_time > 24 * 60 )
-        result += " [·¢´ô " + idle_time/(24 * 60) + " Ìì" + "]";
+        result += " [å‘å‘† " + idle_time/(24 * 60) + " å¤©" + "]";
     else if( idle_time > 60 )
-        result += " [·¢´ô " + idle_time/60 + " Ğ¡Ê±" + "]";
+        result += " [å‘å‘† " + idle_time/60 + " å°æ—¶" + "]";
     else
-        result += " [·¢´ô " + idle_time + " ·ÖÖÓ" + "]";
+        result += " [å‘å‘† " + idle_time + " åˆ†é’Ÿ" + "]";
 
     return result;
 }
@@ -100,11 +100,11 @@ string base_in_room_desc()
     result = query_long_name();
 
     if (query_prone())
-        return query_chinese_name() + "Ì±µ¹ÔÚµØÉÏ";
+        return query_chinese_name() + "ç˜«å€’åœ¨åœ°ä¸Š";
 
     /* if they are link-dead, then prepend something... */
     if ( !link || !interactive(link) )
-        result = result + "µÄÈâÉí";
+        result = result + "çš„è‚‰èº«";
 
     return result;
 }
@@ -154,13 +154,13 @@ string query_nickname()
     return nickname;
 }
 
-static void naming_create(string userid, string cname)
+protected void naming_create(string userid, string cname)
 {
     name = userid;
     chinese_name = cname;
 }
 
-static void naming_init_ids()
+protected void naming_init_ids()
 {
     set_id(name, chinese_name); 
     if ( nickname )

@@ -62,7 +62,7 @@ nomask void send_mail(string destination,string subject,string message)
       socket->send(".\n");
       socket->send("QUIT\n");
       //      destruct(socket);
-       write("%^YELLOW%^·¢ËÍÍê±Ï!%^RESET%^\n");
+       write("%^YELLOW%^å‘é€å®Œæ¯•!%^RESET%^\n");
     };
 }
 

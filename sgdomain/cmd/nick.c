@@ -7,15 +7,15 @@ void start(string arg)
 {
 	int ret;
 	if (colour_strlen(arg) > 20) {
-            write("头衔太长了，想一个简单响亮点的吧。\n");
+            write("澶磋澶暱浜嗭紝鎯充竴涓畝鍗曞搷浜偣鐨勫惂銆俓n");
 	    return;
 	}
 	if (arg == 0 || arg == "") {
 	    this_body()->set_title(0);
-            write("头衔取消成功。\n");
+            write("澶磋鍙栨秷鎴愬姛銆俓n");
 	}  
         else {
             this_body()->set_title(arg);
-            write("称号设置成功。\n");
+            write("绉板彿璁剧疆鎴愬姛銆俓n");
         }
 }

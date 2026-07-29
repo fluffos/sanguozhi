@@ -16,14 +16,14 @@ void start(string arg)
 	p_leader=AREA_D->get_area(p_area,"leader");
 	if(p_id!=p_leader)  // not the leader
 	{
-		write("ֻ�еط�����ͱ���Ȩ�ĵط��ٲ����´�����\n");
+		write("只有地方首领和被授权的地方官才能下达此命令。\n");
 		return;
 	}
 		if(((file_name(environment(this_body())))!=
 ((AREA_D->get_area(p_area,"path"))+(AREA_D->get_area(p_area,"meeting"))))||(p_area!=
 		environment(this_body())->get_area()))
 	{
-		write("�˴������֮����\n");
+		write("此处非宴会之所。\n");
 		return;
 	}
 	p_res=(EV_PARTY)->can_party(p_area);
@@ -33,22 +33,22 @@ void start(string arg)
             (EV_PARTY)->party(p_area);
             return;
         case PT_OTHERTASK:
-	    write("̫��������æ���أ��ֲ�������\n");
+	    write("太守现在正忙着呢，分不开身。\n");
          return;
         case PT_ALREADYPARTY:
-	    write("��������æ��Ϳ�ˣ��ⲻ�����ڿ������\n");
+	    write("看来你是忙糊涂了，这不是正在开宴会吗？\n");
          return;
 	case PT_NOMONEY:
-	    write ("Ǯ�������ɿ�������ᡣ\n");
+	    write ("钱粮不够可开不成宴会。\n");
 	 return;	
 	case PT_TIME:
-	    write ("ֻ��ÿ��һ�»�����һ�������ղſ��Կ���ᡣ\n");
+	    write ("只有每年一月或七月一日至三日才可以开宴会。\n");
 	    return;
         case PT_NOENOUTHCHAR :
-	    write("�ܹ�û���ˣ���ʲô���ѽ����\n");
+	    write("总共没俩人，开什么宴会呀？！\n");
          return;
         case PT_TOOMANYABSENT:
-          write("��Ҷ�̫æ���������ֻ�ø����ˡ�\n");
+          write("大家都太忙，看来宴会只好改期了。\n");
          return;
         }
 }

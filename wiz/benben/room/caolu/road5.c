@@ -1,4 +1,4 @@
-//  小道5 road5.c
+//  灏忛亾5 road5.c
 // made by benben
 // cl_road5.c 
 #include <mudlib.h>
@@ -8,8 +8,8 @@ inherit OUTDOOR_ROOM;
 void setup(){
     set_area("caolu_area");
     set_light(50);
-    set_brief(""+YEL+"小道"+NOR+"");
-    set_long("    大山看起来近了，你禁不住加快了脚步。\n\n");
+    set_brief(""+YEL+"灏忛亾"+NOR+"");
+    set_long("    澶у北鐪嬭捣鏉ヨ繎浜嗭紝浣犵涓嶄綇鍔犲揩浜嗚剼姝ャ�俓n\n");
     set_exits( ([
         "west" :  __DIR__+"cl_road6.c",
         "east" :  __DIR__+"cl_road4.c",

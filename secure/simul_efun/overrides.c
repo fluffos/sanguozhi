@@ -76,7 +76,7 @@ nomask void shutdown()
 {
     if ( check_privilege(1) )
         efun::shutdown();
-    else error("Ã»ÓÐ shut down µÄÌØÈ¨\n");
+    else error("æ²¡æœ‰ shut down çš„ç‰¹æƒ\n");
 }
 
 
@@ -110,13 +110,13 @@ varargs nomask mixed snoop(mixed snoopee)
    if(snoopee && snoopee->query_body() ) 
     {
         //write("Failed.\n");
-        write("Ê§°Ü¡£\n");
+        write("å¤±è´¥ã€‚\n");
         return 0;
     }
 */
     if (snoopee && efun::query_snoop(snoopee)) {
         //write("Busy.\n");
-        write("Ã¦...\n");
+        write("å¿™...\n");
         return 0;
     }
     if(!snoopee) {
@@ -128,19 +128,19 @@ varargs nomask mixed snoop(mixed snoopee)
             if(efun::query_snoop(u[i]) == this_user())
                 targ = u[i];
         if(adminp(targ))
-            tell(targ, "ÄãÏÖÔÚÃ»ÓÐ±»¼àÌýÁË¡£\n");//"You are no longer being snooped.\n");
+            tell(targ, "ä½ çŽ°åœ¨æ²¡æœ‰è¢«ç›‘å¬äº†ã€‚\n");//"You are no longer being snooped.\n");
             
     }
     result = snoopee ? efun::snoop(this_user(), snoopee)
     : efun::snoop(this_user());
     if (!result) {
         //write("Failed.\n");
-        write("Ê§°Ü¡£\n");
+        write("å¤±è´¥ã€‚\n");
     } else {
         //write("Ok.\n");
-        write("³É¹¦¡£\n");
+        write("æˆåŠŸã€‚\n");
         if(adminp(snoopee))
-            tell(snoopee,sprintf("%s¿ªÊ¼¼àÌýÄãÊÕµ½µÄÑ¶Ï¢£¡\n",//"%s starts to snoop you!\n",
+            tell(snoopee,sprintf("%så¼€å§‹ç›‘å¬ä½ æ”¶åˆ°çš„è®¯æ¯ï¼\n",//"%s starts to snoop you!\n",
                 this_body()->query_name()));
     }
     return result;
@@ -179,7 +179,7 @@ void write(string str) {
         debug_message("]" + str);
 }
 
-void printf(string format, array rest...) {
+void printf(string format, mixed *rest...) {
     if (this_user())
         tell(this_user(), sprintf(format, rest...));
     else

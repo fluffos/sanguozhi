@@ -12,7 +12,7 @@ void do_recover()
         who=this_body();
         if(!wizardp(who))
         {
-		write("Äã×ö²»ÁËÕâ¼þÊÂ¡£\n");
+		write("ä½ åšä¸äº†è¿™ä»¶äº‹ã€‚\n");
                 return;
         }
         p_tmp=this_body()->query_sg_max_hp();
@@ -24,7 +24,7 @@ void do_recover()
 		this_body()->add_food(1000);
 		this_body()->add_drink(1000);
         this_body()->simple_action(HIG+
-                "$NÔËÆðÌìµØÉñ¹¦£»Ò»Ë²¼ä£¬Ò»ÇÐÉËÍ´È«»¯ÎªÎÞ¡£\n"+NOR);
+                "$Nè¿èµ·å¤©åœ°ç¥žåŠŸï¼›ä¸€çž¬é—´ï¼Œä¸€åˆ‡ä¼¤ç—›å…¨åŒ–ä¸ºæ— ã€‚\n"+NOR);
 }
                  
 void do_recover_str(string liv)
@@ -33,7 +33,7 @@ void do_recover_str(string liv)
         int p_tmp;
         if(!(wizardp(this_body()->query_userid())))
         {
-		write("Äã×ö²»ÁËÕâ¼þÊÂ¡£\n");
+		write("ä½ åšä¸äº†è¿™ä»¶äº‹ã€‚\n");
                 return;
         }
         else
@@ -41,11 +41,11 @@ void do_recover_str(string liv)
                 ob = present(liv, environment(this_body()));
                 if (!ob) ob = find_body(liv);
                 if (!ob) {
-                        write("ÕÒ²»µ½´ËÈË¡£\n");
+                        write("æ‰¾ä¸åˆ°æ­¤äººã€‚\n");
                         return;
                 }
 		if(!ob->is_living()) {
-			write("Îï¼þºÃÏñÊÇ²»ÖªµÀÉËÍ´µÄ¡£\n");
+			write("ç‰©ä»¶å¥½åƒæ˜¯ä¸çŸ¥é“ä¼¤ç—›çš„ã€‚\n");
 			return;
 		}
                 p_tmp=ob->query_sg_max_hp();
@@ -56,12 +56,12 @@ void do_recover_str(string liv)
                 ob->set_cur_mp(p_tmp);
 				ob->add_food(1000);
 				ob->add_drink(1000);
-                this_body()->simple_action(HIG+"$NÔËÆðÌìµØÉñ¹¦£»»¯½âÁË"
-                        +ob->query_name()+"µÄÒ»ÇÐÉËÍ´¡£\n"+NOR);
+                this_body()->simple_action(HIG+"$Nè¿èµ·å¤©åœ°ç¥žåŠŸï¼›åŒ–è§£äº†"
+                        +ob->query_name()+"çš„ä¸€åˆ‡ä¼¤ç—›ã€‚\n"+NOR);
         }
 }
         
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ "", "STR", }), ({  }) });
 }

@@ -26,7 +26,7 @@ inherit M_SGGIFT;
 private string ename, cname;
 
 
-private static int p_accept_money;
+private nosave int p_accept_money;
 int query_accept_money()
 { return p_accept_money;
 }
@@ -79,12 +79,12 @@ object query_horse()
 }
 string inventory_header() {
     return query_subjective() + //" is carrying:\n";
-                                            "ÉíÉÏ´ø×Å£º\n";
+                                            "èº«ä¸Šå¸¦ç€ï¼š\n";
 }
 
 string invis_name() {
     //return "someone";
-    return "²»Ã÷ÎïÌå";
+    return "ä¸æ˜ç‰©ä½“";
 }
 
 int is_living() {
@@ -96,18 +96,18 @@ int is_living() {
 
 string diagnose() {
     //return "$N $vare in perfect health.\n";
-    return "$N¿´ÆğÀ´ÆøÑª³äÓ¯£¬²¢Ã»ÓĞÊÜÉË¡£\n";
+    return "$Nçœ‹èµ·æ¥æ°”è¡€å……ç›ˆï¼Œå¹¶æ²¡æœ‰å—ä¼¤ã€‚\n";
 }
 
 /* verb interaction */
 mixed direct_cross_obj(object ob) {
     //return "I don't think " + ob->short() + " would appreciate that.\n";
-    return "¿´ÆğÀ´" + ob->short() + "²¢²»ÀÖÒâÕâÑù¡£\n";
+    return "çœ‹èµ·æ¥" + ob->short() + "å¹¶ä¸ä¹æ„è¿™æ ·ã€‚\n";
 }
 
 mixed indirect_give_obj_to_liv(object ob, object liv) {
     return liv->short() + //" politely refuses.\n";
-                                          "¹§¾´µØ¾Ü¾øÁË¡£\n";
+                                          "æ­æ•¬åœ°æ‹’ç»äº†ã€‚\n";
 }
 
 mixed indirect_give_str_to_liv(string str, object liv)
@@ -117,9 +117,9 @@ mixed indirect_give_str_to_liv(string str, object liv)
 mixed direct_get_obj(object ob) {
     if (ob == this_body())
     //return "You find your presence uplifting.\n";
-      return "ÄãËÆºõ·¢ÏÖÄã°Ñ×Ô¼º¾Ù¸ßÁË¡£\n";
+      return "ä½ ä¼¼ä¹å‘ç°ä½ æŠŠè‡ªå·±ä¸¾é«˜äº†ã€‚\n";
     //return "#I can't do everything.  If you want to pick up another player, try using your social skills.\n";
-    return "¶Ô´ËÊÂ£¬ÄãºÁÎŞ°ì·¨¡£\n";
+    return "å¯¹æ­¤äº‹ï¼Œä½ æ¯«æ— åŠæ³•ã€‚\n";
 }
 
 mixed direct_whisper_liv_str() { return 1; }
@@ -133,9 +133,9 @@ string get_base_long()
         p_gender=this_object()->query_gender();
         p_age=this_object()->query_age();
     if(!is_visible())
-      return "ÄãÑÛÇ°Ò»Æ¬ÆáºÚ£¬Ê²Ã´Ò²¿´²»µ½¡£\n";
+      return "ä½ çœ¼å‰ä¸€ç‰‡æ¼†é»‘ï¼Œä»€ä¹ˆä¹Ÿçœ‹ä¸åˆ°ã€‚\n";
     res=::get_base_long();
-    if(res==this_object()->short()+"¿´ÆğÀ´Ã»Ê²Ã´ÌØÊâµÄ¡£\n")
+    if(res==this_object()->short()+"çœ‹èµ·æ¥æ²¡ä»€ä¹ˆç‰¹æ®Šçš„ã€‚\n")
 	res="";
     res=res+this_object()->short() + 
 NORMAL_D->get_rongmao( p_age, p_rongmao, p_gender );
@@ -155,13 +155,13 @@ string living_desc()
 	int i;
 	string ret_head="";
 	string ret="";
-	if(env->is_horse()) // ÆïÔÚÂíÉÏ
+	if(env->is_horse()) // éª‘åœ¨é©¬ä¸Š
 	{
-		ret+="¿çÏÂ"+env->short()+"¡£\n";
+		ret+="è·¨ä¸‹"+env->short()+"ã€‚\n";
 	}
 	if((objectp(obw))&&(obw!=this_object()))
 	{
-		ret+="ÊÖ³Ö"+obw->short()+"¡£\n";
+		ret+="æ‰‹æŒ"+obw->short()+"ã€‚\n";
 	}
         foreach (object ob2 in all_inventory(this_object())) 
         {
@@ -172,42 +172,42 @@ string living_desc()
 			switch(stat)
 			{
 				case TORSO :
-					ret+="Éí´©"+ob2->short()+"¡£\n";
+					ret+="èº«ç©¿"+ob2->short()+"ã€‚\n";
 					break;
 				case HEAD :
-					ret+="Í·´÷"+ob2->short()+"¡£\n";
+					ret+="å¤´æˆ´"+ob2->short()+"ã€‚\n";
 					break;
 				case FEET :
-					ret+="½ÅÌ¤"+ob2->short()+"¡£\n";
+					ret+="è„šè¸"+ob2->short()+"ã€‚\n";
 					break;
                                 case BREST :
-                                        ret+="ĞØÇ°´÷×Å"+ob2->short()+"¡£\n";
+                                        ret+="èƒ¸å‰æˆ´ç€"+ob2->short()+"ã€‚\n";
                                         break;
 
                                 case LEGS :
-                                       ret+="ÏÂÉí"+ob2->short()+"¡£\n";
+                                       ret+="ä¸‹èº«"+ob2->short()+"ã€‚\n";
                                        break;
                                 case HANDS :
-					ret+="ÊÖÉÏ´÷×Å"+ob2->short()+"¡£\n";
+					ret+="æ‰‹ä¸Šæˆ´ç€"+ob2->short()+"ã€‚\n";
 					break;
                                 case ARMORS :
-                                       ret+="ÍâÌ×Ò»Éí"+ob2->short()+"¡£\n";
+                                       ret+="å¤–å¥—ä¸€èº«"+ob2->short()+"ã€‚\n";
                                        break;
                                 case ARMS:
-                                       ret+="ÍóÉÏÌ××Å"+ob2->short()+"¡£\n";
+                                       ret+="è…•ä¸Šå¥—ç€"+ob2->short()+"ã€‚\n";
                                        break;
 			}
 	
 		}
         }
 	if (ret!="")
-		ret_head="Ö»¼û"+short()+"£º\n";
+		ret_head="åªè§"+short()+"ï¼š\n";
 	else
 	{
 		if(random(2))
-			ret_head=short()+"ºÃÏóÒ»Ë¿²»¹Ò¡£\n";
+			ret_head=short()+"å¥½è±¡ä¸€ä¸ä¸æŒ‚ã€‚\n";
 		else
-			ret_head=short()+"ËÆºõÊÇ³àÉíÂ¶Ìå¡£\n";
+			ret_head=short()+"ä¼¼ä¹æ˜¯èµ¤èº«éœ²ä½“ã€‚\n";
 	}
 	return ret_head+ret;
 }

@@ -13,18 +13,18 @@ mixed do_kill_str(string str)
 {
 	object o;
     mixed ret;
-	write("É±ÈËÓĞ·¸Íõ·¨£¬ÒªÁ·Îä¾ÍÓÃfight°É¡£\n");
+	write("æ€äººæœ‰çŠ¯ç‹æ³•ï¼Œè¦ç»ƒæ­¦å°±ç”¨fightå§ã€‚\n");
 	return;
  
 	o=ENV_LIV(str);
 	if(!objectp(o)) return;
 	if(o==this_body()) {
-		write("×Ô¼º´ò×Ô¼º£¿Ğ¦»°¡£\n");
+		write("è‡ªå·±æ‰“è‡ªå·±ï¼Ÿç¬‘è¯ã€‚\n");
 		return;
 	}
 	ret=FIGHT_D->can_fight(this_body(),o);
 }
-array query_verb_info()
+mixed * query_verb_info()
 {
      return ({ ({"STR" }) });
 }
@@ -36,35 +36,35 @@ void beg_kill(object ob)
 }
 void answer_kill(object ob)
 {
-	ob->targetted_action("$N¶Ô$T´ğµ½£º¡°$r$m,ÎáÆñ¾åÈêÔÕ¡£\n\n",this_body());
+	ob->targetted_action("$Nå¯¹$Tç­”åˆ°ï¼šâ€œ$r$m,å¾å²‚æƒ§æ±å“‰ã€‚\n\n",this_body());
 	call_out((:beg_kill:),1,ob);
 }
 void do_kill_liv(object ob)
 {
     if (ob == this_body())     
-	printf("Òª×ÔÉ±µÃÏë¸ö±ğµÄ°ì·¨¡£\n");
+	printf("è¦è‡ªæ€å¾—æƒ³ä¸ªåˆ«çš„åŠæ³•ã€‚\n");
     else
 	{
-	this_body()->targetted_action("$N¶Ô$T´óºğÒ»Éù£º¡°$r$m,¸ÒºÍ$S´óÕ½Èı°Ù»ØºÏÂğ£¿\n\n",ob);
+	this_body()->targetted_action("$Nå¯¹$Tå¤§å¼ä¸€å£°ï¼šâ€œ$r$m,æ•¢å’Œ$Så¤§æˆ˜ä¸‰ç™¾å›åˆå—ï¼Ÿ\n\n",ob);
 	call_out((:answer_kill:),1,ob);
 	}
 }
 void do_kill() 
 {
-	printf("ÄãÒªÉ±Ë­Ñ½£¿\n");
+	printf("ä½ è¦æ€è°å‘€ï¼Ÿ\n");
 }
 void do_kill_str(string str)
 {
    mixed ob;
-	write("É±ÈËÓĞ·¸Íõ·¨£¬ÒªÁ·Îä¾ÍÓÃfight°É¡£\n");
+	write("æ€äººæœ‰çŠ¯ç‹æ³•ï¼Œè¦ç»ƒæ­¦å°±ç”¨fightå§ã€‚\n");
 	return;
    ob=NORMAL_D->get_monster(this_body(),str);
    if(objectp(ob))
 	do_kill_liv(ob);
    else
-	   write("ÄãÒªÉ±Ë­£¿\n");
+	   write("ä½ è¦æ€è°ï¼Ÿ\n");
 }
-array query_verb_info()
+mixed * query_verb_info()
 {
    return ({ ({ "STR","", "LIV" }) });
 }

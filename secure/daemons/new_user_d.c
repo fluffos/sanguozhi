@@ -21,7 +21,7 @@ void create_user(function when_done)
 {
 #ifndef USE_RACES
 
-    evaluate(when_done, DIR_RACES "/human");	// ±¾mudlibÃ»ÓĞÓÃÖÖ×å£¬Ö±½ÓÊ¹ÓÃ/std/race/humanÈËÀà
+    evaluate(when_done, DIR_RACES "/human");	// æœ¬mudlibæ²¡æœ‰ç”¨ç§æ—ï¼Œç›´æ¥ä½¿ç”¨/std/race/humanäººç±»
 
 #else
 
@@ -43,11 +43,11 @@ void create_user(function when_done)
     format = "%#-75." + (75/(width + 3)) + "s\n\n";
 
     //write("\nPlease select a race from the following list:\n");
-    write("\nÇëÔÚÏÂÁĞÖÖ×åÖĞÑ¡ÔñÄãµÄÖÖ×å£º\n");
+    write("\nè¯·åœ¨ä¸‹åˆ—ç§æ—ä¸­é€‰æ‹©ä½ çš„ç§æ—ï¼š\n");
     printf(format, implode(keys(races), "\n"));
 
     printf(//"Type 'help race' for a brief description.  Type 'list' to show the choices again.\n");
-           "ÓÃ 'help race' ¿ÉÒÔ¿´µ½¼ò¶ÌµÄËµÃ÷¡£ÓÃ 'list' ¿ÉÒÔÔÙ´ÎÏÔÊ¾Ñ¡ÔñĞÅÏ¢¡£\n");
+           "ç”¨ 'help race' å¯ä»¥çœ‹åˆ°ç®€çŸ­çš„è¯´æ˜ã€‚ç”¨ 'list' å¯ä»¥å†æ¬¡æ˜¾ç¤ºé€‰æ‹©ä¿¡æ¯ã€‚\n");
     this_user()->modal_push( (: got_entry, when_done :), "Race? ");
 
 #endif /* USE_RACES */
@@ -59,7 +59,7 @@ void got_entry(function when_done, string line) {
 
     if (line == "list") {
     //write("Please select a race from the following list:\n");
-    write("\nÇëÔÚÏÂÁĞÖÖ×åÖĞÑ¡ÔñÄãµÄÖÖ×å£º\n");
+    write("\nè¯·åœ¨ä¸‹åˆ—ç§æ—ä¸­é€‰æ‹©ä½ çš„ç§æ—ï¼š\n");
     printf(format, implode(keys(races), "\n"));
     return;
     }
@@ -73,7 +73,7 @@ void got_entry(function when_done, string line) {
     return;
     }
     //write("No such race.\n");
-    write("Ã»ÓĞÕâÖÖÖÖ×å¡£\n");
+    write("æ²¡æœ‰è¿™ç§ç§æ—ã€‚\n");
 }
 
 #endif /* USE_RACES */

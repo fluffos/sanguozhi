@@ -48,7 +48,7 @@ void ask_settle(object who, object officer)
 			)[0]
 		);
 		officer->targetted_action
-		("$N¶Ô$TĞ¦×ÅËµµÀ£º£¢$RÏëÔÚ´Ë³¤×¡£¬Õâ¸ö$s¿É×ö²»ÁËÖ÷£¬ÄãÒªÈ¥ÎÊ±¾µØ"+m_title+"£®£¢\n",who);
+		("$Nå¯¹$Tç¬‘ç€è¯´é“ï¼šï¼‚$Ræƒ³åœ¨æ­¤é•¿ä½ï¼Œè¿™ä¸ª$så¯åšä¸äº†ä¸»ï¼Œä½ è¦å»é—®æœ¬åœ°"+m_title+"ï¼ï¼‚\n",who);
 		return;
 	}
 	p_check=check_settle(who,m_area);
@@ -56,24 +56,24 @@ void ask_settle(object who, object officer)
 	{
 		case S_ACCEPT:
               officer->targetted_action
-             ("$N¶Ô$TĞ¦×ÅËµµÀ£º"+"$R¤ßÃh¤j§Ó¡Mªêª×¤_¦¹¡M¹ê¤D¥»¦a¦Ê©m¤§¬xºÖ¤]¡C\n",who);
+             ("$Nå¯¹$Tç¬‘ç€è¯´é“ï¼š"+"$Rã¿èƒ”î˜Ğ²î““î‰î€¶î˜…î…î““é¾Ÿî—ªã‚»î›‡Îºï¹ã‡ç‘‡è¤î˜ƒî“‰\n",who);
 			confirm_settle(who,officer);
 			return;
 		case S_ALREADY:
               officer->targetted_action
-             ("$N¶Ô$TĞ¦×ÅËµµÀ£º£¢"+
-"$R·Q¥²¬O½kÒ\¤F¡M§A¤w¸g¦b¦¹ªø¦í¤F¡C£¢\n",who);
+             ("$Nå¯¹$Tç¬‘ç€è¯´é“ï¼šï¼‚"+
+"$Rç¨±ã‚²çŒçµ¢è¥–î—¬î““îœ‡î˜ç«’î›ˆî…î—ï¸˜î—¬î“‰ï¼‚\n",who);
 			return;
 		case S_OTHERCOUNTRY:
               officer->targetted_action
-             ("$N¶Ô$TĞ¦×ÅËµµÀ£º£¢"+
-"$R¤D"+COUNTRY_D->get_country(CHAR_D->get_char(y_id,"nation"),"name")+
-"°ª©x¡M¦b¦¹ªø¯d©È¦h¦³¤£«K§a¡C\n",who);
+             ("$Nå¯¹$Tç¬‘ç€è¯´é“ï¼šï¼‚"+
+"$Rî—ª"+COUNTRY_D->get_country(CHAR_D->get_char(y_id,"nation"),"name")+
+"è”¼ï¹›î““î›ˆî…î—ç—™â”¤î›Î¤ãƒç½îœ§î“‰\n",who);
 			return;
 		case S_OFFICERALREADY:
               officer->targetted_action
-             ("$N¶Ô$TĞ¦×ÅËµµÀ£º£¢"+
-"¦¹¨ÆÁÙ·í±qªø­pÄ³¡C\n",who);
+             ("$Nå¯¹$Tç¬‘ç€è¯´é“ï¼šï¼‚"+
+"î…ã„†ä¸´è®½çœ–î—ç’¸æŸî“‰\n",who);
 			return;
 	}
 }

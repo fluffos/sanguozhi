@@ -41,8 +41,8 @@ void fight_reward(int p_reward)
 	if((wxxy_level>wep_level)&&(wep_exp>((wep_level+1)*(wep_level+1))))
 	{
 		o->set_sg_skill(skill,wep_level+1,0);
-		tell(o,"%^H_MAGENTA%^ÄãµÄ¡¸"+SG_SKILL_D->query_name(skill)
-			+"¡¹½ø²½ÁË¡£%^RESET%^\n");
+		tell(o,"%^H_MAGENTA%^ä½ çš„ã€Œ"+SG_SKILL_D->query_name(skill)
+			+"ã€è¿›æ­¥äº†ã€‚%^RESET%^\n");
 	}
 }
 private class combat_result make_result(int p_hit,int p_hurt)
@@ -88,9 +88,9 @@ already be started, though.  It takes a swing at the current
 target. */
 //:FUNCTION take_a_swing
 //Take a swing at the person we are attacking
-class combat_result array take_a_swing(object target)
+class combat_result * take_a_swing(object target)
 {
-    class combat_result array result;
+    class combat_result * result;
 	int p_hit,p_hurt=0,p_reward;
 	p_hit=FIGHT_D->prb_hit(this_object(),target);
 	if(p_hit){

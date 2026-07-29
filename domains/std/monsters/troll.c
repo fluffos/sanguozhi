@@ -7,16 +7,16 @@ inherit M_BLOCKEXITS;
 void setup() {
     object sword;
 
-    set_name("bill", "±È¶û");
+    set_name("bill", "æ¯”å°”");
     set_id("troll");
     set_gender(1);
-    set_proper_name("Áú×å±È¶û");
-    set_in_room_desc("Áú×å±È¶û");
-    set_long("ÈËÃÇÍ¨³£¶¼±ÜÃâ´ÕµÃºÜ½üÈ¥¹Û²ìÁú×åµÄÈË¡£");
+    set_proper_name("é¾™æ—æ¯”å°”");
+    set_in_room_desc("é¾™æ—æ¯”å°”");
+    set_long("äººä»¬é€šå¸¸éƒ½é¿å…å‡‘å¾—å¾ˆè¿‘åŽ»è§‚å¯Ÿé¾™æ—çš„äººã€‚");
     set_max_hp(10);
 
     add_block("north");
-    set_block_action("$N1Ïò³¯$o×ß£¬È´±»$Nµ²×¡ÁË$p1Â·¡£\n");
+    set_block_action("$N1å‘æœ$oèµ°ï¼Œå´è¢«$NæŒ¡ä½äº†$p1è·¯ã€‚\n");
 
     sword = new("/domains/std/objects/sword");
     sword->move(this_object());

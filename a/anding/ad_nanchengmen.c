@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is °ÍÉ½Ò¹Óê
+// driver is å·´å±±å¤œé›¨
 // created date is Fri May 27 19:51:49 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,7 +7,7 @@ inherit OUTDOOR_ROOM;
 void setup() {
 set_area("anding");
 set_light(50);
-set_brief("%^YELLOW%^"+"ÄÏ³ÇÃÅ"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"å—åŸé—¨"+"%^RESET%^");
 set_long("");
 set_objects((["/sgdomain/modules/m_charnpc/guard.c":1]));
 }

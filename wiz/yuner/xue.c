@@ -9,9 +9,9 @@ inherit M_GETTABLE;
 void setup()
 {
 ::mudlib_setup();
-set_unit("˫");
-set_id("xue", HIW+"�ƽ�ѩѥ"+NOR);
-set_in_room_desc(HIW+"�ƽ�ѩѥ(xue)"+NOR);
+set_unit("双");
+set_id("xue", HIW+"云锦雪靴"+NOR);
+set_in_room_desc(HIW+"云锦雪靴(xue)"+NOR);
 set_gettable(1);
 set_slot(FEET);
     set_currency_type("silver");

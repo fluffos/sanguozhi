@@ -29,7 +29,7 @@ inherit M_DAEMON_DATA;
 ** change this file, but that is a necessity if this will be writing
 ** to restricted directories.
 */
-private static mapping log_files = ([
+private mapping log_files = ([
                      "Bug" : LOG_BUG,
                      "Typo" : LOG_TYPO,
                      "Idea" : LOG_IDEA,
@@ -37,7 +37,7 @@ private static mapping log_files = ([
                      "Question" : LOG_QUESTION,
                      "Feedback" : LOG_FEEDBACK,
                      ]);
-private static mapping news_groups = ([
+private mapping news_groups = ([
                        "Bug" : BUG_NEWSGROUP,
                        "Typo" : TYPO_NEWSGROUP,
                        "Idea" : IDEA_NEWSGROUP,
@@ -71,7 +71,7 @@ private nomask void issue_report(string type, string subject, string text)
     else
     {
     text = sprintf(//"%s: %s reports from %s on %s--\n\n%s" DIVIDER,
-                   "%s: %s ´Ó %s ±¨¸æ£¬Ê±¼ä %s --\n\n%s", DIVIDER,
+                   "%s: %s ä» %s æŠ¥å‘Šï¼Œæ—¶é—´ %s --\n\n%s", DIVIDER,
                type,
                this_body()->query_name(),
                where_am_i,
@@ -82,7 +82,7 @@ private nomask void issue_report(string type, string subject, string text)
     }
 
     //write("Thanks for the report!\n");
-    write("Ğ»Ğ»ÄãµÄ±¨¸æ£¡\n");
+    write("è°¢è°¢ä½ çš„æŠ¥å‘Šï¼\n");
 }
 
 /* handle the completion of the report */
@@ -93,7 +93,7 @@ private nomask void done_ed(string type, string subject, string *lines)
     if ( !lines )
     {
     //printf("%s entry aborted.\n", type);
-    printf("%s ÊäÈëÖĞ¶Ï¡£\n", type);
+    printf("%s è¾“å…¥ä¸­æ–­ã€‚\n", type);
     return;
     }
 
@@ -110,10 +110,10 @@ varargs void begin_report(string type, string subject)
 {
     if ( !log_files[type] )
         //error("Illegal report type.\n");
-        error("·Ç·¨±¨¸æÀàĞÍ\n");
+        error("éæ³•æŠ¥å‘Šç±»å‹\n");
 
     //printf("** %s report **\n", type);
-    printf("** %s ±¨¸æ **\n", type);
+    printf("** %s æŠ¥å‘Š **\n", type);
     busy++;
     new(EDIT_OB, EDIT_TEXT, 0, (: done_ed, type, subject :));
 }
@@ -128,7 +128,7 @@ varargs void short_report(string type, string subject, string text)
 {
     if ( !log_files[type] )
         //error("Illegal report type.\n");
-         error("·Ç·¨±¨¸æÀàĞÍ\n");
+         error("éæ³•æŠ¥å‘Šç±»å‹\n");
 
     issue_report(type, subject, text);
 }
@@ -155,7 +155,7 @@ void report_something(string type, string input)
 
     env = environment(this_body());
     this_place = //" Report from: "
-                 "±¨¸æµØµã£º"
+                 "æŠ¥å‘Šåœ°ç‚¹ï¼š"
                   + (env ? file_name(env):"nowhere") + "...";
     if ( !input || input == "" )
     begin_report(type, type + this_place);

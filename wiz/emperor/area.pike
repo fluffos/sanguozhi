@@ -60,9 +60,9 @@
   "area" : 0,
   "bl" : 0,
   "prison" : "hy_lf",
-  "name" : "»ªÒõ",
+  "name" : "åé˜´",
   "industry" : 40,
   "path" : "/a/huayin/",
   "n_weather" : 6,
-  "zhou" : "ÓºÖİ",
+  "zhou" : "é›å·",
 ])

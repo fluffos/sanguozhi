@@ -25,17 +25,17 @@ private nomask void receive_remove_verify(string str)
 {
     if ( str[0] != 'y' && str[0] != 'Y' )
     {
-        write("·ÅÆúÉ¾³ý¡£\n");
+        write("æ”¾å¼ƒåˆ é™¤ã€‚\n");
         return;
     }
     NEWS_D->remove_post(ngroup, p_id);
-    write ("É¾³ýÍê±Ï¡£\n");
+    write ("åˆ é™¤å®Œæ¯•ã€‚\n");
 }
 void do_discard_str(string st)
 {
     class news_msg msg;
     int id;
-    int array ids;
+    int * ids;
     object o;
 
 //        ngroup=environment(this_body())->query_board();
@@ -44,19 +44,19 @@ write("this my discard.c\n");
 
 	if (!objectp(o))
         {
-              printf("Õâ¶ùÃ»ÓÐÁôÑÔ¿ÉÉ¾³ýÑ½¡£\n");
+              printf("è¿™å„¿æ²¡æœ‰ç•™è¨€å¯åˆ é™¤å‘€ã€‚\n");
               return;
         }
 	ngroup=o->query_group();
         if (sscanf(st, "%d", id) != 1)
         {
-		write( "ÄãÒªÉ¾³ýµÚ¼¸ÌõÁôÑÔ£¿\n");
+		write( "ä½ è¦åˆ é™¤ç¬¬å‡ æ¡ç•™è¨€ï¼Ÿ\n");
 		return;
 	}
 	ids = sort_array(filter_array(NEWS_D->get_messages(ngroup),(: filter_removed :)), 1);
         if (id <= 0 || id > sizeof(ids))
         {
-            printf("ÁôÑÔ°åÉÏÃ»ÓÐÕâÌõÁôÑÔ¡£\n");
+            printf("ç•™è¨€æ¿ä¸Šæ²¡æœ‰è¿™æ¡ç•™è¨€ã€‚\n");
 	    return;
 	}
 	p_id=ids[id-1];
@@ -67,23 +67,23 @@ write("this my discard.c\n");
            //in their own country board 2000/03/19
           )
         {
-    	    write("ÄãÖ»ÄÜÉ¾³ý×Ô¼ºÐ´µÄÁôÑÔ¡£\n");
+    	    write("ä½ åªèƒ½åˆ é™¤è‡ªå·±å†™çš„ç•™è¨€ã€‚\n");
             return;
         }
 if (ngroup[0..5]=="nation" && ngroup[7..]==this_user()->query_userid())
            if ( (time()-msg->time)<86400)
               {
-    	        write("Õâ¸öÁôÑÔ»¹Ã»¹ýÒ»ÌìµÄÊ±ÏÞ£¬ÄãÔÝÊ±ÎÞ·¨É¾³ý¡£\n");
+    	        write("è¿™ä¸ªç•™è¨€è¿˜æ²¡è¿‡ä¸€å¤©çš„æ—¶é™ï¼Œä½ æš‚æ—¶æ— æ³•åˆ é™¤ã€‚\n");
                 return;
               }
 
 	NEWS_D->remove_post(ngroup, p_id);
-    	write ("É¾³ýÍê±Ï¡£\n");
+    	write ("åˆ é™¤å®Œæ¯•ã€‚\n");
 
-//        printf( "È·¶¨É¾³ýÂð£¿[yn] > ");
+//        printf( "ç¡®å®šåˆ é™¤å—ï¼Ÿ[yn] > ");
 //        modal_simple((: receive_remove_verify :));
 }
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ "STR" }) });
 }

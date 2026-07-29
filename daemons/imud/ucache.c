@@ -16,7 +16,7 @@ class user_info
 ** The (remote) user cache.  It maps mudnames to mappings of usernames to
 ** user information.
 */
-static private mapping ucache = ([ ]);
+nosave private mapping ucache = ([ ]);
 
 protected nomask void add_cache_entry(string mudname, string username,
 				   string visname, int gender)

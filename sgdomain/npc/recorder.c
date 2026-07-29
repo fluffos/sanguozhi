@@ -26,21 +26,21 @@ void setup()
     cloth->move(this_object());
     cloth->do_wear();
 
-    set_name("shuji guan", "Êé¼Ç¹Ù");
+    set_name("shuji guan", "ä¹¦è®°å®˜");
     add_id("recorder");
     add_id("guan");
     add_id("shuji");
     set_gender(1);
     set_age(20);
-    set_in_room_desc(HIY+"¡¼¶«ºº¹¬Í¢¡½"+HIC+"¡¸ÓĞÊÂ¾ÍÏòÎÒÍ¶Ëß¡¹"+HIG+"Êé¼Ç¹Ù"+NOR+"(shuji guan)");
-    set_proper_name(HIY+"Êé¼Ç"+NOR+"(shuji guan)");
+    set_in_room_desc(HIY+"ã€–ä¸œæ±‰å®«å»·ã€—"+HIC+"ã€Œæœ‰äº‹å°±å‘æˆ‘æŠ•è¯‰ã€"+HIG+"ä¹¦è®°å®˜"+NOR+"(shuji guan)");
+    set_proper_name(HIY+"ä¹¦è®°"+NOR+"(shuji guan)");
 
     add_question("case", "case");
-    add_ask_str("case", "$NÏò$T×öÁËÒ»¸öÒ¾£¬µÀ£º$sÏëÒªÍ¶Ëß£¬²»Öªµ±·ñ£¿\n");
+    add_ask_str("case", "$Nå‘$Tåšäº†ä¸€ä¸ªæ–ï¼Œé“ï¼š$sæƒ³è¦æŠ•è¯‰ï¼Œä¸çŸ¥å½“å¦ï¼Ÿ\n");
     add_question("cancel", "cancel");
-    add_ask_str("cancel", "$NÏò$T×öÁËÒ»¸öÒ¾£¬µÀ£º$sÏëÒª³·Ëß£¬²»Öªµ±·ñ£¿\n");
+    add_ask_str("cancel", "$Nå‘$Tåšäº†ä¸€ä¸ªæ–ï¼Œé“ï¼š$sæƒ³è¦æ’¤è¯‰ï¼Œä¸çŸ¥å½“å¦ï¼Ÿ\n");
     add_question("list","list");
-    add_ask_str("list","$NÏò$T×öÁËÒ»¸öÒ¾£¬µÀ£º´óÈË¿É·ñ¸æÖ®ÓĞÊ²Ã´Í¶ËßÂğ£¿\n");
+    add_ask_str("list","$Nå‘$Tåšäº†ä¸€ä¸ªæ–ï¼Œé“ï¼šå¤§äººå¯å¦å‘Šä¹‹æœ‰ä»€ä¹ˆæŠ•è¯‰å—ï¼Ÿ\n");
 }
 mixed special_answer(object ob, string str)
 {
@@ -49,7 +49,7 @@ mixed special_answer(object ob, string str)
     else if ( str == "list" ) 
 	write(UNION_D->query_case_list());
     else if ( stringp(ppl)&&ppl!="" )
-	simple_action("$NµÀ£ºÇëÉÔºîÆ¬¿Ì¡£\n");
+	simple_action("$Né“ï¼šè¯·ç¨ä¾¯ç‰‡åˆ»ã€‚\n");
     else if ( str == "case" ) 
 	check_case( ob->query_primary_id() );
     else return ::special_answer(ob, str);
@@ -61,19 +61,19 @@ void remove_ppl()
 void check_cancel(string who)
 {
     if ( UNION_D->remove_case(who)==1 ) {
-       targetted_action("$N·­ÁË·­¼ÇÂ¼£¬Ò¡Í·µÀ£º$m$R´ÓÎ´ÏòÏÂ¹ÙÍ¶Ëß¹ıÑ½¡£\n",this_body()); 
+       targetted_action("$Nç¿»äº†ç¿»è®°å½•ï¼Œæ‘‡å¤´é“ï¼š$m$Rä»æœªå‘ä¸‹å®˜æŠ•è¯‰è¿‡å‘€ã€‚\n",this_body()); 
     } else if ( UNION_D->remove_case(who)==2 ) {
-       targetted_action("$NÄÃÁËÖ§Öì±Ê½«Ïà¹ØµÄ¼ÇÂ¼»®È¥£¬µÀ£ººÃµÄ£¬$m$RµÄÍ¶ËßÒÑ¾­³·ÏûÁË¡£\n",this_body());
+       targetted_action("$Næ‹¿äº†æ”¯æœ±ç¬”å°†ç›¸å…³çš„è®°å½•åˆ’å»ï¼Œé“ï¼šå¥½çš„ï¼Œ$m$Rçš„æŠ•è¯‰å·²ç»æ’¤æ¶ˆäº†ã€‚\n",this_body());
     } else
         SGSYS("error in remove case for "+who+" !");
 }
 void check_case(string who)
 {
     if ( UNION_D->add_case(who)==1 ) {
-	targetted_action("$NÒ¡Í·µÀ£º$m$RÒÑ¾­ÓĞ¹ıÒ»´ÎÍ¶Ëß¼ÇÂ¼ÔÚ°¸ÁË¡£\n",this_body());
+	targetted_action("$Næ‘‡å¤´é“ï¼š$m$Rå·²ç»æœ‰è¿‡ä¸€æ¬¡æŠ•è¯‰è®°å½•åœ¨æ¡ˆäº†ã€‚\n",this_body());
     } else {
         ppl = who;
-        targetted_action("$NµãÍ·µÀ£ººÃ£¬ÏÂ¹Ù½ÓÊÜ$m$RµÄÍ¶Ëß£¬ÇëÈÏÕæÌîĞ´ÒÔÏÂ±í¸ñ¡£\n",this_body());
+        targetted_action("$Nç‚¹å¤´é“ï¼šå¥½ï¼Œä¸‹å®˜æ¥å—$m$Rçš„æŠ•è¯‰ï¼Œè¯·è®¤çœŸå¡«å†™ä»¥ä¸‹è¡¨æ ¼ã€‚\n",this_body());
         get_type();
         call_out("remove_ppl", 300 );
     }
@@ -83,14 +83,14 @@ void get_type()
     int i;
     mapping types;
     object o;
-    string str = "ÇëÑ¡ÔñÄãµÄ°¸¼şÀàĞÍ£º\n";
+    string str = "è¯·é€‰æ‹©ä½ çš„æ¡ˆä»¶ç±»å‹ï¼š\n";
 
     if ( !objectp(o=find_body(ppl)) ) return;
     types = UNION_D->query_types();
     for( i=0; i<sizeof(types); i++ )
 	str += (i+1)+") " + values(types)[i] + "\n";
     write(str);
-    o->modal_push( (: answer_get_type, types :), "ÊäÈëÄãµÄÑ¡Ôñ£º");
+    o->modal_push( (: answer_get_type, types :), "è¾“å…¥ä½ çš„é€‰æ‹©ï¼š");
 }
 void answer_get_type(mapping types, string got)
 {
@@ -99,19 +99,19 @@ void answer_get_type(mapping types, string got)
    if ( !objectp(o) ) { remove_ppl(); return; }
    o->modal_pop();
    if ( !got ) {
-	simple_action("·Ç·¨Ñ¡Ôñ¡£\n");
+	simple_action("éæ³•é€‰æ‹©ã€‚\n");
 	remove_ppl();
         return;
    }
    i = to_int(got)-1;
    if ( i<0||i>sizeof(types)-1 ) {
-	simple_action("Ñ¡Ôñ³¬³ö·¶Î§¡£\n");
+	simple_action("é€‰æ‹©è¶…å‡ºèŒƒå›´ã€‚\n");
 	remove_ppl();
         return;
    }
    UNION_D->set_case(ppl, "type", keys(types)[i]);
-   simple_action("$NµãÁËµãÍ·¡£\n");
-   o->modal_push( (: get_whom :), "ÄãÏëÒªÍ¶ËßºÎÈË»òºÎ¹ú£º" );
+   simple_action("$Nç‚¹äº†ç‚¹å¤´ã€‚\n");
+   o->modal_push( (: get_whom :), "ä½ æƒ³è¦æŠ•è¯‰ä½•äººæˆ–ä½•å›½ï¼š" );
 }
 void get_whom(string got)
 {
@@ -119,7 +119,7 @@ void get_whom(string got)
     if ( !objectp(o) ) { remove_ppl(); return; }
     o->modal_pop();
     UNION_D->set_case(ppl, "whom", got);
-    o->modal_push( (: get_ev :), "ÇëÌá¹©Ö¤ÈË£º" );
+    o->modal_push( (: get_ev :), "è¯·æä¾›è¯äººï¼š" );
 }
 void get_ev(string got)
 {
@@ -135,22 +135,22 @@ void get_ev(string got)
             m[s] = -1;
     }
     UNION_D->set_case(ppl, "ev", m );
-    write("Çë³ÂÊöÄãµÄÀíÓÉ£¨²»³¬¹ıÒ»°Ù×Ö£©£º\n");
+    write("è¯·é™ˆè¿°ä½ çš„ç†ç”±ï¼ˆä¸è¶…è¿‡ä¸€ç™¾å­—ï¼‰ï¼š\n");
     new(EDIT_OB, EDIT_TEXT, 0, (: get_reason :) );
 }
 void get_reason(string *reason)
 {
-    write("×Ô³ÂÒÑ±»¼ÇÂ¼¡£\n");
+    write("è‡ªé™ˆå·²è¢«è®°å½•ã€‚\n");
     if ( sizeof(reason)>20 ) reason = reason[0..10];
     UNION_D->set_case(ppl, "reason", implode(reason, "\n") );
-    write("ÇëÊäÈëÄãµÄ½¨Òé²Ã¾ö£¨¼´Í¶Ëß»ñ×¼ºó½«²ÉÈ¡µÄ´ëÊ©£¬²»³¬¹ıÎåÊ®×Ö£©£º\n");
+    write("è¯·è¾“å…¥ä½ çš„å»ºè®®è£å†³ï¼ˆå³æŠ•è¯‰è·å‡†åå°†é‡‡å–çš„æªæ–½ï¼Œä¸è¶…è¿‡äº”åå­—ï¼‰ï¼š\n");
     new(EDIT_OB, EDIT_TEXT, 0, (: get_conclusion :) );
 }
 void get_conclusion(string *con)
 {
-    write("½¨Òé²Ã¾öÒÑ±»¼ÇÂ¼¡£\n");
+    write("å»ºè®®è£å†³å·²è¢«è®°å½•ã€‚\n");
     if ( sizeof(con)>20 ) con = con[0..10];
     UNION_D->set_case(ppl, "solution", implode(con, "\n") );
-    write("Ğ»Ğ»ÄãµÄÅäºÏ£¬Çë¾²ºî²Ã¾ö¡£\n");
+    write("è°¢è°¢ä½ çš„é…åˆï¼Œè¯·é™ä¾¯è£å†³ã€‚\n");
     remove_ppl();
 }

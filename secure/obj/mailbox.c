@@ -30,7 +30,7 @@ private mapping mailbox = ([ ]);
 /*
 ** Who is this mailbox for?
 */
-private static string owner;
+private nosave string owner;
 
 /*
 ** What is the current message index.  This value is 0-based and represents
@@ -38,7 +38,7 @@ private static string owner;
 ** corresponds to the first key in the (ordered) set of message keys in the
 ** mailbox.
 */
-private static int message_index = 0;
+private nosave int message_index = 0;
 
 
 private nomask string get_fname()
@@ -53,7 +53,7 @@ nomask void create(string the_owner)
 
     if ( file_name(previous_object()) != MAILBOX_D )
         //error("*Security violation: invalid creation");
-        error("°²È«ÎÊÌâ£º½¨Á¢Ê§°Ü");
+        error("å®‰å…¨é—®é¢˜ï¼šå»ºç«‹å¤±è´¥");
         
     owner = the_owner;
     unguarded(1, (: restore_object, get_fname(), 1 :));
@@ -80,7 +80,7 @@ nomask class mail_msg get_one_message(int message_key)
 //    if ( !check_privilege(owner) )
     if ( this_user()->query_userid() != owner )
         //error("security violation: you are not allowed to use this mailbox\n");
-        error("°²È«ÎÊÌâ£ºÄãÎŞÈ¨Ê¹ÓÃÕâ¸öÓÊÏä\n");
+        error("å®‰å…¨é—®é¢˜ï¼šä½ æ— æƒä½¿ç”¨è¿™ä¸ªé‚®ç®±\n");
         
     if ( undefinedp(mailbox[message_key]) )
         return 0;
@@ -153,10 +153,10 @@ nomask void delete_message(int message_key)
 //    if ( !check_privilege(owner) )
     if ( this_user()->query_userid() != owner )
         //error("security violation: you are not allowed to read this mail\n");
-        error("°²È«ÎÊÌâ£ºÄãÎŞÈ¨¶ÁÈ¡Õâ·âĞÅ¼ş\n");
+        error("å®‰å…¨é—®é¢˜ï¼šä½ æ— æƒè¯»å–è¿™å°ä¿¡ä»¶\n");
     if ( undefinedp(mailbox[message_key]) )
         //error("non-existent message\n");
-        error("Ã»ÓĞÕâ·âĞÅ¼ş\n");
+        error("æ²¡æœ‰è¿™å°ä¿¡ä»¶\n");
 
     MAIL_D->delete_mail(message_key, owner);
     if( query_unread_count() < message_index ) message_index--;
@@ -192,5 +192,5 @@ nomask void receive_new_message(int message_key)
     if ( (user = find_user(owner)) &&
          user->query_body()->test_flag(F_BIFF) )
         //tell(user, ">>You have new mail<<\n");
-        tell(user, " >>ÄãÊÕµ½ĞÂµÄĞÅ¼ş<<\n");
+        tell(user, " >>ä½ æ”¶åˆ°æ–°çš„ä¿¡ä»¶<<\n");
 }

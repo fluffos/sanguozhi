@@ -10,16 +10,16 @@ private void main( string  arg )
   object who;
   if( !arg)
     {
-      this_body()->simple_action("$Nºô½ĞÁËÒ»Éù¡£" + chr(7));
+      this_body()->simple_action("$Nå‘¼å«äº†ä¸€å£°ã€‚" + chr(7));
       return;
     }
   who = find_body(lower_case(arg));
   if( !who )
     {
-      out("ÄãÖ»ÄÜºô½ĞÍæ¼Ò¡£\n");
+      out("ä½ åªèƒ½å‘¼å«ç©å®¶ã€‚\n");
       return;
     }
-  this_body()->inform( ({ this_body(), who }), action( ({this_body(), who }), "$N0ºô½Ğ$T¡£\n" + chr(7))
+  this_body()->inform( ({ this_body(), who }), action( ({this_body(), who }), "$N0å‘¼å«$Tã€‚\n" + chr(7))
                       );
   return;
 }

@@ -92,7 +92,7 @@ private void answer_question(string input)
 
 void complete_push()
 {
-  object array obs;
+  object * obs;
 
   obs = filter(all_inventory(this_body())+all_inventory(environment(this_body())),
                (: $1->can_push() :));
@@ -101,17 +101,17 @@ void complete_push()
     {
     case 0:
       //write("You have nothing with which to push.\n");   
-      write("ÄãÃ»ÓĞÍÆµÄ¹¤¾ß¡£\n");
+      write("ä½ æ²¡æœ‰æ¨çš„å·¥å…·ã€‚\n");
       return;
     case 1:
           printf(//"[with %s]\n"
-                 "[´ø×Å %s]",obs[0]->short());
+                 "[å¸¦ç€ %s]",obs[0]->short());
           obs[0]->do_pushing(this_object());
           return;
     default:
           modal_push((:answer_question:),
                                   //"What do you want to push with? "
-                                  "ÄãÒªÄÃÊ²Ã´À´ÍÆÑ½£¿");
+                                  "ä½ è¦æ‹¿ä»€ä¹ˆæ¥æ¨å‘€ï¼Ÿ");
           return;
     }
 }

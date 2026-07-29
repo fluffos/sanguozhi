@@ -13,10 +13,10 @@ void whisper_it(object liv, string str) {
 
     str = punctuate(str);
 
-    msgs = action(who, "$N∂‘$T∂˙”Ôµ¿£∫$o\n", str);
+    msgs = action(who, "$NÂØπ$TËÄ≥ËØ≠ÈÅìÔºö$o\n", str);
     // change other message
-    msgs[2] = this_body()->query_name() + "‘⁄" 
-              + liv->query_name() + "µƒ∂˙±ﬂ–°…˘Àµ¡À–© ≤√¥°£\n";
+    msgs[2] = this_body()->query_name() + "Âú®" 
+              + liv->query_name() + "ÁöÑËÄ≥ËæπÂ∞èÂ£∞ËØ¥‰∫Ü‰∫õ‰ªÄ‰πà„ÄÇ\n";
     inform(who, msgs, environment(this_body()));
 }
     
@@ -32,7 +32,7 @@ void do_whisper_to_liv_str(object liv, string str) {
     whisper_it(liv,str);
 }
 
-array query_verb_info()
+mixed * query_verb_info()
 {
     return ({ ({ "LIV STR", "STR to LIV", "to LIV STR" }) });
 }

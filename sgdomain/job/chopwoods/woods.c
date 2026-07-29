@@ -1,5 +1,5 @@
 // woods by row
-// this is used for the job of ¿³²ñ
+// this is used for the job of ç æŸ´
 #include <mudlib.h>
 #include <ansi.h>
 #define JOBID "chopwoods"
@@ -7,18 +7,18 @@ inherit OBJ;
 inherit M_CHOPPABLE;
 inherit M_INPUT;
 
-string *desc = ({"Ò»Æ¬"+GRN+"Ê÷ÁÖ"+NOR+"£¬¿´À´ÓĞ¼¸°ÙÖêÉÏÏÂ£¬ÍêÈ«Ò°ÉúÒ°³¤¡£\n"+
-"ÓÉÓÚÎüÈ¡ÌìµØ¾«»ª£¬Ö¦Ò¶·±Ã¯¡£(chop woods with kanchai dao)\n",
-"¼¸¿ÃÊ÷ÉÏÓĞÃ÷ÏÔµÄÅü¿³Ó¡¼Ç£¬Ò»¶¨ÓĞÈËÔÚ´Ë¿³¹ı²ñ»ğ¡£(chop woods with kanchai dao)\n",
-"·ÅÑÛÍûÈ¥£¬Ê÷ÉÏ¶¼ÊÇ¹âÍºÍºµÄ£¬ÄÜµ±²ñ»ğµÄÖ¦Ò¶ÒÑ¾­²»¶àÁË¡£(chop woods with kanchai dao)\n",});
+string *desc = ({"ä¸€ç‰‡"+GRN+"æ ‘æ—"+NOR+"ï¼Œçœ‹æ¥æœ‰å‡ ç™¾æ ªä¸Šä¸‹ï¼Œå®Œå…¨é‡ç”Ÿé‡é•¿ã€‚\n"+
+"ç”±äºå¸å–å¤©åœ°ç²¾åï¼Œæå¶ç¹èŒ‚ã€‚(chop woods with kanchai dao)\n",
+"å‡ æ£µæ ‘ä¸Šæœ‰æ˜æ˜¾çš„åŠˆç å°è®°ï¼Œä¸€å®šæœ‰äººåœ¨æ­¤ç è¿‡æŸ´ç«ã€‚(chop woods with kanchai dao)\n",
+"æ”¾çœ¼æœ›å»ï¼Œæ ‘ä¸Šéƒ½æ˜¯å…‰ç§ƒç§ƒçš„ï¼Œèƒ½å½“æŸ´ç«çš„æå¶å·²ç»ä¸å¤šäº†ã€‚(chop woods with kanchai dao)\n",});
 
 int status;
 int chopped;
 
 void setup()
 {
-	set_id("woods", "Ò»Æ¬"+GRN+"Ê÷ÁÖ"+NOR+"","shu lin");
-	set_in_room_desc("Ò»Æ¬"+GRN+"Ê÷ÁÖ"+NOR+"(woods)");
+	set_id("woods", "ä¸€ç‰‡"+GRN+"æ ‘æ—"+NOR+"","shu lin");
+	set_in_room_desc("ä¸€ç‰‡"+GRN+"æ ‘æ—"+NOR+"(woods)");
 	status=0;
 	chopped=0;
 	call_out("grow", 10);
@@ -53,7 +53,7 @@ void chop(object o)
 	all_inventory(this_body());
 	chopper=present("chopper",this_body());
 	this_body()->simple_action(
-	"$NÒ»µ¶ÏòÊ÷è¾¿³È¥£¬µ«"+YEL+"¿³²ñµ¶"+NOR+"¡ºÅ¾¡»µØÒ»Éù¶ÏÁË¡£\n");
+	"$Nä¸€åˆ€å‘æ ‘æˆç å»ï¼Œä½†"+YEL+"ç æŸ´åˆ€"+NOR+"ã€å•ªã€åœ°ä¸€å£°æ–­äº†ã€‚\n");
 	destruct(chopper);
 	return;
 	}
@@ -62,19 +62,19 @@ void chop(object o)
 	int m_hp;
 	m_hp=this_body()->query_cur_hp();
 	if (m_hp<10)
-	{write("ÄãÌ«ÀÛÁË£¬ĞİÏ¢Ò»»á¶ù°É¡£\n");
+	{write("ä½ å¤ªç´¯äº†ï¼Œä¼‘æ¯ä¸€ä¼šå„¿å§ã€‚\n");
 	return;
         }
         m_hp-=5;
         this_body()->set_cur_hp(m_hp);
 	status=status+random(5);
-	this_body()->simple_action( ({"$N»ÓÆğ"+YEL+"¿³²ñµ¶"+NOR+"¡¸¿Ğßê¡¹¡¸¿Ğßê¡¹µØ¿³²ñ¡£\n",
-	"$NÒ»²»ÁôÉñ£¬±»ÂäÏÂµÄÊ÷Ö¦¹ÎÆÆÁËÁ³¡£\n",
-	"$NÓÃÁ¦¹ıÃÍ£¬Ò»Í·×²ÔÚÊ÷¸ÉÉÏ£¬ÆğÁË¸öëû°ü¡£\n",
-	"$N±ï×ãÁËÁ¦Æø£¬¶Ô×¼´óÊ÷Ñ¾¾ÍÊÇÒ»ÏÂ£¬Ö»Ìı¡¸¿¦àê¡¹Ò»Éù£¬µ¶Æğ²ñÂä¡£\n"}) );
+	this_body()->simple_action( ({"$NæŒ¥èµ·"+YEL+"ç æŸ´åˆ€"+NOR+"ã€Œå•ƒå“§ã€ã€Œå•ƒå“§ã€åœ°ç æŸ´ã€‚\n",
+	"$Nä¸€ä¸ç•™ç¥ï¼Œè¢«è½ä¸‹çš„æ ‘æåˆ®ç ´äº†è„¸ã€‚\n",
+	"$Nç”¨åŠ›è¿‡çŒ›ï¼Œä¸€å¤´æ’åœ¨æ ‘å¹²ä¸Šï¼Œèµ·äº†ä¸ªè‡ŒåŒ…ã€‚\n",
+	"$Næ†‹è¶³äº†åŠ›æ°”ï¼Œå¯¹å‡†å¤§æ ‘ä¸«å°±æ˜¯ä¸€ä¸‹ï¼Œåªå¬ã€Œå–€åš“ã€ä¸€å£°ï¼Œåˆ€èµ·æŸ´è½ã€‚\n"}) );
         ob=new(__DIR__"firewoods");
         ob->move(this_body());
 	}
 	else
-	write("ÕâÆ¬Ê÷ÁÖ¹âÍºÍºµÄ£¬ÒÑ¾­¿³²»µ½²ñ»ğÁË¡£\n");
+	write("è¿™ç‰‡æ ‘æ—å…‰ç§ƒç§ƒçš„ï¼Œå·²ç»ç ä¸åˆ°æŸ´ç«äº†ã€‚\n");
 }

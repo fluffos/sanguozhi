@@ -58,7 +58,7 @@ void run_settle(object officer, object who)
 		CHAR_D->set_char(y_id,"zi",who->query_sg_zi());
 		CHAR_D->set_char(y_id,"reputation",who->query_shengwang_int());
 		CHAR_D->set_char(y_id,"status",STATUS_ONLINE);
-		//CHAR_D->set_char(y_id,"loyalty",50);	//¸Õ¿ªÊ¼²¼¸æ×ö²»ÁË£¬ÔİÊ±¶¨µÄ¼ÓÖÒ³Ï¡£
+		//CHAR_D->set_char(y_id,"loyalty",50);	//åˆšå¼€å§‹å¸ƒå‘Šåšä¸äº†ï¼Œæš‚æ—¶å®šçš„åŠ å¿ è¯šã€‚
 		m_tmp["wuli"]=who->query_wuli_pure();
                 m_tmp["zhimou"]=who->query_zhimou_pure();
 		m_tmp["meili"]=who->query_meili_pure();
@@ -75,7 +75,7 @@ void run_settle(object officer, object who)
                 CHAR_D->set_char(y_id,"literate",who->query_literate());
         }
        CHANNEL_D->deliver_tell("rumor","system",
-                sprintf("%sºÃÏóÍ¶±¼%sÈ¥ÁË¡£",CHAR_D->get_char(y_id,"name"),
+                sprintf("%så¥½è±¡æŠ•å¥”%så»äº†ã€‚",CHAR_D->get_char(y_id,"name"),
                         AREA_D->get_area(m_area,"name")));	
 }
 void settle(object officer,object who,string ans)
@@ -85,13 +85,13 @@ void settle(object officer,object who,string ans)
 	{
 		case "yes":
 		case "y":
-		case "ÊÇ":
-officer->targetted_action("$N¶Ô$TµÀ£º$RÇëÉÔºò£¬ÊÖĞø¼´¿Ì°ìÍ×¡£\n",who);
+		case "æ˜¯":
+officer->targetted_action("$Nå¯¹$Té“ï¼š$Rè¯·ç¨å€™ï¼Œæ‰‹ç»­å³åˆ»åŠå¦¥ã€‚\n",who);
 			run_settle(officer,who);
 	officer->clear_answer();
 			return;
 		default:
-                        officer->targetted_action("$N¶Ô$TµÀ£º¼ÈÈ»Èç´Ë£¬ÄÇ$R¾ÍÏëºÃÔÙÀ´°É¡£\n",who);
+                        officer->targetted_action("$Nå¯¹$Té“ï¼šæ—¢ç„¶å¦‚æ­¤ï¼Œé‚£$Rå°±æƒ³å¥½å†æ¥å§ã€‚\n",who);
 	officer->clear_answer();
 	return;
 	}
@@ -104,8 +104,8 @@ void confirm_settle(object who, object officer)
 	y_id=(who->query_id())[0];
 	officer->set_answer(y_id,  (:settle:) );
         officer->targetted_action
-          ("$N¶Ô$TĞ¦µÀ£ºÄãÈ·¶¨ÁËÂğ£¿\n",who);
-write("È·¶¨ÁË¾ÍÇëÊäÈë answer yes to "+m_id+"\n");
+          ("$Nå¯¹$Tç¬‘é“ï¼šä½ ç¡®å®šäº†å—ï¼Ÿ\n",who);
+write("ç¡®å®šäº†å°±è¯·è¾“å…¥ answer yes to "+m_id+"\n");
 }
 void ask_settle(object who, object officer)
 {
@@ -123,7 +123,7 @@ void ask_settle(object who, object officer)
             (OFFICER_D->query_area_officer_title(
              AREA_D->get_area(m_area,"level"),0,0))[0]);
               officer->targetted_action
-("$N¶Ô$TĞ¦µÀ£º$RÏëÔÚ´Ë¾Ã¾Ó£¬Õâ¸ö$s¿É×ö²»ÁËÖ÷£¬ÄãÒªÈ¥ÎÊ±¾µØ"+m_title+"¡££¢\n",who);
+("$Nå¯¹$Tç¬‘é“ï¼š$Ræƒ³åœ¨æ­¤ä¹…å±…ï¼Œè¿™ä¸ª$så¯åšä¸äº†ä¸»ï¼Œä½ è¦å»é—®æœ¬åœ°"+m_title+"ã€‚ï¼‚\n",who);
              return;
         }
 	p_check=check_settle(who,m_area);
@@ -131,29 +131,29 @@ void ask_settle(object who, object officer)
 	{
 		case S_ACCEPT:
               officer->targetted_action
-             ("$N¶Ô$TĞ¦µÀ£º$RĞÄ»³´óÖ¾£¬»¢ÎÔÓÚ´Ë£¬ÊµÄË±¾µØ°ÙĞÕÖ®ºé¸£Ò²¡£\n",who);
+             ("$Nå¯¹$Tç¬‘é“ï¼š$Rå¿ƒæ€€å¤§å¿—ï¼Œè™å§äºæ­¤ï¼Œå®ä¹ƒæœ¬åœ°ç™¾å§“ä¹‹æ´ªç¦ä¹Ÿã€‚\n",who);
 			confirm_settle(who,officer);
 			return;
 		case S_MUSEUM:
               officer->targetted_action
-             ("$N¶Ô$TĞ¦µÀ£º$RÄËµä²Ø¹İÖĞÓĞ¼ÇÔØµÄÇ°±²´óÏÍ¡£´Ë´¦µØĞ¡£¬ÅÂ²»ÊÇ$RÈİÉíÖ®µØ¡£\n",who);
+             ("$Nå¯¹$Tç¬‘é“ï¼š$Rä¹ƒå…¸è—é¦†ä¸­æœ‰è®°è½½çš„å‰è¾ˆå¤§è´¤ã€‚æ­¤å¤„åœ°å°ï¼Œæ€•ä¸æ˜¯$Rå®¹èº«ä¹‹åœ°ã€‚\n",who);
 			return;
 		case S_ALREADY:
               officer->targetted_action
-             ("$N¶Ô$TĞ¦µÀ£º$RÏë±ØÊÇºıÍ¿ÁË£¬ÄãÔçÒÑÊÇ±¾µØÈËÁË¡£\n",who);
+             ("$Nå¯¹$Tç¬‘é“ï¼š$Ræƒ³å¿…æ˜¯ç³Šæ¶‚äº†ï¼Œä½ æ—©å·²æ˜¯æœ¬åœ°äººäº†ã€‚\n",who);
 			return;
 		case S_OTHERCOUNTRY:
               officer->targetted_action
-("$N¶Ô$TĞ¦µÀ£º$RÄË"+COUNTRY_D->get_country(CHAR_D->get_char(y_id,"nation"),"name")+
-"¸ß¹Ù£¬ÔÚ´ËµØ¾ÃÁô¿ÖÅÂ¶àÓĞ²»±ã°É¡£\n",who);
+("$Nå¯¹$Tç¬‘é“ï¼š$Rä¹ƒ"+COUNTRY_D->get_country(CHAR_D->get_char(y_id,"nation"),"name")+
+"é«˜å®˜ï¼Œåœ¨æ­¤åœ°ä¹…ç•™ææ€•å¤šæœ‰ä¸ä¾¿å§ã€‚\n",who);
 			return;
 		case S_OFFICERALREADY:
               officer->targetted_action
-             ("$N¶Ô$TĞ¦µÀ£º´ËÊÂ»¹µ±´Ó³¤¼ÆÒé¡£\n",who);
+             ("$Nå¯¹$Tç¬‘é“ï¼šæ­¤äº‹è¿˜å½“ä»é•¿è®¡è®®ã€‚\n",who);
 			return;
                 case S_POOR:
               officer->targetted_action
-("$N¶Ô$TÒ»µÉÑÛµÀ£ºÎŞÄÜ$r£¬ÉÙÒªÔÚ´ËÉ§ÈÅ¹«Îñ¡£\n",who);
+("$Nå¯¹$Tä¸€çªçœ¼é“ï¼šæ— èƒ½$rï¼Œå°‘è¦åœ¨æ­¤éªšæ‰°å…¬åŠ¡ã€‚\n",who);
                         return;
 	}
 }

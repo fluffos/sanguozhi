@@ -19,7 +19,7 @@ void do_deposit_str(string str)
             {
                 if ((number>200000)||(number<0))
 				{
-					write("你身上没有这么多钱！\n");
+					write("浣犺韩涓婃病鏈夎繖涔堝閽憋紒\n");
 					return;
 				}
 				ss=environment(this_body())->deposit(sentence[1],number);
@@ -33,8 +33,8 @@ void do_deposit_str(string str)
 		// this will give a correct deposit format
     }
 	if(!ss)
-	write("还是到钱庄存钱比较安全。\n");
+	write("杩樻槸鍒伴挶搴勫瓨閽辨瘮杈冨畨鍏ㄣ�俓n");
 }
-array query_verb_info() {
+mixed * query_verb_info() {
     return ({ ({ "STR" }) , ({ "cun"}) });
 }

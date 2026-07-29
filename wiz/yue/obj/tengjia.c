@@ -11,14 +11,14 @@ inherit M_DAMAGE_SINK;
 void setup()
 {
 ::mudlib_setup();
-set_unit("¼ş");
-set_id("teng jia", "ÌÙ¼×");
+set_unit("ä»¶");
+set_id("teng jia", "è—¤ç”²");
 add_id("tengjia","jia","armor");
-set_in_room_desc("ÌÙ¼×(teng jia)");
+set_in_room_desc("è—¤ç”²(teng jia)");
 set_gettable(1);
 set_slot(TORSO);
-set_wearmsg(YEL+"$N´©ÉÏÒ»¼şÌÙ¼×¡£"+NOR);
-set_removemsg(YEL+"$N½«ÌÙ¼×ÍÑÁËÏÂÀ´¡£"+NOR);
+set_wearmsg(YEL+"$Nç©¿ä¸Šä¸€ä»¶è—¤ç”²ã€‚"+NOR);
+set_removemsg(YEL+"$Nå°†è—¤ç”²è„±äº†ä¸‹æ¥ã€‚"+NOR);
 set_value(15);
 set_currency_type("silver");
 set_defence_power(25);

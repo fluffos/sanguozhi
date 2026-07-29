@@ -5,7 +5,7 @@
 
 mixed query_goods(string p_name,string p_para)
 {
-	//write("ÔÚ/event/ÖÐµÄbase.cÖÐquery_goodsº¯ÊýÀïp_name = " + p_name + ", p_para = " + p_para + "\n");
+	//write("åœ¨/event/ä¸­çš„base.cä¸­query_goodså‡½æ•°é‡Œp_name = " + p_name + ", p_para = " + p_para + "\n");
 	return BASE_D->get_stuff(p_name,p_para);
 }
 mixed init_good()

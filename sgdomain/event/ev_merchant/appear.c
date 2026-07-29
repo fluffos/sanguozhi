@@ -9,7 +9,7 @@ void create_merchant(string p_area,string* lis)
    int sum,i;
    string p_room;
    object o;
-   array npc_country=keys(query_npc_merchant_goods());
+   mixed * npc_country=keys(query_npc_merchant_goods());
    p_room=AREA_D->get_area(p_area,"path")+
       AREA_D->get_area(p_area,"market");
    lis += npc_country;
@@ -21,7 +21,7 @@ void create_merchant(string p_area,string* lis)
       CHAR_D->set_char(n_id,"my_nation",pp);
       CHAR_D->set_char(n_id,"area",p_area);
       CHAR_D->set_char(n_id,"name",
-                       COUNTRY_D->get_country(pp,"name")+"商人");
+                       COUNTRY_D->get_country(pp,"name")+"鍟嗕汉");
       CHAR_D->set_char(n_id,"is_tmp",1);
       CHAR_D->set_char(n_id,"is_merchant",1);
       CHAR_D->set_char(n_id,"body","merchant");
@@ -29,6 +29,6 @@ void create_merchant(string p_area,string* lis)
       o=CHAR_D->find_char(n_id);
       if(objectp(o))
          o->simple_action(COUNTRY_D->get_country(pp,"name")+
-             "商队在一片喧闹声中走了过来。\n");
+             "鍟嗛槦鍦ㄤ竴鐗囧枾闂瑰０涓蛋浜嗚繃鏉ャ�俓n");
    }
 }

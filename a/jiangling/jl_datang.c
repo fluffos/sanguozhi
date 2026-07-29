@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is »¨¶ù¶ä¶ä
+// driver is èŠ±å„¿æœµæœµ
 // created date is Thu May 26 21:57:30 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,10 +7,10 @@ inherit INDOOR_ROOM;
 void setup() {
 set_area("jiangling");
 set_light(50);
-set_brief("%^YELLOW%^"+"´óÌÃ"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"å¤§å ‚"+"%^RESET%^");
 set_long("
-    ÕâÀïÊÇ½­Áê´óÌÃ,×¨ÃÅÉó·¸ÈËµÄµØ·½,Á½ÅÔÕ¾×ÅÍşÎä
-µÄÑÃÒÛ¡£\n\n");
+    è¿™é‡Œæ˜¯æ±Ÿé™µå¤§å ‚,ä¸“é—¨å®¡çŠ¯äººçš„åœ°æ–¹,ä¸¤æ—ç«™ç€å¨æ­¦
+çš„è¡™å½¹ã€‚\n\n");
 set_exits( ([
 "east":"/a/jiangling/jl_jianyu.c",
 

@@ -27,10 +27,10 @@ void do_diagnose()
 
     // Deja vu.  Drive the players crazy :-)
     if (random(100) == 0)
-        write("你有一种奇怪的感觉好象你来过这儿。\n");
+        write("浣犳湁涓�绉嶅鎬殑鎰熻濂借薄浣犳潵杩囪繖鍎裤�俓n");
 }
 
-array query_verb_info()
+mixed * query_verb_info()
 {
    return ({ ({ "" }) });
 }

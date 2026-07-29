@@ -1,17 +1,17 @@
-//by jiezhao on Dec 25 1996 gangdao.c ¸Öµ¶
+//by jiezhao on Dec 25 1996 gangdao.c é’¢åˆ€
 #include <sanguo.h>
 inherit BLADE;
 inherit M_VALUE;
 void setup()
 {
-set_adj("¸Ö");
-set_unit("±ú");
-set_id("gang dao", "µ¶");
+set_adj("é’¢");
+set_unit("æŸ„");
+set_id("gang dao", "åˆ€");
 add_id("dao");
 add_id("gangdao");
 add_id("blade");
-set_long("ÕâÊÇÒ»Ñ°³£µÄµ¥µ¶£¬·İÁ¿´óÔ¼Áù¡¢Æß½ïÖØ¡£");
-set_in_room_desc("¸Öµ¶(gang dao)");
+set_long("è¿™æ˜¯ä¸€å¯»å¸¸çš„å•åˆ€ï¼Œä»½é‡å¤§çº¦å…­ã€ä¸ƒæ–¤é‡ã€‚");
+set_in_room_desc("é’¢åˆ€(gang dao)");
 set_weapon_class(5);
 set_size(MEDIUM);
 set_value(10);

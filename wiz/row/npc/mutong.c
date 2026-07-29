@@ -1,4 +1,4 @@
-// mutong.c ��ľͰ by row
+// mutong.c 大木桶 by row
 // for makedoufu
 
 #include <ansi.h>
@@ -15,17 +15,17 @@ void finish_job();
 void empty_it();
 
 string *desc = ({
-"����һֻ��ľͰ���ǹط���������ȴ%^B_WHITE%^%^H_YELLOW%^����%^RESET%^�ġ�\n",
-"����һֻ��ľͰ����������������ʢ�ŵȴ���ȴ��%^B_WHITE%^%^H_YELLOW%^����%^RESET%^��\n",
-"����һֻ��ľͰ��ԭ�ȵ��±��%^B_WHITE%^%^H_YELLOW%^����%^RESET%^�Ѿ���ȫ��ȴ�ˣ�%^B_WHITE%^%^H_GREEN%^��䶹��%^RESET%^�����ˣ�\n"});
+"这是一只大木桶，是关夫子用来冷却%^B_WHITE%^%^H_YELLOW%^豆浆%^RESET%^的。\n",
+"这是一只大木桶，里面满满当当地盛着等待冷却的%^B_WHITE%^%^H_YELLOW%^豆浆%^RESET%^。\n",
+"这是一只大木桶，原先点过卤的%^B_WHITE%^%^H_YELLOW%^豆浆%^RESET%^已经完全冷却了，%^B_WHITE%^%^H_GREEN%^翡翠豆腐%^RESET%^做成了！\n"});
 int status;
 int isfill; // there is doujiang in
 
 void setup()
 {
-	set_unit("ֻ");
-	set_id("mutong","��ľͰ");
-	set_in_room_desc("һֻ��ľͰ(mutong)������ĥ���ĵ��ϣ���������ʢ������");
+	set_unit("只");
+	set_id("mutong","大木桶");
+	set_in_room_desc("一只大木桶(mutong)，摆在磨房的地上，可以用来盛东西。");
 	status=0;
 	isfill=0;
 }
@@ -71,9 +71,9 @@ void finish_job()
 	if(isfill==1&&status==0)
 	{
 	status=1;
-	tell_environment(this_object(),"ľͰ����±��%^B_WHITE%^%^H_YELLOW%^����%^RESET%^��ȫ��ȴ�ˣ�%^B_WHITE%^%^H_YELLOW%^��䶹��%^RESET%^�Ѿ������ˣ�\n");
+	tell_environment(this_object(),"木桶里点过卤的%^B_WHITE%^%^H_YELLOW%^豆浆%^RESET%^完全冷却了，%^B_WHITE%^%^H_YELLOW%^翡翠豆腐%^RESET%^已经做成了！\n");
 	return;
 	}
-	tell_environment(this_object(),"��֪��Ϊʲô���У�������ʦ�ɡ�\n");
+	tell_environment(this_object(),"不知道为什么不行，问问巫师吧。\n");
 	return;
 }

@@ -11,7 +11,7 @@ mixed do_check_can_friend(string who)
 	if( !wizardp(this_body()) )
 		return "for test only!\n";
         if( !mapp(COUNTRY_D->get_country(who)) )
-                return "Ö»ÓĞ¹úÍõ²ÅÓĞÈ¨ÌáÒé½áÃË\n";
+                return "åªæœ‰å›½ç‹æ‰æœ‰æƒæè®®ç»“ç›Ÿ\n";
         else return 1;
 }
 mixed do_check_friend_para(string *para, string who)
@@ -20,21 +20,21 @@ mixed do_check_friend_para(string *para, string who)
 	string cc;
 	
 	if( sizeof(para)!=3||!stringp(cc=para[1])||!stringp(para[2]) ) 
-		return "´íÎóµÄ¸ñÊ½¡£\n";
+		return "é”™è¯¯çš„æ ¼å¼ã€‚\n";
 	time = to_int(para[2]);
 	if( !mapp(COUNTRY_D->get_country(cc)) )
-		return "Ã»ÓĞÕâ¸ö¹ú¼Ò£¡\n";
+		return "æ²¡æœ‰è¿™ä¸ªå›½å®¶ï¼\n";
 	if( cc == who )
-		return "²»´ó¿ÉÄÜÓë×Ô¼º½áÃË°É£¿";
+		return "ä¸å¤§å¯èƒ½ä¸è‡ªå·±ç»“ç›Ÿå§ï¼Ÿ";
 	if( COUNTRY_D->is_friend(who, cc) )
-		return "ÄãÃÇÒÑ¾­ÊÇÃËÓÑ¹ØÏµÁË£¡\n";
+		return "ä½ ä»¬å·²ç»æ˜¯ç›Ÿå‹å…³ç³»äº†ï¼\n";
 	if( time<=0 )
-		return "½áÃËÊ±¼ä²»¿ÉÄÜÊÇ¸ºÊı°É£¿\n";
+		return "ç»“ç›Ÿæ—¶é—´ä¸å¯èƒ½æ˜¯è´Ÿæ•°å§ï¼Ÿ\n";
 	if( time>15 )
-		return "×î³¤µÄÃËÔ¼ÊÇÊ®ÎåÌì¡£";
+		return "æœ€é•¿çš„ç›Ÿçº¦æ˜¯åäº”å¤©ã€‚";
 
-	set_suggest(who, "str", "Ïò"+COUNTRY_D->get_country(cc,"name")+"ÇëÇó½áÃË");
-        set_suggest(who,"reason","½áÃËÊÇ´ï³É¹ú¼ÒÍ³Ò»µÄ½İ¾¶");
+	set_suggest(who, "str", "å‘"+COUNTRY_D->get_country(cc,"name")+"è¯·æ±‚ç»“ç›Ÿ");
+        set_suggest(who,"reason","ç»“ç›Ÿæ˜¯è¾¾æˆå›½å®¶ç»Ÿä¸€çš„æ·å¾„");
 
 	add_suggest(who,"friend", ({cc, time}), who, ({ }));
 
@@ -49,19 +49,19 @@ void do_friend(string n_id)
 	
 	cc = get_suggest(n_id, "para")[0];
 	time = get_suggest(n_id, "para")[1];
-	his = HIC+COUNTRY_D->get_country(n_id,"name")+"Ïò"
-		+COUNTRY_D->get_country(cc,"name")+"ËÍÈ¥ÁËÒ»·â½áÃË"+
-		chinese_number(time)+"ÌìµÄĞ­ÒéÊé£¡\n\n"+NOR;
+	his = HIC+COUNTRY_D->get_country(n_id,"name")+"å‘"
+		+COUNTRY_D->get_country(cc,"name")+"é€å»äº†ä¸€å°ç»“ç›Ÿ"+
+		chinese_number(time)+"å¤©çš„åè®®ä¹¦ï¼\n\n"+NOR;
 	tell(users(), his );
 
 	if( mapp(get_suggest(cc,0))&&sizeof(get_suggest(cc,0)) ){
-		his = COUNTRY_D->get_country(cc,"name")+"ÕıÔÚÌÖÂÛ¾ü¹ú´óÊÂ£¬½áÃËµÄÊÂ±»ºöÂÔÁË£¡\n";
+		his = COUNTRY_D->get_country(cc,"name")+"æ­£åœ¨è®¨è®ºå†›å›½å¤§äº‹ï¼Œç»“ç›Ÿçš„äº‹è¢«å¿½ç•¥äº†ï¼\n";
 		tell(users(), his );
 		return;
 	}
 	add_suggest(cc,"answer_friend", ({n_id, time}), 0, ({ }));
-	set_suggest(cc, "str", "Í¬"+COUNTRY_D->get_country(n_id,"name")+"½áÃË"+chinese_number(time)+"Ìì");
-	set_suggest(cc,"reason",COUNTRY_D->get_country(n_id,"name")+"ÏòÎÒ¹úÌá³öÁË½áÃËµÄÇëÇó");
+	set_suggest(cc, "str", "åŒ"+COUNTRY_D->get_country(n_id,"name")+"ç»“ç›Ÿ"+chinese_number(time)+"å¤©");
+	set_suggest(cc,"reason",COUNTRY_D->get_country(n_id,"name")+"å‘æˆ‘å›½æå‡ºäº†ç»“ç›Ÿçš„è¯·æ±‚");
 	announce_suggest(cc);
         call_out("discuss_suggest",2,cc);
 
@@ -75,8 +75,8 @@ void do_answer_friend(string n_id)
 
 	cc = get_suggest(n_id, "para")[0];
         time = get_suggest(n_id, "para")[1];
-	his = COUNTRY_D->get_country(n_id,"name")+"Óë"+COUNTRY_D->get_country(cc,"name")+
-		"´ï³ÉÁË½áÃË"+chinese_number(time)+"ÌìµÄĞ­Òé£¡";
+	his = COUNTRY_D->get_country(n_id,"name")+"ä¸"+COUNTRY_D->get_country(cc,"name")+
+		"è¾¾æˆäº†ç»“ç›Ÿ"+chinese_number(time)+"å¤©çš„åè®®ï¼";
 	tell(users(), HIR+his+NOR);
 
 	ff = COUNTRY_D->get_country(n_id,"friends");

@@ -1,5 +1,4 @@
-/wiz/chun/exec.c line 6: parse error before ÕÖÐÂ¶³ö$nµÄÒ»ÕÅÇåÀöµ
-/wiz/chun/exec.c line 6: $var illegal outside of function pointer. before nµÄÒ»ÕÅÇåÀöµÄÐ¦Á³¡£\
+/wiz/chun/exec.c line 6: parse error before ç½©æ–°å†»nçš„ä¸€å¼ æ¸…ä¸½/wiz/chun/exec.c line 6: $var illegal outside of function pointer. before nçš„ä¸€å¼ æ¸…ä¸½çš„ç¬‘è„¸ã€‚\
 /wiz/chun/exec.c line 7: End of file in string at the end of the file
 /wiz/chun/exec.c line 6: Undefined variable 'hi' before ;}
 /wiz/chun/exec.c line 6: parse error before ;}
@@ -37,9 +36,8 @@
 /wiz/chun/exec.c line 6: parse error before domains/std/workroom
 /wiz/chun/exec.c line 6: parse error before domains/std/monster_
 /wiz/chun/exec.c line 6: Undefined variable 'rose' before ;}
-/wiz/chun/roses.c line 9: parse error before °Ò»´Ø½¿ÑÞµÄÃµ¹å£¬ÕâÒ
-/wiz/chun/roses.c line 19: $var illegal outside of function pointer. before NÈÌ²»×¡ÕªÏÂÒ»¶äÃµ¹å¡
-/wiz/chun/roses.c line 24: End of file in string at the end of the file
+/wiz/chun/roses.c line 9: parse error before è€™æ·®äºŸåž¦è–œæ‹¿å€’æ¾¹îƒ°åº–
+/wiz/chun/roses.c line 19: $var illegal outside of function pointer. before Nå¿ä¸ä½æ‘˜ä¸‹ä¸€æœµçŽ«ç‘°/wiz/chun/roses.c line 24: End of file in string at the end of the file
 /wiz/chun/roses.c line 12: Undefined variable 'pick' before ));
 /wiz/chun/roses.c line 12: parse error before ));
 /wiz/chun/roses.c line 23: Illegal LHS before the end of line
@@ -182,9 +180,7 @@
 /wiz/chun/exec.c line 6: parse error before sgdomain/obj/cloth/c
 /wiz/chun/exec.c line 6: Single '#' in identifier -- use '##' for token pasting before 07675 -> set_owner("
 /wiz/chun/exec.c line 6: Undefined variable 'gini_d' before  gini_list();}
-/wiz/chun/gini_d.c line 266: String too long before %^gini rmq%^RESET%^£
-/wiz/chun/gini_d.c line 266: parse error before %^gini rmq%^RESET%^£
-/wiz/chun/exec.c line 6: Undefined variable 'nick' before "???");}
+/wiz/chun/gini_d.c line 266: String too long before %^gini rmq%^RESET%^/wiz/chun/gini_d.c line 266: parse error before %^gini rmq%^RESET%^/wiz/chun/exec.c line 6: Undefined variable 'nick' before "???");}
 /wiz/chun/exec.c line 6: parse error before ice->set_nick("???")
 /wiz/chun/exec.c line 6: parse error before ice;}
 /wiz/chun/exec.c line 6: parse error before ice);}

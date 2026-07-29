@@ -11,10 +11,10 @@ private void main(mixed *arg) {
     {
       if (rmdir(dir))
         //outf("Removed directory: %s.\n", dir);
-        outf("删除目录 %s 成功。\n", dir);
+        outf("鍒犻櫎鐩綍 %s 鎴愬姛銆俓n", dir);
       else
         outf(//"Failed to remove directory: %s.\n"
-             "删除目录 %s 失败。\n", dir);
+             "鍒犻櫎鐩綍 %s 澶辫触銆俓n", dir);
     }
  
 }

@@ -48,7 +48,7 @@ string check_english(string ee)
 	string out, *list;
 	mixed data;
 
-	out ="<center><h2>Èı¹úÖ¾Çé¸Ğ¶¯´Ê²éÕÒ£º"+ee+"</h2></center><br>";
+	out ="<center><h2>ä¸‰å›½å¿—æƒ…æ„ŸåŠ¨è¯æŸ¥æ‰¾ï¼š"+ee+"</h2></center><br>";
 	if( !has_magic(ee) ) ee+="*";
 	ee = "^"+translate(ee)+"$";
 	list = regexp(alls, ee);
@@ -63,7 +63,7 @@ string check_english(string ee)
             		out+=sprintf("<tr><td>%O -> %s\n</tr></td>", mm, implode(data[mm], "\n\t-> "));
 	}
 	out+="</table></center>";
-	out+="<p><br><center>Ïà½üµÄ¶¯´ÊÓĞ£º</center><br><center><table border=0 cellspacing=3 cellpadding=3>";
+	out+="<p><br><center>ç›¸è¿‘çš„åŠ¨è¯æœ‰ï¼š</center><br><center><table border=0 cellspacing=3 cellpadding=3>";
 	foreach(string ss in list){
 		if( i>=4 ) { i=0; out+="</tr><tr>"; }
 		i++;
@@ -77,8 +77,8 @@ string find_all()
 {
 	int i;
 	string out;
-	out ="<center><h2>Èı¹úÖ¾Çé¸Ğ¶¯´Ê²éÕÒ£ºÈ«Ìå</h2></center><br>";
-	out+="<center>Èı¹úÖ¾Çé¸Ğ¶¯´ÊÁĞ±í</center><br><center><table border=1 cellspacing=3 cellpadding=3>";
+	out ="<center><h2>ä¸‰å›½å¿—æƒ…æ„ŸåŠ¨è¯æŸ¥æ‰¾ï¼šå…¨ä½“</h2></center><br>";
+	out+="<center>ä¸‰å›½å¿—æƒ…æ„ŸåŠ¨è¯åˆ—è¡¨</center><br><center><table border=1 cellspacing=3 cellpadding=3>";
         foreach(string ss in alls){
                 if( i>=8 ) { i=0; out+="</tr><tr>"; }
                 i++;
@@ -119,7 +119,7 @@ string check_chinese(string cc)
 
 	cc = trans_code_to_chinese(cc);
 	list = SOUL_D->emote_apropos(cc);
-	out ="<center><h2>Èı¹úÖ¾Çé¸Ğ¶¯´Ê²éÕÒ£º"+cc+"</h2></center><br>";	
+	out ="<center><h2>ä¸‰å›½å¿—æƒ…æ„ŸåŠ¨è¯æŸ¥æ‰¾ï¼š"+cc+"</h2></center><br>";	
 
 	if( !list||!arrayp(list)||!sizeof(list) ) out+="<br><center><h2>No emote found!</h2></center><br><br><br>";
 	else {

@@ -13,7 +13,7 @@ void create()
   no_redirection();
 }
 
-#define USAGE   "用法:  times <#> <command>\n"
+#define USAGE   "鐢ㄦ硶:  times <#> <command>\n"
 private void main( string orig_input, mixed *arg )
 {
     int repeats;
@@ -25,7 +25,7 @@ private void main( string orig_input, mixed *arg )
 
     if( repeats <= 0 || ( repeats > 10 && !check_privilege(1)) )
     {
-        out( "times:  参数超出范围。\n" );
+        out( "times:  鍙傛暟瓒呭嚭鑼冨洿銆俓n" );
         return;
     }
 

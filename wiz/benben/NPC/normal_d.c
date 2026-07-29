@@ -26,39 +26,39 @@ string get_dis1(int p_age, int p_gender)
 	switch(pp_age)
 	{
 		case 0:
-			p_tmp="¶ùÍ¯";
+			p_tmp="å„¿ç«¥";
 			break;
 		case 1:
-			p_tmp="ÉÙÄê";
+			p_tmp="å°‘å¹´";
 			break;
 		case 2:
-			p_tmp="ÇàÄê";
+			p_tmp="é’å¹´";
 			break;
 		case 3: 
-			p_tmp="³ÉÄê";
+			p_tmp="æˆå¹´";
 			break;
 		case 4:
-			p_tmp="ÖÐÄê";
+			p_tmp="ä¸­å¹´";
 			break;
 		case 5:
 		case 6:
-			p_tmp="×³Äê";
+			p_tmp="å£®å¹´";
 			if(p_gender==2)
-				p_tmp="ÖÐÄê";
+				p_tmp="ä¸­å¹´";
 			break;
 		default :
-			p_tmp="ÀÏÄê";
+			p_tmp="è€å¹´";
 	}
 	switch(p_gender)
 	{
 		case 1:
-			p_tmp=p_tmp+"ÄÐ×Ó";
+			p_tmp=p_tmp+"ç”·å­";
 			break;
 		case 2:
-			p_tmp=p_tmp+"Å®×Ó";
+			p_tmp=p_tmp+"å¥³å­";
 			break;
 		default :
-			p_tmp=p_tmp+"ÖÐÐÔÈË";
+			p_tmp=p_tmp+"ä¸­æ€§äºº";
 	}
        return p_tmp;
 }
@@ -70,27 +70,27 @@ string get_rongmao(int p_age,int p_rongmao, int p_gender )
 		if(p_rongmao>20)
 		{
 			if(p_age>20)
-                                return "³¤µÃÈçÍ¬ÃÎÖÐµÄ°×ÂíÍõ×Ó¡£\n";
+                                return "é•¿å¾—å¦‚åŒæ¢¦ä¸­çš„ç™½é©¬çŽ‹å­ã€‚\n";
 			else
 			{
 				if(random(2))
-                                        return "ÊÇÒ»¸ö¿¡ÇÎµÄÐ¡ÄÐº¢¡£\n";
+                                        return "æ˜¯ä¸€ä¸ªä¿Šä¿çš„å°ç”·å­©ã€‚\n";
 
 
 				else
-                                        return "¿´ÉÏÈ¥¿É°®ÓÖµ÷Æ¤¡£\n";
+                                        return "çœ‹ä¸ŠåŽ»å¯çˆ±åˆè°ƒçš®ã€‚\n";
 			}
 		}
 		else
 		{
 			if(p_age>20)
-                                return "³¤µÃÏóÒ»¸öÉ±ÖíµÄ¡£\n";
+                                return "é•¿å¾—è±¡ä¸€ä¸ªæ€çŒªçš„ã€‚\n";
 			else
 			{
 				if(random(2))
-                                        return "ÊÇÒ»¸ö³óÐ¡×Ó¡£\n";
+                                        return "æ˜¯ä¸€ä¸ªä¸‘å°å­ã€‚\n";
 				else
-                                        return "¿´ÉÏÈ¥½«À´ºÜÄÑÕÒµ½Ï±¸¾¡£\n";
+                                        return "çœ‹ä¸ŠåŽ»å°†æ¥å¾ˆéš¾æ‰¾åˆ°åª³å¦‡ã€‚\n";
 
 			}
 		}
@@ -98,7 +98,7 @@ string get_rongmao(int p_age,int p_rongmao, int p_gender )
 	else // for female
 	{
 		if(p_rongmao>20)
-                        return "¿´ÉÏÈ¥Ïó¸öÃÀÅ®¡£\n";
-                return "ÊÇÒ»¸öÏóÃ²Æ½Ó¹µÄÅ®ÈË¡£\n";
+                        return "çœ‹ä¸ŠåŽ»è±¡ä¸ªç¾Žå¥³ã€‚\n";
+                return "æ˜¯ä¸€ä¸ªè±¡è²Œå¹³åº¸çš„å¥³äººã€‚\n";
 	}
 }

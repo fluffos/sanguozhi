@@ -17,12 +17,12 @@ private void main()
         return;
     }
     if (this_body()->is_visible())
-        printf("ºÃÃÃÃÃ£¬ÄãÏÖÔÚÃ»ÓĞÒşĞÎ°¡ @_@¡£\n");
+        printf("å¥½å¦¹å¦¹ï¼Œä½ ç°åœ¨æ²¡æœ‰éšå½¢å•Š @_@ã€‚\n");
     else
     {
         this_body()->set_visibility(1);
         FINGER_D->update_me();
         this_body()->do_player_message("vis");
-        out("Äã¾ö¶¨²»ÒşĞÎÁË£¬*pout rou£¬ÎªÊ²Ã´ÄØ£¿ @_@\n");
+        out("ä½ å†³å®šä¸éšå½¢äº†ï¼Œ*pout rouï¼Œä¸ºä»€ä¹ˆå‘¢ï¼Ÿ @_@\n");
     }
 }

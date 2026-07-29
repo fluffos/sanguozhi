@@ -8,9 +8,9 @@ inherit M_GETTABLE;
 
 void mudlib_setup()
 {
-    set_id("sign", "牌子");
+    set_id("sign", "鐗屽瓙");
     set_gettable(0);
-    set_getmsg( "#最好不要把它拿走。\n" );
+    set_getmsg( "#鏈�濂戒笉瑕佹妸瀹冩嬁璧般�俓n" );
 
 }
 

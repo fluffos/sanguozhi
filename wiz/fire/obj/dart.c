@@ -1,17 +1,17 @@
-// by fire on Dec 11 1997 dart.c Ø°Ê×
+// by fire on Dec 11 1997 dart.c åŒ•é¦–
 #include <sanguo.h>
 inherit SWORD;
 inherit M_VALUE;
 void setup() {
-    set_adj("·æÀû");
-    set_unit("°Ñ");
-    set_id("dart", "Ø°Ê×");
+    set_adj("é”‹åˆ©");
+    set_unit("æŠŠ");
+    set_id("dart", "åŒ•é¦–");
 	add_id("bishou");
     set_weapon_class(5);
     set_size(MEDIUM);
     set_value(5);
 	set_currency_type("silver");
-    set_wield_message("$N°Î³ö$o£¬¡°ºÙºÙ¡±µØ¸ÉĞ¦ÁËÁ½Éù¡£\n");
-    set_unwield_message("$NºßµÄÒ»Éù£¬°Ñ$o²åÁË»ØÈ¥¡£\n");
+    set_wield_message("$Næ‹”å‡º$oï¼Œâ€œå˜¿å˜¿â€åœ°å¹²ç¬‘äº†ä¸¤å£°ã€‚\n");
+    set_unwield_message("$Nå“¼çš„ä¸€å£°ï¼ŒæŠŠ$oæ’äº†å›å»ã€‚\n");
    set_combat_messages("combat-blade");
 }

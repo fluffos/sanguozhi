@@ -18,9 +18,9 @@ void oob_svc_error(object socket, string errcode, string errmsg,
 /*
 ** Store the lists of requests for each target mud
 */
-static private mapping file_requests = ([ ]);
+nosave private mapping file_requests = ([ ]);
 
-static private string * file_status = ({
+nosave private string * file_status = ({
     "request failed (write permission)",
     "request failed (read  permission)",
     "request failed (fpath error)",

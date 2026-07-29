@@ -1,15 +1,15 @@
-//by jiezhao on Dec 25 1997 jiubian.c ¾Å½Ú±Ş
+//by jiezhao on Dec 25 1997 jiubian.c ä¹èŠ‚é­
 #include <sanguo.h>
 inherit SWORD;
 inherit M_VALUE;
 void setup()
 {
-set_adj("¾Å½Ú");
-set_unit("±ú");
-set_id("whip", "±Ş");
+set_adj("ä¹èŠ‚");
+set_unit("æŸ„");
+set_id("whip", "é­");
 add_id("bian");
-set_long("Ò»±ú¾«¹¤´òÖÆµÄ¾Å½Ú±Ş£¬Ëä²»ÖÂÃü£¬µ«×ã¿ÉÉËÈË¡£");
-set_in_room_desc("¾Å½Ú±Ş(whip)");
+set_long("ä¸€æŸ„ç²¾å·¥æ‰“åˆ¶çš„ä¹èŠ‚é­ï¼Œè™½ä¸è‡´å‘½ï¼Œä½†è¶³å¯ä¼¤äººã€‚");
+set_in_room_desc("ä¹èŠ‚é­(whip)");
 set_weapon_class(5);
 set_size(MEDIUM);
 set_value(10);

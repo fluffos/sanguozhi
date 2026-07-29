@@ -8,19 +8,19 @@ inherit ROOM;
 void setup()
 {
 set_area("wiz_area");
-    set_brief("±ãÀûµê");
+    set_brief("ä¾¿åˆ©åº—");
     set_long(
-        "ÕâÀïÊÇ±ãÀûµê¡£Íæ¼Òµ½ÕâÀïÀ´ÊÛÂôËûÃÇÌ½ÏÕµÄÕ½ÀûÆ·ºÍ¹ºÂòËùĞèµÄ¶«Î÷¡£\n"
-        "Ç½ÉÏÌù×ÅÒ»¸ö¸æÊ¾(sign)¡£\n"
+        "è¿™é‡Œæ˜¯ä¾¿åˆ©åº—ã€‚ç©å®¶åˆ°è¿™é‡Œæ¥å”®å–ä»–ä»¬æ¢é™©çš„æˆ˜åˆ©å“å’Œè´­ä¹°æ‰€éœ€çš„ä¸œè¥¿ã€‚\n"
+        "å¢™ä¸Šè´´ç€ä¸€ä¸ªå‘Šç¤º(sign)ã€‚\n"
         );
 
     add_item("sign", ([
-"look" : "ÇëÏò biff ´òÌı (swords, keys, etc),\n"
-         "  ³¯ biff ¹ºÂò (sword or sword #)\n"          
-         "  Ïò biff ³öÊÛ (sword, first sword etc)\n",
-"read" : "ÇëÏò biff ´òÌı (swords, keys, etc),\n"
-         "  ³¯ biff ¹ºÂò (sword or sword #)\n"
-                  "  Ïò biff ³öÊÛ (sword, first sword etc)\n",
+"look" : "è¯·å‘ biff æ‰“å¬ (swords, keys, etc),\n"
+         "  æœ biff è´­ä¹° (sword or sword #)\n"          
+         "  å‘ biff å‡ºå”® (sword, first sword etc)\n",
+"read" : "è¯·å‘ biff æ‰“å¬ (swords, keys, etc),\n"
+         "  æœ biff è´­ä¹° (sword or sword #)\n"
+                  "  å‘ biff å‡ºå”® (sword, first sword etc)\n",
         ]) );
     set_objects( (["/domains/std/shopkeeper.c" :1,
         STAIRS : ({ 1, "/domains/std/wizroom" }),

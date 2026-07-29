@@ -26,7 +26,7 @@ private string		shell_saved_data;
 /*
 ** The actuall shell object we're using
 */
-static private object	shell_ob;
+nosave private object	shell_ob;
 
 
 nomask string query_shell_fname()
@@ -45,7 +45,7 @@ nomask object query_shell_ob()
     return shell_ob;
 }
 
-static void start_shell()
+protected void start_shell()
 {
     if ( !shell_ob )
     {
@@ -66,7 +66,7 @@ static void start_shell()
     shell_ob->start_shell();
 }
 
-static nomask void prepare_to_save()
+protected nomask void prepare_to_save()
 {
     if ( shell_ob )
 	shell_saved_data = shell_ob->save_to_string();

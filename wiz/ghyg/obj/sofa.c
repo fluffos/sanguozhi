@@ -11,20 +11,20 @@ int turn_onoff( string par_str )
 {
    if ( par_str == "on" )
    {
-        write( "Äã´ò¿ª¿ª¹Ø¡£" );
+        write( "ä½ æ‰“å¼€å¼€å…³ã€‚" );
         
         p_status = 1;
     
    }
    else if ( par_str == "off" )
    {
-        write( "Äã¹ØÉÏ¿ª¹Ø¡£" );
+        write( "ä½ å…³ä¸Šå¼€å…³ã€‚" );
         
         p_status = 0;
    }
    else
    {
-        write( "turn on »òÕß turn off\n" );    
+        write( "turn on æˆ–è€… turn off\n" );    
    }
     
    return p_status;
@@ -35,20 +35,20 @@ int turn( string par_str )
 {
    if ( par_str == "on" )
    {
-        write( "Äã´ò¿ª¿ª¹Ø¡£" );
+        write( "ä½ æ‰“å¼€å¼€å…³ã€‚" );
         
         p_status = 1;
     
    }
    else if ( par_str == "off" )
    {
-        write( "Äã¹ØÉÏ¿ª¹Ø¡£" );
+        write( "ä½ å…³ä¸Šå¼€å…³ã€‚" );
         
         p_status = 0;
    }
    else
    {
-        write( "turn on »òÕß turn off\n" );    
+        write( "turn on æˆ–è€… turn off\n" );    
    }
     
    return p_status;
@@ -56,13 +56,13 @@ int turn( string par_str )
 
 void setup()
 {
-  set_id("sofa", HIY+"É³·¢"+NOR);
-  set_unit("ÕÅ");
-  set_in_room_desc("Ò»ÕÅÊæ·şµÄ"+HIY+"É³·¢"+NOR+"¡£(sofa)");
+  set_id("sofa", HIY+"æ²™å‘"+NOR);
+  set_unit("å¼ ");
+  set_in_room_desc("ä¸€å¼ èˆ’æœçš„"+HIY+"æ²™å‘"+NOR+"ã€‚(sofa)");
   set_value(5000000);
   set_get_on_msg("");
-  set_get_off_msg("$N·Ñ¾¢µØ´ÓÉ³·¢ÉÏÕ¾ÁËÆğÀ´¡£\n");
-  set_long("ÕâÊÇÒ»ÕÅÒâ´óÀû½ø¿ÚµÄÕæÆ¤É³·¢£¬Òª×øÉÏÈ¥ÇëÓÃ sit on sofa¡£\n");
+  set_get_off_msg("$Nè´¹åŠ²åœ°ä»æ²™å‘ä¸Šç«™äº†èµ·æ¥ã€‚\n");
+  set_long("è¿™æ˜¯ä¸€å¼ æ„å¤§åˆ©è¿›å£çš„çœŸçš®æ²™å‘ï¼Œè¦åä¸Šå»è¯·ç”¨ sit on sofaã€‚\n");
   set_preposition("on");
   set_relations("on","under");
   set_max_capacity(VERY_LARGE*5, "on");
@@ -83,16 +83,16 @@ int mount_it_already()
   string stat;
   if(environment(this_body()) == this_object())
     {
-      write("ÄãÒÑ¾­×øÔÚÉ³·¢ÉÏÃæÁË£¬°×³Õ¡£\n");
+      write("ä½ å·²ç»ååœ¨æ²™å‘ä¸Šé¢äº†ï¼Œç™½ç—´ã€‚\n");
       return 1;
     }
   this_body()->move(this_object());
-  this_body()->simple_action("$NÊæÊæ·ş·şµØºáÔÚÁË"+short()+"ÉÏ£¬¿´Ò²²»¿´ÅÔ±ßµÄÈËÒ»ÑÛ¡£\n");
+  this_body()->simple_action("$Nèˆ’èˆ’æœæœåœ°æ¨ªåœ¨äº†"+short()+"ä¸Šï¼Œçœ‹ä¹Ÿä¸çœ‹æ—è¾¹çš„äººä¸€çœ¼ã€‚\n");
   return 1;
 }
 
 void do_wish_for_str( string str )
 {
-    write( "ÊÇÄãÏ£ÍûµÄÂğ\n" );
+    write( "æ˜¯ä½ å¸Œæœ›çš„å—\n" );
 }
 

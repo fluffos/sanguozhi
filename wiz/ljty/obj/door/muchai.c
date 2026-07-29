@@ -11,9 +11,9 @@ private string xiufu_type;
 
 void setup()
 {
-  set_unit("À¦");
-  set_id("muchai","Ä¾²Ä");
-  set_in_room_desc("Ä¾²Ä(muchai)");
+  set_unit("æ†");
+  set_id("muchai","æœ¨æ");
+  set_in_room_desc("æœ¨æ(muchai)");
   set_num_uses(3);
   set_gettable(1);
 }

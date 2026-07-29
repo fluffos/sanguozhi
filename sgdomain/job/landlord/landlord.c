@@ -24,15 +24,15 @@ int job(string who, string ob)
 }
 void setup()
 {
-	set_name("officer", "ÍÁµØ¿ª·¢¹ÙÔ±");
+	set_name("officer", "åœŸåœ°å¼€å‘å®˜å‘˜");
 	add_id("land officer");
-	set_in_room_desc("Ò»Î»Éñ²É·ÉÑïµÄÍÁµØ¿ª·¢¹ÙÔ±(officer)");
-	set_long("Ò»Î»Éñ²É·ÉÑïµÄ¹ÙÔ±(officer)");
+	set_in_room_desc("ä¸€ä½ç¥žé‡‡é£žæ‰¬çš„åœŸåœ°å¼€å‘å®˜å‘˜(officer)");
+	set_long("ä¸€ä½ç¥žé‡‡é£žæ‰¬çš„å®˜å‘˜(officer)");
 	set_gender(1);
 	add_question("order", "order");
 	add_question("job", "job");
-	add_ask_str("order", "$N¶Ô$T´óÄ£´óÑùµÄËµ£º¿ìÕÙ¼¯ÈËÀ´£¬ÎÒÒªÏÂÃüÁîÀ²¡£\n");
-	add_ask_str("job", "$NÏò$TÎÊµÀ£ºÏÖÔÚÓÐÊ²Ã´¹¤×÷£¿\n");
+	add_ask_str("order", "$Nå¯¹$Tå¤§æ¨¡å¤§æ ·çš„è¯´ï¼šå¿«å¬é›†äººæ¥ï¼Œæˆ‘è¦ä¸‹å‘½ä»¤å•¦ã€‚\n");
+	add_ask_str("job", "$Nå‘$Té—®é“ï¼šçŽ°åœ¨æœ‰ä»€ä¹ˆå·¥ä½œï¼Ÿ\n");
 }
 mixed special_answer(object ob, string str)
 {
@@ -45,15 +45,15 @@ mixed special_answer(object ob, string str)
 	};
 	if( str != "order" )return ::special_answer(ob, str);
 	if( !ob->query_job("landlord", "") ){
-		this_object()->targetted_action("$NÆ²ÁË$TÒ»ÑÛ£¬ÊÇË­ÅÉÄãÀ´µÄ£¿\n", ob);
+		this_object()->targetted_action("$Næ’‡äº†$Tä¸€çœ¼ï¼Œæ˜¯è°æ´¾ä½ æ¥çš„ï¼Ÿ\n", ob);
 		return 1;
 	};
 	if( ob->query_job("landlord", "status") == "over" ){
-		this_object()->targetted_action("$NÏò$TÐ¦µ½£ºÕâÎ»$RÄúµÄ¹¤×÷ÒÑ¾­Íê³ÉÁË¡£\n", ob);
+		this_object()->targetted_action("$Nå‘$Tç¬‘åˆ°ï¼šè¿™ä½$Ræ‚¨çš„å·¥ä½œå·²ç»å®Œæˆäº†ã€‚\n", ob);
 		return 1;
 	};	
 	if( !owner || owner == "" || this_body()->query_id()[0] == owner ){
-		this_object()->targetted_action("$N¹§¾´µÄ¶Ô$TËµ£º$RÇëÏÂÁî°É¡£\n", ob);
+		this_object()->targetted_action("$Næ­æ•¬çš„å¯¹$Tè¯´ï¼š$Rè¯·ä¸‹ä»¤å§ã€‚\n", ob);
 		if( !ob->query_job("landlord", "start") ){
 
 			owner = this_body()->query_id()[0];
@@ -66,9 +66,9 @@ mixed special_answer(object ob, string str)
 			worker1->move(environment(this_object()));
 			worker2->move(environment(this_object()));
 			worker3->move(environment(this_object()));
-			worker1->simple_action("$N¼±¼±Ã¦Ã¦µÄ´ÓÍâÃæ¸ÏÁË¹ýÀ´¡£\n");
-			worker2->simple_action("$N¼±¼±Ã¦Ã¦µÄ´ÓÍâÃæ¸ÏÁË¹ýÀ´¡£\n");
-			worker3->simple_action("$N¼±¼±Ã¦Ã¦µÄ´ÓÍâÃæ¸ÏÁË¹ýÀ´¡£\n");
+			worker1->simple_action("$Næ€¥æ€¥å¿™å¿™çš„ä»Žå¤–é¢èµ¶äº†è¿‡æ¥ã€‚\n");
+			worker2->simple_action("$Næ€¥æ€¥å¿™å¿™çš„ä»Žå¤–é¢èµ¶äº†è¿‡æ¥ã€‚\n");
+			worker3->simple_action("$Næ€¥æ€¥å¿™å¿™çš„ä»Žå¤–é¢èµ¶äº†è¿‡æ¥ã€‚\n");
 
 			workers = ({ });
 			workers = workers + ({worker1, worker2, worker3,});
@@ -77,7 +77,7 @@ mixed special_answer(object ob, string str)
 		menu->set_workers( workers );
 		menu->start_menu();
 	} else {
-		this_object()->simply_action("$N°ÚÊÖµÀ£º"+CHAR_D->get_char(owner, "name")+"ÕýÃ¦×ÅÄØ¡£\n");
+		this_object()->simply_action("$Næ‘†æ‰‹é“ï¼š"+CHAR_D->get_char(owner, "name")+"æ­£å¿™ç€å‘¢ã€‚\n");
 	};
 	return 1;
 }
@@ -86,15 +86,15 @@ void answer_job()
 	object player;
 
 	mapping att = (["str":random(5)+5, "int":random(5)+5, "exp":random(5)+5,
-                "eff":random(5)+5, "wrk":0, "job":"°ïÃ¦" ]);
+                "eff":random(5)+5, "wrk":0, "job":"å¸®å¿™" ]);
 	player = this_body();
 	new_worker = player;
 
 	if ( !owner || owner == ""){
-		this_object()->simple_action("$NÒ¡ÁËÒ¡Í·µÀ£ºÏÖÔÚÃ»ÓÐÊ²Ã´¹¤×÷¸É¡£\n");
+		this_object()->simple_action("$Næ‘‡äº†æ‘‡å¤´é“ï¼šçŽ°åœ¨æ²¡æœ‰ä»€ä¹ˆå·¥ä½œå¹²ã€‚\n");
 		return;
 	};
-	this_object()->simple_action("$NµãÍ·µÀ£º¿ì¸É°É£¬ÕýµÈ×ÅÄãÄØ¡£\n");
+	this_object()->simple_action("$Nç‚¹å¤´é“ï¼šå¿«å¹²å§ï¼Œæ­£ç­‰ç€ä½ å‘¢ã€‚\n");
 	if( member_array(player, workers) == -1 ){ 
 		workers = workers + ({ new_worker });
 		new_worker->resign_job("land_dp");
@@ -117,14 +117,14 @@ void finish_job()
 			ROBOT->robot_test(ob, (: award :) );
 		} else {
 			total = total + ob->query("wrk");
-			ob->simple_action("$NÉêÁËÒ»ÏÂÑü£ºÖÕÓÚ¸ÉÍêÁË¡£\n");
+			ob->simple_action("$Nç”³äº†ä¸€ä¸‹è…°ï¼šç»ˆäºŽå¹²å®Œäº†ã€‚\n");
 			destruct( ob );
 		};
 	};	
 
 	officer = find_body(owner);
 	if( officer ){
-		tell(officer, this_object()->short()+"£º¹¤×÷Íê³ÉÁË£¬ÇëÏòÌ«ÊØ»ã±¨°É¡£\n");
+		tell(officer, this_object()->short()+"ï¼šå·¥ä½œå®Œæˆäº†ï¼Œè¯·å‘å¤ªå®ˆæ±‡æŠ¥å§ã€‚\n");
 		officer->set_job("landlord", "reward", total);
 		officer->set_job("landlord", "start", 0);
 		officer->set_job("landlord", "status", "done");
@@ -143,16 +143,16 @@ void award(object ob)
 	object money;
 	
 	if( ob->query_robot() ){
-		this_object()->simple_action("$NÎ¢Î¢Ò»Ð¦£ºÔ­À´Èç´Ë£¬ºÃ°É¡£\n");
-		this_object()->targetted_action("$N¸ø$TÒ»ÕÅ°ÙÔ²Ö½Ç®¡£\n", ob);
-        	ob->simple_action("$N¸ßÐËµØÖ±ÀÖ£ºÖÕÓÚÓÐÇ®ÁË£¡\n");
+		this_object()->simple_action("$Nå¾®å¾®ä¸€ç¬‘ï¼šåŽŸæ¥å¦‚æ­¤ï¼Œå¥½å§ã€‚\n");
+		this_object()->targetted_action("$Nç»™$Tä¸€å¼ ç™¾åœ†çº¸é’±ã€‚\n", ob);
+        	ob->simple_action("$Né«˜å…´åœ°ç›´ä¹ï¼šç»ˆäºŽæœ‰é’±äº†ï¼\n");
         	money=new(PMONEY+"fmoney");
         	money->move(ob);
 	} else {
 		CHAR_D->set_char(ob->query_id()[0],"reputation",
         		CHAR_D->get_char(ob->query_id()[0], "reputation")+5);
-		this_object()->simple_action("$NµÀ£º²»´í£¬²»´í¡£\n");
-		this_object()->targetted_action("$N¸ø$T¼¸Á½Òø×Ó¡£\n", ob);
+		this_object()->simple_action("$Né“ï¼šä¸é”™ï¼Œä¸é”™ã€‚\n");
+		this_object()->targetted_action("$Nç»™$Tå‡ ä¸¤é“¶å­ã€‚\n", ob);
 		money = new(M_SILVER);
 		money->set_m_num(10+random(10));
 		money->move( ob );
@@ -163,22 +163,22 @@ void do_work(object ob)
 {
 	int hp;
 	mapping att;
-	string *msg = ({"$NÌÉÔÚÊ÷ÏÂË¯×ÅÁË¡£\n",
-			"$NÒ»±¾Õý¾­µÄ¿³×ÅÊ÷¡£\n",
-			"$NÆ´ÁËÃüËÆµÄ¿³Ê÷£¬´óÊ÷à§à§µÄµ¹ÔÚµØÉÏ¡£\n",
-			"$Nµ¹ÔÚµØË¯×ÅÁË¡£\n",
-			"$NÅ¬Á¦µÄÕûµØ£¬Á÷ÁËÒ»ÉíµÄº¹¡£\n",
-			"$N²»½ô²»ÂýµÄ¹à¸È×Å¡£\n",
-			"$NÒ»±¾Õý¾­µÄ¹à¸È×Å¡£\n", });
+	string *msg = ({"$Nèººåœ¨æ ‘ä¸‹ç¡ç€äº†ã€‚\n",
+			"$Nä¸€æœ¬æ­£ç»çš„ç ç€æ ‘ã€‚\n",
+			"$Næ‹¼äº†å‘½ä¼¼çš„ç æ ‘ï¼Œå¤§æ ‘å”°å”°çš„å€’åœ¨åœ°ä¸Šã€‚\n",
+			"$Nå€’åœ¨åœ°ç¡ç€äº†ã€‚\n",
+			"$NåŠªåŠ›çš„æ•´åœ°ï¼Œæµäº†ä¸€èº«çš„æ±—ã€‚\n",
+			"$Nä¸ç´§ä¸æ…¢çš„çŒæº‰ç€ã€‚\n",
+			"$Nä¸€æœ¬æ­£ç»çš„çŒæº‰ç€ã€‚\n", });
 
 	if( !sizeof(workers) || member_array(ob, workers) == -1){
-		this_object()->simple_action("$NµÀ£ºÒª¹¤×÷£¬ÏÈÉêÇë¡£\n");
+		this_object()->simple_action("$Né“ï¼šè¦å·¥ä½œï¼Œå…ˆç”³è¯·ã€‚\n");
 		return;
 	};
 	hp = ob->query_cur_hp();
 	att = ob->query_job("land_dp", "att");
 	if( hp < 50 ){
-		printf("ÄãÒÑ¾­Ì«ÀÛÁË£¬»¹ÊÇÏÈÐÝÏ¢Ò»ÏÂÔÙ¸É°É¡£\n");
+		printf("ä½ å·²ç»å¤ªç´¯äº†ï¼Œè¿˜æ˜¯å…ˆä¼‘æ¯ä¸€ä¸‹å†å¹²å§ã€‚\n");
                 return;
         } else ob->set_cur_hp( hp -40+random(10) );
 	ob->simple_action( msg[random(sizeof(msg))] );

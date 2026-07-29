@@ -10,7 +10,7 @@
 inherit CMD;
 
 #define DELIM sprintf(repeat_string("-",73)+"\n")
-#define WHO_FORMAT      "%s:  (±¾µØÊ±¼ä£º%s) %28s\n%s"
+#define WHO_FORMAT      "%s:  (æœ¬åœ°æ—¶é—´ï¼š%s) %28s\n%s"
 #define DEBUG(arg) if (debug && member_array(arg,msgs)==-1) msgs+=({arg})
 
 string *msgs=({});
@@ -19,7 +19,7 @@ string get_who_string(string arg)
 {
     string retval="";
     int debug;
-    object array b = bodies() - ({ 0 });
+    object * b = bodies() - ({ 0 });
     string *args=({});
     string tmp;
 
@@ -82,14 +82,14 @@ string get_who_string(string arg)
         retval+=sprintf("%|70s\n%|70s\n%|70s\n"+DELIM,
            mud_name(),
           "(PST is: "+ctime(time())+")",
-          "ÏÖÔÚÓĞ "+ sizeof(b) +" Î»Íæ¼ÒÁ¬ÏßÖĞ¡£");
+          "ç°åœ¨æœ‰ "+ sizeof(b) +" ä½ç©å®¶è¿çº¿ä¸­ã€‚");
     }
     else
     if (member_array("H",args)!=-1)
     {
         args-=({"H"});
         DEBUG("Small Header");
-        retval += sprintf("%s:  (±¾µØÊ±¼ä£º%s)\n",
+        retval += sprintf("%s:  (æœ¬åœ°æ—¶é—´ï¼š%s)\n",
           mud_name(), ctime(time()));
         retval+=DELIM;
     }

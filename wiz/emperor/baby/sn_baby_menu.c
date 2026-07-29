@@ -2,7 +2,7 @@ void create( )
 {
     set_privilege(1);
     toplevel = new_menu("");
-    quit_item = new_menu_item("ÍËÏÂ", (:quit_old_place:), "q");
+    quit_item = new_menu_item("é€€ä¸‹", (:quit_old_place:), "q");
     seperator = new_seperator
     ("----------------------------------------------------------------------");
     space = new_seperator
@@ -10,14 +10,14 @@ void create( )
 
     add_menu_item(toplevel, seperator);
     add_menu_item(toplevel, space);
-    add_menu_item(toplevel, new_menu_item("¶ºº¢×ÓÍæ",	(: do_play :) ,"1"));
-    add_menu_item(toplevel, new_menu_item("¸øº¢×ÓÎ¹ÄÌ",	(: do_weinai :) ,"2"));
-    add_menu_item(toplevel, new_menu_item("½Ìº¢×ÓËµ»°",	(: do_teach :) ,"3"));
-    add_menu_item(toplevel, new_menu_item("¸øº¢×ÓÆğÃû",	(: get_input_then_call,
-		(: do_changeid :) ,"±äÎªºÎÃû£º" :) ,"4"));
+    add_menu_item(toplevel, new_menu_item("é€—å­©å­ç©",	(: do_play :) ,"1"));
+    add_menu_item(toplevel, new_menu_item("ç»™å­©å­å–‚å¥¶",	(: do_weinai :) ,"2"));
+    add_menu_item(toplevel, new_menu_item("æ•™å­©å­è¯´è¯",	(: do_teach :) ,"3"));
+    add_menu_item(toplevel, new_menu_item("ç»™å­©å­èµ·å",	(: get_input_then_call,
+		(: do_changeid :) ,"å˜ä¸ºä½•åï¼š" :) ,"4"));
     add_menu_item(toplevel, quit_item);
     add_menu_item(toplevel, space);
-    set_menu_prompt (toplevel, "ÊäÈëÖ¸Áî[1234q]: ");
+    set_menu_prompt (toplevel, "è¾“å…¥æŒ‡ä»¤[1234q]: ");
 }
 
 void start_menu()

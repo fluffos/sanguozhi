@@ -1,28 +1,28 @@
 #include <ansi.h>
 #include <sanguo.h>
 // m_sggift.c by fire on Dec 20 1997
-private int sg_wuli;  // ÎäÁ¦ from 10 to 30 with special weapon can be higher
-private int sg_zhimou;  // ÖÇÄ± as above this are orignal one, can't changed
-private int sg_meili; // ÷ÈÁ¦
+private int sg_wuli;  // æ­¦åŠ› from 10 to 30 with special weapon can be higher
+private int sg_zhimou;  // æ™ºè°‹ as above this are orignal one, can't changed
+private int sg_meili; // é­…åŠ›
 private int sg_exp; // this will increase during fight and . . .
-private int sg_shengwang; // ÉùÍû ; very important to judge player's level
-private int sg_age; // ÄêÁä;
-private int sg_shouming; // ÊÙÃü = max age over than that will die
-private int sg_rongmao; // ÈİÃ² from 10 to 30;
+private int sg_shengwang; // å£°æœ› ; very important to judge player's level
+private int sg_age; // å¹´é¾„;
+private int sg_shouming; // å¯¿å‘½ = max age over than that will die
+private int sg_rongmao; // å®¹è²Œ from 10 to 30;
 private int sg_cur_hp; //  if one is
 private int sg_cur_max_hp; // from 100 and increase every year; before 30
                         // decrease after 50
 private int sg_max_hp;  // the real max hp
-private int sg_food;  // Á¸²İ
-private int sg_junzi; // ¾ü×Ê
-private int sg_bing_number;  // Ê¿±øÊı
-private int sg_bing_max ;   //×î´ó´ø±øÊı  µ¼³öÖµ
-private int sg_bing_shiqi;  // Ê¿Æø
-private int sg_bing_type;  // ±øÖÖ  0 ²½±ø 1 Æï±ø 2 ¹­±ø
-private int sg_fight_value;  // Õ½¶·Á¦
-private int sg_rank; // ¹ÙÖ°
-private string sg_zi;   // ×Ö
-static int is_hp_heal;  // 1 when auto heal needed 0 on need
+private int sg_food;  // ç²®è‰
+private int sg_junzi; // å†›èµ„
+private int sg_bing_number;  // å£«å…µæ•°
+private int sg_bing_max ;   //æœ€å¤§å¸¦å…µæ•°  å¯¼å‡ºå€¼
+private int sg_bing_shiqi;  // å£«æ°”
+private int sg_bing_type;  // å…µç§  0 æ­¥å…µ 1 éª‘å…µ 2 å¼“å…µ
+private int sg_fight_value;  // æˆ˜æ–—åŠ›
+private int sg_rank; // å®˜èŒ
+private string sg_zi;   // å­—
+nosave protected int is_hp_heal;  // 1 when auto heal needed 0 on need
 #define SG_DEFAULT 20
 #define SG_RANGE 6
 // other information
@@ -103,15 +103,15 @@ nomask string query_bing_type()
         switch(sg_bing_type)
         {
                 case 0:
-                        return "²½±ø";
+                        return "æ­¥å…µ";
                 case 1:
-                        return "Æï±ø";
+                        return "éª‘å…µ";
                 case 2:
-                        return "¹­±ø";
+                        return "å¼“å…µ";
                 default: 
-                        return "Î´Öª";
+                        return "æœªçŸ¥";
         }
-        return "Î´Öª";
+        return "æœªçŸ¥";
 }
 nomask int query_fight_value()  // this part mast be cauculte carefully
 {
@@ -124,7 +124,7 @@ this_object()->query_sk_level("sk_zhimou")+
 this_object()->query_sk_level("sk_meili")))/3000;
         return p_tmp;
 }
-// ÄêÁä and ÊÙÃü*****************************************
+// å¹´é¾„ and å¯¿å‘½*****************************************
 nomask int query_age()
 {
         return sg_age;
@@ -141,7 +141,7 @@ void set_shouming(int i)
 {
         sg_shouming=i;
 }
-// ½¡¿µ ****************************************************
+// å¥åº· ****************************************************
 void auto_heal()
 {
 	int p_wuli;
@@ -222,7 +222,7 @@ nomask void init_hp()
 {
         if(sg_age)
         {
-                write("²»ÄÜ´ÓĞÂÉèÖÃÄêÁä¡£\n");
+                write("ä¸èƒ½ä»æ–°è®¾ç½®å¹´é¾„ã€‚\n");
         }
 	else
 	{
@@ -253,14 +253,14 @@ nomask int query_meili_pure()
 nomask void init_sg_gifts(int p_wuli,int p_zhimou,int p_meili)
 {
     if ((p_wuli+p_zhimou+p_meili)!=(SG_DEFAULT*3))
-        error("* ·Ç·¨µÄÌì¸³µ÷ÕûÖµ\n");
+        error("* éæ³•çš„å¤©èµ‹è°ƒæ•´å€¼\n");
     sg_wuli=p_wuli;
     sg_zhimou=p_zhimou;
     sg_meili=p_meili;
-    write("Ìì¸³ÉèÖÃ³É¹¦\n");
+    write("å¤©èµ‹è®¾ç½®æˆåŠŸ\n");
 }
 // used for hp system
-// ***************************for ÉùÍû *******************************
+// ***************************for å£°æœ› *******************************
 void set_shengwang(int i)
 {	
 	if(i<0)
@@ -276,20 +276,20 @@ int query_shengwang_int()
 string query_shengwang_str()
 {
 	if(sg_shengwang<10)
-		return "Ä¬Ä¬ÎŞÎÅ" ;
+		return "é»˜é»˜æ— é—»" ;
 	if(sg_shengwang<100)
-		return RED + "Ğ¡ÓĞÃûÉù"+NOR ;
+		return RED + "å°æœ‰åå£°"+NOR ;
 	if(sg_shengwang<1000)
- 		return YEL + "³õÂ¶·æÃ¢" +NOR;
+ 		return YEL + "åˆéœ²é”‹èŠ’" +NOR;
 	if(sg_shengwang<10000)
-		return GRN + "³Æ°ÔÒ»·½"+NOR ;
+		return GRN + "ç§°éœ¸ä¸€æ–¹"+NOR ;
 	if(sg_shengwang<100000)
-		return HIY + "ÖğÂ¹ÖĞÔ­"+NOR ;
+		return HIY + "é€é¹¿ä¸­åŸ"+NOR ;
 	if(sg_shengwang<1000000)
-		return HIR + "ÎÊ¶¦ÌìÏÂ"+NOR ;
+		return HIR + "é—®é¼å¤©ä¸‹"+NOR ;
 	if(sg_shengwang<10000000)
-		return HIG + "ÖÚĞÄËù¹é"+NOR ;
-	return HIC+"Ò»Í³ÌìÏÂ"+NOR ;
+		return HIG + "ä¼—å¿ƒæ‰€å½’"+NOR ;
+	return HIC+"ä¸€ç»Ÿå¤©ä¸‹"+NOR ;
 	
 }
 //******************* RANK ****************
@@ -305,19 +305,19 @@ string query_guanzhi()
 {
 	return CHENGHU_D->query_rank_str(sg_rank);
 }
-int query_is_junzhu()   // ÊÇ·ñ¾ıÖ÷
+int query_is_junzhu()   // æ˜¯å¦å›ä¸»
 {
 	if(sg_rank==R_KING)
 		return 1;
 	return 0;
 }
-int query_is_jiangjun() // ÊÇ·ñ½«¾ü
+int query_is_jiangjun() // æ˜¯å¦å°†å†›
 {
 	if((sg_rank>1)&&(sg_rank<100))
 		return 1;
 	return 0;
 }
-int query_is_guan() // ÊÇ·ñÎª¹Ù
+int query_is_guan() // æ˜¯å¦ä¸ºå®˜
 {
 	if(sg_rank>=100)
 		return 1;

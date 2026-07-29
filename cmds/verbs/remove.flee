@@ -16,7 +16,7 @@ void do_remove_str(string str)
 		return;
 	}
 	if(!ret)
-		ret="ÄãÃ»·¨ÍÑ"+o->short()+"¡£\n";
+		ret="ä½ æ²¡æ³•è„±"+o->short()+"ã€‚\n";
 	write(ret);
 	return;
 }

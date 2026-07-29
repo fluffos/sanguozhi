@@ -16,6 +16,6 @@ int direct_knock_on_obj()
 void knock_knock(string name)
 {
   this_body()->targetted_action(//"$N $vrap on $t.\n", 
-                                "$N轻轻地在$t敲了敲。\n",
+                                "$N杞昏交鍦板湪$t鏁蹭簡鏁层�俓n",
                                 this_object());
 }

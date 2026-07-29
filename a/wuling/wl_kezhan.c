@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is 巴山夜雨
+// driver is 宸村北澶滈洦
 // created date is Sat May 28 19:49:06 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,9 +7,9 @@ inherit INDOOR_ROOM;
 void setup() {
 set_area("wuling");
 set_light(50);
-set_brief("%^YELLOW%^"+"客栈"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"瀹㈡爤"+"%^RESET%^");
 set_long("
-    这是一家价钱低廉的客栈，因为地方偏僻，房客很少。\n\n");
+    杩欐槸涓�瀹朵环閽变綆寤夌殑瀹㈡爤锛屽洜涓哄湴鏂瑰亸鍍伙紝鎴垮寰堝皯銆俓n\n");
 set_exits( ([
 "north":"/a/wuling/wl_xiaolu1.c",
 

@@ -3,13 +3,13 @@ inherit OBJ;
 inherit M_GETTABLE;
 inherit M_DRINKABLE;
 void setup()
-{   set_id("shuihu", "Ë®ºø");
-    set_long("Ò»¸ö¿ÉÒÔ×°Ë®µÄÄ¾Ë®ºø¡£");
+{   set_id("shuihu", "æ°´å£¶");
+    set_long("ä¸€ä¸ªå¯ä»¥è£…æ°´çš„æœ¨æ°´å£¶ã€‚");
     set_gettable(1);
     set_max_drinks(20);
-    set_con("ÇåË®");
-    set_drink_action((: this_body()->simple_action("$NÄÃÆğË®ºøºÈÁË¼¸¿Ú"
-		+query_con()+"¡£\n") :));
-    set_last_drink_action( (: this_body()->simple_action("$NÒ¡ÁËÒ¡Ë®ºø£¬Ò»Ñï²±°ÑÀïÃæµÄ"+query_con()+"ºÈµÃÒ»¸É¶ş¾¡¡£\n") :));
-    set_finish_drink_action( (: write("Ë®ºøÒÑ¾­¿ÕÁË¡£\n") :));
+    set_con("æ¸…æ°´");
+    set_drink_action((: this_body()->simple_action("$Næ‹¿èµ·æ°´å£¶å–äº†å‡ å£"
+		+query_con()+"ã€‚\n") :));
+    set_last_drink_action( (: this_body()->simple_action("$Næ‘‡äº†æ‘‡æ°´å£¶ï¼Œä¸€æ‰¬è„–æŠŠé‡Œé¢çš„"+query_con()+"å–å¾—ä¸€å¹²äºŒå°½ã€‚\n") :));
+    set_finish_drink_action( (: write("æ°´å£¶å·²ç»ç©ºäº†ã€‚\n") :));
 }

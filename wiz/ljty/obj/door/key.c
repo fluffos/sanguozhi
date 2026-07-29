@@ -9,9 +9,9 @@ public string key_type;
 
 void setup()
 {
-  set_unit("°Ñ");
-   set_id("key","³ÇÃÅÔ¿³×");
-  set_in_room_desc("³ÇÃÅÔ¿³×(key)");
+  set_unit("æŠŠ");
+   set_id("key","åŸé—¨é’¥åŒ™");
+  set_in_room_desc("åŸé—¨é’¥åŒ™(key)");
   set_gettable(1);
 }
 

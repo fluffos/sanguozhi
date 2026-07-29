@@ -19,16 +19,16 @@ private void main( mixed *arg)
     {
         if( this_body()->query_name() == target_name )
         {
-            out( "Äã²»ÄÜÕÙ»½Äã×Ô¼º¡£\n");
+            out( "ä½ ä¸èƒ½å¬å”¤ä½ è‡ªå·±ã€‚\n");
             return;
         }
-        out( target_name + "¾ÍÔÚÕâÀï¡£\n" );
+        out( target_name + "å°±åœ¨è¿™é‡Œã€‚\n" );
         return;
     }
     target->move( end_place );
     if( environment( target ) == start_place )
     {
-        out( "Trans:  ÒÆ¶¯Ê§°Ü\n" );
+        out( "Trans:  ç§»åŠ¨å¤±è´¥\n" );
         return;
     }
     if( ! target_name )
@@ -36,15 +36,15 @@ private void main( mixed *arg)
 
     /* Be careful here or it will be impossible to trans someone with no env() */
     if (!(target->query_link() && interactive(target->query_link()) && target_name == "Someone") && start_place)
-        tell_from_inside( start_place , sprintf( "Ìì¿ÕÖĞÉì³öÒ»Ö»ÊÖ°Ñ%s×¥×ßÁË¡£\n",
+        tell_from_inside( start_place , sprintf( "å¤©ç©ºä¸­ä¼¸å‡ºä¸€åªæ‰‹æŠŠ%sæŠ“èµ°äº†ã€‚\n",
             target_name ) );
-    outf( "Äã°Ñ%sÕÙ»½¹ıÀ´¡£\n", target_name );
-    tell( target, "Äã±»Ò»Õó·ç´µµ½ÁËÄ³¸öµØ·½¡£\n" );
+    outf( "ä½ æŠŠ%så¬å”¤è¿‡æ¥ã€‚\n", target_name );
+    tell( target, "ä½ è¢«ä¸€é˜µé£å¹åˆ°äº†æŸä¸ªåœ°æ–¹ã€‚\n" );
 
     if( !( target->query_link() && interactive(target->query_link()) &&
         target_name == "Someone" ) )
     {
-        tell_environment( target, sprintf("%s³öÏÖÔÚÒ»Õó·çÖĞ¡£\n",
+        tell_environment( target, sprintf("%så‡ºç°åœ¨ä¸€é˜µé£ä¸­ã€‚\n",
             target_name ), 0, ({ target, this_body() }) );
     }
 

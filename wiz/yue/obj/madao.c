@@ -1,17 +1,17 @@
-//by jiezhao on Dec 25 1996 madao.c Âíµ¶
+//by jiezhao on Dec 25 1996 madao.c é©¬åˆ€
 #include <sanguo.h>
 inherit SWORD;
 inherit M_VALUE;
 void setup()
 {
-set_adj("Âí");
-set_unit("°Ñ");
-set_id("ma dao", "µ¶");
+set_adj("é©¬");
+set_unit("æŠŠ");
+set_id("ma dao", "åˆ€");
 add_id("blade");
 add_id("dao");
 add_id("madao");
-set_long("Ò»°ÑÂíµÁÃÇ³¤ÓÃµÄÍäµ¶£¬ÉÏÃæ»¹ÓĞÎ´¸ÉµÄÑª¼£");
-set_in_room_desc("Âíµ¶(ma dao)");
+set_long("ä¸€æŠŠé©¬ç›—ä»¬é•¿ç”¨çš„å¼¯åˆ€ï¼Œä¸Šé¢è¿˜æœ‰æœªå¹²çš„è¡€è¿¹");
+set_in_room_desc("é©¬åˆ€(ma dao)");
 set_weapon_class(5);
 set_size(MEDIUM);
 set_value(10);

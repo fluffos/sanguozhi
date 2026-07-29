@@ -1,5 +1,5 @@
 /* RoomMaker.c
-** Coded by Ä³Ä³@Èı¹úÖ¾
+** Coded by æŸæŸ@ä¸‰å›½å¿—
 ** Code generated with RoomMaker v0.9.1 coded by Onyx@RedDragon
 ** Do not remove this header.
 */
@@ -9,11 +9,11 @@ inherit ROOM;
 
 void setup(){
     set_light(1);
-    set_brief("ÀÏ´óµÄ»á¿ÍÌü");
+    set_brief("è€å¤§çš„ä¼šå®¢å…");
     set_long(
-"ÕâÀïÊÇÀÏ´óµÄ»á¿ÍÌü£¬¼òµ¥µ«È´ÆÓËØ£¬ÊµÔÚÒ²Ã»Ê²Ã´ÄÜÕĞ´ıÄúÁË£®"
+"è¿™é‡Œæ˜¯è€å¤§çš„ä¼šå®¢å…ï¼Œç®€å•ä½†å´æœ´ç´ ï¼Œå®åœ¨ä¹Ÿæ²¡ä»€ä¹ˆèƒ½æ‹›å¾…æ‚¨äº†ï¼"
 );
-    add_item("test" , "ÊÔ¹Ü£¬ÀÏ´óÓÃËü×öĞ©Ä¦·¨ÊÔÑé£®");
+    add_item("test" , "è¯•ç®¡ï¼Œè€å¤§ç”¨å®ƒåšäº›æ‘©æ³•è¯•éªŒï¼");
     set_exits( ([
     ]) );
     set_objects( ([

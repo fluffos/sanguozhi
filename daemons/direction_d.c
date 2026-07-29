@@ -1,6 +1,6 @@
 // Updated by stefan on 10 Jan 1997
 
-static mapping opp_dir = ([
+nosave protected mapping opp_dir = ([
   "east"        :       "west",
   "west"        :       "east",
   "north"       :       "south",
@@ -24,30 +24,30 @@ static mapping opp_dir = ([
 
 ]);
 
-static mapping chinese_dir = ([
-        "north":                "±±±ß",
-        "south":                "ÄÏ±ß",
-        "east":                 "¶«±ß",
-        "west":                 "Î÷±ß",
-        "northup":              "±±ÉÏ·½",
-        "southup":              "ÄÏÉÏ·½",
-        "eastup":               "¶«ÉÏ·½",
-        "westup":               "Î÷ÉÏ·½",
-        "northdown":        "±±ÏÂ·½",
-        "southdown":        "ÄÏÏÂ·½",
-        "eastdown":             "¶«ÏÂ·½",
-        "westdown":             "Î÷ÏÂ·½",
-        "northeast":        "¶«±±·½",
-        "northwest":        "Î÷±±·½",
-        "southeast":        "¶«ÄÏ·½",
-        "southwest":        "Î÷ÄÏ·½",
-        "up":                   "ÉÏÃæ",
-        "down":                 "ÏÂÃæ",
-        "out":                  "ÍâÃæ",
-      "enter":  "ÀïÃæ",
+nosave protected mapping chinese_dir = ([
+        "north":                "åŒ—è¾¹",
+        "south":                "å—è¾¹",
+        "east":                 "ä¸œè¾¹",
+        "west":                 "è¥¿è¾¹",
+        "northup":              "åŒ—ä¸Šæ–¹",
+        "southup":              "å—ä¸Šæ–¹",
+        "eastup":               "ä¸œä¸Šæ–¹",
+        "westup":               "è¥¿ä¸Šæ–¹",
+        "northdown":        "åŒ—ä¸‹æ–¹",
+        "southdown":        "å—ä¸‹æ–¹",
+        "eastdown":             "ä¸œä¸‹æ–¹",
+        "westdown":             "è¥¿ä¸‹æ–¹",
+        "northeast":        "ä¸œåŒ—æ–¹",
+        "northwest":        "è¥¿åŒ—æ–¹",
+        "southeast":        "ä¸œå—æ–¹",
+        "southwest":        "è¥¿å—æ–¹",
+        "up":                   "ä¸Šé¢",
+        "down":                 "ä¸‹é¢",
+        "out":                  "å¤–é¢",
+      "enter":  "é‡Œé¢",
 ]);
 
-static mapping abbr_dir = ([
+nosave protected mapping abbr_dir = ([
         "n"     :       "north",
         "s"     :       "south",
         "e"     :       "east",

@@ -18,19 +18,19 @@ mixed call_hooks(string, int);
 
 private string locked, key_type;
 string unlock_msg = //"$N $vunlock the $o with $p $o1.\n";
-                    "$NÓÃ$p$o1´ò¿ªÁË$o¡£\n";
+                    "$Nç”¨$p$o1æ‰“å¼€äº†$oã€‚\n";
 string unlock_fail = //"$N $vtry to unlock the $o, but $p $o1 doesn't fit.\n";
-                     "$NÊÔÍ¼ÓÃ$p$o1´ò¿ª$o£¬µ«Ê§°ÜÁË¡£\n";
+                     "$Nè¯•å›¾ç”¨$p$o1æ‰“å¼€$oï¼Œä½†å¤±è´¥äº†ã€‚\n";
 string lock_msg = //"$N $vlock the $o with $p $o1.\n";
-                  "$NÓÃ$p$o1°Ñ$oËøÉÏÁË¡£\n";
+                  "$Nç”¨$p$o1æŠŠ$oé”ä¸Šäº†ã€‚\n";
 string lock_fail = //"$N $vtry to lock the $o, but $p $o1 doesn't fit.\n";
-                   "$NÊÔÍ¼ÓÃ$p$o1°Ñ$oËøÉÏ£¬µ«Ê§°ÜÁË¡£\n";
+                   "$Nè¯•å›¾ç”¨$p$o1æŠŠ$oé”ä¸Šï¼Œä½†å¤±è´¥äº†ã€‚\n";
 string pick_msg = //"$N $vpick open the $o.\n";
-                   "$N°Ñ$oÇË¿ªÁË¡£\n";
+                   "$NæŠŠ$oæ’¬å¼€äº†ã€‚\n";
 string pick_fail = //"$N $vtry to pick open the $o, but $vfail.\n";
-                   "$NÏë°Ñ$oÇË¿ª£¬µ«Ã»ÓĞ³É¹¦¡£\n";
+                   "$Næƒ³æŠŠ$oæ’¬å¼€ï¼Œä½†æ²¡æœ‰æˆåŠŸã€‚\n";
 function my_open_hook = (: short() + //" is locked.\n"
-                                                    "ËøÉÏÁË¡£\n"    
+                                                    "é”ä¸Šäº†ã€‚\n"    
                         :);
 
 int is_lockable() { return 1; }
@@ -81,7 +81,7 @@ mixed magic_unlock()
 
   if(!locked)
     return //"It's not locked.\n";
-           "ËüÃ»ÓĞËøÉÏ¡£\n";     
+           "å®ƒæ²¡æœ‰é”ä¸Šã€‚\n";     
 
 
 //:HOOK prevent_magic_unlock
@@ -94,7 +94,7 @@ mixed magic_unlock()
 
 
   if(!ex) ex = //"Your magic seems to have no effect on it.\n";
-               "ÄãµÄÄ§·¨¶ÔËüËÆºõÃ»ÓĞË¿ºÁ×÷ÓÃ¡£\n"; 
+               "ä½ çš„é­”æ³•å¯¹å®ƒä¼¼ä¹æ²¡æœ‰ä¸æ¯«ä½œç”¨ã€‚\n"; 
   if(stringp(ex))
     {
       return ex;
@@ -120,7 +120,7 @@ mixed pick()
 
   if(!locked)
     //write("It's not locked.\n");
-    write("ËüÃ»ÓĞËøÉÏ¡£\n");     
+    write("å®ƒæ²¡æœ‰é”ä¸Šã€‚\n");     
 
 
 //:HOOK prevent_picking
@@ -133,7 +133,7 @@ mixed pick()
 
 
   if(!ex) ex = //"You can't seem to get it open.\n";
-               "ÄãÎŞ·¨°ÑËüÅª¿ª¡£\n"; 
+               "ä½ æ— æ³•æŠŠå®ƒå¼„å¼€ã€‚\n"; 
   if(stringp(ex))
     {
       write(ex);
@@ -159,7 +159,7 @@ void unlock_with(object ob)
 //A yes/no/error hook which can prevent an object from being unlocked.
     mixed ex = call_hooks("prevent_unlock", HOOK_YES_NO_ERROR);
     if (!ex) ex = //"You can't seem to unlock it.\n";
-                  "ÄãÎŞ·¨°ÑÕâËø´ò¿ª¡£\n";
+                  "ä½ æ— æ³•æŠŠè¿™é”æ‰“å¼€ã€‚\n";
     if (stringp(ex)) {
         write(ex);
         return;
@@ -180,7 +180,7 @@ void unlock_with(object ob)
 void unlock() {
     object ob = present("key", this_body());
     //write("(with " + ob->short() + ")\n");
-    write("(ÓÃ"+ob->short() + ")\n");
+    write("(ç”¨"+ob->short() + ")\n");
     unlock_with(ob);
 }
 
@@ -190,7 +190,7 @@ void lock_with(object ob) {
 //A yes/no/error hook which can prevent an object from being locked.
     mixed ex = call_hooks("prevent_lock", HOOK_YES_NO_ERROR);
     if (!ex) ex = //"You can't seem to lock it.\n";
-                  "ÄãÎŞ·¨°ÑËüËøÉÏ¡£\n";
+                  "ä½ æ— æ³•æŠŠå®ƒé”ä¸Šã€‚\n";
     if (stringp(ex)) {
         write(ex);
         return;
@@ -210,7 +210,7 @@ void lock_with(object ob) {
 void lock() {
     object ob = present("key", this_body());
     //write("(with " + ob->short() + ")\n");
-    write("(ÓÃ"+ ob->short() + ")\n");
+    write("(ç”¨"+ ob->short() + ")\n");
     lock_with(ob);
 }
 
@@ -222,28 +222,28 @@ mixed direct_pick_obj(object ob)
 {
     if (!locked)
         return //"It isn't locked.\n";
-               "ËüÃ»ÓĞËøÉÏ¡£\n";
+               "å®ƒæ²¡æœ‰é”ä¸Šã€‚\n";
     return 1;
 }
 
 mixed direct_unlock_obj(object ob) {
     if (!locked)
         return //"It isn't locked.\n";
-               "ËüÃ»ÓĞËøÉÏ¡£\n"; 
+               "å®ƒæ²¡æœ‰é”ä¸Šã€‚\n"; 
     if (present("key", this_body()))
         return 1;
     return //"With what?\n";
-           "ÓÃÊ²Ã´£¿\n";     
+           "ç”¨ä»€ä¹ˆï¼Ÿ\n";     
 }
 
 mixed direct_lock_obj(object ob) {
     if (locked)
         return //"It is already locked.\n";
-               "ËüÒÑ¾­±»ËøÉÏÁË¡£\n";
+               "å®ƒå·²ç»è¢«é”ä¸Šäº†ã€‚\n";
     if (present("key", this_body()))
         return 1;
     return //"With what?";
-           "ÓÃÊ²Ã´£¿\n";    
+           "ç”¨ä»€ä¹ˆï¼Ÿ\n";    
 }
 
 mixed direct_unlock_obj_with_obj(object ob1, object ob2) {

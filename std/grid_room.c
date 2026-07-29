@@ -60,7 +60,7 @@ string* get_long(string p_type, string pos, string par_strL1, string par_strL2, 
     string *ret,*tmp,*wri;
     string f_name;
     string p_color;
-    mapping m = (["©¦":"ns","©¸":"sw","©¼":"se","©°":"nw","©´":"ne","©¤":"we","¡ò":"shuai"]);
+    mapping m = (["â”‚":"ns","â””":"sw","â”˜":"se","â”Œ":"nw","â”":"ne","â”€":"we","â—":"shuai"]);
   
     tmp = ({"","","",""});
     
@@ -78,28 +78,28 @@ string* get_long(string p_type, string pos, string par_strL1, string par_strL2, 
 
         switch(p_type)
         {
-        case "¡«":
-        case "£®":
-        case "¡Ä":
-        case "£ª":
-        case "¡á":
-        case "¡ù":
+        case "ï½":
+        case "ï¼":
+        case "âˆ§":
+        case "ï¼Š":
+        case "â™‚":
+        case "â€»":
           for(i=0;i<4;++i)
           {
               for(j=0;j<4;++j)
                 if(random(3))
-                    tmp[i]+="¡¡";
+                    tmp[i]+="ã€€";
                 else
                     tmp[i]+=p_type;
           }
           break;
-        case "©¦":
-        case "©¸":
-        case "©¼":
-        case "©°":
-        case "©´":
-        case "©¤":
-        case "¡ò":
+        case "â”‚":
+        case "â””":
+        case "â”˜":
+        case "â”Œ":
+        case "â”":
+        case "â”€":
+        case "â—":
             f_name=PPIC+"wall"+m[p_type]+".8.pic";
             for(i=0;i<4;++i)
             {
@@ -158,8 +158,8 @@ string* get_long(string p_type, string pos, string par_strL1, string par_strL2, 
 
 	wri[i] = "";
      	for( j = 0; j < 8; j += 2 ) {
-            if ( ret[i][j..(j+1)] == "£Ä" || ret[i][j..(j+1)] == "£Á" || 
-		 ret[i][j..(j+1)] == "£Í" || 
+            if ( ret[i][j..(j+1)] == "ï¼¤" || ret[i][j..(j+1)] == "ï¼¡" || 
+		 ret[i][j..(j+1)] == "ï¼­" || 
                  (member_array(ret[i][j..(j+1)], CHINESE_D->s_array())+1) ) {
             wri[i] += s_color + ret[i][j..(j+1)];
 	    }
@@ -177,7 +177,7 @@ string * troop_infoa(int x,int y, string side)
 {
     mixed troop;
     int n, i;
-    string array troopinfo = ({ "", "", "", "" });	// line 0,1,2,3
+    string * troopinfo = ({ "", "", "", "" });	// line 0,1,2,3
     string mside;
     string strEmpty;
     string strZero;
@@ -199,16 +199,16 @@ string * troop_infoa(int x,int y, string side)
     	if((side!="b")&&(mside!=side)&&(!TROOP_D->get_troops(troop[i],"canbeseen")))
     		continue;
 
-        // ·ÀÊØ·½ÓÃÀ¶É«£¬½ø¹¥·½ÓÃºìÉ«
+        // é˜²å®ˆæ–¹ç”¨è“è‰²ï¼Œè¿›æ”»æ–¹ç”¨çº¢è‰²
         if ( mside == "a" )
         {
             p_strColor = "%^H_RED%^";
-            strEmpty = "£Á";
+            strEmpty = "ï¼¡";
         }
         else
         {
             p_strColor = "%^H_BLUE%^";
-            strEmpty = "£Ä";
+            strEmpty = "ï¼¤";
         }
 
 	    // get the chinese word of the soldier type      
@@ -222,15 +222,15 @@ string * troop_infoa(int x,int y, string side)
         // get the display of the soldier number       
     	n = TROOP_D->get_soldier_total_number( troop[i] );
 	    tr_strNum = TROOP_D->chinese_soldier_number( n );
-        strZero = "(ÎŞ)";
+        strZero = "(æ— )";
         
 	    if ( troop[i] == p_nMyTrpId )
-	    // xiaobai: ×Ô¼ºÓÃ M À´±íÊ¾£¬ 
+	    // xiaobai: è‡ªå·±ç”¨ M æ¥è¡¨ç¤ºï¼Œ 
 	    {
-		    tr_strLeaderName = "£Í";
+		    tr_strLeaderName = "ï¼­";
 	    }
 	    else
-	    // ±ğÈËµÄ²¿¶Ó£¬ÓÃµÚÒ»¸ö½«ÁìµÄµÚÒ»¸ö×Ö
+	    // åˆ«äººçš„éƒ¨é˜Ÿï¼Œç”¨ç¬¬ä¸€ä¸ªå°†é¢†çš„ç¬¬ä¸€ä¸ªå­—
 	    {
 		    tr_strLeaderName = TROOP_D->get_troop_symbol( troop[i] );
         }

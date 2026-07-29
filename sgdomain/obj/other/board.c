@@ -8,7 +8,7 @@ nomask void create(string name) {
     if (!clonep(this_object()))
         return;
 	board_name = name;
-    set_id("board", "ÁôÑÔ°å");
+    set_id("board", "ç•™è¨€æ¿");
     add_id("news board");
     set_in_room_desc( (: do_desc :) );
 }

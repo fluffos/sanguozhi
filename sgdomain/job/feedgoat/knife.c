@@ -4,9 +4,9 @@ inherit M_WEAPON;
 inherit M_VALUE;
 
 void setup() {
-	set_id("lian dao", "Á­µ¶", "knife");
-	set_unit("°Ñ");
-	set_in_room_desc("Ò»°Ñ·æÀûµÄÁ­µ¶(lian dao)");
+	set_id("lian dao", "é•°åˆ€", "knife");
+	set_unit("æŠŠ");
+	set_in_room_desc("ä¸€æŠŠé”‹åˆ©çš„é•°åˆ€(lian dao)");
 	set_attack_ability(20);
 	set_attack_power(10);
 	set_defence_ability(1);

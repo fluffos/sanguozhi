@@ -12,31 +12,31 @@ void deposit_sth(string item, int number)
     string p_act;
     if(number<1)
     {
-	write("ĞÑĞÑ£¬ÏëÉ¶ÄØ£¿\n");
+	write("é†’é†’ï¼Œæƒ³å•¥å‘¢ï¼Ÿ\n");
 	return;
     }
     switch(item)
     {
 	case "coin" :
 		p_itemvalue=number;
-                p_act="ÎÄÇ®";
+                p_act="æ–‡é’±";
 		break;
 	case "silver" :
 		p_itemvalue=number*100;
-  		p_act="Á½Òø×Ó";
+  		p_act="ä¸¤é“¶å­";
 		break;
 	case "gold" :
 		p_itemvalue=number*10000;
-		p_act="Á½½ğ×Ó";
+		p_act="ä¸¤é‡‘å­";
 		break;
 	default :
-		write("´æÇ®·½·¨£º¡°deposit »õ±ÒÊıÁ¿ »õ±ÒÖÖÀà ÀıÈç£ºdeposit 3 silver¡±\n");
+		write("å­˜é’±æ–¹æ³•ï¼šâ€œdeposit è´§å¸æ•°é‡ è´§å¸ç§ç±» ä¾‹å¦‚ï¼šdeposit 3 silverâ€\n");
 		return;
     }
     p_buyersmoney=this_body()->query_all_con_money();
     if(p_buyersmoney<p_itemvalue)
     {
-	write("ÔÚ¿´¿´ÄãÉíÉÏÓĞÄÇÃ´¶àÇ®Âğ£¿\n");
+	write("åœ¨çœ‹çœ‹ä½ èº«ä¸Šæœ‰é‚£ä¹ˆå¤šé’±å—ï¼Ÿ\n");
 	return;
     }
     n_bank=this_body()->query_amt_money("bank");
@@ -44,7 +44,7 @@ void deposit_sth(string item, int number)
     this_body()->set_all_con_money(p_buyersmoney - p_itemvalue);
     this_body()->set_money("bank", n_bank);
     p_act=chinese_number(number)+p_act;
-    this_body()->simple_action("$NÄÃ³ö"+p_act+"´æÈëÇ®×¯¡£\n");
+    this_body()->simple_action("$Næ‹¿å‡º"+p_act+"å­˜å…¥é’±åº„ã€‚\n");
     return;
 }
 void withdraw_sth(string item, int number)
@@ -55,32 +55,32 @@ void withdraw_sth(string item, int number)
     string p_act,p_act2;
     if(number<1)
     {
-	write("ĞÑĞÑ£¬ÏëÉ¶ÄØ£¿\n");
+	write("é†’é†’ï¼Œæƒ³å•¥å‘¢ï¼Ÿ\n");
 	return;
     }
     switch(item)
     {
 	case "coin" :
 		p_itemvalue=number;
-                p_act="ÎÄÇ®";
+                p_act="æ–‡é’±";
 		break;
 	case "silver" :
 		p_itemvalue=number*100;
-  		p_act="Á½Òø×Ó";
+  		p_act="ä¸¤é“¶å­";
 		break;
 	case "gold" :
 		p_itemvalue=number*10000;
-		p_act="Á½½ğ×Ó";
+		p_act="ä¸¤é‡‘å­";
 		break;
 	default :
-		write("È¡Ç®·½·¨£º¡°withdraw »õ±ÒÊıÁ¿ »õ±ÒÖÖÀà ÀıÈç£ºwithdraw 3 silver¡±\n");
+		write("å–é’±æ–¹æ³•ï¼šâ€œwithdraw è´§å¸æ•°é‡ è´§å¸ç§ç±» ä¾‹å¦‚ï¼šwithdraw 3 silverâ€\n");
 		return;
     }
     n_bank=this_body()->query_amt_money("bank");
     p_buyersmoney=this_body()->query_all_con_money();
     if(n_bank<p_itemvalue)
     {
-	write("ÄãÔÚÇ®×¯Ã»ÓĞ´æÕâÃ´¶àÇ®Ñ½£¿\n");
+	write("ä½ åœ¨é’±åº„æ²¡æœ‰å­˜è¿™ä¹ˆå¤šé’±å‘€ï¼Ÿ\n");
 	return;
     }
     n_bank=n_bank-p_itemvalue;
@@ -89,7 +89,7 @@ void withdraw_sth(string item, int number)
     p_itemvalue=p_itemvalue*BANKINTEREST;
     p_act2=chinese_value(p_itemvalue);
     this_body()->set_all_con_money(p_buyersmoney + p_itemvalue);
-    this_body()->simple_action("$N´ÓÇ®×¯È¡³ö"+p_act+"Êµ¼ÊÄÃµ½ÁË"+p_act2);
+    this_body()->simple_action("$Nä»é’±åº„å–å‡º"+p_act+"å®é™…æ‹¿åˆ°äº†"+p_act2);
     return;
 }
 mixed deposit(string item, int number)

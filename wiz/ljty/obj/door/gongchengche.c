@@ -8,9 +8,9 @@ public string chuang_type;
 
 void setup()
 {
-  set_unit("Á¾");
-   set_id("gongchengche","¹¥³Ç³µ");
-  set_in_room_desc("¹¥³Ç³µ(gongchengche)");
+  set_unit("è¾†");
+   set_id("gongchengche","æ”»åŸŽè½¦");
+  set_in_room_desc("æ”»åŸŽè½¦(gongchengche)");
 }
 
 string query_chuang_type()

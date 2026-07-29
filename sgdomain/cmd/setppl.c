@@ -19,11 +19,11 @@ void start(string arg)
 	target=env->get_area(); //find out the city 
 
 	if(me->query_job("setppl","status")!="begin"){
-		write("ÄãÏÖÔÚ²¢Ã»ÓÐµ£ÈÎÉèÖÃ¼äµýµÄÈÎÎñ¡£\n");
+		write("ä½ çŽ°åœ¨å¹¶æ²¡æœ‰æ‹…ä»»è®¾ç½®é—´è°çš„ä»»åŠ¡ã€‚\n");
 		return;
 	}
 	if(env->is_home()||env->is_base()) {
-		write("²»ÄÜÉèÖÃÔÚÕâÀï¡£ \n");
+		write("ä¸èƒ½è®¾ç½®åœ¨è¿™é‡Œã€‚ \n");
 		return;
 	}
 // need to be changed from here
@@ -32,7 +32,7 @@ void start(string arg)
 //	if(!objectp(ot)) {
 	if ("/sgdomain/event/ev_guy"->create_fake_guy(target,p_room,p_id) == 0)
 	{
-		write(" ÔÝÊ±ÎÞ·¨ÔÚÕâ¸ö³ÇÊÐÖÐÉèÖÃ¼äµý£¬ÇëÉÔºóÔÙÊÔ¡£ \n");
+		write(" æš‚æ—¶æ— æ³•åœ¨è¿™ä¸ªåŸŽå¸‚ä¸­è®¾ç½®é—´è°ï¼Œè¯·ç¨åŽå†è¯•ã€‚ \n");
 		return;
 	}
 	//this is for temp track
@@ -42,9 +42,9 @@ void start(string arg)
 //	target=target+" "+typ;
 //	ot=CHAR_D->find_npc_char(target);
 //to here
-	write("Äã×ó¿´¿´£¬ÓÒ¿´¿´£¬ºÃÏóÃ»ÈË×¢Òâ¡£\nÄã·Ô¸ÀÊÖÏÂÔÚÕâÀïÂñ·ü¡£\n");
+	write("ä½ å·¦çœ‹çœ‹ï¼Œå³çœ‹çœ‹ï¼Œå¥½è±¡æ²¡äººæ³¨æ„ã€‚\nä½ å©å’æ‰‹ä¸‹åœ¨è¿™é‡ŒåŸ‹ä¼ã€‚\n");
 	me->other_action(
-		"$NÔôÍ·ÔôÄÔµØ¶ÔËæ´ÓÃÇ·Ô¸ÀÁË¼¸¾ä¡£\n$NµÄËæ´ÓÃÇËæ¼´¹îÒìµØÏûÊ§ÔÚºÚ°µÖÐ¡£\n");
+		"$Nè´¼å¤´è´¼è„‘åœ°å¯¹éšä»Žä»¬å©å’äº†å‡ å¥ã€‚\n$Nçš„éšä»Žä»¬éšå³è¯¡å¼‚åœ°æ¶ˆå¤±åœ¨é»‘æš—ä¸­ã€‚\n");
 
 	me->set_job("setppl","done_time",time()); //in case of other function use done_time
 	me->finish_job("setppl");

@@ -36,8 +36,8 @@ int hasGood(mixed good, object buyer)
     sellerid = (this_object()->query_id())[0];
     buyerid = (buyer->query_id())[0];
     buyer->targetted_action
-      ("$N¶Ô$TËµµÀ£ºÄã¿É·ñÂô"+mGoodToSell+"¸øÎÒ£¿
-¿ÉÒÔÂô¾ÍÇëÊäÈë answer <y|yes> to "+buyerid+"\n", this_object());
+      ("$Nå¯¹$Tè¯´é“ï¼šä½ å¯å¦å–"+mGoodToSell+"ç»™æˆ‘ï¼Ÿ
+å¯ä»¥å–å°±è¯·è¾“å…¥ answer <y|yes> to "+buyerid+"\n", this_object());
     buyer->set_answer(sellerid, (:canSellGood:) );
     return mCanSell;
 }

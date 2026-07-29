@@ -1,66 +1,66 @@
-³ÇÊÐ¹Ù½×£º
+åŸŽå¸‚å®˜é˜¶ï¼š
 
 lv 1
 
-¡õÖ÷½«£º©¥©¥ 
-¡õÊéÒ¯£º©¥©¥ 
-¡õÎÄ¹Ù£º©¥©¥ ©¥©¥ ©¥©¥ 
-¡õÎä½«£º©¥©¥ 
-¡õÎä¹Ù£º©¥©¥ ©¥©¥ ©¥©¥ 
+â–¡ä¸»å°†ï¼šâ”â” 
+â–¡ä¹¦çˆ·ï¼šâ”â” 
+â–¡æ–‡å®˜ï¼šâ”â” â”â” â”â” 
+â–¡æ­¦å°†ï¼šâ”â” 
+â–¡æ­¦å®˜ï¼šâ”â” â”â” â”â” 
 
 lv 2
 
-¡õ´å³¤£º©¥©¥ 
-¡õÊéÒ¯£º©¥©¥ ©¥©¥ 
-¡õÎÄ¹Ù£º©¥©¥ ©¥©¥ ©¥©¥ 
-¡õÎä½«£º©¥©¥ ©¥©¥
-¡õÎä¹Ù£º©¥©¥ ©¥©¥ ©¥©¥ 
+â–¡æ‘é•¿ï¼šâ”â” 
+â–¡ä¹¦çˆ·ï¼šâ”â” â”â” 
+â–¡æ–‡å®˜ï¼šâ”â” â”â” â”â” 
+â–¡æ­¦å°†ï¼šâ”â” â”â”
+â–¡æ­¦å®˜ï¼šâ”â” â”â” â”â” 
 
 lv 3
 
-¡õÕòÌ«ÊØ£º©¥©¥ 
-¡õÕò¾üÊ¦£º©¥©¥ 
-¡õÊéÒ¯£º©¥©¥ ©¥©¥ ©¥©¥ ©¥©¥ 
-¡õÎÄ¹Ù£º©¥©¥ ©¥©¥ ©¥©¥ ©¥©¥ ©¥©¥ ©¥©¥ 
-¡õÑÀ½«£º©¥©¥ 
-¡õÎä½«£º©¥©¥ ©¥©¥ ©¥©¥ ©¥©¥ 
-¡õÎä¹Ù£º©¥©¥ ©¥©¥ ©¥©¥ ©¥©¥ ©¥©¥ ©¥©¥ 
+â–¡é•‡å¤ªå®ˆï¼šâ”â” 
+â–¡é•‡å†›å¸ˆï¼šâ”â” 
+â–¡ä¹¦çˆ·ï¼šâ”â” â”â” â”â” â”â” 
+â–¡æ–‡å®˜ï¼šâ”â” â”â” â”â” â”â” â”â” â”â” 
+â–¡ç‰™å°†ï¼šâ”â” 
+â–¡æ­¦å°†ï¼šâ”â” â”â” â”â” â”â” 
+â–¡æ­¦å®˜ï¼šâ”â” â”â” â”â” â”â” â”â” â”â” 
 
 lv 4
 
-¡õÌ«ÊØ£º©¥©¥ 
-¡õ¾üÊ¦£º©¥©¥ 
-¡õÊéÒ¯£º©¥©¥ ©¥©¥ ©¥©¥ ©¥©¥ ©¥©¥ 
-¡õÎÄ¹Ù£º©¥©¥ ©¥©¥ ©¥©¥ ©¥©¥ ©¥©¥ ©¥©¥ ©¥©¥ 
-¡õ´ó½«£º©¥©¥ 
-¡õÑÀ½«£º©¥©¥ ©¥©¥ ©¥©¥ 
-¡õÎä½«£º©¥©¥ ©¥©¥ ©¥©¥ ©¥©¥ ©¥©¥ 
-¡õÎä¹Ù£º©¥©¥ ©¥©¥ ©¥©¥ ©¥©¥ ©¥©¥ ©¥©¥ ©¥©¥ 
+â–¡å¤ªå®ˆï¼šâ”â” 
+â–¡å†›å¸ˆï¼šâ”â” 
+â–¡ä¹¦çˆ·ï¼šâ”â” â”â” â”â” â”â” â”â” 
+â–¡æ–‡å®˜ï¼šâ”â” â”â” â”â” â”â” â”â” â”â” â”â” 
+â–¡å¤§å°†ï¼šâ”â” 
+â–¡ç‰™å°†ï¼šâ”â” â”â” â”â” 
+â–¡æ­¦å°†ï¼šâ”â” â”â” â”â” â”â” â”â” 
+â–¡æ­¦å®˜ï¼šâ”â” â”â” â”â” â”â” â”â” â”â” â”â” 
 
 lv 5
 
-¡õÌ«ÊØ£º©¥©¥ 
-¡õ¾üÊ¦£º©¥©¥ 
-¡õ¸±¾üÊ¦£º©¥©¥ ©¥©¥ ©¥©¥ 
-¡õÊéÒ¯£º©¥©¥ ©¥©¥ ©¥©¥ ©¥©¥ ©¥©¥ 
-¡õÎÄ¹Ù£º©¥©¥ ©¥©¥ ©¥©¥ ©¥©¥ ©¥©¥ ©¥©¥ ©¥©¥ 
-¡õ´ó½«£º©¥©¥ ©¥©¥ ©¥©¥ 
-¡õÑÀ½«£º©¥©¥ ©¥©¥ ©¥©¥ ©¥©¥ 
-¡õÎä½«£º©¥©¥ ©¥©¥ ©¥©¥ ©¥©¥ ©¥©¥ ©¥©¥ 
-¡õÎä¹Ù£º©¥©¥ ©¥©¥ ©¥©¥ ©¥©¥ ©¥©¥ ©¥©¥ ©¥©¥ 
+â–¡å¤ªå®ˆï¼šâ”â” 
+â–¡å†›å¸ˆï¼šâ”â” 
+â–¡å‰¯å†›å¸ˆï¼šâ”â” â”â” â”â” 
+â–¡ä¹¦çˆ·ï¼šâ”â” â”â” â”â” â”â” â”â” 
+â–¡æ–‡å®˜ï¼šâ”â” â”â” â”â” â”â” â”â” â”â” â”â” 
+â–¡å¤§å°†ï¼šâ”â” â”â” â”â” 
+â–¡ç‰™å°†ï¼šâ”â” â”â” â”â” â”â” 
+â–¡æ­¦å°†ï¼šâ”â” â”â” â”â” â”â” â”â” â”â” 
+â–¡æ­¦å®˜ï¼šâ”â” â”â” â”â” â”â” â”â” â”â” â”â” 
 
-note: in the currently existing local positions, Îä½« in lv 3 city is a kind
-      of confusing with Îä½« in lv 1 and lv 2 cities; on the other hand, no.
+note: in the currently existing local positions, æ­¦å°† in lv 3 city is a kind
+      of confusing with æ­¦å°† in lv 1 and lv 2 cities; on the other hand, no.
       of positions in city differs the cities levels, i changed some numbers
-      of positions. I erased all ¸±½« position and replaced it as ÑÀ½«, and
-      put Îä½« in lv 4 and lv 5 cities, to standardlize the positions.
+      of positions. I erased all å‰¯å°† position and replaced it as ç‰™å°†, and
+      put æ­¦å°† in lv 4 and lv 5 cities, to standardlize the positions.
 
 
-µØ·½¹ÙÖ°ÒªÇó£º
+åœ°æ–¹å®˜èŒè¦æ±‚ï¼š
 
-ÎÄ¹Ù
+æ–‡å®˜
 
-rep£º                     10
+repï¼š                     10
 local contri:             10
 loyalty:                  45
 skills:                   bfxy 30 zgxy 30
@@ -68,7 +68,7 @@ no. of troops can manage: 1000
 salary:                   1
 
 
-Îä¹Ù
+æ­¦å®˜
 
 rep:                      10
 local contri:             10
@@ -77,7 +77,7 @@ skills:                   bfxy 30 wxxy 30
 no. of troops can manage: 1100
 salary:                   1
 
-ÊéÒ¯
+ä¹¦çˆ·
 
 rep:                      2000
 local contri:             200
@@ -86,7 +86,7 @@ skills:                   bfxy 35 zgxy 35
 no. of troops can manage: 1500
 salary:                   2
 
-Îä½«£º
+æ­¦å°†ï¼š
 
 rep:                      2000
 local contri:             200
@@ -95,7 +95,7 @@ skills:                   bfxy 35 wxxy 35
 no. of troops can manage: 1600
 salary:                   2
 
-Õò¾üÊ¦/¸±¾üÊ¦£º
+é•‡å†›å¸ˆ/å‰¯å†›å¸ˆï¼š
 
 rep:                      10000
 local contri:             500
@@ -104,7 +104,7 @@ skills:                   bfxy 50 zgxy 50
 no. of troops can manage: 2500
 salary:                   3
 
-ÑÀ½«£º
+ç‰™å°†ï¼š
 
 rep:                      10000
 local contri:             500
@@ -113,7 +113,7 @@ skills:                   bfxy 50 wxxy 50
 no. of troops can manage: 2700
 salary:                   3
 
-¾üÊ¦£º
+å†›å¸ˆï¼š
 
 rep:                      20000
 local contri:             1000
@@ -122,7 +122,7 @@ skills:                   bfxy 70 zgxy 70
 no. of troops can manage: 3800
 salary:                   5
 
-´ó½«
+å¤§å°†
 
 rep:                      20000
 local contri:             1000
@@ -131,7 +131,7 @@ skills:                   bfxy 70 wxxy 70
 no. of troops can manage: 4000
 salary:                   5
 
-ÏÐÖ°£º
+é—²èŒï¼š
 
 rep:                      -
 local contri:             -
@@ -140,7 +140,7 @@ skills:                   -
 no. of troops can manage: 800
 salary:                   1
 
-Ì«ÊØ£º
+å¤ªå®ˆï¼š
 
 level 1: 
 rep:                      -
@@ -186,10 +186,10 @@ note:
 
 1. the max number of one troop depends on the leader's ability to manage only, 
    other officers in the same troops will have some other usages later, like 
-   Õì²ì£¬Âñ·ü blah blah, will be implement later.
+   ä¾¦å¯Ÿï¼ŒåŸ‹ä¼ blah blah, will be implement later.
 
 2. added local contri as a requirement, basicjob->findbody need to be adjusted,
-   thus player officer cannot change his city unless his king or ¹úÊ¦ permited.
+   thus player officer cannot change his city unless his king or å›½å¸ˆ permited.
 
 3. added loyalty of taishou position, when a taishou or a king wanna pos the
    taishou position to an existing officer, has to consider his loyalty first, 

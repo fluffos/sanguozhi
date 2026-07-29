@@ -9,11 +9,11 @@ inherit M_DAMAGE_SINK;
 void setup()
 {
 ::mudlib_setup();
-set_unit("Ö¦");
-set_id("rose", HIR+"Ãµ¹å"+NOR);
-set_in_room_desc("Ò»Ö¦"+HIR+"ºìÃµ¹å"+NOR);
+set_unit("æ");
+set_id("rose", HIR+"ç«ç‘°"+NOR);
+set_in_room_desc("ä¸€æ"+HIR+"çº¢ç«ç‘°"+NOR);
 set_gettable(1);
 set_slot(BREST);
-set_wearmsg("$NÔÚĞØÇ°±ğÉÏÒ»Ö¦"+HIR+"ºìÃµ¹å"+NOR+"£¬ÏÔµÃ¸ü¼Ó½¿ÑŞ¶¯ÈË¡£\n");
-set_removemsg("$NĞ¡ĞÄÒíÒíµØ½«"+HIR+"ºìÃµ¹å"+NOR+"´ÓĞØÇ°È¡ÏÂÀ´¡£\n");
+set_wearmsg("$Nåœ¨èƒ¸å‰åˆ«ä¸Šä¸€æ"+HIR+"çº¢ç«ç‘°"+NOR+"ï¼Œæ˜¾å¾—æ›´åŠ å¨‡è‰³åŠ¨äººã€‚\n");
+set_removemsg("$Nå°å¿ƒç¿¼ç¿¼åœ°å°†"+HIR+"çº¢ç«ç‘°"+NOR+"ä»èƒ¸å‰å–ä¸‹æ¥ã€‚\n");
 }

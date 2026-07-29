@@ -7,8 +7,8 @@
 inherit VERB_OB;
 void bkiss(object liv1, object liv2)
 {
-        liv1->simple_action("$NËµµÀ£º¡°ºÃÑ½£¡¡±\n");
-        liv1->simple_action("$NÇáÇáÍĞ×¡ÁÒ»ğµÄÁ³£¬¸øËûÒ»¸öÉîÇéµÄÎÇ¡£\n");
+        liv1->simple_action("$Nè¯´é“ï¼šâ€œå¥½å‘€ï¼â€\n");
+        liv1->simple_action("$Nè½»è½»æ‰˜ä½çƒˆç«çš„è„¸ï¼Œç»™ä»–ä¸€ä¸ªæ·±æƒ…çš„å»ã€‚\n");
 }
 mixed can_ask_liv_about_wrd(object liv, string str) 
 {
@@ -32,7 +32,7 @@ mixed do_ask_liv_about_wrd(object liv, string item)
 		p_act=item;
         p_askstr=liv->query_ask_str(item);
 	if ( this_body() == liv ) {
-		write("ÄãÄÑµÀ×Ô¼º»¹²»ÖªµÀ£¿\n");
+		write("ä½ éš¾é“è‡ªå·±è¿˜ä¸çŸ¥é“ï¼Ÿ\n");
 		return 1;
 	}
         if(stringp(p_askstr))
@@ -42,33 +42,33 @@ mixed do_ask_liv_about_wrd(object liv, string item)
         {
                 case "name":
                     this_body()->targetted_action(
-"$NÏò$tÎÊµ½£º¡°Çë½ÌÏÈÉú×ğĞÕ´óÃû¡£¡±\n",liv);
+"$Nå‘$té—®åˆ°ï¼šâ€œè¯·æ•™å…ˆç”Ÿå°Šå§“å¤§åã€‚â€\n",liv);
                         break;
                 case "here":
                         this_body()->targetted_action(
-"$NÏò$tÎÊµ½£º¡°ÔÚÏÂ³õµ½¹ó±¦µØ£¬²»ÖªÕâÀïÓĞĞ©Ê²Ã´·çÍÁÈËÇé£¿\n",liv);
+"$Nå‘$té—®åˆ°ï¼šâ€œåœ¨ä¸‹åˆåˆ°è´µå®åœ°ï¼Œä¸çŸ¥è¿™é‡Œæœ‰äº›ä»€ä¹ˆé£åœŸäººæƒ…ï¼Ÿ\n",liv);
                         break;
                 case "rumors":
                        this_body()->targetted_action(
-"$NÏò$tÎÊµ½£º¡°²»Öª×î½üÓĞÃ»ÓĞÌıËµÊ²Ã´ÏûÏ¢£¿\n",liv);
+"$Nå‘$té—®åˆ°ï¼šâ€œä¸çŸ¥æœ€è¿‘æœ‰æ²¡æœ‰å¬è¯´ä»€ä¹ˆæ¶ˆæ¯ï¼Ÿ\n",liv);
                         break;
                 case "bkiss" :
                        this_body()->targetted_action(
-"$NÏò$TÎÊµÀ£º¡°$mĞ¡½ã£¬ÄÜÇ×Ç×ÎÒÂğ£¿¡±\n",liv);
+"$Nå‘$Té—®é“ï¼šâ€œ$må°å§ï¼Œèƒ½äº²äº²æˆ‘å—ï¼Ÿâ€\n",liv);
                         call_out((: bkiss , liv, this_object() :), 3);
                         return;
 /* emperor add */
                 case "sleep" :
                        this_body()->targetted_action(
-"$NÎÂÈáµØ¶Ô$TµÀ£º$c£¬ÎÒÃÇĞĞ·¿ÈçºÎ£¿\n",liv);
+"$Næ¸©æŸ”åœ°å¯¹$Té“ï¼š$cï¼Œæˆ‘ä»¬è¡Œæˆ¿å¦‚ä½•ï¼Ÿ\n",liv);
                        break;
 /* emperor add over */
                 case "all" :
                        this_body()->targetted_action(
-"$N¶Ô$TµÀ£º$sÉúĞÔÓŞÂ³£¬Íû$R²»Áß´Í½Ì¡£\n",liv);
+"$Nå¯¹$Té“ï¼š$sç”Ÿæ€§æ„šé²ï¼Œæœ›$Rä¸åèµæ•™ã€‚\n",liv);
                        break;
                 default :                                               
-                        this_body()->targetted_action("$NÏò$t´òÌı¹ØÓÚ<"+p_act+">µÄÏûÏ¢¡£\n",liv);
+                        this_body()->targetted_action("$Nå‘$tæ‰“å¬å…³äº<"+p_act+">çš„æ¶ˆæ¯ã€‚\n",liv);
         }
         liv->be_asked(this_body(), item);
      return 1;
@@ -81,7 +81,7 @@ mixed do_ask_str_about_wrd(string str, string item)
 	do_ask_liv_about_wrd(o,item);
 }
 
-array query_verb_info()
+mixed * query_verb_info()
 {
      return ({ ({"STR about WRD" }) });
 }

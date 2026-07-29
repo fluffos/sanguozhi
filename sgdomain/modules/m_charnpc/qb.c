@@ -1,4 +1,4 @@
-// qb.c the body of Ç×±ø
+// qb.c the body of äº²å…µ
 inherit PMODULES+"m_charnpc";
 private my_id,my_master;
 void auto_disappear();
@@ -17,7 +17,7 @@ void auto_disappear()
 	if(objectp(o))
 	{
 		this_object()->targetted_action(
-			"$N¶Ô$TµÀ£º$RÒªÊÇÃ»ÊÂ£¬Ğ¡ÈË¾ÍÏÈÍËÏÂÁË¡£\n",o);
+			"$Nå¯¹$Té“ï¼š$Rè¦æ˜¯æ²¡äº‹ï¼Œå°äººå°±å…ˆé€€ä¸‹äº†ã€‚\n",o);
 	}
 	CHAR_D->remove_char(my_id);
 }
@@ -25,7 +25,7 @@ void remove()
 {
 	remove_call_out("auto_disappear");
 	this_object()->simple_action(
-		"$NÉÁÉíÍË³öÁË¡£\n");
+		"$Né—ªèº«é€€å‡ºäº†ã€‚\n");
 	::remove();
 }
 void my_charaction(){

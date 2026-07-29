@@ -1,4 +1,4 @@
-// buzzer.c by fire Èı¹úÍÆÍÁ»ú
+// buzzer.c by fire ä¸‰å›½æ¨åœŸæœº
 // modified by row
 // this cmd is used create quick room
 inherit CMD;

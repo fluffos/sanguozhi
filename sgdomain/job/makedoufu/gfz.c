@@ -1,4 +1,4 @@
-//¹Ø·ò×Ó by row
+//å…³å¤«å­ by row
 #include <ansi.h>
 #include <mudlib.h>
 #define PMAKEDOUFU PJOB+"makedoufu"
@@ -16,10 +16,10 @@ void ask_meat(object usr);
 void ask_cruet(object usr);
 void setup()
 {
-	set_name("guan fuzi","¹Ø·ò×Ó");
+	set_name("guan fuzi","å…³å¤«å­");
 	add_id("guan");
 	add_id("fuzi");
-	set_in_room_desc("\n¡¸%^B_WHITE%^"+HIG+"ôä´ä¶¹¸¯"+NOR+"¡¹¹Ø·ò×Ó(guan fuzi)");
+	set_in_room_desc("\nã€Œ%^B_WHITE%^"+HIG+"ç¿¡ç¿ è±†è…"+NOR+"ã€å…³å¤«å­(guan fuzi)");
 	set_gender(1);
 	set_age(45);
 	add_question("job","job");
@@ -30,18 +30,18 @@ void setup()
 	add_question("name","name");
 	add_question("soybean","soybean");
 	add_question("cruet","cruet");
-	add_ask_str("soybean","$N¶Ô$TµÀ£º¹ØÊ¦¸µ£¬²»ÇÉ»Æ¶¹ÓÃÍêÁË£¬ÄÜ²»ÄÜÔÙ¸øµã¶ù£¿\n");
-	add_ask_str("cruet","$N¶Ô$TµÀ£º¹ØÊ¦¸µ£¬²»ÇÉÂ±ÓÃÍêÁË£¬ÄÜ²»ÄÜÔÙ¸øµã¶ù£¿\n");
-	add_ask_str("makedoufu","$N¶Ô$TµÀ£º¹ØÊ¦¸µ£¬Õâ¸ö×ö¶¹¸¯£¬µ½µ×ÊÇÔõÃ´Ò»»ØÊÂ£¿\n");
-	add_ask_str("job","$N¶Ô$TµÀ£ºÕâÎ»$R£¬ÓĞÊ²Ã´ÎÒ¿ÉÒÔ°ïÃ¦µÄÂğ£¿\n");
-	add_ask_str("pay","$N¶Ô$TÒ»¹°ÊÖ£¬µÀ£º$R£¬Õâ¸ö¡£¡£¡£Ç®µÄÎÊÌâ¡£¡£¡£\n");
+	add_ask_str("soybean","$Nå¯¹$Té“ï¼šå…³å¸ˆå‚…ï¼Œä¸å·§é»„è±†ç”¨å®Œäº†ï¼Œèƒ½ä¸èƒ½å†ç»™ç‚¹å„¿ï¼Ÿ\n");
+	add_ask_str("cruet","$Nå¯¹$Té“ï¼šå…³å¸ˆå‚…ï¼Œä¸å·§å¤ç”¨å®Œäº†ï¼Œèƒ½ä¸èƒ½å†ç»™ç‚¹å„¿ï¼Ÿ\n");
+	add_ask_str("makedoufu","$Nå¯¹$Té“ï¼šå…³å¸ˆå‚…ï¼Œè¿™ä¸ªåšè±†è…ï¼Œåˆ°åº•æ˜¯æ€ä¹ˆä¸€å›äº‹ï¼Ÿ\n");
+	add_ask_str("job","$Nå¯¹$Té“ï¼šè¿™ä½$Rï¼Œæœ‰ä»€ä¹ˆæˆ‘å¯ä»¥å¸®å¿™çš„å—ï¼Ÿ\n");
+	add_ask_str("pay","$Nå¯¹$Tä¸€æ‹±æ‰‹ï¼Œé“ï¼š$Rï¼Œè¿™ä¸ªã€‚ã€‚ã€‚é’±çš„é—®é¢˜ã€‚ã€‚ã€‚\n");
 }
 string long() {
-	return "Ò»Î»Éí²Ä¸ß´óµÄµÄÖĞÄêºº×Ó£¬Éí×ÅÂé²¼¶Ì¹Ó£¬¸ß¸ßµØ¾í×Å¿ã¹Ü\n"+
-	       "×Ó£¬½ÅÌ¤Ò»Ë«²İĞ¬£¬¿ÉÆÕÍ¨µÄ´©×ÅÕÚÑÚ²»×¡ËûÃ¼Óî¼äÒ»¹É±ÆÈË\n"+
-	       "µÄÓ¢Æø£¬ÔÙ¼ÓÉÏò¢ÏÂÄÇÆ®ÒİµÄÃÀ÷×£¬ÕæÈç¹Ø¹«ÔÙÔìÒ»°ã£¬ÄÑ¹Ö\n"+
-	       "Ò»Ğ©ÍâÏçÈË×ÜÊÇÒªÅª´í¡£¹Ø·ò×ÓÆ½Ê±ÔÚÄ¥·¿ÀïÄ¥¶¹¸¯£¬ËûÊÖÒÕ\n"+
-                   "Ò»Á÷£¬Ô¶½üÎÅÃû(ask guan about job)¡£\n";
+	return "ä¸€ä½èº«æé«˜å¤§çš„çš„ä¸­å¹´æ±‰å­ï¼Œèº«ç€éº»å¸ƒçŸ­è¤‚ï¼Œé«˜é«˜åœ°å·ç€è£¤ç®¡\n"+
+	       "å­ï¼Œè„šè¸ä¸€åŒè‰é‹ï¼Œå¯æ™®é€šçš„ç©¿ç€é®æ©ä¸ä½ä»–çœ‰å®‡é—´ä¸€è‚¡é€¼äºº\n"+
+	       "çš„è‹±æ°”ï¼Œå†åŠ ä¸Šé¢Œä¸‹é‚£é£˜é€¸çš„ç¾é«¯ï¼ŒçœŸå¦‚å…³å…¬å†é€ ä¸€èˆ¬ï¼Œéš¾æ€ª\n"+
+	       "ä¸€äº›å¤–ä¹¡äººæ€»æ˜¯è¦å¼„é”™ã€‚å…³å¤«å­å¹³æ—¶åœ¨ç£¨æˆ¿é‡Œç£¨è±†è…ï¼Œä»–æ‰‹è‰º\n"+
+                   "ä¸€æµï¼Œè¿œè¿‘é—»å(ask guan about job)ã€‚\n";
 }
 mixed special_answer(object ob, string str)
 {
@@ -62,23 +62,23 @@ mixed special_answer(object ob, string str)
 		ask_cruet(player);
 		return;
 	  case "makedoufu":
-                this_object()->simple_action("$NÂ°ÁËÂ°ò¥ÏÂµÄ³¤÷×£¬µÀ£ºÄãÌı×ĞÏ¸ÁË¡£\n"+
-			"ÏÈ½«»Æ¶¹·Åµ½Ê¯Ä¥ÀïÄ¥ËéÑĞÏ¸(turn soy bean£¬push shimo)£»\n"+
-			"ÔÙ½«¶¹·Û·Åµ½´ó¹øÀïÖóÀÃ(turn shimo£¬wave fan)£»\n"+
-			"È»ºóÍù´ó¹øÀï·ÅÒ»µãÂ±(turn cruet)£»\n"+
-			"×îºó½«¹ø×ÓÀïµÄ¶¹½¬µ¹ÈëÄ¾Í°ÀäÈ´¾Í¿ÉÒÔÁË(turn guozi)¡£\n");
+                this_object()->simple_action("$Næ³äº†æ³é¢”ä¸‹çš„é•¿é«¯ï¼Œé“ï¼šä½ å¬ä»”ç»†äº†ã€‚\n"+
+			"å…ˆå°†é»„è±†æ”¾åˆ°çŸ³ç£¨é‡Œç£¨ç¢ç ”ç»†(turn soy beanï¼Œpush shimo)ï¼›\n"+
+			"å†å°†è±†ç²‰æ”¾åˆ°å¤§é”…é‡Œç…®çƒ‚(turn shimoï¼Œwave fan)ï¼›\n"+
+			"ç„¶åå¾€å¤§é”…é‡Œæ”¾ä¸€ç‚¹å¤(turn cruet)ï¼›\n"+
+			"æœ€åå°†é”…å­é‡Œçš„è±†æµ†å€’å…¥æœ¨æ¡¶å†·å´å°±å¯ä»¥äº†(turn guozi)ã€‚\n");
 		    return;
         case "rumors":
-                this_object()->simple_action("$NÌ¾ÁË¿ÚÆø£º"+
-"¹ØÄ³×ã²»³ö´åÒÑ¾Ã£¬È«²»ÖªÏşÍâÃæµÄÇéĞÎ£¬²ÑÀ¢£¬²ÑÀ¢¡£\n");
+                this_object()->simple_action("$Nå¹äº†å£æ°”ï¼š"+
+"å…³æŸè¶³ä¸å‡ºæ‘å·²ä¹…ï¼Œå…¨ä¸çŸ¥æ™“å¤–é¢çš„æƒ…å½¢ï¼Œæƒ­æ„§ï¼Œæƒ­æ„§ã€‚\n");
                 return;
         case "name":
-                this_object()->simple_action("$NÁ³Î¢Î¢Ò»ºì£º"+
-"°¥£¬ÎÒ×æÉÏĞÕ¹Ø£¬¼úÃû²»ÌáÒ²°Õ¡£\n");
+                this_object()->simple_action("$Nè„¸å¾®å¾®ä¸€çº¢ï¼š"+
+"å“ï¼Œæˆ‘ç¥–ä¸Šå§“å…³ï¼Œè´±åä¸æä¹Ÿç½¢ã€‚\n");
                 return;
         case "here":
-                this_object()->targetted_action("$NĞ¦µÀ£º"+
-"´ËµØÄËÊÇ»ªÒõÎ¨Ò»µÄÄ¥·»£¬¹ØÄ³Æ½Ê±¾ÍÔÚ´Ë×öĞ©¶¹¸¯¡£\n",ob);
+                this_object()->targetted_action("$Nç¬‘é“ï¼š"+
+"æ­¤åœ°ä¹ƒæ˜¯åé˜´å”¯ä¸€çš„ç£¨åŠï¼Œå…³æŸå¹³æ—¶å°±åœ¨æ­¤åšäº›è±†è…ã€‚\n",ob);
                 return;
         default:
                 return;
@@ -93,13 +93,13 @@ void ask_job(object usr)
         if (usr->query_job(JOBID,"beg_time"))
         {
         this_object()->targetted_action(
-        "$N¶Ô$TµÀ£º»î¶ùÒÑ¾­½»´ú¹ıÁË£¬Äã¿ìÈ¥×ö°É¡£\n",usr);
+        "$Nå¯¹$Té“ï¼šæ´»å„¿å·²ç»äº¤ä»£è¿‡äº†ï¼Œä½ å¿«å»åšå§ã€‚\n",usr);
         return;
         }
         if(CHAR_D->get_char(n_id,"nation"))
         {
         this_object()->targetted_action(
-        "$NÁ³Ò»³Á£º$RÄª·ÇÊÇÔÚÏ·ÅªÓëÎÒ£¿$TÉíÎª¸ß¹Ù£¬²»Îª¹ú¼Ò°ÙĞÕ±¼²¨£¬È´ÎªºÎËÄ´¦ÏĞ¹ä£¿\n",usr);
+        "$Nè„¸ä¸€æ²‰ï¼š$Rè«éæ˜¯åœ¨æˆå¼„ä¸æˆ‘ï¼Ÿ$Tèº«ä¸ºé«˜å®˜ï¼Œä¸ä¸ºå›½å®¶ç™¾å§“å¥”æ³¢ï¼Œå´ä¸ºä½•å››å¤„é—²é€›ï¼Ÿ\n",usr);
         return;
         }
         n_lasttimes=usr->query_job(JOBID,"count_lasttimes");
@@ -107,17 +107,17 @@ void ask_job(object usr)
         if(n_lasttimes>m_lasttimes)
         {
         this_object()->targetted_action(
-        "$N¶Ô$TµÀ£ºàÅ£¬Äã½ñÌì×öµÄ¶¹¸¯¹»¶àÁË£¬¿ÉÒÔĞªÏ¢È¥ÁË¡£\n",usr);
+        "$Nå¯¹$Té“ï¼šå—¯ï¼Œä½ ä»Šå¤©åšçš„è±†è…å¤Ÿå¤šäº†ï¼Œå¯ä»¥æ­‡æ¯å»äº†ã€‚\n",usr);
         return;
         }
         usr->resign_job(JOBID);
         usr->add_job(JOBID);
         this_object()->targetted_action(
-        "$N¶Ô$TµãµãÍ·£ººÃ£¬ÕâÒ»´ü»Æ¶¹ÏÈ¸øÄã£¬Äã¾Í¸ø¹ØÄ³×öÒ»Í°¶¹¸¯³öÀ´¡£\n"+
-        "Æ÷Ãó¶¼ÔÚÕâÀïÁË£¬ÄãÈôÊÇ²»Ã÷°×ÔõÃ´×ö£¬¾ÍÎÊ¹ØÄ³°É(ask guan about makedoufu)¡£\n"+
-	"ÍòÒ»Äã»¹ĞèÒª»Æ¶¹ºÍÂ±£¬¾ÍÏò¹ØÄ³Òª°É(ask guan about soybean¡¢ask guan about cruet)¡£\n",usr);
+        "$Nå¯¹$Tç‚¹ç‚¹å¤´ï¼šå¥½ï¼Œè¿™ä¸€è¢‹é»„è±†å…ˆç»™ä½ ï¼Œä½ å°±ç»™å…³æŸåšä¸€æ¡¶è±†è…å‡ºæ¥ã€‚\n"+
+        "å™¨çš¿éƒ½åœ¨è¿™é‡Œäº†ï¼Œä½ è‹¥æ˜¯ä¸æ˜ç™½æ€ä¹ˆåšï¼Œå°±é—®å…³æŸå§(ask guan about makedoufu)ã€‚\n"+
+	"ä¸‡ä¸€ä½ è¿˜éœ€è¦é»„è±†å’Œå¤ï¼Œå°±å‘å…³æŸè¦å§(ask guan about soybeanã€ask guan about cruet)ã€‚\n",usr);
         this_object()->targetted_action(
-        "$N½»¸ø$TÒ»´ü"+HIY+"»Æ¶¹"+NOR+"ºÍÒ»Ğ¡Æ¿%^H_CYAN%^Â±Ö­%^RESET%^£¬Ö¸ÁËÖ¸µØÉÏµÄÊ¯Ä¥(shimo)¡¢ÔîÍ·\nÉÏµÄ´ó¹ø×Ó(guozi)¡¢ÁºÉÏ¹Ò×ÅµÄ´óÉÈ×Ó(fan)ºÍÒ»ÅÔµÄÄ¾Í°(mutong)¡£\n",usr);
+        "$Näº¤ç»™$Tä¸€è¢‹"+HIY+"é»„è±†"+NOR+"å’Œä¸€å°ç“¶%^H_CYAN%^å¤æ±%^RESET%^ï¼ŒæŒ‡äº†æŒ‡åœ°ä¸Šçš„çŸ³ç£¨(shimo)ã€ç¶å¤´\nä¸Šçš„å¤§é”…å­(guozi)ã€æ¢ä¸ŠæŒ‚ç€çš„å¤§æ‰‡å­(fan)å’Œä¸€æ—çš„æœ¨æ¡¶(mutong)ã€‚\n",usr);
 	usr->add_job(JOBID);
 	usr->set_job(JOBID,"status","beg");
 	ob=new("/sgdomain/job/makedoufu/soybean");
@@ -133,10 +133,10 @@ void award(object usr)
         if(isrobot)
         {
         this_object()->simple_action(
-        "$NÖåÁËÖåÃ¼£ºÔ­À´Èç´Ë¡£\n");
+        "$Nçš±äº†çš±çœ‰ï¼šåŸæ¥å¦‚æ­¤ã€‚\n");
         this_object()->targetted_action(
-        "$N¸ø$TÒ»ÕÅ°ÙÔ²Ö½Ç®¡£\n",usr);
-        usr->simple_action("$N¸ßĞËµØÌøÁËÆğÀ´£ºÖÕÓÚÓĞÇ®ÁË£¡\n");
+        "$Nç»™$Tä¸€å¼ ç™¾åœ†çº¸é’±ã€‚\n",usr);
+        usr->simple_action("$Né«˜å…´åœ°è·³äº†èµ·æ¥ï¼šç»ˆäºæœ‰é’±äº†ï¼\n");
         ob=new(PMONEY+"fmoney");
         ob->move(usr);
         }
@@ -146,8 +146,8 @@ void award(object usr)
         p_id=usr->query_id()[0];
         CHAR_D->set_char(p_id,"reputation",
         CHAR_D->get_char(p_id,"reputation")+1);
-        this_object()->simple_action("$NÎ¢Î¢Ò»Ğ¦£ººÜºÃ¡£\n");
-        this_object()->targetted_action("$N¸ø$TÈıÊ®Á½Òø×Ó¡£\n",usr);
+        this_object()->simple_action("$Nå¾®å¾®ä¸€ç¬‘ï¼šå¾ˆå¥½ã€‚\n");
+        this_object()->targetted_action("$Nç»™$Tä¸‰åä¸¤é“¶å­ã€‚\n",usr);
         ob=new(M_SILVER);
         ob->set_m_num(30);
         ob->move(usr);
@@ -159,7 +159,7 @@ void ask_pay(object usr)
         n_id=usr->query_id()[0];
         if(!usr->query_job(JOBID,"beg_time")) {
            this_object()->targetted_action(
-           "$NÒ»Á³ÒÉ»ó£¬¶Ô$TµÀ£º¹ØÄ³Ã»ÈÃ$R¸É¹ı»î°É£¿\n",usr);
+           "$Nä¸€è„¸ç–‘æƒ‘ï¼Œå¯¹$Té“ï¼šå…³æŸæ²¡è®©$Rå¹²è¿‡æ´»å§ï¼Ÿ\n",usr);
            return;
         }
 	room=load_object(S_ROOM);
@@ -167,15 +167,15 @@ void ask_pay(object usr)
 	if(mutong->query_status()!=1)
 	{
 	this_object()->targetted_action(
-	"$N¶Ô$TµÀ£º°¥£¿Äã»¹Ã»×öÍêÄØ¡£\n",usr);
+	"$Nå¯¹$Té“ï¼šå“ï¼Ÿä½ è¿˜æ²¡åšå®Œå‘¢ã€‚\n",usr);
 	return;
 	}
 	this_object()->targetted_action(
-	"$N²é¿´ÁËÒ»ÏÂÄ¾Í°£¬ÂúÒâµÄ¶Ô$TµÀ£º×öµÄºÃ£¡\n$N¸ß¸ßĞËĞËµØ½«Ä¾Í°ÀïµÄ%^B_WHITE%^%^H_GREEN%^ôä´ä¶¹¸¯%^RESET%^ÊÕÁËÆğÀ´¡£\n",usr);
+	"$NæŸ¥çœ‹äº†ä¸€ä¸‹æœ¨æ¡¶ï¼Œæ»¡æ„çš„å¯¹$Té“ï¼šåšçš„å¥½ï¼\n$Né«˜é«˜å…´å…´åœ°å°†æœ¨æ¡¶é‡Œçš„%^B_WHITE%^%^H_GREEN%^ç¿¡ç¿ è±†è…%^RESET%^æ”¶äº†èµ·æ¥ã€‚\n",usr);
 	mutong->set_status();
 	mutong->empty_it();
 	this_object()->targetted_action(
-	"$N¶Ô$TµÀ£º¹ØÄ³»¹Òª¸øÄã³öµÀÌâ¡£\n",usr);
+	"$Nå¯¹$Té“ï¼šå…³æŸè¿˜è¦ç»™ä½ å‡ºé“é¢˜ã€‚\n",usr);
 	usr->finish_job(JOBID);
 	ROBOT->robot_test(usr,(:award:));
 }
@@ -191,20 +191,20 @@ void ask_soybean(object usr)
 	if(!usr->query_job(JOBID,"beg_time"))
 	{
 	this_object()->targetted_action(
-	"$NÒ»Á³ÒÉ»ó£º¹ØÄ³ËÆºõÃ»ÈÃ$m$R¸É¹ı»î°É£¬Õâ´ÓºÎËµÆğ£¿\n",usr);
+	"$Nä¸€è„¸ç–‘æƒ‘ï¼šå…³æŸä¼¼ä¹æ²¡è®©$m$Rå¹²è¿‡æ´»å§ï¼Œè¿™ä»ä½•è¯´èµ·ï¼Ÿ\n",usr);
 	return;
 	}
 	if(!objectp(guozi)||!objectp(shimo)||!objectp(mutong))
 	{
 	this_object()->targetted_action(
-	"$N¶Ô$TÒ»Ò¡Í·£º$R¸ã´íÁË°É£¬ÕâÊÇÔÚÄÄÀïÑ½£¿\n",usr);
+	"$Nå¯¹$Tä¸€æ‘‡å¤´ï¼š$Ræé”™äº†å§ï¼Œè¿™æ˜¯åœ¨å“ªé‡Œå‘€ï¼Ÿ\n",usr);
 	return;
 	}
 	soybean=present("soybean",usr);
 	if(objectp(soybean))
 	{
 	this_object()->targetted_action(
-	"$N¶Ô$TĞ¦µÀ£ºÄã²»ÊÇÓĞ»Æ¶¹Âğ£¬ÎªºÎÓÖÏò¹ØÄ³ÒªÁË£¿\n",usr);
+	"$Nå¯¹$Tç¬‘é“ï¼šä½ ä¸æ˜¯æœ‰é»„è±†å—ï¼Œä¸ºä½•åˆå‘å…³æŸè¦äº†ï¼Ÿ\n",usr);
 	return;
 	}
 	isfill1=shimo->query_isfill();
@@ -213,12 +213,12 @@ void ask_soybean(object usr)
 	if(isfill1==1||isfill2==1||isfill3==1)
 	{
 	this_object()->targetted_actioin(
-	"$N¶Ô$TĞ¦µÀ£º$RÄã×öµÃ²»´íÑ½£¬ÒÑ¾­²»ĞèÒª»Æ¶¹ÁË¡£\n",usr);
+	"$Nå¯¹$Tç¬‘é“ï¼š$Rä½ åšå¾—ä¸é”™å‘€ï¼Œå·²ç»ä¸éœ€è¦é»„è±†äº†ã€‚\n",usr);
 	return;
 	}
 	this_object()->targetted_action(
-	"$N¶Ô$TµãµãÍ·£ººÃ°É£¬¹ØÄ³¾ÍÔÙ¸øÄãĞ©»Æ¶¹£¬Õâ»Ø¿É±ğÔÙÀË·ÑÁË¡£\n"+
-	"$Nµİ¸ø$TÒ»´ü%^H_YELLOW%^»Æ¶¹%^RESET%^¡£\n",usr);
+	"$Nå¯¹$Tç‚¹ç‚¹å¤´ï¼šå¥½å§ï¼Œå…³æŸå°±å†ç»™ä½ äº›é»„è±†ï¼Œè¿™å›å¯åˆ«å†æµªè´¹äº†ã€‚\n"+
+	"$Né€’ç»™$Tä¸€è¢‹%^H_YELLOW%^é»„è±†%^RESET%^ã€‚\n",usr);
 	ob=new("/sgdomain/job/makedoufu/soybean");
 	ob->move(usr);
 }
@@ -234,32 +234,32 @@ void ask_cruet(object usr)
 	if(!usr->query_job(JOBID,"beg_time"))
 	{
 	this_object()->targetted_action(
-	"$NÒ»Á³ÒÉ»ó£º¹ØÄ³ËÆºõÃ»ÈÃ$m$R¸É¹ı»î°É£¬Õâ´ÓºÎËµÆğ£¿\n",usr);
+	"$Nä¸€è„¸ç–‘æƒ‘ï¼šå…³æŸä¼¼ä¹æ²¡è®©$m$Rå¹²è¿‡æ´»å§ï¼Œè¿™ä»ä½•è¯´èµ·ï¼Ÿ\n",usr);
 	return;
 	}
 	if(!objectp(guozi)||!objectp(shimo)||!objectp(mutong))
 	{
 	this_object()->targetted_action(
-	"$N¶Ô$TÒ»Ò¡Í·£º$R¸ã´íÁË°É£¬ÕâÊÇÔÚÄÄÀïÑ½£¿\n",usr);
+	"$Nå¯¹$Tä¸€æ‘‡å¤´ï¼š$Ræé”™äº†å§ï¼Œè¿™æ˜¯åœ¨å“ªé‡Œå‘€ï¼Ÿ\n",usr);
 	return;
 	}
 	cruet=present("cruet",usr);
 	if(objectp(cruet))
 	{
 	this_object()->targetted_action(
-	"$N¶Ô$TĞ¦µÀ£ºÄã²»ÊÇÓĞÂ±Âğ£¬ÎªºÎÓÖÏò¹ØÄ³ÒªÁË£¿\n",usr);
+	"$Nå¯¹$Tç¬‘é“ï¼šä½ ä¸æ˜¯æœ‰å¤å—ï¼Œä¸ºä½•åˆå‘å…³æŸè¦äº†ï¼Ÿ\n",usr);
 	return;
 	}
 	islu=guozi->query_islu();
 	if(islu==1)
 	{
 	this_object()->targetted_action(
-	"$N¶Ô$TĞ¦µÀ£º$RÄã×öµÃ²»´íÑ½£¬ÒÑ¾­²»ĞèÒªÂ±ÁË¡£\n",usr);
+	"$Nå¯¹$Tç¬‘é“ï¼š$Rä½ åšå¾—ä¸é”™å‘€ï¼Œå·²ç»ä¸éœ€è¦å¤äº†ã€‚\n",usr);
 	return;
 	}
 	this_object()->targetted_action(
-	"$N¶Ô$TµãµãÍ·£ººÃ°É£¬¹ØÄ³¾ÍÔÙ¸øÄãĞ©Â±£¬Õâ»Ø¿É±ğÔÙÀË·ÑÁË¡£\n"+
-	"$Nµİ¸ø$TÒ»Ğ¡Æ¿%^H_CYAN%^Â±Ö­%^RESET%^¡£\n",usr);
+	"$Nå¯¹$Tç‚¹ç‚¹å¤´ï¼šå¥½å§ï¼Œå…³æŸå°±å†ç»™ä½ äº›å¤ï¼Œè¿™å›å¯åˆ«å†æµªè´¹äº†ã€‚\n"+
+	"$Né€’ç»™$Tä¸€å°ç“¶%^H_CYAN%^å¤æ±%^RESET%^ã€‚\n",usr);
 	ob=new("/sgdomain/job/makedoufu/cruet");
 	ob->move(usr);
 }

@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is »¨¶ù¶ä¶ä
+// driver is èŠ±å„¿æœµæœµ
 // created date is Sat May  7 12:17:31 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,7 +7,7 @@ inherit INDOOR_ROOM;
 void setup() {
 set_area("longxi");
 set_light(50);
-set_brief("%^YELLOW%^"+"²¼µÀ³¡"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"å¸ƒé“åœº"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "west":"/a/longxi/lx_dounanjie2.c",

@@ -1,5 +1,5 @@
 // this room is created by buzzer.c
-// driver is ��ɽҹ��
+// driver is 巴山夜雨
 // created date is Thu May 26 20:47:56 2011
 //#include <mudlib.h>
 //#include <ansi.h>
@@ -7,7 +7,7 @@ inherit M_BANK;
 void setup() {
 set_area("taiyuan");
 set_light(50);
-set_brief("%^YELLOW%^"+"Ǯׯ"+"%^RESET%^");
+set_brief("%^YELLOW%^"+"钱庄"+"%^RESET%^");
 set_long("");
 set_exits( ([
 "east":"/a/taiyuan/ty_nandajie1.c",

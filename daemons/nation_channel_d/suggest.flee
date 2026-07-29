@@ -7,15 +7,15 @@ int have_enough_stuf(string b_area,string p_stuf,string typ,int val);
 private mapping leg_suggest = ([
 
 "tran" : 
-"µ÷Åä²¿¶ÓºÍÎï×Ê¡£
-¸ñÊ½£ºna $tran <ÆğÊ¼µØ> <Ä¿µÄµØ> <±øÖÖ»òÎï×Ê»ò½ğ> <ÊıÁ¿>
-ÀıÈç£ºna $tran changan huayin footman 1000\n",
+"è°ƒé…éƒ¨é˜Ÿå’Œç‰©èµ„ã€‚
+æ ¼å¼ï¼šna $tran <èµ·å§‹åœ°> <ç›®çš„åœ°> <å…µç§æˆ–ç‰©èµ„æˆ–é‡‘> <æ•°é‡>
+ä¾‹å¦‚ï¼šna $tran changan huayin footman 1000\n",
 
 "nationtax" : 
-"µ÷ÕûµØÇø¹ú¼ÒË°ÂÊ£¬Ìá³öÕß£ºµ±µØÌ«ÊØ»ò¹ú¼Ò¹ÙÔ±¡£
-¸ñÊ½£ºna $nationtax [area_id] <Ë°ÂÊ>\n",
+"è°ƒæ•´åœ°åŒºå›½å®¶ç¨ç‡ï¼Œæå‡ºè€…ï¼šå½“åœ°å¤ªå®ˆæˆ–å›½å®¶å®˜å‘˜ã€‚
+æ ¼å¼ï¼šna $nationtax [area_id] <ç¨ç‡>\n",
 
-"check" : "²éÔÄµ±Ç°½¨ÒéÇé¿ö¡£\n",
+"check" : "æŸ¥é˜…å½“å‰å»ºè®®æƒ…å†µã€‚\n",
 ]);
 
 void deliever_tell(string p_id,string n_id,string msg);
@@ -48,8 +48,8 @@ void do_tran(string n_id) {
 	b_area=para[0];t_area=para[1];p_stuff=para[2];val=para[3];
 	typ=para[4]; name=para[5];
 	if(!have_enough_stuf(b_area,p_stuff,typ,val)){
-		deliever_tell(p_id,n_id,"²»ÖªÊ²Ã´Ô­Òò£¬"+AREA_D->get_area(b_area,"name")+
-		"ÓÖÃ»ÓĞÄÇÃ´¶à"+name+"¡£ÔËÊäÈ¡Ïû¡£\n");
+		deliever_tell(p_id,n_id,"ä¸çŸ¥ä»€ä¹ˆåŸå› ï¼Œ"+AREA_D->get_area(b_area,"name")+
+		"åˆæ²¡æœ‰é‚£ä¹ˆå¤š"+name+"ã€‚è¿è¾“å–æ¶ˆã€‚\n");
 		return;
 	}
 
@@ -75,24 +75,24 @@ void do_tran(string n_id) {
 	
 	if((reab<10)&&(rea<100)) {
 		val=0;
-		dis="·Ç³£²»ĞÒ£¬È«²¿"+name+"ÔÚÂÃÍ¾¶ªÊ§¡£";
+		dis="éå¸¸ä¸å¹¸ï¼Œå…¨éƒ¨"+name+"åœ¨æ—…é€”ä¸¢å¤±ã€‚";
 	}
 	else if((reab<40)){ // &&(rea<100)) {
 		val*=rea;
 		val/=110;
 		if(typ=="troop") 
-			dis="ÓÉÓÚÖÖÖÖÔ­Òò£¬";
+			dis="ç”±äºç§ç§åŸå› ï¼Œ";
 		else
-			dis="ÓÉÓÚÖÖÖÖÔ­Òò£¬";
+			dis="ç”±äºç§ç§åŸå› ï¼Œ";
 		if(val)
-			dis+="Ö»ÓĞ"+chinese_number(val)+name+
-			"°²È«µ½´ï"+AREA_D->get_area(t_area,"name")+"¡£";
+			dis+="åªæœ‰"+chinese_number(val)+name+
+			"å®‰å…¨åˆ°è¾¾"+AREA_D->get_area(t_area,"name")+"ã€‚";
 		else
-			dis+="È«²¿"+name+"ÔÚÂÃÍ¾¶ªÊ§¡£";		
+			dis+="å…¨éƒ¨"+name+"åœ¨æ—…é€”ä¸¢å¤±ã€‚";		
 	}
 	else
-		dis="·Ç³£ĞÒÔË£¬ËùÓĞ"+chinese_number(val)+name+
-			"È«²¿°²È«µ½´ï"+AREA_D->get_area(t_area,"name")+"¡£";
+		dis="éå¸¸å¹¸è¿ï¼Œæ‰€æœ‰"+chinese_number(val)+name+
+			"å…¨éƒ¨å®‰å…¨åˆ°è¾¾"+AREA_D->get_area(t_area,"name")+"ã€‚";
 
 	switch (typ) {
 		case "gold" :
@@ -113,10 +113,10 @@ void do_tran(string n_id) {
 }
 void discuss_succ(string n_id) {
 	string msg;
-	msg="ºÃ£¬Ö§³ÖµãÊı³¬¹ı·´¶ÔµãÊı£¬½¨ÒéÍ¨¹ı¡£À´ÈË£¬´«Áî£º"+
-		m_suggest[n_id]["str"]+"¡£";
+	msg="å¥½ï¼Œæ”¯æŒç‚¹æ•°è¶…è¿‡åå¯¹ç‚¹æ•°ï¼Œå»ºè®®é€šè¿‡ã€‚æ¥äººï¼Œä¼ ä»¤ï¼š"+
+		m_suggest[n_id]["str"]+"ã€‚";
 	CHANNEL_D->deliver_tell("rumor","system",
-		COUNTRY_D->get_country(n_id,"name")+m_suggest[n_id]["str"]+"¡£");  
+		COUNTRY_D->get_country(n_id,"name")+m_suggest[n_id]["str"]+"ã€‚");  
 	switch(m_suggest[n_id]["topic"]) {
 		case "nationtax": {
 			string p_a;
@@ -142,7 +142,7 @@ void discuss_succ(string n_id) {
 }
 void discuss_fail(string n_id) {
 	string msg;
-	msg="¿´À´¹ØÓÚ"+m_suggest[n_id]["str"]+"µÄÎÊÌâ½ñÌìÌÖÂÛ²»³ö½á¹û£¬Õâ¸öÎÊÌâ»ØÍ·ÔÙËµÁË¡£";
+	msg="çœ‹æ¥å…³äº"+m_suggest[n_id]["str"]+"çš„é—®é¢˜ä»Šå¤©è®¨è®ºä¸å‡ºç»“æœï¼Œè¿™ä¸ªé—®é¢˜å›å¤´å†è¯´äº†ã€‚";
 	deliever_tell(n_id,n_id,msg);
 	m_suggest[n_id]=([]);
 }
@@ -157,40 +157,40 @@ mixed deliever_vote(string p_id, string n_id,string vot) {
 	string spk;
 	if(!mapp(m_suggest[n_id])) { 
 		m_suggest[n_id]=([]);
-		return "ÏÖÔÚÃ»ÓĞÊ²Ã´½¨ÒéÖµµÃ±í¾ö¡£\n"; }
+		return "ç°åœ¨æ²¡æœ‰ä»€ä¹ˆå»ºè®®å€¼å¾—è¡¨å†³ã€‚\n"; }
 
 	if(!arrayp(m_suggest[n_id]["whole_group"])) { 
-		return "ÏÖÔÚÃ»ÓĞÊ²Ã´½¨ÒéÖµµÃ±í¾ö¡£\n"; }
+		return "ç°åœ¨æ²¡æœ‰ä»€ä¹ˆå»ºè®®å€¼å¾—è¡¨å†³ã€‚\n"; }
 
 	if(member_array(p_id,m_suggest[n_id]["whole_group"])==-1) 
-		return "ÌÖÂÛµÄ¶«Î÷ÓëÄãÎŞ¹Ø¡£\n";
+		return "è®¨è®ºçš„ä¸œè¥¿ä¸ä½ æ— å…³ã€‚\n";
 
 	if(member_array(p_id,m_suggest[n_id]["rest_group"])==-1) 
-		return "ÄãÒÑ¾­±í¹ıÌ¬ÁË¡£\n";
+		return "ä½ å·²ç»è¡¨è¿‡æ€äº†ã€‚\n";
 
 	who=m_suggest[n_id]["who"];
 
 	switch(vot) {
 		case "agree" :
 			emt=ag_set[random(sizeof(ag_set))];
-			spk="ÎÒÖ§³Ö"+m_suggest[n_id]["str"]+"¡£";
+			spk="æˆ‘æ”¯æŒ"+m_suggest[n_id]["str"]+"ã€‚";
 			m_suggest[n_id]["rest_group"]-=({p_id});
 			m_suggest[n_id]["agree_group"]+=({p_id});
 			break;
 		case "disagree" :
 			emt=ds_set[random(sizeof(ds_set))];
-			spk="ÎÒ·´¶Ô"+m_suggest[n_id]["str"]+"¡£";
+			spk="æˆ‘åå¯¹"+m_suggest[n_id]["str"]+"ã€‚";
 			m_suggest[n_id]["rest_group"]-=({p_id});
 			m_suggest[n_id]["disagree_group"]+=({p_id});
 			break;
 		case "neutral" :
 			emt=nu_set[random(sizeof(nu_set))];
-			spk="ÎÒ¶Ô"+m_suggest[n_id]["str"]+"Ã»ÓĞÒâ¼û¡£";
+			spk="æˆ‘å¯¹"+m_suggest[n_id]["str"]+"æ²¡æœ‰æ„è§ã€‚";
 			m_suggest[n_id]["rest_group"]-=({p_id});
 			m_suggest[n_id]["neutral_group"]+=({p_id});
 			break;
 		default :
-			return "ÇëÃ÷È·±í´ïÄãµÄÒâ¼û¡£\n";		
+			return "è¯·æ˜ç¡®è¡¨è¾¾ä½ çš„æ„è§ã€‚\n";		
 	}
 	if(emt[<1]==' ') emt+=who;
 	deliever_tell( p_id, n_id,spk);
@@ -213,10 +213,10 @@ void npc_char_consider(string n_id, string p_id) {
 
 void char_consider(string n_id,string p_id) {
 	if(p_id==n_id) 
-		deliever_tell(n_id,n_id,"ÈÃÎÒÏëÒ»Ïë¡£") ;
+		deliever_tell(n_id,n_id,"è®©æˆ‘æƒ³ä¸€æƒ³ã€‚") ;
 	else
-		deliever_tell(n_id,n_id,"Çë"+
-			CHAR_D->get_char(p_id,"name")+"Ì¸Ì¸Òâ¼û¡£") ;
+		deliever_tell(n_id,n_id,"è¯·"+
+			CHAR_D->get_char(p_id,"name")+"è°ˆè°ˆæ„è§ã€‚") ;
 	if(!objectp(find_body(p_id))) {
 		npc_char_consider(n_id,p_id);
 	}
@@ -258,18 +258,18 @@ void discuss_suggest(string n_id) {
 
 string check_suggest(string n_id){
 	string ret;
-	if(!mapp(m_suggest[n_id])) return "Ä¿Ç°Ã»ÓĞÈÎºÎ½¨Òé¡£\n";
+	if(!mapp(m_suggest[n_id])) return "ç›®å‰æ²¡æœ‰ä»»ä½•å»ºè®®ã€‚\n";
 	if((!m_suggest[n_id]["status"])||(m_suggest[n_id]["status"]=="over"))
-		return "Ä¿Ç°Ã»ÓĞÈÎºÎ½¨Òé¡£\n";
-	ret="Ä¿Ç°ÌÖÂÛÖ÷Ìâ£º"+m_suggest[n_id]["str"]+"\n";
-	ret+="ÌáÒéÕß£º"+CHAR_D->get_char(m_suggest[n_id]["who"],"name")+"¡£\n";
-	ret+="»áÒéÈËÊı£º"+chinese_number(sizeof(m_suggest[n_id]["whole_group"]))+"¡£\n";
-	ret+="Ö§³Öµã£º"+chinese_number(query_group_value(m_suggest[n_id]["agree_group"]));
-	ret+="   ·´¶Ôµã£º"+chinese_number(query_group_value(m_suggest[n_id]["disagree_group"]));
-	ret+="   ÖĞÁ¢µã£º"+chinese_number(query_group_value(m_suggest[n_id]["neutral_group"]));
-	ret+="   Î´±íÌ¬µã£º"+chinese_number(query_group_value(m_suggest[n_id]["rest_group"]));
-	ret+="¡£\n";
-	ret+="ÌÖÂÛÂÖÊı£º"+chinese_number(m_suggest[n_id]["round"])+"¡£\n";
+		return "ç›®å‰æ²¡æœ‰ä»»ä½•å»ºè®®ã€‚\n";
+	ret="ç›®å‰è®¨è®ºä¸»é¢˜ï¼š"+m_suggest[n_id]["str"]+"\n";
+	ret+="æè®®è€…ï¼š"+CHAR_D->get_char(m_suggest[n_id]["who"],"name")+"ã€‚\n";
+	ret+="ä¼šè®®äººæ•°ï¼š"+chinese_number(sizeof(m_suggest[n_id]["whole_group"]))+"ã€‚\n";
+	ret+="æ”¯æŒç‚¹ï¼š"+chinese_number(query_group_value(m_suggest[n_id]["agree_group"]));
+	ret+="   åå¯¹ç‚¹ï¼š"+chinese_number(query_group_value(m_suggest[n_id]["disagree_group"]));
+	ret+="   ä¸­ç«‹ç‚¹ï¼š"+chinese_number(query_group_value(m_suggest[n_id]["neutral_group"]));
+	ret+="   æœªè¡¨æ€ç‚¹ï¼š"+chinese_number(query_group_value(m_suggest[n_id]["rest_group"]));
+	ret+="ã€‚\n";
+	ret+="è®¨è®ºè½®æ•°ï¼š"+chinese_number(m_suggest[n_id]["round"])+"ã€‚\n";
 	return ret;
 }
 mixed get_suggest(string n_id,string what) {
@@ -284,8 +284,8 @@ mixed set_suggest (string n_id,string what,mixed val) {
 }
 string no_legal_suggest() {
 	string ret;
-	ret="ÄãµÄ½¨ÒéÏµÍ³ÎŞ·¨Àí½â¡£\n";
-	ret+="Ä¿Ç°¿ÉÒÔÀí½âµÄ½¨ÒéÓĞ£º\n";
+	ret="ä½ çš„å»ºè®®ç³»ç»Ÿæ— æ³•ç†è§£ã€‚\n";
+	ret+="ç›®å‰å¯ä»¥ç†è§£çš„å»ºè®®æœ‰ï¼š\n";
 	ret+=implode(keys(leg_suggest),"  ");
 	return ret+"\n";
 }
@@ -328,40 +328,40 @@ void announce_suggest(string n_id) {
 	string p_id;
 	p_id=m_suggest[n_id]["who"];
 	if(p_id==n_id) // this king
-		deliever_tell(p_id, n_id,"ÖîÎ»°®Çä£¬ëŞÒÔÎª"+m_suggest[n_id]["reason"]+
-		"£¬"+"µ±¿É"+m_suggest[n_id]["str"]+"£¬"+
-		"ÖîÎ»°®ÇäÒâÏÂÈçºÎ¡£");
+		deliever_tell(p_id, n_id,"è¯¸ä½çˆ±å¿ï¼Œæœ•ä»¥ä¸º"+m_suggest[n_id]["reason"]+
+		"ï¼Œ"+"å½“å¯"+m_suggest[n_id]["str"]+"ï¼Œ"+
+		"è¯¸ä½çˆ±å¿æ„ä¸‹å¦‚ä½•ã€‚");
 	else
-		deliever_tell(p_id, n_id,"ÎáÍõÍòËêÍòÍòËê£¬³¼ÒÔÎª"+m_suggest[n_id]["reason"]+
-		"£¬"+"µ±¿É"+m_suggest[n_id]["str"]+"£¬"+
-		"±İÏÂÓë¸÷Î»Í¬ÁÅÒâÏÂÈçºÎ¡£");
+		deliever_tell(p_id, n_id,"å¾ç‹ä¸‡å²ä¸‡ä¸‡å²ï¼Œè‡£ä»¥ä¸º"+m_suggest[n_id]["reason"]+
+		"ï¼Œ"+"å½“å¯"+m_suggest[n_id]["str"]+"ï¼Œ"+
+		"é™›ä¸‹ä¸å„ä½åŒåƒšæ„ä¸‹å¦‚ä½•ã€‚");
 }
 mixed sug_nationtax(string p_id,string n_id,string p_area,int n_tax){
 	int o_tax;
 	if( !CHAR_D->get_char(p_id,"ranknation") && 
 		(CHAR_D->get_char(p_id,"area") != p_area) )
-		return "±ğÈËµÄµØÅÌ£¬Äã²ÙÊ²Ã´ĞÄ¡£\n";
+		return "åˆ«äººçš„åœ°ç›˜ï¼Œä½ æ“ä»€ä¹ˆå¿ƒã€‚\n";
 	if(AREA_D->get_area(p_area,"nation")!=n_id)
-		return "±ğÈËµÄµØÅÌ£¬Äã²ÙÊ²Ã´ĞÄ¡£\n";
+		return "åˆ«äººçš„åœ°ç›˜ï¼Œä½ æ“ä»€ä¹ˆå¿ƒã€‚\n";
 	if((n_tax>20)) 
-		return "¹ú¼ÒË°ÂÊ²»ÄÜ³¬¹ı20¡£\n";
+		return "å›½å®¶ç¨ç‡ä¸èƒ½è¶…è¿‡20ã€‚\n";
 	if((n_tax<0)) 
-		return "ÔõÃ´»áÓĞ¸ºË°ÂÊ¡£\n";
+		return "æ€ä¹ˆä¼šæœ‰è´Ÿç¨ç‡ã€‚\n";
 
 	o_tax=AREA_D->get_area(p_area,"taxnation");
-	if(o_tax==n_tax) return "Ä¿Ç°Ë°ÂÊÕıÊÇ"+chinese_number(n_tax)+"¡£\n";
+	if(o_tax==n_tax) return "ç›®å‰ç¨ç‡æ­£æ˜¯"+chinese_number(n_tax)+"ã€‚\n";
 
 	add_suggest(n_id,"nationtax",({p_area,o_tax,n_tax}), p_id, ({p_area}));
 
 	if(n_tax>o_tax) {
-	  m_suggest[n_id]["str"]="½«"+AREA_D->get_area(p_area,"name")+
-		"µÄ¹ú¼ÒË°ÂÊÓÉ"+chinese_number(o_tax)+"Ôö¼Óµ½"+chinese_number(n_tax);
-	  m_suggest[n_id]["reason"]="Ä¿Ç°¹ú¿â¿ÕĞé";
+	  m_suggest[n_id]["str"]="å°†"+AREA_D->get_area(p_area,"name")+
+		"çš„å›½å®¶ç¨ç‡ç”±"+chinese_number(o_tax)+"å¢åŠ åˆ°"+chinese_number(n_tax);
+	  m_suggest[n_id]["reason"]="ç›®å‰å›½åº“ç©ºè™š";
 	}
 	else {
-	  m_suggest[n_id]["str"]="½«"+AREA_D->get_area(p_area,"name")+
-		"µÄ¹ú¼ÒË°ÂÊÓÉ"+chinese_number(o_tax)+"½µµÍµ½"+chinese_number(n_tax);
-	  m_suggest[n_id]["reason"]="Ä¿Ç°¹ú¿â³äÓ¯";
+	  m_suggest[n_id]["str"]="å°†"+AREA_D->get_area(p_area,"name")+
+		"çš„å›½å®¶ç¨ç‡ç”±"+chinese_number(o_tax)+"é™ä½åˆ°"+chinese_number(n_tax);
+	  m_suggest[n_id]["reason"]="ç›®å‰å›½åº“å……ç›ˆ";
 	}
 	announce_suggest(n_id);
 	call_out("discuss_suggest",2,n_id);
@@ -378,10 +378,10 @@ mixed legal_stuff(string p_stuf) {
 }
 string stuff_name(string p_stuf,string typ) {
 	switch(typ) {
-		case "gold": return "»Æ½ğ";
+		case "gold": return "é»„é‡‘";
 		case "troop" : return TROOP_TYPE_D->get_troop_type(p_stuf,"name");
 		case "stuff" : return (EV_MERCHANT)->query_goods(p_stuf,"name");
-		default : return "Î´Öª»õÎï";
+		default : return "æœªçŸ¥è´§ç‰©";
 	}
 }
 
@@ -410,44 +410,44 @@ mixed sug_tran(string p_id,string n_id,string *para) {
 	string typ,name;
 	int val;
 
-	if(sizeof(para)<5) return "´íÎóµÄ¸ñÊ½¡£ÕıÈ·¸ñÊ½£º\n"+leg_suggest["tran"];
-	if(sizeof(para)>6) return "´íÎóµÄ¸ñÊ½¡£ÕıÈ·¸ñÊ½£º\n"+leg_suggest["tran"];
+	if(sizeof(para)<5) return "é”™è¯¯çš„æ ¼å¼ã€‚æ­£ç¡®æ ¼å¼ï¼š\n"+leg_suggest["tran"];
+	if(sizeof(para)>6) return "é”™è¯¯çš„æ ¼å¼ã€‚æ­£ç¡®æ ¼å¼ï¼š\n"+leg_suggest["tran"];
 
 	b_area=para[1];
-	if(!AREA_D->area_exist(b_area)) return "Ã»ÓĞ"+b_area+"Õâ¸öµØÇø¡£\n";
+	if(!AREA_D->area_exist(b_area)) return "æ²¡æœ‰"+b_area+"è¿™ä¸ªåœ°åŒºã€‚\n";
 	if(AREA_D->get_area(b_area,"nation")!=n_id) 
-		return AREA_D->get_area(b_area,"name")+"²»ÊôÓÚ±¾¹ú¡£\n";
+		return AREA_D->get_area(b_area,"name")+"ä¸å±äºæœ¬å›½ã€‚\n";
 	t_area=para[2];
-	if(!AREA_D->area_exist(t_area)) return "Ã»ÓĞ"+t_area+"Õâ¸öµØÇø¡£\n";
+	if(!AREA_D->area_exist(t_area)) return "æ²¡æœ‰"+t_area+"è¿™ä¸ªåœ°åŒºã€‚\n";
 	if(AREA_D->get_area(t_area,"nation")!=n_id) 
-		return AREA_D->get_area(t_area,"name")+"²»ÊôÓÚ±¾¹ú¡£\n";
+		return AREA_D->get_area(t_area,"name")+"ä¸å±äºæœ¬å›½ã€‚\n";
 
 	if(AREA_D->get_distance(b_area,t_area)!=1) 
-		return AREA_D->get_area(t_area,"name")+"Óë"+
-			AREA_D->get_area(b_area,"name")+"²»ÊÇÏàÁÚµØÇø¡£\n";
+		return AREA_D->get_area(t_area,"name")+"ä¸"+
+			AREA_D->get_area(b_area,"name")+"ä¸æ˜¯ç›¸é‚»åœ°åŒºã€‚\n";
 
 	if( !CHAR_D->get_char(p_id,"ranknation") && 
 		(CHAR_D->get_char(p_id,"area") != b_area) &&
 		(CHAR_D->get_char(p_id,"area") != t_area))
-		return "±ğÈËµÄµØÅÌ£¬Äã²ÙÊ²Ã´ĞÄ¡£\n";
+		return "åˆ«äººçš„åœ°ç›˜ï¼Œä½ æ“ä»€ä¹ˆå¿ƒã€‚\n";
 
 	if(sizeof(para)==6){
 		p_stuff=para[3]+" "+para[4] ; val=to_int(para[5]); }
 	else {
 		p_stuff=para[3]; val=to_int(para[4]); }
 	typ=legal_stuff(p_stuff);
-	if(!stringp(typ)) return "Ã»ÓĞ"+p_stuff+"ÕâÖÖ»õÎï»ò±øÖÖ¡£\n";
-	if(val<=0) return "ÔËÊäÊıÁ¿±ØĞè´óÓÚÁã¡£\n";
+	if(!stringp(typ)) return "æ²¡æœ‰"+p_stuff+"è¿™ç§è´§ç‰©æˆ–å…µç§ã€‚\n";
+	if(val<=0) return "è¿è¾“æ•°é‡å¿…éœ€å¤§äºé›¶ã€‚\n";
 	name=stuff_name(p_stuff,typ);
 	if(!have_enough_stuf(b_area,p_stuff,typ,val)) return AREA_D->get_area(b_area,"name")+
-		"Ã»ÓĞÄÇÃ´¶à"+name+"¡£\n";
+		"æ²¡æœ‰é‚£ä¹ˆå¤š"+name+"ã€‚\n";
 
 
 	add_suggest(n_id,"tran",({b_area,t_area,p_stuff,val,typ,name}), p_id, ({b_area,t_area}));
 
-	  m_suggest[n_id]["str"]="½«"+AREA_D->get_area(b_area,"name")+
-		"µÄ"+name+"µ÷"+chinese_number(val)+"µ½"+AREA_D->get_area(t_area,"name");
-	  m_suggest[n_id]["reason"]="ÎªÆ½ºâ·¢Õ¹";
+	  m_suggest[n_id]["str"]="å°†"+AREA_D->get_area(b_area,"name")+
+		"çš„"+name+"è°ƒ"+chinese_number(val)+"åˆ°"+AREA_D->get_area(t_area,"name");
+	  m_suggest[n_id]["reason"]="ä¸ºå¹³è¡¡å‘å±•";
 
 	announce_suggest(n_id);
 	call_out("discuss_suggest",2,n_id);
@@ -461,11 +461,11 @@ mixed deliever_suggest(string p_id,string n_id,string msg) {
 	if(!mapp(m_suggest[n_id])) m_suggest[n_id]=([]);
 	if(msg=="check") return check_suggest(n_id);
 	if(stringp(m_suggest[n_id]["status"])&&(m_suggest[n_id]["status"]!="over"))
-		return "Ä¿Ç°ÕıÔÚÌÖÂÛÉÏÒ»Ïî½¨Òé¡£\n";
+		return "ç›®å‰æ­£åœ¨è®¨è®ºä¸Šä¸€é¡¹å»ºè®®ã€‚\n";
 	a_id=CHAR_D->get_char(p_id,"area");
 	if((AREA_D->get_area(a_id,"leader")!=p_id)&&
 		(!CHAR_D->get_char(p_id,"ranknation")))
-		return "Ö»ÓĞ¹ú¼Ò¹ÙÔ±ºÍµØÇøÌ«ÊØ²ÅÄÜÌá³ö¹ú¼Ò½¨Òé¡£\n";
+		return "åªæœ‰å›½å®¶å®˜å‘˜å’Œåœ°åŒºå¤ªå®ˆæ‰èƒ½æå‡ºå›½å®¶å»ºè®®ã€‚\n";
 	if(!sizeof(msg)) return msg="---";
 	paras=explode(msg," ");
 	argc=sizeof(paras);

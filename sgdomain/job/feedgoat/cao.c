@@ -5,8 +5,8 @@ inherit M_GETTABLE;
 
 void setup()
 {
-        set_id("grass", "Çà²İ");
-	set_unit("À¦");
+        set_id("grass", "é’è‰");
+	set_unit("æ†");
         return;
 }
 int is_food()

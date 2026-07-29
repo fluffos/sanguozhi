@@ -11,8 +11,8 @@ void pass_market(string p_area)
 	mixed ret;
 	ret=(EV_MERCHANT)->market(p_area);
 	if(stringp(ret)) 
-		CHANNEL_D->deliver_tell("rumor","system","ÒòÎª"+ret+"£¬"+
-		AREA_D->get_area(p_area,"name")+"¿ª°ì¼¯ÊĞÊ§°Ü¡£");
+		CHANNEL_D->deliver_tell("rumor","system","å› ä¸º"+ret+"ï¼Œ"+
+		AREA_D->get_area(p_area,"name")+"å¼€åŠé›†å¸‚å¤±è´¥ã€‚");
 }
 
 
@@ -27,11 +27,11 @@ void pass_build(string p_area,string f_id)
 {
     int p_gold=AREA_D->get_area(p_area,"gold");
 	int p_goldneed=BASE_D->get_base(f_id,"gold");
-    array bases=AREA_D->get_area(p_area,"base");
+    mixed * bases=AREA_D->get_area(p_area,"base");
 	string p_dis=AREA_D->get_area(p_area,"name")+
-		"¿ªÊ¼½¨Ôì"+BASE_D->get_base(f_id,"name")+"¡£";
+		"å¼€å§‹å»ºé€ "+BASE_D->get_base(f_id,"name")+"ã€‚";
 	if(p_gold<p_goldneed) {
-		p_dis+="µ«ÊÇ×Ê½ğ²»×ã£¬½¨ÔìÊ§°Ü¡£";
+		p_dis+="ä½†æ˜¯èµ„é‡‘ä¸è¶³ï¼Œå»ºé€ å¤±è´¥ã€‚";
 	}
 	else {
 		object bs;
@@ -42,7 +42,7 @@ void pass_build(string p_area,string f_id)
 		AREA_D->set_area(p_area,"gold",p_gold-p_goldneed);
 		// need init base_server here
 		p_dis+=AREA_D->get_area(p_area,"name")+
-		"½¨³ÉÁË"+BASE_D->get_base(f_id,"name")+"¡£";
+		"å»ºæˆäº†"+BASE_D->get_base(f_id,"name")+"ã€‚";
 		bs=SGBASE(p_area,f_id);
 		if(objectp(bs)) {
 			bs->init_rooms();
@@ -58,9 +58,9 @@ void pass_update(string p_area,string f_id)
     int p_gold=AREA_D->get_area(p_area,"gold");
 	int p_goldneed=BASE_D->get_base(f_id,"gold");
 	string p_dis=AREA_D->get_area(p_area,"name")+
-		"¿ªÊ¼Éı¼¶"+BASE_D->get_base(f_id,"name")+"¡£";
+		"å¼€å§‹å‡çº§"+BASE_D->get_base(f_id,"name")+"ã€‚";
 	if(p_gold<p_goldneed) {
-		p_dis+="µ«ÊÇ×Ê½ğ²»×ã£¬Éı¼¶Ê§°Ü¡£";
+		p_dis+="ä½†æ˜¯èµ„é‡‘ä¸è¶³ï¼Œå‡çº§å¤±è´¥ã€‚";
 	}
 	else {
 		object bs;
@@ -69,7 +69,7 @@ void pass_update(string p_area,string f_id)
 		AREA_D->set_area(p_area,"gold",p_gold-p_goldneed);
 		// need init base_server here
 		p_dis+=AREA_D->get_area(p_area,"name")+
-		"Éı¼¶ÁË"+BASE_D->get_base(f_id,"name")+"¡£";
+		"å‡çº§äº†"+BASE_D->get_base(f_id,"name")+"ã€‚";
 		if(objectp(bs)) {
 			lev=bs->get_level();
 			lev++;
@@ -98,7 +98,7 @@ void pass_sendfood(string p_area,int p_para)
 		p_safe=bmin(MAX_POLICE_SAFE,p_safe);
 	}
 	AREA_D->set_area(p_area,"safe",p_safe);
-    p_dis=AREA_D->get_area(p_area,"name")+"¿ª²Ö·ÅÁ¸£¬°ÙĞÕ»¶ĞÀ¹ÄÎè¡£";
+    p_dis=AREA_D->get_area(p_area,"name")+"å¼€ä»“æ”¾ç²®ï¼Œç™¾å§“æ¬¢æ¬£é¼“èˆã€‚";
     CHANNEL_D->deliver_tell("rumor","system",p_dis);
 }
 void pass_localbuy(string p_area,string p_what, string p_id)
@@ -110,10 +110,10 @@ void pass_localbuy(string p_area,string p_what, string p_id)
    {
       o_id->add_job("localbuy");
       o_id->set_job("localbuy","what",p_what);
-      o_id->set_job("localbuy","memo","¹ºÂò"+(EV_MERCHANT)->query_goods(p_what,"name"));
+      o_id->set_job("localbuy","memo","è´­ä¹°"+(EV_MERCHANT)->query_goods(p_what,"name"));
       o_id->set_job("localbuy","area",CHAR_D->get_char(p_id,"area"));
-      o_id->simple_action("%^H_GREEN%^$NµÃµ½ÁË¹ºÂò"+(EV_MERCHANT)->query_goods(p_what,"name")+
-           "µÄÈÎÎñ¡£\n%^RESET%^");
+      o_id->simple_action("%^H_GREEN%^$Nå¾—åˆ°äº†è´­ä¹°"+(EV_MERCHANT)->query_goods(p_what,"name")+
+           "çš„ä»»åŠ¡ã€‚\n%^RESET%^");
    }
 }
 
@@ -131,16 +131,16 @@ void pass_recruit(string p_area,mixed p_newsoldier,string p_id)
       		p_safe = to_int(p_soldier/100);
 		if( p_safe < 1 )p_safe = 1;
 		if( p_safe >30 )p_safe = 30;
-      		p_dis=AREA_D->get_area(p_area,"name")+"Õ÷±ø£¬°ÙĞÕ²»Âú¡£";
+      		p_dis=AREA_D->get_area(p_area,"name")+"å¾å…µï¼Œç™¾å§“ä¸æ»¡ã€‚";
       			CHANNEL_D->deliver_tell("rumor","system",p_dis);
       		o_id=find_body(p_id);
       		if( objectp(o_id) ){
          		o_id->add_job("recruit");
          		o_id->set_job("recruit","left",p_newsoldier);
-         		o_id->set_job("recruit","memo","Õ÷"+p_newsoldier+"±ø");
+         		o_id->set_job("recruit","memo","å¾"+p_newsoldier+"å…µ");
          		o_id->set_job("recruit","area",CHAR_D->get_char(p_id,"area"));
-         		o_id->simple_action("%^H_GREEN%^$NµÃµ½Õ÷"+chinese_number(p_newsoldier)+
-           			"±øµÄÈÎÎñ¡£\n%^RESET%^");
+         		o_id->simple_action("%^H_GREEN%^$Nå¾—åˆ°å¾"+chinese_number(p_newsoldier)+
+           			"å…µçš„ä»»åŠ¡ã€‚\n%^RESET%^");
       		}
    	}
    	else { 
@@ -167,7 +167,7 @@ void pass_localtax(string p_area,int p_newtax)
         if(p_newtax>p_oldtax)
         {
                 p_safe-=(p_newtax-p_oldtax)*2;
-                p_dis=AREA_D->get_area(p_area,"name")+"µØ·½Ë°ÂÊÉÏµ÷£¬°ÙĞÕÔ¹ÉùÔØµÀ¡£";
+                p_dis=AREA_D->get_area(p_area,"name")+"åœ°æ–¹ç¨ç‡ä¸Šè°ƒï¼Œç™¾å§“æ€¨å£°è½½é“ã€‚";
         }
         else
         {
@@ -176,7 +176,7 @@ void pass_localtax(string p_area,int p_newtax)
 			p_safe+=(p_oldtax-p_newtax);
 			p_safe=bmin(MAX_POLICE_SAFE,p_safe);
 		}
-                p_dis=AREA_D->get_area(p_area,"name")+"µØ·½Ë°ÂÊÏÂµ÷£¬°ÙĞÕ»¶ĞÀ¹ÄÎè¡£";
+                p_dis=AREA_D->get_area(p_area,"name")+"åœ°æ–¹ç¨ç‡ä¸‹è°ƒï¼Œç™¾å§“æ¬¢æ¬£é¼“èˆã€‚";
         }
         AREA_D->set_area(p_area,"taxlocal",p_newtax);
         AREA_D->set_area(p_area,"safe",p_safe);
@@ -185,7 +185,7 @@ void pass_localtax(string p_area,int p_newtax)
 void pass_importance(string p_area,int p_inp)
 {
 	string p_dis;
-        p_dis=AREA_D->get_area(p_area,"name")+"µ÷ÕûÕş²ß£¬°ÙĞÕ¸Ğµ½¿Ö»Å¡£";
+        p_dis=AREA_D->get_area(p_area,"name")+"è°ƒæ•´æ”¿ç­–ï¼Œç™¾å§“æ„Ÿåˆ°ææ…Œã€‚";
 	AREA_D->set_area(p_area,"importance",p_inp);
         AREA_D->set_area(p_area,"safe",AREA_D->get_area(p_area,"safe")-5);
         CHANNEL_D->deliver_tell("rumor","system",p_dis);
@@ -210,27 +210,27 @@ void suggestion_pass(int task_id)
    p_soldier=p_leader+" bing";
    p_problem=get_problem(task_id);
    CHAR_D->add_char(p_soldier);
-   CHAR_D->set_char(p_soldier,"name","´«Áî±ø");
+   CHAR_D->set_char(p_soldier,"name","ä¼ ä»¤å…µ");
    CHAR_D->set_char(p_soldier,"is_tmp",1);
    o_leader=CHAR_D->find_char(p_leader);
    if(objectp(o_leader))
-          o_leader->simple_action("$NºÈµÀ£º´«Áî±øºÎÔÚ£¿\n");
+          o_leader->simple_action("$Nå–é“ï¼šä¼ ä»¤å…µä½•åœ¨ï¼Ÿ\n");
    p_room=AREA_D->get_area(p_area,"path")+AREA_D->get_area(p_area,"meeting");
    CHAR_D->put_char(p_soldier,p_room);
    o_soldier=CHAR_D->find_char(p_soldier);
    if(objectp(o_soldier))
-       o_soldier->simple_action("$NÉÁÉí½øÈë£¬¹ªÉíµÀ£ºÔÚ£¡\n");
+       o_soldier->simple_action("$Né—ªèº«è¿›å…¥ï¼Œèº¬èº«é“ï¼šåœ¨ï¼\n");
    if(objectp(o_leader))
-       o_leader->simple_action("$NµÀ£º´«ÎÒÖ¸Áî£¬½«"+p_problem+"¡£\n");
+       o_leader->simple_action("$Né“ï¼šä¼ æˆ‘æŒ‡ä»¤ï¼Œå°†"+p_problem+"ã€‚\n");
    if(objectp(o_soldier))
    {
-      o_soldier->simple_action("$N´óÉùµÀ£ºµÃÁî£¡\n");
-      o_soldier->simple_action("$N×ªÉíÍË³ö¡£\n");
+      o_soldier->simple_action("$Nå¤§å£°é“ï¼šå¾—ä»¤ï¼\n");
+      o_soldier->simple_action("$Nè½¬èº«é€€å‡ºã€‚\n");
    }
    CHAR_D->remove_npc_char(p_soldier);
    CHAR_D->remove_char(p_soldier);
    CHANNEL_D->deliver_tell("rumor","system",
-   AREA_D->get_area(p_area,"name")+"½«"+p_problem+"¡£");
+   AREA_D->get_area(p_area,"name")+"å°†"+p_problem+"ã€‚");
    switch(p_subject){
        case "localtax": pass_localtax(p_area,p_para); break;
        case "recruit": pass_recruit(p_area,p_para,p_id); break;
@@ -243,7 +243,7 @@ void suggestion_pass(int task_id)
 	   case "market": pass_market(p_area); break;
    }
    dis_over(task_id);
-   tell_user(p_id,"ÄãµÄ½¨ÒéºÜ´ÏÃ÷£¬¿´¿´ÄãÈËÊÇ²»ÊÇÒ²´ÏÃ÷¡£");
+   tell_user(p_id,"ä½ çš„å»ºè®®å¾ˆèªæ˜ï¼Œçœ‹çœ‹ä½ äººæ˜¯ä¸æ˜¯ä¹Ÿèªæ˜ã€‚");
    o_id=find_body(p_id); if(!objectp(o_id)) return;
    o_id->finish_job("suggest");
    o_id=find_user(p_id);
@@ -261,7 +261,7 @@ void award(object usr)
    isrobot=o_id->query_robot();
    if(isrobot)
    {
-      o_id->simple_action("$NµÄ½¨Òé±»²ÉÄÉ£¬µ«$NºÃÏñÊ²Ã´¶¼Ã»µÃµ½¡£\n");
+      o_id->simple_action("$Nçš„å»ºè®®è¢«é‡‡çº³ï¼Œä½†$Nå¥½åƒä»€ä¹ˆéƒ½æ²¡å¾—åˆ°ã€‚\n");
       return;
    }
    p_id=o_id->query_id()[0];
@@ -270,6 +270,6 @@ void award(object usr)
      CHAR_D->get_char(p_id,"reputation")+5);
    CHAR_D->set_char(p_id,"localcontribution",
      CHAR_D->get_char(p_id,"localcontribution")+random(2));
-   o_id->simple_action("$NµÄ½¨Òé±»²ÉÄÉ£¬$NµÄ¾­ÑéÓëÉùÍûÌá¸ßÁË¡£\n");
+   o_id->simple_action("$Nçš„å»ºè®®è¢«é‡‡çº³ï¼Œ$Nçš„ç»éªŒä¸å£°æœ›æé«˜äº†ã€‚\n");
         
 }

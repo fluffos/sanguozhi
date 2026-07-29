@@ -23,7 +23,7 @@ MENU_ITEM main_seperator;
 
 private string p_id,p_name,p_long;
 private string p_room;
-private array p_act,p_obj;
+private mixed * p_act,p_obj;
 private int p_gender,p_age;
 private int is_new; // 1 is a new maker, 0 is a old maker
 void do_new( string str) {
@@ -32,14 +32,14 @@ void do_new( string str) {
     int p_tmp;
 	if(!str) str="";
 	if(CHAR_D->char_exist(str)){
-		write ("¸Ã½ÇÉ«ÒÑ¾­´æÔÚ¡£\n");
+		write ("è¯¥è§’è‰²å·²ç»å­˜åœ¨ã€‚\n");
         prompt_then_return();
 		return;
 	}
     p_namepart=sscanf(str,"%s %s",p_surname,p_givenname);
 
     if(p_namepart!=2){
-		write ("ID±ØĞëÓÉÁ½²¿·Ö¹¹³É¡£\n");
+		write ("IDå¿…é¡»ç”±ä¸¤éƒ¨åˆ†æ„æˆã€‚\n");
         prompt_then_return();
 		return;
 
@@ -48,7 +48,7 @@ void do_new( string str) {
 	p_room=file_name(environment(this_body()));
 	p_act=({});
 	p_obj=({});
-	p_name="ĞÂ¹¤½³";
+	p_name="æ–°å·¥åŒ ";
 	p_gender=1;
 	p_age=random(40)+15;
 	p_long=0;
@@ -58,7 +58,7 @@ void do_new( string str) {
 void do_edit(string str) {
 	if(!str) str="";
 	if(!CHAR_D->get_char(str,"is_maker")){
-		write ("²»´æÔÚ¸Ã¹¤½³¡£\n");
+		write ("ä¸å­˜åœ¨è¯¥å·¥åŒ ã€‚\n");
         prompt_then_return();
 		return;
 	}
@@ -78,23 +78,23 @@ void do_edit(string str) {
 void add_name(string str){
 	if((!str)||(str=="")) return;
 	p_name=str;
-	write("Ãû×Ö£º"+str+"\n");
+	write("åå­—ï¼š"+str+"\n");
 }
 void add_gender(string str){
 	if((!str)||(str=="")) return;
 	p_gender=to_int(str);
 	if(p_gender!=2) p_gender=1;
-	write("ĞÔ±ğ£º"+((p_gender==1)? "ÄĞ" : "Å®")+"\n");
+	write("æ€§åˆ«ï¼š"+((p_gender==1)? "ç”·" : "å¥³")+"\n");
 }
 void add_age(string str){
 	if((!str)||(str=="")) return;
 	p_age=to_int(str);
-	write("ÄêÁä£º"+p_age+"\n");
+	write("å¹´é¾„ï¼š"+p_age+"\n");
 }
 void add_long(string str){
 	if((!str)||(str=="")) return;
 	p_long=str;
-	write("ÍâÃ²£º"+str+"\n");
+	write("å¤–è²Œï¼š"+str+"\n");
 }
 
 void add_room(string str){
@@ -103,12 +103,12 @@ void add_room(string str){
 	if(str=="here") str=file_name(environment(this_body()));
 	o=load_object(str);
 	if(!objectp(o)) {
-		write ("²»´æÔÚ¸Ã·¿¼ä¡£\n");
+		write ("ä¸å­˜åœ¨è¯¥æˆ¿é—´ã€‚\n");
         prompt_then_return();
 		return;
 	}
 	p_room=str;
-	write("·¿¼ä£º"+str+"\n");
+	write("æˆ¿é—´ï¼š"+str+"\n");
 }
 
 void add_save(string str){
@@ -133,7 +133,7 @@ void add_save(string str){
 	CHAR_D->set_char(p_id,"is_maker",1);
 	CHAR_D->set_char(p_id,"is_tmp",1);
 	CHAR_D->set_char(p_id,"body","maker");
-	write("¹¤½³´æÖüÍê±Ï¡£\n");
+	write("å·¥åŒ å­˜è´®å®Œæ¯•ã€‚\n");
 	goto_menu(toplevel);
 }
 
@@ -151,14 +151,14 @@ void add_obj(string str) {
 	if(!str) str="";
 	name=OBJ_D->get_obj(str,"name");
 	if(!name) {
-		write ("¸ÃÎïÆ·²»´æÔÚ¡£\n");
+		write ("è¯¥ç‰©å“ä¸å­˜åœ¨ã€‚\n");
         prompt_then_return();
 		return;
 	}
 	if(!p_obj) p_obj=({});
 	p_obj-=({str});
 	p_obj+=({str});
-	write("ĞÂÔöÎïÆ·£º"+name+"\n");
+	write("æ–°å¢ç‰©å“ï¼š"+name+"\n");
 }
 
 void del_obj(string str) {
@@ -166,23 +166,23 @@ void del_obj(string str) {
 	if(!str) str="";
 	name=OBJ_D->get_obj(str,"name");
 	if(!name) {
-		write ("¸ÃÎïÆ·²»´æÔÚ¡£\n");
+		write ("è¯¥ç‰©å“ä¸å­˜åœ¨ã€‚\n");
         prompt_then_return();
 		return;
 	}
 	if(!p_obj) p_obj=({});
 	p_obj-=({str});
-	write("È¥µôÎïÆ·£º"+name+"\n");
+	write("å»æ‰ç‰©å“ï¼š"+name+"\n");
 }
 
 void list_obj() {
 	if(!p_obj) p_obj=({});
 	if(!sizeof(p_obj)) {
-		write ("»¹Ã»ÓĞÈÎºÎÎïÆ·¡£\n");
+		write ("è¿˜æ²¡æœ‰ä»»ä½•ç‰©å“ã€‚\n");
         prompt_then_return();
 		return;
 	}
-	write("ÒÑÓĞÒÔÏÂÎïÆ·£º\n");
+	write("å·²æœ‰ä»¥ä¸‹ç‰©å“ï¼š\n");
 	foreach(string p in p_obj){
 		write(OBJ_D->get_obj(p,"name"));
 		write("("+p+")\n");
@@ -195,11 +195,11 @@ void list_act() {
 	int i,s;
 	if(!p_act) p_act=({});
 	if(!sizeof(p_act)) {
-		write ("»¹Ã»ÓĞÈÎºÎÑÔĞĞ¡£\n");
+		write ("è¿˜æ²¡æœ‰ä»»ä½•è¨€è¡Œã€‚\n");
         prompt_then_return();
 		return;
 	}
-	write("ÒÑÓĞÒÔÏÂÑÔĞĞ£º\n");
+	write("å·²æœ‰ä»¥ä¸‹è¨€è¡Œï¼š\n");
 	s=sizeof(p_act);
 	for(i=0;i<s;++i) {
 		printf("[%2d] %s\n",i+1,p_act[i]);
@@ -215,52 +215,52 @@ void del_act(string str) {
 	if(!p_act) p_act=({});
 	sum=sizeof(p_act);
 	if((i<1)||(i>sum)) {
-		write ("»¹Ã»´ËÏîÑÔĞĞ¡£\n");
+		write ("è¿˜æ²¡æ­¤é¡¹è¨€è¡Œã€‚\n");
         prompt_then_return();
 		return;
 	}
 	s=p_act[i-1];
 	p_act-=({s});
-	write("È¥µôÑÔĞĞ£º"+s+"\n");
+	write("å»æ‰è¨€è¡Œï¼š"+s+"\n");
 }
 
 void add_act(string str) {
 	if(!str) str="";
 	if(sizeof(str)<8) {
-		write ("´ËÑÔĞĞÌ«¶Ì¡£\n");
+		write ("æ­¤è¨€è¡Œå¤ªçŸ­ã€‚\n");
         prompt_then_return();
 		return;
 	}
 	if(!p_act) p_act=({});
 	p_act-=({str});
 	p_act+=({str});
-	write("ĞÂÔöÑÔĞĞ£º"+str+"\n");
+	write("æ–°å¢è¨€è¡Œï¼š"+str+"\n");
 }
 void init_actionmenu() {
 	add_menu_item(actmenu,main_seperator);
-	add_menu_item(actmenu,new_menu_item("Ôö¼ÓÑÔĞĞ(a)",
+	add_menu_item(actmenu,new_menu_item("å¢åŠ è¨€è¡Œ(a)",
 		(: get_input_then_call, (: add_act :),
-		"ÊäÈëĞÂ¼ÓÈëµÄÑÔĞĞ : " :),  "a"));
-	add_menu_item(actmenu,new_menu_item("É¾³ıÑÔĞĞ(d)",
+		"è¾“å…¥æ–°åŠ å…¥çš„è¨€è¡Œ : " :),  "a"));
+	add_menu_item(actmenu,new_menu_item("åˆ é™¤è¨€è¡Œ(d)",
 		(: get_input_then_call, (: del_act :),
-		"É¾³ıµÚ¼¸ÌõÑÔĞĞ : " :),  "d"));
-	add_menu_item(actmenu,new_menu_item("ÁĞ³öÑÔĞĞ(l)",
+		"åˆ é™¤ç¬¬å‡ æ¡è¨€è¡Œ : " :),  "d"));
+	add_menu_item(actmenu,new_menu_item("åˆ—å‡ºè¨€è¡Œ(l)",
 		(: list_act :),"l"));
-	add_menu_item(actmenu, new_menu_item("·µ»ØÉÏ¼¶(r)",
+	add_menu_item(actmenu, new_menu_item("è¿”å›ä¸Šçº§(r)",
 		editmenu,"r"));
 	add_menu_item(objmenu,main_seperator);
 }
 void init_objmenu() {
 	add_menu_item(objmenu,main_seperator);
-	add_menu_item(objmenu,new_menu_item("Ôö¼ÓÎïÆ·(a)",
+	add_menu_item(objmenu,new_menu_item("å¢åŠ ç‰©å“(a)",
 		(: get_input_then_call, (: add_obj :),
-		"ÊäÈëĞÂ¼ÓÈëÎïÆ·ID  : " :),  "a"));
-	add_menu_item(objmenu,new_menu_item("É¾³ıÎïÆ·(d)",
+		"è¾“å…¥æ–°åŠ å…¥ç‰©å“ID  : " :),  "a"));
+	add_menu_item(objmenu,new_menu_item("åˆ é™¤ç‰©å“(d)",
 		(: get_input_then_call, (: del_obj :),
-		"ÊäÈëĞÂÈ¥µôÎïÆ·ID  : " :),  "d"));
-	add_menu_item(objmenu,new_menu_item("ÁĞ³öÎïÆ·(l)",
+		"è¾“å…¥æ–°å»æ‰ç‰©å“ID  : " :),  "d"));
+	add_menu_item(objmenu,new_menu_item("åˆ—å‡ºç‰©å“(l)",
 		(: list_obj :),"l"));
-	add_menu_item(objmenu, new_menu_item("·µ»ØÉÏ¼¶(r)",
+	add_menu_item(objmenu, new_menu_item("è¿”å›ä¸Šçº§(r)",
 		editmenu,"r"));
 	add_menu_item(objmenu,main_seperator);
 
@@ -268,31 +268,31 @@ void init_objmenu() {
 
 void init_editmenu(){
    add_menu_item(editmenu, main_seperator);
-   add_menu_item(editmenu, new_menu_item("±à¼­¹¤½³Ãû³Æ(m)",
+   add_menu_item(editmenu, new_menu_item("ç¼–è¾‘å·¥åŒ åç§°(m)",
 		(: get_input_then_call, (: add_name :),
-           "ÊäÈë¹¤½³Ãû³Æ : " :),  "m"));
-   add_menu_item(editmenu, new_menu_item("±à¼­¹¤½³ĞÔ±ğ(g)",
+           "è¾“å…¥å·¥åŒ åç§° : " :),  "m"));
+   add_menu_item(editmenu, new_menu_item("ç¼–è¾‘å·¥åŒ æ€§åˆ«(g)",
 		(: get_input_then_call, (: add_gender :),
-           "ÊäÈë¹¤½³ĞÔ±ğ(ÄĞ:1 | Å®:2) : " :),  "g"));
-   add_menu_item(editmenu, new_menu_item("±à¼­¹¤½³ÄêÁä(a)",
+           "è¾“å…¥å·¥åŒ æ€§åˆ«(ç”·:1 | å¥³:2) : " :),  "g"));
+   add_menu_item(editmenu, new_menu_item("ç¼–è¾‘å·¥åŒ å¹´é¾„(a)",
 		(: get_input_then_call, (: add_age :),
-           "ÊäÈë¹¤½³ÄêÁä : " :),  "a"));
-   add_menu_item(editmenu, new_menu_item("±à¼­¹¤½³ÍâÃ²(l)",
+           "è¾“å…¥å·¥åŒ å¹´é¾„ : " :),  "a"));
+   add_menu_item(editmenu, new_menu_item("ç¼–è¾‘å·¥åŒ å¤–è²Œ(l)",
 		(: get_input_then_call, (: add_long :),
-           "ÊäÈë¹¤½³ÍâÃ² : " :),  "l"));
-   add_menu_item(editmenu, new_menu_item("±à¼­¹¤½³·¿¼ä(r)",
+           "è¾“å…¥å·¥åŒ å¤–è²Œ : " :),  "l"));
+   add_menu_item(editmenu, new_menu_item("ç¼–è¾‘å·¥åŒ æˆ¿é—´(r)",
 		(: get_input_then_call, (: add_room :),
-           "ÊäÈë¹¤½³·¿¼ä : " :),  "r"));
-   add_menu_item(editmenu, new_menu_item("±à¼­¹¤½³ÎïÆ·(o)",
+           "è¾“å…¥å·¥åŒ æˆ¿é—´ : " :),  "r"));
+   add_menu_item(editmenu, new_menu_item("ç¼–è¾‘å·¥åŒ ç‰©å“(o)",
 		objmenu,  "o"));
-   add_menu_item(editmenu, new_menu_item("±à¼­¹¤½³ÑÔĞĞ(w)",
+   add_menu_item(editmenu, new_menu_item("ç¼–è¾‘å·¥åŒ è¨€è¡Œ(w)",
 		actmenu,  "w"));
-   add_menu_item(editmenu, new_menu_item("´æÅÌ·µ»Ø(s)",
+   add_menu_item(editmenu, new_menu_item("å­˜ç›˜è¿”å›(s)",
 		(: get_input_then_call, (: add_save :),
-           "È·ÈÏ´æÅÌÂğ£¿(y/n) : " :),  "s"));
-   add_menu_item(editmenu, new_menu_item("²»´æÅÌ·µ»Ø(u)",
+           "ç¡®è®¤å­˜ç›˜å—ï¼Ÿ(y/n) : " :),  "s"));
+   add_menu_item(editmenu, new_menu_item("ä¸å­˜ç›˜è¿”å›(u)",
 		(: get_input_then_call, (: add_unsave :),
-           "È·ÈÏ·µ»ØÂğ£¿(y/n) : " :),  "u"));
+           "ç¡®è®¤è¿”å›å—ï¼Ÿ(y/n) : " :),  "u"));
    add_menu_item(editmenu, main_seperator);
    return;
 }
@@ -310,7 +310,7 @@ void do_list(string str){
     list = regexp(list, str);    
     
      if(!sizeof(list)) {
-         write("Ã»ÓĞÕâÑùµÄ¹¤½³¡£\n");
+         write("æ²¡æœ‰è¿™æ ·çš„å·¥åŒ ã€‚\n");
          prompt_then_return();
          return;
      }
@@ -328,15 +328,15 @@ void do_list(string str){
         }
         if(!stringp(p_rom)) p_rom="----";
         if(!stringp(ara)) ara="----";
-        dis+=sprintf("¹¤½³ID: %s ¹¤½³ĞÕÃû£º%s ¿É¶¨: %s ËùÔÚµØÇø: %s ËùÔÚ·¿¼ä: %s ",
+        dis+=sprintf("å·¥åŒ ID: %s å·¥åŒ å§“åï¼š%s å¯å®š: %s æ‰€åœ¨åœ°åŒº: %s æ‰€åœ¨æˆ¿é—´: %s ",
            ls,CHAR_D->get_char(ls,"name"),
-            (CHAR_D->get_char(ls,"just_sell")==1 ? "·ñ" : "ÊÇ"),
+            (CHAR_D->get_char(ls,"just_sell")==1 ? "å¦" : "æ˜¯"),
             ara,p_rom);
         objs=CHAR_D->get_char(ls,"goods");
         if(sizeof(objs)) {
-           dis+="\n¿ÉÖÆ×ö£º";
+           dis+="\nå¯åˆ¶åšï¼š";
            foreach(string ob in objs) {
-              dis+=sprintf("%s(%s)µÈ¼¶£º%dÍ¬ÈË£º%d\n",
+              dis+=sprintf("%s(%s)ç­‰çº§ï¼š%dåŒäººï¼š%d\n",
                  OBJ_D->get_obj(ob,"name"),ob,
                  OBJ_D->get_obj(ob,"level"),
                  sizeof(OBJ_D->get_obj_maker(ob)));
@@ -353,27 +353,27 @@ void do_delete(string str) {
 }
 void create() {
     set_privilege(1);
-    toplevel = new_menu(mud_name()+"¹¤½³±à¼­Æ÷");
-    editmenu = new_menu("±à¼­¹¤½³ĞÅÏ¢");
-    objmenu = new_menu("±à¼­¹¤½³ËùÄÜÖÆ×öµÄÎïÆ·");
-    actmenu =  new_menu("±à¼­¹¤½³µÄÑÔĞĞ");
+    toplevel = new_menu(mud_name()+"å·¥åŒ ç¼–è¾‘å™¨");
+    editmenu = new_menu("ç¼–è¾‘å·¥åŒ ä¿¡æ¯");
+    objmenu = new_menu("ç¼–è¾‘å·¥åŒ æ‰€èƒ½åˆ¶åšçš„ç‰©å“");
+    actmenu =  new_menu("ç¼–è¾‘å·¥åŒ çš„è¨€è¡Œ");
 
     N_QUIT = new_menu_item("Quit",(:quit_menu_application:),"q");
     main_seperator =  new_seperator("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
 
     add_menu_item(toplevel, main_seperator);
-    add_menu_item(toplevel, new_menu_item("²úÉúÒ»¸öĞÂ¹¤½³(n)", 
+    add_menu_item(toplevel, new_menu_item("äº§ç”Ÿä¸€ä¸ªæ–°å·¥åŒ (n)", 
 		(: get_input_then_call, (: do_new :),
-           "ÊäÈëÒª²úÉúµÄ¹¤½³ID :" :), "n"));
-    add_menu_item(toplevel, new_menu_item("±à¼­Ò»¸öÒÑÓĞ¹¤½³(e)",  
+           "è¾“å…¥è¦äº§ç”Ÿçš„å·¥åŒ ID :" :), "n"));
+    add_menu_item(toplevel, new_menu_item("ç¼–è¾‘ä¸€ä¸ªå·²æœ‰å·¥åŒ (e)",  
 		(: get_input_then_call, (: do_edit :),
-           "ÊäÈëÒª±à¼­µÄ¹¤½³ID :" :),  "e"));
-    add_menu_item(toplevel, new_menu_item("É¾³ıÒ»¸ö¹¤½³(d)", 
+           "è¾“å…¥è¦ç¼–è¾‘çš„å·¥åŒ ID :" :),  "e"));
+    add_menu_item(toplevel, new_menu_item("åˆ é™¤ä¸€ä¸ªå·¥åŒ (d)", 
 		(: get_input_then_call, (: do_delete :),
-           "ÊäÈëÒªÉ¾³ıµÄ¹¤½³ID :" :), "n"));
-    add_menu_item(toplevel, new_menu_item("ÁĞ±í¹¤½³(l)", 
+           "è¾“å…¥è¦åˆ é™¤çš„å·¥åŒ ID :" :), "n"));
+    add_menu_item(toplevel, new_menu_item("åˆ—è¡¨å·¥åŒ (l)", 
 		(: get_input_then_call, (: do_list :),
-           "ÊäÈëÒªÁĞ±íµÄ¹¤½³IDÊ××ÖÄ¸ :" :), "l"));
+           "è¾“å…¥è¦åˆ—è¡¨çš„å·¥åŒ IDé¦–å­—æ¯ :" :), "l"));
 
     add_menu_item(toplevel, N_QUIT);
     add_menu_item(toplevel, main_seperator);

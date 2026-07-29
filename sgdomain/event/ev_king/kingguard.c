@@ -1,4 +1,4 @@
-// accountant µÛÍõÎÀÊ¿
+// accountant å¸ç‹å«å£«
 #include <ansi.h>
 #include <mudlib.h>
 #define EV_KING "/sgdomain/event/ev_king.c"
@@ -19,16 +19,16 @@ void setup()
    jia=new(PTORSO+"zhanp");
    jia->move(this_object());
    jia->do_wear();
-   set_name("zhonglang jiang", "ÓùÇ°ÖĞÀÉ½«");
-   set_in_room_desc(""HIC"¡¼¶«ºº¡½"NOR""HIR"ÓùÇ°ÖĞÀÉ½«"NOR"(zhonglang jiang)");
+   set_name("zhonglang jiang", "å¾¡å‰ä¸­éƒå°†");
+   set_in_room_desc(""HIC"ã€–ä¸œæ±‰ã€—"NOR""HIR"å¾¡å‰ä¸­éƒå°†"NOR"(zhonglang jiang)");
    set_long(
-       "ËûÊÇÏ×µÛµÄÌùÉíÎÀÊ¿£¬Äã¿ÉÒÔÏòËûÑ¯ÎÊ½ú¼ûÏ×µÛÖ®ÊÂ¡£\nask zhonglang jiang about jinjian\n");
+       "ä»–æ˜¯çŒ®å¸çš„è´´èº«å«å£«ï¼Œä½ å¯ä»¥å‘ä»–è¯¢é—®æ™‹è§çŒ®å¸ä¹‹äº‹ã€‚\nask zhonglang jiang about jinjian\n");
     add_id("general");
    set_gender(1);
    set_age(30);
    set_sg_rongmao(20);
    add_question("jinjian", "jinjian");
-   add_ask_str("jinjian","$NÏò$TµÀ£ºÔÚÏÂ¿É·ñ½ú¼ûÏ×µÛ£¿\n");
+   add_ask_str("jinjian","$Nå‘$Té“ï¼šåœ¨ä¸‹å¯å¦æ™‹è§çŒ®å¸ï¼Ÿ\n");
 }
 
 mixed special_answer(object ob, string str)
@@ -56,11 +56,11 @@ void ask_jinjian(object usrk)
 	pass=present("ysf pass",usrk);
 	if(!objectp(pass)) {
         	this_object()->simple_action(
-	        	"$NµÀ£º±İÏÂ²¢Î´ÕÙ¼ûÓÚÄã£¬ÇëË¡ÔÚÏÂ²»ÄÜ·ÅĞĞ¡£\n");
+	        	"$Né“ï¼šé™›ä¸‹å¹¶æœªå¬è§äºä½ ï¼Œè¯·æ•åœ¨ä¸‹ä¸èƒ½æ”¾è¡Œã€‚\n");
 	        return;
 	}
    }
-    this_object()->targetted_action("$NµÀ£ºÇëËÙËÙÈëÄÚ£¬ÎğÈÃ±İÏÂ¾Ãºò¡£\n\n$TÔÚÊÌÎÀµÄÒıÁìÏÂ£¬À´µ½ÁË»Ê¹¬Èë¿Ú¡£\n",usrk);
+    this_object()->targetted_action("$Né“ï¼šè¯·é€Ÿé€Ÿå…¥å†…ï¼Œå‹¿è®©é™›ä¸‹ä¹…å€™ã€‚\n\n$Tåœ¨ä¾å«çš„å¼•é¢†ä¸‹ï¼Œæ¥åˆ°äº†çš‡å®«å…¥å£ã€‚\n",usrk);
     usr->move(KROOM);
     this_body()->force_look();          
 }

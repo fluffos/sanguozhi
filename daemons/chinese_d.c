@@ -10,12 +10,12 @@
 
 inherit M_DAEMON_DATA;
 
-static string *c_digit = ({ "Áã","Ê®","°Ù","Ç§","Íò","ÒÚ","Õ×" });
-static string *c_num = ({"Áã","Ò»","¶ş","Èı","ËÄ","Îå","Áù","Æß","°Ë","¾Å","Ê®"});
-static string *s_digit = ({"¢Ù","¢Ú","¢Û","¢Ü","¢İ","¢Ş","¢ß","¢à","¢á","¢â"});
-static string *k_digit = ({"¡ğ","¢Å","¢Æ","¢Ç","¢È","¢É","¢Ê","¢Ë","¢Ì","¢Í","¢Î","¢Ï","¢Ğ","¢Ñ","¢Ò","¢Ó","¢Ô","¢Õ","¢Ö","¢×","¢Ø"});
-static string *sym_tien = ({ "¼×","ÒÒ","±û","¶¡","Îì","¼º","¸ı","ĞÁ","ÈÉ","¹ï" });
-static string *sym_dee = ({ "×Ó","³ó","Òú","Ã®","³½","ËÈ","Îç","Î´","Éê","ÓÏ","Ğç","º¥" });
+nosave protected string *c_digit = ({ "é›¶","å","ç™¾","åƒ","ä¸‡","äº¿","å…†" });
+nosave protected string *c_num = ({"é›¶","ä¸€","äºŒ","ä¸‰","å››","äº”","å…­","ä¸ƒ","å…«","ä¹","å"});
+nosave protected string *s_digit = ({"â‘ ","â‘¡","â‘¢","â‘£","â‘¤","â‘¥","â‘¦","â‘§","â‘¨","â‘©"});
+nosave protected string *k_digit = ({"â—‹","â‘´","â‘µ","â‘¶","â‘·","â‘¸","â‘¹","â‘º","â‘»","â‘¼","â‘½","â‘¾","â‘¿","â’€","â’","â’‚","â’ƒ","â’„","â’…","â’†","â’‡"});
+nosave protected string *sym_tien = ({ "ç”²","ä¹™","ä¸™","ä¸","æˆŠ","å·±","åºš","è¾›","å£¬","ç™¸" });
+nosave protected string *sym_dee = ({ "å­","ä¸‘","å¯…","å¯","è¾°","å·³","åˆ","æœª","ç”³","é…‰","æˆŒ","äº¥" });
 
 
 mapping dict = ([]);
@@ -31,19 +31,19 @@ void create()
 string * s_array() { return s_digit; }
 
 string chinese_number2(int i) {
-    if( i < 1 || i > 10 ) return "¢ú";
+    if( i < 1 || i > 10 ) return "â…©";
     else return(s_digit[i-1]);
 }
 
 string chinese_number3(int i)
 {
-    if( i < 0 || i > 20 ) return "¢ú";
+    if( i < 0 || i > 20 ) return "â…©";
     else return(k_digit[i]);
 }
 
 string chinese_number(int i)
 {
-    if( i<0 ) return "¸º" + chinese_number(-i);
+    if( i<0 ) return "è´Ÿ" + chinese_number(-i);
     if( i<11 ) return c_num[i];
     if( i<20 ) return c_num[10] + c_num[i-10];
     if( i<100 ) {
@@ -103,7 +103,7 @@ void remove_translate( string key )
 {
   map_delete( dict, key );
 
-  LOG_D->log(LOG_FILE_CHINESE, sprintf("%sÉ¾³ıÖĞÎÄ¶ÔÓ¦ %s ÓÚ%s\n",
+  LOG_D->log(LOG_FILE_CHINESE, sprintf("%såˆ é™¤ä¸­æ–‡å¯¹åº” %s äº%s\n",
     this_player()->short(), key, CHINESE_D->chinese_time(time()))
   );
   save_me();
@@ -113,7 +113,7 @@ void add_translate( string key, string chinz )
 {
     dict[key] = chinz;
 
-    LOG_D->log(LOG_FILE_CHINESE, sprintf("%sÉè¶¨ %s ¶ÔÓ¦µ½ÖĞÎÄ %s ÓÚ%s\n",
+    LOG_D->log(LOG_FILE_CHINESE, sprintf("%sè®¾å®š %s å¯¹åº”åˆ°ä¸­æ–‡ %s äº%s\n",
       this_user()->short(), key, chinz, CHINESE_D->chinese_time(time()))
     );
    save_me();
@@ -125,14 +125,14 @@ mapping query_translate()
   else return ([]);
 }
 
-// ÖĞÊ½µÄÊ±¼ä
+// ä¸­å¼çš„æ—¶é—´
 string chinese_date(int date)
 {
     mixed *local;
 
     local = localtime(date);
 
-    return sprintf("%s%sÄê%sÔÂ%sÈÕ%sÊ±",
+    return sprintf("%s%så¹´%sæœˆ%sæ—¥%sæ—¶",
         sym_tien[local[LT_YEAR]%10], sym_dee[local[LT_YEAR]%12],
         chinese_number(local[LT_MON]+1),
         chinese_number(local[LT_MDAY] + (local[LT_HOUR]>23? 1 : 0)),
@@ -140,7 +140,7 @@ string chinese_date(int date)
         // chinese_number((local[LT_MIN]+1)%2 * 2 + local[LT_MIN]/30 + 1));
 }
 
-// ÖĞÎÄµÄÊ±¼ä
+// ä¸­æ–‡çš„æ—¶é—´
 string chinese_time(int date)
 {
         mixed *local;
@@ -151,23 +151,23 @@ string chinese_time(int date)
         hour  = local[LT_HOUR];
     min = local[LT_MIN];
 
-        msg = sprintf("%sÄê%sÔÂ%sÈÕ",
+        msg = sprintf("%så¹´%sæœˆ%sæ—¥",
                 chinese_number(local[LT_YEAR]),
                 chinese_number(local[LT_MON]+1),
                 chinese_number(local[LT_MDAY])
           );
     if ( (hour>12) )
-      msg += "ÏÂÎç"+chinese_number(hour-12)+"Ê±";
-        else msg += "ÉÏÎç"+chinese_number(hour)+"Ê±";
+      msg += "ä¸‹åˆ"+chinese_number(hour-12)+"æ—¶";
+        else msg += "ä¸Šåˆ"+chinese_number(hour)+"æ—¶";
         if (min==0)
-      msg += "Õı";
+      msg += "æ­£";
     else
-      msg += chinese_number(min)+"·Ö";
+      msg += chinese_number(min)+"åˆ†";
 
     return msg;
 }
 
-// ×ª»»Ê±¼äÇø¼äÎª¼¸Ìì¼¸Ğ¡Ê±¼¸·Ö¼¸Ãë
+// è½¬æ¢æ—¶é—´åŒºé—´ä¸ºå‡ å¤©å‡ å°æ—¶å‡ åˆ†å‡ ç§’
 string chinese_period(int sec)
 {
   mixed *local;
@@ -182,12 +182,12 @@ string chinese_period(int sec)
   min = sec / 60;
   sec = sec % 60;
   msg = "";
-  if (day>0) msg += chinese_number(day)+"Ìì";
-  if (hour>0) msg += chinese_number(hour)+"Ğ¡Ê±";
-  if (min>0) msg += chinese_number(min)+"·Ö";
-  if (sec>0) msg += chinese_number(sec)+"Ãë";
+  if (day>0) msg += chinese_number(day)+"å¤©";
+  if (hour>0) msg += chinese_number(hour)+"å°æ—¶";
+  if (min>0) msg += chinese_number(min)+"åˆ†";
+  if (sec>0) msg += chinese_number(sec)+"ç§’";
 
-  if ((msg != "")&&(min||sec)) msg += "ÖÓ";
+  if ((msg != "")&&(min||sec)) msg += "é’Ÿ";
   return msg;
 }
 
@@ -196,7 +196,7 @@ string chinese_value (int value)
         int gold, silver, coin;
 
         if( !value )
-                return sprintf("Ò»ÎÄ²»Öµ");
+                return sprintf("ä¸€æ–‡ä¸å€¼");
         else
         {
           gold = value/10000;
@@ -204,16 +204,16 @@ string chinese_value (int value)
           coin = value%10000%100;
 
           if (coin)
-              return sprintf("%s%s%sÎÄÇ®",
-                gold?chinese_number(gold)+"Á½½ğ":"",
-                silver?chinese_number(silver)+"Á½Òø":"",
+              return sprintf("%s%s%sæ–‡é’±",
+                gold?chinese_number(gold)+"ä¸¤é‡‘":"",
+                silver?chinese_number(silver)+"ä¸¤é“¶":"",
                 chinese_number(coin));
           else if (silver)
-              return sprintf("%s%sÁ½Òø×Ó",
-                gold?chinese_number(gold)+"Á½½ğ":"",
+              return sprintf("%s%sä¸¤é“¶å­",
+                gold?chinese_number(gold)+"ä¸¤é‡‘":"",
                 chinese_number(silver));
           else
-              return sprintf("%sÁ½½ğ×Ó",
+              return sprintf("%sä¸¤é‡‘å­",
                 chinese_number(gold));
         }
 }

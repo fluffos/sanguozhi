@@ -17,29 +17,29 @@ void do_getmeat()
 	modal_pop();
 	poped=0;
 
-	master->targetted_action("$N¶Ô$TµÀ£º$S¶öÁË£¬»Ø¼ÒÈ¥ÄÃĞ©³ÔµÄÀ´¡£\n",o);
+	master->targetted_action("$Nå¯¹$Té“ï¼š$Sé¥¿äº†ï¼Œå›å®¶å»æ‹¿äº›åƒçš„æ¥ã€‚\n",o);
 
-        DELAY_D->delay_simple_action(o,"$NµÀ£º×ñÃü£¡\n",1);
+        DELAY_D->delay_simple_action(o,"$Né“ï¼šéµå‘½ï¼\n",1);
 
 	if(!stringp(ret)&&(MONEY_D->sub_all_money(master,500)==1)) {
 		master->add_food(500);
 	        DELAY_D->delay_targetted_action(o,master,
-			"$N×ªÉí¶ËÀ´Ò»ÍëÉÕÈâ¸ø$TµİÉÏ¡£\n",2);
+			"$Nè½¬èº«ç«¯æ¥ä¸€ç¢—çƒ§è‚‰ç»™$Té€’ä¸Šã€‚\n",2);
 		DELAY_D->delay_simple_action(master,
-			"$N×¥ÆğÈâÖ»Á½¿Ú±ã³ÔÍêÁË¡£\n",3);
+			"$NæŠ“èµ·è‚‰åªä¸¤å£ä¾¿åƒå®Œäº†ã€‚\n",3);
 		DELAY_D->delay_targetted_action(master,o,
-			"$N°Ñ¿ÕÍë»¹¸ø$T¡£\n",4);
+			"$NæŠŠç©ºç¢—è¿˜ç»™$Tã€‚\n",4);
 	}
 	else {
 		if(!stringp(ret))
-			ret="Ã»Ç®ÂòÃ×ÁË";
+			ret="æ²¡é’±ä¹°ç±³äº†";
 	        DELAY_D->delay_targetted_action(o,master,
-			"$N¶Ô$TµÀ£º±¨¸æ$R£¬¼ÒÀï"+ret+"£¬ËùÒÔÃ»ÓĞ³ÔµÄ¡£\n",2);
+			"$Nå¯¹$Té“ï¼šæŠ¥å‘Š$Rï¼Œå®¶é‡Œ"+ret+"ï¼Œæ‰€ä»¥æ²¡æœ‰åƒçš„ã€‚\n",2);
 		DELAY_D->delay_simple_action(master,
-			"$NÀÕÁËÀÕÑü´ø£¬¿´À´ÓÖµÃÒª·¹ÁË¡£\n",3);
-	        DELAY_D->delay_simple_action(o,"$N¶ãÔÚÒ»ÅÔÍµÍµµØĞ¦×Å¡£\n",4);
+			"$Nå‹’äº†å‹’è…°å¸¦ï¼Œçœ‹æ¥åˆå¾—è¦é¥­äº†ã€‚\n",3);
+	        DELAY_D->delay_simple_action(o,"$Nèº²åœ¨ä¸€æ—å·å·åœ°ç¬‘ç€ã€‚\n",4);
 		DELAY_D->delay_targetted_action(master,slave,
-			"$NÒ»½ÅÌßµ½$TµÄÆ¨¹ÉÉÏ£¬»ìÕÊµÄ$r£¬¸øÎÒ¹öÏÂÈ¥¡£\n",5);
+			"$Nä¸€è„šè¸¢åˆ°$Tçš„å±è‚¡ä¸Šï¼Œæ··å¸çš„$rï¼Œç»™æˆ‘æ»šä¸‹å»ã€‚\n",5);
 
 	}
 	call_out("quit_menu_application",6);
@@ -55,26 +55,26 @@ void do_gethorse()
 	
 	modal_pop();
 	poped=0;
-	master->targetted_action("$N¶Ô$TµÀ£º$SÒªÔ¶ĞĞ£¬¿ìĞ©±¸³µ¡£\n",o);
+	master->targetted_action("$Nå¯¹$Té“ï¼š$Sè¦è¿œè¡Œï¼Œå¿«äº›å¤‡è½¦ã€‚\n",o);
 	if(!m_wear["horse"]) {
         	DELAY_D->delay_targetted_action(o,master,
-				"$N¶Ô$TĞ¡ÉùµÀ£º$RÏë±ØÊÇºúÍ¿ÁË£¬Äú»¹Ã»ÓĞÂò³µÄØ¡£\n",1);
-		DELAY_D->delay_simple_action(master,"$NÒ»Á³Ã£È»¡£\n",2);
+				"$Nå¯¹$Tå°å£°é“ï¼š$Ræƒ³å¿…æ˜¯èƒ¡æ¶‚äº†ï¼Œæ‚¨è¿˜æ²¡æœ‰ä¹°è½¦å‘¢ã€‚\n",1);
+		DELAY_D->delay_simple_action(master,"$Nä¸€è„¸èŒ«ç„¶ã€‚\n",2);
 		call_out("quit_menu_application",3);
 		return;
 	}
 	if(env->is_troop()){
 	        DELAY_D->delay_targetted_action(o,master,
-			"$N¶Ô$TĞ¡ÉùµÀ£ºÔÚ¾üÖĞ£¬$RµÄ³µĞ¡µÄ¿É²»¸Ò¿ª½øÀ´¡£\n",1);
-		DELAY_D->delay_simple_action(master,"$NÒ»Á³Ã£È»¡£\n",2);
+			"$Nå¯¹$Tå°å£°é“ï¼šåœ¨å†›ä¸­ï¼Œ$Rçš„è½¦å°çš„å¯ä¸æ•¢å¼€è¿›æ¥ã€‚\n",1);
+		DELAY_D->delay_simple_action(master,"$Nä¸€è„¸èŒ«ç„¶ã€‚\n",2);
 		call_out("quit_menu_application",3);
 		return;
 	}
 
 	if(env->is_horse()){
 	        DELAY_D->delay_targetted_action(o,master,
-			"$N¶Ô$TĞ¡ÉùµÀ£º$RÏë±ØÊÇºúÍ¿ÁË£¬ÄúÒÑ¾­×øÔÚ³µÉÏÁË¡£\n",1);
-		DELAY_D->delay_simple_action(this_body(),"$NÒ»Á³Ã£È»¡£\n",2);
+			"$Nå¯¹$Tå°å£°é“ï¼š$Ræƒ³å¿…æ˜¯èƒ¡æ¶‚äº†ï¼Œæ‚¨å·²ç»ååœ¨è½¦ä¸Šäº†ã€‚\n",1);
+		DELAY_D->delay_simple_action(this_body(),"$Nä¸€è„¸èŒ«ç„¶ã€‚\n",2);
 		call_out("quit_menu_application",3);
 		return;
 	}
@@ -85,22 +85,22 @@ void do_gethorse()
 		object *rs,h_env;
 		h_env=environment(o_h);
 		if(objectp(h_env)&&(h_env!=env)) {
-			tell_environment(o_h,o_h->short()+"½øÈë×Ô¶¯¼İÊ»Ä£Ê½£¬³¯Ö÷ÈË¿ªÈ¥¡£\n");
+			tell_environment(o_h,o_h->short()+"è¿›å…¥è‡ªåŠ¨é©¾é©¶æ¨¡å¼ï¼Œæœä¸»äººå¼€å»ã€‚\n");
 			rs=o_h->get_riders();
 			if(sizeof(rs)) {
 				foreach(object r in rs) {
 					r->move(h_env);
-					r->simple_action("$Nâ§²»¼°·À£¬±»µ¯³ö³µÍâ¡£\n");
+					r->simple_action("$NçŒä¸åŠé˜²ï¼Œè¢«å¼¹å‡ºè½¦å¤–ã€‚\n");
 				}
 			}
 		}
 	}
 	o_h->set_owner(p_id);
 	o_h->move(env);
-        DELAY_D->delay_simple_action(o,"$NµÀ£º×ñÃü£¡\n",1);
-        DELAY_D->delay_targetted_action(o,master,"$N×ªÉíÕÒÀ´$n1pµÄ"+o_h->short()+
-		"£¬°Ñ³µÃÅ¸ø$T´ò¿ª¡£\n",2);
-	DELAY_D->delay_simple_action(master,"$NÂúÒâµØµãÁËµãÍ·¡£\n",3);
+        DELAY_D->delay_simple_action(o,"$Né“ï¼šéµå‘½ï¼\n",1);
+        DELAY_D->delay_targetted_action(o,master,"$Nè½¬èº«æ‰¾æ¥$n1pçš„"+o_h->short()+
+		"ï¼ŒæŠŠè½¦é—¨ç»™$Tæ‰“å¼€ã€‚\n",2);
+	DELAY_D->delay_simple_action(master,"$Næ»¡æ„åœ°ç‚¹äº†ç‚¹å¤´ã€‚\n",3);
 	call_out("quit_menu_application",5);
 }
 
@@ -112,27 +112,27 @@ void do_getwine()
 	if(MONEY_D->sub_poket_money(master,300)==1) {
 		master->add_drink(500);
 		master->targetted_action(
-			"$N¶Ô$TµÀ£º¸øÄã¼¸Á½Òø×Ó£¬$S¿Ú¿Ê£¬¿ìÈ¥´òĞ©¾ÆÀ´¡£\n",slave);
+			"$Nå¯¹$Té“ï¼šç»™ä½ å‡ ä¸¤é“¶å­ï¼Œ$Så£æ¸´ï¼Œå¿«å»æ‰“äº›é…’æ¥ã€‚\n",slave);
 	
-	        DELAY_D->delay_simple_action(slave,"$NµÀ£º×ñÃü£¡\n",1);
+	        DELAY_D->delay_simple_action(slave,"$Né“ï¼šéµå‘½ï¼\n",1);
 	        DELAY_D->delay_targetted_action(slave,master,
-			"$N×ªÉí¶ËÀ´Ò»Íë¾Æ¸ø$TµİÉÏ¡£\n",2);
+			"$Nè½¬èº«ç«¯æ¥ä¸€ç¢—é…’ç»™$Té€’ä¸Šã€‚\n",2);
 		DELAY_D->delay_simple_action(master,
-			"$N¶ËÆğ¾Æ¡º¹¾à½¡»Ò»¿ÚÆøºÈ¸ÉÁË¡£\n",3);
+			"$Nç«¯èµ·é…’ã€å’•å˜Ÿã€ä¸€å£æ°”å–å¹²äº†ã€‚\n",3);
 		DELAY_D->delay_targetted_action(master,slave,
-			"$N°Ñ¿Õ¾ÆÍë»¹¸ø$T¡£\n",4);
+			"$NæŠŠç©ºé…’ç¢—è¿˜ç»™$Tã€‚\n",4);
 	}
 	else {
 		master->targetted_action(
-			"$N¶Ô$TµÀ£º$RÄÜ²»ÄÜµÀ¶ÔÃæ¼ÒÀïÒªµãË®ºÈ¡£\n",slave);
+			"$Nå¯¹$Té“ï¼š$Rèƒ½ä¸èƒ½é“å¯¹é¢å®¶é‡Œè¦ç‚¹æ°´å–ã€‚\n",slave);
 	
 	        DELAY_D->delay_targetted_action(slave,master,
-			"$N¶Ô$TµÀ£¬ÈÃÎÒÒª·¹È¥£¬ÎÒ¿É²»¸É£¬ÒªÒªÄã×Ô¼ºÈ¥¡£\n",1);
+			"$Nå¯¹$Té“ï¼Œè®©æˆ‘è¦é¥­å»ï¼Œæˆ‘å¯ä¸å¹²ï¼Œè¦è¦ä½ è‡ªå·±å»ã€‚\n",1);
 
 		DELAY_D->delay_targetted_action(master,slave,
-			"$NÒ»½ÅÌßµ½$TµÄÆ¨¹ÉÉÏ£¬Ã»ÓÃµÄ$r£¬¸øÎÒ¹öÏÂÈ¥¡£\n",2);
+			"$Nä¸€è„šè¸¢åˆ°$Tçš„å±è‚¡ä¸Šï¼Œæ²¡ç”¨çš„$rï¼Œç»™æˆ‘æ»šä¸‹å»ã€‚\n",2);
 		
-	        DELAY_D->delay_simple_action(slave,"$NµÀ£º×ñÃü£¡\n",3);
+	        DELAY_D->delay_simple_action(slave,"$Né“ï¼šéµå‘½ï¼\n",3);
 
 	}
     	call_out("quit_menu_application",5);
@@ -147,7 +147,7 @@ void do_call(string str)
     o_h=SGHOME(p_id);
 	ids=o_h->check_npc("pre_id",str);
     if(!sizeof(ids))  {
-	write("Äã¼ÒÃ»ÓĞ"+str+"¡£\n");
+	write("ä½ å®¶æ²¡æœ‰"+str+"ã€‚\n");
 	return;
     }
 	poped=0;
@@ -159,11 +159,11 @@ void do_call(string str)
 	o_k->move(master->query_room());
     call_out("quit_menu_application",5);
 
-    master->targetted_action("$N¶Ô$TµÀ£º$RĞÁ¿àÒ»ÏÂ£¬°Ñ$o½Ğ¹ıÀ´¡£\n",slave,o_k);
+    master->targetted_action("$Nå¯¹$Té“ï¼š$Rè¾›è‹¦ä¸€ä¸‹ï¼ŒæŠŠ$oå«è¿‡æ¥ã€‚\n",slave,o_k);
 
-    DELAY_D->delay_simple_action(slave,"$NµãÍ·µÀ£ºÊÇ£¬×ªÉíÀë¿ªÁË¡£\n",2);
-    DELAY_D->delay_targetted_action(slave,o_k,"$N°Ñ$TÁìÀ´ÁË¡£\n",3);
-    DELAY_D->delay_targetted_action(o_k,master,"$N¶Ô$T¾Ï¹ªµÀ£ºÕ¾µ½Ò»ÅÔ¡£\n",3);
+    DELAY_D->delay_simple_action(slave,"$Nç‚¹å¤´é“ï¼šæ˜¯ï¼Œè½¬èº«ç¦»å¼€äº†ã€‚\n",2);
+    DELAY_D->delay_targetted_action(slave,o_k,"$NæŠŠ$Té¢†æ¥äº†ã€‚\n",3);
+    DELAY_D->delay_targetted_action(o_k,master,"$Nå¯¹$Té èº¬é“ï¼šç«™åˆ°ä¸€æ—ã€‚\n",3);
 
 }
 
@@ -171,8 +171,8 @@ void do_call(string str)
 void create( )
 {
     set_privilege(1);
-    toplevel = new_menu("\nÇë¶ÔÏĞÈËÏÂ´ïÖ¸Áî£º");
-    quit_item = new_menu_item("ÍËÏÂ", (:quit_old_place:), "q");
+    toplevel = new_menu("\nè¯·å¯¹é—²äººä¸‹è¾¾æŒ‡ä»¤ï¼š");
+    quit_item = new_menu_item("é€€ä¸‹", (:quit_old_place:), "q");
     seperator = new_seperator
     ("----------------------------------------------------------------------");
     space = new_seperator
@@ -180,27 +180,27 @@ void create( )
 
     add_menu_item(toplevel, seperator);
     add_menu_item(toplevel, space);
-    add_menu_item(toplevel, new_menu_item("ÔÚ´Ë¹§ºò",	(: do_stayhere :) ,"1"));
+    add_menu_item(toplevel, new_menu_item("åœ¨æ­¤æ­å€™",	(: do_stayhere :) ,"1"));
 
 
-    add_menu_item(toplevel, new_menu_item("Ñ¯ÎÊÇé¿ö",	(: do_getinfo :) ,"3"));
-    add_menu_item(toplevel, new_menu_item("ÉÍ´ÍÎïÆ·",	(: get_input_then_call,
-		(: do_praise :) ,"ÉÍ´ÍºÎÎï£º" :) ,"4"));
+    add_menu_item(toplevel, new_menu_item("è¯¢é—®æƒ…å†µ",	(: do_getinfo :) ,"3"));
+    add_menu_item(toplevel, new_menu_item("èµèµç‰©å“",	(: get_input_then_call,
+		(: do_praise :) ,"èµèµä½•ç‰©ï¼š" :) ,"4"));
 
 
-    add_menu_item(toplevel, new_menu_item("¸Ä±äID",	(: get_input_then_call,
-		(: do_changeid :) ,"±äÎªºÎID£º" :) ,"9"));
+    add_menu_item(toplevel, new_menu_item("æ”¹å˜ID",	(: get_input_then_call,
+		(: do_changeid :) ,"å˜ä¸ºä½•IDï¼š" :) ,"9"));
 
 
-    add_menu_item(toplevel, new_menu_item("³·Ö°", 	(: get_input_then_call,
-	(: do_demote :) ,"È·ÈÏ³·Ö°Âğ(y/n)£¿" :) ,"a"));
+    add_menu_item(toplevel, new_menu_item("æ’¤èŒ", 	(: get_input_then_call,
+	(: do_demote :) ,"ç¡®è®¤æ’¤èŒå—(y/n)ï¼Ÿ" :) ,"a"));
 
-    add_menu_item(toplevel, new_menu_item("ÄÃ¾ÆÀ´",	(: do_getwine :) ,"b"));
-    add_menu_item(toplevel, new_menu_item("ÄÃÈâÀ´",	(: do_getmeat :) ,"c"));
-    add_menu_item(toplevel, new_menu_item("Ç£ÂíÀ´",	(: do_gethorse :) ,"d"));
+    add_menu_item(toplevel, new_menu_item("æ‹¿é…’æ¥",	(: do_getwine :) ,"b"));
+    add_menu_item(toplevel, new_menu_item("æ‹¿è‚‰æ¥",	(: do_getmeat :) ,"c"));
+    add_menu_item(toplevel, new_menu_item("ç‰µé©¬æ¥",	(: do_gethorse :) ,"d"));
 
 
     add_menu_item(toplevel, quit_item);
     add_menu_item(toplevel, space);
-    set_menu_prompt (toplevel, "ÊäÈëÖ¸Áî[12349q]: ");
+    set_menu_prompt (toplevel, "è¾“å…¥æŒ‡ä»¤[12349q]: ");
 }

@@ -7,12 +7,12 @@ inherit M_WANDER;
 
 void setup() {
 
-    set_name("Tiamat", "ÌìÂóÌØ");
+    set_name("Tiamat", "å¤©éº¦ç‰¹");
     set_id("dragon", "troll");
     set_gender(1);
-    set_proper_name("ÉñÁúÌìÂóÌØ");
-    set_in_room_desc("ÉñÁúÌìÂóÌØ(Tiamat)");
-    set_long("´ÕÕâÃ´½ü¿´Áú¿ÉÊÇºÜÎ£ÏÕµÄÊÂ¡£");
+    set_proper_name("ç¥é¾™å¤©éº¦ç‰¹");
+    set_in_room_desc("ç¥é¾™å¤©éº¦ç‰¹(Tiamat)");
+    set_long("å‡‘è¿™ä¹ˆè¿‘çœ‹é¾™å¯æ˜¯å¾ˆå±é™©çš„äº‹ã€‚");
 
     set_max_hp(300);
   set_movement_time(5);

@@ -56,7 +56,7 @@ nomask string * get_groups();
 private mapping data = ([]);
 private mapping last_id = ([]);
 
-private static mapping recent_changes = ([]);
+private mapping recent_changes = ([]);
 private int new_format;
 
 // No info on a group means never archive.
@@ -64,20 +64,20 @@ private mapping archive_info = ([ ]);
 
 nomask mixed remove_nation_post(string n_id) ;
 
-private static mapping restrictions = 
+private mapping restrictions = 
 ([
   "wiz" : (: wizardp :),
   "admin" : (: adminp :)
 ]);
 
-private static mapping post_restrictions =
+private mapping post_restrictions =
 ([
   "announce" : (: adminp :)
 ]);
 
 #define is_group(x) (member_array(x,get_groups()) != -1)
 
-//Emperor add.ÓÃÓÚ²éÑ¯news_d objectÖĞµÄÄ³Ğ©±äÁ¿¡£//
+//Emperor add.ç”¨äºæŸ¥è¯¢news_d objectä¸­çš„æŸäº›å˜é‡ã€‚//
 mixed query_news(string s){
 	if (s=="data") return data;
 	if (s=="last_id") return last_id;
@@ -106,19 +106,19 @@ nomask void set_archive_time(string group, int numDays)
 {
     if (!check_previous_privilege(1))
     {
-        error("È¨ÏŞ²»×ã");
+        error("æƒé™ä¸è¶³");
     }
     if (!is_group(group))
     {
-        error("Ã»ÓĞÕâ¸öĞÂÎÅ×é");
+        error("æ²¡æœ‰è¿™ä¸ªæ–°é—»ç»„");
     }
     if(!intp(numDays))
     {
-        error("ÌìÊı²»ÊÇÕûÊı");
+        error("å¤©æ•°ä¸æ˜¯æ•´æ•°");
     }
     if(numDays < 0)
     {
-        error("ÌìÊıÎª¸ºÊı");
+        error("å¤©æ•°ä¸ºè´Ÿæ•°");
     }
     if(!numDays) 
     {
@@ -440,7 +440,7 @@ nomask void remove_post(string group, int id)
         (msg->userid != base_name(previous_object()))
 		&& (group!=("nation."+this_user()->query_userid()))) // king can remove nation post
     {
-        error("ÊÔÍ¼·Ç·¨É¾³ıÁôÑÔ\n");
+        error("è¯•å›¾éæ³•åˆ é™¤ç•™è¨€\n");
     }
 
     msg->body = 0;
@@ -464,7 +464,7 @@ nomask int * get_thread(string group, int thread)
 
 nomask string * get_groups()
 {
-    string array ret;
+    string * ret;
 
     // filter before sorting; the func is typically pretty cheap, and
     // and calling them all is O(n).  Sorting the list first is more
@@ -500,7 +500,7 @@ nomask void dump_to_file(string group, string fname)
             continue;
 
         write_file(fname,
-          sprintf("---\n×÷Õß: %s\nÌâÄ¿: %s\nÈÕÆÚ: %s\n\n%s\n",
+          sprintf("---\nä½œè€…: %s\né¢˜ç›®: %s\næ—¥æœŸ: %s\n\n%s\n",
             msg->poster, msg->subject,
             intp(msg->time) ? ctime(msg->time) : msg->time,
             msg->body));
@@ -513,7 +513,7 @@ private nomask void archive_post(string group, int id)
 
     unguarded(1, (: write_file, 
         sprintf("%s/%s", ARCHIVE_DIR, group),
-        sprintf("---\n×÷Õß: %s\nÌâÄ¿: %s\nÈÕÆÚ: %s\n%s\n\n",
+        sprintf("---\nä½œè€…: %s\né¢˜ç›®: %s\næ—¥æœŸ: %s\n%s\n\n",
           msg->poster, msg->subject,
           intp(msg->time) ? ctime(msg->time) : msg->time,
           msg->body)
@@ -542,7 +542,7 @@ private int compare_time(string group,int id1,int id2) {
 }
 nomask void archive_group(string group){
 
-	array ids;
+	mixed * ids;
     class news_msg msg;
 	int i;
 	ids=filter_array(NEWS_D->get_messages(group), (: filter_removed,group :));
@@ -578,7 +578,7 @@ nomask mixed remove_nation_post(string n_id) {
         class news_msg msg;
 
 	group="nation."+n_id;
-	if(COUNTRY_D->nation_exist(n_id)) return n_id+"»¹Ã»ÓĞÍö¹ú¡£\n";
+	if(COUNTRY_D->nation_exist(n_id)) return n_id+"è¿˜æ²¡æœ‰äº¡å›½ã€‚\n";
 
 	contents=data[group];
 	if(!mapp(contents)) return "don't have group of "+group+" .\n";
@@ -605,20 +605,20 @@ nomask void move_post( string curr_group, int curr_id, string to_group )
     msg = copy( data[curr_group][curr_id]);
     if( !adminp(this_user()) && msg->userid != this_user()->query_userid())
     {
-        write( "Äã²»ÄÜ×ªÒÆ²»ÊôÓÚÄãµÄÁôÑÔ¡£\n\n");
+        write( "ä½ ä¸èƒ½è½¬ç§»ä¸å±äºä½ çš„ç•™è¨€ã€‚\n\n");
         return;
     }
     if( curr_group == to_group )
     {
-        write( "Í¬Ò»ĞÂÎÅ×é£¬ÁôÑÔÃ»ÓĞ×ªÒÆ¡£\n");
+        write( "åŒä¸€æ–°é—»ç»„ï¼Œç•™è¨€æ²¡æœ‰è½¬ç§»ã€‚\n");
         return;
     }
     new_id = get_new_id(to_group);
-    msg->body = "(×ªÔØ×Ô" + curr_group + ")\n" + msg->body;
+    msg->body = "(è½¬è½½è‡ª" + curr_group + ")\n" + msg->body;
     data[to_group][new_id] = msg;
 //    recent_changes[to_group][new_id] = msg;
     remove_post( curr_group, curr_id );
-    write( "ÁôÑÔ×ªÒÆÍê±Ï¡£\n");
+    write( "ç•™è¨€è½¬ç§»å®Œæ¯•ã€‚\n");
     save_recent();
 }
 
@@ -652,7 +652,7 @@ varargs nomask void add_city_group(string group)
 }
 
 
-// Emperor add.²éÑ¯Ä³¸öÍæ¼ÒÔÚÄ³¸ögroupÀïµÄËùÓĞÌù×Ó
+// Emperor add.æŸ¥è¯¢æŸä¸ªç©å®¶åœ¨æŸä¸ªgroupé‡Œçš„æ‰€æœ‰è´´å­
 mixed get_player_posts(string player, string group){
 	int *thread;
 	mixed id;
@@ -668,7 +668,7 @@ mixed get_player_posts(string player, string group){
 	return thread;//filter_array(thread,(:contents[$1]->userid==$(player):));
 }
 
-// Emperor add.²éÑ¯Ä³¸öÍæ¼ÒÔÚËùÓĞgroupÀïµÄËùÓĞÌù×Ó
+// Emperor add.æŸ¥è¯¢æŸä¸ªç©å®¶åœ¨æ‰€æœ‰groupé‡Œçš„æ‰€æœ‰è´´å­
 mixed get_player_groups(string player){
 	string *g;
 	mapping player_groups = ([]);
@@ -687,11 +687,11 @@ string delete_player_posts(string player, string group){
 	mixed posts;
 	posts = get_player_posts(player, group);
 //	if(!arrayp(posts)) return;
-	if(!sizeof(posts)) return "Îª¿Õ¡£";
+	if(!sizeof(posts)) return "ä¸ºç©ºã€‚";
 	foreach(int id in posts){
 		remove_post(group, id);
 	}
-	return "Íæ¼Ò"+player+"ÔÚGroup:"+group + "ÀïËùÓĞÁôÑÔÉ¾³ıÍê±Ï¡£";
+	return "ç©å®¶"+player+"åœ¨Group:"+group + "é‡Œæ‰€æœ‰ç•™è¨€åˆ é™¤å®Œæ¯•ã€‚";
 }
 
 string get_player_all_posts(string player, string group){
@@ -700,10 +700,10 @@ string get_player_all_posts(string player, string group){
 	string s = "";
     
 	posts = get_player_posts(player, group);
-	if(!sizeof(posts)) return "Îª¿Õ¡£";
+	if(!sizeof(posts)) return "ä¸ºç©ºã€‚";
 	foreach(int id in posts){
 		msg = data[group][id];
-		s += sprintf("-------------\n×÷Õß: %s\nÌâÄ¿: %s\nÈÕÆÚ: %s\n%s\n",
+		s += sprintf("-------------\nä½œè€…: %s\né¢˜ç›®: %s\næ—¥æœŸ: %s\n%s\n",
           msg->poster, msg->subject,
           intp(msg->time) ? ctime(msg->time) : msg->time,
           msg->body);

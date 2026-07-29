@@ -28,18 +28,18 @@ mixed does_he_fit_position(int r) {
 	mixed rr;
 	rr=(EV_POSITION)->check_whole(t_id,r);
 	if(stringp(rr))
-		return t_name+"µÄ"+rr+"²»¹»";
+		return t_name+"çš„"+rr+"ä¸å¤Ÿ";
 	return 1;
 }
 
 mixed am_i_him() {
-	if(t_id==p_id) return "¿ªÊ²Ã´ÍæĞ¦¡£";
+	if(t_id==p_id) return "å¼€ä»€ä¹ˆç©ç¬‘ã€‚";
 	return 1;
 }
 mixed am_i_busy(){
 	int *my_task;
 	my_task=TASK_D->get_char_task(p_id);
-	if(my_task[0]!=-1) return "ÄãÏÖÔÚÕıÃ¦ÄØ£¬µÈÃ¦ÍêÔÙ´¦ÀíÕâĞ©°É¡£";
+	if(my_task[0]!=-1) return "ä½ ç°åœ¨æ­£å¿™å‘¢ï¼Œç­‰å¿™å®Œå†å¤„ç†è¿™äº›å§ã€‚";
 	return 1;
 }
 
@@ -49,59 +49,59 @@ mixed am_i_king() {
 		return 1;
 	if(COUNTRY_D->get_country(p_nation,"gs")==p_id)
 		return 1;
-	return "Äã²»ÊÇ¹úÍõ¡£";
+	return "ä½ ä¸æ˜¯å›½ç‹ã€‚";
 }
 
 mixed am_i_local_leader() {
 	if(AREA_D->get_area(p_area,"leader")==p_id)
 		return 1;
-	return "Äã²»ÊÇµØ·½Ê×Áì¡£";
+	return "ä½ ä¸æ˜¯åœ°æ–¹é¦–é¢†ã€‚";
 }
 
 mixed am_i_potential_leader() {
 	mixed p_grant;
-	if(!p_nation) return "Äã»¹²»ÊÇ¹ÙÔ±¡£";
+	if(!p_nation) return "ä½ è¿˜ä¸æ˜¯å®˜å‘˜ã€‚";
 
 	t_id=AREA_D->get_area(p_area,"leader");
-	if(t_id==p_id) return "ÄãÃ»°ÑÌ«ÊØÖ°È¨ÔİÊ±½»³öÈ¥Âï¡£";
+	if(t_id==p_id) return "ä½ æ²¡æŠŠå¤ªå®ˆèŒæƒæš‚æ—¶äº¤å‡ºå»å˜›ã€‚";
 	if(p_id==p_nation) return 1; // i am king
 	p_grant=CHAR_D->get_char(t_id,"grant");
 	if((!p_grant)|| 
 		(p_grant["area"]!=p_area) ||
 		(p_grant["leader"]!=p_id) ||
 		(p_grant["nation"]!=p_nation))
-			return "Äã²»ÊÇ±¾µØÇøµÄÕæÕıÌ«ÊØ°É¡£";
+			return "ä½ ä¸æ˜¯æœ¬åœ°åŒºçš„çœŸæ­£å¤ªå®ˆå§ã€‚";
 	return 1;
 }
 
 mixed is_he_busy() {
 	int *his_task;
 	his_task=TASK_D->get_char_task(t_id);
-	if(his_task[0]!=-1) return t_name+"ÏÖÔÚÕıÃ¦ÄØ£¬µÈËûÃ¦ÍêÔÙËµ°É¡£";
+	if(his_task[0]!=-1) return t_name+"ç°åœ¨æ­£å¿™å‘¢ï¼Œç­‰ä»–å¿™å®Œå†è¯´å§ã€‚";
 	return 1;
 }
 
 mixed is_he_local_officer() {
-	if(t_id==p_id) return "¿ªÊ²Ã´ÍæĞ¦¡£";
-	if(!t_name) return "Ã»ÓĞ"+t_id+"Õâ¸ö½ÇÉ«¡£";
-	if(t_area!=p_area) return t_name+"²»ÔÚ±¾µØÇø¡£";
-	if(!t_ranklocal) return t_name+"²»ÊÇ±¾µØ¹ÙÔ±¡£";
+	if(t_id==p_id) return "å¼€ä»€ä¹ˆç©ç¬‘ã€‚";
+	if(!t_name) return "æ²¡æœ‰"+t_id+"è¿™ä¸ªè§’è‰²ã€‚";
+	if(t_area!=p_area) return t_name+"ä¸åœ¨æœ¬åœ°åŒºã€‚";
+	if(!t_ranklocal) return t_name+"ä¸æ˜¯æœ¬åœ°å®˜å‘˜ã€‚";
 	return 1;
 }
 mixed is_he_local_officera() {
-	if(t_id==p_id) return "¿ªÊ²Ã´ÍæĞ¦¡£";
-	if(!t_name) return "Ã»ÓĞ"+t_id+"Õâ¸ö½ÇÉ«¡£";
-	if(t_area!=p_area) return t_name+"²»ÔÚ±¾µØÇø¡£";
-	if((!t_ranklocal)&&(t_nation!=p_nation)) return t_name+"²»ÊÇ±¾µØ¹ÙÔ±¡£";
+	if(t_id==p_id) return "å¼€ä»€ä¹ˆç©ç¬‘ã€‚";
+	if(!t_name) return "æ²¡æœ‰"+t_id+"è¿™ä¸ªè§’è‰²ã€‚";
+	if(t_area!=p_area) return t_name+"ä¸åœ¨æœ¬åœ°åŒºã€‚";
+	if((!t_ranklocal)&&(t_nation!=p_nation)) return t_name+"ä¸æ˜¯æœ¬åœ°å®˜å‘˜ã€‚";
 	return 1;
 }
 mixed is_he_not_king() {
-	if(t_id==p_nation) return "¿ªÊ²Ã´ÍæĞ¦¡£"; // try adjust king
+	if(t_id==p_nation) return "å¼€ä»€ä¹ˆç©ç¬‘ã€‚"; // try adjust king
 	return 1;
 }
 mixed is_he_our_nation() {
-	if(!t_name) return "Ã»ÓĞ"+t_id+"Õâ¸ö½ÇÉ«¡£";
-	if(t_nation!=p_nation) return t_name+"²»ÊÇ±¾¹ú¹ÙÔ±¡£";
+	if(!t_name) return "æ²¡æœ‰"+t_id+"è¿™ä¸ªè§’è‰²ã€‚";
+	if(t_nation!=p_nation) return t_name+"ä¸æ˜¯æœ¬å›½å®˜å‘˜ã€‚";
 	return 1;
 }
 ///////////////////////// withdraw gold for king ////////////////////////////
@@ -109,18 +109,18 @@ mixed can_i_withdraw(int n) {
 	int p_safe;
 	int p_gold;
 	mixed rr;
-	if(p_id!=p_nation) return "Ö»ÓĞÕæÕı¹úÍõ²ÅÄÜÌá½ğ¡£";
+	if(p_id!=p_nation) return "åªæœ‰çœŸæ­£å›½ç‹æ‰èƒ½æé‡‘ã€‚";
 	p_safe=AREA_D->get_area(p_area,"safe");
 	p_gold=MONEY_D->get_all_money(find_body(p_id));
-	if(p_gold>50000000) return "ÄãµÄÇ®ÒÑ¾­¹»¶àÁË£¬²»ÒªÌ«Ì°ĞÄ¡£";
-	if(p_safe<50) return "±¾µØÇøÃñĞÄ²»ÎÈ£¬²»ÒËÍı¶¯¹ú¿â¡£"; 
+	if(p_gold>50000000) return "ä½ çš„é’±å·²ç»å¤Ÿå¤šäº†ï¼Œä¸è¦å¤ªè´ªå¿ƒã€‚";
+	if(p_safe<50) return "æœ¬åœ°åŒºæ°‘å¿ƒä¸ç¨³ï¼Œä¸å®œå¦„åŠ¨å›½åº“ã€‚"; 
         if(n<=10)
-            return "ÌáµÄ½ğÌ«ÉÙÁË¡£";
-        if(n>100) return "Ò»´Î²»ÄÜÌá½ğÌ«¶à¡£";
+            return "æçš„é‡‘å¤ªå°‘äº†ã€‚";
+        if(n>100) return "ä¸€æ¬¡ä¸èƒ½æé‡‘å¤ªå¤šã€‚";
 	if(n>COUNTRY_D->get_country(p_nation,"gold"))
-            return "¹ú¿âÃ»ÓĞÕâÃ´¶à½ğ¡£";
+            return "å›½åº“æ²¡æœ‰è¿™ä¹ˆå¤šé‡‘ã€‚";
         rr=(EV_POSITION)->check_whole(p_id,R_KING);      
-	if(stringp(rr)) return "ÄãµÄ"+rr+"Ì«µÍ£¬Ã»ÓÃ×Ê¸ñ´Ó¹ú¿âÌáÇ®¡£";
+	if(stringp(rr)) return "ä½ çš„"+rr+"å¤ªä½ï¼Œæ²¡ç”¨èµ„æ ¼ä»å›½åº“æé’±ã€‚";
         return rr;
 }
 void done_real_getgold(string str,string cfm) {
@@ -139,20 +139,20 @@ void done_real_getgold(string str,string cfm) {
            CHAR_D->get_char(p_id,"gold")+p_tm);
 	
 	"/daemons/nation_channel_d"->deliever_enter(p_id, 
-           "¹ÑÈËÉú»îÌ«¹ıÇåÆ¶£¬¹ú¿âÀïÏÈÌá"+chinese_number(p_tm)+
-           "Á½½ğ×ÓÊ¹Ê¹¡£¹ş¹ş¡£");
+           "å¯¡äººç”Ÿæ´»å¤ªè¿‡æ¸…è´«ï¼Œå›½åº“é‡Œå…ˆæ"+chinese_number(p_tm)+
+           "ä¸¤é‡‘å­ä½¿ä½¿ã€‚å“ˆå“ˆã€‚");
         if(random(COUNTRY_D->get_country(p_nation,"gold")) <
             CHAR_D->get_char(p_id,"gold")) {
 	    AREA_D->set_area(p_area,"safe",
               AREA_D->get_area(p_area,"safe")-10);
             CHANNEL_D->deliver_tell("rumor","system",
                AREA_D->get_area(p_area,"name")+
-               "¾ÓÃñ²»Âú¹ú¾ıËÁÒâ»Ó»ô¹ú¿â£¬µ±µØ°²¶¨¶ÈÏÂ½µ¡£");
+               "å±…æ°‘ä¸æ»¡å›½å›è‚†æ„æŒ¥éœå›½åº“ï¼Œå½“åœ°å®‰å®šåº¦ä¸‹é™ã€‚");
         }
 }
 void done_getgold(string str) {
         get_input_then_call
-     ((: done_real_getgold, str:), "È·ÈÏÂğ[y/n]");   
+     ((: done_real_getgold, str:), "ç¡®è®¤å—[y/n]");   
 }
 void init_me() {
 	p_id=this_body()->query_id()[0];
@@ -228,7 +228,7 @@ void done_give(string id,string cfm) {
 			p_grant=0;
 	}
 	if(p_grant&&(mm_id!=t_id)) { // means not the original leader
-            ret="½»¸øÄãµÄÌ«ÊØÖ®Ö°ÆñÄÜÂÒ½»¸øËûÈË¡£";
+            ret="äº¤ç»™ä½ çš„å¤ªå®ˆä¹‹èŒå²‚èƒ½ä¹±äº¤ç»™ä»–äººã€‚";
             show_invalid_check();return;
         }
 	if(!p_grant) {
@@ -244,11 +244,11 @@ void done_give(string id,string cfm) {
 	CHAR_D->set_char(t_id,"grant",p_grant);
 	CHAR_D->set_char(p_id,"grant",0);
 
-	dis=sprintf("%sÃü%sÔİË¾%s%sÖ®Ö°¡£",CHAR_D->get_char(p_id,"name"),
+	dis=sprintf("%så‘½%sæš‚å¸%s%sä¹‹èŒã€‚",CHAR_D->get_char(p_id,"name"),
 			t_name,AREA_D->get_area(p_area,"name"),
 			OFFICER_D->query_rank_name(p_ranklocal));
 	CHANNEL_D->deliver_tell("rumor","system",dis);
-	tell_user(t_id,"%^H_GREEN%^"+sprintf("%sÃüÄãÔİË¾%s%sÖ®Ö°¡£\n",
+	tell_user(t_id,"%^H_GREEN%^"+sprintf("%så‘½ä½ æš‚å¸%s%sä¹‹èŒã€‚\n",
 		CHAR_D->get_char(p_id,"name"),AREA_D->get_area(p_area,"name"),
 		OFFICER_D->query_rank_name(p_ranklocal))+"%^RESET%^");
 
@@ -259,7 +259,7 @@ void done_give(string id,string cfm) {
 
 void do_give (string str) {
 	get_input_then_call
-     ((: done_give, str:), "È·ÈÏÔİÈÃÌ«ÊØÖ®Ö°Âğ[y/n]");	
+     ((: done_give, str:), "ç¡®è®¤æš‚è®©å¤ªå®ˆä¹‹èŒå—[y/n]");	
 }
 void done_back(string cfm) {
 	ret=check_confirm(cfm);
@@ -281,11 +281,11 @@ void done_back(string cfm) {
 	CHAR_D->set_char(p_id,"ranklocal",t_ranklocal);
 	CHAR_D->set_char(t_id,"grant",0);
 
-	dis=sprintf("%sÓÖ´Ó%sÊÖÀïÒª»ØÁË%s%sµÄÖ°Î»¡£",CHAR_D->get_char(p_id,"name"),
+	dis=sprintf("%såˆä»%sæ‰‹é‡Œè¦å›äº†%s%sçš„èŒä½ã€‚",CHAR_D->get_char(p_id,"name"),
 		t_name,AREA_D->get_area(p_area,"name"),
 			OFFICER_D->query_rank_name(t_ranklocal));
 		CHANNEL_D->deliver_tell("rumor","system",dis);
-	tell_user(t_id,"%^H_RED%^"+sprintf("%sÒª»ØÁË%s%sµÄÖ°Î»¡£\n",
+	tell_user(t_id,"%^H_RED%^"+sprintf("%sè¦å›äº†%s%sçš„èŒä½ã€‚\n",
 			p_name,AREA_D->get_area(p_area,"name"),
 			OFFICER_D->query_rank_name(p_ranklocal)));
 	return;
@@ -297,9 +297,9 @@ mixed is_he_fit_local_position(int p_newrank) {
 	int *list;
 	list=(EV_POSITION)->get_area_vacancy(p_area);
 	if(p_newrank==-1) return 1; // dismiss is always acceptable
-	if(p_newrank==t_ranklocal) return "ËûÏÖÔÚÕıÊÇÕâ¸öÖ°Îñ¡£";
-	if(!sizeof(list)) return "ÏÖÔÚÃ»ÓĞ¿ÕÈ±¡£";
-	if(member_array(p_newrank,list)==-1) return "ÏÖÔÚÃ»ÓĞ¿ÕÈ±¡£";
+	if(p_newrank==t_ranklocal) return "ä»–ç°åœ¨æ­£æ˜¯è¿™ä¸ªèŒåŠ¡ã€‚";
+	if(!sizeof(list)) return "ç°åœ¨æ²¡æœ‰ç©ºç¼ºã€‚";
+	if(member_array(p_newrank,list)==-1) return "ç°åœ¨æ²¡æœ‰ç©ºç¼ºã€‚";
 	return does_he_fit_position(p_newrank);
 }
 void done_adjust_local(string id, string pos,string cfm) {
@@ -329,7 +329,7 @@ void done_adjust_local(string id, string pos,string cfm) {
 
 void which_local_pos(string id,string pos) {
 	get_input_then_call
-     ((: done_adjust_local, id,pos:), "È·ÈÏÂğ[y/n]£¿");
+     ((: done_adjust_local, id,pos:), "ç¡®è®¤å—[y/n]ï¼Ÿ");
 }
 void do_adjust_local(string id) {
 	int *list;
@@ -341,26 +341,26 @@ void do_adjust_local(string id) {
 
 
 	list=(EV_POSITION)->get_area_vacancy(p_area);
-	printf("  ´úºÅ      ¹ÙÖ°\n");
+	printf("  ä»£å·      å®˜èŒ\n");
 	for(i=0;i<sizeof(list);++i)
-	{	printf("¡¾%4d¡¿    %s\n",list[i],
+	{	printf("ã€%4dã€‘    %s\n",list[i],
 			OFFICER_D->query_rank_name(list[i]));
 	}
-	printf("¡¾%4d¡¿    %s\n",-1,"×ª³ÉÏĞÖ°¹ÙÔ±");
+	printf("ã€%4dã€‘    %s\n",-1,"è½¬æˆé—²èŒå®˜å‘˜");
 
 	get_input_then_call
-     ((: which_local_pos, id:), "µ÷ÕûÎªºÎÖ°£º");	
+     ((: which_local_pos, id:), "è°ƒæ•´ä¸ºä½•èŒï¼š");	
 }
-///////////////// ¶ÀÁ¢ ///////////////////////////////////////////
+///////////////// ç‹¬ç«‹ ///////////////////////////////////////////
 mixed can_i_independent() {
-	if(p_id==p_nation) return "ÄãÒÑ¾­ÊÇÒ»¹úÖ®Ö÷ÁË¡£";
+	if(p_id==p_nation) return "ä½ å·²ç»æ˜¯ä¸€å›½ä¹‹ä¸»äº†ã€‚";
 	ret=am_i_local_leader();
-	if(ret!=1) return "Ö»ÓĞµØ·½Ê×Áì²Å¿ÉÒÔ³ÆµÛ¡£";
+	if(ret!=1) return "åªæœ‰åœ°æ–¹é¦–é¢†æ‰å¯ä»¥ç§°å¸ã€‚";
 	if(CHAR_D->get_char(p_nation,"area")==p_area) 
-		return "Ö÷¹«ÕıÔÚ±¾µØ£¬Æñ¸ÒÇá¾ÙÍı¶¯¡£";
+		return "ä¸»å…¬æ­£åœ¨æœ¬åœ°ï¼Œå²‚æ•¢è½»ä¸¾å¦„åŠ¨ã€‚";
 
 	ret=(EV_POSITION)->check_whole(p_id,R_KING);
-	if(stringp(ret)) return "ÄãµÄ"+ret+"Ì«µÍÁË¡£";
+	if(stringp(ret)) return "ä½ çš„"+ret+"å¤ªä½äº†ã€‚";
 	return 1;
 }
 void done_independence(string cfm) {
@@ -377,7 +377,7 @@ void done_independence(string cfm) {
 		CHAR_D->get_char(p_id,"reputation")*2);
 	CHAR_D->set_char(p_id,"nc",0);
 	
-	dis=sprintf("%sÔÚ%sĞû²¼¶ÀÁ¢¡£",p_name,
+	dis=sprintf("%såœ¨%så®£å¸ƒç‹¬ç«‹ã€‚",p_name,
 		AREA_D->get_area(p_area,"name"));
 
 	CHANNEL_D->deliver_tell("rumor","system",dis);
@@ -385,10 +385,10 @@ void done_independence(string cfm) {
 	feed_target(p_nation);
 
 	CHANNEL_D->deliver_tell("gossip",t_name,
-		p_name+"£¬Äãµ¨¸ÒÅÑ¹ú·ÖÁÑ£¬ÎÒÊÄ½«ÄãËéÊ¬Íò¶Î¡£\n");
+		p_name+"ï¼Œä½ èƒ†æ•¢å›å›½åˆ†è£‚ï¼Œæˆ‘èª“å°†ä½ ç¢å°¸ä¸‡æ®µã€‚\n");
 
 	CHANNEL_D->deliver_tell("gossip",p_name,
-		t_name+"Å³·ò£¬·ÅÂí¹ıÀ´°É¡£\n");
+		t_name+"æ‡¦å¤«ï¼Œæ”¾é©¬è¿‡æ¥å§ã€‚\n");
 
 	COUNTRY_D->add_country(p_id,p_area);
         "/sgdomain/menu/buzzer"->room_update(
@@ -398,20 +398,20 @@ void done_independence(string cfm) {
           AREA_D->get_area(p_area,"path")+
           AREA_D->get_area(p_area,"go"));
 	
-	HIS(p_name+"ÔÚ"+AREA_D->get_area(p_area,"name")+
-		"ÅÑ"+t_name+"Óµ±ø×ÔÁ¢£¬¹úºÅÎª¡¸"+p_name+"¹ú¡¹");
+	HIS(p_name+"åœ¨"+AREA_D->get_area(p_area,"name")+
+		"å›"+t_name+"æ‹¥å…µè‡ªç«‹ï¼Œå›½å·ä¸ºã€Œ"+p_name+"å›½ã€");
 	return;
 }
 
-/////////////////////////µ÷Õû¹ú¼Ò¹ÙÖ°////////////////////////////////////
+/////////////////////////è°ƒæ•´å›½å®¶å®˜èŒ////////////////////////////////////
 mixed is_he_fit_nation_position(int p_newrank) {
 	int *list;
 	list=(EV_POSITION)->get_nation_vacancy(p_nation);
-	if((p_newrank==-1)&&(t_ranknation==0)) return "ËûÏÖÔÚÃ»ÓĞ¹ú¼Ò¹ÙÖ°¡£";
+	if((p_newrank==-1)&&(t_ranknation==0)) return "ä»–ç°åœ¨æ²¡æœ‰å›½å®¶å®˜èŒã€‚";
 	if(p_newrank==-1) return 1; // dismiss is always acceptable
-	if(p_newrank==t_ranknation) return "ËûÏÖÔÚÕıÊÇÕâ¸öÖ°Îñ¡£";
-	if(!sizeof(list)) return "ÏÖÔÚÃ»ÓĞ¿ÕÈ±¡£";
-	if(member_array(p_newrank,list)==-1) return "ÏÖÔÚÃ»ÓĞ¿ÕÈ±¡£";
+	if(p_newrank==t_ranknation) return "ä»–ç°åœ¨æ­£æ˜¯è¿™ä¸ªèŒåŠ¡ã€‚";
+	if(!sizeof(list)) return "ç°åœ¨æ²¡æœ‰ç©ºç¼ºã€‚";
+	if(member_array(p_newrank,list)==-1) return "ç°åœ¨æ²¡æœ‰ç©ºç¼ºã€‚";
 	return does_he_fit_position(p_newrank);
 }
 void done_adjust_nation(string id, string pos,string cfm) {
@@ -442,7 +442,7 @@ void done_adjust_nation(string id, string pos,string cfm) {
 	else {
 		CHAR_D->set_char(t_id,"ranknation",0);
 	      CHANNEL_D->deliver_tell("rumor","system",
-         sprintf("%s±»½â³ıÁË%s%sµÄÖ°Îñ¡£",t_name,
+         sprintf("%sè¢«è§£é™¤äº†%s%sçš„èŒåŠ¡ã€‚",t_name,
                COUNTRY_D->get_country(p_nation,"name"),
 		OFFICER_D->query_rank_name(t_ranknation)));      
 	}
@@ -450,7 +450,7 @@ void done_adjust_nation(string id, string pos,string cfm) {
 
 void which_nation_pos(string id,string pos) {
 	get_input_then_call
-     ((: done_adjust_nation, id,pos:), "È·ÈÏÂğ[y/n]£¿");
+     ((: done_adjust_nation, id,pos:), "ç¡®è®¤å—[y/n]ï¼Ÿ");
 }
 void do_adjust_nation(string id) {
 	int *list;
@@ -461,19 +461,19 @@ void do_adjust_nation(string id) {
 	if(stringp(ret)) { show_invalid_check(); return;} 
 
 	list=(EV_POSITION)->get_nation_vacancy(p_nation);
-	printf("  ´úºÅ      ¹ÙÖ°\n");
+	printf("  ä»£å·      å®˜èŒ\n");
 	for(i=0;i<sizeof(list);++i)
-	{	printf("¡¾%4d¡¿    %s\n",list[i],
+	{	printf("ã€%4dã€‘    %s\n",list[i],
 			OFFICER_D->query_rank_name(list[i]));
 	}
-	printf("¡¾%4d¡¿    %s\n",-1,"È¡Ïû¹ú¼Ò¹ÙÖ°");
+	printf("ã€%4dã€‘    %s\n",-1,"å–æ¶ˆå›½å®¶å®˜èŒ");
 
 	get_input_then_call
-     ((: which_nation_pos, id:), "µ÷ÕûÎªºÎÖ°£º");	
+     ((: which_nation_pos, id:), "è°ƒæ•´ä¸ºä½•èŒï¼š");	
 }
 
 
-/////////////////////// ÅÉ×¤¹ÙÔ± /////////////////////////////////
+/////////////////////// æ´¾é©»å®˜å‘˜ /////////////////////////////////
 
 int can_zm_do(string p_where) {
 	string zhou,zhouhd;
@@ -508,31 +508,31 @@ void done_move_officer(string id,string p_where,string cfm ) {
 	if(stringp(ret)) { show_invalid_check(); return;} 
 	
 	if(AREA_D->get_area(p_where,"nation")!=p_nation) {
-		ret="ÄÇÀï²»ÊÇ±¾¹úÏ½Çø¡£"; show_invalid_check(); return;
+		ret="é‚£é‡Œä¸æ˜¯æœ¬å›½è¾–åŒºã€‚"; show_invalid_check(); return;
 	}
 	if(t_area==p_where) {
-		ret=t_name+"ÒÑ¾­ÔÚÄÇÀïÁË¡£"; show_invalid_check(); return;
+		ret=t_name+"å·²ç»åœ¨é‚£é‡Œäº†ã€‚"; show_invalid_check(); return;
 	}
 
 	if(t_id==p_nation) {
-		ret="¹úÍõÆñÄÜÂÒµ÷¶¯¡£"; show_invalid_check(); return;
+		ret="å›½ç‹å²‚èƒ½ä¹±è°ƒåŠ¨ã€‚"; show_invalid_check(); return;
 	}
 
 	CHAR_D->set_char(t_id, "area", p_where);
 	CHAR_D->set_char(t_id,"ranklocal",R_SG);
 
-	dis=sprintf("%s½«%sÅÉµ½%s¡£",
+	dis=sprintf("%så°†%sæ´¾åˆ°%sã€‚",
 		p_name,t_name,AREA_D->get_area(p_where,"name"));
 	CHANNEL_D->deliver_tell("rumor","system",dis);
 }
 
 void move_to_where(string id , string where) {
 	get_input_then_call
-     ((: done_move_officer, id,where:), "È·ÈÏÂğ[y/n]");	
+     ((: done_move_officer, id,where:), "ç¡®è®¤å—[y/n]");	
 }
 void do_move_officer(string str) {
 	get_input_then_call
-     ((: move_to_where, str:), "ÅÉµ½ÄÄÀï£º");	
+     ((: move_to_where, str:), "æ´¾åˆ°å“ªé‡Œï¼š");	
 }
 
 //////////////////////// assign localleader /////////////////////////////////////
@@ -581,7 +581,7 @@ void done_localleader(string id,string cfm) {
 	CHAR_D->set_char(t_id,"ranklocal",title);
 	CHAR_D->set_char(t_id,"grant",0);
 
-	dis=sprintf("%s·â%sÎª%sµÄ%s¡£",
+	dis=sprintf("%så°%sä¸º%sçš„%sã€‚",
 		p_name,t_name,AREA_D->get_area(t_area,"name"),
 		OFFICER_D->query_rank_name(title));
 	CHANNEL_D->deliver_tell("rumor","system",dis);
@@ -590,7 +590,7 @@ void done_localleader(string id,string cfm) {
 
 void do_localleader(string str) {
 	get_input_then_call
-     ((: done_localleader, str:), "È·ÈÏÂğ[y/n]");	
+     ((: done_localleader, str:), "ç¡®è®¤å—[y/n]");	
 }
 //////////////////////// change captal city ////////////////////////////////////
 void done_move_me(string p_where,string cfm) {
@@ -604,26 +604,26 @@ void done_move_me(string p_where,string cfm) {
 	if(stringp(ret)) { show_invalid_check(); return;} 
 
 	if(AREA_D->get_area(p_where,"nation")!=p_nation) {
-		ret="ÄÇÀï²»ÊÇ±¾¹úÏ½Çø¡£"; show_invalid_check(); return;
+		ret="é‚£é‡Œä¸æ˜¯æœ¬å›½è¾–åŒºã€‚"; show_invalid_check(); return;
 	}
 	p_area=CHAR_D->get_char(p_nation,"area");
 	if(p_area==p_where) {
-		ret="Ê×¶¼ÒÑ¾­ÔÚÕâÀïÁË¡£"; show_invalid_check(); return;
+		ret="é¦–éƒ½å·²ç»åœ¨è¿™é‡Œäº†ã€‚"; show_invalid_check(); return;
 	}
 
 	if((p_id!=p_nation)&&(AREA_D->get_area(p_where,"population")<
 		AREA_D->get_area(p_area,"population"))) {
-		ret="ÔõÃ´ÄÜ°ÑÊ×¸®Ç¨ÒÆµ½Ò»¸öÈË¿ÚÏ¡ÉÙµÄµØ·½¡£"; show_invalid_check(); return;
+		ret="æ€ä¹ˆèƒ½æŠŠé¦–åºœè¿ç§»åˆ°ä¸€ä¸ªäººå£ç¨€å°‘çš„åœ°æ–¹ã€‚"; show_invalid_check(); return;
 	}
 	if(COUNTRY_D->get_country(p_nation,"gold")<100) {
-		ret="¹ú¿â½ğ²»¹»ÁË¡£"; show_invalid_check(); return;
+		ret="å›½åº“é‡‘ä¸å¤Ÿäº†ã€‚"; show_invalid_check(); return;
 	}
 	COUNTRY_D->set_country(p_nation,"gold",
 		COUNTRY_D->get_country(p_nation,"gold")-100);
 	CHAR_D->set_char(p_nation, "area", p_where);
 	CHAR_D->set_char(p_nation,"ranklocal",R_SG);
 
-	dis=sprintf("%s½«Ê×¶¼Ç¨ÒÆµ½%s¡£",
+	dis=sprintf("%så°†é¦–éƒ½è¿ç§»åˆ°%sã€‚",
 		COUNTRY_D->get_country(p_nation,"name"),
 		AREA_D->get_area(p_where,"name"));
 	CHANNEL_D->deliver_tell("rumor","system",dis);
@@ -631,12 +631,12 @@ void done_move_me(string p_where,string cfm) {
 }
 void do_move_me(string str) {
 	get_input_then_call
-     ((: done_move_me, str:), "È·ÈÏÂğ[y/n]");	
+     ((: done_move_me, str:), "ç¡®è®¤å—[y/n]");	
 }
-/////////////////////////ÉèÖÃ¹úÃû //////////////////////////////////////////////
+/////////////////////////è®¾ç½®å›½å //////////////////////////////////////////////
 mixed is_right_name(string nam) {
 	if((sizeof(nam)<2)||(sizeof(nam)>6))
-		return "¹úÃû±ØĞèÊÇÒ»µ½Èı¸öºº×Ö¡£";
+		return "å›½åå¿…éœ€æ˜¯ä¸€åˆ°ä¸‰ä¸ªæ±‰å­—ã€‚";
 	return 1;
 }
 void done_name(string nam,string cfm) {
@@ -647,9 +647,9 @@ void done_name(string nam,string cfm) {
 	if(stringp(ret)) { show_invalid_check(); return;} 
 	ret=is_right_name(nam);
 	if(stringp(ret)) { show_invalid_check(); return;} 
-	if(nam[<2..<1]!="¹ú")
-		nam+="¹ú";
-	dis=p_name+"½«Æä¹úÃû¸ÄÎª£º"+nam;
+	if(nam[<2..<1]!="å›½")
+		nam+="å›½";
+	dis=p_name+"å°†å…¶å›½åæ”¹ä¸ºï¼š"+nam;
 
 	CHANNEL_D->deliver_tell("rumor","system",dis);
 	COUNTRY_D->set_country(p_nation,"name",nam);
@@ -657,7 +657,7 @@ void done_name(string nam,string cfm) {
 }
 void do_name(string str) {
 	get_input_then_call
-     ((: done_name, str:), "È·ÈÏ´ËÃûÂğ[y/n]");	
+     ((: done_name, str:), "ç¡®è®¤æ­¤åå—[y/n]");	
 }
 /////////////////// for black name list ////////////////////////////
 mixed can_he_on_bn(int tm) {	
@@ -667,11 +667,11 @@ mixed can_he_on_bn(int tm) {
 	bn=AREA_D->get_area(p_area,"bn");
 	if(!sizeof(bn)) bn=([]);
 	map_delete(bn,t_id);
-	return "Ã»ÓĞ"+t_id+"Õâ¸ö½ÇÉ«¡£";
+	return "æ²¡æœ‰"+t_id+"è¿™ä¸ªè§’è‰²ã€‚";
 	}
 	if((EV_MERCHANT)->get_market("area")==p_area)
-		return "±¾µØÕıÔÚ¾Ù°ì¼¯ÊĞ£¬²»±ãÊ¹ÓÃºÚÃûµ¥¡£\n";
-	if((t_nation==p_nation)&&(tm>0)) return t_name+"ÊÇ±¾¹ú¹ÙÔ±¡£";
+		return "æœ¬åœ°æ­£åœ¨ä¸¾åŠé›†å¸‚ï¼Œä¸ä¾¿ä½¿ç”¨é»‘åå•ã€‚\n";
+	if((t_nation==p_nation)&&(tm>0)) return t_name+"æ˜¯æœ¬å›½å®˜å‘˜ã€‚";
 	return 1;
 }
 
@@ -692,7 +692,7 @@ void done_add_list(string id,string tm,string cfm) {
 	p_tm=to_int(tm);
 	if(p_tm<0)p_tm=0;
 	if(p_tm>72) {
-		ret="Ê±¼ä³¬³ö·¶Î§ÁË¡£\n";show_invalid_check();return;
+		ret="æ—¶é—´è¶…å‡ºèŒƒå›´äº†ã€‚\n";show_invalid_check();return;
 	}
 	ret=can_he_on_bn(p_tm);
 
@@ -709,40 +709,40 @@ void done_add_list(string id,string tm,string cfm) {
 	if(!sizeof(bn)) bn=([]);
 	if(p_tm==0) {
 		map_delete(bn,t_id);
-		dis=sprintf("%s½«%s´Ó%sµÄµØÇøºÚÃûµ¥ÖĞ¹´³ıÁË¡£\n"
+		dis=sprintf("%så°†%sä»%sçš„åœ°åŒºé»‘åå•ä¸­å‹¾é™¤äº†ã€‚\n"
 			,p_name,t_name,AREA_D->get_area(p_area,"name"));
 	}
 	else
 	{
 		if(sizeof(bn)>4) {
-			ret="×î¶àÖ»ÄÜÓĞÎåÈËÔÚµØÇøºÚÃûµ¥ÉÏ¡£\n";
+			ret="æœ€å¤šåªèƒ½æœ‰äº”äººåœ¨åœ°åŒºé»‘åå•ä¸Šã€‚\n";
 			show_invalid_check();
 			return;
 		} else
 		{
 			bn[t_id]=time()+p_tm*3600;
-			dis=sprintf("%s½«%sµÄÃû×ÖĞ´ÈëµØÇøºÚÃûµ¥£¬½ûÖ¹Æä½øÈë%s¡£\n"
+			dis=sprintf("%så°†%sçš„åå­—å†™å…¥åœ°åŒºé»‘åå•ï¼Œç¦æ­¢å…¶è¿›å…¥%sã€‚\n"
 			,p_name,t_name,AREA_D->get_area(p_area,"name"));
 		}
 
 	}
 //	CHANNEL_D->deliver_tell("rumor","system",dis);
 	AREA_D->set_area(p_area,"bn",bn);
-	write("³É¹¦¡£\n");
+	write("æˆåŠŸã€‚\n");
 	return;
 }
 
 void time_add_list(string id,string str) {
      get_input_then_call
-     ((: done_add_list, id,str:), "È·ÈÏÂğ[y/n]£¬ÇëÎñ±ØÉ÷ÖØ¿¼ÂÇ¡£\n");	
+     ((: done_add_list, id,str:), "ç¡®è®¤å—[y/n]ï¼Œè¯·åŠ¡å¿…æ…é‡è€ƒè™‘ã€‚\n");	
 
     return;
 }
 void do_add_list(string str) {
      get_input_then_call
-     ((: time_add_list, str:), "ÉèÖÃ¶àÉÙĞ¡Ê±[0-72]\n");	
+     ((: time_add_list, str:), "è®¾ç½®å¤šå°‘å°æ—¶[0-72]\n");	
 }
-/////////////////////////////ÉèÖÃ²»×Ô¶¯Â¼ÓÃ ///////////////////////////////////
+/////////////////////////////è®¾ç½®ä¸è‡ªåŠ¨å½•ç”¨ ///////////////////////////////////
 void done_set_no_auto_pos(string tm,string cfm) {
 	int p_tm;
 	ret=check_confirm(cfm);
@@ -752,24 +752,24 @@ void done_set_no_auto_pos(string tm,string cfm) {
 	if(stringp(ret)) { show_invalid_check(); return;} 
 	p_tm=to_int(tm);
 	if((p_tm<0)||(p_tm>(120))) 
-	{	ret="Ê±¼ä²»ºÏÀí¡£\n"; show_invalid_check(); return;} 
+	{	ret="æ—¶é—´ä¸åˆç†ã€‚\n"; show_invalid_check(); return;} 
 	p_tm=p_tm*3600;
 	if(!p_tm) 
 		CHAR_D->set_char(p_id,"no_pos",0);
 	else
 		CHAR_D->set_char(p_id,"no_pos",time()+p_tm);
-	write("³É¹¦¡£\n");
+	write("æˆåŠŸã€‚\n");
 }
 void do_set_no_auto_pos(string str) {
 	get_input_then_call
-     ((: done_set_no_auto_pos, str:), "È·ÈÏÂğ[y/n]");	
+     ((: done_set_no_auto_pos, str:), "ç¡®è®¤å—[y/n]");	
 }
 
 void done_emperor(string str) {
 
 }
 
-///////////// ³·Ö° /////////////////////////////////////////////////////
+///////////// æ’¤èŒ /////////////////////////////////////////////////////
 void done_cancelofficer(string id,string cfm) {
 	ret=check_confirm(cfm);
 	if(!ret) return;
@@ -783,7 +783,7 @@ void done_cancelofficer(string id,string cfm) {
 	if(stringp(ret)) { show_invalid_check(); return;} 
 
 	
-	if(t_id==p_nation) {ret="ÄãÏëÔì·´£¿"; show_invalid_check(); return;} 
+	if(t_id==p_nation) {ret="ä½ æƒ³é€ åï¼Ÿ"; show_invalid_check(); return;} 
 
 
 	ret=am_i_busy();
@@ -802,34 +802,34 @@ void done_cancelofficer(string id,string cfm) {
 	CHAR_D->set_char(t_id,"nc",0);
 	CHAR_D->set_char(t_id,"ps",0);
 
-	dis=sprintf("%s½â³ıÁË%sÔÚ%sµÄÒ»ÇĞÖ°Îñ¡£",
+	dis=sprintf("%sè§£é™¤äº†%såœ¨%sçš„ä¸€åˆ‡èŒåŠ¡ã€‚",
 		p_name,t_name,COUNTRY_D->get_country(p_nation,"name"));
 	CHANNEL_D->deliver_tell("rumor","system",dis);
 
-	dis=sprintf("%s½â³ıÁËÄãÔÚ%sµÄÒ»ÇĞÖ°Îñ¡£\n",
+	dis=sprintf("%sè§£é™¤äº†ä½ åœ¨%sçš„ä¸€åˆ‡èŒåŠ¡ã€‚\n",
 		p_name,	COUNTRY_D->get_country(p_nation,"name"));
 
 	tell_user(t_id,"%^H_RED%^"+dis+"%^RESET%^");
 
-	dis=sprintf("%sµÄÉùÍûºÍÓë%sµÄ¹ØÏµÏÂ½µÁË¡£",
+	dis=sprintf("%sçš„å£°æœ›å’Œä¸%sçš„å…³ç³»ä¸‹é™äº†ã€‚",
 		t_name,	COUNTRY_D->get_country(p_nation,"name"));
 	CHANNEL_D->deliver_tell("rumor","system",dis);
 }
 
 void do_cancelofficer(string str) {
 	get_input_then_call
-     ((: done_cancelofficer, str:), "È·ÈÏÂğ[y/n]");	
+     ((: done_cancelofficer, str:), "ç¡®è®¤å—[y/n]");	
 }
 
-///////////////////Éè¶¨ÖİÄÁ//////////////////////////////////////
+///////////////////è®¾å®šå·ç‰§//////////////////////////////////////
 mixed can_he_be_zm(string zhou) {
 	string zhouhd;
 
 	zhouhd=AREA_D->get_zhou_head(zhou);
 	if(AREA_D->get_area(zhouhd,"nation")!=t_nation) 
-		return zhou+"Ê×¸®²»¹éÄã¹úËùÓĞ¡£";
+		return zhou+"é¦–åºœä¸å½’ä½ å›½æ‰€æœ‰ã€‚";
 	if(!CHAR_D->get_char(t_id,"ranknation"))
-		return "Ö»Òª¹ú¼Ò¹ÙÔ±²Å¿ÉÒÔ³ÉÎªÖİÄÁ¡£";
+		return "åªè¦å›½å®¶å®˜å‘˜æ‰å¯ä»¥æˆä¸ºå·ç‰§ã€‚";
 	return 1;
 }
 
@@ -862,11 +862,11 @@ void done_set_zm(string id,string cfm) {
 	zhouhd=AREA_D->get_zhou_head(zhou);
 	AREA_D->set_area(zhouhd,"zm",t_id);	
 
-	dis=sprintf("%sÈÎÃü%sÎª%sµÄÖİÄÁ¡£",
+	dis=sprintf("%sä»»å‘½%sä¸º%sçš„å·ç‰§ã€‚",
 		p_name,t_name,zhou);
 	CHANNEL_D->deliver_tell("rumor","system",dis);
 
-	dis=sprintf("%sÈÎÃüÄãÎª%sµÄÖİÄÁ¡£",
+	dis=sprintf("%sä»»å‘½ä½ ä¸º%sçš„å·ç‰§ã€‚",
 		p_name,	zhou);
 
 	tell_user(t_id,"%^H_GREEN%^"+dis+"%^RESET%^");
@@ -875,10 +875,10 @@ void done_set_zm(string id,string cfm) {
 
 void do_set_zm(string str) {
 	get_input_then_call
-     ((: done_set_zm, str:), "È·ÈÏÂğ[y/n]");	
+     ((: done_set_zm, str:), "ç¡®è®¤å—[y/n]");	
 }
 
-///////////////////////// ìøÈÃ //////////////////////////////////////////////
+///////////////////////// ç¦…è®© //////////////////////////////////////////////
 mixed handover() {
 	string *chr;
 	object o;
@@ -908,14 +908,14 @@ mixed handover() {
 
 }
 mixed can_i_handover() {
-	if(p_id!=p_nation) return "Ö»ÓĞÕæÕı¹úÍõ²ÅÄÜÈÃÎ»¡£";
+	if(p_id!=p_nation) return "åªæœ‰çœŸæ­£å›½ç‹æ‰èƒ½è®©ä½ã€‚";
         return 1;
 }
 mixed can_he_be_king() {
 	if(!CHAR_D->get_char(t_id,"ranknation"))
-		return "Ö»Òª¹ú¼Ò¹ÙÔ±²Å¿ÉÒÔ½ÓÊÕ¹úÍõÖ®Î»¡£";
+		return "åªè¦å›½å®¶å®˜å‘˜æ‰å¯ä»¥æ¥æ”¶å›½ç‹ä¹‹ä½ã€‚";
 	if(t_id==p_id) 
-		return "ÍõÎ»´«¸ø×Ô¼º¡£";
+		return "ç‹ä½ä¼ ç»™è‡ªå·±ã€‚";
 	return 1;
 }
 mixed any_body_busy() {
@@ -923,7 +923,7 @@ mixed any_body_busy() {
 	chr=CHAR_D->check_char("nation",p_nation);
 	foreach(string c in chr) {
 		if(CHAR_D->get_char(c,"task")) 
-			return "±¾¹úµÄ"+CHAR_D->get_char(c,"name")+"ÕıÔÚÖ´ĞĞÈÎÎñ¡£";
+			return "æœ¬å›½çš„"+CHAR_D->get_char(c,"name")+"æ­£åœ¨æ‰§è¡Œä»»åŠ¡ã€‚";
 	}
 	return 1;
 }
@@ -952,23 +952,23 @@ void done_handover(string id,string cfm) {
 }
 void do_handover(string str) {
 	get_input_then_call
-     ((: done_handover, str:), "È·ÈÏìøÈÃÂğ[y/n]£¬ÈÃ³ö¿ÉÒª²»»ØÀ´ÁË¡£");	
+     ((: done_handover, str:), "ç¡®è®¤ç¦…è®©å—[y/n]ï¼Œè®©å‡ºå¯è¦ä¸å›æ¥äº†ã€‚");	
 }
 
-///////////////////////// ½±Àø²¿ÏÂ /////////////////////////////////////////////
+///////////////////////// å¥–åŠ±éƒ¨ä¸‹ /////////////////////////////////////////////
 mixed can_give_price(string what) {
 	object o_t;
 	int nb,prise;
 	int w;
 	o_t=find_body(t_id);
-	if(!objectp(o_t)) return t_name+"Ä¿Ç°Ã»ÓĞÔÚÏß¡£";
+	if(!objectp(o_t)) return t_name+"ç›®å‰æ²¡æœ‰åœ¨çº¿ã€‚";
 	nb=CHAR_D->get_char(t_id,"nationcontribution");
 	prise=CHAR_D->get_char(t_id,"ps");
-	if((nb-prise)<100) return t_name+"Ä¿Ç°¹¦ÀÍ²»¹»£¬²»ÄÜ½±Àø¡£";
+	if((nb-prise)<100) return t_name+"ç›®å‰åŠŸåŠ³ä¸å¤Ÿï¼Œä¸èƒ½å¥–åŠ±ã€‚";
 	w=to_int(what);
-	if((w>6)||(w<1)) return "Ã»ÓĞÕâÖÖ½±Àø¡£";
+	if((w>6)||(w<1)) return "æ²¡æœ‰è¿™ç§å¥–åŠ±ã€‚";
 	if((w==1)&&(COUNTRY_D->get_country(p_nation,"gold")<1000))
-		return "Ä¿Ç°¹ú¿â¿ÕĞé£¬Ã»·¨½±Àø½ğÇ®¡£";
+		return "ç›®å‰å›½åº“ç©ºè™šï¼Œæ²¡æ³•å¥–åŠ±é‡‘é’±ã€‚";
 	return 1;
 }
 
@@ -1001,52 +1001,52 @@ void done_price(string id,string what,string cfm) {
 	switch(w) {
 		case 1: // gold
 			p=r/5;
-			st="Á½»Æ½ğ";
+			st="ä¸¤é»„é‡‘";
 			MONEY_D->add_salary_money(ot,p*10000);
 			COUNTRY_D->set_country(p_nation,"gold",
 				COUNTRY_D->get_country(p_nation,"gold")-p);
 			break;
 		case 2: // reputation
 			p=r*2;
-			st="µãÉùÍû";
+			st="ç‚¹å£°æœ›";
 			CHAR_D->set_char(t_id,"reputation",
 				CHAR_D->get_char(t_id,"reputation")+p);
 			break;
 		case 3: // loyalty
 			p=r/5;
-			st="µãÖÒ³Ï¶È";
+			st="ç‚¹å¿ è¯šåº¦";
 			CHAR_D->set_char(t_id,"loyalty",
                                 CHAR_D->get_char(t_id,"loyalty")+p);
 			break;
 		case 4: // wuli
 			p=r;
-			st="µãÎäÑ§ĞŞÑø";
+			st="ç‚¹æ­¦å­¦ä¿®å…»";
 			ot->award_exp(p,"sk_wuli");
 			break;
 		case 5: // meili
 			p=r;
-			st="µãÖÎ¹úĞŞÑø";
+			st="ç‚¹æ²»å›½ä¿®å…»";
 			ot->award_exp(p,"sk_meili");
 			break;
 		case 6: // zhimou
 			p=r;
-			st="µã±ø·¨ĞŞÑø";
+			st="ç‚¹å…µæ³•ä¿®å…»";
 			ot->award_exp(p,"sk_zhimou");
 			break;
 	}
 
 
-	dis=sprintf("%sÀÍ¿à¹¦¸ß£¬ëŞÌØ´Ë¼Î½±%s%s%s¡£",
-		t_name,(ot->query_gender()==1 ? "Ëû":" Ëı" ),
+	dis=sprintf("%såŠ³è‹¦åŠŸé«˜ï¼Œæœ•ç‰¹æ­¤å˜‰å¥–%s%s%sã€‚",
+		t_name,(ot->query_gender()==1 ? "ä»–":" å¥¹" ),
 		chinese_number(p),st);
 	CHANNEL_D->deliver_tell("gossip",p_name,dis);
-	CHANNEL_D->deliver_tell("gossip",t_name,"Ğ»Ö÷¹«ÉÍ´Í¡£");
+	CHANNEL_D->deliver_tell("gossip",t_name,"è°¢ä¸»å…¬èµèµã€‚");
 
 
 }
 void price_what(string id,string what) {
 	get_input_then_call
-     ((: done_price, id,what:), "È·ÈÏ½±ÀøÂğ[y/n]£¿");	
+     ((: done_price, id,what:), "ç¡®è®¤å¥–åŠ±å—[y/n]ï¼Ÿ");	
 }
 void do_price(string id) {
 
@@ -1054,26 +1054,26 @@ void do_price(string id) {
 	ret=am_i_king();
 	if(stringp(ret)) { show_invalid_check(); return;} 
 
-	printf("¡¾1¡¿     ½ğÇ®\n");
-	printf("¡¾2¡¿     ÉùÍû\n");
-	printf("¡¾3¡¿     ÖÒ³Ï\n");
-	printf("¡¾4¡¿ ÎäÑ§ĞŞÑø\n");
-	printf("¡¾5¡¿ ÖÎ¹úĞŞÑø\n");
-	printf("¡¾6¡¿ ±ø·¨ĞŞÑø\n");
+	printf("ã€1ã€‘     é‡‘é’±\n");
+	printf("ã€2ã€‘     å£°æœ›\n");
+	printf("ã€3ã€‘     å¿ è¯š\n");
+	printf("ã€4ã€‘ æ­¦å­¦ä¿®å…»\n");
+	printf("ã€5ã€‘ æ²»å›½ä¿®å…»\n");
+	printf("ã€6ã€‘ å…µæ³•ä¿®å…»\n");
 	get_input_then_call
-     ((: price_what, id:), "½±ÀøÊ²Ã´£º");	
+     ((: price_what, id:), "å¥–åŠ±ä»€ä¹ˆï¼š");	
 }
 
 
 
-//////////////////////////////¹ú¼Ò½±µã///////////////////////////////////////
+//////////////////////////////å›½å®¶å¥–ç‚¹///////////////////////////////////////
 mixed can_country_price() {
 	int p_year=DAY_D->query_date()[3];
 	int hon=COUNTRY_D->get_country(p_nation,"hon");
 	if(p_year==COUNTRY_D->get_country(p_nation,"hon_year"))
-		return "½ñÄêÒÑ¾­½±Àø¹ıÁË¡£\n";
+		return "ä»Šå¹´å·²ç»å¥–åŠ±è¿‡äº†ã€‚\n";
 	if(hon<1000) 
-		return "×Ü½±µã²»×ãÒ»Ç§£¬Ì«ÉÙÁË¡£";
+		return "æ€»å¥–ç‚¹ä¸è¶³ä¸€åƒï¼Œå¤ªå°‘äº†ã€‚";
 	return 1;
 }
 mixed done_country_pricea(string list) {
@@ -1086,7 +1086,7 @@ mixed done_country_pricea(string list) {
 	num=sizeof(tmp);
 
 	if((num<1)||(num>5)) {
-		return "½±ÀøÈËÊıÊÇÒ»µ½ÎåÈË¡£\n"; 
+		return "å¥–åŠ±äººæ•°æ˜¯ä¸€åˆ°äº”äººã€‚\n"; 
 	}
 	cp_hon=0;
 	for(i=0;i<num;++i) {
@@ -1095,30 +1095,30 @@ mixed done_country_pricea(string list) {
 		int cp_val;
 		kk=explode(tmp[i]," ");
 		if(sizeof(kk)!=2) 
-			return ""+tmp[i]+"Õâ¸ö¸ñÊ½²»¶Ô¡£\n";
+			return ""+tmp[i]+"è¿™ä¸ªæ ¼å¼ä¸å¯¹ã€‚\n";
 		cp_id=kk[0];
 		cp_val=to_int(kk[1]);
-		if(cp_val<10) return "Ã¿Î»¹ÙÔ±ÖÁÉÙÒª½±Àø10µã¡£\n";
+		if(cp_val<10) return "æ¯ä½å®˜å‘˜è‡³å°‘è¦å¥–åŠ±10ç‚¹ã€‚\n";
 		if(CHAR_D->get_char(cp_id,"nation")!=p_nation)
-			return ""+cp_id+"²»ÊÇ±¾¹ú¹ÙÔ±¡£\n";
+			return ""+cp_id+"ä¸æ˜¯æœ¬å›½å®˜å‘˜ã€‚\n";
 		cp_hon+=cp_val;
 		cp_ids[cp_id]=cp_val;
 	}
 	hon=COUNTRY_D->get_country(p_nation,"hon");
 	if(hon<cp_hon)
-		return "Ã»ÓĞÄÇÃ´¶à½±µã¡£\n";
+		return "æ²¡æœ‰é‚£ä¹ˆå¤šå¥–ç‚¹ã€‚\n";
 	COUNTRY_D->set_country(p_nation,"hon",hon-cp_hon);
 
 	p_year=DAY_D->query_date()[3];
 	COUNTRY_D->set_country(p_nation,"hon",hon-cp_hon);
 	COUNTRY_D->set_country(p_nation,"hon_year",p_year);
-	post_string=chinese_number(p_year)+"ÄêÌØ±ğ½±Àø£º\n";
+	post_string=chinese_number(p_year)+"å¹´ç‰¹åˆ«å¥–åŠ±ï¼š\n";
 	foreach(string cp_id,int cp_val in cp_ids) {
 CHAR_D->add_honor_point(cp_id,cp_val);
-		post_string+=sprintf("%8s£º %dµã\n",
+		post_string+=sprintf("%8sï¼š %dç‚¹\n",
 			CHAR_D->get_char(cp_id,"name"),cp_val);
 	}
-	NEWS_D->system_post("nation."+p_nation,chinese_number(p_year)+"ÄêÌØ±ğ½±Àø", 
+	NEWS_D->system_post("nation."+p_nation,chinese_number(p_year)+"å¹´ç‰¹åˆ«å¥–åŠ±", 
 		post_string,  p_name+"("+p_id+")");
 	return 1;
 }
@@ -1129,14 +1129,14 @@ void done_country_price(string list,string cfm) {
 	if(stringp(ret)) { show_invalid_check(); return;} 
 
     CHANNEL_D->deliver_tell("rumor","system",COUNTRY_D->get_country(p_nation,
-		"name")+"¶Ô±¾¹úµÄÓĞ¹¦Ö®³¼ÅÉ·¢ÌØ±ğ½±ÉÍ¡£");
+		"name")+"å¯¹æœ¬å›½çš„æœ‰åŠŸä¹‹è‡£æ´¾å‘ç‰¹åˆ«å¥–èµã€‚");
 	return;
 
 }
 
 void country_price_what(string list) {
 	get_input_then_call
-     ((: done_country_price, list:), "È·ÈÏ½±ÀøÂğ[y/n]£¿");	
+     ((: done_country_price, list:), "ç¡®è®¤å¥–åŠ±å—[y/n]ï¼Ÿ");	
 
 }
 
@@ -1147,30 +1147,30 @@ void do_country_price() {
 	if(stringp(ret)) { show_invalid_check(); return;} 
 
 	hon=COUNTRY_D->get_country(p_nation,"hon");
-	printf("Ä¿Ç°¹²ÓĞ½±µã£º%d\n",hon);
+	printf("ç›®å‰å…±æœ‰å¥–ç‚¹ï¼š%d\n",hon);
 
 	ret=can_country_price();
 	if(stringp(ret)) { show_invalid_check(); return;} 
 
-	printf("¿ÉÒÔ½±Àø¸ø²»³¬¹ıÎåÃûµÄ±¾¹ú¹ÙÔ±£¬½±Àø°ì·¨ÊÇÊäÈë¹ÙÔ±ID£¬¿Õ¸ñ¼ÓµãÊı¡£\n");
-	printf("¹ÙÔ±Ö®¼äÓÃ¶ººÅ·Ö¿ª£¬ÀıÈçÒª¸øcddºÍrob½±Àø200µã£¬noise½±Àø300µã£¬ÔòÊäÈë£º\n");
+	printf("å¯ä»¥å¥–åŠ±ç»™ä¸è¶…è¿‡äº”åçš„æœ¬å›½å®˜å‘˜ï¼Œå¥–åŠ±åŠæ³•æ˜¯è¾“å…¥å®˜å‘˜IDï¼Œç©ºæ ¼åŠ ç‚¹æ•°ã€‚\n");
+	printf("å®˜å‘˜ä¹‹é—´ç”¨é€—å·åˆ†å¼€ï¼Œä¾‹å¦‚è¦ç»™cddå’Œrobå¥–åŠ±200ç‚¹ï¼Œnoiseå¥–åŠ±300ç‚¹ï¼Œåˆ™è¾“å…¥ï¼š\n");
 	printf("cdd 200,rob 200,noise 300\n");
 
 	get_input_then_call
-     ((: country_price_what:), "½±ÀøµÄ¹ÙÔ±ºÍµãÊı£º");	
+     ((: country_price_what:), "å¥–åŠ±çš„å®˜å‘˜å’Œç‚¹æ•°ï¼š");	
 }
 
-//////////////////////////////ÈÎÃüÉú²ú»ùµØÖ÷¹Ü/////////////////////////////////////
+//////////////////////////////ä»»å‘½ç”Ÿäº§åŸºåœ°ä¸»ç®¡/////////////////////////////////////
 mixed is_he_fit_base_leader(string f_id) {
 	string *list;
 	object cont;
 	mixed ret;
 	list=AREA_D->get_area(p_area,"base");
 	if(!sizeof(list)) list=({});
-	if(member_array(f_id,list)==-1) return "ÏÖÔÚÃ»ÓĞÕâ¸öÉú²ú»ùµØ¡£";
+	if(member_array(f_id,list)==-1) return "ç°åœ¨æ²¡æœ‰è¿™ä¸ªç”Ÿäº§åŸºåœ°ã€‚";
 	cont=SGBASE(p_area,f_id);
 	if(!objectp(cont)) {
-		return "Ã»·¨ÔØÈë»ùµØ£¬Ææ¹Ö£¿";
+		return "æ²¡æ³•è½½å…¥åŸºåœ°ï¼Œå¥‡æ€ªï¼Ÿ";
 	}
 	ret=cont->set_leader(t_id);
 	return ret;
@@ -1193,29 +1193,29 @@ void done_adjust_base_leader(string id, string f_id,string cfm) {
 
 	ret=is_he_fit_base_leader(f_id);
 	if(stringp(ret)) { show_invalid_check(); return;} 
-	dis=p_name+"ÈÎÃü"+t_name+"Îª"+AREA_D->get_area(p_area,"name")+
-		"µÄ"+BASE_D->get_base(f_id,"name")+"×Ü¼à¡£";
+	dis=p_name+"ä»»å‘½"+t_name+"ä¸º"+AREA_D->get_area(p_area,"name")+
+		"çš„"+BASE_D->get_base(f_id,"name")+"æ€»ç›‘ã€‚";
 	CHANNEL_D->deliver_tell("rumor","system",dis);
 }
 
 void which_base(string id,string f_id) {
 	get_input_then_call
-     ((: done_adjust_base_leader, id,f_id:), "È·ÈÏÂğ[y/n]£¿");
+     ((: done_adjust_base_leader, id,f_id:), "ç¡®è®¤å—[y/n]ï¼Ÿ");
 }
 void do_adjust_base_leader(string id) {
-	array bases;
+	mixed * bases;
 	int i;
 	init_me();
 	ret=am_i_local_leader();
 	if(stringp(ret)) { show_invalid_check(); return;} 
 	bases=AREA_D->get_area(p_area,"base");
 	if(!sizeof(bases)) {
-		ret="±¾µØÇø»¹Ã»ÓĞÈÎºÎÉú²ú»ùµØ¡£";
+		ret="æœ¬åœ°åŒºè¿˜æ²¡æœ‰ä»»ä½•ç”Ÿäº§åŸºåœ°ã€‚";
 		show_invalid_check();
 		return;
 	}
 
-	printf("»ùµØID      »ùµØÃû³Æ    \n");
+	printf("åŸºåœ°ID      åŸºåœ°åç§°    \n");
 	for(i=0;i<sizeof(bases);++i)
 
 	{
@@ -1224,21 +1224,21 @@ void do_adjust_base_leader(string id) {
 	}
 
 	get_input_then_call
-     ((: which_base, id:), "Ö÷¹ÜÄÄ×ùÉú²ú»ùµØ£º");
+     ((: which_base, id:), "ä¸»ç®¡å“ªåº§ç”Ÿäº§åŸºåœ°ï¼š");
 }
 
 
 void do_send_merchant() {
 
-	printf("ÏÖÔÚ»¹²»¿ÉÒÔ£¬Ê²Ã´Ê±ºò¿ÉÒÔ£¬Çë¿´Î×Ê¦Í¨¸æ¡£\n");
+	printf("ç°åœ¨è¿˜ä¸å¯ä»¥ï¼Œä»€ä¹ˆæ—¶å€™å¯ä»¥ï¼Œè¯·çœ‹å·«å¸ˆé€šå‘Šã€‚\n");
 	return;
 }
 
-//////////////////////////ÕĞÄ¼±øÔ±/////////////////////////////////
+//////////////////////////æ‹›å‹Ÿå…µå‘˜/////////////////////////////////
 void do_recruit_soldier(string cfm)
 {
 	int safe,population,soldiers;
-	array p_date;
+	mixed * p_date;
 	int wl,zhili,meili,li;
 	int c_gold;
 	int p_month,p_year,a_year,a_month;
@@ -1260,31 +1260,31 @@ void do_recruit_soldier(string cfm)
 	p_month = p_date[2];
 	p_year = p_date[3];	
 	if(population < 10000)
-	{       printf("ÈË¿Ú²»×ã£¬ÎŞ·¨Ä¼±ø¡£\n");
+	{       printf("äººå£ä¸è¶³ï¼Œæ— æ³•å‹Ÿå…µã€‚\n");
                 return;
         }
 	if(safe <180)
-	{       printf("°²¶¨²»×ã£¬ÎŞ·¨Ä¼±ø¡£\n");
+	{       printf("å®‰å®šä¸è¶³ï¼Œæ— æ³•å‹Ÿå…µã€‚\n");
                 return;
         }
 	if(soldiers > (population/12))
-	{	printf("³ÇÊĞ±øÔ±³¬¹ıÈË¿Ú³ĞÊÜÄÜÁ¦¡£\n");
+	{	printf("åŸå¸‚å…µå‘˜è¶…è¿‡äººå£æ‰¿å—èƒ½åŠ›ã€‚\n");
 		return;
         }	
 	if(AREA_D->get_area(p_area,"gold")< 30000)
-	{	printf("³ÇÊĞ¿ÕĞé£¬ÎŞ·¨Ä¼±ø¡£\n");
+	{	printf("åŸå¸‚ç©ºè™šï¼Œæ— æ³•å‹Ÿå…µã€‚\n");
 		return;
 	}
 
 	 if (p_month != 4 && p_month != 10)
-		{printf ("Ö»ÓĞÃ¿ÄêËÄÔÂºÍÊ®ÔÂ¿ÉÒÔÄ¼±ø¡£\n");
+		{printf ("åªæœ‰æ¯å¹´å››æœˆå’Œåæœˆå¯ä»¥å‹Ÿå…µã€‚\n");
 		return;}
 
 	 if(AREA_D->get_area(p_area,"recruit_soldier"))	 
 	{	a_year = AREA_D->get_area(p_area,"recruit_soldier")["year"];
 		a_month = AREA_D->get_area(p_area,"recruit_soldier")["month"];
 	  if(p_year == a_year && p_month == a_month)
-		{printf("Ã¿ÔÂÖ»¿ÉÄ¼±øÒ»´Î¡£\n");
+		{printf("æ¯æœˆåªå¯å‹Ÿå…µä¸€æ¬¡ã€‚\n");
 		return;}
 	  }
 	wl = CHAR_D->get_char(p_id,"skills")["sk_wuli"];
@@ -1317,8 +1317,8 @@ AREA_D->set_area(p_area,"recruit_soldier",(["year":p_year,"month":p_month]));
         AREA_D->set_area(p_area,"troop", troop);
 	AREA_D->set_area(p_area,"morale", p_morale);
 	AREA_D->set_area(p_area,"train", p_train);
-	dis=p_name+"Îª"+AREA_D->get_area(p_area,"name")+
-                "Ä¼¼¯±øÔ±"+chinese_number(soldiers)+"ÈË¡£";
+	dis=p_name+"ä¸º"+AREA_D->get_area(p_area,"name")+
+                "å‹Ÿé›†å…µå‘˜"+chinese_number(soldiers)+"äººã€‚";
         CHANNEL_D->deliver_tell("rumor","system",dis);
 }	
   			
@@ -1326,81 +1326,81 @@ AREA_D->set_area(p_area,"recruit_soldier",(["year":p_year,"month":p_month]));
 void create()
 {
     set_privilege(1);
-    toplevel = new_menu("\nÌ«ÊØ¹ÜÀí²Ëµ¥£º");
-    quit_item = new_menu_item("ÍË³ö", (:quit_menu_application:), "q");
+    toplevel = new_menu("\nå¤ªå®ˆç®¡ç†èœå•ï¼š");
+    quit_item = new_menu_item("é€€å‡º", (:quit_menu_application:), "q");
     seperator = new_seperator
     ("-------------------------------------------------------------------------");
     add_menu_item(toplevel, seperator);
-    add_menu_item(toplevel, new_menu_item("ÔİÈÃÌ«ÊØÖ®Î»", (: get_input_then_call,
-		(: do_give :),"ÔİÈÃÌ«ÊØÎ»ÓÚÄÄÎ»¹ÙÔ±£º" :) ,"1"));
+    add_menu_item(toplevel, new_menu_item("æš‚è®©å¤ªå®ˆä¹‹ä½", (: get_input_then_call,
+		(: do_give :),"æš‚è®©å¤ªå®ˆä½äºå“ªä½å®˜å‘˜ï¼š" :) ,"1"));
 
-    add_menu_item(toplevel, new_menu_item("ÊÕ»ØÌ«ÊØÖ®Î»",(: get_input_then_call,
-		(: done_back :),"È·ÈÏÊÕ»ØÌ«ÊØÖ®Î»Âğ£¿[y/n]" :) ,"2"));
+    add_menu_item(toplevel, new_menu_item("æ”¶å›å¤ªå®ˆä¹‹ä½",(: get_input_then_call,
+		(: done_back :),"ç¡®è®¤æ”¶å›å¤ªå®ˆä¹‹ä½å—ï¼Ÿ[y/n]" :) ,"2"));
 
-    add_menu_item(toplevel, new_menu_item("µ÷Õû¹ÙÔ±µØ·½Ö°Î»", (: get_input_then_call,
-		(: do_adjust_local :),"µ÷ÕûÄÄÎ»¹ÙÔ±µØ·½Ö°Î»£º" :) ,"3"));
+    add_menu_item(toplevel, new_menu_item("è°ƒæ•´å®˜å‘˜åœ°æ–¹èŒä½", (: get_input_then_call,
+		(: do_adjust_local :),"è°ƒæ•´å“ªä½å®˜å‘˜åœ°æ–¹èŒä½ï¼š" :) ,"3"));
 
-    add_menu_item(toplevel, new_menu_item("ÉèÖÃ²»×Ô¶¯Â¼ÓÃ",	(: get_input_then_call,
-		(: do_set_no_auto_pos :),"ÉèÖÃ¶àÉÙĞ¡Ê±ÄÚ²»×Ô¶¯Â¼ÓÃ[0__120]" :) ,"4"));
+    add_menu_item(toplevel, new_menu_item("è®¾ç½®ä¸è‡ªåŠ¨å½•ç”¨",	(: get_input_then_call,
+		(: do_set_no_auto_pos :),"è®¾ç½®å¤šå°‘å°æ—¶å†…ä¸è‡ªåŠ¨å½•ç”¨[0__120]" :) ,"4"));
     
-    add_menu_item(toplevel, new_menu_item("¶ÀÁ¢",	(: get_input_then_call,
-		(: done_independence :),"È·ÈÏ¶ÀÁ¢Âğ£¿[y/n]" :) ,"5"));
+    add_menu_item(toplevel, new_menu_item("ç‹¬ç«‹",	(: get_input_then_call,
+		(: done_independence :),"ç¡®è®¤ç‹¬ç«‹å—ï¼Ÿ[y/n]" :) ,"5"));
 
-	add_menu_item(toplevel, new_menu_item("ºÚÃûµ¥",	(: get_input_then_call,
-		(: do_add_list :) ,"°ÑË­¼ÓÈëºÚÃûµ¥£º":),"6"));
+	add_menu_item(toplevel, new_menu_item("é»‘åå•",	(: get_input_then_call,
+		(: do_add_list :) ,"æŠŠè°åŠ å…¥é»‘åå•ï¼š":),"6"));
 
-    add_menu_item(toplevel, new_menu_item("ÈÎÃüÉú²ú»ùµØ×Ü¼à", (: get_input_then_call,
-		(: do_adjust_base_leader :),"ÈÎÃüÄÄÎ»¹ÙÔ±ÎªÉú²ú»ùµØ×Ü¼à£º" :) ,"7"));
+    add_menu_item(toplevel, new_menu_item("ä»»å‘½ç”Ÿäº§åŸºåœ°æ€»ç›‘", (: get_input_then_call,
+		(: do_adjust_base_leader :),"ä»»å‘½å“ªä½å®˜å‘˜ä¸ºç”Ÿäº§åŸºåœ°æ€»ç›‘ï¼š" :) ,"7"));
 
-//    add_menu_item(toplevel, new_menu_item("ÅÉËÍÉÌÈË", 	(: do_send_merchant :),"8"));
+//    add_menu_item(toplevel, new_menu_item("æ´¾é€å•†äºº", 	(: do_send_merchant :),"8"));
  
-   add_menu_item(toplevel, new_menu_item("ÕĞÄ¼Ê¿±ø", (:get_input_then_call,
-		(: do_recruit_soldier :),"È·ÈÏÄ¼±øÂğ£¿[y/n]" :) ,"8"));
+   add_menu_item(toplevel, new_menu_item("æ‹›å‹Ÿå£«å…µ", (:get_input_then_call,
+		(: do_recruit_soldier :),"ç¡®è®¤å‹Ÿå…µå—ï¼Ÿ[y/n]" :) ,"8"));
 
     add_menu_item(toplevel, new_seperator("\n"));
 
     add_menu_item(toplevel, seperator);
-    add_menu_item(toplevel, new_seperator("¹úÍõ¹ÜÀí²Ëµ¥£º"));
+    add_menu_item(toplevel, new_seperator("å›½ç‹ç®¡ç†èœå•ï¼š"));
     add_menu_item(toplevel, seperator);
 
-	add_menu_item(toplevel, new_menu_item("µ÷Õû¹ÙÔ±¹ú¼ÒÖ°Î»",	(: get_input_then_call,
-		(: do_adjust_nation :) ,"µ÷Õû¹ÙÔ±¹ú¼ÒÖ°Î»£º" :) ,"a"));
+	add_menu_item(toplevel, new_menu_item("è°ƒæ•´å®˜å‘˜å›½å®¶èŒä½",	(: get_input_then_call,
+		(: do_adjust_nation :) ,"è°ƒæ•´å®˜å‘˜å›½å®¶èŒä½ï¼š" :) ,"a"));
 
-    add_menu_item(toplevel, new_menu_item("ÅÉ×¤¹ÙÔ±", (: get_input_then_call,
-		(: do_move_officer :) ,"ÅÉ×¤ÄÄÎ»¹ÙÔ±£º" :) ,"b"));
+    add_menu_item(toplevel, new_menu_item("æ´¾é©»å®˜å‘˜", (: get_input_then_call,
+		(: do_move_officer :) ,"æ´¾é©»å“ªä½å®˜å‘˜ï¼š" :) ,"b"));
 
-    add_menu_item(toplevel, new_menu_item("ÈÎÃüÌ«ÊØ",(: get_input_then_call,
-		(: do_localleader :) ,"ÈÎÃüÄÄÎª¹ÙÔ±ÎªÌ«ÊØ£º" :) ,"c"));
+    add_menu_item(toplevel, new_menu_item("ä»»å‘½å¤ªå®ˆ",(: get_input_then_call,
+		(: do_localleader :) ,"ä»»å‘½å“ªä¸ºå®˜å‘˜ä¸ºå¤ªå®ˆï¼š" :) ,"c"));
 
-    add_menu_item(toplevel, new_menu_item("³·Ö°",(: get_input_then_call,
-		(: do_cancelofficer :) ,"³·ÏúÄÄÎª¹ÙÔ±Ö°Îñ£º" :) ,"d"));
+    add_menu_item(toplevel, new_menu_item("æ’¤èŒ",(: get_input_then_call,
+		(: do_cancelofficer :) ,"æ’¤é”€å“ªä¸ºå®˜å‘˜èŒåŠ¡ï¼š" :) ,"d"));
 
-    add_menu_item(toplevel, new_menu_item("Ç¨¶¼",	(: get_input_then_call,
-		(: do_move_me :) ,"Ç¨ÍùºÎµØ£º" :) ,"e"));
+    add_menu_item(toplevel, new_menu_item("è¿éƒ½",	(: get_input_then_call,
+		(: do_move_me :) ,"è¿å¾€ä½•åœ°ï¼š" :) ,"e"));
 
-    add_menu_item(toplevel, new_menu_item("Éè¶¨¹úÃû",	(: get_input_then_call,
-		(: do_name :),"ÊäÈë¹úÃû£º" :) ,"f"));
+    add_menu_item(toplevel, new_menu_item("è®¾å®šå›½å",	(: get_input_then_call,
+		(: do_name :),"è¾“å…¥å›½åï¼š" :) ,"f"));
 
-    add_menu_item(toplevel, new_menu_item("Éè¶¨ÖİÄÁ",	(: get_input_then_call,
-		(: do_set_zm :),"ÊäÈë½ÇÉ«ID£º" :) ,"g"));
-
-
-        add_menu_item(toplevel, new_menu_item("¹ú¿âÌá½ğ",   (: get_input_then_call,
-        (: done_getgold :),"Ìá¶àÉÙ½ğ£º" :) ,"h"));
-
-    add_menu_item(toplevel, new_menu_item("½±Àø²¿ÏÂ",	(: get_input_then_call,
-		(: do_price :),"ÊäÈë½ÇÉ«ID£º" :) ,"i"));
+    add_menu_item(toplevel, new_menu_item("è®¾å®šå·ç‰§",	(: get_input_then_call,
+		(: do_set_zm :),"è¾“å…¥è§’è‰²IDï¼š" :) ,"g"));
 
 
-    add_menu_item(toplevel, new_menu_item("Äê¶ÈÌØ±ğ½±Àø",	(: do_country_price :),"j"));
+        add_menu_item(toplevel, new_menu_item("å›½åº“æé‡‘",   (: get_input_then_call,
+        (: done_getgold :),"æå¤šå°‘é‡‘ï¼š" :) ,"h"));
 
-    add_menu_item(toplevel, new_menu_item("ìøÈÃ",(: get_input_then_call,
-		(: do_handover :) ,"ÈÃÎ»ÓÚÄÄÎª¹ÙÔ±£º" :) ,"k"));
+    add_menu_item(toplevel, new_menu_item("å¥–åŠ±éƒ¨ä¸‹",	(: get_input_then_call,
+		(: do_price :),"è¾“å…¥è§’è‰²IDï¼š" :) ,"i"));
+
+
+    add_menu_item(toplevel, new_menu_item("å¹´åº¦ç‰¹åˆ«å¥–åŠ±",	(: do_country_price :),"j"));
+
+    add_menu_item(toplevel, new_menu_item("ç¦…è®©",(: get_input_then_call,
+		(: do_handover :) ,"è®©ä½äºå“ªä¸ºå®˜å‘˜ï¼š" :) ,"k"));
 
    add_menu_item(toplevel, quit_item);
     add_menu_item(toplevel, new_seperator("\n"));
 
    add_menu_item(toplevel, seperator);
-   set_menu_prompt (toplevel, "ÊäÈëÖ¸Áî[1-cq]: ");
+   set_menu_prompt (toplevel, "è¾“å…¥æŒ‡ä»¤[1-cq]: ");
 }
 

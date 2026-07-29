@@ -22,7 +22,7 @@ string query_id()
 }
 string query_name()
 {
-	return "¼ý´¬";
+	return "ç®­èˆ¹";
 }
 string query_type()
 {
@@ -52,10 +52,10 @@ int query_energy_recover(string environment, int weather, int zhenfa)
 {
         int cost;
 
-        if( environment == "¡Ä" ) cost = 3;
-        else if ( environment == "¡«" ) cost = 9;
-        else if ( environment == "£®" ) cost = 5;
-        else if ( environment == "£ª" ) cost = 5;
+        if( environment == "âˆ§" ) cost = 3;
+        else if ( environment == "ï½ž" ) cost = 9;
+        else if ( environment == "ï¼Ž" ) cost = 5;
+        else if ( environment == "ï¼Š" ) cost = 5;
         else cost = 3;
 
         if( weather == 0 ) cost = cost - 1;
@@ -72,10 +72,10 @@ int query_energy_cost(string environment, int weather, int zhenfa)
 {
 	int cost;
 
-	if( environment == "¡Ä" ) cost =21;
-	else if ( environment == "¡«" ) cost = 15;
-	else if ( environment == "£®" ) cost = 19;
-	else if ( environment == "£ª" ) cost = 19;
+	if( environment == "âˆ§" ) cost =21;
+	else if ( environment == "ï½ž" ) cost = 15;
+	else if ( environment == "ï¼Ž" ) cost = 19;
+	else if ( environment == "ï¼Š" ) cost = 19;
 	else cost = 21;
 
 	if( weather == 0 ) cost = cost + 1;
@@ -98,7 +98,7 @@ int query_basic_attack(string environment, int weather, int zhenfa)
 // can not enter
 string *query_forbiden()
 {
-	return ({"¡ù", });
+	return ({"â€»", });
 }
 // Special abilily of the troop such as bowman can use
 // bow and arrow to attack

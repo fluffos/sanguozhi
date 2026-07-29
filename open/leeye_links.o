@@ -9,5 +9,5 @@ url ""
 colours (["ROOM_EXIT":"magenta","GOSSIP_CHANNEL":"h_green","NEWBIE_CHANNEL":"yellow","TELL":"bold","MORE":"bold","WEATHER_CHANNEL":"h_blue","RUMOR_CHANNEL":"orange",])
 screen_width 80
 userid "leeye"
-chinese_id "Ğ¡Àî³ÁÖÛ"
+chinese_id "å°ææ²‰èˆŸ"
 data_version 2

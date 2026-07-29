@@ -1,7 +1,7 @@
-Ѱ�ҹ�ͷ��
+寻找工头：
         
-1  �������ҵ��ܼ�%^H_CYAN%^ask zong jian about order%^RESET%^��
-2  ѡ����ļ��ͷ���ܼ������㵽��һ�����ҽ��ĸ����ֵ�NPC.
-3  ���Ǹ��ݵ����г��У��ҵ���ӦNPC��%^H_CYAN%^ask xxx about gethead%^RESET%^.
-4  ����нˮ��NPC��Ӧ��������ɣ�
-5  ���û���ҵ���ӦNPC��300�����������������
+1  到基地找到总监%^H_CYAN%^ask zong jian about order%^RESET%^．
+2  选择招募工头后，总监会告诉你到哪一个州找叫哪个名字的NPC.
+3  在那个州的所有城市，找到对应NPC后%^H_CYAN%^ask xxx about gethead%^RESET%^.
+4  商议薪水，NPC答应则任务完成．
+5  如果没有找到对应NPC，300秒后可重新申请该任务．

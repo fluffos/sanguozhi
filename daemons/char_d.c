@@ -21,12 +21,12 @@ inherit __DIR__+"char_d/sgrate";
 private mapping chars;
 private mapping room_char;
 private mapping chars_backup;
-static private mapping area_char=([]);
-static private mapping nation_char=([]);
-static private *char_list=({});
+nosave private mapping area_char=([]);
+nosave private mapping nation_char=([]);
+nosave private mixed *char_list=({});
 
 #define SAVE_FILE "/data/daemons/char"
-static private int m_modified;				//ĞŞ¸Ä±êÖ¾
+nosave private int m_modified;				//ä¿®æ”¹æ ‡å¿—
 
 //void add_hook(string, function);
 //static private function  my_hook;
@@ -108,7 +108,7 @@ void save_data()
 void create()
 {
     string *kk;
-	//write("½øÁËchar_d.cµÄcreate()\n");
+	//write("è¿›äº†char_d.cçš„create()\n");
     unguarded(1, (: restore_object, SAVE_FILE, 1 :));
     if(!mapp(room_char)) room_char=([]);
     init_char_list();
@@ -124,7 +124,7 @@ string add_char(string p_id)
 
     p_namepart=sscanf(p_id,"%s %s",p_surname,p_givenname);
     if(p_namepart!=2)
-        return "ĞÕÓëÃûÖ®¼äÒªÓĞ¿Õ¸ñ£®\n";
+        return "å§“ä¸åä¹‹é—´è¦æœ‰ç©ºæ ¼ï¼\n";
     if(!chars) chars=([]);
     if(!chars[p_id])
     {
@@ -150,10 +150,10 @@ string add_char(string p_id)
         m_modified=1;
 	char_list-=({p_id});
 	char_list+=({p_id});
-           return "ĞÂ½ÇÉ«Ôö¼Ó³É¹¦£®\n";
+           return "æ–°è§’è‰²å¢åŠ æˆåŠŸï¼\n";
     }
     else
-    {  return "¸Ã½ÇÉ«ÒÑ¾­´æÔÚ£®\n";
+    {  return "è¯¥è§’è‰²å·²ç»å­˜åœ¨ï¼\n";
     }
 }
 
@@ -210,29 +210,29 @@ string remove_char_d(string p_id) {
 string remove_char(string p_id) 
 {
    if (!chars[p_id]) 
-      return "¸Ã½ÇÉ«²»´æÔÚ£®\n";
+      return "è¯¥è§’è‰²ä¸å­˜åœ¨ï¼\n";
    CHAR_D->remove_npc_char(p_id);
    remove_char_d(p_id);
-    return "½ÇÉ«É¾³ı³É¹¦£®\n";
+    return "è§’è‰²åˆ é™¤æˆåŠŸï¼\n";
 }
 string change_id(string o_id,string n_id)
 {
 	mixed tmp;
-	if(chars[n_id]) return "ĞÂIDÒÑ¾­ÓĞÈËÓÃÁË¡£\n";
-	if(!chars[o_id]) return "Ã»ÓĞ´ËID¡£\n";
+	if(chars[n_id]) return "æ–°IDå·²ç»æœ‰äººç”¨äº†ã€‚\n";
+	if(!chars[o_id]) return "æ²¡æœ‰æ­¤IDã€‚\n";
 	tmp=chars[o_id];
 	CHAR_D->remove_char(o_id);
 	CHAR_D->add_id(n_id);
 	chars[n_id]=tmp;	
 	m_modified=1;
-	return "³É¹¦, need update\n";
+	return "æˆåŠŸ, need update\n";
 }
 
 string set_char(string p_id,string para_name,mixed para_value)
 {
         string p_ret;
         if(!chars[p_id])
-                return "¸Ã½ÇÉ«²»´æÔÚ£®\n";
+                return "è¯¥è§’è‰²ä¸å­˜åœ¨ï¼\n";
         if(intp(para_value))
         {   if(para_value<0)
                 para_value=0;
@@ -245,7 +245,7 @@ string set_char(string p_id,string para_name,mixed para_value)
          chars[p_id][para_name]=para_value;  
 	if(para_value==0)  // used to remove useless record
 		map_delete(chars[p_id],para_name); //becare ful 
-         p_ret="½ÇÉ«Ìì¸³ÉèÖÃ³É¹¦£®\n";  // related with level
+         p_ret="è§’è‰²å¤©èµ‹è®¾ç½®æˆåŠŸï¼\n";  // related with level
          break;
        case "skills":
          if (!chars[p_id]["skills"])
@@ -254,24 +254,24 @@ string set_char(string p_id,string para_name,mixed para_value)
 	if(para_value==0)  // used to remove useless record
 		map_delete(chars[p_id],para_name); //becare ful 
 
-         p_ret="½ÇÉ«¼¼ÄÜÉèÖÃ³É¹¦£®\n";  // related with level
+         p_ret="è§’è‰²æŠ€èƒ½è®¾ç½®æˆåŠŸï¼\n";  // related with level
          break;
        case "id":
 		   if(chars[p_id]["type"]==TYPE_PLAYER)
 		   {
-			   p_ret="Íæ¼Ò½ÇÉ«²»ÄÜ¸ÄID\n";
+			   p_ret="ç©å®¶è§’è‰²ä¸èƒ½æ”¹ID\n";
 			   break;
 		   }
 		   p_ret=change_id(p_id,para_value);
 		   break;
        case "loyalty":
             CHAR_D->set_char_loyalty(p_id,"", para_value);
-            return "½ÇÉ«ÖÒ³ÏÉèÖÃ³É¹¦£®\n";
+            return "è§’è‰²å¿ è¯šè®¾ç½®æˆåŠŸï¼\n";
         case "rongmao":
             if(!chars[p_id]["gift"])
                return "wrong\n";
             chars[p_id]["gift"][para_name]=para_value;  
-            p_ret="½ÇÉ«ÈİÃ²ÉèÖÃ³É¹¦£®\n";   // from 10 to 30
+            p_ret="è§’è‰²å®¹è²Œè®¾ç½®æˆåŠŸï¼\n";   // from 10 to 30
             break;                                          
         case "wuli":
         case "zhimou":
@@ -281,7 +281,7 @@ string set_char(string p_id,string para_name,mixed para_value)
             chars[p_id]["gift"][para_name]=para_value;
             chars[p_id]["skills"]["sk_"+para_name]=para_value*2+40-
                random(3);
-            p_ret="½ÇÉ«»ù±¾Ìì¸³Óë¼¼ÄÜÉèÖÃ³É¹¦£®\n"; 
+            p_ret="è§’è‰²åŸºæœ¬å¤©èµ‹ä¸æŠ€èƒ½è®¾ç½®æˆåŠŸï¼\n"; 
             break;
 	case "room" :
 		set_char_room(p_id,para_value);
@@ -290,8 +290,8 @@ string set_char(string p_id,string para_name,mixed para_value)
 	case "area" :
 	        if (chars[p_id]["ranknation"]==1) //2001.4.13
 	           if (chars[p_id]["type"]==TYPE_NPC)
-	              if (AREA_D->get_area(chars[p_id]["area"],"nation")==p_id)//Ê×¶¼Î´±»µĞ·½Õ¼Áì
-	                   return "NPC¹úÍõ²»µÃÀë¿ªÊ×¶¼ÖØµØ!\n";                    
+	              if (AREA_D->get_area(chars[p_id]["area"],"nation")==p_id)//é¦–éƒ½æœªè¢«æ•Œæ–¹å é¢†
+	                   return "NPCå›½ç‹ä¸å¾—ç¦»å¼€é¦–éƒ½é‡åœ°!\n";                    
 		remove_area_char(p_id);
 		chars[p_id][para_name]=para_value;
 		add_area_char(p_id);
@@ -313,7 +313,7 @@ string set_char(string p_id,string para_name,mixed para_value)
             chars[p_id][para_name]=para_value;  
 			if(para_value==0)  // used to remove useless record
 				map_delete(chars[p_id],para_name); //becare ful 
-            p_ret="½ÇÉ«²ÎÊıÉèÖÃ³É¹¦£®\n";
+            p_ret="è§’è‰²å‚æ•°è®¾ç½®æˆåŠŸï¼\n";
             break;
         }
         m_modified=1;
@@ -376,7 +376,7 @@ mixed get_char(string p_id,string para_name)
             if (!chars[p_id]["fealty"])  return p_id;
             else return chars[p_id]["fealty"];
       //added end 2000.08.07  
-      //added by suicide for char's character,and i give it a chinese id °Ë×Ö.  
+      //added by suicide for char's character,and i give it a chinese id å…«å­—.  
       case "bazi" : 
             if (!chars[p_id]["bazi"])  
             {   chars[p_id]["bazi"] = random(100)+1 ; //now only 100 type of character
@@ -389,8 +389,8 @@ mixed get_char(string p_id,string para_name)
     }
 }
 
-//·µ»ØkeyÊÇpara_valueÊ±µÄvalueÖµ
-//Èç¹ûµÚÒ»¸ö²ÎÊı²»ÊÇarea»ònation,ÄÇÃ´º¯Êı¹¦ÄÜÊÇ·µ»Øpara_name²ÎÊıÖµÊÇpara_valueµÄËùÓĞchar
+//è¿”å›keyæ˜¯para_valueæ—¶çš„valueå€¼
+//å¦‚æœç¬¬ä¸€ä¸ªå‚æ•°ä¸æ˜¯areaæˆ–nation,é‚£ä¹ˆå‡½æ•°åŠŸèƒ½æ˜¯è¿”å›para_nameå‚æ•°å€¼æ˜¯para_valueçš„æ‰€æœ‰char
 string* check_char(string para_name,mixed para_value)
 {
 	string* ret;
@@ -434,7 +434,7 @@ string* check_char_nation(string para_name,mixed para_value,string p_nation)
 
 int char_exist(string p_id)
 {       
-	//write("charsÖ®Ç°p_idµÄÖµÊÇ: " + p_id + "\n");
+	//write("charsä¹‹å‰p_idçš„å€¼æ˜¯: " + p_id + "\n");
 
 	if(chars[p_id])
 		return 1;
@@ -583,14 +583,14 @@ void npc_move()
         p_o=find_char(p_id);
         if(objectp(p_o))
         {
-                p_o->simple_action("$NÌ¾ÁË¿ÚÆø£¬µÀ£º¿´À´´Ë´¦·ÇÎÒ·¢Õ¹Ö®µØ¡£\n");
-                p_o->simple_action("$N´Ò´ÒÀë¿ªÁË¡£\n");
+                p_o->simple_action("$Nå¹äº†å£æ°”ï¼Œé“ï¼šçœ‹æ¥æ­¤å¤„éæˆ‘å‘å±•ä¹‹åœ°ã€‚\n");
+                p_o->simple_action("$NåŒ†åŒ†ç¦»å¼€äº†ã€‚\n");
                 destruct(p_o);
                 chars[p_id]["status"]=STATUS_SLEEPING;
         }
         chars[p_id]["area"]=p_desarea;
         CHANNEL_D->deliver_tell("rumor","system",
-                sprintf("%sÍ¶±¼%sÈ¥ÁË¡£",chars[p_id]["name"],
+                sprintf("%sæŠ•å¥”%så»äº†ã€‚",chars[p_id]["name"],
                         AREA_D->get_area(p_desarea,"name")));
 }
 */

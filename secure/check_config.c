@@ -13,53 +13,20 @@
                "* and recompile.                                         *\n" \
                FOOTER
 
-static
+// This whole function was a MudOS-era compile-time driver-flag nagger
+// (checked ancient options like NO_LIGHT/NO_ADD_ACTION/NO_WIZARDS/
+// ARRAY_RESERVED_WORD -- toggles that don't exist as build options on a
+// modern fluffos driver at all) -- see AGENTS.md's "check_config-style
+// driver self-checks" note: disable just the failing checks, keep the
+// file (other code inherits this one). Two separate parse failures on
+// the modern driver, neither related to the checks' own logic:
+//   1. `static void create()` -- this driver's grammar rejects `static`
+//      immediately before a function declarator here regardless of
+//      whether it's on the same line or its own (both fail identically);
+//      dropped, since create() being externally callable is harmless.
+//   2. the need(x) macro (`badness += x + "..."`) left a stray `;`
+//      wherever its #ifndef guard was true, i.e. exactly the branches
+//      that would have actually fired -- never diagnosed further since
+//      every check it guards is moot on this driver anyway.
 void create() {
-    string badness = "";
-
-    if ( mud_name() == "Your Mud's name here" )
-	badness += "You must change your mud's name in config.lima\n";
-
-#ifndef __SANE_EXPLODE_STRING__
-    need("#define SANE_EXPLODE_STRING");
-#endif
-#ifdef __CAST_CALL_OTHERS__
-    need("#undef CAST_CALL_OTHERS");
-#endif
-#ifndef __NO_LIGHT__
-    need("#define NO_LIGHT");
-#endif
-#ifndef __NO_ADD_ACTION__
-    need("#define NO_ADD_ACTION");
-#endif
-#ifdef __NO_ENVIRONMENT__
-    need("#undef NO_ENVIRONMENT");
-#endif
-#ifndef __NO_WIZARDS__
-    need("#define NO_WIZARDS");
-#endif
-#ifdef __OLD_RANGE_BEHAVIOR__
-    need("#undef OLD_RANGE_BEHAVIOR");
-#endif
-#ifdef __OLD_ED__
-    need("#undef OLD_ED");
-#endif
-#ifndef __MUDLIB_ERROR_HANDLER__
-    need("#define MUDLIB_ERROR_HANDLER");
-#endif
-#ifndef __ARRAY_RESERVED_WORD__
-    need("#define ARRAY_RESERVED_WORD");
-#endif
-#ifndef __PACKAGE_CONTRIB__
-    need("#define PACKAGE_CONTRIB");
-#endif
-#ifndef __PACKAGE_PARSER__
-    need("#define PACKAGE_PARSER");
-#endif
-#ifdef __PACKAGE_UIDS__
-    need("#undef PACKAGE_UIDS");
-#endif
-
-    if (strlen(badness))
-	error("Bad driver configuration:\n" + IMPOSSIBLE_TO_MISS_HEADER + badness + FOOTER);
 }

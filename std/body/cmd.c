@@ -20,7 +20,7 @@ object query_mailer();          // in /std/body/mailbase.c
 string history_and_alias_processing( string arg );
 
 
-private static string * nonsense_msgs;
+private nosave string * nonsense_msgs;
 
 string nonsense()
 {
@@ -41,7 +41,7 @@ varargs nomask int do_game_command(string str, int debug)
     if ( !environment(this_object()) )
     {
     //write("Oops!  You're lost.  Moving to the void...\n");
-    write("àÞÑ½£¬ÄãÃÔÊ§ÁË£¬Ö»ºÃËÍÄãÈ¥¼«ÀÖÊÀ½çÁË¡£¡£¡£\n");
+    write("å™¢å‘€ï¼Œä½ è¿·å¤±äº†ï¼Œåªå¥½é€ä½ åŽ»æžä¹ä¸–ç•Œäº†ã€‚ã€‚ã€‚\n");
     move(load_object(VOID_ROOM));
     force_look();
     }
@@ -57,7 +57,7 @@ varargs nomask int do_game_command(string str, int debug)
     /*
     ** Parse the player's input
     */
-    if (!str) return;
+    if (!str) return 1;
     result = parse_sentence(str, debug);
 
 
@@ -92,7 +92,7 @@ varargs nomask int do_game_command(string str, int debug)
     return 1;
       case -2:
     //write("You aren't able to do that.\n");
-    write("Äã²»¿ÉÒÔÕâÑù×ö¡£\n");
+    write("ä½ ä¸å¯ä»¥è¿™æ ·åšã€‚\n");
     return 1;
       default:
     write("This parser code should never be reached. If it is, let "
@@ -126,11 +126,17 @@ varargs nomask int do_game_command(string str, int debug)
 
 nomask void force_game_command(string str)
 {
-    object save_this_user = this_user();
-
-    set_this_player(query_link());
+    // set_this_player() only exists in this driver's #else branch of
+    // #ifndef NO_ADD_ACTION (core.spec) -- this build has add_action
+    // available instead, so the efun this mudlib's custom parser
+    // (do_game_command -> parse_sentence) actually needs to run on
+    // someone ELSE's behalf isn't there. parse_sentence() hard-requires
+    // a valid this_player() (parser package: "No this_player()!"), so
+    // rather than crash every call site (all "look" on mount/board),
+    // just skip running it when we're not already in a usable
+    // this_player() context instead of pretending to switch into one.
+    if (!this_player()) return;
     if (!do_game_command(str))
-    write(nonsense());
-    set_this_player(save_this_user);
+        write(nonsense());
 }
 

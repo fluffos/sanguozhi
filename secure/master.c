@@ -19,6 +19,39 @@ void create()
     debug_message(ctime() + " loaded " __FILE__);
 }
 
+// This driver always compiles in PACKAGE_UIDS (see predefines dump at
+// boot), which hard-requires the master object to implement
+// get_root_uid() -- exit(-1) if it's missing (vm/internal/master.cc).
+// This mudlib was written assuming a driver built WITHOUT PACKAGE_UIDS
+// (no other UID/euid infrastructure exists anywhere in the codebase),
+// so this was simply never needed until now. "BACKBONE" matches
+// domain_file()'s existing default identity above.
+string get_root_uid()
+{
+    return "BACKBONE";
+}
+
+// Same PACKAGE_UIDS requirement as get_root_uid() above, for the backbone
+// uid specifically (vm/internal/master.cc, also exit(-1) if missing/wrong
+// type).
+string get_bb_uid()
+{
+    return "BACKBONE";
+}
+
+// PACKAGE_UIDS requires this apply on EVERY object load once master_ob is
+// established (simulate.cc: "master object: No function creator_file()
+// defined!", not just at boot) -- unlike get_root_uid/get_bb_uid this one
+// wasn't merely missing at boot, it broke every single load_object()/new()
+// call after boot, including the player login object itself (every
+// connection got rejected with "error in connect()"). This mudlib never
+// partitions uid by wizard/directory, so give every file the same uid,
+// matching get_root_uid/get_bb_uid/domain_file() above.
+string creator_file(string file)
+{
+    return "BACKBONE";
+}
+
 string domain_file(string file)
 {
     return "BACKBONE";
@@ -60,7 +93,7 @@ object compile_object(string path)
 private void crash()
 {
     tell(users(), //"Game Driver shouts: Ack! I think the game is crashing!\n"
-                  "ö®Ê±µØ¶¯É½Ò¡£¬Ìì·­µØ¸²£¬Õû¸öÊÀ½ç»ÙÓÚÒ»µ©£¡\n");
+                  "éœæ—¶åœ°åŠ¨å±±æ‘‡ï¼Œå¤©ç¿»åœ°è¦†ï¼Œæ•´ä¸ªä¸–ç•Œæ¯äºä¸€æ—¦ï¼\n");
     users()->quit();
 }
 
@@ -297,12 +330,12 @@ void log_error(string file, string message)
 {
     if (strsrch(message, "Warning") == -1)
     {
-        // ¼ÇÂ¼´íÎóÈÕÖ¾
+        // è®°å½•é”™è¯¯æ—¥å¿—
         efun::write_file("log/log_error", message);
     }
     else
     {
-        // ¼ÇÂ¼¾¯¸æÈÕÖ¾
+        // è®°å½•è­¦å‘Šæ—¥å¿—
         efun::write_file("log/log", message);
     }
 }
@@ -369,50 +402,50 @@ string parser_error_message(int kind, object ob, mixed arg, int flag) {
 
     switch (kind) {
     case ERR_IS_NOT:
-            return ret + "ÕâÀïÃ»ÓĞ" + arg + "¡£\n";
+            return ret + "è¿™é‡Œæ²¡æœ‰" + arg + "ã€‚\n";
         break;
     case ERR_NOT_LIVING:
         if (flag)
-            return ret + "Ã»ÓĞ" + arg + "ÊÇ»î×ÅµÄ¡£\n";
+            return ret + "æ²¡æœ‰" + arg + "æ˜¯æ´»ç€çš„ã€‚\n";
         else
-            return ret + arg + "²»ÏóÊÇÓĞÉúÃüµÄ¶«Î÷¡£\n";
+            return ret + arg + "ä¸è±¡æ˜¯æœ‰ç”Ÿå‘½çš„ä¸œè¥¿ã€‚\n";
         break;
     case ERR_NOT_ACCESSIBLE:
         if (flag)
-            return ret + "ÄãÄÃ²»µ½ËüÃÇ¡£\n";
+            return ret + "ä½ æ‹¿ä¸åˆ°å®ƒä»¬ã€‚\n";
         else
-            return ret + "ÄãÄÃ²»µ½Ëü¡£\n";
+            return ret + "ä½ æ‹¿ä¸åˆ°å®ƒã€‚\n";
         break;
     case ERR_AMBIG:
         {
-            array descs = unique_array(arg, (: $1->short() :));
+            mixed * descs = unique_array(arg, (: $1->short() :));
             string str;
 
             if (sizeof(descs) == 1)
-                return ret + "ÄãÖ¸µÄÊÇÄÄÒ»¸ö" + descs[0][0]->short() + " £¿\n";
-            str = ret + "ÄãÖ¸µÄÊÇ";
+                return ret + "ä½ æŒ‡çš„æ˜¯å“ªä¸€ä¸ª" + descs[0][0]->short() + " ï¼Ÿ\n";
+            str = ret + "ä½ æŒ‡çš„æ˜¯";
             for (int i = 0; i < sizeof(descs); i++) {
                 str += descs[i][0]-> short();
                 if (i < sizeof(descs) - 2)
-                    str += "£¬";
+                    str += "ï¼Œ";
                 else if (i == sizeof(descs) - 2)
-                    str += "»ò";
+                    str += "æˆ–";
             }
-            return str + "ÖĞµÄÄÄÒ»¸ö£¿";
+            return str + "ä¸­çš„å“ªä¸€ä¸ªï¼Ÿ";
         }
         break;
     case ERR_ORDINAL:
         if (arg > 1)
-            return ret + "ÕâÀïÖ»ÓĞ" + chinese_number(arg) + "¸ö¡£\n";
+            return ret + "è¿™é‡Œåªæœ‰" + chinese_number(arg) + "ä¸ªã€‚\n";
         else
-            return ret + "ÕâÀïÖ»ÓĞÒ»¸ö¡£\n";
+            return ret + "è¿™é‡Œåªæœ‰ä¸€ä¸ªã€‚\n";
         break;
     case ERR_ALLOCATED:
         return ret + arg;
     case ERR_THERE_IS_NO:
-        return ret + "ÕâÀïÃ»ÓĞ" + arg + "¡£\n";
+        return ret + "è¿™é‡Œæ²¡æœ‰" + arg + "ã€‚\n";
     case ERR_BAD_MULTIPLE:
-        return ret + "¶ÔÓÚÕâ¸ö¶¯´Ê£¬Äã²»ÄÜÊ¹ÓÃ¶àÓÚÒ»¸öÎïÌå¡£\n";
+        return ret + "å¯¹äºè¿™ä¸ªåŠ¨è¯ï¼Œä½ ä¸èƒ½ä½¿ç”¨å¤šäºä¸€ä¸ªç‰©ä½“ã€‚\n";
     }
 }
 

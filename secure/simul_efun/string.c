@@ -3,23 +3,27 @@
 
 string chr( int i );
 
-static private string ascii = "";
-static private string whitespace = " \t\n\r";
-static private string lowercase = "abcdefghijklmnopqrstuvwxyz";
-static private string uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+nosave private string ascii = "";
+nosave private string whitespace = " \t\n\r";
+nosave private string lowercase = "abcdefghijklmnopqrstuvwxyz";
+nosave private string uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 
-static private string _lower, _upper, _swapcase;
+nosave private string _lower, _upper, _swapcase;
 
 int is_chinese(string str);
 
-static void create()
+protected void create()
 {
   int i;
 
   for(i=0; i < 256; i++){
-     if(i==0)ascii+=" ";
-        ascii += chr(i);
+     // chr(0) is rejected outright now ("must be valid UTF8 char") -- the
+     // space substitute below was clearly meant to stand in for it (missing
+     // else in the original), just never enforced since ascii += chr(i)
+     // ran unconditionally anyway.
+     if(i==0) ascii+=" ";
+     else ascii += chr(i);
   }
 
   _lower = ascii[0..('A'-1)] + lowercase + ascii[('Z'+1)..]; 
@@ -29,15 +33,12 @@ static void create()
 
 private int first_half_chinese(string s, int index)
 {
-    int i, first_half;
-    if (!s || index < 0 || index >= strlen(s)) return 0;
-    if (s[index] < 128) return 0;
-    
-    for (i=0; i<=index; i++)
-      if ((int)s[i] > 128 && first_half==0)
-          first_half=1;
-      else first_half=0;
-    return first_half;
+    // GBK byte-pair check (AGENTS.md 8.1): detected whether `index` landed
+    // on the second byte of a 2-byte GBK hanzi, to avoid line-wrapping
+    // mid-character. str[i] is a full Unicode codepoint here, not a raw
+    // byte, so every index is already a whole character -- this scenario
+    // can no longer happen.
+    return 0;
 }
       
 private int strstr(string s, string lookfor, int start)
@@ -361,7 +362,7 @@ int is_letter(int c)
   return strsrch(lowercase+uppercase,c) != -1;
 }
 
-string format_list(string array list, string separator) {
+string format_list(string * list, string separator) {
     if (!separator) separator = "and";
     if (sizeof(list)==0) return "";
     if (sizeof(list)==1) return list[0];

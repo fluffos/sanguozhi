@@ -1,24 +1,24 @@
 // Updated by stefan on 10 Jan 1997
 #include <daemons.h>
 
-static mapping prep_info = ([ 
-        "in"    : "%sÀïÃæ",
-        "from"  : "´Ó%s",
-        "on"    : "%sÉÏ",
-        "under" : "%sÏÂÃæ",
-        "behind": "%sºóÃæ",
-        "beside": "%sµÄÅÔ±ß",
+nosave protected mapping prep_info = ([ 
+        "in"    : "%sé‡Œé¢",
+        "from"  : "ä»%s",
+        "on"    : "%sä¸Š",
+        "under" : "%sä¸‹é¢",
+        "behind": "%såé¢",
+        "beside": "%sçš„æ—è¾¹",
         "to"    : "%s",
-        "with"  : "ºÍ%sÒ»Æğ", 
-        "at"    : "¶Ô%s", 
-        "off"   : "%sÏÂ", 
-        "out"   : "%sÍâÃæ", 
-        "down"  : "%sÏÂ·½", 
-        "up"    : "%sÉÏ·½", 
-        "around": "%sÖÜÎ§", 
-        "over"  : "%sÉÏÃæ",
-        "into"  : "%sÄÚ", 
-        "about" : "¹ØÓÚ%s",
+        "with"  : "å’Œ%sä¸€èµ·", 
+        "at"    : "å¯¹%s", 
+        "off"   : "%sä¸‹", 
+        "out"   : "%så¤–é¢", 
+        "down"  : "%sä¸‹æ–¹", 
+        "up"    : "%sä¸Šæ–¹", 
+        "around": "%så‘¨å›´", 
+        "over"  : "%sä¸Šé¢",
+        "into"  : "%så†…", 
+        "about" : "å…³äº%s",
        ]); 
                 
 
@@ -40,25 +40,28 @@ string to_chinese(string str)
 
 int is_chinese(string str)
 {
-        if (strlen(str)>=2 && str[0]>128 && str[0]<255) return 1;
+        // Same GBK byte-range bug as valid_chinese_id() in secure/user/
+        // login.c (AGENTS.md 8.1): str[0] is a Unicode codepoint here, not
+        // a raw GBK lead byte, and strlen() counts characters not bytes.
+        if (strlen(str)>=1 && str[0] >= 0x4e00 && str[0] <= 0x9fff) return 1;
         return 0;
 }
 
 string gender_self(string sex)
 {
         switch(sex) {
-                case "Å®ĞÔ": return "Äã";       break;
-                default: return "Äã";
+                case "å¥³æ€§": return "ä½ ";       break;
+                default: return "ä½ ";
         }
 }
 
 string gender_pronoun(string sex)
 {
         switch(sex) {
-                case "ÄĞĞÔ":    return "Ëû";    break;
-                case "Å®ĞÔ":    return "Ëı";    break;
-                case "ĞÛĞÔ":
-                case "´ÆĞÔ":    return "Ëü";    break;
-                default: return "Ëü";
+                case "ç”·æ€§":    return "ä»–";    break;
+                case "å¥³æ€§":    return "å¥¹";    break;
+                case "é›„æ€§":
+                case "é›Œæ€§":    return "å®ƒ";    break;
+                default: return "å®ƒ";
         }
 }

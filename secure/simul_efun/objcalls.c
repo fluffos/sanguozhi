@@ -159,7 +159,7 @@ usable( object o, int flag )
         if( flag )
         {
             //write( "(Taking the "+o->short()+" first)\n" );
-            write( "(ÒªÏÈ°Ñ"+o->short()+"ÄÃÆðÀ´)\n" );
+            write( "(è¦å…ˆæŠŠ"+o->short()+"æ‹¿èµ·æ¥)\n" );
             VERB_OB_GET->do_get("OBJ", o, 0);
 
             return immediately_accessible(o);
@@ -168,7 +168,7 @@ usable( object o, int flag )
     }
 
     //write( "(Taking the "+o->short()+" first)\n" );
-    write( "(ÒªÏÈ°Ñ"+o->short()+"ÄÃÆðÀ´)\n" );
+    write( "(è¦å…ˆæŠŠ"+o->short()+"æ‹¿èµ·æ¥)\n" );
     VERB_OB_GET->do_get("OBJ", o, 0);
 
     return immediately_accessible(o);
@@ -177,7 +177,7 @@ usable( object o, int flag )
 /* returns a nice listing of the given objects */
 /* if (flag) then don't print untouched obs */
 /* depth is for internal use only */
-varargs string inv_list(object array obs, int flag, int depth) {
+varargs string inv_list(object *obs, int flag, int depth) {
     string res;
     string ex;
     int j;
@@ -197,7 +197,7 @@ varargs string inv_list(object array obs, int flag, int depth) {
         {
             for (j=0; j<depth; j++) res+="  ";
             if ((j=count(ob))>1) {
-                if (j > 4) res += "ºÜ¶à" + ob->short();
+                if (j > 4) res += "å¾ˆå¤š" + ob->short();
                 else res += chinese_number(j) + ob->short();
             } else {
                 res += ob->a_short();

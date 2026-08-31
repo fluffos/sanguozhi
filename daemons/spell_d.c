@@ -207,8 +207,10 @@ void register_spell()
     string spell_name = previous_object()->get_spell_name();
     string spell_info = spell_table[spell_name];
 
-    ENSURE(spell_name /* You didn't provide a spell name. */);
-    ENSURE(valid_spell_name(spell_name) /* Your spell name wasn't valid. */);
+    // You didn't provide a spell name.
+    ENSURE(spell_name);
+    // Your spell name wasn't valid.
+    ENSURE(valid_spell_name(spell_name));
 
     if ( !spell_info )
     {

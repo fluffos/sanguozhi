@@ -324,6 +324,7 @@ void my_deal()
 	case "area":
 		{
 			string p_area;
+			int p_goldhave;
 			p_area=CHAR_D->get_char(p_custom,"area");
 			p_goldhave=AREA_D->get_area(p_area,"gold");
 			if(p_goldhave < p_goldneed)

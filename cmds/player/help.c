@@ -7,6 +7,6 @@ private void main(string arg)
 	string ret;
 	if((!arg)||(arg=="")) arg="main";
 	ret=SGHELP_D->get_count(arg);
-       if(ret[<3..<1]!="\n") ret+="\n";
+       if(ret[<1]!='\n') ret+="\n";
        more(ret);
 }

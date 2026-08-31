@@ -16,9 +16,9 @@ set_long("吴国名将程普之独门兵器，全长一丈六尺，矛身由生
 set_size(MEDIUM);
 set_value(-1);
 set_currency_type("gold");
-set_attack_ablity(140);
+set_attack_ability(140);
 set_attack_power(115);
-set_defence_ablity(140);
+set_defence_ability(140);
 set_combat_messages("combat-ji");
 set_wield_message("$N双手一摆，抽出$o，横在身前，气度迫人。\n");
 set_unwield_message("$N右手一抬，早已将掌中$o插回辔头。\n");

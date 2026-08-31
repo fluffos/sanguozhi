@@ -17,8 +17,8 @@ set_gettable(1);
 set_slot(TORSO);
 set_wearmsg("$N穿上$o，整个屋里都映出一片 "+HIG+"绿色的光芒。"+NOR+"\n");
 set_removemsg("$N脱下$o，"+HIG+"绿色的光芒"+NOR+"顿时消失了。\n");
-set_attack_ablity(0);
+set_attack_ability(0);
 set_defence_power(250);
-set_defence_ablity(1000);
+set_defence_ability(1000);
 set_rongmao(10);
 }

@@ -16,9 +16,9 @@ set_long("第一勇士「温侯」吕布之独门兵器，长一丈七尺，枪�
 set_size(MEDIUM);
 set_value(-1);
 set_currency_type("gold");
-set_attack_ablity(180);
+set_attack_ability(180);
 set_attack_power(140);
-set_defence_ablity(180);
+set_defence_ability(180);
 set_combat_messages("combat-ji");
 set_wield_message("$N双手一摆，已将$o擎在手中，睥睨左右，无人可当。\n");
 set_unwield_message("$N气定神游，右手一扬，已将$o插回辔头。\n");

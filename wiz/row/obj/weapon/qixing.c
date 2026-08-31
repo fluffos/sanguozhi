@@ -17,9 +17,9 @@ set_long("价值连城的宝刀，因其刀鞘上镶有七粒宝石，故名唤�
 set_size(MEDIUM);
 set_value(50000);
 set_currency_type("gold");
-set_attack_ablity(150);
+set_attack_ability(150);
 set_attack_power(100);
-set_defence_ablity(150);
+set_defence_ability(150);
 set_combat_messages("combat-blade");
 set_wield_message("只见一道七彩弧光，$N已将$o抽出，横在身前。\n");
 set_unwield_message("$N手腕一翻，$o早已入鞘，七彩光芒一掠而逝。\n");

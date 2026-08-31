@@ -17,9 +17,9 @@ set_long("「武圣」关羽之独门兵器，长约一丈七尺，重达六十�
 set_size(MEDIUM);
 set_value(-1);
 set_currency_type("gold");
-set_attack_ablity(180);
+set_attack_ability(180);
 set_attack_power(140);
-set_defence_ablity(180);
+set_defence_ability(180);
 set_combat_messages("combat-blade");
 set_wield_message("只听得一声虎吼，恍若霹雳，天地间似有青龙再现，
 $N奋起双臂，将$o高高举起。\n");

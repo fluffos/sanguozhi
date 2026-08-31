@@ -2,7 +2,7 @@
 #include <sanguo.h>
 #include <ansi.h>
 #include "/wiz/ljty/ljty.h"
-inherit M_HORSE_1;
+inherit M_HORSE;
 inherit M_VALUE;
 void setup()
 {

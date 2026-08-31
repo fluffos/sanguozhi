@@ -15,9 +15,9 @@ set_long("这是由青钢打制而成的单刀，质地较普通单刀更
 set_size(MEDIUM);
 set_value(30);
 set_currency_type("silver");
-set_attack_ablity(80);
+set_attack_ability(80);
 set_attack_power(40);
-set_defence_ablity(80);
+set_defence_ability(80);
 set_combat_messages("combat-blade");
 set_wield_message("$N『呛啷』一声抽出一柄$o，握在手中。\n");
 set_unwield_message("$N划了一个刀花，将$o插回鞘中。\n");

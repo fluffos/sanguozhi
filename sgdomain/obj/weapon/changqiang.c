@@ -15,9 +15,9 @@ set_long("普通的长兵器，尺余的枪头后还垂着无数红色枪穗，�
 set_size(MEDIUM);
 set_value(500);
 set_currency_type("silver");
-set_attack_ablity(90);
+set_attack_ability(90);
 set_attack_power(75);
-set_defence_ablity(90);
+set_defence_ability(90);
 set_combat_messages("combat-ji");
 set_wield_message("$N双手一抖，将掌中$o舞了数个圆圈。\n");
 set_unwield_message("$N单手将$o插回辔头。\n");

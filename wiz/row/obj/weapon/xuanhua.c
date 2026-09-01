@@ -17,9 +17,9 @@ set_long("魏国名将徐晃之独门兵器，重达五十八斤，斧背上
 set_size(MEDIUM);
 set_value(-1);
 set_currency_type("gold");
-set_attack_ablity(170);
+set_attack_ability(170);
 set_attack_power(130);
-set_defence_ablity(170);
+set_defence_ability(170);
 set_combat_messages("combat-ji");
 set_wield_message("$N双臂一扬，擎起掌中$o，威风八面，令人生畏。\n");
 set_unwield_message("$N将$o左右一摆，稳稳地架起。\n");

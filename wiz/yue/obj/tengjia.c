@@ -22,5 +22,5 @@ set_removemsg(YEL+"$N将藤甲脱了下来。"+NOR);
 set_value(15);
 set_currency_type("silver");
 set_defence_power(25);
-set_defence_ablity(0);
+set_defence_ability(0);
 }

@@ -16,9 +16,9 @@ set_long("上等的马战长兵刃，枪杆由混铁铸成，枪尖一尺有
 set_size(MEDIUM);
 set_value(5000);
 set_currency_type("gold");
-set_attack_ablity(150);
+set_attack_ability(150);
 set_attack_power(120);
-set_defence_ablity(150);
+set_defence_ability(150);
 set_combat_messages("combat-ji");
 set_wield_message("$N双手一摆，将$o擎在掌中，『唰唰唰』虚刺数下。\n");
 set_unwield_message("$N将掌中$o舞个圆圈，插回辔头。\n");

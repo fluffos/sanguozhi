@@ -281,7 +281,7 @@ protected nomask void new_user_ready()
 #endif 
     /* auto-Admin the first wizard if there are no Admins */
     {
-        string * members = SECURE_D->query_domain_members("Admin");
+        string * members = SECURE_D->query_domain_members("admin");
 
         if ( !sizeof(members) )
         {
@@ -291,7 +291,8 @@ protected nomask void new_user_ready()
 				unguarded( 1, (: SECURE_D->create_wizard($(query_userid())) :));
 			}
             write( ">>>>> 你自动成为 Admin，记得用 admtool. <<<<<\n");
-            unguarded(1, (: SECURE_D->add_domain_member("Admin",
+            unguarded(1, (: SECURE_D->create_domain("admin") :));
+            unguarded(1, (: SECURE_D->add_domain_member("admin",
                             $(query_userid()),
                             1) :));
         }

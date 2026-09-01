@@ -58,7 +58,7 @@ nomask int adminp(mixed m)
         return 1;
     }
 
-    return member_array(m, SECURE_D->query_domain_members("Admin") || ({})) != -1;
+    return member_array(m, SECURE_D->query_domain_members("admin") || ({})) != -1;
 }
 
 nomask int user_exists(string user)

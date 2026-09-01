@@ -68,8 +68,6 @@ int check_job(object who)
                         return 0;
         }
         
-        n_lasttimes=usr->query_job(JOBID,"count_lasttimes");
-        m_lasttimes=JOB_D->query_job(JOBID,"count_lasttimes");
 		
 		if( sizeof(job["lasttimes"]) > 20 ){
 			this_object()->targetted_action("$N满脸堆笑的说：$R应该休息一会啦。\n",who);

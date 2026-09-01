@@ -158,7 +158,7 @@ string *find_path(string STA, string END)
         mapping exits;
         string *checked_rooms;
         string *curren_rooms;
-        mixed *  *main_rooms;
+        mixed *main_rooms;
         string room;
         string *path;
         string *tmp_curren_rooms;

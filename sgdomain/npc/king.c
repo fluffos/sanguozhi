@@ -329,7 +329,7 @@ else
         }       
 
 // xiaobai: 06102001, 完成，将变量还原
-    usr = NULL;
+    usr = 0;
 //// xiaobai       
 
         return;
@@ -382,6 +382,6 @@ void input_way(string arg)
     usr->modal_pop();
     
 // xiaobai: 06102001, 完成，将变量还原
-    usr = NULL;
+    usr = 0;
 //// xiaobai       
 }

@@ -6,6 +6,8 @@
 string short();
 void hook_state(string, function, mixed);
 mixed call_hooks(string, int);
+void xiufu_with(object ob);
+void chuang_with(object ob);
 
 private string locked, key_type;
 private int door_damaged = 0;

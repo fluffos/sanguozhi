@@ -1,5 +1,5 @@
 // event.h by fire on July 21, 1998
-#include <path.h>
+#include "path.h"
 #define EV_SETTLE PEVENT+"ev_settle"
 #define EV_GUARD PEVENT+"ev_guard"
 #define EV_QUIT PEVENT+"ev_quit"

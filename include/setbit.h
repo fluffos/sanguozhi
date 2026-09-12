@@ -10,7 +10,7 @@
 #ifndef __SETBIT_H__
 #define __SETBIT_H__
 
-#include <flags.h>
+#include "flags.h"
 
 #define INVIS                   MakeFlag(STD_FLAGS, 2)
 #define TOUCHED                 MakeFlag(STD_FLAGS, 4)

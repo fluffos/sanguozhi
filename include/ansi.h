@@ -36,7 +36,7 @@
                  
 #define NOR "%^RESET%^"
 
-#include <playerflags.h>
+#include "playerflags.h"
 #define I_HAVE_ANSI this_user()->test_flag(F_ANSI)
 
 

@@ -108,7 +108,7 @@
 #define REV ESC+"[7m"           /* Turns reverse video mode on */
 #define HIREV ESC+"[1,7m"       /* Hi intensity reverse video  */
 
-#include <playerflags.h>
+#include "playerflags.h"
 #define I_HAVE_ANSI this_user()->test_flag(F_ANSI)
 
 

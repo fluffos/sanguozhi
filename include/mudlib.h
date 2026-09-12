@@ -3,24 +3,24 @@
 #ifndef __MUDLIB_H__
 #define __MUDLIB_H__
 
-#include <daemons.h>
-#include <path.h>
-#include <dirs.h>
-#include <size.h>
-#include <setbit.h>
-#include <msgtypes.h>
-#include <classes.h>
+#include "daemons.h"
+#include "path.h"
+#include "dirs.h"
+#include "size.h"
+#include "setbit.h"
+#include "msgtypes.h"
+#include "classes.h"
 
-#include <ai.h>
-#include <officer.h>
-#include <char.h>
-#include <area.h>
-#include <event.h>
-// #include <ljty.h>
+#include "ai.h"
+#include "officer.h"
+#include "char.h"
+#include "area.h"
+#include "event.h"
+// #include "ljty.h"
 // this causes serious problem
-//#include <sanguo.h>
+//#include "sanguo.h"
 // hope this doesn't cause serious conflict
-#include <sanguo.h>
+#include "sanguo.h"
 /*
 ** BODY         main player object (body)
 ** GHOST        ghost object (body)
@@ -159,7 +159,7 @@
 #define WAR_ROOM               "/std/grid_room"
 #define BASE_ROOM               "/std/base_room"
 #define INDOOR_ROOM             "/std/indoor_room"
-#define CHENGMEN_ROOM "/wiz/ljty/modules/chengmen_room.c"
+#define CHENGMEN_ROOM "/wiz/ljty/modules/chengmen_room.lpc"
 #define OUTDOOR_ROOM            "/std/outdoor_room"
 #define NON_ROOM                "/std/non-room"
 #define WATER_ROOM              "/std/water_room"
@@ -177,13 +177,13 @@
 #define CONTAINER               "/std/container"
 #define COMPLEX_CONTAINER       "/std/complex_container"
 #define DOOR                    "/std/door"
-#define L_SECRET_DOOR "/wiz/ljty/obj/door/l_secret_door.c"
-#define L_HIDDEN_DOOR "/wiz/ljty/obj/door/l_hidden_door.c"
-#define L_DOOR "/wiz/ljty/obj/door/l_door.c"
+#define L_SECRET_DOOR "/wiz/ljty/obj/door/l_secret_door.lpc"
+#define L_HIDDEN_DOOR "/wiz/ljty/obj/door/l_hidden_door.lpc"
+#define L_DOOR "/wiz/ljty/obj/door/l_door.lpc"
 #define SECRET_DOOR             "/std/secret_door"
 #define HIDDEN_DOOR             "/std/hidden_door"
 #define FURNITURE               "/std/furniture"
-#define GUILD_GUARD          "/std/guild_guard.c"
+#define GUILD_GUARD          "/std/guild_guard.lpc"
 #define LESS_SPARSE_OBJ         "/std/less_sparse_obj"
 #define LIVING                  "/std/living"
 #define MENUS                   "/std/menu"
@@ -215,9 +215,9 @@
 #define M_EDIBLE                "/std/modules/m_edible"
 #define M_DRINKABLE             "/std/modules/m_drinkable"
 #define M_DRINK_CONTAINER       "/std/modules/m_drink_container"
-#define M_VALUE "/sgdomain/modules/m_value.c"
-#define M_HORSE_1 "/wiz/ljty/modules/m_horse.c"
-#define M_USEABLE "/wiz/ljty/modules/m_useable.c"
+#define M_VALUE "/sgdomain/modules/m_value.lpc"
+#define M_HORSE_1 "/wiz/ljty/modules/m_horse.lpc"
+#define M_USEABLE "/wiz/ljty/modules/m_useable.lpc"
 
 /* for area objects */
 #define M_ACTIONS               "/std/modules/m_actions"
@@ -234,7 +234,7 @@
 #define M_KNOCKABLE             "/std/modules/m_knockable"
 #define M_LIGHTABLE             "/std/modules/m_lightable"
 #define M_LOCKABLE              "/std/modules/m_lockable"
-#define L_LOCKABLE "/wiz/ljty/obj/door/l_lockable.c"
+#define L_LOCKABLE "/wiz/ljty/obj/door/l_lockable.lpc"
 #define M_MESSAGES              "/std/modules/m_messages"
 #define M_MOUNTABLE             "/std/modules/m_mountable"
 #define M_OPENABLE              "/std/modules/m_openable"

@@ -10,8 +10,8 @@
 #ifndef __GLOBAL_H__
 #define __GLOBAL_H__
 
-#include <config.h>
-#include <mudlib.h>
+#include "config.h"
+#include "mudlib.h"
 
 #define mud_name()		MUD_NAME
 #define driver_version()	__VERSION__

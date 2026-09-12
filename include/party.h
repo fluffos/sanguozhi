@@ -1,6 +1,6 @@
 // localmeeting.h
 // by fire on Aug 06,1998
-#define EV_PARTY "/sgdomain/event/ev_party.c"
+#define EV_PARTY "/sgdomain/event/ev_party.lpc"
 #define PT_MINCHAR 2 // the minmum ppl for meeting
 #define PT_MINABSENT 5 // this minmum ppl can absent
 #define PT_OK 1

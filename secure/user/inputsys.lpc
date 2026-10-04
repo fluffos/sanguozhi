@@ -16,6 +16,7 @@
 */
 
 #include <config.h>
+#include <driver/runtime_config.h>
 #include <driver/function.h>
 
 string query_userid();
@@ -259,6 +260,21 @@ private nomask void dispatch_to_bottom(mixed str) {
 }
 
 /*
+** report_input_error()
+**
+** An uncaught error out of an input handler unwinds past modal_recapture(): the input_to is gone, the
+** next line reaches process_input(), and a second error there makes the driver stop calling
+** process_input() for this connection (comm.cc), after which every line is dropped and the player is
+** stuck.  dispatch_modal_input() therefore catches handler errors and re-arms the input.  There is no
+** mudlib error handler here, so say what the driver would have said: wizards get the error, players the
+** configured default error message.
+*/
+private nomask void report_input_error(string err) {
+  if (err)
+    write(wizardp(this_object()) ? err : get_config(__DEFAULT_ERROR_MESSAGE__) + "\n");
+}
+
+/*
 ** dispatch_modal_input()
 **
 ** Dispatch the command as appropriate.
@@ -275,7 +291,7 @@ private nomask void dispatch_modal_input(mixed str) {
 #endif
   if (str[0] == '!') {
     /* Dispatch ! escapes */
-    dispatch_to_bottom(str[1..]);
+    report_input_error(catch(dispatch_to_bottom(str[1..])));
   } else {
     /*
      ** Get the top handler, or fail if none are present/can be created.
@@ -288,7 +304,7 @@ private nomask void dispatch_modal_input(mixed str) {
       modal_pop();
 
     dispatching_to = sizeof(modal_stack);
-    if (strlen(str) < 240) evaluate(info->input_func, str);
+    if (strlen(str) < 240) report_input_error(catch(evaluate(info->input_func, str)));
   }
 
   if (this_object())

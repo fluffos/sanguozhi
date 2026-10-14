@@ -10,7 +10,7 @@ example: setchar lv bu wuli 30
 #include <daemons.h>
 inherit CMD;
 nomask private void main(string str) {
-  string p_id = str, p_id2;
+  string p_id = str;
   string para_name;
   mixed para_value;
   string extra;

@@ -33,7 +33,6 @@ string remove_stuff(string p_id) {
   return "stuff removed\n";
 }
 string set_stuff(string p_id, string para_name, mixed para_value) {
-  string p_ret;
 
   if (!stuffs[p_id]) return "no such stuff\n";
   if (intp(para_value) && (para_value < 0)) para_value = 0;
@@ -111,7 +110,7 @@ void init_stf_base() {
 }
 
 void init_src_stuff() {  // src is the inverse of consume
-  string *list, stf;
+  string *list;
   list = keys(stuffs);
   foreach (string l in list) {
     stuffs[l]["src"] = ({});
@@ -165,7 +164,6 @@ string sub_base_area(string p_id, string p_area) {
   return "OK, deleted\n";
 }
 string set_base(string p_id, string para_name, mixed para_value) {
-  string p_ret;
 
   if (!bases[p_id]) return "no such base\n";
   if (intp(para_value) && (para_value < 0)) para_value = 0;

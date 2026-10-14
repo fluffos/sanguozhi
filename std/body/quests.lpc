@@ -34,7 +34,7 @@ string *query_quests() {
 }
 
 
-nosave protected void rack_up_a_death() {
+protected void rack_up_a_death() {
   deaths++;
   points -= 20;
   save_me();

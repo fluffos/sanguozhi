@@ -76,7 +76,7 @@ varargs private nomask void rem_cur(string area, string material) {
 
 private nomask void receive_money_input(string str) {
   int i;
-  string arg, arg2;
+  string arg;
 
   sscanf(str, "%s %s", str, arg);
   switch (str) {

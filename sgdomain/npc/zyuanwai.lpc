@@ -9,7 +9,7 @@ int learn_wxxy(object who)  //武学修养
   switch (p_res) {
     case LESS_EXP:
       this_object()->targetted_action("$N对$T笑到：“你经验不足，学不懂！”\n", who);
-      return;
+      return 0;
     case TOO_TIRED:
       this_object()->targetted_action("$N对$T笑到：“你太累了，休息会儿再来学吧。”\n", who);
       return 0;
@@ -44,9 +44,7 @@ string long() {
   return "张员外，个头不高，但却很有一些威严。\n";
 }
 void special_answer(object who, string matt) {
-  string p_id;
   object ob;
-  string s_tmp;
   switch (matt) {
     case "rumors":
       this_object()->targetted_action("$N对$T道：兵荒马乱的，不学两手拳脚防身怎么能行。\n", who);

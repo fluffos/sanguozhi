@@ -18,9 +18,7 @@ void set_count(int i);
 void recall();
 
 void auto_run() {
-  string mess, c_id;
-  string m_id;
-  int rep, repred;
+  string c_id;
   object usrs;
 
   tmp_time++;

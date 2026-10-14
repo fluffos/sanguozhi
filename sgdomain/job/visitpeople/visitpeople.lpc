@@ -50,7 +50,7 @@ void big_success(mixed obs, mixed vac);
 string m_area;
 
 mixed job(string m_id, string officer_id) {
-  object *mlist, ot;
+  object ot;
   string target;
   object o = find_body(m_id);
   if (!objectp(o)) return 0;  // string
@@ -96,7 +96,6 @@ mixed job(string m_id, string officer_id) {
   return "$N对$T笑道：国以民为本，就麻烦$R去探访一下" + ot->short() + "，\n见面就说ask " + target + " about hi 。\n";
 }
 void ask_hi(object me, object target) {
-  mixed ret;
   string m_id;
   string m_title;
   m_id = me->query_id()[0];

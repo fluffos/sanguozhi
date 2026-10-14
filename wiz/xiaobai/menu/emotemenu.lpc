@@ -55,7 +55,6 @@ void start_menu() {
 //dir /cmds/player/semote.c
 private void do_list(string arg) {
   string *list;
-  string *long;
   string str;
   int count, i;
 
@@ -164,8 +163,6 @@ void do_help() {
   prompt_then_return();
 }
 void do_edit(string str) {
-  int i;
-  mapping data;
   string verb, rule, content;
 
   if (!wizardp(this_body()->query_userid())) {

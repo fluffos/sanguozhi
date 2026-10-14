@@ -3,9 +3,8 @@
 mapping groups = ([]);
 mapping ngroups = ([]);
 void fill_groups() {
-  string myname = mud_name();
   string *gids;
-  string n_id, name;
+  string name;
   groups = ([]);
   ngroups = ([]);
   gids = NEWS_D->get_groups();
@@ -24,7 +23,6 @@ void fill_groups() {
 }
 
 string main() {
-  int i = 0;
   string ret = "
 		<html>
 		<head>

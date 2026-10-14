@@ -18,7 +18,7 @@ int deep_scan;
 // scan the inventory of an object.
 string scan_object(object ob, int depth) {
   object *inv;
-  string tstr, tempstr, retstr, pad;
+  string tempstr, retstr, pad;
   int i, l;
 
   pad = "";
@@ -42,7 +42,6 @@ string scan_object(object ob, int depth) {
 private void main(mixed *arg, mapping flags) {
   string outstr;
   string objs;
-  string itemstr;
 
   if (flags["d"]) deep_scan = 1;
 

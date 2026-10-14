@@ -75,7 +75,6 @@ private nomask void list_groups() {
 
 private nomask void show_group_members(string group) {
   string *members;
-  int i;
   group = lower_case(group);
   members = GROUP_D->get_group_data()[group];
   if (!members) {

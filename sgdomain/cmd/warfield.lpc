@@ -3,7 +3,6 @@
 // used for player char to risign a position
 inherit M_ANSI;
 void start(string arg) {
-  string ret;
   if (arg == "") {
     write("用法错误！");
     write("用 cmd help warfield 查看详细帮助。\n");

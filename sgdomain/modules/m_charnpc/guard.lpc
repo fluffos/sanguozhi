@@ -58,8 +58,7 @@ private mixed handle_blocks(string dir) {
   return ::handle_blocks(dir);
 }
 void setup() {
-  string an_area;
-  object p_obj, room;
+  object p_obj;
   p_obj = previous_object();
   // room=environment(p_obj);
   // if(!objectp(room)) {SGSYS("I don't know where am i. "); return;}
@@ -228,7 +227,7 @@ void my_selection(string str) {
 }
 void input_way(string str) {
   object me, usr;
-  int p_chance, p_chance1, p_select, meili, wuli, zhimou, p_lo, num, p_rep;
+  int p_chance, p_chance1,  meili, wuli, zhimou, p_lo, p_rep;
   string p_id, p_fly, area, p_prison;
   remove_call_out("no_answer");
   if (!str || !stringp(str)) return;

@@ -118,7 +118,7 @@ void prepare_fengjue(object ply) {
 }
 void ask_title(object me, object who, string ans)  // me is this_object()
 {
-  int i, ju;
+  int ju;
   string id, title, tmp;
 
   id = who->query_primary_id();
@@ -229,7 +229,7 @@ void ask_baijian(object usrk) {
   }
 }
 void award() {
-  int isrobot, repred, rank, t_rep, t_skills, t_gold;
+  int isrobot, repred, rank, t_rep, t_gold;
   int level, exp, ntime;
   string n_id, mess;
   object player;

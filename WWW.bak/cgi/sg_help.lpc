@@ -23,7 +23,6 @@ string main(string arg) {
   int i;
   string html, file;
   string *list;
-  string *colors;
 
   html = @HTML
 <html><body background="http://sgz.yesite.com/images/desk5.gif" text="#FFFFFF" link=yellow vlink=yellow alink=yellow>

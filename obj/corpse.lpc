@@ -22,7 +22,7 @@ mixed ob_state() {
 object query_link() {
   return link;
 }
-void mudlib_setup(string name, string long, object l) {
+varargs void mudlib_setup(string name, string long, object l) {
   ::mudlib_setup();
   link = l;
   if (!name) {

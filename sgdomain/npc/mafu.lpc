@@ -1,4 +1,5 @@
 #include <mudlib.h>
+#undef CHINESE_DA
 #define CHINESE_DA "sgdomain/modules/chinese_da.lpc"
 
 inherit LIVING;
@@ -25,7 +26,6 @@ void setup() {
 void special_answer(object who, string matt) {
   string p_id;
   int p_shenwang;
-  object ob;
   object user_horse;
 
   switch (matt) {

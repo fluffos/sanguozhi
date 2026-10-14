@@ -33,7 +33,7 @@ int create_city_file(string p_id) {     //write file in /a with name p_id.c
 }
 
 nomask private void main(string str) {
-  string char_id, p_id, p_name, p_zhou, sht, result;
+  string char_id, p_id, p_name, p_zhou, sht;
   int level = 1;
   if (!str || sscanf(str, "%s %s %s %s %s %d", char_id, p_id, p_name, p_zhou, sht, level) != 6) {
     write("用法：addarea <建城者ID> <地区ID> <地区名称> <所属州郡> <地区简称ID> <地区level>\n");

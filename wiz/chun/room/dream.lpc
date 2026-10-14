@@ -14,4 +14,4 @@ void setup() {
   set_exits(([
     "enter": "/wiz/chun/workroom.lpc",
   ]));
-};
+}

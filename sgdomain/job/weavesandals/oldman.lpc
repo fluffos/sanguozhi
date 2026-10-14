@@ -67,8 +67,6 @@ mixed special_answer(object ob, string str) {
 void ask_job(object usr) {
   string n_id;
   int n_lasttimes, m_lasttimes;
-  int p_s;
-  object ob;
   n_id = usr->query_id()[0];
   if (employee == n_id) {
     this_object()->targetted_action(
@@ -136,8 +134,6 @@ void award(object usr) {
 void ask_pay(object usr) {
   object ob;
   string n_id;
-  int p_s;
-  int isrobot;
   n_id = usr->query_id()[0];
   if (employee != n_id) {
     if (usr->query_job(JOBID, "beg_time")) {

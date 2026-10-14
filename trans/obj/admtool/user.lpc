@@ -78,7 +78,7 @@ private nomask void confirm_nuking(string name, string str) {
 #endif
 
 private nomask void confirm_nuking(string name, string str) {
-  int i, j, ppl_cnt, count;
+  int i, j, ppl_cnt;
   string *dir, *ppls, *all_players;
 
   str = lower_case(str);

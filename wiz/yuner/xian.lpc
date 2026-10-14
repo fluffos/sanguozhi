@@ -10,7 +10,6 @@ inherit CMD;
 
 
 private void main() {
-  string msg;
   if (!this_body()->query_userid() == "rou") {
     return;
   }

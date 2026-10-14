@@ -34,7 +34,7 @@ void unset_variable(string var) {
   this_object()->save();
 }
 
-nosave protected void set_if_undefined(string var, mixed value) {
+protected void set_if_undefined(string var, mixed value) {
   if (!is_variable(var))
     set_variable(var, value);
 }
@@ -43,7 +43,7 @@ mixed get_variable(string var) {
   return variables[var];
 }
 
-nosave protected void print_variable(string v) {
+protected void print_variable(string v) {
   if (undefinedp(variables[v]))
     //printf("%s: undefined variable.\n",v);
     printf("%s: 没有定义这个变量。\n", v);

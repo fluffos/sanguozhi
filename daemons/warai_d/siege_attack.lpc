@@ -43,11 +43,6 @@ mixed get_siege_attack(int p_id, string direction) {
   return ret;
 }
 mixed can_siege_attack(int p_id, string direction) {
-  int *pos;
-  int x, y;
-  string p_side;
-  mixed p_otherside;
-  int dis;
   int tmp;
 
   if (TROOP_D->get_troops(p_id, "qibing"))
@@ -70,7 +65,7 @@ mixed do_siege_attack(int p_id, string dir) {
   string gernal_inf;
   int t_id;
   mixed seg;
-  int p_kill = 0, p_defrate;
+  int p_kill = 0;
   int p_dir, i;
   string *p_dirs;
   mixed t;

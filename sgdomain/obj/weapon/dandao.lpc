@@ -87,7 +87,6 @@ string check_obj() {
   ret += "攻击技能(决定攻击成功率)：+" + sprintf("%2d", inf["att_abi"]) + "  杀伤力：+" + inf["att_pow"] + "\n";
   ret += "重量：" + chinese_number(inf["size"] / 2) + "斤。\n";
   one_name = CHAR_D->get_char(owner, "name");
-  if (one_name);
   ret += "所有者：" + one_name + "(" + owner + ")\n";
   return ret;
 

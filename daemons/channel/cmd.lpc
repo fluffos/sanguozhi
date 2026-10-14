@@ -304,7 +304,6 @@ varargs nomask void cmd_channel(string channel_name, string arg,
       //                deliver_emote(channel_name, sender_name, arg[1..]);
     } else if (arg[0] == '*') {
       mixed *soul;
-      string the_soul;
       string verb, targ;
       string p_se;
       if (sscanf(arg[1..], "%s %s", verb, targ) != 2) {
@@ -315,7 +314,6 @@ varargs nomask void cmd_channel(string channel_name, string arg,
           soul = SOUL_D->get_soul(verb, "", ({}));
         if (soul) p_se = soul[1][1];
       } else {
-        mixed *p_use;
         object ob;
 
         ob = get_object(targ);

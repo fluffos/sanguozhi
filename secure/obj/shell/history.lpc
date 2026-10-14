@@ -100,7 +100,7 @@ protected int get_command_number() {
 
 //:FUNCTION get_ordered_history
 //returns the history buffer in order of least to most recent items
-nosave protected string *get_ordered_history() {
+protected string *get_ordered_history() {
   if (buffer_size == -1) {
     return copy(history);
   }

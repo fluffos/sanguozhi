@@ -50,7 +50,6 @@ private mixed handle_blocks(string dir) {
   return ::handle_blocks(dir);
 }
 void setup() {
-  object armor, cloth, weapon, xue;
   add_question("enter", "enter");
   add_ask_str("enter", "$N对$T一拱手，道：$s有要事在身，不知大人可否放行？\n");
   call_out("add_enter", random(10) + 1);
@@ -185,7 +184,7 @@ void my_selection(string str) {
 }
 void input_way(string str) {
   object me, usr;
-  int p_chance, p_chance1, p_select, meili, wuli, zhimou, p_lo, num, p_rep;
+  int p_chance, p_chance1,  meili, wuli, zhimou, p_lo, p_rep;
   string p_id, p_fly, area, p_prison;
   remove_call_out("no_answer");
   if (!str || !stringp(str)) return;

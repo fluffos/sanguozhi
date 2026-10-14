@@ -17,7 +17,7 @@ string get_all() {
   return ret + "</table></center>";
 }
 string main(string arg) {
-  string html, who;
+  string html;
 
   html = @HTML
 <html><body topmargin="12" background="http://sgz.yesite.com/images/desk5.gif" text="#FFFFFF">

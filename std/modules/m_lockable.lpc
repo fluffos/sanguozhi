@@ -71,7 +71,6 @@ int get_resistance_to_picking() {
 
 mixed magic_unlock() {
   mixed ex;
-  int i;
 
 
   if (!locked)
@@ -94,7 +93,7 @@ mixed magic_unlock() {
     return ex;
   }
 #ifdef USE_SKILLS
-  i = SKILL_D->test_skill("spell/unlock", this_body(),
+  int i; /* declared here: only this branch uses it */ i = SKILL_D->test_skill("spell/unlock", this_body(),
     get_strength_vs_magic());
   if (!i) {
     return 0;
@@ -107,7 +106,6 @@ mixed magic_unlock() {
 
 mixed pick() {
   mixed ex;
-  int i;
 
 
   if (!locked)
@@ -131,7 +129,7 @@ mixed pick() {
     return;
   }
 #ifdef USE_SKILLS
-  i = SKILL_D->test_skill("misc/lockpick", this_body(),
+  int i; /* declared here: only this branch uses it */ i = SKILL_D->test_skill("misc/lockpick", this_body(),
     get_resistance_to_picking());
   if (!i) {
     this_body()->simple_action(pick_fail, this_object());

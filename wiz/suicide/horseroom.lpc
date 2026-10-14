@@ -24,7 +24,7 @@ void init_race() {
   data = ({ 0, 0, 0, 0, 0, 0 });
 }
 
-string stat_me() {
+mixed stat_me() {
   return sprintf("赛局状态(status)  :%d      比赛步伐(round) :%d\n" +
     "施术赛马(priority):%d      施术级别(level) :%d      施术人(p_id):%s\n" +
     "赛马位置(data)    :%O\n" +
@@ -78,8 +78,7 @@ int have_enough_gold(object who, int tamt) {
 
 
 mixed do_bet(string para) {
-  mixed *paras;
-  int h_id1, h_id2, tamt, p_level, p_mp, pre_id;
+  int h_id1, tamt, p_level, p_mp, pre_id;
   string tmp1, tmp2, tmp3;
   object me = this_body();
   string m_id = me->query_primary_id();

@@ -14,7 +14,7 @@ class parse_info {
   int term;
 }
 
-private array parse_file(class parse_info pi, string *term) {
+private mixed *parse_file(class parse_info pi, string *term) {
   mixed *program = ({});
   string keyword;
   int tmp;
@@ -188,9 +188,6 @@ string parse_expr(mixed *parts) {
 
 string handle_expression(string e) {
   mixed *parts = explode(e, " ");
-  int idx = 0;
-  int tmp;
-  string tmpstr;
 
   parts = ({ 1 }) + map(parts, (: trim_spaces :)) - ({ "" });
 
@@ -204,7 +201,7 @@ string handle_set(string lhs, string rhs) {
 }
 
 void compile_func(mapping funcs, string sname, mixed *prog) {
-  int i, j;
+  int i;
   string ssname;
   mixed prog_stack = ({ "", prog });
 

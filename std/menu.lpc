@@ -63,7 +63,7 @@ private void finish_completion(int);
 MENU current_menu, previous_menu;
 int need_refreshing;
 
-protected void remove() {
+void remove() {
   destruct();
 }
 
